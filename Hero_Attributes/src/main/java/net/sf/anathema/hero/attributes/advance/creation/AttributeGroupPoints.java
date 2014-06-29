@@ -2,7 +2,7 @@ package net.sf.anathema.hero.attributes.advance.creation;
 
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 
-public interface AttributeGroupCosts {
+public interface AttributeGroupPoints {
 
   int getBonusPointsSpent(AttributeGroupPriority priority);
 

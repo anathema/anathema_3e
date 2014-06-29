@@ -1,7 +1,8 @@
-package net.sf.anathema.hero.attributes.advance;
+package net.sf.anathema.hero.attributes.advance.creation;
 
-import net.sf.anathema.hero.attributes.advance.creation.AttributeGroupCosts;
+import net.sf.anathema.hero.attributes.advance.CreationPointSumComparator;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
+import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
@@ -14,14 +15,14 @@ import java.util.Map;
 
 import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
-public class AttributeGroupCostsImpl implements AttributeGroupCosts, HeroBonusPointCalculator {
+public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
 
   private final AttributeModel attributes;
   private final IAttributeCreationPoints creationPoints;
-  private final AttributeBonusPointTemplate template;
+  private final AttributePointsTemplate template;
   private final Map<AttributeGroupPriority, Integer> incrementCount = new HashMap<>();
 
-  public AttributeGroupCostsImpl(AttributeModel attributes, IAttributeCreationPoints creationPoints, AttributeBonusPointTemplate template) {
+  public AttributeCreationPointCalculator(AttributeModel attributes, IAttributeCreationPoints creationPoints, AttributePointsTemplate template) {
     this.attributes = attributes;
     this.creationPoints = creationPoints;
     this.template = template;
@@ -60,7 +61,7 @@ public class AttributeGroupCostsImpl implements AttributeGroupCosts, HeroBonusPo
   private Integer getIncrementCount(TraitGroup group) {
     int count = 0;
     for (Trait trait : group.getGroupTraits()) {
-      count += trait.getCreationValue() - trait.getMinimalValue();
+      count += trait.getCreationValue() - template.standard.calculationBase;
     }
     return count;
   }
@@ -78,11 +79,11 @@ public class AttributeGroupCostsImpl implements AttributeGroupCosts, HeroBonusPo
   public int getBonusPointCostPerDot(AttributeGroupPriority priority) {
     switch (priority) {
       case Primary:
-        return template.primary;
+        return template.bonusPoints.primary;
       case Secondary:
-        return template.secondary;
+        return template.bonusPoints.secondary;
       case Tertiary:
-        return template.tertiary;
+        return template.bonusPoints.tertiary;
     }
     throw new IllegalArgumentException("Unknown attribute group priority " + priority);
   }

@@ -1,5 +1,10 @@
 {
   standard: {
     calculationBase: 1
+  };
+  bonusPoints: {
+    primary: 5;
+    secondary: 4;
+    tertiary: 3
   }
 }
