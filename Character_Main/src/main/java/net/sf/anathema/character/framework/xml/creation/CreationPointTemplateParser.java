@@ -22,7 +22,6 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
   private static final String TAG_ABILITY_DOTS = "abilityDots";
   private static final String TAG_CHARM_PICKS = "charmPicks";
   private static final String TAG_ATTRIBUTE_DOTS = "attributeDots";
-  private static final String TAG_VIRTUE_DOTS = "virtueDots";
   private static final String TAG_BONUS_POINTS = "bonusPoints";
 
   public CreationPointTemplateParser(IXmlTemplateRegistry<GenericCreationPoints> templateRegistry) {
@@ -35,10 +34,6 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
     parseAttributeCreationPoints(element.element(TAG_ATTRIBUTE_DOTS), creationPoints);
     parseAbilityCreationPoints(element.element(TAG_ABILITY_DOTS), creationPoints);
     parseCharmCreationPoints(element.element(TAG_CHARM_PICKS), creationPoints);
-    Element virtueElement = element.element(TAG_VIRTUE_DOTS);
-    if (virtueElement != null) {
-      creationPoints.setVirtueCreationPoints(getCountAttribute(virtueElement));
-    }
     Element bonusPointsElement = element.element(TAG_BONUS_POINTS);
     if (bonusPointsElement != null) {
       creationPoints.setBonusPointCount(getCountAttribute(bonusPointsElement));
