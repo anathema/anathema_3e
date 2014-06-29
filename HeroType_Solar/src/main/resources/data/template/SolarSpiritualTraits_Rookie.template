@@ -1,8 +1,8 @@
 {
   willpower: {
-    isVirtueBased: true;
-    startValue: 3;
-    minimumValue = 3;
+    isVirtueBased: false;
+    startValue: 5;
+    minimumValue = 5;
     modificationType: "RaiseOnly";
     limitation: {
       type: "Static";
@@ -14,8 +14,8 @@
     minimumValue = 1;
     modificationType: "RaiseOnly";
     limitation: {
-      type: "Static";
-      value: 1
+      type: "Age";
+      value: 10
     }
   };
   virtues: {

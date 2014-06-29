@@ -3,7 +3,7 @@
         <model id="Description"/>
         <model id="Points" template="SolarPoints"/>
         <model id="Concept" template="SolarCastes"/>
-        <model id="SpiritualTraits" template="SolarSpiritualTraits"/>
+        <model id="SpiritualTraits" template="SolarSpiritualTraits_Rookie"/>
         <model id="SpiritualPoints" template="SolarSpiritualPoints"/>
         <model id="Abilities" template="SolarAbilities"/>
         <model id="AbilitiesPoints" template="SolarAbilityPoints"/>
@@ -22,9 +22,6 @@
         <model id="SolarVirtueFlaw"/>
         <model id="Equipment"/>
     </models>
-    <creation>
-        <bonusPointCosts uses="SolaroidDefaultBonusPointCost2nd.template"/>
-    </creation>
     <experience>
         <experiencePointCost uses="template/SolarExperienceCost2nd.template"/>
     </experience>
