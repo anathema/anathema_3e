@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.attributes.advance;
 
 import net.sf.anathema.hero.attributes.advance.creation.AttributeBonusModel;
+import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationData;
 import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationPointCalculator;
 import net.sf.anathema.hero.attributes.advance.creation.AttributeGroupPoints;
 import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceCalculator;
@@ -66,9 +67,14 @@ public class AttributePointsModel implements HeroModel {
     return new AttributeBonusModel(calculator, priority);
   }
 
+  private AttributeCreationData getCreationData() {
+    return new AttributeCreationData(template);
+  }
+
+
   private AttributeCreationPointCalculator createCalculator(Hero hero) {
     AttributeModel attributes = AttributesModelFetcher.fetch(hero);
-    return new AttributeCreationPointCalculator(attributes, template);
+    return new AttributeCreationPointCalculator(attributes, getCreationData());
   }
 
   private void initializeExperience(Hero hero) {
