@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.points;
 
+import net.sf.anathema.hero.advance.creation.BonusPointManagement;
+import net.sf.anathema.hero.advance.creation.PointsCreationData;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
@@ -15,9 +17,15 @@ import java.util.List;
 public class PointModelImpl implements PointsModel {
 
   private final List<IValueModel<Integer>> experienceOverviewModels = new ArrayList<>();
-  private final List<HeroBonusPointCalculator> bonusPointCalculators = new ArrayList<>();
   private final List<IOverviewModel> bonusOverviewModels = new ArrayList<>();
   private final List<WeightedCategory> bonusCategories = new ArrayList<>();
+  private PointsTemplate template;
+  private BonusPointManagement bonusPointManagement;
+
+  public PointModelImpl(PointsTemplate template) {
+    this.template = template;
+    this.bonusPointManagement = new BonusPointManagement(new PointsCreationData(template));
+  }
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
@@ -31,7 +39,7 @@ public class PointModelImpl implements PointsModel {
 
   @Override
   public void addBonusPointCalculator(HeroBonusPointCalculator calculator) {
-    bonusPointCalculators.add(calculator);
+    bonusPointManagement.addBonusPointCalculator(calculator);
   }
 
   @Override
@@ -48,11 +56,6 @@ public class PointModelImpl implements PointsModel {
   @Override
   public void addToExperienceOverview(IValueModel<Integer> model) {
     experienceOverviewModels.add(model);
-  }
-
-  @Override
-  public Iterable<HeroBonusPointCalculator> getBonusPointCalculators() {
-    return bonusPointCalculators;
   }
 
   @Override
@@ -73,5 +76,9 @@ public class PointModelImpl implements PointsModel {
   @Override
   public Identifier getId() {
     return ID;
+  }
+
+  public BonusPointManagement getBonusPointManagement() {
+    return bonusPointManagement;
   }
 }

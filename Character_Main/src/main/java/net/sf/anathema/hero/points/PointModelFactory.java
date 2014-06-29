@@ -14,6 +14,7 @@ public class PointModelFactory extends SimpleModelTreeEntry implements HeroModel
   @SuppressWarnings("unchecked")
   @Override
   public PointsModel create(TemplateFactory templateFactory, String templateId) {
-    return new PointModelImpl();
+    PointsTemplate template = PointsTemplateLoader.loadTemplate(templateFactory, templateId);
+    return new PointModelImpl(template);
   }
 }

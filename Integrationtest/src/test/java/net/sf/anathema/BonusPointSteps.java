@@ -3,6 +3,7 @@ package net.sf.anathema;
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import net.sf.anathema.hero.advance.creation.BonusPointManagement;
+import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -86,7 +87,7 @@ public class BonusPointSteps {
   }
 
   private BonusPointManagement calculateBonusPoints() {
-    BonusPointManagement bonusPointManagement = new BonusPointManagement(character.getHero());
+    BonusPointManagement bonusPointManagement = PointModelFetcher.fetch(character.getHero()).getBonusPointManagement();
     bonusPointManagement.recalculate();
     return bonusPointManagement;
   }

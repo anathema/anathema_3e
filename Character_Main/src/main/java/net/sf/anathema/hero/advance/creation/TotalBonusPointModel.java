@@ -1,18 +1,17 @@
 package net.sf.anathema.hero.advance.creation;
 
-import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
 
 public class TotalBonusPointModel extends AbstractSpendingModel {
 
   public static final String SUMMARY_CATEGORY_ID = "Summary";
-  private final ICreationPoints creationPoints;
+  private final PointsCreationData creationData;
   private BonusPointCalculator bonusPointCalculator;
 
-  public TotalBonusPointModel(ICreationPoints creationPoints, BonusPointCalculator bonusPointCalculator) {
+  public TotalBonusPointModel(PointsCreationData creationData, BonusPointCalculator bonusPointCalculator) {
     super(SUMMARY_CATEGORY_ID, "Total");
     this.bonusPointCalculator = bonusPointCalculator;
-    this.creationPoints = creationPoints;
+    this.creationData = creationData;
   }
 
   @Override
@@ -27,6 +26,6 @@ public class TotalBonusPointModel extends AbstractSpendingModel {
 
   @Override
   public int getAllotment() {
-    return creationPoints.getBonusPointCount() + bonusPointCalculator.getAdditionalGeneralBonusPoints();
+    return creationData.getBonusPointAllowance() + bonusPointCalculator.getAdditionalGeneralBonusPoints();
   }
 }

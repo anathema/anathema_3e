@@ -14,6 +14,7 @@ import net.sf.anathema.hero.advance.overview.presenter.OverviewPresenter;
 import net.sf.anathema.hero.advance.overview.view.OverviewContainer;
 import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.Stylesheet;
 
@@ -49,7 +50,7 @@ public class CharacterViewFactory {
   }
 
   private void initOverviewPresentation(Hero hero, OverviewContainer container, Resources resources) {
-    IBonusPointManagement bonusPointManagement = new BonusPointManagement(hero);
+    IBonusPointManagement bonusPointManagement = PointModelFetcher.fetch(hero).getBonusPointManagement();
     ExperiencePointManagement experiencePointManagement = new ExperiencePointManagementImpl(hero);
     new OverviewPresenter(resources, hero, container, bonusPointManagement,
             experiencePointManagement, applicationModel.getMessaging()).initPresentation();

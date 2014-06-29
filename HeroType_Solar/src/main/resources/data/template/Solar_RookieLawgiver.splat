@@ -1,7 +1,7 @@
 <exaltedCharacterTemplate characterType="Solar" subtemplate="RookieLawgiver">
     <models>
         <model id="Description"/>
-        <model id="Points"/>
+        <model id="Points" template="SolarPoints"/>
         <model id="Concept" template="SolarCastes"/>
         <model id="SpiritualTraits" template="SolarSpiritualTraits"/>
         <model id="SpiritualPoints" template="SolarSpiritualPoints"/>
@@ -24,10 +24,10 @@
     </models>
     <creation>
         <bonusPointCosts uses="SolaroidDefaultBonusPointCost2nd.template"/>
-        <creationPoints>
+        <creationData>
             <bonusPoints count="18"/>
             <charmPicks favored="0" general="10"/>
-        </creationPoints>
+        </creationData>
     </creation>
     <experience>
         <experiencePointCost uses="template/SolarExperienceCost2nd.template"/>

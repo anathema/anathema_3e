@@ -3,6 +3,7 @@ package net.sf.anathema.hero.advance.creation;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.points.PointModelFetcher;
+import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 
 public class BonusPointManagement implements IBonusPointManagement {
@@ -10,16 +11,17 @@ public class BonusPointManagement implements IBonusPointManagement {
   private final BonusPointCalculator bonusPointCalculator = new BonusPointCalculator();
   private final SpendingModel totalModel;
 
-  public BonusPointManagement(Hero hero) {
-    for (HeroBonusPointCalculator additionalCalculator : PointModelFetcher.fetch(hero).getBonusPointCalculators()) {
-      bonusPointCalculator.addBonusPointCalculator(additionalCalculator);
-    }
-    this.totalModel = new TotalBonusPointModel(hero.getTemplate().getCreationPoints(), bonusPointCalculator);
+  public BonusPointManagement(PointsCreationData creationData) {
+    this.totalModel = new TotalBonusPointModel(creationData, bonusPointCalculator);
   }
 
   @Override
   public void recalculate() {
     bonusPointCalculator.recalculate();
+  }
+
+  public void addBonusPointCalculator(HeroBonusPointCalculator calculator) {
+    bonusPointCalculator.addBonusPointCalculator(calculator);
   }
 
   @Override

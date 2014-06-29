@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.points;
 
+import net.sf.anathema.hero.advance.creation.BonusPointManagement;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.points.overview.IOverviewModel;
 import net.sf.anathema.hero.points.overview.IValueModel;
@@ -19,11 +20,11 @@ public interface PointsModel extends HeroModel {
 
   void addToExperienceOverview(IValueModel<Integer> model);
 
-  Iterable<HeroBonusPointCalculator> getBonusPointCalculators();
-
   Iterable<IValueModel<Integer>> getExperienceOverviewModels();
 
   Iterable<IOverviewModel> getBonusOverviewModels();
 
   Iterable<WeightedCategory> getBonusCategories();
+
+  BonusPointManagement getBonusPointManagement();
 }
