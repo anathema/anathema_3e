@@ -10,7 +10,6 @@ import org.dom4j.Element;
 
 public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<GenericBonusPointCosts> {
 
-  private static final String ATTRIB_DOTS = "dots";
   private static final String ATTRIB_RANK = "rank";
 
   private static final String TAG_ATTRIBUTES = "attributes";
@@ -19,9 +18,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
   private static final String TAG_ABILITIES = "abilities";
   private static final String TAG_GENERAL_ABILITY = "generalAbility";
   private static final String TAG_FAVORED_ABILITY = "favoredAbility";
-  private static final String TAG_SPECIALTIES = "specialties";
-  private static final String TAG_GENERAL_DOTS_PER_POINT = "generalDotsPerPoint";
-  private static final String TAG_FAVORED_DOTS_PER_POINT = "favoredDotsPerPoint";
   private static final String TAG_ADVANTAGES = "advantages";
   private static final String TAG_WILLPOWER = "willpower";
   private static final String TAG_ESSENCE = "essence";
@@ -70,21 +66,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
     costs.setWillpowerCosts(fixedCost);
   }
 
-  private void setSpecialtyDots(Element element, GenericBonusPointCosts costs) throws PersistenceException {
-    Element specialtyElement = element.element(TAG_SPECIALTIES);
-    if (specialtyElement == null) {
-      return;
-    }
-    Element generalSpecialtyDotsElement = specialtyElement.element(TAG_GENERAL_DOTS_PER_POINT);
-    if (generalSpecialtyDotsElement != null) {
-      costs.setGeneralSpecialtyDots(ElementUtilities.getRequiredIntAttrib(generalSpecialtyDotsElement, ATTRIB_DOTS));
-    }
-    Element favoredSpecialtyDotsElement = specialtyElement.element(TAG_FAVORED_DOTS_PER_POINT);
-    if (favoredSpecialtyDotsElement != null) {
-      costs.setFavoredSpecialtyDots(ElementUtilities.getRequiredIntAttrib(favoredSpecialtyDotsElement, ATTRIB_DOTS));
-    }
-  }
-
   private void setAbilityCosts(Element element, GenericBonusPointCosts costs) throws PersistenceException {
     Element abilityElement = element.element(TAG_ABILITIES);
     if (abilityElement == null) {
@@ -98,7 +79,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
       costs.setMaximumFreeAbilityRank(ElementUtilities.getRequiredIntAttrib(maximumFreeRank, ATTRIB_RANK));
     }
     costs.setAbilityCosts(generalCost, favoredCost);
-    setSpecialtyDots(abilityElement, costs);
   }
 
   private void setAttributeCost(Element element, GenericBonusPointCosts costs) throws PersistenceException {
@@ -108,7 +88,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
     }
     int generalCost = costParser.getFixedCostFromRequiredElement(attributeElement, TAG_GENERAL_ATTRIBUTE);
     int favoredCost = costParser.getFixedCostFromOptionalElement(attributeElement, TAG_FAVORED_ATTRIBUTE, generalCost);
-    costs.setAttributeCost(generalCost, favoredCost);
   }
 
   @Override
