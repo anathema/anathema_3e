@@ -11,8 +11,8 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
@@ -52,20 +52,19 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
   public void recalculate() {
     incrementCount.clear();
     List<TraitGroup> attributeGroups = new ArrayList<>(Arrays.asList(attributes.getTraitGroups()));
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Primary);
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Secondary);
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Tertiary);
+  }
 
-    TraitGroup primaryGroup = findGroupThatExceedsFreebieLimitTheLeast(attributeGroups, getFreebieCount(Primary));
-    incrementCount.put(Primary, getIncrementCount(primaryGroup));
-    attributeGroups.remove(primaryGroup);
-
-    TraitGroup secondaryGroup = findGroupThatExceedsFreebieLimitTheLeast(attributeGroups, getFreebieCount(Secondary));
-    incrementCount.put(Secondary, getIncrementCount(secondaryGroup));
-    attributeGroups.remove(secondaryGroup);
-
-    incrementCount.put(Tertiary, getIncrementCount(attributeGroups.get(0)));
+  private void rememberIncrementsForPriorityAndRemoveTheMatchingGroup(List<TraitGroup> attributeGroups, AttributeGroupPriority priority) {
+    TraitGroup bestGroup = findGroupThatExceedsFreebieLimitTheLeast(attributeGroups, getFreebieCount(priority));
+    incrementCount.put(priority, getIncrementCount(bestGroup));
+    attributeGroups.remove(bestGroup);
   }
 
   private TraitGroup findGroupThatExceedsFreebieLimitTheLeast(List<TraitGroup> groups, int freebieCount) {
-    List<TraitGroup> exceedingGroups = groups.stream().filter(traitGroup -> getIncrementCount(traitGroup) >= freebieCount).collect(Collectors.toList());
+    List<TraitGroup> exceedingGroups = groups.stream().filter(traitGroup -> getIncrementCount(traitGroup) >= freebieCount).collect(toList());
     if (!exceedingGroups.isEmpty()) {
       return findGroupWithMinimalIncrements(exceedingGroups);
     }
