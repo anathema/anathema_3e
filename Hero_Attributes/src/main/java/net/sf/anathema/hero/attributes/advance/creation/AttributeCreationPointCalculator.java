@@ -1,19 +1,20 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
-import com.google.common.collect.Iterables;
-import net.sf.anathema.hero.attributes.advance.CreationPointSumComparator;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.attributes.template.AttributeGroupPointsTemplate;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
+import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-import static java.util.stream.Collectors.toList;
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Primary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Secondary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Tertiary;
 
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
 
@@ -28,8 +29,9 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
 
   @Override
   public int getBonusPointsSpent(AttributeGroupPriority priority) {
-    int pointsBought = Math.max(0, getIncrementCount(priority) - getFreebieCount(priority));
-    return pointsBought * getBonusPointCostPerDot(priority);
+    int dotsBought = Math.max(0, getIncrementCount(priority) - getFreebieCount(priority));
+    int bonusPointsPerDot = getBonusPointsCostPerDot(priority);
+    return dotsBought * bonusPointsPerDot;
   }
 
   @Override
@@ -49,42 +51,24 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
   @Override
   public void recalculate() {
     incrementCount.clear();
-    List<TraitGroup> attributeGroups = new ArrayList<>(Arrays.asList(attributes.getTraitGroups()));
-    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Primary);
-    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Secondary);
-    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroups, Tertiary);
+    AttributeGroupList attributeGroupList = new AttributeGroupList(attributes.getTraitGroups(), new IncrementCounter(template));
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroupList, Primary);
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroupList, Secondary);
+    rememberIncrementsForPriorityAndRemoveTheMatchingGroup(attributeGroupList, Tertiary);
   }
 
-  private void rememberIncrementsForPriorityAndRemoveTheMatchingGroup(List<TraitGroup> attributeGroups, AttributeGroupPriority priority) {
-    TraitGroup bestGroup = findGroupThatExceedsFreebieLimitTheLeast(attributeGroups, getFreebieCount(priority));
-    incrementCount.put(priority, getIncrementCount(bestGroup));
-    attributeGroups.remove(bestGroup);
+  private void rememberIncrementsForPriorityAndRemoveTheMatchingGroup(AttributeGroupList attributeGroupList, AttributeGroupPriority priority) {
+    TraitGroup bestGroup = findGroupThatExceedsFreebieLimitTheLeast(attributeGroupList, getFreebieCount(priority));
+    incrementCount.put(priority, new IncrementCounter(template).getIncrementCount(bestGroup));
+    attributeGroupList.remove(bestGroup);
   }
 
-  private TraitGroup findGroupThatExceedsFreebieLimitTheLeast(List<TraitGroup> groups, int freebieCount) {
-    List<TraitGroup> exceedingGroups = groups.stream().filter(traitGroup -> getIncrementCount(traitGroup) >= freebieCount).collect(toList());
-    if (!exceedingGroups.isEmpty()) {
-      return findGroupWithMinimalIncrements(exceedingGroups);
+  private TraitGroup findGroupThatExceedsFreebieLimitTheLeast(AttributeGroupList attributeGroups, int freebieCount) {
+    AttributeGroupList exceedingGroups = attributeGroups.getGroupsThatSpendXOrMorePoints(freebieCount);
+    if (exceedingGroups.hasElements()) {
+      return exceedingGroups.findGroupWithMinimalIncrements();
     }
-    return findGroupWithMaximalIncrements(groups);
-  }
-
-  private TraitGroup findGroupWithMinimalIncrements(List<TraitGroup> groups) {
-    groups.sort(new CreationPointSumComparator());
-    return groups.get(0);
-  }
-
-  private TraitGroup findGroupWithMaximalIncrements(List<TraitGroup> groups) {
-    groups.sort(new CreationPointSumComparator());
-    return Iterables.getLast(groups);
-  }
-
-  private Integer getIncrementCount(TraitGroup group) {
-    int count = 0;
-    for (Trait trait : group.getGroupTraits()) {
-      count += trait.getCreationValue() - template.standard.calculationBase;
-    }
-    return count;
+    return attributeGroups.findGroupWithMaximalIncrements();
   }
 
   @Override
