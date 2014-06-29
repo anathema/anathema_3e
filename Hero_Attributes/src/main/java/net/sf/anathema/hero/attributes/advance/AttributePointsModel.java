@@ -18,7 +18,6 @@ import net.sf.anathema.hero.points.overview.SpendingModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
-import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -68,7 +67,6 @@ public class AttributePointsModel implements HeroModel {
   }
 
   private AttributeCreationPointCalculator createCalculator(Hero hero) {
-    IAttributeCreationPoints creationPoints = hero.getTemplate().getCreationPoints().getAttributeCreationPoints();
     AttributeModel attributes = AttributesModelFetcher.fetch(hero);
     return new AttributeCreationPointCalculator(attributes, template);
   }

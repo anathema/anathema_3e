@@ -12,10 +12,4 @@
       <favoredDotsPerPoint dots="2" />
     </specialties>
   </abilities>
-  <advantages>
-  	<virtues>
-      <fixedCost cost="1" />
-      <maximumFreeVirtueRank rank="4"/>
-    </virtues>
-  </advantages>
 </bonusPointCost>

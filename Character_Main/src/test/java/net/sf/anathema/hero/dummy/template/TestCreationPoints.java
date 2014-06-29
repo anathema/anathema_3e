@@ -2,16 +2,9 @@ package net.sf.anathema.hero.dummy.template;
 
 import net.sf.anathema.hero.template.points.AbilityCreationPoints;
 import net.sf.anathema.hero.template.points.AbstractCreationPoints;
-import net.sf.anathema.hero.template.points.AttributeCreationPoints;
 import net.sf.anathema.hero.template.points.IAbilityCreationPoints;
-import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
 
 public class TestCreationPoints extends AbstractCreationPoints {
-
-  @Override
-  public IAttributeCreationPoints getAttributeCreationPoints() {
-    return new AttributeCreationPoints(8, 6, 4);
-  }
 
   @Override
   public int getBonusPointCount() {

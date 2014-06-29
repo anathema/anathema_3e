@@ -1,9 +1,8 @@
 package net.sf.anathema.character.framework.xml.creation;
 
-import net.sf.anathema.hero.template.points.AbilityCreationPoints;
-import net.sf.anathema.hero.template.points.AttributeCreationPoints;
 import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
 import net.sf.anathema.character.framework.xml.registry.IXmlTemplateRegistry;
+import net.sf.anathema.hero.template.points.AbilityCreationPoints;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.xml.ElementUtilities;
 import org.dom4j.Element;
@@ -13,15 +12,9 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
   private static final String ATTRIB_COUNT = "count";
   private static final String ATTRIB_FAVORED = "favored";
   private static final String ATTRIB_FAVORED_PICKS = "favoredPicks";
-  private static final String ATTRIB_FAVORED_DOTS = "favoredDots";
-  private static final String ATTRIB_GENERIC_DOTS = "genericDots";
   private static final String ATTRIB_GENERAL = "general";
-  private static final String ATTRIB_PRIMARY = "primary";
-  private static final String ATTRIB_SECONDARY = "secondary";
-  private static final String ATTRIB_TERTIARY = "tertiary";
   private static final String TAG_ABILITY_DOTS = "abilityDots";
   private static final String TAG_CHARM_PICKS = "charmPicks";
-  private static final String TAG_ATTRIBUTE_DOTS = "attributeDots";
   private static final String TAG_BONUS_POINTS = "bonusPoints";
 
   public CreationPointTemplateParser(IXmlTemplateRegistry<GenericCreationPoints> templateRegistry) {
@@ -31,7 +24,6 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
   @Override
   public GenericCreationPoints parseTemplate(Element element) throws PersistenceException {
     GenericCreationPoints creationPoints = new GenericCreationPoints();
-    parseAttributeCreationPoints(element.element(TAG_ATTRIBUTE_DOTS), creationPoints);
     parseAbilityCreationPoints(element.element(TAG_ABILITY_DOTS), creationPoints);
     parseCharmCreationPoints(element.element(TAG_CHARM_PICKS), creationPoints);
     Element bonusPointsElement = element.element(TAG_BONUS_POINTS);
@@ -49,20 +41,6 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
     int favoredDots = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED, 0);
     int favoredPicks = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED_PICKS, 0);
     creationPoints.setAbilityCreationPoints(new AbilityCreationPoints(favoredPicks, favoredDots, generalDots));
-  }
-
-  private void parseAttributeCreationPoints(Element element, GenericCreationPoints creationPoints) throws PersistenceException {
-    if (element == null) {
-      return;
-    }
-    int primaryDots = ElementUtilities.getIntAttrib(element, ATTRIB_PRIMARY, 0);
-    int secondaryDots = ElementUtilities.getIntAttrib(element, ATTRIB_SECONDARY, 0);
-    int tertiaryDots = ElementUtilities.getIntAttrib(element, ATTRIB_TERTIARY, 0);
-    int favoredPicks = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED_PICKS, 0);
-    int favoredDots = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED_DOTS, 0);
-    int genericDots = ElementUtilities.getIntAttrib(element, ATTRIB_GENERIC_DOTS, 0);
-    creationPoints.setAttributeCreationPoints(
-            new AttributeCreationPoints(primaryDots, secondaryDots, tertiaryDots, favoredPicks, favoredDots, genericDots));
   }
 
   private int getCountAttribute(Element element) throws PersistenceException {

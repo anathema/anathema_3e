@@ -25,10 +25,7 @@
     <creation>
         <bonusPointCosts uses="SolaroidDefaultBonusPointCost2nd.template"/>
         <creationPoints>
-            <attributeDots primary="8" secondary="6" tertiary="4"/>
             <abilityDots general="18" favored="10" favoredPicks="5"/>
-            <backgroundDots count="7"/>
-            <virtueDots count="5"/>
             <bonusPoints count="18"/>
             <charmPicks favored="0" general="10"/>
         </creationPoints>

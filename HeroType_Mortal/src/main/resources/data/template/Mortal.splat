@@ -20,10 +20,7 @@
     <creation>
         <bonusPointCosts uses="DefaultBonusPointCost2nd.template"/>
         <creationPoints>
-            <attributeDots primary="6" secondary="4" tertiary="3"/>
             <abilityDots general="18" favored="0" favoredPicks="0"/>
-            <backgroundDots count="5"/>
-            <virtueDots count="5"/>
             <bonusPoints count="21"/>
         </creationPoints>
     </creation>
