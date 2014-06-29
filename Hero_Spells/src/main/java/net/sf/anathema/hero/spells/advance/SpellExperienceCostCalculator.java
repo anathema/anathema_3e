@@ -2,14 +2,14 @@ package net.sf.anathema.hero.spells.advance;
 
 import net.sf.anathema.character.magic.spells.Spell;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceCosts;
+import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.model.Hero;
 
 public class SpellExperienceCostCalculator {
 
-  private final MagicExperienceCosts costs;
+  private final MagicExperienceData costs;
 
-  public SpellExperienceCostCalculator(MagicExperienceCosts costs) {
+  public SpellExperienceCostCalculator(MagicExperienceData costs) {
     this.costs = costs;
   }
 

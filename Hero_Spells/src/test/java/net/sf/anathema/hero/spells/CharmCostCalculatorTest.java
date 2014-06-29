@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.spells;
 
 import com.google.common.collect.ImmutableList;
+import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -8,7 +10,6 @@ import net.sf.anathema.hero.traits.model.ValueChangeChecker;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.character.magic.spells.Spell;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
@@ -82,7 +83,8 @@ public class CharmCostCalculatorTest {
     template.favoredCreationPoints.freePicks = 2;
     template.favoredCreationPoints.costs = 4;
     MagicCreationCostEvaluator magicCostEvaluator = charmModel.getMagicCostEvaluator();
-    calculator = new MagicCreationCostCalculator(magicCostEvaluator, template, MartialArtsLevel.Celestial, new CostAnalyzerImpl(hero));
+    MagicCreationData creationData = new MagicCreationData(template, MartialArtsLevel.Celestial);
+    calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new CostAnalyzerImpl(hero));
   }
 
   @Test

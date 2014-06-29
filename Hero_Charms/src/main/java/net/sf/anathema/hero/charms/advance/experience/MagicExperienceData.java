@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.advance.creation;
+package net.sf.anathema.hero.charms.advance.experience;
 
 import net.sf.anathema.character.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
@@ -10,13 +10,13 @@ import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MagicCreationCosts implements MagicCosts {
+public class MagicExperienceData implements MagicCosts {
 
   private Map<Boolean, MagicPointsStrategy> strategyByFavored = new HashMap<>();
 
-  public MagicCreationCosts(MagicPointsTemplate template, MartialArtsLevel standardMartialArtsLevel) {
-    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredCreationPoints, standardMartialArtsLevel));
-    strategyByFavored.put(false, new MagicPointsStrategy(template.generalCreationPoints, standardMartialArtsLevel));
+  public MagicExperienceData(MagicPointsTemplate template, MartialArtsLevel standardMartialArtsLevel) {
+    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredExperiencePoints, standardMartialArtsLevel));
+    strategyByFavored.put(false, new MagicPointsStrategy(template.generalExperiencePoints, standardMartialArtsLevel));
   }
 
   @Override

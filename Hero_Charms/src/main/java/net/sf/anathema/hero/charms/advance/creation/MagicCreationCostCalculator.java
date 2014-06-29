@@ -2,10 +2,7 @@ package net.sf.anathema.hero.charms.advance.creation;
 
 import net.sf.anathema.character.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.advance.costs.MagicCosts;
 import net.sf.anathema.hero.charms.model.WeightedMagicSorter;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 
 import java.util.HashSet;
@@ -14,23 +11,17 @@ import java.util.Set;
 
 public class MagicCreationCostCalculator implements HeroBonusPointCalculator {
 
-  private final int favoredCreationMagicCount;
-  private final int defaultCreationMagicCount;
   private final MagicCreationCostEvaluator magicCreationCostEvaluator;
-  private final MagicPointsTemplate template;
-  private MartialArtsLevel standardMartialArtsLevel;
+  private final MagicCreationData creationData;
   private final CostAnalyzer analyzer;
   private int generalPicksSpent = 0;
   private int favoredPicksSpent = 0;
   protected int bonusPointsSpent = 0;
 
-  public MagicCreationCostCalculator(MagicCreationCostEvaluator costEvaluator, MagicPointsTemplate template,
-                                     MartialArtsLevel standardMartialArtsLevel, CostAnalyzer analyzer) {
+  public MagicCreationCostCalculator(MagicCreationCostEvaluator costEvaluator, MagicCreationData creationData,
+                                     CostAnalyzer analyzer) {
     this.magicCreationCostEvaluator = costEvaluator;
-    this.template = template;
-    this.standardMartialArtsLevel = standardMartialArtsLevel;
-    this.favoredCreationMagicCount = template.favoredCreationPoints.freePicks;
-    this.defaultCreationMagicCount = template.generalCreationPoints.freePicks;
+    this.creationData = creationData;
     this.analyzer = analyzer;
   }
 
@@ -54,7 +45,7 @@ public class MagicCreationCostCalculator implements HeroBonusPointCalculator {
   }
 
   private void handleFavoredMagic(int bonusPointFactor) {
-    if (favoredPicksSpent < favoredCreationMagicCount) {
+    if (favoredPicksSpent < creationData.getFavoredMagicPicks()) {
       favoredPicksSpent++;
     } else {
       handleGeneralMagic(bonusPointFactor);
@@ -62,7 +53,7 @@ public class MagicCreationCostCalculator implements HeroBonusPointCalculator {
   }
 
   private void handleGeneralMagic(final int bonusPointFactor) {
-    if (generalPicksSpent < defaultCreationMagicCount) {
+    if (generalPicksSpent < creationData.getGeneralMagicPicks()) {
       generalPicksSpent++;
     } else {
       bonusPointsSpent += bonusPointFactor;
@@ -106,8 +97,7 @@ public class MagicCreationCostCalculator implements HeroBonusPointCalculator {
   }
 
   private int getMagicCosts(Magic magic) {
-    MagicCosts magicCosts = new MagicCreationCosts(template, standardMartialArtsLevel);
-    return magicCosts.getMagicCosts(magic, analyzer);
+    return creationData.getMagicCosts(magic, analyzer);
   }
 
   private void clear() {

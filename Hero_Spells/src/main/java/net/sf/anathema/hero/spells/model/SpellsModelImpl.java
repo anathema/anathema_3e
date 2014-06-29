@@ -7,7 +7,7 @@ import net.sf.anathema.character.magic.parser.spells.ISpellCache;
 import net.sf.anathema.character.magic.spells.CircleType;
 import net.sf.anathema.character.magic.spells.Spell;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceCosts;
+import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.experience.ExperienceChange;
@@ -63,7 +63,7 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   private void initializeExperience(Hero hero) {
-    MagicExperienceCosts experienceCost = MagicPointsModelFetcher.fetch(hero).getExperienceCost();
+    MagicExperienceData experienceCost = MagicPointsModelFetcher.fetch(hero).getExperienceCost();
     SpellExperienceCostCalculator calculator = new SpellExperienceCostCalculator(experienceCost);
     PointModelFetcher.fetch(hero).addToExperienceOverview(new SpellExperienceModel(hero, calculator));
   }

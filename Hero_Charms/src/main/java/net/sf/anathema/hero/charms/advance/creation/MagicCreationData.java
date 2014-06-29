@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.advance.experience;
+package net.sf.anathema.hero.charms.advance.creation;
 
 import net.sf.anathema.character.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
@@ -10,18 +10,28 @@ import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MagicExperienceCosts implements MagicCosts {
+public class MagicCreationData implements MagicCosts {
 
   private Map<Boolean, MagicPointsStrategy> strategyByFavored = new HashMap<>();
+  private MagicPointsTemplate template;
 
-  public MagicExperienceCosts(MagicPointsTemplate template, MartialArtsLevel standardMartialArtsLevel) {
-    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredExperiencePoints, standardMartialArtsLevel));
-    strategyByFavored.put(false, new MagicPointsStrategy(template.generalExperiencePoints, standardMartialArtsLevel));
+  public MagicCreationData(MagicPointsTemplate template, MartialArtsLevel standardMartialArtsLevel) {
+    this.template = template;
+    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredCreationPoints, standardMartialArtsLevel));
+    strategyByFavored.put(false, new MagicPointsStrategy(template.generalCreationPoints, standardMartialArtsLevel));
   }
 
   @Override
   public int getMagicCosts(Magic magic, CostAnalyzer analyzer) {
     boolean favored = analyzer.isMagicFavored(magic);
     return strategyByFavored.get(favored).getMagicCosts(magic, analyzer);
+  }
+
+  public int getFavoredMagicPicks() {
+    return template.favoredCreationPoints.freePicks;
+  }
+
+  public int getGeneralMagicPicks() {
+    return template.generalCreationPoints.freePicks;
   }
 }

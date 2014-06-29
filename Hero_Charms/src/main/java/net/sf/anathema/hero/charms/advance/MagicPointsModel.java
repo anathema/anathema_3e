@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.hero.template.creation.ICreationPoints;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
+import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.DefaultMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.FavoredMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceCostCalculator;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceModel;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceCosts;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
@@ -33,10 +33,6 @@ public class MagicPointsModel implements HeroModel {
     this.template = template;
   }
 
-  public MagicPointsTemplate getTemplate() {
-    return template;
-  }
-
   @Override
   public Identifier getId() {
     return ID;
@@ -53,8 +49,12 @@ public class MagicPointsModel implements HeroModel {
     // nothing to do, until bonus points are created the way, they should be
   }
 
-  public MagicExperienceCosts getExperienceCost() {
-    return new MagicExperienceCosts(template, standardMartialArtsLevel);
+  public MagicExperienceData getExperienceCost() {
+    return new MagicExperienceData(template, standardMartialArtsLevel);
+  }
+
+  private MagicCreationData getMagicCreationData() {
+    return new MagicCreationData(template, standardMartialArtsLevel);
   }
 
   private void initializeBonusPoints(Hero hero) {
@@ -79,9 +79,8 @@ public class MagicPointsModel implements HeroModel {
 
   private void initBonusOverview(Hero hero, MagicCreationCostCalculator calculator) {
     PointModelFetcher.fetch(hero).addBonusCategory(new WeightedCategory(400, "Charms"));
-    ICreationPoints creationPoints = hero.getTemplate().getCreationPoints();
-    PointModelFetcher.fetch(hero).addToBonusOverview(new DefaultMagicModel(calculator, creationPoints));
-    SpendingModel favoredMagicModel = new FavoredMagicModel(calculator, creationPoints);
+    PointModelFetcher.fetch(hero).addToBonusOverview(new DefaultMagicModel(calculator, getMagicCreationData()));
+    SpendingModel favoredMagicModel = new FavoredMagicModel(calculator, getMagicCreationData());
     if (favoredMagicModel.getAllotment() > 0) {
       PointModelFetcher.fetch(hero).addToBonusOverview(favoredMagicModel);
     }
@@ -89,7 +88,7 @@ public class MagicPointsModel implements HeroModel {
 
   private MagicCreationCostCalculator createBonusCalculator(Hero hero) {
     CharmsModel model = CharmsModelFetcher.fetch(hero);
-    return new MagicCreationCostCalculator(model.getMagicCostEvaluator(), template, standardMartialArtsLevel, new CostAnalyzerImpl(hero));
+    return new MagicCreationCostCalculator(model.getMagicCostEvaluator(), getMagicCreationData(), new CostAnalyzerImpl(hero));
   }
 
   private CharmExperienceCostCalculator createExperienceCalculator() {

@@ -1,14 +1,12 @@
 package net.sf.anathema.character.framework.xml;
 
+import net.sf.anathema.character.framework.xml.creation.GenericBonusPointCosts;
+import net.sf.anathema.character.framework.xml.experience.GenericExperiencePointCosts;
 import net.sf.anathema.hero.template.ConfiguredModel;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.template.creation.BonusPointCosts;
-import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
-import net.sf.anathema.character.framework.xml.creation.GenericBonusPointCosts;
-import net.sf.anathema.character.framework.xml.creation.GenericCreationPoints;
-import net.sf.anathema.character.framework.xml.experience.GenericExperiencePointCosts;
 import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.lib.lang.clone.ICloneable;
 
@@ -20,17 +18,11 @@ public class GenericCharacterTemplate implements HeroTemplate, ICloneable<Generi
   private TemplateType templateType;
   private GenericExperiencePointCosts experienceCosts = new GenericExperiencePointCosts();
   private GenericBonusPointCosts bonusPointCosts = new GenericBonusPointCosts();
-  private GenericCreationPoints creationPoints = new GenericCreationPoints();
   private final List<ConfiguredModel> models = new ArrayList<>();
 
   @Override
   public BonusPointCosts getBonusPointCosts() {
     return bonusPointCosts;
-  }
-
-  @Override
-  public ICreationPoints getCreationPoints() {
-    return creationPoints;
   }
 
   @Override
@@ -46,10 +38,6 @@ public class GenericCharacterTemplate implements HeroTemplate, ICloneable<Generi
   @Override
   public List<ConfiguredModel> getModels() {
     return new ArrayList<>(models);
-  }
-
-  public void setCreationPoints(GenericCreationPoints creationPoints) {
-    this.creationPoints = creationPoints;
   }
 
   public void setBonusPointCosts(GenericBonusPointCosts bonusPoints) {
@@ -75,9 +63,6 @@ public class GenericCharacterTemplate implements HeroTemplate, ICloneable<Generi
     }
     if (bonusPointCosts != null) {
       clone.bonusPointCosts = bonusPointCosts.clone();
-    }
-    if (creationPoints != null) {
-      clone.creationPoints = creationPoints.clone();
     }
     if (experienceCosts != null) {
       clone.experienceCosts = experienceCosts.clone();

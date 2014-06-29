@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.costs;
 
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.character.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCosts;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import org.junit.Test;
@@ -56,7 +56,7 @@ public class MagicCreationCostTest {
   }
 
   private void assertCharmCosts(int expectedValue, MartialArtsLevel standardMartialArtsLevel) {
-    MagicCreationCosts magicCosts = new MagicCreationCosts(template, standardMartialArtsLevel);
+    MagicCreationData magicCosts = new MagicCreationData(template, standardMartialArtsLevel);
     int charmCost = magicCosts.getMagicCosts(charm, costAnalyzerMock);
     assertThat(expectedValue, is(charmCost));
   }

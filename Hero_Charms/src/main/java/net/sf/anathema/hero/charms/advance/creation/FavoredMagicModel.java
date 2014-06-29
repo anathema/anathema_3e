@@ -1,16 +1,15 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
-import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
 
 public class FavoredMagicModel extends AbstractSpendingModel {
   private final MagicCreationCostCalculator magicCalculator;
-  private final ICreationPoints creationPoints;
+  private final MagicCreationData creationData;
 
-  public FavoredMagicModel(MagicCreationCostCalculator magicCalculator, ICreationPoints creationPoints) {
+  public FavoredMagicModel(MagicCreationCostCalculator magicCalculator, MagicCreationData creationData) {
     super("Charms", "Favored");
     this.magicCalculator = magicCalculator;
-    this.creationPoints = creationPoints;
+    this.creationData = creationData;
   }
 
   @Override
@@ -25,6 +24,6 @@ public class FavoredMagicModel extends AbstractSpendingModel {
 
   @Override
   public int getAllotment() {
-    return creationPoints.getFavoredCreationMagicCount();
+    return creationData.getFavoredMagicPicks();
   }
 }

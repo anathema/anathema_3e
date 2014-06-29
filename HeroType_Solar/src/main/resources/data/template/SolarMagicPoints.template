@@ -1,19 +1,19 @@
 {
-    "generalCreationPoints": {
-        "freePicks": 10,
-         "costs": 4,
-         "highMartialArtsCosts": 4
-    },
-    "favoredCreationPoints": {
-        "costs": 3,
-        "highMartialArtsCosts": 3
-    },
-    "generalExperiencePoints": {
-         "costs": 10,
-         "highMartialArtsCosts": 15
-    },
-    "favoredExperiencePoints": {
-        "costs": 8,
-        "highMartialArtsCosts": 12
+    generalCreationPoints: {
+        freePicks: 10;
+        costs: 4;
+        highMartialArtsCosts: 4
+    };
+    favoredCreationPoints: {
+        costs: 3;
+        highMartialArtsCosts: 3
+    };
+    generalExperiencePoints: {
+         costs: 10;
+         highMartialArtsCosts: 15
+    };
+    favoredExperiencePoints: {
+        costs: 8;
+        highMartialArtsCosts: 12
     }
 }

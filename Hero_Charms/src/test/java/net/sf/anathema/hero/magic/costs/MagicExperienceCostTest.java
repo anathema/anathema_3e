@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.costs;
 
+import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceCosts;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class MagicExperienceCostTest {
 
   private MagicPointsTemplate pointsTemplate = new MagicPointsTemplate();
-  private MagicExperienceCosts experienceCosts = new MagicExperienceCosts(pointsTemplate, MartialArtsLevel.Celestial);
+  private MagicExperienceData experienceCosts = new MagicExperienceData(pointsTemplate, MartialArtsLevel.Celestial);
   private CostAnalyzer costAnalyzerMock = mock(CostAnalyzer.class);
   private DummyCharm charm = new DummyCharm("Charm");
 

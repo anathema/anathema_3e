@@ -6,9 +6,9 @@ import net.sf.anathema.hero.model.Hero;
 
 public class CharmExperienceCostCalculator {
 
-  private final MagicExperienceCosts costs;
+  private final MagicExperienceData costs;
 
-  public CharmExperienceCostCalculator(MagicExperienceCosts costs) {
+  public CharmExperienceCostCalculator(MagicExperienceData costs) {
     this.costs = costs;
   }
 
