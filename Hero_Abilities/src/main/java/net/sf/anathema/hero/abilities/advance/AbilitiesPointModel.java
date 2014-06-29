@@ -12,9 +12,9 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.PointsModel;
+import net.sf.anathema.hero.points.overview.SpendingModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
 import net.sf.anathema.hero.template.creation.BonusPointCosts;
-import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
@@ -54,9 +54,15 @@ public class AbilitiesPointModel implements HeroModel {
     AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
-    pointsModel.addToBonusOverview(new DefaultAbilityBonusModel(abilityCalculator, getCreationData(hero)));
-    pointsModel.addToBonusOverview(new FavoredAbilityBonusModel(abilityCalculator, getCreationData(hero)));
-    pointsModel.addToBonusOverview(new FavoredAbilityPickModel(abilityCalculator, abilities.getFavoredCount()));
+    addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData(hero)));
+    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityBonusModel(abilityCalculator, getCreationData(hero)));
+    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityPickModel(abilityCalculator, abilities.getFavoredCount()));
+  }
+
+  private void addOnlyModelWithAllotment(PointsModel pointsModel, SpendingModel spendingModel) {
+    if (spendingModel.getAllotment() > 0) {
+      pointsModel.addToBonusOverview(spendingModel);
+    }
   }
 
   private void initializeExperiencePoints(Hero hero) {
