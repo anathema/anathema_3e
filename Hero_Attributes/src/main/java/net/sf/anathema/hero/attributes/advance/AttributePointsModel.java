@@ -24,7 +24,7 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 public class AttributePointsModel implements HeroModel {
 
   public static final SimpleIdentifier ID = new SimpleIdentifier("AttributePoints");
-  private AttributePointsTemplate template;
+  private final AttributePointsTemplate template;
 
   public AttributePointsModel(AttributePointsTemplate template) {
     this.template = template;
