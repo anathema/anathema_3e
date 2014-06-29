@@ -5,7 +5,6 @@ import net.sf.anathema.character.framework.xml.registry.IXmlTemplateRegistry;
 import net.sf.anathema.character.framework.xml.util.CostParser;
 import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.xml.ElementUtilities;
 import org.dom4j.Element;
 
 public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<GenericBonusPointCosts> {
@@ -73,11 +72,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
     }
     int generalCost = costParser.getFixedCostFromRequiredElement(abilityElement, TAG_GENERAL_ABILITY);
     int favoredCost = costParser.getFixedCostFromRequiredElement(abilityElement, TAG_FAVORED_ABILITY);
-
-    Element maximumFreeRank = abilityElement.element(TAG_MAXIMUM_FREE_ABILITY_RANK);
-    if (maximumFreeRank != null) {
-      costs.setMaximumFreeAbilityRank(ElementUtilities.getRequiredIntAttrib(maximumFreeRank, ATTRIB_RANK));
-    }
     costs.setAbilityCosts(generalCost, favoredCost);
   }
 

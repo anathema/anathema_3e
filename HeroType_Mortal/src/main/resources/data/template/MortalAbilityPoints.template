@@ -1,14 +1,7 @@
 {
+  generalDots: 25;
+  maximalFreebieRank: 3;
   standard: {
     calculationBase: 0
-  };
-  standard: {
-    startValue: 0;
-    minimumValue = 0;
-    modificationType: "RaiseOnly";
-    limitation: {
-      type: "Essence"
-    }
-  };
-  generalDots: 25
+  }
 }

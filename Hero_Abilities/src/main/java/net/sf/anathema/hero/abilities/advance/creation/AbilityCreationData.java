@@ -27,7 +27,7 @@ public class AbilityCreationData implements TraitListCreationData {
   }
 
   public int getMaximumFreeAbilityRank() {
-    return costs.getMaximumFreeAbilityRank();
+    return template.maximalFreebieRank;
   }
 
   public int getGeneralDotCount() {

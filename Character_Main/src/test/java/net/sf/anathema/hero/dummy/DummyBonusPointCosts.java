@@ -15,11 +15,6 @@ public class DummyBonusPointCosts implements BonusPointCosts {
   }
 
   @Override
-  public int getMaximumFreeAbilityRank() {
-    return 3;
-  }
-
-  @Override
   public int getWillpowerCosts() {
     return 2;
   }

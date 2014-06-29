@@ -15,18 +15,12 @@ public class GenericBonusPointCosts extends ReflectionEqualsObject implements Bo
   private int favoredAbilityCost = 0;
   private CurrentRatingCosts essenceCost = new FixedValueRatingCosts(0);
   private int willpowerCost = 0;
-  private int maximumFreeAbilityRank = 3;
 
   private CurrentRatingCosts getFavorableFixedRatingCost(boolean favored, int favoredCost, int generalCost) {
     if (favored) {
       return new FixedValueRatingCosts(favoredCost);
     }
     return new FixedValueRatingCosts(generalCost);
-  }
-
-  @Override
-  public int getMaximumFreeAbilityRank() {
-    return maximumFreeAbilityRank;
   }
 
   @Override
@@ -55,10 +49,6 @@ public class GenericBonusPointCosts extends ReflectionEqualsObject implements Bo
   public void setAbilityCosts(int generalCost, int favoredCost) {
     this.generalAbilityCost = generalCost;
     this.favoredAbilityCost = favoredCost;
-  }
-
-  public void setMaximumFreeAbilityRank(int rank) {
-    this.maximumFreeAbilityRank = rank;
   }
 
   @Override

@@ -7,4 +7,5 @@ public class AbilityPointsTemplate {
   public TraitPointsTemplate standard = new TraitPointsTemplate();
   public int favoredDots = 0;
   public int generalDots = 0;
+  public int maximalFreebieRank = 0;
 }
