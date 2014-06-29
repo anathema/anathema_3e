@@ -14,3 +14,10 @@ Feature: Anathema determines the priority of attribute groups automatically.
     And she spends 6 points on Physical Attributes
     And she spends 7 points on Social Attributes
     Then she has spent 9 bonus points
+
+  Scenario: Anathema treats the higher groups as tertiary, when two groups exceed primary amount and secondary is spent
+    Given a new Solar using rules for RookieLawgiver
+    When she spends 8 points on Mental Attributes
+    And she spends 6 points on Physical Attributes
+    And she spends 9 points on Social Attributes
+    Then she has spent 15 bonus points
