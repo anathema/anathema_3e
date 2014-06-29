@@ -15,7 +15,6 @@ public class GenericCreationPoints extends ReflectionCloneableObject<GenericCrea
   private int bonusPointCount = 0;
   private int defaultCreationCharmCount = 0;
   private int favoredCreationCharmCount = 0;
-  private int virtueCreationPoints = 0;
 
   @Override
   public IAbilityCreationPoints getAbilityCreationPoints() {
@@ -42,11 +41,6 @@ public class GenericCreationPoints extends ReflectionCloneableObject<GenericCrea
     return favoredCreationCharmCount;
   }
 
-  @Override
-  public int getVirtueCreationPoints() {
-    return virtueCreationPoints;
-  }
-
   public void setAbilityCreationPoints(IAbilityCreationPoints abiltyCreationPoints) {
     Preconditions.checkNotNull(abiltyCreationPoints);
     this.abilityCreationPoints = abiltyCreationPoints;
@@ -70,11 +64,6 @@ public class GenericCreationPoints extends ReflectionCloneableObject<GenericCrea
   public void setFavoredCreationCharmCount(int charmCount) {
     Preconditions.checkArgument(charmCount >= 0, "Favored charm count must be positive.");
     this.favoredCreationCharmCount = charmCount;
-  }
-
-  public void setVirtueCreationPoints(int virtueCreationPoints) {
-    Preconditions.checkArgument(virtueCreationPoints >= 0, "Virtue creation points must be positive.");
-    this.virtueCreationPoints = virtueCreationPoints;
   }
 
   @Override

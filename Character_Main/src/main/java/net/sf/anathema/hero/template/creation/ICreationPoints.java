@@ -7,8 +7,6 @@ public interface ICreationPoints {
 
   int getBonusPointCount();
 
-  int getVirtueCreationPoints();
-
   IAbilityCreationPoints getAbilityCreationPoints();
 
   IAttributeCreationPoints getAttributeCreationPoints();

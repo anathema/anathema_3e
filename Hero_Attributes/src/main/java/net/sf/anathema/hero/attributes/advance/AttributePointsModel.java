@@ -70,7 +70,7 @@ public class AttributePointsModel implements HeroModel {
   private AttributeCreationPointCalculator createCalculator(Hero hero) {
     IAttributeCreationPoints creationPoints = hero.getTemplate().getCreationPoints().getAttributeCreationPoints();
     AttributeModel attributes = AttributesModelFetcher.fetch(hero);
-    return new AttributeCreationPointCalculator(attributes, creationPoints, template);
+    return new AttributeCreationPointCalculator(attributes, template);
   }
 
   private void initializeExperience(Hero hero) {
