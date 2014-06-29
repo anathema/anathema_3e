@@ -18,7 +18,7 @@
         <model id="Equipment"/>
     </models>
     <creation>
-        <bonusPointCosts uses="DefaultBonusPointCost2nd.template"/>
+        <bonusPointCosts uses="DefaultBonusPointCost.template"/>
     </creation>
     <experience>
         <experiencePointCost uses="experience/MortalExperienceCost.template"/>

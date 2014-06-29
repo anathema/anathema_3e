@@ -23,7 +23,7 @@
         <model id="Equipment"/>
     </models>
     <creation>
-        <bonusPointCosts uses="SolaroidDefaultBonusPointCost2nd.template"/>
+        <bonusPointCosts uses="DefaultBonusPointCost.template"/>
     </creation>
     <experience>
         <experiencePointCost uses="template/SolarExperienceCost2nd.template"/>
