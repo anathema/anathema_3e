@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 
 import java.util.*;
@@ -26,7 +26,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   protected int getCostFactor(Trait trait) {
     ITraitFavorization favorization = trait.getFavorization();
-    CurrentRatingCosts abilityCosts = creationData.getAbilityCosts(favorization.isCasteOrFavored());
+    CurrentRatingCost abilityCosts = creationData.getAbilityCosts(favorization.isCasteOrFavored());
     return abilityCosts.getRatingCosts(getCalculationBase(trait));
   }
 

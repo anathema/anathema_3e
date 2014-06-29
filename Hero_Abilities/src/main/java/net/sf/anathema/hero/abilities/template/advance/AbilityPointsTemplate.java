@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.abilities.template.advance;
 
-import net.sf.anathema.hero.spiritual.template.TraitPointsTemplate;
+import net.sf.anathema.hero.spiritual.template.points.TraitPointsTemplate;
 
 public class AbilityPointsTemplate {
 

@@ -1,27 +1,28 @@
 package net.sf.anathema.hero.spiritual.advance.experience;
 
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.advance.TraitRatingCostCalculator;
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 
 public class SpiritualExperienceCalculator {
 
-  private final IExperiencePointCosts costs;
+  private SpiritualExperienceData experienceData;
 
-  public SpiritualExperienceCalculator(IExperiencePointCosts costs) {
-    this.costs = costs;
+  public SpiritualExperienceCalculator(SpiritualExperienceData experienceData) {
+    this.experienceData = experienceData;
   }
 
   public int getEssenceCosts(Trait essence) {
-    return getTraitRatingCosts(essence, costs.getEssenceCosts());
+    CurrentRatingCost cost = experienceData.getEssenceCost();
+    return getTraitRatingCosts(essence, cost);
   }
 
   public int getWillpowerCosts(Trait willpower) {
-    return getTraitRatingCosts(willpower, costs.getWillpowerCosts());
+    CurrentRatingCost cost = experienceData.getWillpowerCost();
+    return getTraitRatingCosts(willpower, cost);
   }
 
-  private int getTraitRatingCosts(Trait trait, CurrentRatingCosts ratingCosts) {
-    return TraitRatingCostCalculator.getTraitRatingCosts(trait, ratingCosts);
+  private int getTraitRatingCosts(Trait trait, CurrentRatingCost ratingCost) {
+    return TraitRatingCostCalculator.getTraitRatingCost(trait, ratingCost);
   }
 }

@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.template.points;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.lib.lang.ReflectionEqualsObject;
 
 import java.io.Serializable;
 
-public class ThresholdRatingCosts extends ReflectionEqualsObject implements CurrentRatingCosts, Serializable {
+public class ThresholdRatingCost extends ReflectionEqualsObject implements CurrentRatingCost, Serializable {
 
   private final int lowCost;
   private final int highCost;
   private final int threshold;
 
-  public ThresholdRatingCosts(int lowCost, int highCost, int threshold) {
+  public ThresholdRatingCost(int lowCost, int highCost, int threshold) {
     this.lowCost = lowCost;
     this.highCost = highCost;
     this.threshold = threshold;

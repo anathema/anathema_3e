@@ -1,9 +1,9 @@
 package net.sf.anathema.character.framework.xml.util;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
-import net.sf.anathema.hero.template.points.FixedValueRatingCosts;
-import net.sf.anathema.hero.template.points.MultiplyRatingCosts;
-import net.sf.anathema.hero.template.points.ThresholdRatingCosts;
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
+import net.sf.anathema.hero.template.points.FixedValueRatingCost;
+import net.sf.anathema.hero.template.points.MultiplyRatingCost;
+import net.sf.anathema.hero.template.points.ThresholdRatingCost;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.xml.ElementUtilities;
 import org.dom4j.Element;
@@ -42,12 +42,12 @@ public class CostParser {
     return getFixedCostValue(parentElement);
   }
 
-  public CurrentRatingCosts getMultiplyRatingCostsFromRequiredElement(Element parentElement, String tagName) throws PersistenceException {
+  public CurrentRatingCost getMultiplyRatingCostsFromRequiredElement(Element parentElement, String tagName) throws PersistenceException {
     Element element = getRequiredElement(parentElement, tagName);
     return getMultiplyRatingCosts(element);
   }
 
-  public CurrentRatingCosts getCosts(Element parentElement) {
+  public CurrentRatingCost getCosts(Element parentElement) {
     if (ElementUtilities.hasChild(parentElement, TAG_CURRENT_RATING_COSTS)) {
       return getMultiplyRatingCosts(parentElement);
     }
@@ -62,25 +62,25 @@ public class CostParser {
     throw new IllegalArgumentException(message);
   }
 
-  public CurrentRatingCosts getMultiplyRatingCosts(Element parentElement) throws PersistenceException {
+  public CurrentRatingCost getMultiplyRatingCosts(Element parentElement) throws PersistenceException {
     Element element = getRequiredElement(parentElement, TAG_CURRENT_RATING_COSTS);
     int multiplier = getRequiredIntAttrib(element, ATTRIB_MULTIPLIER);
     int summand = getIntAttrib(element, ATTRIB_SUMMAND, 0);
     int initialCost = getIntAttrib(element, ATTRIB_INITIALCOST, Integer.MIN_VALUE);
-    return new MultiplyRatingCosts(multiplier, initialCost, summand);
+    return new MultiplyRatingCost(multiplier, initialCost, summand);
   }
 
-  public CurrentRatingCosts getThresholdRatingCosts(Element parentElement) {
+  public CurrentRatingCost getThresholdRatingCosts(Element parentElement) {
     Element costElement = getRequiredElement(parentElement, TAG_THRESHOLD_COST);
     int lowCost = getRequiredIntAttrib(costElement, ATTRIB_LOW_COST);
     int highCost = getRequiredIntAttrib(costElement, ATTRIB_HIGH_COST);
     int threshold = getRequiredIntAttrib(costElement, ATTRIB_THRESHOLD);
-    return new ThresholdRatingCosts(lowCost, highCost, threshold);
+    return new ThresholdRatingCost(lowCost, highCost, threshold);
   }
 
-  public CurrentRatingCosts getFixedCost(Element parentElement) {
+  public CurrentRatingCost getFixedCost(Element parentElement) {
     int fixedCost = getFixedCostValue(parentElement);
-    return new FixedValueRatingCosts(fixedCost);
+    return new FixedValueRatingCost(fixedCost);
   }
 
   private int getFixedCostValue(Element parentElement) {

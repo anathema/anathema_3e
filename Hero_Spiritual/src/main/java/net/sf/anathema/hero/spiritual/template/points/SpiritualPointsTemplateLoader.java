@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spiritual.template;
+package net.sf.anathema.hero.spiritual.template.points;
 
 import net.sf.anathema.hero.template.ConfigurableTemplateLoader;
 import net.sf.anathema.hero.template.TemplateFactory;

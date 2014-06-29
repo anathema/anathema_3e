@@ -12,9 +12,9 @@ import net.sf.anathema.hero.spiritual.advance.creation.DefaultSpiritualCreationD
 import net.sf.anathema.hero.spiritual.advance.creation.SpiritualBonusPointsCalculator;
 import net.sf.anathema.hero.spiritual.advance.experience.EssenceExperienceModel;
 import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceCalculator;
+import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceData;
 import net.sf.anathema.hero.spiritual.advance.experience.WillpowerExperienceModel;
-import net.sf.anathema.hero.spiritual.template.SpiritualPointsTemplate;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
+import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -57,8 +57,8 @@ public class SpiritualPointsModel implements HeroModel {
   private void initializeExperience(Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     SpiritualTraitModel model = SpiritualTraitModelFetcher.fetch(hero);
-    IExperiencePointCosts experienceCost = hero.getTemplate().getExperienceCost();
-    SpiritualExperienceCalculator calculator = new SpiritualExperienceCalculator(experienceCost);
+    SpiritualExperienceData experienceData = new SpiritualExperienceData(template);
+    SpiritualExperienceCalculator calculator = new SpiritualExperienceCalculator(experienceData);
     pointsModel.addToExperienceOverview(new EssenceExperienceModel(model, calculator));
     pointsModel.addToExperienceOverview(new WillpowerExperienceModel(model, calculator));
   }

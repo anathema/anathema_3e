@@ -4,7 +4,7 @@
         <model id="Points" template="SolarPoints"/>
         <model id="Concept" template="SolarCastes"/>
         <model id="SpiritualTraits" template="SolarSpiritualTraits_Rookie"/>
-        <model id="SpiritualPoints" template="SolarSpiritualPoints"/>
+        <model id="SpiritualPoints" template="SolarSpiritualPoints_Rookie"/>
         <model id="Abilities" template="SolarAbilities"/>
         <model id="AbilitiesPoints" template="SolarAbilityPoints"/>
         <model id="Attributes" template="DefaultAttributes"/>

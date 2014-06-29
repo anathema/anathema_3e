@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.template.experience;
 
-public interface CurrentRatingCosts {
+public interface CurrentRatingCost {
 
   int getRatingCosts(int currentRating);
 }

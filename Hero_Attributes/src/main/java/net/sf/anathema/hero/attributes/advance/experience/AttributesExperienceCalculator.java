@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.attributes.advance.experience;
 
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.advance.TraitRatingCostCalculator;
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 
 public class AttributesExperienceCalculator {
@@ -17,7 +17,7 @@ public class AttributesExperienceCalculator {
     return getTraitRatingCosts(trait, costs.getAttributeCosts(favored));
   }
 
-  private int getTraitRatingCosts(Trait trait, CurrentRatingCosts ratingCosts) {
-    return TraitRatingCostCalculator.getTraitRatingCosts(trait, ratingCosts);
+  private int getTraitRatingCosts(Trait trait, CurrentRatingCost ratingCosts) {
+    return TraitRatingCostCalculator.getTraitRatingCost(trait, ratingCosts);
   }
 }

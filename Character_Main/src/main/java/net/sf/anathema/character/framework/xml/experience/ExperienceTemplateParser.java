@@ -3,7 +3,7 @@ package net.sf.anathema.character.framework.xml.experience;
 import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
 import net.sf.anathema.character.framework.xml.registry.IXmlTemplateRegistry;
 import net.sf.anathema.character.framework.xml.util.CostParser;
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
+import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
@@ -14,9 +14,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
   private static final String TAG_ATTRIBUTES = "attributes";
   private static final String TAG_ABILITIES = "abilities";
   private static final String TAG_SPECIALTIES = "specialties";
-  private static final String TAG_ADVANTAGES = "advantages";
-  private static final String TAG_WILLPOWER = "willpower";
-  private static final String TAG_ESSENCE = "essence";
   private final CostParser costParser = new CostParser();
 
   public ExperienceTemplateParser(IXmlTemplateRegistry<GenericExperiencePointCosts> templateRegistry) {
@@ -33,35 +30,7 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
     GenericExperiencePointCosts costs = getBasicTemplate(element);
     setAttributeCosts(element, costs);
     setAbilityCosts(element, costs);
-    setAdvantageCosts(element, costs);
     return costs;
-  }
-
-  private void setAdvantageCosts(Element element, GenericExperiencePointCosts costs) throws PersistenceException {
-    Element advantages = element.element(TAG_ADVANTAGES);
-    if (advantages == null) {
-      return;
-    }
-    setWillpowerCosts(costs, advantages);
-    setEssenceCosts(costs, advantages);
-  }
-
-  private void setEssenceCosts(GenericExperiencePointCosts costs, Element advantages) throws PersistenceException {
-    Element element = advantages.element(TAG_ESSENCE);
-    if (element == null) {
-      return;
-    }
-    CurrentRatingCosts ratingCosts = getCurrentRatingCosts(element);
-    costs.setEssenceCosts(ratingCosts);
-  }
-
-  private void setWillpowerCosts(GenericExperiencePointCosts costs, Element advantages) throws PersistenceException {
-    Element element = advantages.element(TAG_WILLPOWER);
-    if (element == null) {
-      return;
-    }
-    CurrentRatingCosts ratingCosts = getCurrentRatingCosts(element);
-    costs.setWillpowerCosts(ratingCosts);
   }
 
   private void setAbilityCosts(Element element, GenericExperiencePointCosts costs) throws PersistenceException {
@@ -88,15 +57,15 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
     costs.setFavoredAttributeCosts(getFavoredCost(attributes));
   }
 
-  protected final CurrentRatingCosts getFavoredCost(Element attributes) throws PersistenceException {
+  protected final CurrentRatingCost getFavoredCost(Element attributes) throws PersistenceException {
     return new CostParser().getMultiplyRatingCostsFromRequiredElement(attributes, TAG_FAVORED_COSTS);
   }
 
-  protected final CurrentRatingCosts getGeneralCost(Element attributes) throws PersistenceException {
+  protected final CurrentRatingCost getGeneralCost(Element attributes) throws PersistenceException {
     return new CostParser().getMultiplyRatingCostsFromRequiredElement(attributes, TAG_GENERAL_COSTS);
   }
 
-  protected final CurrentRatingCosts getCurrentRatingCosts(Element element) throws PersistenceException {
+  protected final CurrentRatingCost getCurrentRatingCosts(Element element) throws PersistenceException {
     return new CostParser().getMultiplyRatingCosts(element);
   }
 }

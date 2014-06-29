@@ -18,14 +18,6 @@
       <fixedCost cost="3" />
     </specialties>
   </abilities>
-  <advantages>
-    <willpower>
-      <currentRating multiplier="2" />
-    </willpower>
-    <essence>
-      <currentRating multiplier="8" />
-    </essence>
-  </advantages>
   <magic>
     <charms favored="8" general="10">
     	<highLevelMartialArts favored="12" general="15"/>
