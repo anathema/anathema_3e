@@ -8,7 +8,7 @@ import net.sf.anathema.lib.lang.clone.ReflectionCloneableObject;
 
 public class GenericCreationPoints extends ReflectionCloneableObject<GenericCreationPoints> implements ICreationPoints {
 
-  private IAbilityCreationPoints abilityCreationPoints = new AbilityCreationPoints(0, 0, 0);
+  private IAbilityCreationPoints abilityCreationPoints = new AbilityCreationPoints(0, 0);
   private int bonusPointCount = 0;
   private int defaultCreationCharmCount = 0;
   private int favoredCreationCharmCount = 0;

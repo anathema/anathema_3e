@@ -7,4 +7,6 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 public interface AbilitiesModel extends TraitListModel {
 
   Identifier ID = new SimpleIdentifier("Abilities");
+
+  int getFavoredCount();
 }

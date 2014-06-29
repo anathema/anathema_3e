@@ -52,12 +52,13 @@ public class AbilitiesPointModel implements HeroModel {
   }
 
   private void initializeBonusOverview(Hero hero, AbilityCostCalculatorImpl abilityCalculator) {
+    AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
     ICreationPoints creationPoints = hero.getTemplate().getCreationPoints();
     pointsModel.addToBonusOverview(new DefaultAbilityBonusModel(abilityCalculator, creationPoints));
     pointsModel.addToBonusOverview(new FavoredAbilityBonusModel(abilityCalculator, creationPoints));
-    pointsModel.addToBonusOverview(new FavoredAbilityPickModel(abilityCalculator, creationPoints));
+    pointsModel.addToBonusOverview(new FavoredAbilityPickModel(abilityCalculator, abilities.getFavoredCount()));
   }
 
   private void initializeExperiencePoints(Hero hero) {

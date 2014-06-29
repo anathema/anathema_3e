@@ -6,7 +6,5 @@ public interface IAbilityCreationPoints extends ICloneable<IAbilityCreationPoint
 
   int getFavoredDotCount();
 
-  int getFavorableTraitCount();
-
   int getDefaultDotCount();
 }

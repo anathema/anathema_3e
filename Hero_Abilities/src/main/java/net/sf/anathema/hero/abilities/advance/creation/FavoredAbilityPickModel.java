@@ -1,17 +1,18 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
 
 public class FavoredAbilityPickModel extends AbstractSpendingModel {
 
   private final AbilityCostCalculator abilityCalculator;
-  private final ICreationPoints creationPoints;
+  private int favoredCount;
 
-  public FavoredAbilityPickModel(AbilityCostCalculator abilityCalculator, ICreationPoints creationPoints) {
+  public FavoredAbilityPickModel(AbilityCostCalculator abilityCalculator, int favoredCount) {
     super("Abilities", "FavoredPick");
     this.abilityCalculator = abilityCalculator;
-    this.creationPoints = creationPoints;
+    this.favoredCount = favoredCount;
   }
 
   @Override
@@ -26,6 +27,6 @@ public class FavoredAbilityPickModel extends AbstractSpendingModel {
 
   @Override
   public int getAllotment() {
-    return creationPoints.getAbilityCreationPoints().getFavorableTraitCount();
+    return favoredCount;
   }
 }

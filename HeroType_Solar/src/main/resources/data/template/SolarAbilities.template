@@ -26,6 +26,7 @@
       traits: ["Bureaucracy", "Linguistics", "Ride", "Sail", "Socialize"]
     }
   ];
+  favoredCount: 5;
   standard: {
     startValue: 0;
     minimumValue = 0;

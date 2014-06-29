@@ -15,11 +15,6 @@ public class DummyAbilityCreationPoints implements IAbilityCreationPoints {
   }
 
   @Override
-  public int getFavorableTraitCount() {
-    return 0;
-  }
-
-  @Override
   public int getDefaultDotCount() {
     return 15;
   }

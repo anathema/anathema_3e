@@ -40,7 +40,7 @@ public class CreationPointTemplateParser extends AbstractXmlTemplateParser<Gener
     int generalDots = ElementUtilities.getIntAttrib(element, ATTRIB_GENERAL, 0);
     int favoredDots = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED, 0);
     int favoredPicks = ElementUtilities.getIntAttrib(element, ATTRIB_FAVORED_PICKS, 0);
-    creationPoints.setAbilityCreationPoints(new AbilityCreationPoints(favoredPicks, favoredDots, generalDots));
+    creationPoints.setAbilityCreationPoints(new AbilityCreationPoints(favoredDots, generalDots));
   }
 
   private int getCountAttribute(Element element) throws PersistenceException {

@@ -4,11 +4,9 @@ import net.sf.anathema.lib.lang.clone.ReflectionCloneableObject;
 
 public class AbilityCreationPoints extends ReflectionCloneableObject<IAbilityCreationPoints> implements IAbilityCreationPoints {
   private final int defaultDotCount;
-  private final int favoredCount;
   private final int favoredDotCount;
 
-  public AbilityCreationPoints(int favoredAbilityCount, int favoredDotCount, int defaultDotCount) {
-    this.favoredCount = favoredAbilityCount;
+  public AbilityCreationPoints(int favoredDotCount, int defaultDotCount) {
     this.favoredDotCount = favoredDotCount;
     this.defaultDotCount = defaultDotCount;
   }
@@ -19,18 +17,8 @@ public class AbilityCreationPoints extends ReflectionCloneableObject<IAbilityCre
   }
 
   @Override
-  public int getFavorableTraitCount() {
-    return favoredCount;
-  }
-
-  @Override
   public int getDefaultDotCount() {
     return defaultDotCount;
-  }
-
-  @Override
-  public String toString() {
-    return "[favored:" + getFavorableTraitCount() + ",favoredDots:" + getFavoredDotCount() + ",defaultDots:" + getDefaultDotCount() + "]";
   }
 
   @Override

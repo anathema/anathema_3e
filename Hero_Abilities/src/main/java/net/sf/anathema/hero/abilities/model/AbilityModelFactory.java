@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.abilities.model;
 
+import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
+import net.sf.anathema.hero.abilities.template.AbilitiesTemplateLoader;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplateLoader;
 import net.sf.anathema.hero.concept.HeroConcept;
@@ -20,7 +22,7 @@ public class AbilityModelFactory extends SimpleModelTreeEntry implements HeroMod
   @SuppressWarnings("unchecked")
   @Override
   public AbilitiesModelImpl create(TemplateFactory templateFactory, String templateId) {
-    GroupedTraitsTemplate template = GroupedTraitsTemplateLoader.loadTemplate(templateFactory, templateId);
+    AbilitiesTemplate template = AbilitiesTemplateLoader.loadTemplate(templateFactory, templateId);
     return new AbilitiesModelImpl(template);
   }
 }
