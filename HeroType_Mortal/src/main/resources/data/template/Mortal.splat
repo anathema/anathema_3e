@@ -20,7 +20,7 @@
     <creation>
         <bonusPointCosts uses="DefaultBonusPointCost2nd.template"/>
         <creationPoints>
-            <abilityDots general="18" favored="0" favoredPicks="0"/>
+            <abilityDots general="18" favored="0"/>
             <bonusPoints count="21"/>
         </creationPoints>
     </creation>
