@@ -77,7 +77,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private int getDefaultDotCount() {
-    return creationData.getDefaultDotCount();
+    return creationData.getGeneralDotCount();
   }
 
   private int getFavoredDotCount() {

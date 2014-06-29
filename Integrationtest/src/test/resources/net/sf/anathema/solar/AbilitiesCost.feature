@@ -2,12 +2,12 @@
 Feature: Anathema calculates creation point costs for Abilities
   The scenarios for the various cases of overspending work with a fresh BigDamnHero so we can use their allotment.
 
-  Scenario: A Solar pays favored dots for favored Abilities
+  Scenario: A Solar pays general dots for favored Abilities
     Given a new Solar using rules for BigDamnHero
     When I favor her Archery
     And I set her Archery to 1
-    Then she has 0 ability dots spent
-    And she has 1 favored dots spent
+    Then she has 1 ability dots spent
+    And she has 0 favored dots spent
     And she has spent 0 bonus points
 
   Scenario: A fresh Solar does not pay for Abilities

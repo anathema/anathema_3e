@@ -9,5 +9,6 @@
     limitation: {
       type: "Essence"
     }
-  }
+  };
+  generalDots: 25
 }

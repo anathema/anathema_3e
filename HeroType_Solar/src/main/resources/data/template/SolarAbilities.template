@@ -1,32 +1,4 @@
 {
-  groups: [
-    {
-      id: "Dawn",
-      casteId: "Dawn",
-      traits: ["Archery", "MartialArts", "Melee", "Thrown", "War"]
-    },
-    {
-      id: "Zenith",
-      casteId: "Zenith",
-      traits: ["Integrity", "Performance", "Presence", "Resistance", "Survival"]
-    },
-    {
-      id: "Twilight",
-      casteId: "Twilight",
-      traits: ["Craft", "Investigation", "Lore", "Medicine", "Occult"]
-    },
-    {
-      id: "Night",
-      casteId: "Night",
-      traits: ["Athletics", "Awareness", "Dodge", "Larceny", "Stealth"]
-    },
-    {
-      id: "Eclipse",
-      casteId: "Eclipse",
-      traits: ["Bureaucracy", "Linguistics", "Ride", "Sail", "Socialize"]
-    }
-  ];
-  favoredCount: 5;
   standard: {
     startValue: 0;
     minimumValue = 0;
@@ -34,5 +6,20 @@
     limitation: {
       type: "Essence"
     }
-  }
+  };
+  groups: [
+    {
+      id: "War",
+      traits: ["Archery", "Athletics", "Awareness", "Dodge", "Integrity", "MartialArts", "Melee", "Resistance", "Thrown", "War"]
+    },
+    {
+      id: "Life",
+      traits: ["Craft", "Larceny", "Linguistics", "Performance", "Presence", "Ride", "Sail", "Socialize", "Stealth", "Survival"]
+    },
+    {
+      id: "Wisdom",
+      traits: ["Bureaucracy", "Investigation", "Lore", "Medicine", "Occult"]
+    }
+  ];
+  favoredCount: 5
 }

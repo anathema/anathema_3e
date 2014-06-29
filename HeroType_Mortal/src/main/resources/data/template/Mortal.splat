@@ -5,7 +5,7 @@
         <model id="Concept" template="NoCastes"/>
         <model id="SpiritualTraits" template="MortalSpiritualTraits"/>
         <model id="SpiritualPoints" template="MortalSpiritualPoints"/>
-        <model id="Abilities" template="DefaultAbilities"/>
+        <model id="Abilities" template="MortalAbilities"/>
         <model id="AbilitiesPoints" template="MortalAbilityPoints"/>
         <model id="Attributes" template="DefaultAttributes"/>
         <model id="AttributePoints" template="MortalAttributePoints"/>
@@ -20,7 +20,6 @@
     <creation>
         <bonusPointCosts uses="DefaultBonusPointCost2nd.template"/>
         <creationPoints>
-            <abilityDots general="18" favored="0"/>
             <bonusPoints count="21"/>
         </creationPoints>
     </creation>

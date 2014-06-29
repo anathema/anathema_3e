@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.abilities.advance;
 
-import net.sf.anathema.hero.template.creation.BonusPointCosts;
-import net.sf.anathema.hero.template.creation.ICreationPoints;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
-import net.sf.anathema.hero.template.points.IAbilityCreationPoints;
 import net.sf.anathema.hero.abilities.advance.creation.*;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalculator;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
@@ -17,6 +13,9 @@ import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
+import net.sf.anathema.hero.template.creation.BonusPointCosts;
+import net.sf.anathema.hero.template.creation.ICreationPoints;
+import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -55,9 +54,8 @@ public class AbilitiesPointModel implements HeroModel {
     AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
-    ICreationPoints creationPoints = hero.getTemplate().getCreationPoints();
-    pointsModel.addToBonusOverview(new DefaultAbilityBonusModel(abilityCalculator, creationPoints));
-    pointsModel.addToBonusOverview(new FavoredAbilityBonusModel(abilityCalculator, creationPoints));
+    pointsModel.addToBonusOverview(new DefaultAbilityBonusModel(abilityCalculator, getCreationData(hero)));
+    pointsModel.addToBonusOverview(new FavoredAbilityBonusModel(abilityCalculator, getCreationData(hero)));
     pointsModel.addToBonusOverview(new FavoredAbilityPickModel(abilityCalculator, abilities.getFavoredCount()));
   }
 
@@ -70,10 +68,13 @@ public class AbilitiesPointModel implements HeroModel {
   }
 
   private AbilityCostCalculatorImpl createCalculator(Hero hero) {
-    IAbilityCreationPoints abilityCreationPoints = hero.getTemplate().getCreationPoints().getAbilityCreationPoints();
-    BonusPointCosts costs = hero.getTemplate().getBonusPointCosts();
-    AbilityCreationData creationData = new AbilityCreationData(template, abilityCreationPoints, costs);
+    AbilityCreationData creationData = getCreationData(hero);
     return new AbilityCostCalculatorImpl(AbilityModelFetcher.fetch(hero), creationData);
+  }
+
+  private AbilityCreationData getCreationData(Hero hero) {
+    BonusPointCosts costs = hero.getTemplate().getBonusPointCosts();
+    return new AbilityCreationData(template, costs);
   }
 
   @Override

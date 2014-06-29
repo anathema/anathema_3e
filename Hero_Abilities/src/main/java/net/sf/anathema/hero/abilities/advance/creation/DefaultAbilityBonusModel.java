@@ -1,16 +1,15 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.template.creation.ICreationPoints;
 import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
 
 public class DefaultAbilityBonusModel extends AbstractSpendingModel {
   private final AbilityCostCalculator abilityCalculator;
-  private final ICreationPoints creationPoints;
+  private AbilityCreationData creationData;
 
-  public DefaultAbilityBonusModel(AbilityCostCalculator abilityCalculator, ICreationPoints creationPoints) {
+  public DefaultAbilityBonusModel(AbilityCostCalculator abilityCalculator, AbilityCreationData creationData) {
     super("Abilities", "General");
     this.abilityCalculator = abilityCalculator;
-    this.creationPoints = creationPoints;
+    this.creationData = creationData;
   }
 
   @Override
@@ -25,6 +24,6 @@ public class DefaultAbilityBonusModel extends AbstractSpendingModel {
 
   @Override
   public int getAllotment() {
-    return creationPoints.getAbilityCreationPoints().getDefaultDotCount();
+    return creationData.getGeneralDotCount();
   }
 }

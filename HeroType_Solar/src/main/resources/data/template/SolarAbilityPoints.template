@@ -1,5 +1,6 @@
 {
   standard: {
     calculationBase: 0
-  }
+  };
+  generalDots: 28
 }

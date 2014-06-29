@@ -1,22 +1,19 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
+import net.sf.anathema.hero.abilities.template.AbilityPointsTemplate;
 import net.sf.anathema.hero.template.creation.BonusPointCosts;
 import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
-import net.sf.anathema.hero.template.points.IAbilityCreationPoints;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.abilities.template.AbilityPointsTemplate;
 import net.sf.anathema.hero.traits.advance.TraitListCreationData;
+import net.sf.anathema.hero.traits.model.TraitType;
 
 public class AbilityCreationData implements TraitListCreationData {
 
   private AbilityPointsTemplate template;
-  private IAbilityCreationPoints abilityCreationPoints;
   private BonusPointCosts costs;
 
 
-  public AbilityCreationData(AbilityPointsTemplate template, IAbilityCreationPoints abilityCreationPoints, BonusPointCosts costs) {
+  public AbilityCreationData(AbilityPointsTemplate template, BonusPointCosts costs) {
     this.template = template;
-    this.abilityCreationPoints = abilityCreationPoints;
     this.costs = costs;
   }
 
@@ -33,11 +30,11 @@ public class AbilityCreationData implements TraitListCreationData {
     return costs.getMaximumFreeAbilityRank();
   }
 
-  public int getDefaultDotCount() {
-    return abilityCreationPoints.getDefaultDotCount();
+  public int getGeneralDotCount() {
+    return template.generalDots;
   }
 
   public int getFavoredDotCount() {
-    return abilityCreationPoints.getFavoredDotCount();
+    return template.favoredDots;
   }
 }

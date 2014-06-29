@@ -12,5 +12,13 @@
       id: "Wisdom",
       traits: ["Bureaucracy", "Investigation", "Lore", "Medicine", "Occult"]
     }
-  ]
+  ];
+  standard: {
+    startValue: 0;
+    minimumValue = 0;
+    modificationType: "RaiseOnly";
+    limitation: {
+      type: "Essence"
+    }
+  }
 }
