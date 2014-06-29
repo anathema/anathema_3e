@@ -1,9 +1,8 @@
 package net.sf.anathema.herotype.solar.persistence.curse;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;
 import net.sf.anathema.lib.util.Identifier;
@@ -22,9 +21,6 @@ public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPt
     if (pto.limit.experienceValue != null) {
       limitTrait.setUncheckedExperiencedValue(pto.limit.experienceValue);
     }
-    if (pto.rootVirtue != null) {
-      model.getLimitBreak().setRoot(VirtueType.valueOf(pto.rootVirtue));
-    }
     if (model.getLimitBreak() instanceof DescriptiveLimitBreak) {
       DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) model.getLimitBreak();
       virtueFlaw.getLimitBreak().setText(pto.limitBreak);
@@ -41,9 +37,6 @@ public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPt
     int experienceValue = heroModel.getLimitBreak().getLimitTrait().getExperiencedValue();
     if (experienceValue >= 0) {
       pto.limit.experienceValue = experienceValue;
-    }
-    if (heroModel.getLimitBreak().getRoot() != null) {
-      pto.rootVirtue = heroModel.getLimitBreak().getRoot().getId();
     }
     if (heroModel.getLimitBreak() instanceof DescriptiveLimitBreak) {
       DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) heroModel.getLimitBreak();
