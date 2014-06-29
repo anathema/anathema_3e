@@ -1,12 +1,4 @@
 <bonusPointCost>
-  <attributes>
-    <generalAttribute>
-      <fixedCost cost="4" />
-    </generalAttribute>
-    <favoredAttribute>
-      <fixedCost cost="4" />
-    </favoredAttribute>
-  </attributes>
   <abilities>
     <generalAbility>
       <fixedCost cost="2" />
@@ -20,12 +12,6 @@
     </specialties>
   </abilities>
   <advantages>
-    <backgrounds>
-      <thresholdCost lowCost="1" highCost="2" threshold="3"/>
-    </backgrounds>
-    <virtues>
-      <fixedCost cost="3" />
-    </virtues>
     <willpower>
       <fixedCost cost="2" />
     </willpower>
