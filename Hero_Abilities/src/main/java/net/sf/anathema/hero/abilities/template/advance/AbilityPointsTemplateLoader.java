@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.abilities.template;
+package net.sf.anathema.hero.abilities.template.advance;
 
 import net.sf.anathema.hero.template.ConfigurableTemplateLoader;
 import net.sf.anathema.hero.template.TemplateFactory;

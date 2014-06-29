@@ -1,20 +1,18 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.abilities.template.AbilityPointsTemplate;
-import net.sf.anathema.hero.template.creation.BonusPointCosts;
+import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
 import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
+import net.sf.anathema.hero.template.points.FixedValueRatingCosts;
 import net.sf.anathema.hero.traits.advance.TraitListCreationData;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 public class AbilityCreationData implements TraitListCreationData {
 
   private AbilityPointsTemplate template;
-  private BonusPointCosts costs;
 
 
-  public AbilityCreationData(AbilityPointsTemplate template, BonusPointCosts costs) {
+  public AbilityCreationData(AbilityPointsTemplate template) {
     this.template = template;
-    this.costs = costs;
   }
 
   @Override
@@ -23,7 +21,10 @@ public class AbilityCreationData implements TraitListCreationData {
   }
 
   public CurrentRatingCosts getAbilityCosts(boolean casteOrFavored) {
-    return costs.getAbilityCosts(casteOrFavored);
+    if (casteOrFavored) {
+      return new FixedValueRatingCosts(template.bonusPointCosts.favoredCost);
+    }
+    return new FixedValueRatingCosts(template.bonusPointCosts.defaultCost);
   }
 
   public int getMaximumFreeAbilityRank() {

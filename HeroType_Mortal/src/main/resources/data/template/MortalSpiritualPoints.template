@@ -3,6 +3,7 @@
     calculationBase: 1
   };
   willpower: {
-    calculationBase: 5
+    calculationBase: 3;
+    bonusPointCost: 2
   }
 }
