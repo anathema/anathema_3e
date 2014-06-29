@@ -5,7 +5,7 @@ import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalcul
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
-import net.sf.anathema.hero.abilities.template.AbilityPointsTemplate;
+import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -80,7 +80,7 @@ public class AbilitiesPointModel implements HeroModel {
 
   private AbilityCreationData getCreationData(Hero hero) {
     BonusPointCosts costs = hero.getTemplate().getBonusPointCosts();
-    return new AbilityCreationData(template, costs);
+    return new AbilityCreationData(template);
   }
 
   @Override

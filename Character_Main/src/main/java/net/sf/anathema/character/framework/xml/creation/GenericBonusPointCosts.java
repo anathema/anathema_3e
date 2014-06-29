@@ -11,17 +11,8 @@ import java.io.Serializable;
 
 public class GenericBonusPointCosts extends ReflectionEqualsObject implements BonusPointCosts, ICloneable<GenericBonusPointCosts>, Serializable {
 
-  private int generalAbilityCost = 0;
-  private int favoredAbilityCost = 0;
   private CurrentRatingCosts essenceCost = new FixedValueRatingCosts(0);
   private int willpowerCost = 0;
-
-  private CurrentRatingCosts getFavorableFixedRatingCost(boolean favored, int favoredCost, int generalCost) {
-    if (favored) {
-      return new FixedValueRatingCosts(favoredCost);
-    }
-    return new FixedValueRatingCosts(generalCost);
-  }
 
   @Override
   public int getWillpowerCosts() {
@@ -33,22 +24,12 @@ public class GenericBonusPointCosts extends ReflectionEqualsObject implements Bo
     return essenceCost;
   }
 
-  @Override
-  public CurrentRatingCosts getAbilityCosts(boolean favored) {
-    return getFavorableFixedRatingCost(favored, favoredAbilityCost, generalAbilityCost);
-  }
-
   public void setWillpowerCosts(int willpowerCost) {
     this.willpowerCost = willpowerCost;
   }
 
   public void setEssenceCosts(CurrentRatingCosts costs) {
     this.essenceCost = costs;
-  }
-
-  public void setAbilityCosts(int generalCost, int favoredCost) {
-    this.generalAbilityCost = generalCost;
-    this.favoredAbilityCost = favoredCost;
   }
 
   @Override
