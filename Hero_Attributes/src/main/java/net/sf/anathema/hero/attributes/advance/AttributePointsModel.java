@@ -1,14 +1,10 @@
 package net.sf.anathema.hero.attributes.advance;
 
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.attributes.advance.creation.*;
 import net.sf.anathema.hero.template.creation.BonusPointCosts;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
-import net.sf.anathema.hero.attributes.advance.creation.AttributeBonusModel;
-import net.sf.anathema.hero.attributes.advance.creation.AttributeBonusPointCalculator;
-import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationData;
-import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationDataImpl;
 import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceCalculator;
 import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
@@ -50,32 +46,30 @@ public class AttributePointsModel implements HeroModel {
   }
 
   private void initializeBonusPoints(Hero hero) {
-    AttributeBonusPointCalculator calculator = createAttributesBonusCalculator(hero);
+    AttributeGroupCostsImpl calculator = createCalculator(hero);
     initBonusCalculation(hero, calculator);
     initBonusOverview(hero, calculator);
   }
 
-  private void initBonusCalculation(Hero hero, AttributeBonusPointCalculator calculator) {
+  private void initBonusCalculation(Hero hero, AttributeGroupCostsImpl calculator) {
     PointModelFetcher.fetch(hero).addBonusPointCalculator(calculator);
   }
 
-  private void initBonusOverview(Hero hero, AttributeBonusPointCalculator calculator) {
+  private void initBonusOverview(Hero hero, AttributeGroupCosts calculator) {
     PointModelFetcher.fetch(hero).addBonusCategory(new WeightedCategory(100, "Attributes"));
-    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Primary, hero.getTemplate()));
-    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Secondary, hero.getTemplate()));
-    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Tertiary, hero.getTemplate()));
+    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Primary));
+    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Secondary));
+    PointModelFetcher.fetch(hero).addToBonusOverview(createOverviewModel(calculator, AttributeGroupPriority.Tertiary));
   }
 
-  private AttributeBonusPointCalculator createAttributesBonusCalculator(Hero hero) {
+  public SpendingModel createOverviewModel(AttributeGroupCosts calculator, AttributeGroupPriority priority) {
+    return new AttributeBonusModel(calculator, priority);
+  }
+
+  private AttributeGroupCostsImpl createCalculator(Hero hero) {
     IAttributeCreationPoints creationPoints = hero.getTemplate().getCreationPoints().getAttributeCreationPoints();
     AttributeModel attributes = AttributesModelFetcher.fetch(hero);
-    BonusPointCosts costs = hero.getTemplate().getBonusPointCosts();
-    AttributeCreationData creationData = new AttributeCreationDataImpl(creationPoints, costs, template);
-    return new AttributeBonusPointCalculator(attributes, creationData);
-  }
-
-  public SpendingModel createOverviewModel(AttributeBonusPointCalculator calculator, AttributeGroupPriority priority, HeroTemplate template) {
-    return new AttributeBonusModel(calculator, priority, template.getCreationPoints());
+    return new AttributeGroupCostsImpl(attributes, creationPoints, new AttributeBonusPointTemplate());
   }
 
   private void initializeExperience(Hero hero) {

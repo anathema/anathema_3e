@@ -5,29 +5,28 @@ import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
 
 public class AttributeBonusModel extends AbstractSpendingModel {
-  private final AttributeBonusPointCalculator attributeCalculator;
   private final AttributeGroupPriority priority;
-  private final ICreationPoints creationPoints;
+  private AttributeGroupCosts groupCosts;
 
-  public AttributeBonusModel(AttributeBonusPointCalculator attributeCalculator, AttributeGroupPriority priority, ICreationPoints creationPoints) {
+  public AttributeBonusModel(AttributeGroupCosts groupCosts, AttributeGroupPriority priority) {
     super("Attributes", priority.getId());
-    this.attributeCalculator = attributeCalculator;
+    this.groupCosts = groupCosts;
     this.priority = priority;
-    this.creationPoints = creationPoints;
   }
 
   @Override
   public int getSpentBonusPoints() {
-    return attributeCalculator.getAttributePoints(priority).getBonusPointsSpent();
+    return groupCosts.getBonusPointsSpent(priority);
   }
 
   @Override
   public Integer getValue() {
-    return attributeCalculator.getAttributePoints(priority).getDotsSpent();
+    return groupCosts.getFreebiesSpent(priority);
   }
 
   @Override
   public int getAllotment() {
-    return creationPoints.getAttributeCreationPoints().getCount(priority == null ? AttributeGroupPriority.Primary : priority);
+    return groupCosts.getFreebieCount(priority);
+    //return creationPoints.getAttributeCreationPoints().getCount(priority == null ? AttributeGroupPriority.Primary : priority);
   }
 }
