@@ -1,18 +1,13 @@
 package net.sf.anathema.character.framework.xml.experience;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
 import net.sf.anathema.character.framework.xml.registry.IXmlTemplateRegistry;
 import net.sf.anathema.character.framework.xml.util.CostParser;
+import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
 public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericExperiencePointCosts> {
-
-  private static final String ATTRIB_KEYWORD = "keyword";
-  private static final String ATTRIB_FAVORED = "favored";
-  private static final String ATTRIB_GENERAL = "general";
-  private static final String ATTRIB_COST = "cost";
 
   private static final String TAG_GENERAL_COSTS = "generalCosts";
   private static final String TAG_FAVORED_COSTS = "favoredCosts";
@@ -21,7 +16,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
   private static final String TAG_SPECIALTIES = "specialties";
   private static final String TAG_ADVANTAGES = "advantages";
   private static final String TAG_WILLPOWER = "willpower";
-  private static final String TAG_VIRTUE = "virtues";
   private static final String TAG_ESSENCE = "essence";
   private final CostParser costParser = new CostParser();
 
@@ -49,7 +43,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
       return;
     }
     setWillpowerCosts(costs, advantages);
-    setVirtueCosts(costs, advantages);
     setEssenceCosts(costs, advantages);
   }
 
@@ -60,15 +53,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
     }
     CurrentRatingCosts ratingCosts = getCurrentRatingCosts(element);
     costs.setEssenceCosts(ratingCosts);
-  }
-
-  private void setVirtueCosts(GenericExperiencePointCosts costs, Element advantages) throws PersistenceException {
-    Element element = advantages.element(TAG_VIRTUE);
-    if (element == null) {
-      return;
-    }
-    CurrentRatingCosts ratingCosts = getCurrentRatingCosts(element);
-    costs.setVirtueCosts(ratingCosts);
   }
 
   private void setWillpowerCosts(GenericExperiencePointCosts costs, Element advantages) throws PersistenceException {

@@ -12,7 +12,6 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
   private CurrentRatingCosts generalAbilityCost = new FixedValueRatingCosts(0);
   private CurrentRatingCosts favoredAbilityCost = new FixedValueRatingCosts(0);
   private int specialtyCost = 0;
-  private CurrentRatingCosts virtueCosts = new FixedValueRatingCosts(0);
   private CurrentRatingCosts willpowerCosts = new FixedValueRatingCosts(0);
   private CurrentRatingCosts essenceCosts = new FixedValueRatingCosts(0);
 
@@ -34,11 +33,6 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
   @Override
   public int getSpecialtyCosts(boolean favored) {
     return specialtyCost;
-  }
-
-  @Override
-  public CurrentRatingCosts getVirtueCosts() {
-    return virtueCosts;
   }
 
   @Override
@@ -68,10 +62,6 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
 
   public void setWillpowerCosts(CurrentRatingCosts willpowerCosts) {
     this.willpowerCosts = willpowerCosts;
-  }
-
-  public void setVirtueCosts(CurrentRatingCosts virtueCosts) {
-    this.virtueCosts = virtueCosts;
   }
 
   public void setEssenceCosts(CurrentRatingCosts essenceCosts) {

@@ -17,10 +17,6 @@ public class SpiritualExperienceCalculator {
     return getTraitRatingCosts(essence, costs.getEssenceCosts());
   }
 
-  public int getVirtueCosts(Trait virtue) {
-    return getTraitRatingCosts(virtue, costs.getVirtueCosts());
-  }
-
   public int getWillpowerCosts(Trait willpower) {
     return getTraitRatingCosts(willpower, costs.getWillpowerCosts());
   }

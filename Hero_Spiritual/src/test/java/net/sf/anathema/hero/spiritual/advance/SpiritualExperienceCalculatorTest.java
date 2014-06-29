@@ -24,12 +24,6 @@ public class SpiritualExperienceCalculatorTest {
   }
 
   @Test
-  public void testVirtueCosts() throws Exception {
-    when(experienceCosts.getVirtueCosts()).thenReturn(new MultiplyRatingCosts(5));
-    assertEquals(15, calculator.getVirtueCosts(DummyTrait.createLearnTrait(VirtueType.Compassion, 3, 4)));
-  }
-
-  @Test
   public void testWillpowerCosts() throws Exception {
     when(experienceCosts.getWillpowerCosts()).thenReturn(new MultiplyRatingCosts(1));
     assertEquals(3, calculator.getWillpowerCosts(DummyTrait.createLearnTrait(OtherTraitType.Willpower, 3, 4)));

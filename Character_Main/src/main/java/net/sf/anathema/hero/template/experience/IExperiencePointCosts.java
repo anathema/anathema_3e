@@ -10,7 +10,5 @@ public interface IExperiencePointCosts {
 
   int getSpecialtyCosts(boolean favored);
 
-  CurrentRatingCosts getVirtueCosts();
-
   CurrentRatingCosts getWillpowerCosts();
 }

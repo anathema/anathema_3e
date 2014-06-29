@@ -19,7 +19,7 @@ public class ExperienceTemplateParserTest {
                "    <currentRating multiplier=\"2\" initialCosts=\"3\"/>" + "  </generalCosts>" + "  <favoredCosts>" +
                "    <currentRating multiplier=\"2\" summand=\"-1\" initialCosts=\"3\"/>" + "  </favoredCosts>" + "  <specialties>" +
                "    <fixedCost cost=\"3\" />" + "  </specialties>" + "</abilities>" + "<advantages>" + "<willpower>" +
-               "<currentRating multiplier=\"2\" />" + "</willpower>" + "<virtues>" + "<currentRating multiplier=\"3\" />" + "</virtues>" +
+               "<currentRating multiplier=\"2\" />" + "</willpower>" +
                "<essence>" + "<currentRating multiplier=\"8\" />" + "</essence>" + "</advantages>" + "<magic>" +
                " <charms favored=\"8\" general=\"10\">" + "<highLevelMartialArts favored=\"13\" general=\"15\"/>" + "</charms>" + "</magic>" +
                "</dummyExperienceTemplate>";
@@ -69,13 +69,6 @@ public class ExperienceTemplateParserTest {
     Element element = createElement();
     GenericExperiencePointCosts costs = parser.parseTemplate(element);
     assertEquals(new MultiplyRatingCosts(2), costs.getWillpowerCosts());
-  }
-
-  @Test
-  public void testVirtueCosts() throws Exception {
-    Element element = createElement();
-    GenericExperiencePointCosts costs = parser.parseTemplate(element);
-    assertEquals(new MultiplyRatingCosts(3), costs.getVirtueCosts());
   }
 
   @Test
