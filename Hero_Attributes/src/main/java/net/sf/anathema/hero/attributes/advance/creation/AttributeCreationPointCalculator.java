@@ -5,16 +5,12 @@ import net.sf.anathema.hero.attributes.template.AttributeGroupPointsTemplate;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
-import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Primary;
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Secondary;
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Tertiary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
 
@@ -30,7 +26,7 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
   @Override
   public int getBonusPointsSpent(AttributeGroupPriority priority) {
     int dotsBought = Math.max(0, getIncrementCount(priority) - getFreebieCount(priority));
-    int bonusPointsPerDot = getBonusPointsCostPerDot(priority);
+    int bonusPointsPerDot = getBonusPointCostPerDot(priority);
     return dotsBought * bonusPointsPerDot;
   }
 
