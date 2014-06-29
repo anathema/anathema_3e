@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.attributes.template;
 
-import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.template.ConfigurableTemplateLoader;
 import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.hero.template.TemplateLoader;

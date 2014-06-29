@@ -9,9 +9,10 @@ import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.function.Predicate;
+import java.util.jar.Attributes;
+import java.util.stream.Collectors;
 
 import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
@@ -51,11 +52,27 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
   @Override
   public void recalculate() {
     incrementCount.clear();
-    TraitGroup[] attributeGroups = attributes.getTraitGroups();
-    Arrays.sort(attributeGroups, new CreationPointSumComparator());
-    incrementCount.put(Tertiary, getIncrementCount(attributeGroups[0]));
-    incrementCount.put(Secondary, getIncrementCount(attributeGroups[1]));
-    incrementCount.put(Primary, getIncrementCount(attributeGroups[2]));
+    List<TraitGroup> attributeGroups = new ArrayList<>(Arrays.asList(attributes.getTraitGroups()));
+
+    TraitGroup primaryGroup = findOptimalCandidate(attributeGroups, getFreebieCount(Primary));
+    incrementCount.put(Primary, getIncrementCount(primaryGroup));
+    attributeGroups.remove(primaryGroup);
+
+    TraitGroup secondaryGroup = findOptimalCandidate(attributeGroups, getFreebieCount(Secondary));
+    incrementCount.put(Secondary, getIncrementCount(secondaryGroup));
+    attributeGroups.remove(secondaryGroup);
+
+    incrementCount.put(Tertiary, getIncrementCount(attributeGroups.get(0)));
+  }
+
+  private TraitGroup findOptimalCandidate(List<TraitGroup> attributeGroups, int freebieCount) {
+    attributeGroups.sort(new CreationPointSumComparator());
+    List<TraitGroup> highValueGroups = attributeGroups.stream().filter(traitGroup -> getIncrementCount(traitGroup) >= freebieCount).collect(Collectors.toList());
+    if (highValueGroups.isEmpty()) {
+      return attributeGroups.get(attributeGroups.size() - 1);
+    }
+    highValueGroups.sort(new CreationPointSumComparator());
+    return highValueGroups.get(0);
   }
 
   private Integer getIncrementCount(TraitGroup group) {
