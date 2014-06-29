@@ -5,6 +5,7 @@ import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationData;
 import net.sf.anathema.hero.attributes.advance.creation.AttributeCreationPointCalculator;
 import net.sf.anathema.hero.attributes.advance.creation.AttributeGroupPoints;
 import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceCalculator;
+import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceData;
 import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
@@ -80,8 +81,8 @@ public class AttributePointsModel implements HeroModel {
   private void initializeExperience(Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     AttributeModel model = AttributesModelFetcher.fetch(hero);
-    IExperiencePointCosts experienceCost = hero.getTemplate().getExperienceCost();
-    AttributesExperienceCalculator calculator = new AttributesExperienceCalculator(experienceCost);
+    AttributesExperienceData experienceData = new AttributesExperienceData(template);
+    AttributesExperienceCalculator calculator = new AttributesExperienceCalculator(experienceData);
     pointsModel.addToExperienceOverview(new AttributesExperienceModel(model, calculator));
   }
 }

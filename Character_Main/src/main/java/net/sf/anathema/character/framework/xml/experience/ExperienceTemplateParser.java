@@ -11,7 +11,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
 
   private static final String TAG_GENERAL_COSTS = "generalCosts";
   private static final String TAG_FAVORED_COSTS = "favoredCosts";
-  private static final String TAG_ATTRIBUTES = "attributes";
   private static final String TAG_ABILITIES = "abilities";
   private static final String TAG_SPECIALTIES = "specialties";
   private final CostParser costParser = new CostParser();
@@ -28,7 +27,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
   @Override
   public GenericExperiencePointCosts parseTemplate(Element element) throws PersistenceException {
     GenericExperiencePointCosts costs = getBasicTemplate(element);
-    setAttributeCosts(element, costs);
     setAbilityCosts(element, costs);
     return costs;
   }
@@ -44,15 +42,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
   private void setSpecialtyCosts(Element abilities, GenericExperiencePointCosts costs) throws PersistenceException {
     int specialtyCost = costParser.getFixedCostFromRequiredElement(abilities, TAG_SPECIALTIES);
     costs.setSpecialtyCosts(specialtyCost);
-  }
-
-  private void setAttributeCosts(Element element, GenericExperiencePointCosts costs) throws PersistenceException {
-    Element attributes = element.element(TAG_ATTRIBUTES);
-    if (attributes == null) {
-      return;
-    }
-    costs.setGeneralAttributeCosts(getGeneralCost(attributes));
-    costs.setFavoredAttributeCosts(getFavoredCost(attributes));
   }
 
   protected final CurrentRatingCost getFavoredCost(Element attributes) throws PersistenceException {

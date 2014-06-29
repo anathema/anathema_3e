@@ -7,6 +7,9 @@
     secondary: 4;
     tertiary: 3
   };
+  experiencePoints: {
+    factor: 4
+  };
   freebies: {
     primary: 6;
     secondary: 4;

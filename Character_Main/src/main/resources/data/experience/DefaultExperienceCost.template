@@ -1,20 +1,7 @@
 <experiencePointCost>
-  <attributes>
-    <generalCosts>
-      <currentRating multiplier="4" />
-    </generalCosts>
-    <favoredCosts>
-      <currentRating multiplier="4" />
-    </favoredCosts>
-  </attributes>
   <abilities>
     <specialties>
       <fixedCost cost="3" />
     </specialties>
   </abilities>
-  <magic>
-    <charms favored="8" general="10">
-    	<highLevelMartialArts favored="12" general="15"/>
-    </charms>
-  </magic>
 </experiencePointCost>

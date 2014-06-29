@@ -7,14 +7,14 @@ import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 
 public class AttributesExperienceCalculator {
 
-  private final IExperiencePointCosts costs;
+  private AttributesExperienceData experienceData;
 
-  public AttributesExperienceCalculator(IExperiencePointCosts costs) {
-    this.costs = costs;
+  public AttributesExperienceCalculator(AttributesExperienceData experienceData) {
+    this.experienceData = experienceData;
   }
 
   public int getAttributeCosts(Trait trait, boolean favored) {
-    return getTraitRatingCosts(trait, costs.getAttributeCosts(favored));
+    return getTraitRatingCosts(trait, experienceData.getAttributeCosts(favored));
   }
 
   private int getTraitRatingCosts(Trait trait, CurrentRatingCost ratingCosts) {
