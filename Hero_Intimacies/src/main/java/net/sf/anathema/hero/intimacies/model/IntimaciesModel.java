@@ -19,8 +19,6 @@ public interface IntimaciesModel extends RemovableEntryModel<Intimacy>, HeroMode
 
   int getCompletionValue();
 
-  int getIntimaciesLimit();
-
   void addModelChangeListener(ChangeListener listener);
 
   boolean isCharacterExperienced();

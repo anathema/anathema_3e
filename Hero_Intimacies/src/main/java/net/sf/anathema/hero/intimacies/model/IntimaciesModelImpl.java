@@ -101,11 +101,6 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
     return TraitModelFetcher.fetch(hero).getTrait(traitType);
   }
 
-  @Override
-  public int getIntimaciesLimit() {
-    return 0;
-  }
-
   private Integer getInitialValue() {
     if (isCharacterExperienced()) {
       return 0;
