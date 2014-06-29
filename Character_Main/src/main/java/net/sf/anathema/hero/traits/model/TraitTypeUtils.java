@@ -3,7 +3,6 @@ package net.sf.anathema.hero.traits.model;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 
 import java.util.ArrayList;
 
@@ -16,7 +15,6 @@ public class TraitTypeUtils {
   public TraitTypeUtils() {
     addAll(allPrerequisiteTypeList, AbilityType.values());
     addAll(allPrerequisiteTypeList, AttributeType.values());
-    addAll(allPrerequisiteTypeList, VirtueType.values());
     addAll(allPrerequisiteTypeList, OtherTraitType.values());
   }
 

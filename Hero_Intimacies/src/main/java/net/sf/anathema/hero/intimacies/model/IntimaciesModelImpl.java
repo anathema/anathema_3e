@@ -10,12 +10,9 @@ import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import org.jmock.example.announcer.Announcer;
@@ -40,20 +37,6 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
   public void initializeListening(final ChangeAnnouncer announcer) {
     addModelChangeListener(new UnspecifiedChangeListener(announcer));
     addModelChangeListener(new RemovableEntryChangeAdapter<>(announcer));
-    announcer.addListener(flavor -> {
-      if (TraitChangeFlavor.changes(flavor, VirtueType.Conviction)) {
-        for (Intimacy entry : getEntries()) {
-          entry.resetCurrentValue();
-        }
-        fireModelChangedEvent();
-      }
-    });
-    announcer.addListener(flavor -> {
-      if (TraitChangeFlavor.changes(flavor, VirtueType.Compassion, OtherTraitType.Willpower)) {
-        fireModelChangedEvent();
-        fireEntryChanged();
-      }
-    });
   }
 
   @Override
@@ -69,7 +52,7 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
 
   @Override
   protected Intimacy createEntry() {
-    IntimacyImpl intimacy = new IntimacyImpl(hero, name, getInitialValue(), getConviction());
+    IntimacyImpl intimacy = new IntimacyImpl(hero, name, getInitialValue());
     intimacy.setComplete(!isCharacterExperienced());
     intimacy.addChangeListener(this::fireModelChangedEvent);
     return intimacy;
@@ -84,19 +67,12 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
     return 5;
   }
 
-  private ValuedTraitType getConviction() {
-    return getTrait(VirtueType.Conviction);
-  }
-
   private Trait getTrait(TraitType traitType) {
     return TraitModelFetcher.fetch(hero).getTrait(traitType);
   }
 
   private Integer getInitialValue() {
-    if (isCharacterExperienced()) {
-      return 0;
-    }
-    return getConviction().getCurrentValue();
+    return 3;
   }
 
   @Override

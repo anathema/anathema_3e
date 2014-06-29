@@ -20,7 +20,6 @@ public class BasicSpiritualTraitsPresenter {
     this.resources = resources;
     this.view = view;
     TraitMap traitMap = TraitModelFetcher.fetch(hero);
-    subPresenters.add(new VirtueConfigurationPresenter(resources, traitMap, view));
     subPresenters.add(new WillpowerConfigurationPresenter(resources, traitMap.getTrait(OtherTraitType.Willpower), view));
     subPresenters.add(new EssenceConfigurationPresenter(resources, EssencePoolModelFetcher.fetch(hero), traitMap, view));
   }

@@ -14,23 +14,14 @@ import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
 
 public class FxSpiritualTraitsView implements SpiritualTraitsView, NodeHolder {
 
-  private final MigPane virtuePanel = new MigPane(fillWithoutInsets().wrapAfter(2));
   private final MigPane willpowerPanel = new MigPane(fillWithoutInsets().wrapAfter(2));
   private final FxEssenceView essenceView = new FxEssenceView();
-  private final MigPane content = new MigPane(withoutInsets().wrapAfter(2));
+  private final MigPane content = new MigPane(withoutInsets().wrapAfter(1));
 
   @Override
   public void initGui(SpiritualTraitsViewProperties properties) {
-    addTitledPanel(properties.getVirtueTitle(), content, virtuePanel, new CC().spanY().growY().alignY("top"));
     addTitledPanel(properties.getWillpowerTitle(), content, willpowerPanel, new CC().alignY("top").growX());
     addTitledPanel(properties.getEssenceTitle(), content, essenceView.getNode(), new CC().alignY("top"));
-  }
-
-  @Override
-  public IntValueView addVirtue(String labelText, int maxValue) {
-    FxTraitView willpowerView = FxTraitView.WithDefaultLayout(labelText, maxValue);
-    willpowerView.addTo(virtuePanel);
-    return willpowerView;
   }
 
   @Override

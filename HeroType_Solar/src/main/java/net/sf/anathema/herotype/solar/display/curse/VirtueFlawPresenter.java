@@ -17,9 +17,9 @@ public class VirtueFlawPresenter implements Presenter {
   private final ConfigurableCharacterView view;
   private final LimitBreakModel model;
 
-  public VirtueFlawPresenter(Resources resources, ConfigurableCharacterView virtueFlawView, LimitBreakModel model) {
+  public VirtueFlawPresenter(Resources resources, ConfigurableCharacterView view, LimitBreakModel model) {
     this.resources = resources;
-    this.view = virtueFlawView;
+    this.view = view;
     this.model = model;
   }
 

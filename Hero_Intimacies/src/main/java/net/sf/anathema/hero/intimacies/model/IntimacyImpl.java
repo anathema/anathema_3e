@@ -5,7 +5,6 @@ import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.ValueChangeChecker;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.trait.ModificationType;
 import net.sf.anathema.hero.traits.model.trait.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
@@ -20,16 +19,14 @@ public class IntimacyImpl implements Intimacy {
 
   private final String name;
   private final Trait trait;
-  private final ValuedTraitType maxValueTrait;
   private boolean complete;
   private final Announcer<IBooleanValueChangedListener> control = Announcer.to(IBooleanValueChangedListener.class);
 
-  public IntimacyImpl(Hero hero, String name, Integer initialValue, final ValuedTraitType maxValueTrait) {
+  public IntimacyImpl(Hero hero, String name, Integer initialValue) {
     this.name = name;
-    this.maxValueTrait = maxValueTrait;
     TraitTemplate template = createIntimacyTemplate(0, initialValue, ModificationType.Free);
     TraitRules traitRules = new TraitRulesImpl(new IntimacyType(name), template, hero);
-    ValueChangeChecker incrementChecker = new IntimacyValueChangeChecker(maxValueTrait);
+    ValueChangeChecker incrementChecker = new IntimacyValueChangeChecker();
     this.trait = new DefaultTrait(hero, traitRules, incrementChecker);
   }
 
@@ -57,7 +54,7 @@ public class IntimacyImpl implements Intimacy {
 
   @Override
   public void resetCurrentValue() {
-    int maximumValue = maxValueTrait.getCurrentValue();
+    int maximumValue = 3;
     if (complete || trait.getCurrentValue() > maximumValue) {
       trait.setCurrentValue(maximumValue);
     }
@@ -87,15 +84,10 @@ public class IntimacyImpl implements Intimacy {
   }
 
   private class IntimacyValueChangeChecker implements ValueChangeChecker {
-    private final ValuedTraitType maxValueTrait;
-
-    public IntimacyValueChangeChecker(ValuedTraitType maxValueTrait) {
-      this.maxValueTrait = maxValueTrait;
-    }
 
     @Override
     public boolean isValidNewValue(int value) {
-      int currentMaximum = maxValueTrait.getCurrentValue();
+      int currentMaximum = 3;
       boolean atMaximumValue = value == currentMaximum;
       boolean incompleteAndBelowMaximum = !complete && value < currentMaximum;
       return atMaximumValue || incompleteAndBelowMaximum;

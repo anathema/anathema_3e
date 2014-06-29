@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -11,11 +7,14 @@ import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.template.SpiritualTraitsTemplate;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
+import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.model.trait.template.TraitLimitationFactory;
 import net.sf.anathema.hero.traits.model.trait.template.TraitTemplateMap;
-import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.Identifier;
 
 public class SpiritualTraitModelImpl extends DefaultTraitMap implements SpiritualTraitModel, HeroModel {
@@ -34,9 +33,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     addEssence(hero);
-    addVirtues(hero);
     addWillpower(hero);
-    connectWillpowerAndVirtues();
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     getTrait(OtherTraitType.Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
     traitModel.addTraits(getAll());
@@ -49,22 +46,9 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
     }
   }
 
-  private void connectWillpowerAndVirtues() {
-    Trait willpower = getTrait(OtherTraitType.Willpower);
-    Trait[] virtues = getTraits(VirtueType.values());
-    if (template.willpower.isVirtueBased) {
-      new WillpowerListening().initListening(willpower, virtues);
-    }
-  }
-
   private void addEssence(Hero hero) {
     SpiritualTraitFactory traitFactory = createTraitFactory(hero);
     addTraits(traitFactory.createTrait(OtherTraitType.Essence));
-  }
-
-  private void addVirtues(Hero hero) {
-    SpiritualTraitFactory traitFactory = createTraitFactory(hero);
-    addTraits(traitFactory.createTraits(VirtueType.values()));
   }
 
   private void addWillpower(Hero hero) {

@@ -7,8 +7,6 @@ public interface SpiritualTraitsView {
 
   void initGui(SpiritualTraitsViewProperties properties);
 
-  IntValueView addVirtue(String labelText, int maxValue);
-
   IntValueView addWillpower(String labelText, int maxValue);
 
   IntValueView addEssenceView(String labelText, int maxValue);

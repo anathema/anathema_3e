@@ -1,15 +1,14 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
-import net.sf.anathema.hero.traits.model.limitation.StaticTraitLimitation;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.hero.dummy.trait.DummyTrait;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
+import net.sf.anathema.hero.traits.model.limitation.StaticTraitLimitation;
+import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.Identifier;
 
 public class DummySpiritualTraitModel extends DefaultTraitMap implements SpiritualTraitModel {
@@ -17,10 +16,6 @@ public class DummySpiritualTraitModel extends DefaultTraitMap implements Spiritu
   public DummySpiritualTraitModel() {
     addTraits(new DummyTrait(OtherTraitType.Essence, 2));
     addTraits(new DummyTrait(OtherTraitType.Willpower, 5));
-    addTraits(new DummyTrait(VirtueType.Compassion, 1));
-    addTraits(new DummyTrait(VirtueType.Conviction, 1));
-    addTraits(new DummyTrait(VirtueType.Temperance, 1));
-    addTraits(new DummyTrait(VirtueType.Valor, 1));
   }
 
   @Override

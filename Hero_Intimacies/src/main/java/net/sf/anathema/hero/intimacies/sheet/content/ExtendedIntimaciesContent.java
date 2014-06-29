@@ -6,8 +6,6 @@ import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
-import net.sf.anathema.hero.spiritual.SpiritualTraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.hero.traits.sheet.content.NamedValue;
 
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class ExtendedIntimaciesContent extends AbstractSubBoxContent {
   }
 
   public int getTraitMaxValue() {
-    return SpiritualTraitModelFetcher.fetch(hero).getTrait(VirtueType.Conviction).getCurrentValue();
+    return 3;
   }
 
   public List<NamedValue> getPrintIntimacies() {

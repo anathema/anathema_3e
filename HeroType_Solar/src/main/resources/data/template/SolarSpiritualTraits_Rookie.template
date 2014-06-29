@@ -1,6 +1,5 @@
 {
   willpower: {
-    isVirtueBased: false;
     startValue: 5;
     minimumValue = 5;
     modificationType: "RaiseOnly";

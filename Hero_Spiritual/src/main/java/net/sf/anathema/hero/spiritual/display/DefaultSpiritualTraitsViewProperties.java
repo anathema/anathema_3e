@@ -10,11 +10,6 @@ public class DefaultSpiritualTraitsViewProperties implements SpiritualTraitsView
   }
 
   @Override
-  public String getVirtueTitle() {
-    return resources.getString("AdvantagesView.Virtues.Title");
-  }
-
-  @Override
   public String getWillpowerTitle() {
     return resources.getString("AdvantagesView.Willpower.Title");
   }
@@ -25,6 +20,6 @@ public class DefaultSpiritualTraitsViewProperties implements SpiritualTraitsView
   }
 
   public String getOverallHeader() {
-    return getVirtueTitle() + ", " + getWillpowerTitle() + " & " + getEssenceTitle();
+    return getWillpowerTitle() + " & " + getEssenceTitle();
   }
 }
