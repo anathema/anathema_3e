@@ -24,10 +24,6 @@
     </models>
     <creation>
         <bonusPointCosts uses="SolaroidDefaultBonusPointCost2nd.template"/>
-        <creationData>
-            <bonusPoints count="18"/>
-            <charmPicks favored="0" general="10"/>
-        </creationData>
     </creation>
     <experience>
         <experiencePointCost uses="template/SolarExperienceCost2nd.template"/>
