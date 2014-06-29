@@ -22,9 +22,4 @@ public class DescriptiveVirtueFlawImpl extends VirtueFlawImpl implements Descrip
   public ITextualDescription getLimitBreak() {
     return limitBreak;
   }
-
-  @Override
-  public boolean isFlawComplete() {
-    return super.isFlawComplete() && !(limitBreak.isEmpty() || description.isEmpty());
-  }
 }

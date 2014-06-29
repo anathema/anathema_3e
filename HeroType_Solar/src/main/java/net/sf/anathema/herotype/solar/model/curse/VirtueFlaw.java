@@ -12,8 +12,6 @@ public interface VirtueFlaw {
 
   ITextualDescription getName();
 
-  boolean isFlawComplete();
-
   Trait getLimitTrait();
 
   void addRootChangeListener(ChangeListener listener);

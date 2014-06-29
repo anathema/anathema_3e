@@ -60,9 +60,4 @@ public class VirtueFlawImpl implements VirtueFlaw {
   public ITextualDescription getName() {
     return name;
   }
-
-  @Override
-  public boolean isFlawComplete() {
-    return !(root == null || name.isEmpty());
-  }
 }
