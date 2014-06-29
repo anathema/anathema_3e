@@ -13,7 +13,6 @@ public abstract class AbstractLimitBreakModel implements LimitBreakModel {
 
   public void addChangeListener(ChangeListener listener) {
     GlobalChangeAdapter<String> adapter = new GlobalChangeAdapter<>(listener);
-    getLimitBreak().addRootChangeListener(listener);
     getLimitBreak().getName().addTextChangedListener(adapter);
     getLimitBreak().getLimitTrait().addCurrentValueListener(adapter);
   }

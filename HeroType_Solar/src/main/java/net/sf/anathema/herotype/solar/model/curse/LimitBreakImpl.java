@@ -52,11 +52,6 @@ public class LimitBreakImpl implements LimitBreak {
   }
 
   @Override
-  public void addRootChangeListener(ChangeListener listener) {
-    control.addListener(listener);
-  }
-
-  @Override
   public ITextualDescription getName() {
     return name;
   }
