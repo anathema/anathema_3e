@@ -3,7 +3,6 @@ package net.sf.anathema.character.framework.xml.creation;
 import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
 import net.sf.anathema.character.framework.xml.registry.IXmlTemplateRegistry;
 import net.sf.anathema.character.framework.xml.util.CostParser;
-import net.sf.anathema.hero.template.experience.CurrentRatingCosts;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
@@ -37,16 +36,6 @@ public class BonusPointCostTemplateParser extends AbstractXmlTemplateParser<Gene
       return;
     }
     setWillpowerCosts(advantageElement, costs);
-    setEssenceCosts(advantageElement, costs);
-  }
-
-  private void setEssenceCosts(Element element, GenericBonusPointCosts costs) throws PersistenceException {
-    Element essenceElement = element.element(TAG_ESSENCE);
-    if (essenceElement == null) {
-      return;
-    }
-    CurrentRatingCosts essenceCost = costParser.getCosts(essenceElement);
-    costs.setEssenceCosts(essenceCost);
   }
 
   private void setWillpowerCosts(Element element, GenericBonusPointCosts costs) throws PersistenceException {
