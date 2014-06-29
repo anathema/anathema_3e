@@ -15,11 +15,7 @@ public interface IntimaciesModel extends RemovableEntryModel<Intimacy>, HeroMode
 
   void addChangeListener(FlavoredChangeListener listener);
 
-  int getFreeIntimacies();
-
   int getCompletionValue();
-
-  int getIntimaciesLimit();
 
   void addModelChangeListener(ChangeListener listener);
 

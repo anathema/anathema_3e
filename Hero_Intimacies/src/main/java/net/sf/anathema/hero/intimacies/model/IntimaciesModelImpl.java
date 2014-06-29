@@ -57,15 +57,6 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
   }
 
   @Override
-  public int getFreeIntimacies() {
-    return getCompassionValue() + getTrait(OtherTraitType.Willpower).getCurrentValue();
-  }
-
-  protected int getCompassionValue() {
-    return getTrait(VirtueType.Compassion).getCurrentValue();
-  }
-
-  @Override
   public void setCurrentName(String name) {
     this.name = name;
     fireEntryChanged();
@@ -99,11 +90,6 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
 
   private Trait getTrait(TraitType traitType) {
     return TraitModelFetcher.fetch(hero).getTrait(traitType);
-  }
-
-  @Override
-  public int getIntimaciesLimit() {
-    return 0;
   }
 
   private Integer getInitialValue() {
