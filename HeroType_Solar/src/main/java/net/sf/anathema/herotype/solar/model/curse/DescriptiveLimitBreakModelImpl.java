@@ -1,7 +1,5 @@
 package net.sf.anathema.herotype.solar.model.curse;
 
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
@@ -11,6 +9,8 @@ import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.VirtueType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.control.GlobalChangeAdapter;
 import net.sf.anathema.lib.util.Identifier;
@@ -42,9 +42,9 @@ public class DescriptiveLimitBreakModelImpl extends AbstractLimitBreakModel impl
       @Override
       public void changeOccurred(ChangeFlavor flavor) {
         if (TraitChangeFlavor.changes(flavor, VirtueType.values())) {
-          TraitType rootType = getVirtueFlaw().getRoot();
+          TraitType rootType = getLimitBreak().getRoot();
           if (rootType != null && traitModel.getTrait(rootType).getCurrentValue() < 3) {
-            getVirtueFlaw().setRoot(null);
+            getLimitBreak().setRoot(null);
           }
         }
       }
@@ -60,7 +60,7 @@ public class DescriptiveLimitBreakModelImpl extends AbstractLimitBreakModel impl
   }
 
   @Override
-  public DescriptiveLimitBreak getVirtueFlaw() {
+  public DescriptiveLimitBreak getLimitBreak() {
     return virtueFlaw;
   }
 

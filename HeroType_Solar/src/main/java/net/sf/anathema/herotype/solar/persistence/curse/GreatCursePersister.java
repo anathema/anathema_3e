@@ -17,36 +17,36 @@ public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPt
 
   @Override
   protected void loadModelFromPto(Hero hero, LimitBreakModel model, VirtueFlawPto pto) {
-    Trait limitTrait = model.getVirtueFlaw().getLimitTrait();
+    Trait limitTrait = model.getLimitBreak().getLimitTrait();
     limitTrait.setUncheckedCreationValue(pto.limit.creationValue);
     if (pto.limit.experienceValue != null) {
       limitTrait.setUncheckedExperiencedValue(pto.limit.experienceValue);
     }
     if (pto.rootVirtue != null) {
-      model.getVirtueFlaw().setRoot(VirtueType.valueOf(pto.rootVirtue));
+      model.getLimitBreak().setRoot(VirtueType.valueOf(pto.rootVirtue));
     }
-    if (model.getVirtueFlaw() instanceof DescriptiveLimitBreak) {
-      DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) model.getVirtueFlaw();
+    if (model.getLimitBreak() instanceof DescriptiveLimitBreak) {
+      DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) model.getLimitBreak();
       virtueFlaw.getLimitBreak().setText(pto.limitBreak);
       virtueFlaw.getDescription().setText(pto.description);
     }
-    model.getVirtueFlaw().getName().setText(pto.name);
+    model.getLimitBreak().getName().setText(pto.name);
   }
 
   @Override
   protected VirtueFlawPto saveModelToPto(LimitBreakModel heroModel) {
     VirtueFlawPto pto = new VirtueFlawPto();
-    pto.name = heroModel.getVirtueFlaw().getName().getText();
-    pto.limit.creationValue = heroModel.getVirtueFlaw().getLimitTrait().getCreationValue();
-    int experienceValue = heroModel.getVirtueFlaw().getLimitTrait().getExperiencedValue();
+    pto.name = heroModel.getLimitBreak().getName().getText();
+    pto.limit.creationValue = heroModel.getLimitBreak().getLimitTrait().getCreationValue();
+    int experienceValue = heroModel.getLimitBreak().getLimitTrait().getExperiencedValue();
     if (experienceValue >= 0) {
       pto.limit.experienceValue = experienceValue;
     }
-    if (heroModel.getVirtueFlaw().getRoot() != null) {
-      pto.rootVirtue = heroModel.getVirtueFlaw().getRoot().getId();
+    if (heroModel.getLimitBreak().getRoot() != null) {
+      pto.rootVirtue = heroModel.getLimitBreak().getRoot().getId();
     }
-    if (heroModel.getVirtueFlaw() instanceof DescriptiveLimitBreak) {
-      DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) heroModel.getVirtueFlaw();
+    if (heroModel.getLimitBreak() instanceof DescriptiveLimitBreak) {
+      DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) heroModel.getLimitBreak();
       pto.limitBreak = virtueFlaw.getLimitBreak().getText();
       pto.description = virtueFlaw.getDescription().getText();
     }

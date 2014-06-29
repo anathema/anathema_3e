@@ -44,6 +44,6 @@ public class VirtueFlawContent extends AbstractSubBoxContent {
   }
 
   private DescriptiveLimitBreak getVirtueFlawModel() {
-    return ((DescriptiveLimitBreakModel) GreatCurseFetcher.fetch(hero)).getVirtueFlaw();
+    return ((DescriptiveLimitBreakModel) GreatCurseFetcher.fetch(hero)).getLimitBreak();
   }
 }

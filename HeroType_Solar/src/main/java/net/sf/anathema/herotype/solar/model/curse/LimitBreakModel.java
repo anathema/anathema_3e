@@ -10,11 +10,7 @@ public interface LimitBreakModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("GreatCurse");
 
-  boolean isVirtueFlawChangable();
-
-  LimitBreak getVirtueFlaw();
+  LimitBreak getLimitBreak();
 
   TraitType[] getFlawVirtueTypes();
-
-  void addVirtueFlawChangableListener(IBooleanValueChangedListener listener);
 }

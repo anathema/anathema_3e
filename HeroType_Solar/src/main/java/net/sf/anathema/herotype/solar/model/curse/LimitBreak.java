@@ -6,6 +6,7 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 
 public interface LimitBreak {
+
   TraitType getRoot();
 
   void setRoot(TraitType root);

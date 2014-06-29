@@ -21,7 +21,7 @@ public class SolarVirtueFlawPresenter extends VirtueFlawPresenter {
 
   @Override
   protected void initAdditionalPresentation() {
-    DescriptiveLimitBreak virtueFlaw = model.getVirtueFlaw();
+    DescriptiveLimitBreak virtueFlaw = model.getLimitBreak();
     TextualPresentation presentation = new TextualPresentation();
     initConditionPresentation(virtueFlaw, presentation);
     initDescriptionPresentation(virtueFlaw, presentation);

@@ -39,7 +39,7 @@ public class VirtueFlawPresenter implements Presenter {
   public void initPresentation() {
     initBasicPresentation();
     initAdditionalPresentation();
-    initLimitPresentation(model.getVirtueFlaw());
+    initLimitPresentation(model.getLimitBreak());
   }
 
   protected void initAdditionalPresentation() {
@@ -47,7 +47,7 @@ public class VirtueFlawPresenter implements Presenter {
   }
 
   protected void initBasicPresentation() {
-    LimitBreak limitBreak = model.getVirtueFlaw();
+    LimitBreak limitBreak = model.getLimitBreak();
     initRootPresentation(limitBreak);
     initNamePresentation(limitBreak);
   }
@@ -85,7 +85,7 @@ public class VirtueFlawPresenter implements Presenter {
   }
 
   private void updateRootView(ObjectSelectionView<TraitType> rootView) {
-    TraitType root = model.getVirtueFlaw().getRoot();
+    TraitType root = model.getLimitBreak().getRoot();
     rootView.setObjects(model.getFlawVirtueTypes());
     rootView.setSelectedObject(root);
   }
