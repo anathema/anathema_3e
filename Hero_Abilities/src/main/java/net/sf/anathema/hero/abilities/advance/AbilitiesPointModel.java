@@ -14,7 +14,6 @@ import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
-import net.sf.anathema.hero.template.creation.BonusPointCosts;
 import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
@@ -54,8 +53,8 @@ public class AbilitiesPointModel implements HeroModel {
     AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
-    addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData(hero)));
-    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityBonusModel(abilityCalculator, getCreationData(hero)));
+    addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData()));
+    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityBonusModel(abilityCalculator, getCreationData()));
     addOnlyModelWithAllotment(pointsModel, new FavoredAbilityPickModel(abilityCalculator, abilities.getFavoredCount()));
   }
 
@@ -74,12 +73,11 @@ public class AbilitiesPointModel implements HeroModel {
   }
 
   private AbilityCostCalculatorImpl createCalculator(Hero hero) {
-    AbilityCreationData creationData = getCreationData(hero);
+    AbilityCreationData creationData = getCreationData();
     return new AbilityCostCalculatorImpl(AbilityModelFetcher.fetch(hero), creationData);
   }
 
-  private AbilityCreationData getCreationData(Hero hero) {
-    BonusPointCosts costs = hero.getTemplate().getBonusPointCosts();
+  private AbilityCreationData getCreationData() {
     return new AbilityCreationData(template);
   }
 

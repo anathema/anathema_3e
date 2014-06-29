@@ -1,18 +1,15 @@
 package net.sf.anathema.hero.spiritual.advance.creation;
 
 import net.sf.anathema.hero.spiritual.template.SpiritualPointsTemplate;
-import net.sf.anathema.hero.template.creation.BonusPointCosts;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 public class DefaultSpiritualCreationData implements SpiritualCreationData {
 
   private SpiritualPointsTemplate template;
-  private BonusPointCosts costs;
 
-  public DefaultSpiritualCreationData(SpiritualPointsTemplate template, BonusPointCosts costs) {
+  public DefaultSpiritualCreationData(SpiritualPointsTemplate template) {
     this.template = template;
-    this.costs = costs;
   }
 
   @Override
@@ -25,6 +22,6 @@ public class DefaultSpiritualCreationData implements SpiritualCreationData {
 
   @Override
   public int getWillpowerCost() {
-    return costs.getWillpowerCosts();
+    return template.willpower.bonusPointCost;
   }
 }

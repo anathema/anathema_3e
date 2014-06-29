@@ -3,8 +3,6 @@ package net.sf.anathema.character.framework.xml;
 import net.sf.anathema.character.framework.ICharacterTemplateRegistryCollection;
 import net.sf.anathema.character.framework.type.CharacterTypes;
 import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
-import net.sf.anathema.character.framework.xml.creation.BonusPointCostTemplateParser;
-import net.sf.anathema.character.framework.xml.creation.GenericBonusPointCosts;
 import net.sf.anathema.character.framework.xml.experience.ExperienceTemplateParser;
 import net.sf.anathema.character.framework.xml.experience.GenericExperiencePointCosts;
 import net.sf.anathema.hero.template.TemplateType;
@@ -13,7 +11,6 @@ import org.dom4j.Element;
 
 public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCharacterTemplate> {
 
-  private static final String TAG_CREATION = "creation";
   private static final String TAG_EXPERIENCE = "experience";
   private static final String TAG_EXPERIENCE_POINT_COST = "experiencePointCost";
 
@@ -31,14 +28,6 @@ public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCh
     return new GenericCharacterTemplate();
   }
 
-  private void parseCreation(Element element, GenericCharacterTemplate characterTemplate) throws PersistenceException {
-    Element creationElement = element.element(TAG_CREATION);
-    if (creationElement == null) {
-      return;
-    }
-    setBonusPoints(characterTemplate, creationElement);
-  }
-
   private void parseExperience(Element element, GenericCharacterTemplate characterTemplate) throws PersistenceException {
     Element creationElement = element.element(TAG_EXPERIENCE);
     if (creationElement == null) {
@@ -52,7 +41,6 @@ public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCh
     GenericCharacterTemplate characterTemplate = new GenericCharacterTemplate();
     updateTemplateType(element, characterTemplate);
     parseModels(element, characterTemplate);
-    parseCreation(element, characterTemplate);
     parseExperience(element, characterTemplate);
     return characterTemplate;
   }
@@ -60,16 +48,6 @@ public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCh
   private void updateTemplateType(Element element, GenericCharacterTemplate characterTemplate) throws PersistenceException {
     TemplateType templateType = new TemplateTypeParser(characterTypes).parse(element);
     characterTemplate.setTemplateType(templateType);
-  }
-
-  private void setBonusPoints(GenericCharacterTemplate characterTemplate, Element creationElement) throws PersistenceException {
-    Element bonusPointsElement = creationElement.element("bonusPointCosts");
-    if (bonusPointsElement == null) {
-      return;
-    }
-    BonusPointCostTemplateParser parser = new BonusPointCostTemplateParser(registryCollection.getBonusPointTemplateRegistry());
-    GenericBonusPointCosts bonusPoints = parser.parseTemplate(bonusPointsElement);
-    characterTemplate.setBonusPointCosts(bonusPoints);
   }
 
   private void setExperiencePoints(GenericCharacterTemplate characterTemplate, Element experienceElement) throws PersistenceException {
