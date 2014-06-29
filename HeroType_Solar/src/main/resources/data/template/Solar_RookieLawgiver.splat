@@ -22,7 +22,4 @@
         <model id="SolarVirtueFlaw"/>
         <model id="Equipment"/>
     </models>
-    <experience>
-        <experiencePointCost uses="template/SolarExperienceCost2nd.template"/>
-    </experience>
 </exaltedCharacterTemplate>

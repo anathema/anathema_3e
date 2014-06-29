@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.template.cost;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCost;
+import net.sf.anathema.hero.template.points.CurrentRatingCost;
 import net.sf.anathema.hero.template.points.MultiplyRatingCost;
 
 public class CurrentRatingCostTemplate {

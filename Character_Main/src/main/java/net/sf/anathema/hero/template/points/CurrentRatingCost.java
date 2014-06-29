@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.template.experience;
+package net.sf.anathema.hero.template.points;
 
 public interface CurrentRatingCost {
 

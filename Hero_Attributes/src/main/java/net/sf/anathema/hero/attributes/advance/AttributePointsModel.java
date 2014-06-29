@@ -18,7 +18,6 @@ import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;

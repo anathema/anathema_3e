@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.abilities.advance.experience;
 
 import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
-import net.sf.anathema.hero.template.experience.CurrentRatingCost;
+import net.sf.anathema.hero.template.points.CurrentRatingCost;
 import net.sf.anathema.hero.traits.template.cost.CurrentRatingCostTemplate;
 
 public class AbilityExperienceData {

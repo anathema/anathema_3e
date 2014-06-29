@@ -1,21 +1,22 @@
 package net.sf.anathema.hero.specialties.advance.experience;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.ISubTraitContainer;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.advance.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.specialties.ISubTraitContainer;
+import net.sf.anathema.hero.specialties.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
+import net.sf.anathema.hero.traits.model.Trait;
 
 public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
 
   private Hero hero;
+  private SpecialtyExperienceData experienceData;
 
-  public SpecialtyExperienceModel(Hero hero) {
+  public SpecialtyExperienceModel(Hero hero, SpecialtyExperienceData experienceData) {
     super("Experience", "Specialties");
     this.hero = hero;
+    this.experienceData = experienceData;
   }
 
   @Override
@@ -41,9 +42,8 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
     return specialtyConfiguration.getSpecialtiesContainer(ability.getType());
   }
 
-  private double getCostPerSpecialtyDot(Trait ability) {
-    IExperiencePointCosts experienceCost = hero.getTemplate().getExperienceCost();
+  private int getCostPerSpecialtyDot(Trait ability) {
     boolean casteOrFavored = ability.getFavorization().isCasteOrFavored();
-    return experienceCost.getSpecialtyCosts(casteOrFavored);
+    return experienceData.getSpecialtyCost(casteOrFavored);
   }
 }

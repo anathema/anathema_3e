@@ -42,15 +42,6 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
       SpecialtiesContainer specialtiesContainer = new SpecialtiesContainer(trait.getType(), hero);
       specialtiesByType.put(trait.getType(), specialtiesContainer);
     }
-    addExperiencePoints(hero);
-  }
-
-  private void addExperiencePoints(Hero hero) {
-    PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    if (pointsModel == null) {
-      return;
-    }
-    pointsModel.addToExperienceOverview(new SpecialtyExperienceModel(hero));
   }
 
   @Override

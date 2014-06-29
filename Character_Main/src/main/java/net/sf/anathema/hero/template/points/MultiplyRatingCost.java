@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.template.points;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCost;
 import net.sf.anathema.lib.lang.ReflectionEqualsObject;
 
 import java.io.Serializable;

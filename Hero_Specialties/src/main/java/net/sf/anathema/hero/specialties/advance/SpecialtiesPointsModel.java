@@ -10,6 +10,8 @@ import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtiesBonusPointCalculator;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyBonusModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyCreationData;
+import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceData;
+import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.lib.util.Identifier;
@@ -37,6 +39,7 @@ public class SpecialtiesPointsModel implements HeroModel {
     SpecialtiesBonusPointCalculator specialtiesBonusPointCalculator = new SpecialtiesBonusPointCalculator(hero, traitMap, creationData);
     pointsModel.addBonusPointCalculator(specialtiesBonusPointCalculator);
     pointsModel.addToBonusOverview(new SpecialtyBonusModel(specialtiesBonusPointCalculator, template));
+    pointsModel.addToExperienceOverview(new SpecialtyExperienceModel(hero, new SpecialtyExperienceData(template)));
   }
 
   @Override

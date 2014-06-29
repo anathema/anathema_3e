@@ -1,6 +1,6 @@
 package net.sf.anathema.character.framework.xml.util;
 
-import net.sf.anathema.hero.template.experience.CurrentRatingCost;
+import net.sf.anathema.hero.template.points.CurrentRatingCost;
 import net.sf.anathema.hero.template.points.FixedValueRatingCost;
 import net.sf.anathema.hero.template.points.MultiplyRatingCost;
 import net.sf.anathema.hero.template.points.ThresholdRatingCost;
