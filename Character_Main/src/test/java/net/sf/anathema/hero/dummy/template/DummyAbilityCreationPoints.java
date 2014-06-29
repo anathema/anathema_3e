@@ -20,16 +20,6 @@ public class DummyAbilityCreationPoints implements IAbilityCreationPoints {
   }
 
   @Override
-  public int getExtraFavoredDotCount() {
-    return 0;
-  }
-
-  @Override
-  public int getExtraGenericDotCount() {
-    return 0;
-  }
-
-  @Override
   public int getDefaultDotCount() {
     return 15;
   }

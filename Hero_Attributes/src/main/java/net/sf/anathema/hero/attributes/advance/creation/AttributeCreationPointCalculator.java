@@ -10,9 +10,7 @@ import net.sf.anathema.hero.traits.model.TraitGroup;
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Primary;
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Secondary;
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Tertiary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
 

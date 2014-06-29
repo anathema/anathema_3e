@@ -29,16 +29,6 @@ public class AbilityCreationPoints extends ReflectionCloneableObject<IAbilityCre
   }
 
   @Override
-  public int getExtraFavoredDotCount() {
-    return 0;
-  }
-
-  @Override
-  public int getExtraGenericDotCount() {
-    return 0;
-  }
-
-  @Override
   public String toString() {
     return "[favored:" + getFavorableTraitCount() + ",favoredDots:" + getFavoredDotCount() + ",defaultDots:" + getDefaultDotCount() + "]";
   }
