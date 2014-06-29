@@ -9,4 +9,4 @@ Feature: Anathema supports a number of different character types
     | Character Type | Subtype             |
     | Solar          | BigDamnHero         |
     | Solar          | RookieLawgiver      |
-    | Mortal         | Default             |
+    | Mortal         | EverydayHero        |

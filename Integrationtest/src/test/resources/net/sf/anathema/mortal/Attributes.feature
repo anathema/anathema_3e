@@ -2,11 +2,11 @@
 Feature: Attribute Handling of young Mortals
 
   Scenario: A default Mortal starts with all her attributes with 1 dot
-    Given a new Mortal using rules for Default
+    Given a new Mortal using rules for EverydayHero
     Then she has 1 dots in all her attributes
 
   Scenario Outline: A young default Mortal respects boundaries of all attributes
-    Given a new Mortal using rules for Default
+    Given a new Mortal using rules for EverydayHero
     When I set any of her attributes to <illegalValue>
     Then she has <legalValue> dots in the attribute
 
@@ -16,7 +16,7 @@ Feature: Attribute Handling of young Mortals
     | 0            | 1          |
 
   Scenario: An experienced Mortal must not lower her attributes below creation value
-    Given a new Mortal using rules for Default
+    Given a new Mortal using rules for EverydayHero
     When I set any of her attributes to 3
     And she goes experienced
     And I set the attribute to 2
