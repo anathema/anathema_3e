@@ -4,13 +4,11 @@ import com.google.common.base.Strings;
 import net.sf.anathema.character.framework.library.removableentry.AbstractRemovableEntryModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.intimacies.points.IntimaciesBonusPointCalculator;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
-import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -36,7 +34,6 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    PointModelFetcher.fetch(hero).addBonusPointCalculator(new IntimaciesBonusPointCalculator(this));
   }
 
   @Override
@@ -106,7 +103,7 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
 
   @Override
   public int getIntimaciesLimit() {
-    return getCompassionValue() + getTrait(OtherTraitType.Willpower).getCurrentValue();
+    return 0;
   }
 
   private Integer getInitialValue() {
@@ -118,7 +115,7 @@ public class IntimaciesModelImpl extends AbstractRemovableEntryModel<Intimacy> i
 
   @Override
   protected boolean isEntryAllowed() {
-    return getEntries().size() < getIntimaciesLimit() && !Strings.isNullOrEmpty(name);
+    return !Strings.isNullOrEmpty(name);
   }
 
   @Override

@@ -2,7 +2,6 @@ package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.character.framework.CharacterUI;
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.character.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
 import net.sf.anathema.character.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.framework.environment.Resources;
@@ -11,14 +10,9 @@ import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
-import net.sf.anathema.hero.intimacies.points.IntimaciesBonusPointCalculator;
-import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.legality.LegalityColorProvider;
-import net.sf.anathema.lib.control.legality.LegalityFontProvider;
-import net.sf.anathema.lib.control.legality.ValueLegalityState;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,23 +46,18 @@ public class IntimaciesPresenter {
   }
 
   private void initOverviewView() {
-    final OverviewCategory creationOverview = view.addOverview(
-            resources.getString("Intimacies.Overview.BorderLabel"));
-    final LabelledAllotmentView freeIntimaciesView = creationOverview.addAlotmentView(
-            resources.getString("Intimacies.Overview.Free"), 2);
-    final LabelledAllotmentView totalIntimaciesView = creationOverview.addAlotmentView(
+    final OverviewCategory creationOverview = view.addOverview(resources.getString("Intimacies.Overview.BorderLabel"));
+    final IValueView<Integer> totalIntimaciesView = creationOverview.addIntegerValueView(
             resources.getString("Intimacies.Overview.Maximum"), 2);
-    final IValueView<Integer> bonusPointsView = creationOverview.addIntegerValueView(
-            resources.getString("Intimacies.Overview.BonusPoints"), 2);
     final OverviewCategory experienceOverview = view.addOverview(
             resources.getString("Intimacies.Overview.BorderLabel"));
-    final LabelledAllotmentView experienceMaximumView = experienceOverview.addAlotmentView(
+    final IValueView<Integer> experienceMaximumView = experienceOverview.addIntegerValueView(
             resources.getString("Intimacies.Overview.Maximum"), 2);
-    model.addModelChangeListener(() -> recalculateOverview(freeIntimaciesView, totalIntimaciesView, bonusPointsView, experienceMaximumView));
+    model.addModelChangeListener(() -> recalculateOverview(totalIntimaciesView, experienceMaximumView));
     model.addModelChangeListener(new RemovableEntryListener<Intimacy>() {
       @Override
       public void entryAdded(Intimacy entry) {
-        recalculateOverview(freeIntimaciesView, totalIntimaciesView, bonusPointsView, experienceMaximumView);
+        recalculateOverview(totalIntimaciesView, experienceMaximumView);
       }
 
       @Override
@@ -78,7 +67,7 @@ public class IntimaciesPresenter {
 
       @Override
       public void entryRemoved(Intimacy entry) {
-        recalculateOverview(freeIntimaciesView, totalIntimaciesView, bonusPointsView, experienceMaximumView);
+        recalculateOverview(totalIntimaciesView, experienceMaximumView);
       }
     });
     model.addChangeListener(flavor -> {
@@ -87,7 +76,7 @@ public class IntimaciesPresenter {
       }
     });
     setOverview(model.isCharacterExperienced(), experienceOverview, creationOverview);
-    recalculateOverview(freeIntimaciesView, totalIntimaciesView, bonusPointsView, experienceMaximumView);
+    recalculateOverview(totalIntimaciesView, experienceMaximumView);
   }
 
   private void setOverview(boolean experienced, OverviewCategory experienceOverview,
@@ -99,32 +88,10 @@ public class IntimaciesPresenter {
     }
   }
 
-  private void recalculateOverview(LabelledAllotmentView freeIntimaciesView, LabelledAllotmentView totalIntimaciesView,
-                                   IValueView<Integer> bonusPointsView, LabelledAllotmentView experienceMaximumView) {
-    adjustBonusPointsOverview(freeIntimaciesView, model.getEntries().size(), model.getFreeIntimacies());
-    adjustTotalOverview(totalIntimaciesView, model.getEntries().size(), model.getIntimaciesLimit());
-    adjustTotalOverview(experienceMaximumView, model.getEntries().size(), model.getIntimaciesLimit());
-    adjustOverview(bonusPointsView);
-  }
-
-  private void adjustOverview(IValueView<Integer> valueView) {
-    HeroBonusPointCalculator bonusPointCalculator = new IntimaciesBonusPointCalculator(model);
-    bonusPointCalculator.recalculate();
-    valueView.setValue(bonusPointCalculator.getBonusPointCost());
-  }
-
-  private void adjustTotalOverview(LabelledAllotmentView alotmentView, int currentValue, int maxValue) {
-    alotmentView.setValue(currentValue);
-    alotmentView.setAllotment(maxValue);
-    ValueLegalityState state = currentValue > maxValue ? ValueLegalityState.High : ValueLegalityState.Okay;
-    alotmentView.setTextColor(new LegalityColorProvider().getTextColor(state));
-  }
-
-  private void adjustBonusPointsOverview(LabelledAllotmentView alotmentView, int currentValue, int maxValue) {
-    alotmentView.setValue(Math.min(currentValue, maxValue));
-    alotmentView.setAllotment(maxValue);
-    ValueLegalityState state = currentValue > maxValue ? ValueLegalityState.Increased : ValueLegalityState.Okay;
-    alotmentView.setFontStyle(new LegalityFontProvider().getFontStyle(state));
+  private void recalculateOverview(IValueView<Integer> totalIntimaciesView,
+                                   IValueView<Integer> experienceMaximumView) {
+    totalIntimaciesView.setValue(model.getEntries().size());
+    experienceMaximumView.setValue(model.getEntries().size());
   }
 
   private void addSubView(Intimacy v) {
@@ -183,10 +150,9 @@ public class IntimaciesPresenter {
 
       @Override
       public void entryAllowed(boolean complete) {
-        if(complete){
+        if (complete) {
           tool.enable();
-        }
-        else {
+        } else {
           tool.disable();
         }
       }
