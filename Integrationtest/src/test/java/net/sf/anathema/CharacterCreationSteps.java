@@ -59,7 +59,7 @@ public class CharacterCreationSteps {
 
   @Given("^a new Character of any kind$")
   public void a_new_Character_of_any_kind() throws Throwable {
-    I_create_a_new_character_with_subtype("Solar", "Default");
+    I_create_a_new_character_with_subtype("Solar", "RookieLawgiver");
   }
 
   private Character createCharacter(String type, String subtype) {
