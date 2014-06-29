@@ -8,17 +8,17 @@ import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 @SuppressWarnings("UnusedDeclaration")
-public class SolarVirtueFlawModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
+public class SolarLimitBreakModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   private static final Identifier FACTORY_ID = new SimpleIdentifier("SolarVirtueFlaw");
 
-  public SolarVirtueFlawModelFactory() {
+  public SolarLimitBreakModelFactory() {
     super(FACTORY_ID, SpiritualTraitModel.ID);
   }
 
   @SuppressWarnings("unchecked")
   @Override
-  public DescriptiveVirtueFlawModelImpl create(TemplateFactory templateFactory, String templateId) {
-    return new DescriptiveVirtueFlawModelImpl();
+  public DescriptiveLimitBreakModelImpl create(TemplateFactory templateFactory, String templateId) {
+    return new DescriptiveLimitBreakModelImpl();
   }
 }

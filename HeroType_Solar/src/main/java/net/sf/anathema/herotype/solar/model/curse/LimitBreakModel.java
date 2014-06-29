@@ -6,13 +6,13 @@ import net.sf.anathema.lib.control.IBooleanValueChangedListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-public interface VirtueFlawModel extends HeroModel {
+public interface LimitBreakModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("GreatCurse");
 
   boolean isVirtueFlawChangable();
 
-  VirtueFlaw getVirtueFlaw();
+  LimitBreak getVirtueFlaw();
 
   TraitType[] getFlawVirtueTypes();
 

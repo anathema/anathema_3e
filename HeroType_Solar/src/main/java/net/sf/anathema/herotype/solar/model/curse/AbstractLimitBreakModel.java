@@ -10,7 +10,7 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.control.GlobalChangeAdapter;
 import net.sf.anathema.lib.control.IBooleanValueChangedListener;
 
-public abstract class AbstractVirtueFlawModel implements VirtueFlawModel {
+public abstract class AbstractLimitBreakModel implements LimitBreakModel {
 
   private Hero hero;
 

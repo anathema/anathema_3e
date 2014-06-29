@@ -4,12 +4,12 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
 
-public class DescriptiveVirtueFlawImpl extends VirtueFlawImpl implements DescriptiveVirtueFlaw {
+public class DescriptiveLimitBreakImpl extends LimitBreakImpl implements DescriptiveLimitBreak {
 
   private final ITextualDescription description = new SimpleTextualDescription("");
   private final ITextualDescription limitBreak = new SimpleTextualDescription("");
 
-  public DescriptiveVirtueFlawImpl(Hero hero) {
+  public DescriptiveLimitBreakImpl(Hero hero) {
     super(hero);
   }
 

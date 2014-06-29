@@ -18,9 +18,9 @@ import net.sf.anathema.lib.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DescriptiveVirtueFlawModelImpl extends AbstractVirtueFlawModel implements DescriptiveVirtueFlawModel {
+public class DescriptiveLimitBreakModelImpl extends AbstractLimitBreakModel implements DescriptiveLimitBreakModel {
 
-  private DescriptiveVirtueFlaw virtueFlaw;
+  private DescriptiveLimitBreak virtueFlaw;
   private TraitModel traitModel;
 
   @Override
@@ -32,7 +32,7 @@ public class DescriptiveVirtueFlawModelImpl extends AbstractVirtueFlawModel impl
   public void initialize(HeroEnvironment environment, Hero hero) {
     super.initialize(environment, hero);
     this.traitModel = TraitModelFetcher.fetch(hero);
-    virtueFlaw = new DescriptiveVirtueFlawImpl(hero);
+    virtueFlaw = new DescriptiveLimitBreakImpl(hero);
   }
 
   @Override
@@ -60,7 +60,7 @@ public class DescriptiveVirtueFlawModelImpl extends AbstractVirtueFlawModel impl
   }
 
   @Override
-  public DescriptiveVirtueFlaw getVirtueFlaw() {
+  public DescriptiveLimitBreak getVirtueFlaw() {
     return virtueFlaw;
   }
 

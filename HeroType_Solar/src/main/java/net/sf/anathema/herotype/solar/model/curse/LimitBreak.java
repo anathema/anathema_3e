@@ -5,7 +5,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 
-public interface VirtueFlaw {
+public interface LimitBreak {
   TraitType getRoot();
 
   void setRoot(TraitType root);

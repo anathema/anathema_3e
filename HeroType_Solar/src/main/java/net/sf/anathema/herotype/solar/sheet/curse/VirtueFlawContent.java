@@ -3,8 +3,8 @@ package net.sf.anathema.herotype.solar.sheet.curse;
 import com.google.common.base.Strings;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
-import net.sf.anathema.herotype.solar.model.curse.DescriptiveVirtueFlaw;
-import net.sf.anathema.herotype.solar.model.curse.DescriptiveVirtueFlawModel;
+import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
+import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
 import net.sf.anathema.lib.lang.StringUtilities;
 import net.sf.anathema.framework.environment.Resources;
@@ -43,7 +43,7 @@ public class VirtueFlawContent extends AbstractSubBoxContent {
     return !Strings.isNullOrEmpty(getLimitBreakCondition());
   }
 
-  private DescriptiveVirtueFlaw getVirtueFlawModel() {
-    return ((DescriptiveVirtueFlawModel) GreatCurseFetcher.fetch(hero)).getVirtueFlaw();
+  private DescriptiveLimitBreak getVirtueFlawModel() {
+    return ((DescriptiveLimitBreakModel) GreatCurseFetcher.fetch(hero)).getVirtueFlaw();
   }
 }

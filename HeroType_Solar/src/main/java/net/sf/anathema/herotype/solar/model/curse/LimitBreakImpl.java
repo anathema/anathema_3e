@@ -14,7 +14,7 @@ import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
 import org.jmock.example.announcer.Announcer;
 
-public class VirtueFlawImpl implements VirtueFlaw {
+public class LimitBreakImpl implements LimitBreak {
 
   private TraitType root;
   private Trait limitTrait;
@@ -22,7 +22,7 @@ public class VirtueFlawImpl implements VirtueFlaw {
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private Hero hero;
 
-  public VirtueFlawImpl(Hero hero) {
+  public LimitBreakImpl(Hero hero) {
     this.hero = hero;
   }
 

@@ -11,8 +11,8 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
-import net.sf.anathema.herotype.solar.model.curse.VirtueFlaw;
-import net.sf.anathema.herotype.solar.model.curse.VirtueFlawModel;
+import net.sf.anathema.herotype.solar.model.curse.LimitBreak;
+import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.Presenter;
@@ -26,9 +26,9 @@ public class VirtueFlawPresenter implements Presenter {
   private Hero hero;
   private final Resources resources;
   private final ConfigurableCharacterView view;
-  private final VirtueFlawModel model;
+  private final LimitBreakModel model;
 
-  public VirtueFlawPresenter(Hero hero, Resources resources, ConfigurableCharacterView virtueFlawView, VirtueFlawModel model) {
+  public VirtueFlawPresenter(Hero hero, Resources resources, ConfigurableCharacterView virtueFlawView, LimitBreakModel model) {
     this.hero = hero;
     this.resources = resources;
     this.view = virtueFlawView;
@@ -47,30 +47,30 @@ public class VirtueFlawPresenter implements Presenter {
   }
 
   protected void initBasicPresentation() {
-    VirtueFlaw virtueFlaw = model.getVirtueFlaw();
-    initRootPresentation(virtueFlaw);
-    initNamePresentation(virtueFlaw);
+    LimitBreak limitBreak = model.getVirtueFlaw();
+    initRootPresentation(limitBreak);
+    initNamePresentation(limitBreak);
   }
 
-  protected void initLimitPresentation(VirtueFlaw virtueFlaw) {
-    Trait trait = virtueFlaw.getLimitTrait();
+  protected void initLimitPresentation(LimitBreak limitBreak) {
+    Trait trait = limitBreak.getLimitTrait();
     IntValueView traitView =
             view.addDotSelector(getResources().getString(trait.getType().getId()), trait.getMaximalValue());
     new TraitPresenter(trait, traitView).initPresentation();
   }
 
-  protected void initRootPresentation(final VirtueFlaw virtueFlaw) {
+  protected void initRootPresentation(final LimitBreak limitBreak) {
     final ObjectSelectionView<TraitType> rootView = view.addSelectionView(resources.getString("VirtueFlaw.Root.Name"), new VirtueTypeConfiguration());
-    virtueFlaw.addRootChangeListener(new ChangeListener() {
+    limitBreak.addRootChangeListener(new ChangeListener() {
       @Override
       public void changeOccurred() {
-        rootView.setSelectedObject(virtueFlaw.getRoot());
+        rootView.setSelectedObject(limitBreak.getRoot());
       }
     });
     rootView.addObjectSelectionChangedListener(new ObjectValueListener<TraitType>() {
       @Override
       public void valueChanged(TraitType newValue) {
-        virtueFlaw.setRoot(newValue);
+        limitBreak.setRoot(newValue);
       }
     });
     hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
@@ -90,9 +90,9 @@ public class VirtueFlawPresenter implements Presenter {
     rootView.setSelectedObject(root);
   }
 
-  protected ITextView initNamePresentation(VirtueFlaw virtueFlaw) {
+  protected ITextView initNamePresentation(LimitBreak limitBreak) {
     ITextView titleView = view.addLineView(resources.getString("VirtueFlaw.Name.Name"));
-    new TextualPresentation().initView(titleView, virtueFlaw.getName());
+    new TextualPresentation().initView(titleView, limitBreak.getName());
     return titleView;
   }
 
