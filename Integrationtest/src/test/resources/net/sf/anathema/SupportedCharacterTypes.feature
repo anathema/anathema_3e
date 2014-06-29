@@ -6,6 +6,7 @@ Feature: Anathema supports a number of different character types
     Then I can create a new <Character Type> using rules for <Subtype>
 
   Examples:
-    | Character Type | Subtype      |
-    | Solar          | Default      |
-    | Mortal         | Default      |
+    | Character Type | Subtype             |
+    | Solar          | BigDamnHero         |
+    | Solar          | RookieLawgiver      |
+    | Mortal         | Default             |
