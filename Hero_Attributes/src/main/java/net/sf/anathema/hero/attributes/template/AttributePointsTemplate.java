@@ -5,5 +5,6 @@ import net.sf.anathema.hero.spiritual.template.TraitPointsTemplate;
 public class AttributePointsTemplate {
 
   public TraitPointsTemplate standard = new TraitPointsTemplate();
-  public AttributeBonusPointTemplate bonusPoints = new AttributeBonusPointTemplate();
+  public AttributeGroupPointsTemplate freebies = new AttributeGroupPointsTemplate();
+  public AttributeGroupPointsTemplate bonusPoints = new AttributeGroupPointsTemplate();
 }

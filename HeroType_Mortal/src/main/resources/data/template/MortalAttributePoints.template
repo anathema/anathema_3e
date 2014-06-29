@@ -6,5 +6,10 @@
     primary: 5;
     secondary: 4;
     tertiary: 3
+  };
+  freebies: {
+    primary: 6;
+    secondary: 4;
+    tertiary: 3
   }
 }

@@ -3,10 +3,10 @@ package net.sf.anathema.hero.attributes.advance.creation;
 import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.attributes.advance.CreationPointSumComparator;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
+import net.sf.anathema.hero.attributes.template.AttributeGroupPointsTemplate;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
-import net.sf.anathema.hero.template.points.IAttributeCreationPoints;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
@@ -18,13 +18,11 @@ import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
 
   private final AttributeModel attributes;
-  private final IAttributeCreationPoints creationPoints;
   private final AttributePointsTemplate template;
   private final Map<AttributeGroupPriority, Integer> incrementCount = new HashMap<>();
 
-  public AttributeCreationPointCalculator(AttributeModel attributes, IAttributeCreationPoints creationPoints, AttributePointsTemplate template) {
+  public AttributeCreationPointCalculator(AttributeModel attributes, AttributePointsTemplate template) {
     this.attributes = attributes;
-    this.creationPoints = creationPoints;
     this.template = template;
   }
 
@@ -41,7 +39,7 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
 
   @Override
   public int getFreebieCount(AttributeGroupPriority priority) {
-    return creationPoints.getCount(priority);
+    return getPoints(priority, template.freebies);
   }
 
   private int getIncrementCount(AttributeGroupPriority priority) {
@@ -100,13 +98,17 @@ public class AttributeCreationPointCalculator implements AttributeGroupPoints, H
   }
 
   public int getBonusPointCostPerDot(AttributeGroupPriority priority) {
+    return getPoints(priority, template.bonusPoints);
+  }
+
+  private int getPoints(AttributeGroupPriority priority, AttributeGroupPointsTemplate groupPointsTemplate) {
     switch (priority) {
       case Primary:
-        return template.bonusPoints.primary;
+        return groupPointsTemplate.primary;
       case Secondary:
-        return template.bonusPoints.secondary;
+        return groupPointsTemplate.secondary;
       case Tertiary:
-        return template.bonusPoints.tertiary;
+        return groupPointsTemplate.tertiary;
     }
     throw new IllegalArgumentException("Unknown attribute group priority " + priority);
   }
