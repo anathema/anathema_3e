@@ -38,8 +38,6 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
     if (abilities == null) {
       return;
     }
-    costs.setGeneralAbilityCosts(getGeneralCost(abilities));
-    costs.setFavoredAbilityCosts(getFavoredCost(abilities));
     setSpecialtyCosts(abilities, costs);
   }
 
@@ -63,9 +61,5 @@ public class ExperienceTemplateParser extends AbstractXmlTemplateParser<GenericE
 
   protected final CurrentRatingCost getGeneralCost(Element attributes) throws PersistenceException {
     return new CostParser().getMultiplyRatingCostsFromRequiredElement(attributes, TAG_GENERAL_COSTS);
-  }
-
-  protected final CurrentRatingCost getCurrentRatingCosts(Element element) throws PersistenceException {
-    return new CostParser().getMultiplyRatingCosts(element);
   }
 }

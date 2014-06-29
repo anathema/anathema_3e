@@ -17,14 +17,14 @@ public class AbilityCreationData implements TraitListCreationData {
 
   @Override
   public int getCalculationBase(TraitType type) {
-    return template.standard.calculationBase;
+    return template.standard.calculation.calculationBase;
   }
 
   public CurrentRatingCost getAbilityCosts(boolean casteOrFavored) {
     if (casteOrFavored) {
-      return new FixedValueRatingCost(template.bonusPointCosts.favoredCost);
+      return new FixedValueRatingCost(template.standard.favoredCost.bonusPoints);
     }
-    return new FixedValueRatingCost(template.bonusPointCosts.defaultCost);
+    return new FixedValueRatingCost(template.standard.defaultCost.bonusPoints);
   }
 
   public int getMaximumFreeAbilityRank() {

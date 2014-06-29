@@ -2,6 +2,7 @@ package net.sf.anathema.hero.abilities.advance;
 
 import net.sf.anathema.hero.abilities.advance.creation.*;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalculator;
+import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceData;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
@@ -14,7 +15,6 @@ import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 import net.sf.anathema.hero.points.overview.WeightedCategory;
-import net.sf.anathema.hero.template.experience.IExperiencePointCosts;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -67,8 +67,8 @@ public class AbilitiesPointModel implements HeroModel {
   private void initializeExperiencePoints(Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
-    IExperiencePointCosts experienceCost = hero.getTemplate().getExperienceCost();
-    AbilityExperienceCalculator calculator = new AbilityExperienceCalculator(experienceCost);
+    AbilityExperienceData experienceData = new AbilityExperienceData(template);
+    AbilityExperienceCalculator calculator = new AbilityExperienceCalculator(experienceData);
     pointsModel.addToExperienceOverview(new AbilityExperienceModel(abilities, calculator));
   }
 

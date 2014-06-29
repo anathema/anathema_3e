@@ -1,15 +1,23 @@
 {
   essence: {
-    calculationBase: 2;
-    experienceCost: {
-      factor: 8
+    calculation: {
+      calculationBase: 2
+    };
+    cost: {
+      experiencePoints: {
+        factor: 8
+      }
     }
   };
   willpower: {
-    calculationBase: 5;
-    bonusPointCost: 2;
-    experienceCost: {
-      factor: 2
+    calculation: {
+      calculationBase: 5
+    };
+    cost: {
+      bonusPoints: 2;
+      experiencePoints: {
+        factor: 2
+      }
     }
   }
 }

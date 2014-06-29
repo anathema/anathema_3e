@@ -9,14 +9,7 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
 
   private CurrentRatingCost generalAttributeCost = new FixedValueRatingCost(0);
   private CurrentRatingCost favoredAttributeCost = new FixedValueRatingCost(0);
-  private CurrentRatingCost generalAbilityCost = new FixedValueRatingCost(0);
-  private CurrentRatingCost favoredAbilityCost = new FixedValueRatingCost(0);
   private int specialtyCost = 0;
-
-  @Override
-  public CurrentRatingCost getAbilityCosts(boolean favored) {
-    return favored ? favoredAbilityCost : generalAbilityCost;
-  }
 
   @Override
   public CurrentRatingCost getAttributeCosts(boolean favored) {
@@ -34,14 +27,6 @@ public class GenericExperiencePointCosts extends ReflectionCloneableObject<Gener
 
   public void setFavoredAttributeCosts(CurrentRatingCost favoredAttributeCost) {
     this.favoredAttributeCost = favoredAttributeCost;
-  }
-
-  public void setGeneralAbilityCosts(CurrentRatingCost generalAbilityCost) {
-    this.generalAbilityCost = generalAbilityCost;
-  }
-
-  public void setFavoredAbilityCosts(CurrentRatingCost favoredAbilityCost) {
-    this.favoredAbilityCost = favoredAbilityCost;
   }
 
   public void setSpecialtyCosts(int specialtyCost) {

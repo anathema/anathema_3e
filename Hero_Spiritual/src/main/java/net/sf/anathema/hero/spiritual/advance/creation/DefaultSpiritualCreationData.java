@@ -15,13 +15,13 @@ public class DefaultSpiritualCreationData implements SpiritualCreationData {
   @Override
   public int getCalculationBase(TraitType type) {
     if (type == OtherTraitType.Willpower) {
-      return template.willpower.calculationBase;
+      return template.willpower.calculation.calculationBase;
     }
     return 1;
   }
 
   @Override
   public int getWillpowerCost() {
-    return template.willpower.bonusPointCost;
+    return template.willpower.cost.bonusPoints;
   }
 }

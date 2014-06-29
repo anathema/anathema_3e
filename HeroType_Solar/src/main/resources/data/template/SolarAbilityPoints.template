@@ -2,10 +2,23 @@
   generalDots: 28;
   maximalFreebieRank: 3;
   standard: {
-    calculationBase: 0
-  };
-  bonusPointCosts: {
-    favoredCost: 1;
-    defaultCost: 2
+    calculation: {
+      calculationBase: 0
+    };
+    favoredCost: {
+      bonusPoints: 1;
+      experiencePoints: {
+        factor: 2;
+        addend: -1;
+        initialCost: 3
+      }
+    };
+    defaultCost: {
+      bonusPoints: 2;
+      experiencePoints: {
+        factor: 2;
+        initialCost: 3
+      }
+    }
   }
 }

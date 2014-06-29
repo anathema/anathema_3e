@@ -1,12 +1,9 @@
 package net.sf.anathema.hero.abilities.template.advance;
 
-import net.sf.anathema.hero.spiritual.template.points.TraitPointsTemplate;
-
 public class AbilityPointsTemplate {
 
-  public TraitPointsTemplate standard = new TraitPointsTemplate();
+  public FavorableTraitPointTemplate standard = new FavorableTraitPointTemplate();
   public int favoredDots = 0;
   public int generalDots = 0;
   public int maximalFreebieRank = 0;
-  public FavorableTraitCostTemplate bonusPointCosts = new FavorableTraitCostTemplate();
 }
