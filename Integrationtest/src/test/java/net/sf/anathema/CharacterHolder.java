@@ -29,7 +29,7 @@ public class CharacterHolder {
     return TraitModelFetcher.fetch(character);
   }
 
-  public Character getCharacter() {
+  public Character getHero() {
     return character;
   }
 }

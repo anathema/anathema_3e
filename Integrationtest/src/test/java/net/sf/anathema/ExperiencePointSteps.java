@@ -18,7 +18,7 @@ public class ExperiencePointSteps {
 
   @Then("^she has spent (\\d+) experience points$")
   public void she_has_spent_bonus_points(int amount) throws Throwable {
-    ExperiencePointManagementImpl pointManagement = new ExperiencePointManagementImpl(character.getCharacter());
+    ExperiencePointManagementImpl pointManagement = new ExperiencePointManagementImpl(character.getHero());
     int spentPoints = pointManagement.getTotalCosts();
     assertThat(spentPoints, is(amount));
   }

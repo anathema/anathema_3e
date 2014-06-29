@@ -34,12 +34,12 @@ public class CharacterChangeSteps {
   
   @Given("^she is experienced")
   public void setToExperienced() {
-    ExperienceModelFetcher.fetch(character.getCharacter()).setExperienced(true);
+    ExperienceModelFetcher.fetch(character.getHero()).setExperienced(true);
   }
 
   @When("^I set her Caste to (.*)$")
   public void I_set_her_Caste(String casteName) throws Throwable {
-    CasteCollection casteCollection = HeroConceptFetcher.fetch(character.getCharacter()).getCasteCollection();
+    CasteCollection casteCollection = HeroConceptFetcher.fetch(character.getHero()).getCasteCollection();
     CasteType caste = casteCollection.getById(casteName);
     character.getCharacterConcept().getCaste().setType(caste);
   }
@@ -48,7 +48,7 @@ public class CharacterChangeSteps {
   public void I_set_her_trait_to(String traitId, int value) throws Throwable {
     TraitType type = new TraitTypeUtils().getTraitTypeById(traitId);
     Trait trait = character.getTraitConfiguration().getTrait(type);
-    if (ExperienceModelFetcher.fetch(character.getCharacter()).isExperienced()) {
+    if (ExperienceModelFetcher.fetch(character.getHero()).isExperienced()) {
       trait.setExperiencedValue(value);
     } else {
       trait.setCreationValue(value);
@@ -57,7 +57,7 @@ public class CharacterChangeSteps {
 
   @When("^I add a fresh intimacy$")
   public void I_add_a_fresh_intimacy() throws Throwable {
-    IntimaciesModel model = IntimaciesModelFetcher.fetch(character.getCharacter());
+    IntimaciesModel model = IntimaciesModelFetcher.fetch(character.getHero());
     model.setCurrentName("New Intimacy");
     model.commitSelection();
   }

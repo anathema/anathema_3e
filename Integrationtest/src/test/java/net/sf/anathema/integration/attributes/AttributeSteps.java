@@ -1,13 +1,15 @@
-package net.sf.anathema;
+package net.sf.anathema.integration.attributes;
 
 import com.google.inject.Inject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.CharacterHolder;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.integration.attributes.points.AttributeFreebies;
+import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
+import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
 
 import static net.sf.anathema.hero.traits.model.types.AttributeType.*;
 import static org.hamcrest.CoreMatchers.is;
@@ -16,16 +18,18 @@ import static org.junit.Assert.assertThat;
 public class AttributeSteps {
 
   public static final AttributeType ANY_ATTRIBUTE_TYPE = Dexterity;
-  private final CharacterHolder character;
+  private final IntegrationAttributes attributes;
+  private CharacterHolder character;
 
   @Inject
   public AttributeSteps(CharacterHolder character) {
     this.character = character;
+    this.attributes = new IntegrationAttributes(character);
   }
 
   @When("^I set any of her attributes to (\\d+)$")
   public void setAnyOfHerAttributesTo(int value) throws Throwable {
-    ((Trait) getAttribute(ANY_ATTRIBUTE_TYPE)).setCurrentValue(value);
+    attributes.getAttribute(ANY_ATTRIBUTE_TYPE).setCurrentValue(value);
   }
 
   @And("^I set the attribute to (\\d+)$")
@@ -51,39 +55,43 @@ public class AttributeSteps {
     }
   }
 
+  @When("^she spends all her Attribute Freebies$")
+  public void she_spends_all_attribute_freebies() {
+    String type = character.getHero().getTemplate().getTemplateType().getCharacterType().getId();
+    new AttributeFreebiesMap().spendAllFreebies(type, attributes);
+  }
+
+  @When("^she spends one additional dot in Primary Attributes$")
+  public void she_spends_one_additional_dot_in_Primary_Attributes() throws Throwable {
+    new AttributeFreebiesMap().spentADotOnPrimary(attributes);
+  }
+
+  @When("^she spends one additional dot in Secondary Attributes$")
+  public void she_spends_one_additional_dot_in_Secondary_Attributes() throws Throwable {
+    new AttributeFreebiesMap().spentADotOnSecondary(attributes);
+  }
+
+  @When("^she spends one additional dot in Tertiary Attributes$")
+  public void she_spends_one_additional_dot_in_Tertiary_Attributes() throws Throwable {
+    new AttributeFreebiesMap().spentADotOnTertiary(attributes);
+  }
+
   @When("^she spends (\\d+) points on Mental Attributes$")
   public void she_spends_points_on_Mental_Attributes(int amount) throws Throwable {
-    spendDotsOnAttributes(amount, Intelligence, Wits, Perception);
+    attributes.spendDotsOnAttributes(amount, Intelligence, Wits, Perception);
   }
 
   @When("^she spends (\\d+) points on Social Attributes$")
   public void she_spends_points_on_Social_Attributes(int amount) throws Throwable {
-    spendDotsOnAttributes(amount, Appearance, Charisma, Manipulation);
+    attributes.spendDotsOnAttributes(amount, Appearance, Charisma, Manipulation);
   }
 
   @When("^she spends (\\d+) points on Physical Attributes$")
   public void she_spends_points_on_Physical_Attributes(int amount) throws Throwable {
-    spendDotsOnAttributes(amount, Strength, Dexterity, Stamina);
+    attributes.spendDotsOnAttributes(amount, Strength, Dexterity, Stamina);
   }
 
   private void assertThatAttributeHasValueOf(AttributeType type, int value) {
-    assertThat("Attribute type " + type, getAttribute(type).getCurrentValue(), is(value));
-  }
-
-  private Trait getAttribute(AttributeType type) {
-    TraitMap traitConfiguration = TraitModelFetcher.fetch(character.getCharacter());
-    return traitConfiguration.getTrait(type);
-  }
-
-  private void spendDotsOnAttributes(int amount, AttributeType... attributeTypes) {
-    for (; amount > 0; amount--) {
-      for (AttributeType attributeType : attributeTypes) {
-        Trait attribute = getAttribute(attributeType);
-        if (attribute.getCreationValue() < 5) {
-          attribute.setCreationValue(attribute.getCreationValue() + 1);
-          break;
-        }
-      }
-    }
+    assertThat("Attribute type " + type, attributes.getAttribute(type).getCurrentValue(), is(value));
   }
 }

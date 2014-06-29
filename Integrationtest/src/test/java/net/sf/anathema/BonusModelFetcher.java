@@ -14,7 +14,7 @@ public class BonusModelFetcher {
   }
 
   public IValueModel<Integer> findBonusModel(String category, String id) {
-    PointsModel pointsModel = PointModelFetcher.fetch(character.getCharacter());
+    PointsModel pointsModel = PointModelFetcher.fetch(character.getHero());
     for (IOverviewModel model : pointsModel.getBonusOverviewModels()) {
       if (model.getId().equals(id) && model.getCategoryId().equals(category)) {
         return (IValueModel<Integer>) model;

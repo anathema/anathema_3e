@@ -86,7 +86,7 @@ public class BonusPointSteps {
   }
 
   private BonusPointManagement calculateBonusPoints() {
-    BonusPointManagement bonusPointManagement = new BonusPointManagement(character.getCharacter());
+    BonusPointManagement bonusPointManagement = new BonusPointManagement(character.getHero());
     bonusPointManagement.recalculate();
     return bonusPointManagement;
   }
