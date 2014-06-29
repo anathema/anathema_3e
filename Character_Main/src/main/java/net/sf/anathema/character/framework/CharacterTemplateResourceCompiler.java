@@ -10,7 +10,7 @@ import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 @ExtensibleDataSetCompiler
 public class CharacterTemplateResourceCompiler implements IExtensibleDataSetCompiler {
 
-  private static final String CHARACTER_FILE_RECOGNITION_PATTERN = "Character_(.+?)\\.xml";
+  private static final String CHARACTER_FILE_RECOGNITION_PATTERN = "(.+?)\\.splat";
 
   private final SimpleCharacterTemplateCache templateResources = new SimpleCharacterTemplateCache();
 

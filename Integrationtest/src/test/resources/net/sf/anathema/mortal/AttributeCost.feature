@@ -11,7 +11,7 @@ Feature: Anathema calculates creation point costs for Attributes
     And she has spent 0 bonus points    
                  
   Scenario: Anathema determines group assignment based on actual spending
-    Given a new Mortal using rules for HeroicMortal
+    Given a new Mortal using rules for Default
     When she spends 6 points on Mental Attributes
     And she spends 4 points on Social Attributes
     And she spends 3 points on Physical Attributes
@@ -21,7 +21,7 @@ Feature: Anathema calculates creation point costs for Attributes
     And she has spent 0 bonus points
 
   Scenario: Characters spend bonus points when exceeding the allotment for one group
-    Given a new Mortal using rules for HeroicMortal
+    Given a new Mortal using rules for Default
     When she spends 7 points on Mental Attributes
     Then she has spent 6 points on Primary Attributes
     And she has spent 4 bonus points

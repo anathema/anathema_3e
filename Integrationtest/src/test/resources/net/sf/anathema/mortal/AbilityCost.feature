@@ -37,22 +37,4 @@ Feature: Anathema calculates creation point costs for Abilities
     Then she has all her ability dots spent
     And she has 0 favored dots spent
     And she has spent 2 bonus points
-                          
-  Scenario: A character pays general dots points when she overspends on favored Abilities
-    Given a new Mortal using rules for HeroicMortal
-    When I favor her Archery
-    And I set her Archery to 1
-    Then she has 1 ability dots spent
-    And she has 0 favored dots spent
-    And she has spent 0 bonus points
-  
-  Scenario: A character prefers to pay favored Abilities with bonus points
-    Given a new Mortal using rules for HeroicMortal
-    When I favor her Archery
-    And I set her Archery to 1
-    And she spends all her general Ability dots
-    Then she has all her ability dots spent
-    And she has 0 favored dots spent
-    And she has spent 1 bonus points
-    
-  
+
