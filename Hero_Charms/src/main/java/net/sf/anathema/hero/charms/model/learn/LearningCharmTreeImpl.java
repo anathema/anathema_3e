@@ -1,26 +1,27 @@
 package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
-import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.*;
 
-public class LearningCharmTreeImpl extends CharmTreeImpl implements LearningCharmTree {
+public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private final Set<Charm> charmsLearnedOnCreation = new HashSet<>();
   private final Set<Charm> charmsLearnedWithExperience = new HashSet<>();
   private final Announcer<ICharmLearnListener> control = Announcer.to(ICharmLearnListener.class);
+  private CharmTree charmTree;
   private final IExtendedCharmLearnableArbitrator learnArbitrator;
   private final ICharmLearnStrategy learnStrategy;
   private final ILearningCharmGroupContainer charmGroupContainer;
 
-  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree simpleCharmGroup, IExtendedCharmLearnableArbitrator arbitrator,
+  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree charmTree, IExtendedCharmLearnableArbitrator arbitrator,
                                ILearningCharmGroupContainer charmGroupContainer) {
-    super(simpleCharmGroup.getCharacterType(), simpleCharmGroup.getId(), simpleCharmGroup.getAllCharms());
     this.learnStrategy = learnStrategy;
+    this.charmTree = charmTree;
     this.learnArbitrator = arbitrator;
     this.charmGroupContainer = charmGroupContainer;
   }
@@ -225,6 +226,26 @@ public class LearningCharmTreeImpl extends CharmTreeImpl implements LearningChar
   }
 
   @Override
+  public Charm[] getAllCharms() {
+    return charmTree.getAllCharms();
+  }
+
+  @Override
+  public CharacterType getCharacterType() {
+    return charmTree.getCharacterType();
+  }
+
+  @Override
+  public boolean isCharmFromTree(Charm charm) {
+    return charmTree.isCharmFromTree(charm);
+  }
+
+  @Override
+  public String getId() {
+    return charmTree.getId();
+  }
+
+  @Override
   public boolean equals(Object obj) {
     return super.equals(obj);
   }
@@ -232,5 +253,10 @@ public class LearningCharmTreeImpl extends CharmTreeImpl implements LearningChar
   @Override
   public int hashCode() {
     return super.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return getId();
   }
 }

@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.ArrayList;
@@ -33,14 +34,15 @@ public class CharmTreeCategoryImpl implements CharmTreeCategory {
     return allCharms;
   }
 
-  private void addCharmGroupsFor(Collection<String> groupIds, List<CharmTree> charmGroups, Charm[] charms) {
+  private void addCharmGroupsFor(Collection<String> groupIds, List<CharmTree> charmTrees, Charm[] charms) {
     for (Charm charm : charms) {
-      String groupId = charm.getGroupId();
-      if (!groupIds.contains(groupId) && isLearnable(charm)) {
-        groupIds.add(groupId);
-        List<Charm> groupCharms = getAllCharmsForGroup(groupId);
-        charmGroups.add(new CharmTreeImpl(charm.getCharacterType(), groupId, groupCharms.toArray(new Charm[groupCharms.size()])
-        ));
+      String treeName = charm.getGroupId();
+      if (!groupIds.contains(treeName) && isLearnable(charm)) {
+        groupIds.add(treeName);
+        List<Charm> treeCharms = getAllCharmsForGroup(treeName);
+        CharacterType characterType = charm.getCharacterType();
+        Charm[] charmArray = treeCharms.toArray(new Charm[treeCharms.size()]);
+        charmTrees.add(new CharmTreeImpl(characterType, treeName, charmArray));
       }
     }
   }
