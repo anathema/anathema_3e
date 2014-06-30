@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.experience.model;
+package net.sf.anathema.hero.points;
 
 import net.sf.anathema.hero.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.advance.experience.ExperiencePointConfigurationListener;

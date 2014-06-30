@@ -2,6 +2,7 @@ package net.sf.anathema.hero.points;
 
 import net.sf.anathema.hero.advance.creation.BonusPointManagement;
 import net.sf.anathema.hero.advance.creation.PointsCreationData;
+import net.sf.anathema.hero.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
@@ -16,6 +17,7 @@ import java.util.List;
 
 public class PointModelImpl implements PointsModel {
 
+  private final ExperiencePointConfiguration experiencePoints = new DefaultExperiencePointConfiguration();
   private final List<IValueModel<Integer>> experienceOverviewModels = new ArrayList<>();
   private final List<IOverviewModel> bonusOverviewModels = new ArrayList<>();
   private final List<WeightedCategory> bonusCategories = new ArrayList<>();
@@ -32,7 +34,7 @@ public class PointModelImpl implements PointsModel {
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    // nothing to do
+    experiencePoints.addExperiencePointConfigurationListener(new AnnounceExperiencePointChange(announcer));
   }
 
   @Override
@@ -78,5 +80,10 @@ public class PointModelImpl implements PointsModel {
 
   public BonusPointManagement getBonusPointManagement() {
     return bonusPointManagement;
+  }
+
+  @Override
+  public ExperiencePointConfiguration getExperiencePoints() {
+    return experiencePoints;
   }
 }

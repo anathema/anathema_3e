@@ -13,7 +13,6 @@ import net.sf.anathema.lib.util.Identifier;
 import org.jmock.example.announcer.Announcer;
 
 public class ExperienceModelImpl implements ExperienceModel, HeroModel {
-  private final ExperiencePointConfiguration experiencePoints = new DefaultExperiencePointConfiguration();
   private final Announcer<ChangeListener> stateAnnouncer = new Announcer<>(ChangeListener.class);
   private boolean experienced = false;
 
@@ -30,17 +29,11 @@ public class ExperienceModelImpl implements ExperienceModel, HeroModel {
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
     stateAnnouncer.addListener(new AnnounceChangeListener(announcer, ExperienceChange.FLAVOR_EXPERIENCE_STATE));
-    experiencePoints.addExperiencePointConfigurationListener(new AnnounceExperiencePointChange(announcer));
-  }
+   }
 
   // todo (sandra): redirect to ChangeAnnouncer
   public void addStateChangeListener(ChangeListener listener) {
     stateAnnouncer.addListener(listener);
-  }
-
-  @Override
-  public ExperiencePointConfiguration getExperiencePoints() {
-    return experiencePoints;
   }
 
   @Override

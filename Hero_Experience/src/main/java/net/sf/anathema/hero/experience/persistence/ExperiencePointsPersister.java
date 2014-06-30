@@ -8,20 +8,23 @@ import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.lib.util.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
-public class ExperiencePersister extends AbstractModelJsonPersister<ExperiencePto, ExperienceModel> {
+public class ExperiencePointsPersister extends AbstractModelJsonPersister<PointsPto, PointsModel> {
 
-  public ExperiencePersister() {
-    super("experience", ExperiencePto.class);
+  public ExperiencePointsPersister() {
+    super("points", PointsPto.class);
   }
 
   @Override
   public Identifier getModelId() {
-    return ExperienceModel.ID;
+    return PointsModel.ID;
   }
 
   @Override
-  protected void loadModelFromPto(Hero hero, ExperienceModel model, ExperiencePto pto) {
-    model.setExperienced(pto.isExperienced);
+  protected void loadModelFromPto(Hero hero, PointsModel model, PointsPto pto) {
+    for (ExperiencePointsEntryPto pointsPto : pto.experiencePoints) {
+      ExperiencePointEntry entry = model.getExperiencePoints().addEntry();
+      loadPointsEntry(pointsPto, entry);
+    }
   }
 
   private void loadPointsEntry(ExperiencePointsEntryPto pointsPto, ExperiencePointEntry entry) {
@@ -30,9 +33,12 @@ public class ExperiencePersister extends AbstractModelJsonPersister<ExperiencePt
   }
 
   @Override
-  protected ExperiencePto saveModelToPto(ExperienceModel model) {
-    ExperiencePto pto = new ExperiencePto();
-    pto.isExperienced = model.isExperienced();
+  protected PointsPto saveModelToPto(PointsModel model) {
+    PointsPto pto = new PointsPto();
+    for (ExperiencePointEntry entry : model.getExperiencePoints().getAllEntries()) {
+      ExperiencePointsEntryPto pointsPto = createExperiencePointsPto(entry);
+      pto.experiencePoints.add(pointsPto);
+    }
     return pto;
   }
 

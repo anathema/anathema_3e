@@ -31,11 +31,6 @@ public class DefaultMartialArtsCharmConfiguration_Test {
       public boolean experienced;
 
       @Override
-      public ExperiencePointConfiguration getExperiencePoints() {
-        throw new UnsupportedOperationException();
-      }
-
-      @Override
       public boolean isExperienced() {
         return experienced;
       }

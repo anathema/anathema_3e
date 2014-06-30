@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.experience.persistence;
 
-public class ExperiencePointsPto {
+public class ExperiencePointsEntryPto {
   public String description;
   public int points;
 }

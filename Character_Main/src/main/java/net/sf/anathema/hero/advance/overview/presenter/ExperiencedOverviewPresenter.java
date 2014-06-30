@@ -9,6 +9,7 @@ import net.sf.anathema.hero.advance.experience.ExperiencePointManagement;
 import net.sf.anathema.hero.advance.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.hero.points.overview.IValueModel;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 
@@ -26,7 +27,7 @@ public class ExperiencedOverviewPresenter {
 
   private LabelledAllotmentView totalView;
 
-  public ExperiencedOverviewPresenter(Resources resources, final Hero hero, CategorizedOverview overview,
+  public ExperiencedOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overview,
                                       ExperiencePointManagement experiencePoints, IMessaging messaging) {
     this.resources = resources;
     this.hero = hero;
@@ -53,7 +54,7 @@ public class ExperiencedOverviewPresenter {
 
   private void initTotal(OverviewCategory category) {
     totalView = category.addAlotmentView(getString("Overview.Experience.Total"), 4);
-    ExperienceModelFetcher.fetch(hero).getExperiencePoints().addExperiencePointConfigurationListener(this::calculateXPCost);
+    PointModelFetcher.fetch(hero).getExperiencePoints().addExperiencePointConfigurationListener(this::calculateXPCost);
   }
 
   private void calculateXPCost() {
@@ -72,7 +73,7 @@ public class ExperiencedOverviewPresenter {
   }
 
   private int getTotalXP() {
-    return ExperienceModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints();
+    return PointModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints();
   }
 
   private String getString(String string) {
