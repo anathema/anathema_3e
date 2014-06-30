@@ -52,12 +52,17 @@ public class EssencePoolStrategyImpl implements EssencePoolStrategy {
 
   @Override
   public int getUnmodifiedPersonalPool() {
-    return getPool(configuration.getPersonalTraits(traitMap));
+    return getPool(configuration.getPersonalTraits(traitMap)) + configuration.getPersonalBase();
+  }
+
+  @Override
+  public int getUnmodifiedPeripheralPool() {
+    return getPool(configuration.getPeripheralTraits(traitMap)) + configuration.getPeripheralBase();
   }
 
   @Override
   public int getFullPeripheralPool() {
-     return getUnmodifiedPeripheralPool();
+    return getUnmodifiedPeripheralPool();
   }
 
   @Override
@@ -69,11 +74,6 @@ public class EssencePoolStrategyImpl implements EssencePoolStrategy {
   public int getStandardPeripheralPool() {
     int peripheral = getUnmodifiedPeripheralPool();
     return Math.max(0, peripheral - getAttunementExpenditures());
-  }
-
-  @Override
-  public int getUnmodifiedPeripheralPool() {
-    return getPool(configuration.getPeripheralTraits(traitMap));
   }
 
   @Override
@@ -96,6 +96,10 @@ public class EssencePoolStrategyImpl implements EssencePoolStrategy {
   }
 
   private int getPool(FactorizedTrait[] factorizedTraits) {
-    return new FactorizedTraitSumCalculator().calculateSum(factorizedTraits);
+    int overallSum = 0;
+    for (FactorizedTrait factorizedTrait : factorizedTraits) {
+      overallSum += factorizedTrait.getCalculateTotal();
+    }
+    return overallSum;
   }
 }

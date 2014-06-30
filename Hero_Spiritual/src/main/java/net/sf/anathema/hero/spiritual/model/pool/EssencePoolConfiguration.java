@@ -10,18 +10,28 @@ import java.util.List;
 
 public class EssencePoolConfiguration {
 
-  private EssencePoolTemplate template;
+  private final EssencePoolTemplate template;
+  private final int personalBase;
+  private final List<PoolPartTemplate> personalParts;
+  private final int peripheralBase;
+  private final List<PoolPartTemplate> peripheralParts;
 
   public EssencePoolConfiguration(EssencePoolTemplate template) {
     this.template = template;
+    EssenceExpressionParser personalParser = new EssenceExpressionParser(template.personalPool);
+    this.personalBase = personalParser.getBase();
+    this.personalParts = personalParser.getPartTemplates();
+    EssenceExpressionParser peripheralParser = new EssenceExpressionParser(template.peripheralPool);
+    this.peripheralBase = peripheralParser.getBase();
+    this.peripheralParts = peripheralParser.getPartTemplates();
   }
 
   public FactorizedTrait[] getPersonalTraits(TraitMap traitMap) {
-    return createFactorizedTraits(template.personalPool, traitMap);
+    return createFactorizedTraits(personalParts, traitMap);
   }
 
   public FactorizedTrait[] getPeripheralTraits(TraitMap traitMap) {
-    return createFactorizedTraits(template.peripheralPool, traitMap);
+    return createFactorizedTraits(peripheralParts, traitMap);
   }
 
   public boolean isEssenceUser() {
@@ -38,5 +48,13 @@ public class EssencePoolConfiguration {
       traits.add(new FactorizedTrait(trait, part.multiplier));
     }
     return traits.toArray(new FactorizedTrait[traits.size()]);
+  }
+
+  public int getPeripheralBase() {
+    return peripheralBase;
+  }
+
+  public int getPersonalBase() {
+    return personalBase;
   }
 }
