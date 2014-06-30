@@ -1,16 +1,15 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.display.TraitPresenter;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.character.framework.display.labelledvalue.NullValueView;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
+import net.sf.anathema.hero.traits.display.TraitPresenter;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.gui.Presenter;
-import net.sf.anathema.framework.environment.Resources;
 
 public class EssenceConfigurationPresenter implements Presenter {
 
@@ -37,13 +36,10 @@ public class EssenceConfigurationPresenter implements Presenter {
       final IValueView<String> personalView = addPool(key, personalPool);
       final IValueView<String> peripheralView = createPeripheralPoolView();
       final IValueView<String> attunementView = addPool("EssencePool.Name.Attunement", essencePool.getAttunedPool());
-      essencePool.addPoolChangeListener(new ChangeListener() {
-        @Override
-        public void changeOccurred() {
-          personalView.setValue(essencePool.getPersonalPool());
-          listenToPeripheralChanges(peripheralView);
-          attunementView.setValue(essencePool.getAttunedPool());
-        }
+      essencePool.addPoolChangeListener(() -> {
+        personalView.setValue(essencePool.getPersonalPool());
+        listenToPeripheralChanges(peripheralView);
+        attunementView.setValue(essencePool.getAttunedPool());
       });
     }
     new TraitPresenter(essenceTrait, essenceView).initPresentation();

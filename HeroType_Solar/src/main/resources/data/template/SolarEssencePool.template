@@ -1,5 +1,4 @@
 {
-  isEssenceUser: true;
   personalPool: Essence*3+10;
   peripheralPool: Essence*7+26
 }

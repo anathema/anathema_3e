@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
 import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.IdentifiedInteger;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -20,8 +19,6 @@ public interface EssencePoolModel {
   int getPeripheralPoolValue();
 
   int getOverdrivePoolValue();
-
-  IdentifiedInteger[] getComplexPools();
 
   String getAttunedPool();
 
