@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.advance.experience;
 
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.advance.overview.model.AbstractIntegerValueModel;
+import net.sf.anathema.hero.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 
 public class WillpowerExperienceModel extends AbstractIntegerValueModel {

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
-import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
+import net.sf.anathema.hero.points.display.overview.model.AbstractSpendingModel;
 
 public class AttributeBonusModel extends AbstractSpendingModel {
   private final AttributeGroupPriority priority;

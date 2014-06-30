@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.advance.experience;
 
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
-import net.sf.anathema.hero.advance.overview.model.AbstractIntegerValueModel;
+import net.sf.anathema.hero.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.specialties.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.SpecialtiesModel;

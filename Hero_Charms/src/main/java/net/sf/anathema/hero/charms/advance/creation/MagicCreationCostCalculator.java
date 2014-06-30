@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.advance.creation;
 import net.sf.anathema.character.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.model.WeightedMagicSorter;
-import net.sf.anathema.hero.points.advance.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.advance.creation.HeroBonusPointCalculator;
 
 import java.util.HashSet;
 import java.util.List;

@@ -5,8 +5,8 @@ import javafx.scene.layout.BorderPane;
 import net.sf.anathema.fx.hero.overview.DefaultCategorizedOverview;
 import net.sf.anathema.fx.hero.overview.FxOverviewDisplay;
 import net.sf.anathema.fx.hero.overview.NullOverviewContainer;
-import net.sf.anathema.hero.advance.overview.view.CategorizedOverview;
-import net.sf.anathema.hero.advance.overview.view.OverviewContainer;
+import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
+import net.sf.anathema.hero.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.platform.fx.NodeHolder;
 
 public class FxOverviewTab implements OverviewContainer, NodeHolder, FxOverviewDisplay {

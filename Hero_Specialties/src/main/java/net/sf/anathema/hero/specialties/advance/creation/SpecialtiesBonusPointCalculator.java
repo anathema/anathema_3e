@@ -7,7 +7,7 @@ import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.specialties.ISubTraitContainer;
 import net.sf.anathema.hero.template.creation.IGenericSpecialty;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.advance.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.advance.creation.HeroBonusPointCalculator;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.advance.TraitCalculationUtilities;
 

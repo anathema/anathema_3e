@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
 import net.sf.anathema.hero.attributes.model.AttributeModel;
-import net.sf.anathema.hero.points.advance.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.advance.creation.HeroBonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 

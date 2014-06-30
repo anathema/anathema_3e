@@ -1,6 +1,5 @@
 dependencies {
     compile project(':Character_Main')
-    compile project(':Character_Main_FX')
     compile project(':Hero')
     testCompile testDependencies
     testCompile project(path: ':Platform', configuration: 'tests')

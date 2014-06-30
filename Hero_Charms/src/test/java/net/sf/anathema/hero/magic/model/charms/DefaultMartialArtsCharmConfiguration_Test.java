@@ -7,7 +7,6 @@ import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.character.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModelImpl;
 import net.sf.anathema.hero.magic.dummy.DummyCharmsModel;
-import net.sf.anathema.hero.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;

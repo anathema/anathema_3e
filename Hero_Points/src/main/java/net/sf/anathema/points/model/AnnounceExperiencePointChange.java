@@ -1,6 +1,6 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.advance.experience.ExperiencePointConfigurationListener;
+import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfigurationListener;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 

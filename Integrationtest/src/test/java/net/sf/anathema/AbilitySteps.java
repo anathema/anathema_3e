@@ -6,7 +6,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.points.display.overview.SpendingModel;
+import net.sf.anathema.hero.points.model.overview.SpendingModel;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
