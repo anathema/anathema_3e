@@ -28,34 +28,25 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMa
 
 public class CharmOptions {
 
-  private CharmsRules charmsRules;
+  private final CharmsRules charmsRules;
   private final CharacterTypeList availableTypes;
   private final Map<Identifier, CharmTreeCategory> treesByType = new HashMap<>();
-  private Hero hero;
+  private final Hero hero;
   private final MartialArtsCharmTreeCategory martialArtsCharmTree;
-  private CharmProvider charmProvider;
+  private final CharmProvider charmProvider;
 
   public CharmOptions(CharmProvider charmProvider, CharmsRules charmsRules, Hero hero, CharacterTypes characterTypes) {
     this.charmProvider = charmProvider;
+    this.hero = hero;
+    this.charmsRules = charmsRules;
     MartialArtsLevel standardLevel = charmsRules.getMartialArtsRules().getStandardLevel();
     this.martialArtsCharmTree = new MartialArtsCharmTreeCategory(charmProvider, standardLevel);
-    this.hero = hero;
-    this.charmProvider = charmProvider;
-    this.charmsRules = charmsRules;
     this.availableTypes = new CharacterTypeList(charmProvider);
     availableTypes.collectAvailableTypes(getNativeCharacterType(), characterTypes);
-    initCharmTreesForAvailableTypes();
-  }
-
-  private void initCharmTreesForAvailableTypes() {
     for (CharacterType type : availableTypes) {
-      Charm[] charms = charmProvider.getCharms(type);
+      Charm[] charms = this.charmProvider.getCharms(type);
       treesByType.put(type, new CharmTreeCategoryImpl(charms));
     }
-  }
-
-  private CharacterType getNativeCharacterType() {
-    return NativeCharacterType.get(hero);
   }
 
   public CharmTree[] getAllMartialArtsTrees() {
@@ -67,11 +58,7 @@ public class CharmOptions {
   }
 
   public CharmTree[] getAllTreesForType(CharacterType characterType) {
-    return getCharmTrees(characterType).getAllCharmTrees();
-  }
-
-  private CharmTreeCategory getCharmTrees(CharacterType type) {
-    return treesByType.get(type);
+    return treesByType.get(characterType).getAllCharmTrees();
   }
 
   public CharmIdMap getCharmIdMap() {
@@ -110,6 +97,10 @@ public class CharmOptions {
       return allCharms;
     }
     return charmsThatAreNativeOrNotExclusive(allCharms);
+  }
+
+  private CharacterType getNativeCharacterType() {
+    return NativeCharacterType.get(hero);
   }
 
   private Charm[] charmsThatAreNativeOrNotExclusive(Charm[] allCharms) {
