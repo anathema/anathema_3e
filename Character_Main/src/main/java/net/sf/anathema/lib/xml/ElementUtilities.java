@@ -60,10 +60,6 @@ public class ElementUtilities {
     return element;
   }
 
-  public static String getRequiredText(Element parent, String tagName) throws PersistenceException {
-    return getRequiredElement(parent, tagName).getText();
-  }
-
   public static boolean getBooleanAttribute(Element element, String name, boolean defaultValue) {
     String attributeValue = element.attributeValue(name);
     if (attributeValue == null) {
@@ -80,10 +76,5 @@ public class ElementUtilities {
   @SuppressWarnings("unchecked")
   public static List<Element> elements(Element parent, String tagName) {
     return parent.elements(tagName);
-  }
-
-  public static boolean hasChild(Element parentElement, String tagName) {
-    Element child = parentElement.element(tagName);
-    return child != null;
   }
 }

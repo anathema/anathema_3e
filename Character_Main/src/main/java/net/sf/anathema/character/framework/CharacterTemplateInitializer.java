@@ -6,9 +6,9 @@ import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.logging.Logger;
-import net.sf.anathema.lib.xml.DocumentUtilities;
 import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
+import org.dom4j.io.SAXReader;
 
 import java.io.InputStream;
 
@@ -21,15 +21,11 @@ public class CharacterTemplateInitializer {
   }
 
   public void addCharacterTemplates() {
-    CharacterTemplateResources templateResources = environment.getDataSet(CharacterTemplateResources.class);
-    for (ResourceFile templateResource : templateResources) {
-      registerParsedTemplate(environment, templateResource);
-    }
-  }
-
-  private void registerParsedTemplate(HeroEnvironment environment, ResourceFile resource) {
     CharacterTemplateParser parser = new CharacterTemplateParser(environment.getCharacterTypes());
-    initCharacterTemplates(environment, resource, parser);
+    CharacterTemplateResources resourceFiles = environment.getDataSet(CharacterTemplateResources.class);
+    for (ResourceFile templateResource : resourceFiles) {
+      initCharacterTemplates(environment, templateResource, parser);
+    }
   }
 
   private void initCharacterTemplates(HeroEnvironment environment, ResourceFile resource, CharacterTemplateParser parser) {
@@ -46,7 +42,8 @@ public class CharacterTemplateInitializer {
     String id = resource.getFileName();
     try {
       documentStream = resource.getURL().openStream();
-      Document document = DocumentUtilities.read(documentStream);
+      SAXReader saxReader = new SAXReader();
+      Document document = saxReader.read(documentStream, null);
       return parser.parseTemplate(document.getRootElement());
     } catch (Exception e) {
       throw new PersistenceException("Unable to find file " + id);
