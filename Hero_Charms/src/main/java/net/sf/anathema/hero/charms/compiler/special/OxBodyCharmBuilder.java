@@ -2,12 +2,12 @@ package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
-import net.sf.anathema.hero.magic.parser.charms.TraitTypeFinder;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.dto.special.OxBodyPickDto;
 import net.sf.anathema.hero.magic.parser.dto.special.OxBodyTechniqueDto;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.health.HealthLevelType;
+import net.sf.anathema.hero.health.model.HealthLevelType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

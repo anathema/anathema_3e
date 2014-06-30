@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmXMLConstants;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.IAttributePrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ICharmPrerequisiteBuilder;
@@ -67,7 +67,7 @@ public class CharmBuilder implements ICharmBuilder {
     String id = idBuilder.build(charmElement);
     try {
       CharacterType characterType = getCharacterType(charmElement);
-      ICostList temporaryCost;
+      CostList temporaryCost;
       try {
         temporaryCost = costListBuilder.buildCostList(charmElement.element(TAG_COST));
       } catch (PersistenceException e) {

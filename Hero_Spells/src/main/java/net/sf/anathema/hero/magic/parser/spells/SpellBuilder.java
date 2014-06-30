@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.parser.spells;
 
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.magic.basic.source.ISourceList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.basic.source.SourceList;
@@ -34,7 +34,7 @@ public class SpellBuilder {
   private void buildSpell(Element spellElement, List<Spell> spellList) throws PersistenceException {
     String id = spellElement.attributeValue("id");
     String circleId = spellElement.attributeValue("circle");
-    ICostList temporaryCost = costListBuilder.buildCostList(spellElement.element("cost"));
+    CostList temporaryCost = costListBuilder.buildCostList(spellElement.element("cost"));
     Element targetElement = spellElement.element("target");
     String target = null;
     if (targetElement != null) {

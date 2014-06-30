@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.basic.cost;
+package net.sf.anathema.charm.data.cost;
 
 public class CostImpl implements Cost {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapon;
 
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 
 public interface IArmourStats extends IEquipmentStats {
 

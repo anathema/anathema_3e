@@ -14,7 +14,7 @@ import net.sf.anathema.hero.charms.model.special.oxbody.*;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyCasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
-import net.sf.anathema.hero.health.HealthLevelType;
+import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;

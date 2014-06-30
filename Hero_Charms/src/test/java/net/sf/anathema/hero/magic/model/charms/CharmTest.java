@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.hero.magic.basic.cost.CostList;
+import net.sf.anathema.charm.data.cost.CostListImpl;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
@@ -42,7 +42,7 @@ public class CharmTest {
     CharmTypeModel model = new CharmTypeModel();
     model.setCharmType(CharmType.Simple);
     try {
-      new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostList(null, null, null, null),
+      new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
               new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
               model, null);
       fail();
@@ -59,7 +59,7 @@ public class CharmTest {
     CharmTypeModel model = new CharmTypeModel();
     model.setCharmType(CharmType.Simple);
     CharmImpl charmImpl =
-            new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostList(null, null, null, null),
+            new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
                     new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
                     model, new SourceBook[0]);
     charmImpl.addParentCharms(parent);

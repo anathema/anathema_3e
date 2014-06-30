@@ -13,7 +13,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Artifact;

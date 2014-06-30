@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy.magic;
 
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
@@ -42,7 +42,7 @@ public class DummySpell implements Spell {
   }
 
   @Override
-  public ICostList getTemporaryCost() {
+  public CostList getTemporaryCost() {
     throw new NotYetImplementedException();
   }
 

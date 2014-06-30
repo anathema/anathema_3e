@@ -6,7 +6,7 @@ import net.sf.anathema.hero.dummy.DummyEssenceCharacterType;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.equipment.model.natural.DefaultNaturalSoak;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.basic.attribute.MagicAttributeImpl;
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
@@ -44,7 +44,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final boolean isGeneric;
 
   private final SourceBook[] sources;
-  private final ICostList temporaryCost;
+  private final CostList temporaryCost;
 
   private final List<Set<Charm>> alternatives = new ArrayList<>();
   private final List<Set<Charm>> merges = new ArrayList<>();
@@ -55,7 +55,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final ICharmTypeModel typeModel;
 
   public CharmImpl(CharacterType characterType, String id, String group, boolean isGeneric, CharmPrerequisiteList prerequisiteList,
-                   ICostList temporaryCost, IComboRestrictions comboRules, Duration duration, ICharmTypeModel charmTypeModel,
+                   CostList temporaryCost, IComboRestrictions comboRules, Duration duration, ICharmTypeModel charmTypeModel,
                    SourceBook[] sources) {
     super(id);
     Preconditions.checkNotNull(prerequisiteList);
@@ -114,7 +114,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public ICostList getTemporaryCost() {
+  public CostList getTemporaryCost() {
     return temporaryCost;
   }
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.spells;
 
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
 import net.sf.anathema.hero.magic.basic.source.ISourceList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.model.Hero;
@@ -11,11 +11,11 @@ import net.sf.anathema.hero.traits.model.TraitType;
 
 public class SpellImpl extends AbstractMagic implements Spell {
   private final CircleType circleType;
-  private final ICostList temporaryCost;
+  private final CostList temporaryCost;
   private ISourceList source;
   private final String target;
 
-  public SpellImpl(String id, CircleType circleType, ICostList temporaryCost, ISourceList source, String target) {
+  public SpellImpl(String id, CircleType circleType, CostList temporaryCost, ISourceList source, String target) {
     super(id);
     this.circleType = circleType;
     this.temporaryCost = temporaryCost;
@@ -44,7 +44,7 @@ public class SpellImpl extends AbstractMagic implements Spell {
   }
 
   @Override
-  public ICostList getTemporaryCost() {
+  public CostList getTemporaryCost() {
     return temporaryCost;
   }
 

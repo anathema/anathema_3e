@@ -3,8 +3,8 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
-import net.sf.anathema.hero.health.HealthType;
-import net.sf.anathema.hero.health.IHealthTypeVisitor;
+import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.hero.health.model.IHealthTypeVisitor;
 import net.sf.anathema.lib.data.Range;
 import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
 

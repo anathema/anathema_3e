@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
-import net.sf.anathema.hero.magic.parser.charms.TraitTypeFinder;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.magic.parser.dto.special.UpgradableDto;
 import net.sf.anathema.hero.traits.model.TraitType;

@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.magic.parser.dto;
 
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.charm.data.cost.HealthCostType;
 
 public class HealthCostDto {
 
   public int cost = 0;
   public String text = "";
   public boolean permanent = false;
-  public HealthType type = HealthType.Lethal;
+  public HealthCostType type = HealthCostType.Lethal;
 }

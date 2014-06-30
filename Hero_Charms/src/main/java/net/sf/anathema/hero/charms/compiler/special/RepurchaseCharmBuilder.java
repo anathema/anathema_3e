@@ -7,7 +7,7 @@ import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnable
 import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
-import net.sf.anathema.hero.magic.parser.charms.TraitTypeFinder;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.dto.special.RepurchaseDto;
 import net.sf.anathema.hero.magic.parser.dto.special.RequirementDto;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;

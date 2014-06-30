@@ -18,7 +18,7 @@ import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingSta
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class ModelToStats {

@@ -1,13 +1,13 @@
-package net.sf.anathema.hero.magic.basic.cost;
+package net.sf.anathema.charm.data.cost;
 
-public class CostList implements ICostList {
+public class CostListImpl implements CostList {
 
   private final Cost essence;
   private final Cost willpower;
-  private final IHealthCost health;
+  private final HealthCost health;
   private final Cost xp;
 
-  public CostList(Cost essence, Cost willpower, IHealthCost health, Cost xp) {
+  public CostListImpl(Cost essence, Cost willpower, HealthCost health, Cost xp) {
     this.xp = xp;
     this.essence = essence;
     this.willpower = willpower;
@@ -25,8 +25,8 @@ public class CostList implements ICostList {
   }
 
   @Override
-  public IHealthCost getHealthCost() {
-    return health != null ? health : HealthCost.NULL_HEALTH_COST;
+  public HealthCost getHealthCost() {
+    return health != null ? health : HealthCostImpl.NULL_HEALTH_COST;
   }
 
   @Override

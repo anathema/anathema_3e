@@ -23,7 +23,7 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.ma
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSoakModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSpeedModifier;
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import org.junit.Assert;
 
 public abstract class AbstractEquipmentModificationTest {

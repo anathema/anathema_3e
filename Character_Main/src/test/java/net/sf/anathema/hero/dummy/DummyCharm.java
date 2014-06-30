@@ -7,9 +7,9 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import net.sf.anathema.charm.data.cost.CostListImpl;
 import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.basic.attribute.MagicAttributeImpl;
-import net.sf.anathema.hero.magic.basic.cost.CostList;
 import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
@@ -167,7 +167,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public CostList getTemporaryCost() {
+  public CostListImpl getTemporaryCost() {
     return null;
   }
 

@@ -1,21 +1,21 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
+import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.data.cost.HealthCost;
 import net.sf.anathema.hero.magic.basic.Magic;
-import net.sf.anathema.hero.magic.basic.cost.Cost;
-import net.sf.anathema.hero.magic.basic.cost.ICostList;
-import net.sf.anathema.hero.magic.basic.cost.IHealthCost;
+import net.sf.anathema.charm.data.cost.Cost;
 import net.sf.anathema.framework.environment.Resources;
 
 public class MagicInfoStringBuilder implements IMagicInfoStringBuilder {
 
   private final ICostStringBuilder<Cost> essenceBuilder;
   private final ICostStringBuilder<Cost> willpowerBuilder;
-  private final ICostStringBuilder<IHealthCost> healthBuilder;
+  private final ICostStringBuilder<HealthCost> healthBuilder;
   private final ICostStringBuilder<Cost> experienceBuilder;
   private final MagicInfoStringConcatenator concatenator;
 
   public MagicInfoStringBuilder(Resources resources, ICostStringBuilder<Cost> essenceBuilder, ICostStringBuilder<Cost> willpowerBuilder,
-                                ICostStringBuilder<IHealthCost> healthBuilder, ICostStringBuilder<Cost> experienceBuilder) {
+                                ICostStringBuilder<HealthCost> healthBuilder, ICostStringBuilder<Cost> experienceBuilder) {
     this.essenceBuilder = essenceBuilder;
     this.willpowerBuilder = willpowerBuilder;
     this.healthBuilder = healthBuilder;
@@ -25,7 +25,7 @@ public class MagicInfoStringBuilder implements IMagicInfoStringBuilder {
 
   @Override
   public String createCostString(Magic magic) {
-    ICostList temporaryCost = magic.getTemporaryCost();
+    CostList temporaryCost = magic.getTemporaryCost();
     String essenceCost = essenceBuilder.getCostString(temporaryCost.getEssenceCost());
     String willpowerCost = willpowerBuilder.getCostString(temporaryCost.getWillpowerCost());
     String healthCost = healthBuilder.getCostString(temporaryCost.getHealthCost());

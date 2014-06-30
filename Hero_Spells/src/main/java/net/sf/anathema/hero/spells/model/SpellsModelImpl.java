@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import net.sf.anathema.hero.magic.parser.charms.TraitTypeFinder;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.spells.ISpellCache;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;

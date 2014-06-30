@@ -10,7 +10,7 @@ import net.sf.anathema.framework.environment.resources.LocaleResources;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectPresenter;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;

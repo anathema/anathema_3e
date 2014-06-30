@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.parser;
 
-import net.sf.anathema.hero.magic.basic.cost.HealthCost;
-import net.sf.anathema.hero.magic.basic.cost.IHealthCost;
+import net.sf.anathema.charm.data.cost.HealthCost;
+import net.sf.anathema.charm.data.cost.HealthCostImpl;
 import net.sf.anathema.hero.magic.parser.charms.HealthCostBuilder;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 import org.dom4j.tree.DefaultElement;
@@ -27,8 +27,8 @@ public class HealthCostBuilderTest {
 
   @Test
   public void testNullElement() throws Exception {
-    IHealthCost cost = builder.buildCost(null);
-    assertEquals(HealthCost.NULL_HEALTH_COST, cost);
+    HealthCost cost = builder.buildCost(null);
+    assertEquals(HealthCostImpl.NULL_HEALTH_COST, cost);
   }
 
   @Test(expected = PersistenceException.class)
@@ -41,7 +41,7 @@ public class HealthCostBuilderTest {
   public void testCostAttributeOnly() throws Exception {
     Element healthElement = getHealthElement();
     healthElement.addAttribute("cost", "4");
-    IHealthCost cost = builder.buildCost(healthElement);
+    HealthCost cost = builder.buildCost(healthElement);
     assertEquals("4", cost.getCost());
     assertEquals(null, cost.getText());
     assertEquals(HealthType.Lethal, cost.getType());
@@ -53,7 +53,7 @@ public class HealthCostBuilderTest {
     healthElement.addAttribute("cost", "4");
     String expected = "and then some";
     healthElement.addAttribute("text", expected);
-    IHealthCost cost = builder.buildCost(healthElement);
+    HealthCost cost = builder.buildCost(healthElement);
     assertEquals("4", cost.getCost());
     assertEquals(expected, cost.getText());
     assertEquals(HealthType.Lethal, cost.getType());
@@ -64,7 +64,7 @@ public class HealthCostBuilderTest {
     Element healthElement = getHealthElement();
     healthElement.addAttribute("cost", "2");
     healthElement.addAttribute("type", "Bashing");
-    IHealthCost cost = builder.buildCost(healthElement);
+    HealthCost cost = builder.buildCost(healthElement);
     assertEquals("2", cost.getCost());
     assertEquals(null, cost.getText());
     assertEquals(HealthType.Bashing, cost.getType());

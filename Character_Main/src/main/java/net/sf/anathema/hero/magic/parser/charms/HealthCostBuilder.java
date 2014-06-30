@@ -1,29 +1,24 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
+import net.sf.anathema.charm.data.cost.HealthCost;
+import net.sf.anathema.charm.data.cost.HealthCostImpl;
+import net.sf.anathema.charm.data.cost.HealthCostType;
 import net.sf.anathema.hero.magic.charm.ICharmXMLConstants;
-import net.sf.anathema.hero.magic.basic.cost.HealthCost;
-import net.sf.anathema.hero.magic.basic.cost.IHealthCost;
-import net.sf.anathema.hero.health.HealthType;
-import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
 public class HealthCostBuilder {
 
-  public IHealthCost buildCost(Element element) throws PersistenceException {
+  public HealthCost buildCost(Element element) throws PersistenceException {
     if (element == null) {
-      return HealthCost.NULL_HEALTH_COST;
+      return HealthCostImpl.NULL_HEALTH_COST;
     }
     int cost = ElementUtilities.getRequiredIntAttrib(element, ICharmXMLConstants.ATTRIB_COST);
     String text = element.attributeValue(ICharmXMLConstants.ATTRIB_TEXT);
     boolean permanent = ElementUtilities.getBooleanAttribute(element, ICharmXMLConstants.ATTRIB_PERMANENT, false);
     String typeString = element.attributeValue(ICharmXMLConstants.ATTRIB_TYPE);
-    HealthType type;
-    if (typeString == null) {
-      type = HealthType.Lethal;
-    } else {
-      type = HealthType.valueOf(typeString);
-    }
-    return new HealthCost(cost, text, permanent, type);
+    HealthCostType type = typeString == null ? HealthCostType.Lethal : HealthCostType.valueOf(typeString);
+    return new HealthCostImpl(cost, text, permanent, type);
   }
 }

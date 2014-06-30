@@ -3,7 +3,7 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponDamageModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.data.Range;
 import org.jmock.example.announcer.Announcer;

@@ -3,8 +3,6 @@ package net.sf.anathema.hero.health.model;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.health.HealthLevelType;
-import net.sf.anathema.hero.health.IHealthLevelTypeVisitor;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.parser.charms;
+package net.sf.anathema.hero.traits;
 
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

@@ -6,7 +6,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
-import net.sf.anathema.hero.health.HealthType;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.framework.environment.Resources;
 
