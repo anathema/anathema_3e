@@ -8,14 +8,15 @@ import net.sf.anathema.platform.tree.document.components.VisualizableDummyNode;
 import net.sf.anathema.platform.tree.document.components.VisualizableNode;
 import net.sf.anathema.platform.tree.document.visualizer.CreateElementForNode;
 import net.sf.anathema.platform.tree.document.visualizer.Fletcher;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 
 public class LayerCascadeCreator {
-  private final TreePresentationProperties properties;
+  private final NodeDimensions properties;
 
-  public LayerCascadeCreator(TreePresentationProperties properties) {
+  public LayerCascadeCreator(NodeDimensions properties) {
     this.properties = properties;
   }
 

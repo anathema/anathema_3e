@@ -5,10 +5,10 @@ import net.sf.anathema.platform.tree.document.components.ILayer;
 
 public class TreeDimensionCalculator {
 
-  private final TreePresentationProperties properties;
+  private final NodeDimensions dimension;
 
-  public TreeDimensionCalculator(TreePresentationProperties properties) {
-    this.properties = properties;
+  public TreeDimensionCalculator(NodeDimensions dimensions) {
+    this.dimension = dimensions;
   }
 
   public Area getTreeDimension(ILayer... layers) {
@@ -24,6 +24,6 @@ public class TreeDimensionCalculator {
   }
 
   public int getTreeHeight(ILayer... layers) {
-    return layers.length * properties.getNodeDimension().height + (layers.length - 1) * properties.getGapDimension().height;
+    return layers.length * dimension.getNodeDimension().height + (layers.length - 1) * dimension.getGapDimension().height;
   }
 }

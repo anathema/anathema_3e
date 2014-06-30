@@ -1,17 +1,12 @@
 package net.sf.anathema.platform.tree.document;
 
 import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
-import net.sf.anathema.platform.tree.document.visualizer.BottomUpGraphPositioner;
-import net.sf.anathema.platform.tree.document.visualizer.ICascadeVisualizer;
-import net.sf.anathema.platform.tree.document.visualizer.InvertedTreePositioner;
-import net.sf.anathema.platform.tree.document.visualizer.SingleNodePositioner;
-import net.sf.anathema.platform.tree.document.visualizer.TreePositioner;
-import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
+import net.sf.anathema.platform.tree.document.visualizer.*;
 
 public class PositionerFactory {
-  private final TreePresentationProperties properties;
+  private final NodeDimensions properties;
 
-  public PositionerFactory(TreePresentationProperties properties) {
+  public PositionerFactory(NodeDimensions properties) {
     this.properties = properties;
   }
 

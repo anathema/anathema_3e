@@ -2,17 +2,17 @@ package net.sf.anathema.platform.tree.view.visualizer;
 
 import net.sf.anathema.framework.ui.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.TreeDimensionCalculator;
-import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraph;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraphFactory;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
 
 public class AgnosticGraphFactory implements VisualizedGraphFactory {
   private TreeDimensionCalculator calculator;
-  private final TreePresentationProperties properties;
+  private final NodeDimensions properties;
 
-  public AgnosticGraphFactory(TreePresentationProperties properties) {
+  public AgnosticGraphFactory(NodeDimensions properties) {
     this.properties = properties;
     this.calculator = new TreeDimensionCalculator(properties);
   }

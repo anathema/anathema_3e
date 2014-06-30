@@ -1,26 +1,22 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.hero.charms.display.node.CharmGraphNodeBuilder;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.platform.tree.document.GenericCascadeFactory;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensionsImpl;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.view.AgnosticCascadeStrategy;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public abstract class AbstractCharmGroupChangeListener implements ICharmGroupChangeListener, CharmGroupInformer {
 
@@ -57,7 +53,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
       Set<Charm> charms = getDisplayCharms(charmGroup);
       IRegularNode[] nodesToShow = prepareNodes(charms);
       GenericCascadeFactory cascadeFactory = new GenericCascadeFactory(new AgnosticCascadeStrategy());
-      TreePresentationProperties presentationProperties = getDisplayProperties(charmGroup);
+      NodeDimensions presentationProperties = new NodeDimensionsImpl();
       Cascade cascade = cascadeFactory.createCascade(nodesToShow, presentationProperties);
       treeView.loadCascade(cascade, resetView);
     }
@@ -86,12 +82,6 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
       }
     }
     return charmsToDisplay;
-  }
-
-  private TreePresentationProperties getDisplayProperties(CharmTree charmGroup) {
-    CharacterType characterType = charmGroup.getCharacterType();
-    //return getDisplayProperties(characterType);
-    return null;
   }
 
   protected TreePresentationProperties getDisplayProperties(CharacterType characterType) {

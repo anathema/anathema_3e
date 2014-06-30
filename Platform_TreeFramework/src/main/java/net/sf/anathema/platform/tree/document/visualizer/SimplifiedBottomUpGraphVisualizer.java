@@ -1,7 +1,6 @@
 package net.sf.anathema.platform.tree.document.visualizer;
 
 import net.sf.anathema.framework.ui.Area;
-import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.graph.graph.LayeredGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.platform.tree.document.components.ILayer;
@@ -13,7 +12,7 @@ import java.util.Set;
 
 public class SimplifiedBottomUpGraphVisualizer extends AbstractCascadeVisualizer {
 
-  public SimplifiedBottomUpGraphVisualizer(LayeredGraph graph, TreePresentationProperties properties) {
+  public SimplifiedBottomUpGraphVisualizer(LayeredGraph graph, NodeDimensions properties) {
     super(new WideDummyTreePresentationProperties(properties), graph);
   }
 
@@ -72,10 +71,10 @@ public class SimplifiedBottomUpGraphVisualizer extends AbstractCascadeVisualizer
     }
   }
 
-  private static class WideDummyTreePresentationProperties implements TreePresentationProperties {
-    private final TreePresentationProperties properties;
+  private static class WideDummyTreePresentationProperties implements NodeDimensions {
+    private final NodeDimensions properties;
 
-    public WideDummyTreePresentationProperties(TreePresentationProperties properties) {
+    public WideDummyTreePresentationProperties(NodeDimensions properties) {
       this.properties = properties;
     }
 
@@ -92,11 +91,6 @@ public class SimplifiedBottomUpGraphVisualizer extends AbstractCascadeVisualizer
     @Override
     public Area getVerticalLineDimension() {
       return properties.getNodeDimension();
-    }
-
-    @Override
-    public RGBColor getColor() {
-      return properties.getColor();
     }
   }
 }

@@ -13,20 +13,20 @@ import java.util.Map;
 
 public abstract class AbstractCascadeVisualizer implements ICascadeVisualizer {
 
-  private final TreePresentationProperties properties;
+  private final NodeDimensions properties;
   private final Map<ISimpleNode, IVisualizableNode> visualizableNodesByContent = new HashMap<>();
   private final MultiEntryMap<ISimpleNode, ISimpleNode> leafNodesByAncestors = new MultiEntryMap<>();
   private final VisualizableNodeFactory nodeFactory;
   private final LayeredGraph graph;
 
-  public AbstractCascadeVisualizer(TreePresentationProperties properties, LayeredGraph graph) {
+  public AbstractCascadeVisualizer(NodeDimensions properties, LayeredGraph graph) {
     this.properties = properties;
     this.graph = graph;
     this.nodeFactory = new VisualizableNodeFactory(properties.getNodeDimension(), properties.getGapDimension(),
             properties.getVerticalLineDimension(), visualizableNodesByContent, leafNodesByAncestors);
   }
 
-  protected TreePresentationProperties getProperties() {
+  protected NodeDimensions getProperties() {
     return properties;
   }
 

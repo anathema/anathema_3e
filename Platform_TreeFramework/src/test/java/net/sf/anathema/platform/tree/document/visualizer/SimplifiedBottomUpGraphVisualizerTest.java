@@ -10,7 +10,7 @@ import static org.mockito.Mockito.mock;
 
 public class SimplifiedBottomUpGraphVisualizerTest {
 
-  private TreePresentationProperties properties = mock(TreePresentationProperties.class);
+  private NodeDimensions properties = mock(NodeDimensions.class);
   private TestLayeredGraph graph = new TestLayeredGraph();
   private SimplifiedBottomUpGraphVisualizer visualizer = new SimplifiedBottomUpGraphVisualizer(graph, properties);
 

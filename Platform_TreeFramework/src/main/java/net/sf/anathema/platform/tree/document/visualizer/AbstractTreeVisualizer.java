@@ -7,8 +7,8 @@ import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 
 public abstract class AbstractTreeVisualizer extends AbstractCascadeVisualizer {
 
-  public AbstractTreeVisualizer(TreePresentationProperties properties, LayeredGraph graph) {
-    super(properties, graph);
+  public AbstractTreeVisualizer(NodeDimensions dimensions, LayeredGraph graph) {
+    super(dimensions, graph);
   }
 
   private void createVisualizableNodes(int layerIndex) {

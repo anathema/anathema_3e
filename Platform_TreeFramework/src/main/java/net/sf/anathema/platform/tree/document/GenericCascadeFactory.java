@@ -3,6 +3,7 @@ package net.sf.anathema.platform.tree.document;
 import net.sf.anathema.graph.SugiyamaLayout;
 import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.IRegularNode;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraph;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraphFactory;
@@ -21,13 +22,13 @@ public class GenericCascadeFactory implements CascadeFactory {
   }
 
   @Override
-  public Cascade createCascade(IRegularNode[] nodes, TreePresentationProperties properties) {
+  public Cascade createCascade(IRegularNode[] nodes, NodeDimensions properties) {
     IProperHierarchicalGraph[] graphs = createHierarchicalGraphs(nodes);
     List<VisualizedGraph> visualizedGraphs = visualizeGraphs(properties, graphs);
     return buildCascadeObject(properties, visualizedGraphs);
   }
 
-  private Cascade buildCascadeObject(TreePresentationProperties properties, List<VisualizedGraph> visualizedGraphs) {
+  private Cascade buildCascadeObject(NodeDimensions properties, List<VisualizedGraph> visualizedGraphs) {
     AgnosticCascadeBuilder cascadeBuilder = new AgnosticCascadeBuilder();
     double firstRowWidth = 0;
     double firstRowHeight = 0;
@@ -55,7 +56,7 @@ public class GenericCascadeFactory implements CascadeFactory {
     return cascadeBuilder.create();
   }
 
-  private List<VisualizedGraph> visualizeGraphs(TreePresentationProperties properties,
+  private List<VisualizedGraph> visualizeGraphs(NodeDimensions properties,
                                                  IProperHierarchicalGraph[] graphs) {
     HierarchicalGraphVisualizer hierarchicalGraphVisualizer = createNodeToGraphConverter(properties);
     return hierarchicalGraphVisualizer.visualizeGraphs(graphs);
@@ -65,7 +66,7 @@ public class GenericCascadeFactory implements CascadeFactory {
     return layout.createProperHierarchicalGraphs(nodes);
   }
 
-  private HierarchicalGraphVisualizer createNodeToGraphConverter(TreePresentationProperties properties) {
+  private HierarchicalGraphVisualizer createNodeToGraphConverter(NodeDimensions properties) {
     PositionerFactory positionerFactory = new PositionerFactory(properties);
     VisualizedGraphFactory factoryForVisualizedGraphs = creationStrategy.getFactoryForVisualizedGraphs(properties);
     return new HierarchicalGraphVisualizer(positionerFactory, factoryForVisualizedGraphs);

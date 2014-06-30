@@ -16,22 +16,7 @@ public abstract class AbstractCharmPresentationProperties implements CharmPresen
   }
 
   @Override
-  public Area getNodeDimension() {
-    return new Area(180, 90);
-  }
-
-  @Override
-  public Area getGapDimension() {
-    return new Area(25, 50);
-  }
-
-  @Override
   public RGBColor getColor() {
     return color;
-  }
-
-  @Override
-  public final Area getVerticalLineDimension() {
-    return new Area(getGapDimension().width, getNodeDimension().height);
   }
 }

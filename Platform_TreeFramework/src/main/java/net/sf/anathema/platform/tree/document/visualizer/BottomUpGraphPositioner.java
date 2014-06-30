@@ -7,12 +7,7 @@ import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.VisualizableNodeLeftSideComparator;
 import net.sf.anathema.platform.tree.document.util.BackwardsIterable;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
 
@@ -70,7 +65,7 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
   // to each other as possible without overlapping their edges
   // Instead of giving the entire map as argument, just give the relevant leaves?
 
-  public BottomUpGraphPositioner(LayeredGraph graph, TreePresentationProperties properties) {
+  public BottomUpGraphPositioner(LayeredGraph graph, NodeDimensions properties) {
     super(properties, graph);
   }
 

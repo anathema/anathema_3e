@@ -6,7 +6,7 @@ import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 
 public class InvertedTreePositioner extends AbstractTreeVisualizer {
 
-  public InvertedTreePositioner(LayeredGraph graph, TreePresentationProperties properties) {
+  public InvertedTreePositioner(LayeredGraph graph, NodeDimensions properties) {
     super(properties, graph);
   }
 

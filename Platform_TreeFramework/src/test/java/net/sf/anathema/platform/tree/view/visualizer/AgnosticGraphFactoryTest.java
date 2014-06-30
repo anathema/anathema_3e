@@ -3,6 +3,7 @@ package net.sf.anathema.platform.tree.view.visualizer;
 import net.sf.anathema.framework.ui.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
+import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,7 @@ import static org.mockito.Mockito.when;
 
 public class AgnosticGraphFactoryTest {
 
-  private final TreePresentationProperties properties = mock(TreePresentationProperties.class);
+  private final NodeDimensions properties = mock(NodeDimensions.class);
   private final ILayer layer = mock(ILayer.class);
   private final AgnosticGraphFactory factory = new AgnosticGraphFactory(properties);
 
