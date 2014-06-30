@@ -50,7 +50,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   private void registerTypeCharms(List<CharmTree> allCharmGroups, CharacterType type) {
-    CharmTreeCategory typeTree = new CharmTreeCategoryImpl(charmProvider.getCharms(type));
+    CharmTreeCategory typeTree = new CharmTreeCategoryImpl(charmProvider, type);
     registerGroups(allCharmGroups, type, typeTree);
   }
 

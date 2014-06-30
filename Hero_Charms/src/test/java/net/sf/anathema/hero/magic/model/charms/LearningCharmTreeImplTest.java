@@ -6,7 +6,6 @@ import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
-import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -29,13 +28,14 @@ public class LearningCharmTreeImplTest {
 
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, String groupId) {
     ICharmLearnStrategy learnStrategy = new CreationCharmLearnStrategy();
-    CharmTreeCategoryImpl charmTree = new CharmTreeCategoryImpl(new Charm[0]);
+    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory();
     CharmTreeImpl group = new CharmTreeImpl(new DummyExaltCharacterType(), groupId,
             charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]));
     return new LearningCharmTreeImpl(learnStrategy, group, learnableArbitrator, container);
   }
 
-  private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, CharmTreeCategoryImpl charmTree, String groupId) {
+  private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator,
+                                                 DummyCharmTreeCategory charmTree, String groupId) {
     ICharmLearnStrategy learnSrategy = new CreationCharmLearnStrategy();
     CharmTreeImpl group = new CharmTreeImpl(new DummyExaltCharacterType(), groupId,
             charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]));
@@ -75,7 +75,7 @@ public class LearningCharmTreeImplTest {
             new DummyCharm(externalPrerequisiteId, new Charm[0], new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 1)});
     DummyCharm learnCharm = new DummyCharm(learCharmID, new Charm[]{internalPrerequisite, externalPrerequisite},
             new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Melee, 1)});
-    CharmTreeCategoryImpl charmTree = new CharmTreeCategoryImpl(new Charm[]{internalPrerequisite, externalPrerequisite, learnCharm});
+    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(internalPrerequisite, externalPrerequisite, learnCharm);
     externalPrerequisite.addLearnFollowUpCharm(learnCharm);
     IExtendedCharmLearnableArbitrator learnableArbitrator =
             new DummyLearnableArbitrator(externalPrerequisiteId, internalPrerequisiteId, learCharmID);
@@ -94,4 +94,5 @@ public class LearningCharmTreeImplTest {
     assertTrue(internalGroup.isLearned(internalPrerequisite));
     assertFalse(internalGroup.isLearned(learnCharm));
   }
+
 }

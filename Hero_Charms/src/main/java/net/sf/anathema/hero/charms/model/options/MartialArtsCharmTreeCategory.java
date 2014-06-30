@@ -7,7 +7,9 @@ import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.text.MessageFormat;
 
-public class MartialArtsCharmTreeCategory extends CharmTreeCategoryImpl {
+import static java.text.MessageFormat.format;
+
+public class MartialArtsCharmTreeCategory extends AbstractCharmTreeCategory {
 
   private final MartialArtsLevel standardLevel;
 
@@ -20,8 +22,8 @@ public class MartialArtsCharmTreeCategory extends CharmTreeCategoryImpl {
   public boolean isLearnable(Charm charm) {
     MartialArtsLevel level = MartialArtsUtilities.getLevel(charm);
     if (level == null) {
-      String format = MessageFormat
-              .format("The charm {0} is not a Martial Arts charm.\nTry naming Martial Arts as the first prerequisite trait.", charm.getId());
+      String pattern = "The charm {0} is not a Martial Arts charm.\nTry naming Martial Arts as the first prerequisite trait.";
+      String format = format(pattern, charm.getId());
       throw new IllegalStateException(format);
     }
     return level.compareTo(standardLevel) <= 1;
