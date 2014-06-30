@@ -2,6 +2,7 @@ package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.charm.data.cost.HealthCost;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
+import net.sf.anathema.charm.data.cost.HealthCostType;
 import net.sf.anathema.charm.parser.cost.HealthCostBuilder;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.exception.PersistenceException;
@@ -44,7 +45,7 @@ public class HealthCostBuilderTest {
     HealthCost cost = builder.buildCost(healthElement);
     assertEquals("4", cost.getCost());
     assertEquals(null, cost.getText());
-    assertEquals(HealthType.Lethal, cost.getType());
+    assertEquals(HealthCostType.Lethal, cost.getType());
   }
 
   @Test
@@ -56,7 +57,7 @@ public class HealthCostBuilderTest {
     HealthCost cost = builder.buildCost(healthElement);
     assertEquals("4", cost.getCost());
     assertEquals(expected, cost.getText());
-    assertEquals(HealthType.Lethal, cost.getType());
+    assertEquals(HealthCostType.Lethal, cost.getType());
   }
 
   @Test
@@ -67,7 +68,7 @@ public class HealthCostBuilderTest {
     HealthCost cost = builder.buildCost(healthElement);
     assertEquals("2", cost.getCost());
     assertEquals(null, cost.getText());
-    assertEquals(HealthType.Bashing, cost.getType());
+    assertEquals(HealthCostType.Bashing, cost.getType());
   }
 
 }
