@@ -197,7 +197,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   @Override
-  public void unlearnExclusives() {
+  public void forgetExclusives() {
     List<Charm> exclusiveCharms = new ArrayList<>();
     Collections.addAll(exclusiveCharms, getAllCharms());
     exclusiveCharms.removeAll(Arrays.asList(getCoreCharms()));

@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
+import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
@@ -46,6 +48,7 @@ import org.jmock.example.announcer.Announcer;
 
 import java.util.*;
 
+import static java.text.MessageFormat.format;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.*;
 
@@ -55,10 +58,8 @@ public class CharmsModelImpl implements CharmsModel {
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
-  private LearningCharmTree[] martialArtsLearnTrees;
-  private final Map<Identifier, LearningCharmTree[]> nonMartialArtsTreesByType = new HashMap<>();
+  private final Map<TreeCategory, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
-  private CharmProvider provider;
   private ExperienceModel experience;
   private TraitModel traits;
   private PrerequisiteModifyingCharms prerequisiteModifyingCharms;
@@ -82,7 +83,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.traits = TraitModelFetcher.fetch(hero);
     this.hero = hero;
-    this.provider = environment.getDataSet(CharmCache.class).getCharmProvider();
+    CharmProvider provider = environment.getDataSet(CharmCache.class).getCharmProvider();
     this.options = new CharmOptions(provider, charmsRules, hero, environment.getCharacterTypes());
     this.manager = new SpecialCharmManager(specialist, hero, this);
     initializeCharmTrees();
@@ -94,12 +95,10 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private void initializeCharmTrees() {
-    this.martialArtsLearnTrees = createTrees(options.getAllMartialArtsTrees());
-    Iterable<CharacterType> availableCharacterTypes = options.getAvailableCharacterTypes();
-    for (CharacterType characterType : availableCharacterTypes) {
-      CharmTree[] treeGroups = options.getAllTreesForType(characterType);
-      LearningCharmTree[] groups = createTrees(treeGroups);
-      nonMartialArtsTreesByType.put(characterType, groups);
+    learnTreesByCategory.put(new TreeCategory(MARTIAL_ARTS.getId()), createTrees(options.getAllMartialArtsTrees()));
+    for (CharacterType characterType : options.getAvailableCharacterTypes()) {
+      CharmTree[] categoryTrees = options.getAllTreesForType(characterType);
+      learnTreesByCategory.put(new TreeCategory(characterType.getId()), createTrees(categoryTrees));
     }
   }
 
@@ -175,7 +174,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      LearningCharmTree group = getGroupById(charm.getCharacterType(), charm.getGroupId());
+      LearningCharmTree group = getGroupById(MartialArtsUtilities.getTreeReference(charm));
       manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
     }
   }
@@ -231,10 +230,9 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public LearningCharmTree[] getAllGroups() {
     List<LearningCharmTree> allGroups = new ArrayList<>();
-    for (LearningCharmTree[] groups : nonMartialArtsTreesByType.values()) {
+    for (LearningCharmTree[] groups : learnTreesByCategory.values()) {
       allGroups.addAll(Arrays.asList(groups));
     }
-    allGroups.addAll(Arrays.asList(martialArtsLearnTrees));
     return allGroups.toArray(new LearningCharmTree[allGroups.size()]);
   }
 
@@ -249,14 +247,12 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public LearningCharmTree[] getCharmGroups(Identifier type) {
-    if (MartialArtsUtilities.MARTIAL_ARTS.equals(type)) {
-      return martialArtsLearnTrees;
-    }
-    return Functions.forMap(nonMartialArtsTreesByType, new LearningCharmTree[0]).apply(type);
+    TreeCategory category = new TreeCategory(type.getId());
+    return getLearningCharmTrees(category);
   }
 
-  private LearningCharmTree[] getMartialArtsLearnTrees() {
-    return getCharmGroups(MartialArtsUtilities.MARTIAL_ARTS);
+  private LearningCharmTree[] getLearningCharmTrees(TreeCategory category) {
+    return Functions.forMap(learnTreesByCategory, new LearningCharmTree[0]).apply(category);
   }
 
   @Override
@@ -278,15 +274,14 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void forgetAllAlienCharms() {
-    for (LearningCharmTree[] allLearnTrees : nonMartialArtsTreesByType.values()) {
+    for (LearningCharmTree[] allLearnTrees : learnTreesByCategory.values()) {
       for (LearningCharmTree learnTree : allLearnTrees) {
         if (options.isAlienType(learnTree.getReference().category)) {
           learnTree.forgetAll();
+        } else {
+          learnTree.forgetExclusives();
         }
       }
-    }
-    for (LearningCharmTree learnTree : martialArtsLearnTrees) {
-      learnTree.unlearnExclusives();
     }
   }
 
@@ -425,21 +420,20 @@ public class CharmsModelImpl implements CharmsModel {
     return group != null && group.isLearned(charm);
   }
 
-  private LearningCharmTree getGroupById(CharacterType characterType, String groupId) {
-    List<LearningCharmTree> candidateGroups = new ArrayList<>();
-    Collections.addAll(candidateGroups, getCharmGroups(characterType));
-    Collections.addAll(candidateGroups, getMartialArtsLearnTrees());
-    for (LearningCharmTree group : candidateGroups) {
-      if (group.getId().equals(groupId)) {
-        return group;
+  private LearningCharmTree getGroupById(TreeReference reference) {
+    LearningCharmTree[] charmTrees = getLearningCharmTrees(reference.category);
+    for(LearningCharmTree tree : charmTrees) {
+      if (tree.getReference().name.equals(reference.name)) {
+        return tree;
       }
     }
-    throw new IllegalArgumentException("No charm group defined for Id: " + groupId + "," + characterType);
+    String pattern = "No charm tree defined for id: {0} in {1}.";
+    throw new IllegalArgumentException(format(pattern, reference.name.text, reference.category.text));
   }
 
   @Override
   public final LearningCharmTree getGroup(Charm charm) {
-    return getGroupById(charm.getCharacterType(), charm.getGroupId());
+    return getGroupById(MartialArtsUtilities.getTreeReference(charm));
   }
 
   @Override

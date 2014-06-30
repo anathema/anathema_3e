@@ -10,15 +10,20 @@ public class TreeCategory {
 
   @Override
   public boolean equals(Object obj) {
-    if (!(obj instanceof TreeName)) {
+    if (!(obj instanceof TreeCategory)) {
       return false;
     }
-    TreeName other = (TreeName) obj;
+    TreeCategory other = (TreeCategory) obj;
     return other.text.equals(text);
   }
 
   @Override
   public int hashCode() {
     return text.hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return "Category: " + text;
   }
 }

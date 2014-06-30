@@ -26,7 +26,7 @@ public interface LearningCharmTree extends CharmTree, BasicLearnCharmTree {
 
   Charm[] getCoreCharms();
 
-  void unlearnExclusives();
+  void forgetExclusives();
 
   void fireRecalculateRequested();
 }

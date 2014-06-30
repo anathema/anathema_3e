@@ -21,4 +21,9 @@ public class TreeName {
   public int hashCode() {
     return text.hashCode();
   }
+
+  @Override
+  public String toString() {
+    return "Tree: " + text;
+  }
 }

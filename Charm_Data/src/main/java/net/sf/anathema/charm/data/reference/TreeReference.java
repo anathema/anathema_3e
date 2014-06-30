@@ -22,4 +22,9 @@ public class TreeReference {
   public int hashCode() {
     return name.hashCode() * 3 + category.hashCode() * 7;
   }
+
+  @Override
+  public String toString() {
+    return category + ", " + name;
+  }
 }
