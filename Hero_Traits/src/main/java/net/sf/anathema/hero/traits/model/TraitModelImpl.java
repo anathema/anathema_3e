@@ -12,6 +12,12 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
+import net.sf.anathema.hero.traits.model.limitation.AgeBasedLimitation;
+import net.sf.anathema.hero.traits.model.limitation.EssenceBasedLimitation;
+import net.sf.anathema.hero.traits.model.limitation.StaticTraitLimitation;
+import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.template.LimitationTemplate;
+import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.Iterator;
@@ -62,5 +68,16 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
   @Override
   public Iterator<Trait> iterator() {
     return asList(getAll()).iterator();
+  }
+
+  @Override
+  public TraitLimitation createLimitation(LimitationTemplate limitation) {
+    if (limitation.type == LimitationType.Static) {
+      return new StaticTraitLimitation(limitation.value);
+    }
+    if (limitation.type == LimitationType.Age) {
+      return new AgeBasedLimitation(limitation.value);
+    }
+    return new EssenceBasedLimitation();
   }
 }

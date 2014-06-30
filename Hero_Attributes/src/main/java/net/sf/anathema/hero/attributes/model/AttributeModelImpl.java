@@ -1,32 +1,21 @@
 package net.sf.anathema.hero.attributes.model;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitGroup;
-import net.sf.anathema.hero.traits.model.GrumpyIncrementChecker;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
-import net.sf.anathema.hero.traits.model.GroupedTraitType;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.lists.AllAttributeTraitTypeList;
-import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
-import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.traits.model.DefaultTraitMap;
-import net.sf.anathema.hero.traits.model.MappedTraitGroup;
-import net.sf.anathema.hero.traits.model.TraitModel;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.*;
+import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
-import net.sf.anathema.hero.traits.model.TraitFactory;
-import net.sf.anathema.hero.traits.model.trait.template.TraitLimitationFactory;
+import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.lists.AllAttributeTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.trait.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.model.trait.template.TraitTemplateMapImpl;
-import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
+import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.lib.util.Identifier;
 
@@ -38,6 +27,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   private Hero hero;
   private GroupedTraitType[] abilityGroups;
   private GroupedTraitsTemplate template;
+  private TraitModel traitModel;
 
   public AttributeModelImpl(GroupedTraitsTemplate template) {
     this.template = template;
@@ -55,7 +45,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     this.abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
     this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection, getAttributeGroups());
     addAttributes();
-    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
   }
 
@@ -76,7 +66,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
 
   @Override
   public int getTraitMaximum() {
-    TraitLimitation limitation = TraitLimitationFactory.createLimitation(template.standard.limitation);
+    TraitLimitation limitation = traitModel.createLimitation(template.standard.limitation);
     return limitation.getAbsoluteLimit(hero);
   }
 

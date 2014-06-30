@@ -20,6 +20,7 @@ import net.sf.anathema.lib.util.Identifier;
 public class SpiritualTraitModelImpl extends DefaultTraitMap implements SpiritualTraitModel, HeroModel {
 
   private SpiritualTraitsTemplate template;
+  private TraitModel traitModel;
 
   public SpiritualTraitModelImpl(SpiritualTraitsTemplate template) {
     this.template = template;
@@ -34,7 +35,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   public void initialize(HeroEnvironment environment, Hero hero) {
     addEssence(hero);
     addWillpower(hero);
-    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    this.traitModel = TraitModelFetcher.fetch(hero);
     getTrait(OtherTraitType.Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
     traitModel.addTraits(getAll());
   }
@@ -69,6 +70,6 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   @Override
   public TraitLimitation getEssenceLimitation() {
-    return TraitLimitationFactory.createLimitation(template.essence.limitation);
+    return traitModel.createLimitation(template.essence.limitation);
   }
 }

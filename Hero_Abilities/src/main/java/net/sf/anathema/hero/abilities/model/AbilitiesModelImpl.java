@@ -28,6 +28,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private IIdentifiedCasteTraitTypeList[] abilityTraitGroups;
   private Hero hero;
   private AbilitiesTemplate template;
+  private TraitModel traitModel;
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
@@ -51,7 +52,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
       Trait[] traits = traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template));
       addTraits(traits);
     }
-    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
   }
 
@@ -79,7 +80,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   @Override
   public int getTraitMaximum() {
-    TraitLimitation limitation = TraitLimitationFactory.createLimitation(template.standard.limitation);
+    TraitLimitation limitation = traitModel.createLimitation(template.standard.limitation);
     return limitation.getAbsoluteLimit(hero);
   }
 
