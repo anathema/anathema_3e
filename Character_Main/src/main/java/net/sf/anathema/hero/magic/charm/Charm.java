@@ -2,7 +2,6 @@ package net.sf.anathema.hero.magic.charm;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.Magic;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
@@ -28,8 +27,6 @@ public interface Charm extends Magic {
 
   String getGroupId();
 
-  IComboRestrictions getComboRules();
-  
   List<CharmLearnPrerequisite> getLearnPrerequisites();
 
   CharmType getCharmType();

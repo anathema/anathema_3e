@@ -5,7 +5,6 @@ import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
@@ -40,7 +39,7 @@ public class CharmTest {
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     try {
       new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
-              new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
+               SimpleDuration.getDuration("Duration"),
               CharmType.Simple, null);
       fail();
     } catch (NullPointerException e) {
@@ -55,7 +54,7 @@ public class CharmTest {
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     CharmImpl charmImpl =
             new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
-                    new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
+                    SimpleDuration.getDuration("Duration"),
                     CharmType.Simple, new SourceBook[0]);
     charmImpl.addParentCharms(parent);
     return charmImpl;

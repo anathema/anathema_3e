@@ -13,7 +13,6 @@ import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.IAttributePrerequisiteBuilder;
@@ -21,7 +20,6 @@ import net.sf.anathema.hero.magic.parser.charms.prerequisite.ICharmPrerequisiteB
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ITraitPrerequisitesBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.PrerequisiteListBuilder;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.combos.IComboRulesBuilder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
@@ -43,17 +41,15 @@ public class CharmBuilder implements ICharmBuilder {
   private final IIdStringBuilder idBuilder;
   private final ITraitPrerequisitesBuilder traitsBuilder;
   private final IAttributePrerequisiteBuilder attributeRequirementsBuilder;
-  private final IComboRulesBuilder comboBuilder;
   private final ICharmPrerequisiteBuilder charmPrerequisiteBuilder;
   private final CharacterTypes characterTypes;
 
   public CharmBuilder(IIdStringBuilder idBuilder, ITraitPrerequisitesBuilder traitsBuilder, IAttributePrerequisiteBuilder attributeRequirementsBuilder,
-                      IComboRulesBuilder comboBuilder, ICharmPrerequisiteBuilder charmPrerequisiteBuilder, CharacterTypes characterTypes,
+                      ICharmPrerequisiteBuilder charmPrerequisiteBuilder, CharacterTypes characterTypes,
                       ReflectionSpecialCharmParser specialCharmParser) {
     this.idBuilder = idBuilder;
     this.traitsBuilder = traitsBuilder;
     this.attributeRequirementsBuilder = attributeRequirementsBuilder;
-    this.comboBuilder = comboBuilder;
     this.charmPrerequisiteBuilder = charmPrerequisiteBuilder;
     this.characterTypes = characterTypes;
     this.specialCharmParser = specialCharmParser;
@@ -70,7 +66,6 @@ public class CharmBuilder implements ICharmBuilder {
       } catch (PersistenceException e) {
         throw new CharmException("Error building costlist for charm " + id, e);
       }
-      IComboRestrictions comboRules = comboBuilder.buildComboRules(charmElement);
       Duration duration = buildDuration(charmElement);
       CharmType charmType = charmTypeBuilder.build(charmElement);
       SourceBook[] sources = sourceBuilder.buildSourceList(charmElement);
@@ -79,7 +74,7 @@ public class CharmBuilder implements ICharmBuilder {
       ValuedTraitType primaryPrerequisite = prerequisites.length != 0 ? prerequisites[0] : null;
       String group = groupBuilder.build(charmElement, primaryPrerequisite);
       CharmImpl charm =
-              new CharmImpl(characterType, id, group, isBuildingGenericCharms(), prerequisiteList, temporaryCost, comboRules, duration, charmType,
+              new CharmImpl(characterType, id, group, isBuildingGenericCharms(), prerequisiteList, temporaryCost, duration, charmType,
                       sources);
       for (MagicAttribute attribute : attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite)) {
         charm.addMagicAttribute(attribute);

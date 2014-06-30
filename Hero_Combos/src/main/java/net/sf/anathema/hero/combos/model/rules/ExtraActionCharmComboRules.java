@@ -19,13 +19,11 @@ public class ExtraActionCharmComboRules extends AbstractComboRules {
     otherCharm.getCharmType().accept(new ICharmTypeVisitor() {
       @Override
       public void visitSimple(CharmType visitedType) {
-        boolean allAbilitiesRule = allAbilitiesRuleApplied(extraActionCharm, otherCharm);
-        boolean selectAbilitiesRule = selectAbilitiesRuleApplied(extraActionCharm, otherCharm);
         boolean samePrerequisite = haveSamePrerequisite(extraActionCharm, otherCharm);
         boolean attributePrerequisites = haveAttributePrerequisites(extraActionCharm, otherCharm);
         boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(extraActionCharm, otherCharm);
         boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(extraActionCharm);
-        legal[0] = allAbilitiesRule || selectAbilitiesRule || samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
+        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
                    noTraitPrerequisiteCombo;
       }
 
@@ -41,13 +39,11 @@ public class ExtraActionCharmComboRules extends AbstractComboRules {
 
       @Override
       public void visitSupplemental(CharmType visitedType) {
-        boolean allAbilitiesRule = allAbilitiesRuleApplied(extraActionCharm, otherCharm);
-        boolean selectAbilitiesRule = selectAbilitiesRuleApplied(extraActionCharm, otherCharm);
         boolean samePrerequisite = haveSamePrerequisite(extraActionCharm, otherCharm);
         boolean attributePrerequisites = haveAttributePrerequisites(extraActionCharm, otherCharm);
         boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(extraActionCharm, otherCharm);
         boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(extraActionCharm);
-        legal[0] = allAbilitiesRule || selectAbilitiesRule || samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
+        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
                    noTraitPrerequisiteCombo;
       }
 

@@ -9,8 +9,6 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
@@ -29,7 +27,6 @@ import java.util.*;
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   private Duration duration;
-  private IComboRestrictions comboRestrictions = new ComboRestrictions();
   private ValuedTraitType[] prerequisites;
   private List<CharmLearnPrerequisite> learnPrerequisites = new ArrayList<>();
   private Set<Charm> parentCharms;
@@ -45,11 +42,10 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   private boolean isGeneric = false;
 
-  public DummyCharm(String duration, CharmType charmType, IComboRestrictions comboRestrictions, ValuedTraitType[] prerequisites) {
+  public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
     super("DummyCharmDefaultId");
     this.prerequisites = prerequisites;
     this.duration = SimpleDuration.getDuration(duration);
-    this.comboRestrictions = comboRestrictions;
     this.charmType = charmType;
   }
 
@@ -91,11 +87,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public boolean isInstanceOfGenericCharm() {
     return isGeneric;
-  }
-
-  @Override
-  public IComboRestrictions getComboRules() {
-    return comboRestrictions;
   }
 
   @Override

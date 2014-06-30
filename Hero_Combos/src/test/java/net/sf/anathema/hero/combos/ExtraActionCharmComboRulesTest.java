@@ -81,14 +81,4 @@ public class ExtraActionCharmComboRulesTest extends AbstractComboRulesTestCase {
   public void testCharmComboExtraActionCharmWithSimpleOfDifferentAttribute() throws Exception {
     assertTrue(comboDifferentAttributeCharms(CharmType.ExtraAction, CharmType.Simple));
   }
-
-  @Test
-  public void testCharmComboRestrictionAllAbilitiesWithSimpleCharm() throws Exception {
-    assertTrue(comboAllAbilitiesCharmWithAbility(CharmType.ExtraAction, CharmType.Simple));
-  }
-
-  @Test
-  public void testCharmComboRestrictionAllAbilitiesWithSupplementalCharm() throws Exception {
-    assertTrue(comboAllAbilitiesCharmWithAbility(CharmType.ExtraAction, CharmType.Supplemental));
-  }
 }

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.combos.model.rules;
 
+import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.combos.model.ComboRules;
 
 public abstract class AbstractComboRules implements ComboRules {
 
@@ -23,14 +23,6 @@ public abstract class AbstractComboRules implements ComboRules {
     return !hasAttributePrerequisite(charm) && !hasAbilityPrerequisite(charm);
   }
 
-  protected final boolean allAbilitiesRuleApplied(Charm charm1, Charm charm2) {
-    return allAbiltiesCombo(charm1, charm2) || allAbiltiesCombo(charm2, charm1);
-  }
-
-  protected final boolean selectAbilitiesRuleApplied(Charm charm1, Charm charm2) {
-    return selectAbilitiesCombo(charm1, charm2) || selectAbilitiesCombo(charm2, charm1);
-  }
-
   protected final boolean isAbilityAttributeCombo(Charm charm1, Charm charm2) {
     return isAbilityAttributeMix(charm1, charm2) || isAbilityAttributeMix(charm2, charm1);
   }
@@ -45,13 +37,5 @@ public abstract class AbstractComboRules implements ComboRules {
 
   private boolean hasAttributePrerequisite(Charm charm) {
     return charm.getPrimaryTraitType() instanceof AttributeType;
-  }
-
-  private boolean allAbiltiesCombo(Charm charm1, Charm charm2) {
-    return charm1.getComboRules().combosAllAbilities() && hasAbilityPrerequisite(charm2);
-  }
-
-  private boolean selectAbilitiesCombo(Charm charm1, Charm charm2) {
-    return hasAbilityPrerequisite(charm2) && charm1.getComboRules().combosSelectAbility((AbilityType) charm2.getPrimaryTraitType());
   }
 }

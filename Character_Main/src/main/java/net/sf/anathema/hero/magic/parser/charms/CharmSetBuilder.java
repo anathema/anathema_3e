@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
@@ -7,10 +8,8 @@ import net.sf.anathema.hero.magic.parser.charms.prerequisite.AttributePrerequisi
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.CharmPrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.TraitPrerequisitesBuilder;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.combos.ComboRulesBuilder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -26,7 +25,7 @@ public class CharmSetBuilder {
 
   public CharmSetBuilder(CharacterTypes characterTypes, ReflectionSpecialCharmParser specialCharmParser) {
     this.builder =
-            new CharmBuilder(new IdStringBuilder(), new TraitPrerequisitesBuilder(), new AttributePrerequisiteBuilder(), new ComboRulesBuilder(),
+            new CharmBuilder(new IdStringBuilder(), new TraitPrerequisitesBuilder(), new AttributePrerequisiteBuilder(),
                     new CharmPrerequisiteBuilder(), characterTypes, specialCharmParser);
   }
 

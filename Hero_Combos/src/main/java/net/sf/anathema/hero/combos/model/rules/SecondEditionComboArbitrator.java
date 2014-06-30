@@ -1,8 +1,7 @@
 package net.sf.anathema.hero.combos.model.rules;
 
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.hero.magic.charm.Charm;
 
 public class SecondEditionComboArbitrator extends AbstractComboArbitrator {
 
@@ -11,15 +10,6 @@ public class SecondEditionComboArbitrator extends AbstractComboArbitrator {
     boolean comboBasic = isComboBasic(charm);
     boolean comboOk = charm.hasAttribute(CharmAttributeList.COMBO_OK_ATTRIBUTE);
     return comboBasic || comboOk;
-  }
-
-  @SuppressWarnings("SimplifiableIfStatement")
-  @Override
-  protected boolean specialRestrictionsApply(Charm charm1, Charm charm2) {
-    if (isComboBasic(charm1) && charm2.getCharmType() != CharmType.Reflexive) {
-      return true;
-    }
-    return super.specialRestrictionsApply(charm1, charm2);
   }
 
   private boolean isComboBasic(Charm charm) {

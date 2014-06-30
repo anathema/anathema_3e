@@ -1,21 +1,17 @@
 package net.sf.anathema.hero.combos;
 
+import net.sf.anathema.hero.combos.model.ComboImpl;
+import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
+import net.sf.anathema.hero.dummy.DummyCharmUtilities;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
-import net.sf.anathema.hero.combos.model.ComboImpl;
-import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
-import net.sf.anathema.hero.dummy.DummyCharmUtilities;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ComboTest {
 
@@ -36,14 +32,6 @@ public class ComboTest {
     }
   }
 
-  protected static Charm createCharm(CharmType charmType, IComboRestrictions restrictions) {
-    return DummyCharmUtilities.createCharm(charmType, restrictions);
-  }
-
-  protected static Charm createCharm(IComboRestrictions restrictions) {
-    return createCharm(CharmType.Reflexive, restrictions);
-  }
-
   @Test
   public void testCreation() throws Exception {
     assertEquals(0, combo.getCharms().length);
@@ -62,7 +50,7 @@ public class ComboTest {
   public void testOnlyInstantDurationCombos() throws Exception {
     final Charm dummy1 = DummyCharmUtilities.createCharm(CharmType.Reflexive);
     assertTrue(comboRules.canBeAddedToCombo(combo, dummy1));
-    final Charm dummy2 = DummyCharmUtilities.createCharm("Other", new ComboRestrictions());
+    final Charm dummy2 = DummyCharmUtilities.createCharm("Other");
     assertFalse(comboRules.canBeAddedToCombo(combo, dummy2));
   }
 
@@ -197,14 +185,6 @@ public class ComboTest {
     addCharm(DummyCharmUtilities.createCharm(CharmType.Simple, new ValuedTraitType(AttributeType.Wits, 3)));
     assertTrue(comboRules
             .canBeAddedToCombo(combo, DummyCharmUtilities.createCharm(CharmType.Supplemental, new ValuedTraitType(AttributeType.Strength, 3))));
-  }
-
-  @Test
-  public void testExtraActionRestriction() throws Exception {
-    ComboRestrictions comboRestrictions = new ComboRestrictions();
-    comboRestrictions.addRestrictedCharmType(CharmType.ExtraAction);
-    addCharm(createCharm(comboRestrictions));
-    assertFalse(comboRules.canBeAddedToCombo(combo, DummyCharmUtilities.createCharm(CharmType.ExtraAction)));
   }
 
   @Test

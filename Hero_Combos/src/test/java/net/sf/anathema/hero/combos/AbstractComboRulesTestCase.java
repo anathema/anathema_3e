@@ -1,15 +1,14 @@
 package net.sf.anathema.hero.combos;
 
+import net.sf.anathema.hero.combos.model.ComboRules;
+import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharmUtilities;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
-import net.sf.anathema.hero.combos.model.ComboRules;
-import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 
 public abstract class AbstractComboRulesTestCase {
 
@@ -46,12 +45,6 @@ public abstract class AbstractComboRulesTestCase {
   protected boolean comboAbilityAttributeCharms(CharmType type1, CharmType type2) {
     Charm charm1 = DummyCharmUtilities.createCharm(type1, new ValuedTraitType(AbilityType.Performance, 3));
     Charm charm2 = DummyCharmUtilities.createCharm(type2, new ValuedTraitType(AttributeType.Charisma, 3));
-    return rules.isComboLegal(charm1, charm2);
-  }
-
-  protected boolean comboAllAbilitiesCharmWithAbility(CharmType type1, CharmType type2) {
-    Charm charm1 = DummyCharmUtilities.createCharm(type1, new ComboRestrictions(true, ""), new ValuedTraitType(AbilityType.Performance, 3));
-    Charm charm2 = DummyCharmUtilities.createCharm(type2, new ValuedTraitType(AbilityType.Archery, 3));
     return rules.isComboLegal(charm1, charm2);
   }
 }

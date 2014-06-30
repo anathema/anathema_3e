@@ -1,12 +1,10 @@
 package net.sf.anathema.hero.combos.model.rules;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeVisitor;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.model.ComboRules;
-import org.apache.commons.lang3.ArrayUtils;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.hero.magic.charm.type.ICharmTypeVisitor;
 
 public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
 
@@ -47,16 +45,7 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
     if (!isCharmComboLegal(charm1) || !isCharmComboLegal(charm2)) {
       return false;
     }
-    if (specialRestrictionsApply(charm1, charm2) || specialRestrictionsApply(charm2, charm1)) {
-      return false;
-    }
     return handleComboRules(charm1, charm2) && handleComboRules(charm2, charm1);
-  }
-
-  protected boolean specialRestrictionsApply(Charm charm1, Charm charm2) {
-    IComboRestrictions comboRules = charm1.getComboRules();
-    return comboRules.isRestrictedCharm(charm2) || ArrayUtils.contains(comboRules.getRestrictedTraitTypes(),
-            charm2.getPrimaryTraitType());
   }
 
   private boolean handleComboRules(final Charm charm1, final Charm charm2) {

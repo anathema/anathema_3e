@@ -81,14 +81,4 @@ public class SimpleCharmComboRulesTest extends AbstractComboRulesTestCase {
     getRules().setCrossPrerequisiteTypeComboAllowed(false);
     assertFalse(comboAbilityAttributeCharms(CharmType.Simple, CharmType.ExtraAction));
   }
-
-  @Test
-  public void testCharmComboRestrictionAllAbilitiesWithExtraActionCharm() throws Exception {
-    assertTrue(comboAllAbilitiesCharmWithAbility(CharmType.Simple, CharmType.ExtraAction));
-  }
-
-  @Test
-  public void testCharmComboRestrictionAllAbilitiesWithSupplementalCharm() throws Exception {
-    assertTrue(comboAllAbilitiesCharmWithAbility(CharmType.Simple, CharmType.Supplemental));
-  }
 }

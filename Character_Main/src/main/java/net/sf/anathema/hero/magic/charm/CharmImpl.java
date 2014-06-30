@@ -9,7 +9,6 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmLearnPrerequisite;
@@ -31,7 +30,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CharmPrerequisiteList prerequisisteList;
 
   private final CharacterType characterType;
-  private final IComboRestrictions comboRules;
   private final Duration duration;
   private final String group;
   private final boolean isGeneric;
@@ -48,7 +46,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CharmType charmType;
 
   public CharmImpl(CharacterType characterType, String id, String group, boolean isGeneric, CharmPrerequisiteList prerequisiteList,
-                   CostList temporaryCost, IComboRestrictions comboRules, Duration duration, CharmType charmType,
+                   CostList temporaryCost, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
     super(id);
     Preconditions.checkNotNull(prerequisiteList);
@@ -56,7 +54,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(id);
     Preconditions.checkNotNull(group);
     Preconditions.checkNotNull(temporaryCost);
-    Preconditions.checkNotNull(comboRules);
     Preconditions.checkNotNull(duration);
     Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
@@ -65,7 +62,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     this.isGeneric = isGeneric;
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
-    this.comboRules = comboRules;
     this.duration = duration;
     this.charmType = charmType;
     this.sources = sources;
@@ -119,11 +115,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public boolean isInstanceOfGenericCharm() {
     return isGeneric;
-  }
-
-  @Override
-  public IComboRestrictions getComboRules() {
-    return comboRules;
   }
 
   public void addAlternative(Set<Charm> alternative) {

@@ -1,15 +1,12 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.CharmData;
-import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
@@ -54,11 +51,6 @@ public class DefaultCharm implements Charm {
 
   @Override
   public String getGroupId() {
-    return null;
-  }
-
-  @Override
-  public IComboRestrictions getComboRules() {
     return null;
   }
 
