@@ -1,29 +1,29 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.lib.util.Identifier;
 
 public class CharmTreeImpl implements CharmTree, Identifier {
 
-  private final String id;
   private final Charm[] charms;
-  private final CharacterType type;
+  private TreeReference reference;
 
-  public CharmTreeImpl(CharacterType type, String id, Charm[] charms) {
-    this.id = id;
-    this.type = type;
+  public CharmTreeImpl(TreeReference reference, Charm[] charms) {
+    this.reference = reference;
     this.charms = charms;
   }
 
   @Override
   public final String getId() {
-    return id;
+    return reference.name.text;
   }
 
   @Override
   public String toString() {
-    return id;
+    return getId();
   }
 
   @Override
@@ -32,14 +32,13 @@ public class CharmTreeImpl implements CharmTree, Identifier {
   }
 
   @Override
-  public CharacterType getCharacterType() {
-    return type;
+  public TreeReference getReference() {
+    return reference;
   }
 
   @Override
   public boolean isCharmFromTree(Charm charm) {
-    boolean isOfGroupType =  charm.getCharacterType().equals(type);
-    boolean isFromGroupWithId = charm.getGroupId().equals(id);
-    return isOfGroupType && isFromGroupWithId;
+    TreeReference referenceOfCharm = MartialArtsUtilities.getTreeReference(charm);
+    return referenceOfCharm.equals(reference);
   }
 }

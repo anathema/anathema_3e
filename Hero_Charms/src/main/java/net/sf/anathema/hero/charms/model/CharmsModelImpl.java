@@ -280,7 +280,7 @@ public class CharmsModelImpl implements CharmsModel {
   public void forgetAllAlienCharms() {
     for (LearningCharmTree[] allLearnTrees : nonMartialArtsTreesByType.values()) {
       for (LearningCharmTree learnTree : allLearnTrees) {
-        if (options.isAlienType(learnTree.getCharacterType())) {
+        if (options.isAlienType(learnTree.getReference().category)) {
           learnTree.forgetAll();
         }
       }

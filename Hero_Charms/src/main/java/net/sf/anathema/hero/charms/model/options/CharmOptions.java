@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
@@ -18,12 +19,10 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
 import net.sf.anathema.lib.util.Identifier;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class CharmOptions {
@@ -72,9 +71,9 @@ public class CharmOptions {
     return charmProvider.getSpecialCharms(arbitrator, getCharmIdMap(), getNativeCharacterType());
   }
 
-  public boolean isAlienType(CharacterType characterType) {
-    CharacterType nativeType = getNativeCharacterType();
-    return !characterType.equals(nativeType);
+  public boolean isAlienType(TreeCategory category) {
+    List<String> nativeCategories = Arrays.asList(getNativeCharacterType().getId(), MARTIAL_ARTS.getId());
+    return !nativeCategories.contains(category.text);
   }
 
   public CharacterType[] getCharacterTypes(boolean includeAlienTypes) {
@@ -85,9 +84,8 @@ public class CharmOptions {
   }
 
   public boolean isAlienCharm(Charm charm) {
-    boolean isNotMartialArts = !isMartialArts(charm);
-    boolean isOfAlienType = isAlienType(charm.getCharacterType());
-    return isNotMartialArts && isOfAlienType;
+    String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
+    return isAlienType(new TreeCategory(category));
   }
 
   public Charm[] getCharms(CharmTree tree) {

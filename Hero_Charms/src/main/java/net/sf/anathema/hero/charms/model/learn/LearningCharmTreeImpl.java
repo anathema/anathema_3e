@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import org.jmock.example.announcer.Announcer;
 
@@ -212,11 +212,6 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   @Override
-  public CharacterType getCharacterType() {
-    return charmTree.getCharacterType();
-  }
-
-  @Override
   public boolean isCharmFromTree(Charm charm) {
     return charmTree.isCharmFromTree(charm);
   }
@@ -224,6 +219,11 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   @Override
   public String getId() {
     return charmTree.getId();
+  }
+
+  @Override
+  public TreeReference getReference() {
+    return charmTree.getReference();
   }
 
   @Override

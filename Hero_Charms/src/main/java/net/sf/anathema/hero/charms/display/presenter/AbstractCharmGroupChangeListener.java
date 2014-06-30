@@ -74,7 +74,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     for (Charm charm : arbitrator.getCharms(charmGroup)) {
       charmsToDisplay.add(charm);
       for (Charm prerequisite : charm.getRenderingPrerequisiteCharms()) {
-        if (charmGroup.getId().equals(prerequisite.getGroupId())) {
+        if (charmGroup.getReference().name.text.equals(prerequisite.getGroupId())) {
           charmsToDisplay.add(prerequisite);
         }
       }

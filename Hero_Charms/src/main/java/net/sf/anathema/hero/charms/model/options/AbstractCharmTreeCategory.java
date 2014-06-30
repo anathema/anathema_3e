@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.*;
 
@@ -31,28 +33,27 @@ public abstract class AbstractCharmTreeCategory implements CharmTreeCategory {
     return allCharms;
   }
 
-  private final void addCharmGroupsFor(Collection<String> groupIds, List<CharmTree> charmTrees, Charm[] charms) {
+  private final void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
     for (Charm charm : charms) {
-      String treeName = charm.getGroupId();
-      if (!groupIds.contains(treeName) && isLearnable(charm)) {
-        groupIds.add(treeName);
-        List<Charm> treeCharms = getAllCharmsForGroup(treeName);
-        CharacterType characterType = charm.getCharacterType();
+      TreeName treeName = new TreeName(charm.getGroupId());
+      if (!treeNameList.contains(treeName) && isLearnable(charm)) {
+        treeNameList.add(treeName);
+        List<Charm> treeCharms = getAllCharmsForTree(treeName.text);
         Charm[] charmArray = treeCharms.toArray(new Charm[treeCharms.size()]);
-        charmTrees.add(new CharmTreeImpl(characterType, treeName, charmArray));
+        treeList.add(new CharmTreeImpl(new TreeReference(category, treeName), charmArray));
       }
     }
   }
 
   @Override
   public final CharmTree[] getAllCharmTrees() {
-    Set<String> charmGroupSet = new HashSet<>();
-    List<CharmTree> charmGroups = new ArrayList<>();
-    addCharmGroupsFor(charmGroupSet, charmGroups, getAllCharms());
-    return charmGroups.toArray(new CharmTree[charmGroups.size()]);
+    Set<TreeName> treeNameList = new HashSet<>();
+    List<CharmTree> treeList = new ArrayList<>();
+    addCharmTreesFor(treeNameList, treeList, getAllCharms());
+    return treeList.toArray(new CharmTree[treeList.size()]);
   }
 
-  public final List<Charm> getAllCharmsForGroup(String id) {
+  public final List<Charm> getAllCharmsForTree(String id) {
     List<Charm> groupCharms = new ArrayList<>();
     for (Charm charm : getAllCharms()) {
       if (charm.getGroupId().equals(id)) {
