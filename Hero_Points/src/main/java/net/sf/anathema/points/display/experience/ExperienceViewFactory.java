@@ -10,7 +10,7 @@ public class ExperienceViewFactory implements SubViewFactory {
   @Override
   public <T> T create() {
     FxExperienceView fxView = new FxExperienceView();
-    new Stylesheet("net/sf/anathema/hero/traits/template/xp/xp.css").applyToParent(fxView.getNode());
+    new Stylesheet("skin/experience/experience.css").applyToParent(fxView.getNode());
     return (T) fxView;
   }
 }
