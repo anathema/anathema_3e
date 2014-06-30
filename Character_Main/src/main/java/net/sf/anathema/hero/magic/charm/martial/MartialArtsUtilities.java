@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.charm.martial;
 
+import net.sf.anathema.charm.data.reference.*;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -37,5 +38,20 @@ public class MartialArtsUtilities {
 
   public static boolean hasLevel(MartialArtsLevel level, Charm charm) {
     return charm.hasAttribute(new SimpleIdentifier(level.name()));
+  }
+
+  public static CharmReference getCharmReference(Charm charm) {
+    TreeReference treeReference = getTreeReference(charm);
+    return new CharmReference(new CharmName(charm.getId()), treeReference);
+  }
+
+  public static TreeReference getTreeReference(Charm charm) {
+    TreeCategory category = getTreeCategory(charm);
+    return new TreeReference(category, new TreeName(charm.getGroupId()));
+  }
+
+  public static TreeCategory getTreeCategory(Charm charm) {
+    String categoryText = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
+    return new TreeCategory(categoryText);
   }
 }
