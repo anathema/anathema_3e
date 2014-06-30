@@ -23,7 +23,7 @@ public class CharacterAlienCharmPresenter implements AlienCharmPresenter {
         boolean alienCharms = model.isAllowedAlienCharms();
         CharmsModel charmConfiguration = model.getCharmModel();
         if (!alienCharms) {
-          charmConfiguration.unlearnAllAlienCharms();
+          charmConfiguration.forgetAllAlienCharms();
         }
         Identifier[] currentCharmTypes = new CharacterCharmTypes(model).getCurrentCharmTypes();
         typeSelector.setObjects(currentCharmTypes);

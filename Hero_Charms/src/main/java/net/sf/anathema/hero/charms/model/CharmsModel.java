@@ -35,7 +35,7 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   CharmSpecialsModel getSpecialCharmConfiguration(String charmId);
 
-  void unlearnAllAlienCharms();
+  void forgetAllAlienCharms();
 
   boolean isAlienCharm(Charm charm);
 

@@ -92,7 +92,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public void unlearnAllAlienCharms() {
+  public void forgetAllAlienCharms() {
     throw new NotYetImplementedException();
   }
 

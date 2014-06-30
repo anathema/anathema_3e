@@ -277,11 +277,11 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public void unlearnAllAlienCharms() {
-    for (LearningCharmTree[] learnTree : nonMartialArtsTreesByType.values()) {
-      for (LearningCharmTree group : learnTree) {
-        if (options.isAlienType(group.getCharacterType())) {
-          group.forgetAll();
+  public void forgetAllAlienCharms() {
+    for (LearningCharmTree[] allLearnTrees : nonMartialArtsTreesByType.values()) {
+      for (LearningCharmTree learnTree : allLearnTrees) {
+        if (options.isAlienType(learnTree.getCharacterType())) {
+          learnTree.forgetAll();
         }
       }
     }
