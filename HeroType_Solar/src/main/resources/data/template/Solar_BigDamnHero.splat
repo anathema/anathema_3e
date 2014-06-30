@@ -1,25 +1,27 @@
-<exaltedCharacterTemplate characterType="Solar" subtemplate="BigDamnHero">
-    <models>
-        <model id="Description"/>
-        <model id="Points" template="SolarPoints"/>
-        <model id="Concept" template="SolarCastes"/>
-        <model id="SpiritualTraits" template="SolarSpiritualTraits_BigDamn"/>
-        <model id="SpiritualPoints" template="SolarSpiritualPoints_BigDamn"/>
-        <model id="Abilities" template="SolarAbilities"/>
-        <model id="AbilitiesPoints" template="SolarAbilityPoints"/>
-        <model id="Attributes" template="DefaultAttributes"/>
-        <model id="AttributePoints" template="SolarAttributePoints"/>
-        <model id="EssencePool" template="SolarEssencePool"/>
-        <model id="Health"/>
-        <model id="Charms" template="SolarCharms"/>
-        <model id="Combos"/>
-        <model id="Spells" template="SolarSpells"/>
-        <model id="MagicPoints" template="SolarMagicPoints"/>
-        <model id="Languages"/>
-        <model id="Intimacies"/>
-        <model id="Specialties"/>
-        <model id="SpecialtiesPoints" template="SolarSpecialtyPoints"/>
-        <model id="SolarVirtueFlaw"/>
-        <model id="Equipment"/>
-    </models>
-</exaltedCharacterTemplate>
+{
+    characterType: Solar;
+    template: BigDamnHero;
+    models: {
+        Description:'',
+        Points: SolarPoints,
+        Concept: SolarCastes,
+        SpiritualTraits:SolarSpiritualTraits_BigDamn,
+        SpiritualPoints:SolarSpiritualPoints_BigDamn,
+        Abilities: SolarAbilities,
+        AbilitiesPoints: SolarAbilityPoints,
+        Attributes: DefaultAttributes,
+        AttributePoints: SolarAttributePoints,
+        EssencePool: SolarEssencePool,
+        Health: '',
+        Charms: SolarCharms,
+        Combos: '',
+        Spells: SolarSpells,
+        MagicPoints: SolarMagicPoints,
+        Languages: '',
+        Intimacies: '',
+        Specialties: '',
+        SpecialtiesPoints: SolarSpecialtyPoints,
+        SolarVirtueFlaw: '',
+        Equipment: ''
+    }
+}

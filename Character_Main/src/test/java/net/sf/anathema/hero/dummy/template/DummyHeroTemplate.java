@@ -26,6 +26,10 @@ public class DummyHeroTemplate implements HeroTemplate {
   }
 
   public void setCharacterType(CharacterType characterType) {
-    this.type = new TemplateTypeImpl(characterType, new SimpleIdentifier("Test"));
+    this.type = new TemplateTypeImpl(characterType, type.getSubType());
+  }
+
+  public void setSubType(String subtype) {
+    this.type = new TemplateTypeImpl(type.getCharacterType(), new SimpleIdentifier(subtype));
   }
 }
