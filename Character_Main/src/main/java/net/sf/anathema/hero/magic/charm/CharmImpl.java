@@ -18,10 +18,7 @@ import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.*;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -232,7 +229,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   private void addCharmsToForget(ICharmLearnWorker learnWorker) {
-    if (isCharmPrerequisiteListFullfilled(learnWorker)) {
+    if (isCharmPrerequisiteListFulfilled(learnWorker)) {
       return;
     }
     learnWorker.forget(this);
@@ -241,7 +238,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     }
   }
 
-  private boolean isCharmPrerequisiteListFullfilled(ICharmLearnArbitrator learnArbitrator) {
+  private boolean isCharmPrerequisiteListFulfilled(ICharmLearnArbitrator learnArbitrator) {
     for (CharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmLearnPrerequisite.class)) {
       if (!prerequisite.isSatisfied(learnArbitrator)) {
         return false;
@@ -256,21 +253,31 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public boolean isFavored(Hero hero) {
+    if (isSpecialFavoredForCaste(hero)) {
+      return true;
+    }
+    if (isFavoredMartialArts(hero)) {
+      return true;
+    }
+    return isPrimaryTraitFavored(hero);
+  }
+
+  private boolean isPrimaryTraitFavored(Hero hero) {
+    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    Trait primaryTrait = traitModel.getTrait(getPrimaryTraitType());
+    return primaryTrait.isCasteOrFavored();
+  }
+
+  private boolean isFavoredMartialArts(Hero hero) {
+    Trait martialArts = TraitModelFetcher.fetch(hero).getTrait(MartialArts);
+    boolean isMartialArts = hasAttribute(new SimpleIdentifier("MartialArts"));
+    return isMartialArts && martialArts.isCasteOrFavored();
+  }
+
+  private boolean isSpecialFavoredForCaste(Hero hero) {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
-    TraitMap traitMap = TraitModelFetcher.fetch(hero);
-    boolean specialFavored = favoredCasteIds.contains(concept.getCaste().getType().getId());
-    if (specialFavored) {
-      return true;
-    }
-    if (getPrerequisites().length <= 0) {
-      return false;
-    }
-    TraitType primaryTraitType = getPrimaryTraitType();
-    if (hasAttribute(new SimpleIdentifier("MartialArts")) && traitMap.getTrait(MartialArts).isCasteOrFavored()) {
-      return true;
-    }
-    ValuedTraitType trait = traitMap.getTrait(primaryTraitType);
-    return trait.isCasteOrFavored();
+    String casteId = concept.getCaste().getType().getId();
+    return favoredCasteIds.contains(casteId);
   }
 
   @Override
