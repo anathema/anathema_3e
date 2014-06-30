@@ -1,4 +1,5 @@
 dependencies {
+    compile project(':Hero')
     compile project(':Hero_Sheet')
     compile project(':Hero_Charms')
 }

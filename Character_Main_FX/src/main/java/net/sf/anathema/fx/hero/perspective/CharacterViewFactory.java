@@ -5,16 +5,8 @@ import net.sf.anathema.character.framework.display.SubViewRegistry;
 import net.sf.anathema.character.framework.library.util.CssSkinner;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.advance.creation.BonusPointManagement;
-import net.sf.anathema.hero.advance.creation.IBonusPointManagement;
-import net.sf.anathema.hero.advance.experience.ExperiencePointManagement;
-import net.sf.anathema.hero.advance.experience.ExperiencePointManagementImpl;
-import net.sf.anathema.hero.advance.overview.presenter.OverviewPresenter;
-import net.sf.anathema.hero.advance.overview.view.OverviewContainer;
 import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.PointModelFetcher;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.Stylesheet;
 
@@ -35,7 +27,6 @@ public class CharacterViewFactory {
     Stylesheet[] stylesheets = createStylesheets(hero);
     TaskedCharacterView characterView = new TaskedCharacterView(viewFactory, stylesheets);
     new CharacterPresenter(hero, characterView, environment, applicationModel).initPresentation();
-    initOverviewPresentation(hero, characterView, environment);
     hero.getChangeManagement().setClean();
     return characterView;
   }
@@ -47,12 +38,5 @@ public class CharacterViewFactory {
       stylesheets.add(new Stylesheet(skin));
     }
     return stylesheets.toArray(new Stylesheet[stylesheets.size()]);
-  }
-
-  private void initOverviewPresentation(Hero hero, OverviewContainer container, Resources resources) {
-    IBonusPointManagement bonusPointManagement = PointModelFetcher.fetch(hero).getBonusPointManagement();
-    ExperiencePointManagement experiencePointManagement = new ExperiencePointManagementImpl(hero);
-    new OverviewPresenter(resources, hero, container, bonusPointManagement,
-            experiencePointManagement, applicationModel.getMessaging()).initPresentation();
   }
 }

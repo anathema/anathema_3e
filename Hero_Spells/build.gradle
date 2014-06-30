@@ -1,5 +1,6 @@
 dependencies {
   compile project(':Hero_Charms')
+  compile project(':Hero_Points')
   testCompile testDependencies //includes JUnit etc.
   testCompile project(path: ':Character_Main', configuration: 'tests')
   testCompile project(path: ':Hero_Charms', configuration: 'tests')

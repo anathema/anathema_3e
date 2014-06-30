@@ -1,6 +1,8 @@
 dependencies {
     compile project(':Character_Main')
+    compile project(':Hero')
     compile project(':Hero_Experience')
+    compile project(':Hero_Points')
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
     testCompile testDependencies
