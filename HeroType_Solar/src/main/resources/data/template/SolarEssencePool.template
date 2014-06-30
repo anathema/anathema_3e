@@ -1,7 +1,4 @@
 {
-  willpower: {
-    isVirtueBased: false
-  };
   isEssenceUser: true;
   peripheralPool: [
     {
