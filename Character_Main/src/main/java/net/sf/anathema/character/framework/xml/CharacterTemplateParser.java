@@ -1,27 +1,23 @@
 package net.sf.anathema.character.framework.xml;
 
-import net.sf.anathema.character.framework.ICharacterTemplateRegistryCollection;
+import net.sf.anathema.character.framework.type.CharacterType;
 import net.sf.anathema.character.framework.type.CharacterTypes;
-import net.sf.anathema.character.framework.xml.core.AbstractXmlTemplateParser;
 import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.lib.xml.ElementUtilities;
 import org.dom4j.Element;
 
-public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCharacterTemplate> {
+public class CharacterTemplateParser {
 
-  private CharacterTypes characterTypes;
+  private final CharacterTypes characterTypes;
 
-  public CharacterTemplateParser(CharacterTypes characterTypes, ICharacterTemplateRegistryCollection registryCollection) {
-    super(registryCollection.getCharacterTemplateRegistry());
+  public CharacterTemplateParser(CharacterTypes characterTypes) {
     this.characterTypes = characterTypes;
   }
 
-  @Override
-  protected GenericCharacterTemplate createNewBasicTemplate() {
-    return new GenericCharacterTemplate();
-  }
-
-  @Override
   public GenericCharacterTemplate parseTemplate(Element element) throws PersistenceException {
     GenericCharacterTemplate characterTemplate = new GenericCharacterTemplate();
     updateTemplateType(element, characterTemplate);
@@ -30,7 +26,11 @@ public class CharacterTemplateParser extends AbstractXmlTemplateParser<GenericCh
   }
 
   private void updateTemplateType(Element element, GenericCharacterTemplate characterTemplate) throws PersistenceException {
-    TemplateType templateType = new TemplateTypeParser(characterTypes).parse(element);
+    String characterTypeId = ElementUtilities.getRequiredAttrib(element, "characterType");
+    CharacterType characterType = characterTypes.findById(characterTypeId);
+    String subtemplateValue = element.attributeValue("subtemplate");
+    Identifier subtemplate = new SimpleIdentifier(subtemplateValue);
+    TemplateType templateType =new TemplateTypeImpl(characterType, subtemplate);
     characterTemplate.setTemplateType(templateType);
   }
 

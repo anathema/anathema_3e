@@ -1,4 +1,4 @@
-package net.sf.anathema.character.framework.xml.presentation;
+package net.sf.anathema.character.framework.presentation;
 
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateType;
