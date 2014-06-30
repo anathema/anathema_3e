@@ -23,6 +23,6 @@ public class ExternalPrerequisitesColorer implements CharmColorer {
   }
 
   private boolean isPartOfCurrentGroup(Charm charm) {
-    return groupInformer.getCurrentGroup().isCharmFromGroup(charm);
+    return groupInformer.getCurrentGroup().isCharmFromTree(charm);
   }
 }

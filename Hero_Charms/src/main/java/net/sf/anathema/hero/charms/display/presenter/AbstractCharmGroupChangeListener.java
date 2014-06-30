@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.hero.charms.display.node.CharmGraphNodeBuilder;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.platform.tree.document.GenericCascadeFactory;
@@ -24,20 +24,20 @@ import java.util.Set;
 
 public abstract class AbstractCharmGroupChangeListener implements ICharmGroupChangeListener, CharmGroupInformer {
 
-  private final CharmGroupArbitrator arbitrator;
-  private ICharmGroup currentGroup;
+  private final CharmTreeArbitrator arbitrator;
+  private CharmTree currentGroup;
   private Identifier currentType;
   private final CharmDisplayPropertiesMap displayPropertiesMap;
   private TreeView treeView;
 
-  public AbstractCharmGroupChangeListener(CharmGroupArbitrator arbitrator, CharmDisplayPropertiesMap charmDisplayPropertiesMap) {
+  public AbstractCharmGroupChangeListener(CharmTreeArbitrator arbitrator, CharmDisplayPropertiesMap charmDisplayPropertiesMap) {
     this.arbitrator = arbitrator;
     this.displayPropertiesMap = charmDisplayPropertiesMap;
   }
 
   @Override
   public final void valueChanged(Object cascade, Object type) {
-    loadCharmTree((ICharmGroup) cascade, (Identifier) type);
+    loadCharmTree((CharmTree) cascade, (Identifier) type);
   }
 
   @Override
@@ -45,7 +45,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     this.treeView = treeView;
   }
 
-  private void loadCharmTree(ICharmGroup charmGroup, Identifier type) {
+  private void loadCharmTree(CharmTree charmGroup, Identifier type) {
     boolean resetView = !(currentGroup != null && currentGroup.equals(
             charmGroup) && currentType != null && currentType.equals(type));
     this.currentGroup = charmGroup;
@@ -75,7 +75,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     return sortedNodes.toArray(new IRegularNode[sortedNodes.size()]);
   }
 
-  private Set<Charm> getDisplayCharms(ICharmGroup charmGroup) {
+  private Set<Charm> getDisplayCharms(CharmTree charmGroup) {
     Set<Charm> charmsToDisplay = new LinkedHashSet<>();
     for (Charm charm : arbitrator.getCharms(charmGroup)) {
       charmsToDisplay.add(charm);
@@ -88,7 +88,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     return charmsToDisplay;
   }
 
-  private TreePresentationProperties getDisplayProperties(ICharmGroup charmGroup) {
+  private TreePresentationProperties getDisplayProperties(CharmTree charmGroup) {
     CharacterType characterType = charmGroup.getCharacterType();
     return getDisplayProperties(characterType);
   }
@@ -98,7 +98,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
   }
 
   @Override
-  public ICharmGroup getCurrentGroup() {
+  public CharmTree getCurrentGroup() {
     return currentGroup;
   }
 

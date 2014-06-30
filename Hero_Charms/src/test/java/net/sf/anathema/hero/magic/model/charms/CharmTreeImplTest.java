@@ -1,43 +1,43 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmGroup;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class CharmGroupTest {
+public class CharmTreeImplTest {
 
   private static final String Default_Group_Id = "AnyId";
 
   @Test
   public void equalsSelf() throws Exception {
-    CharmGroup group = createGroupWithCharacterType();
+    CharmTreeImpl group = createGroupWithCharacterType();
     assertThat(group.equals(group), is(true));
   }
 
   @Test
   public void doesNotEqualSimilarGroup() throws Exception {
-    CharmGroup group = createGroupWithCharacterType();
-    CharmGroup group2 = createGroupWithCharacterType();
+    CharmTreeImpl group = createGroupWithCharacterType();
+    CharmTreeImpl group2 = createGroupWithCharacterType();
     assertThat(group.equals(group2), is(false));
   }
 
   @Test
   public void identifiesContainedCharm() throws Exception {
-    CharmGroup group = createGroupWithCharacterType(new DummyExaltCharacterType());
+    CharmTreeImpl group = createGroupWithCharacterType(new DummyExaltCharacterType());
     Charm charm = CharmMother.createCharmForCharacterTypeFromGroup(new DummyExaltCharacterType(), Default_Group_Id);
-    assertThat(group.isCharmFromGroup(charm), is(true));
+    assertThat(group.isCharmFromTree(charm), is(true));
 
   }
 
-  private CharmGroup createGroupWithCharacterType() {
+  private CharmTreeImpl createGroupWithCharacterType() {
     return createGroupWithCharacterType(new DummyExaltCharacterType());
   }
 
-  private CharmGroup createGroupWithCharacterType(DummyExaltCharacterType type) {
-    return new CharmGroup(type, Default_Group_Id, new Charm[0]);
+  private CharmTreeImpl createGroupWithCharacterType(DummyExaltCharacterType type) {
+    return new CharmTreeImpl(type, Default_Group_Id, new Charm[0]);
   }
 }

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.model;
 
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.concept.CasteSelection;
@@ -37,11 +37,11 @@ public class CharmDisplayModel {
 
   public void toggleLearned(String charmId) {
     CharmsModel charms = getCharmModel();
-    ILearningCharmGroup charmGroup = getCharmGroupByCharmId(charmId);
+    LearningCharmTree charmGroup = getCharmGroupByCharmId(charmId);
     charmGroup.toggleLearned(charms.getCharmById(charmId));
   }
 
-  private ILearningCharmGroup getCharmGroupByCharmId(String charmId) {
+  private LearningCharmTree getCharmGroupByCharmId(String charmId) {
     CharmsModel charms = getCharmModel();
     Charm charm = charms.getCharmById(charmId);
     return charms.getGroup(charm);

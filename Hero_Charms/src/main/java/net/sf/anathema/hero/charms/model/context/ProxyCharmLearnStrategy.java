@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.context;
 
+import net.sf.anathema.hero.charms.model.BasicLearnCharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
-import net.sf.anathema.hero.charms.model.IBasicLearnCharmGroup;
 
 public class ProxyCharmLearnStrategy implements ICharmLearnStrategy {
 
@@ -17,17 +17,17 @@ public class ProxyCharmLearnStrategy implements ICharmLearnStrategy {
   }
 
   @Override
-  public boolean isUnlearnable(IBasicLearnCharmGroup group, Charm charm) {
+  public boolean isUnlearnable(BasicLearnCharmTree group, Charm charm) {
     return strategy.isUnlearnable(group, charm);
   }
 
   @Override
-  public boolean isLearned(IBasicLearnCharmGroup group, Charm charm) {
+  public boolean isLearned(BasicLearnCharmTree group, Charm charm) {
     return strategy.isLearned(group, charm);
   }
 
   @Override
-  public void toggleLearned(IBasicLearnCharmGroup group, Charm charm) {
+  public void toggleLearned(BasicLearnCharmTree group, Charm charm) {
     strategy.toggleLearned(group, charm);
   }
 }

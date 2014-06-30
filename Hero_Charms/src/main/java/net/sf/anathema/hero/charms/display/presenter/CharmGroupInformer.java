@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.hero.charms.model.ICharmGroup;
+import net.sf.anathema.hero.charms.model.CharmTree;
 
 public interface CharmGroupInformer {
   boolean hasGroupSelected();
 
-  ICharmGroup getCurrentGroup();
+  CharmTree getCurrentGroup();
 }

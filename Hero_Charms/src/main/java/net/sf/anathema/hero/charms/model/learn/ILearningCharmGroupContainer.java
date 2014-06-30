@@ -4,5 +4,5 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 public interface ILearningCharmGroupContainer {
 
-  ILearningCharmGroup getLearningCharmGroup(Charm charm);
+  LearningCharmTree getLearningCharmGroup(Charm charm);
 }

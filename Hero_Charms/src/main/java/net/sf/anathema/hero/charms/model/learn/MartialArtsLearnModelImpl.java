@@ -34,7 +34,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   @Override
   public String[] getCompleteCelestialMartialArtsGroups() {
     Set<String> completedGroups = new HashSet<>();
-    for (ILearningCharmGroup group : getMartialArtsGroups()) {
+    for (LearningCharmTree group : getMartialArtsGroups()) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (isCelestialStyle(martialArtsCharm) && isCompleted(group)) {
         completedGroups.add(group.getId());
@@ -48,9 +48,9 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return isAnyCelestialMartialArtsGroupCompleted(getMartialArtsGroups());
   }
 
-  private String[] getIncompleteCelestialMartialArtsGroups(ILearningCharmGroup[] groups) {
+  private String[] getIncompleteCelestialMartialArtsGroups(LearningCharmTree[] groups) {
     Set<String> uncompletedGroups = new HashSet<>();
-    for (ILearningCharmGroup group : groups) {
+    for (LearningCharmTree group : groups) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (!isCelestialStyle(martialArtsCharm) || isCompleted(group)) {
         continue;
@@ -62,8 +62,8 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return uncompletedGroups.toArray(new String[uncompletedGroups.size()]);
   }
 
-  private boolean isAnyCelestialMartialArtsGroupCompleted(ILearningCharmGroup[] groups) {
-    for (ILearningCharmGroup group : groups) {
+  private boolean isAnyCelestialMartialArtsGroupCompleted(LearningCharmTree[] groups) {
+    for (LearningCharmTree group : groups) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (isCelestialStyle(martialArtsCharm) && isCompleted(group)) {
         return true;
@@ -76,7 +76,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return hasLevel(Celestial, martialArtsCharm) && !martialArtsCharm.hasAttribute(NO_STYLE_ATTRIBUTE);
   }
 
-  private boolean isBegun(ILearningCharmGroup group) {
+  private boolean isBegun(LearningCharmTree group) {
     for (Charm charm : group.getAllCharms()) {
       if (group.isLearned(charm)) {
         return true;
@@ -85,7 +85,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return false;
   }
 
-  private boolean isCompleted(ILearningCharmGroup group) {
+  private boolean isCompleted(LearningCharmTree group) {
     for (Charm charm : group.getCoreCharms()) {
       if (!group.isLearned(charm) && !charm.isBlockedByAlternative(charmModel)) {
         return false;
@@ -94,7 +94,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return true;
   }
 
-  private ILearningCharmGroup[] getMartialArtsGroups() {
+  private LearningCharmTree[] getMartialArtsGroups() {
     return charmModel.getCharmGroups(MARTIAL_ARTS);
   }
 }

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.persistence;
 
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
@@ -38,7 +38,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
       Charm charm = model.getCharmById(charmPto.id);
-      ILearningCharmGroup group = model.getGroup(charm);
+      LearningCharmTree group = model.getGroup(charm);
       if (!group.isLearned(charm, false)) {
         group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
@@ -84,7 +84,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private List<Charm> getSortedCharmList(CharmsModel model) {
     List<Charm> charms = new ArrayList<>();
-    for (ILearningCharmGroup group : model.getAllGroups()) {
+    for (LearningCharmTree group : model.getAllGroups()) {
       for (Charm charm : group.getCreationLearnedCharms()) {
         charms.add(charm);
       }
@@ -98,7 +98,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private Map<String, Boolean> getExperiencedLearnedMap(CharmsModel model) {
     HashMap<String, Boolean> isExperiencedLearned = new HashMap<>();
-    for (ILearningCharmGroup group : model.getAllGroups()) {
+    for (LearningCharmTree group : model.getAllGroups()) {
       for (Charm charm : group.getCreationLearnedCharms()) {
         isExperiencedLearned.put(charm.getId(), false);
       }

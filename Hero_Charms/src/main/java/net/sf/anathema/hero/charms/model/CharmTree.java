@@ -4,11 +4,11 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.lib.util.Identifier;
 
-public interface ICharmGroup extends Identifier {
+public interface CharmTree extends Identifier {
 
   Charm[] getAllCharms();
 
   CharacterType getCharacterType();
 
-  boolean isCharmFromGroup(Charm charm);
+  boolean isCharmFromTree(Charm charm);
 }

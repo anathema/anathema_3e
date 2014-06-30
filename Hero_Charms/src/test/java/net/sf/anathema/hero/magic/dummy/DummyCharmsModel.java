@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.magic.dummy;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.charms.model.CharmsModel;
@@ -28,7 +28,7 @@ public class DummyCharmsModel implements CharmsModel {
 
   private Charm[] charms = new Charm[0];
 
-  private ILearningCharmGroup[] groups;
+  private LearningCharmTree[] groups;
 
   @Override
   public void addLearnableListener(ChangeListener listener) {
@@ -56,7 +56,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public ILearningCharmGroup[] getCharmGroups(Identifier type) {
+  public LearningCharmTree[] getCharmGroups(Identifier type) {
     return groups;
   }
 
@@ -87,7 +87,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public ILearningCharmGroup[] getAllGroups() {
+  public LearningCharmTree[] getAllGroups() {
     throw new NotYetImplementedException();
   }
 
@@ -112,7 +112,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public ILearningCharmGroup getGroup(Charm charm) {
+  public LearningCharmTree getGroup(Charm charm) {
     throw new NotYetImplementedException();
   }
 
@@ -122,7 +122,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public Charm[] getCharms(ICharmGroup charmGroup) {
+  public Charm[] getCharms(CharmTree charmGroup) {
     return charmGroup.getAllCharms();
   }
 
@@ -161,7 +161,7 @@ public class DummyCharmsModel implements CharmsModel {
     return false;
   }
 
-  public void setGroups(ILearningCharmGroup... groups) {
+  public void setGroups(LearningCharmTree... groups) {
     this.groups = groups;
   }
 

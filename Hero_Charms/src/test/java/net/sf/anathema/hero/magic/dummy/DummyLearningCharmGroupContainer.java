@@ -1,21 +1,21 @@
 package net.sf.anathema.hero.magic.dummy;
 
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroupContainer;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmGroup;
 
 public class DummyLearningCharmGroupContainer implements ILearningCharmGroupContainer {
 
-  private ILearningCharmGroup[] groups;
+  private LearningCharmTree[] groups;
 
-  public void setLearningCharmGroups(ILearningCharmGroup[] groups) {
+  public void setLearningCharmGroups(LearningCharmTree[] groups) {
     this.groups = groups;
   }
 
   @Override
-  public ILearningCharmGroup getLearningCharmGroup(Charm charm) {
-    for (ILearningCharmGroup group : groups) {
+  public LearningCharmTree getLearningCharmGroup(Charm charm) {
+    for (LearningCharmTree group : groups) {
       if (charm.getGroupId().equals(group.getId())) {
         return group;
       }
@@ -23,7 +23,7 @@ public class DummyLearningCharmGroupContainer implements ILearningCharmGroupCont
     return null;
   }
 
-  public void setLearningCharmGroup(LearningCharmGroup learningCharmGroup) {
-    setLearningCharmGroups(new ILearningCharmGroup[]{learningCharmGroup});
+  public void setLearningCharmGroup(LearningCharmTreeImpl learningCharmGroup) {
+    setLearningCharmGroups(new LearningCharmTree[]{learningCharmGroup});
   }
 }

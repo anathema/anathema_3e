@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 
@@ -24,8 +24,8 @@ public class MartialArtsOptions implements CharmIdMap, ICharmLearnableArbitrator
     return martialArtsCharmTree.getCharmById(charmId);
   }
 
-  public ICharmGroup[] getAllCharmGroups() {
-    return martialArtsCharmTree.getAllCharmGroups();
+  public CharmTree[] getAllCharmGroups() {
+    return martialArtsCharmTree.getAllCharmTrees();
   }
 
   @Override

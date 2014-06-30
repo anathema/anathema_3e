@@ -5,7 +5,7 @@ import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.view.FunctionalNodeProperties;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.platform.tree.display.NodeInteractionListener;
 import net.sf.anathema.platform.tree.display.TreeView;
@@ -51,7 +51,7 @@ public class LearnInteractionPresenter implements CharmInteractionPresenter {
 
   private void initCharmLearnListening(CharmsModel charmConfiguration) {
     ICharmLearnListener charmLearnListener = new CharmLearnVisualizer(dye);
-    for (ILearningCharmGroup group : charmConfiguration.getAllGroups()) {
+    for (LearningCharmTree group : charmConfiguration.getAllGroups()) {
       group.addCharmLearnListener(charmLearnListener);
     }
   }

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.hero.magic.charm.Charm;
 
-public interface IBasicLearnCharmGroup {
+public interface BasicLearnCharmTree {
 
   boolean isLearned(Charm charm);
 

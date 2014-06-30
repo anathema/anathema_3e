@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.magic.presenter;
 
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmGroup;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
 import net.sf.anathema.hero.charms.display.coloring.ExternalPrerequisitesColorer;
@@ -23,7 +23,7 @@ public class ExternalPrerequisitesColorerTest {
   public void doesNotColorParentCharmFromCurrentGroup() throws Exception {
     DummyCharm parent = createParentCharmFromGroup("CurrentGroup");
     Charm child = createChildCharm(parent);
-    ICharmGroup currentGroup = createGroupWithCharms(parent, child);
+    CharmTree currentGroup = createGroupWithCharms(parent, child);
     selectGroup(currentGroup);
     colorAllPrerequisitesOfChild(child);
     verifyZeroInteractions(coloring);
@@ -34,12 +34,12 @@ public class ExternalPrerequisitesColorerTest {
     colorer.color(child);
   }
 
-  private void selectGroup(ICharmGroup currentGroup) {
+  private void selectGroup(CharmTree currentGroup) {
     when(informer.getCurrentGroup()).thenReturn(currentGroup);
   }
 
-  private ICharmGroup createGroupWithCharms(DummyCharm parent, Charm child) {
-    return new CharmGroup(new DummyMundaneCharacterType(), "CurrentGroup", new Charm[]{parent, child});
+  private CharmTree createGroupWithCharms(DummyCharm parent, Charm child) {
+    return new CharmTreeImpl(new DummyMundaneCharacterType(), "CurrentGroup", new Charm[]{parent, child});
   }
 
   private DummyCharm createParentCharmFromGroup(String group) {

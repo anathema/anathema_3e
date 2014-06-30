@@ -4,13 +4,13 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 
-public class CharmGroup implements ICharmGroup, Identifier {
+public class CharmTreeImpl implements CharmTree, Identifier {
 
   private final String id;
   private final Charm[] charms;
   private final CharacterType type;
 
-  public CharmGroup(CharacterType type, String id, Charm[] charms) {
+  public CharmTreeImpl(CharacterType type, String id, Charm[] charms) {
     this.id = id;
     this.type = type;
     this.charms = charms;
@@ -37,7 +37,7 @@ public class CharmGroup implements ICharmGroup, Identifier {
   }
 
   @Override
-  public boolean isCharmFromGroup(Charm charm) {
+  public boolean isCharmFromTree(Charm charm) {
     boolean isOfGroupType =  charm.getCharacterType().equals(type);
     boolean isFromGroupWithId = charm.getGroupId().equals(id);
     return isOfGroupType && isFromGroupWithId;

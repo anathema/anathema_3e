@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.hero.charms.model.BasicLearnCharmTree;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.IBasicLearnCharmGroup;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 
-public interface ILearningCharmGroup extends ICharmGroup, IBasicLearnCharmGroup {
+public interface LearningCharmTree extends CharmTree, BasicLearnCharmTree {
 
   void toggleLearned(Charm charm);
 

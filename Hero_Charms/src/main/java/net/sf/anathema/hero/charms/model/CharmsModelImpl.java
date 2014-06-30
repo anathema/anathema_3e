@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
+import net.sf.anathema.hero.charms.model.learn.*;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -15,15 +16,7 @@ import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
-import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
-import net.sf.anathema.hero.charms.model.learn.CharmLearner;
-import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroupContainer;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmGroup;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
-import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModel;
-import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModelImpl;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.options.MartialArtsOptions;
 import net.sf.anathema.hero.charms.model.options.NonMartialArtsOptions;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
@@ -71,8 +64,8 @@ public class CharmsModelImpl implements CharmsModel {
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
-  private ILearningCharmGroup[] martialArtsGroups;
-  private final Map<Identifier, ILearningCharmGroup[]> nonMartialArtsGroupsByType = new HashMap<>();
+  private LearningCharmTree[] martialArtsGroups;
+  private final Map<Identifier, LearningCharmTree[]> nonMartialArtsGroupsByType = new HashMap<>();
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private CharmProvider provider;
   private ExperienceModel experience;
@@ -122,7 +115,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    for (ILearningCharmGroup group : getAllGroups()) {
+    for (LearningCharmTree group : getAllGroups()) {
       group.addCharmLearnListener(new CharmLearnAdapter() {
         @Override
         public void charmForgotten(Charm charm) {
@@ -168,7 +161,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void addCharmLearnListener(ICharmLearnListener listener) {
-    for (ILearningCharmGroup group : getAllGroups()) {
+    for (LearningCharmTree group : getAllGroups()) {
       group.addCharmLearnListener(listener);
     }
   }
@@ -194,13 +187,13 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      ILearningCharmGroup group = getGroupById(charm.getCharacterType(), charm.getGroupId());
+      LearningCharmTree group = getGroupById(charm.getCharacterType(), charm.getGroupId());
       manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
     }
   }
 
-  private ILearningCharmGroup[] createGroups(ICharmGroup[] charmGroups) {
-    List<ILearningCharmGroup> newGroups = new ArrayList<>();
+  private LearningCharmTree[] createGroups(CharmTree[] charmGroups) {
+    List<LearningCharmTree> newGroups = new ArrayList<>();
     ICharmLearnListener mergedListener = new CharmLearnAdapter() {
       @Override
       public void charmLearned(Charm charm) {
@@ -238,23 +231,23 @@ public class CharmsModelImpl implements CharmsModel {
         }
       }
     };
-    for (ICharmGroup charmGroup : charmGroups) {
-      ILearningCharmGroup group = new LearningCharmGroup(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer);
+    for (CharmTree charmGroup : charmGroups) {
+      LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer);
       newGroups.add(group);
 
       group.addCharmLearnListener(mergedListener);
     }
-    return newGroups.toArray(new ILearningCharmGroup[newGroups.size()]);
+    return newGroups.toArray(new LearningCharmTree[newGroups.size()]);
   }
   
   @Override
-  public ILearningCharmGroup[] getAllGroups() {
-    List<ILearningCharmGroup> allGroups = new ArrayList<>();
-    for (ILearningCharmGroup[] groups : nonMartialArtsGroupsByType.values()) {
+  public LearningCharmTree[] getAllGroups() {
+    List<LearningCharmTree> allGroups = new ArrayList<>();
+    for (LearningCharmTree[] groups : nonMartialArtsGroupsByType.values()) {
       allGroups.addAll(Arrays.asList(groups));
     }
     allGroups.addAll(Arrays.asList(martialArtsGroups));
-    return allGroups.toArray(new ILearningCharmGroup[allGroups.size()]);
+    return allGroups.toArray(new LearningCharmTree[allGroups.size()]);
   }
 
   @Override
@@ -267,21 +260,21 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public ILearningCharmGroup[] getCharmGroups(Identifier type) {
+  public LearningCharmTree[] getCharmGroups(Identifier type) {
     if (MartialArtsUtilities.MARTIAL_ARTS.equals(type)) {
       return martialArtsGroups;
     }
-    return Functions.forMap(nonMartialArtsGroupsByType, new ILearningCharmGroup[0]).apply(type);
+    return Functions.forMap(nonMartialArtsGroupsByType, new LearningCharmTree[0]).apply(type);
   }
 
-  private ILearningCharmGroup[] getMartialArtsGroups() {
+  private LearningCharmTree[] getMartialArtsGroups() {
     return getCharmGroups(MartialArtsUtilities.MARTIAL_ARTS);
   }
 
   @Override
   public Charm[] getLearnedCharms(boolean experienced) {
     List<Charm> allLearnedCharms = new ArrayList<>();
-    for (ILearningCharmGroup group : getAllGroups()) {
+    for (LearningCharmTree group : getAllGroups()) {
       Collections.addAll(allLearnedCharms, group.getCreationLearnedCharms());
       if (experienced) {
         Collections.addAll(allLearnedCharms, group.getExperienceLearnedCharms());
@@ -296,21 +289,21 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private void initLearnGroupForCharacterType(CharacterType type, CharmTreeCollection charmTree) {
-    ICharmGroup[] treeGroups = charmTree.getAllCharmGroups();
-    ILearningCharmGroup[] groups = createGroups(treeGroups);
+    CharmTree[] treeGroups = charmTree.getAllCharmTrees();
+    LearningCharmTree[] groups = createGroups(treeGroups);
     nonMartialArtsGroupsByType.put(type, groups);
   }
 
   @Override
   public void unlearnAllAlienCharms() {
-    for (ILearningCharmGroup[] groups : nonMartialArtsGroupsByType.values()) {
-      for (ILearningCharmGroup group : groups) {
+    for (LearningCharmTree[] groups : nonMartialArtsGroupsByType.values()) {
+      for (LearningCharmTree group : groups) {
         if (nonMartialArtsOptions.isAlienType(group.getCharacterType())) {
           group.forgetAll();
         }
       }
     }
-    for (ILearningCharmGroup group : martialArtsGroups) {
+    for (LearningCharmTree group : martialArtsGroups) {
       group.unlearnExclusives();
     }
   }
@@ -333,7 +326,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     for (Charm charm : charmsToUnlearn) {
-      ILearningCharmGroup group = learningCharmGroupContainer.getLearningCharmGroup(charm);
+      LearningCharmTree group = learningCharmGroupContainer.getLearningCharmGroup(charm);
       boolean learnedAtCreation = group.isLearned(charm, false);
       boolean learnedWithExperience = !learnedAtCreation;
       group.forgetCharm(charm, learnedWithExperience);
@@ -423,7 +416,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   public final boolean isUnlearnable(Charm charm) {
-    ILearningCharmGroup group = getGroup(charm);
+    LearningCharmTree group = getGroup(charm);
     return group.isUnlearnable(charm);
   }
 
@@ -448,15 +441,15 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public final boolean isLearned(Charm charm) {
-    ILearningCharmGroup group = getGroup(charm);
+    LearningCharmTree group = getGroup(charm);
     return group != null && group.isLearned(charm);
   }
 
-  private ILearningCharmGroup getGroupById(CharacterType characterType, String groupId) {
-    List<ILearningCharmGroup> candidateGroups = new ArrayList<>();
+  private LearningCharmTree getGroupById(CharacterType characterType, String groupId) {
+    List<LearningCharmTree> candidateGroups = new ArrayList<>();
     Collections.addAll(candidateGroups, getCharmGroups(characterType));
     Collections.addAll(candidateGroups, getMartialArtsGroups());
-    for (ILearningCharmGroup group : candidateGroups) {
+    for (LearningCharmTree group : candidateGroups) {
       if (group.getId().equals(groupId)) {
         return group;
       }
@@ -465,12 +458,12 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public final ILearningCharmGroup getGroup(Charm charm) {
+  public final LearningCharmTree getGroup(Charm charm) {
     return getGroupById(charm.getCharacterType(), charm.getGroupId());
   }
 
   @Override
-  public Charm[] getCharms(ICharmGroup charmGroup) {
+  public Charm[] getCharms(CharmTree charmGroup) {
     return nonMartialArtsOptions.getCharms(charmGroup);
   }
 

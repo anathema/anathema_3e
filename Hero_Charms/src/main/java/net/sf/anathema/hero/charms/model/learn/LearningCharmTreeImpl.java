@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
-import net.sf.anathema.hero.charms.model.CharmGroup;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
+import net.sf.anathema.hero.charms.model.CharmTreeImpl;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.*;
 
-public class LearningCharmGroup extends CharmGroup implements ILearningCharmGroup {
+public class LearningCharmTreeImpl extends CharmTreeImpl implements LearningCharmTree {
 
   private final Set<Charm> charmsLearnedOnCreation = new HashSet<>();
   private final Set<Charm> charmsLearnedWithExperience = new HashSet<>();
@@ -17,8 +17,8 @@ public class LearningCharmGroup extends CharmGroup implements ILearningCharmGrou
   private final ICharmLearnStrategy learnStrategy;
   private final ILearningCharmGroupContainer charmGroupContainer;
 
-  public LearningCharmGroup(ICharmLearnStrategy learnStrategy, ICharmGroup simpleCharmGroup, IExtendedCharmLearnableArbitrator arbitrator,
-                            ILearningCharmGroupContainer charmGroupContainer) {
+  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree simpleCharmGroup, IExtendedCharmLearnableArbitrator arbitrator,
+                               ILearningCharmGroupContainer charmGroupContainer) {
     super(simpleCharmGroup.getCharacterType(), simpleCharmGroup.getId(), simpleCharmGroup.getAllCharms());
     this.learnStrategy = learnStrategy;
     this.learnArbitrator = arbitrator;
@@ -99,14 +99,14 @@ public class LearningCharmGroup extends CharmGroup implements ILearningCharmGrou
 
   private void forgetChildren(Charm charm, boolean experienced) {
     for (Charm child : charm.getLearnFollowUpCharms(learnArbitrator)) {
-      ILearningCharmGroup childGroup = charmGroupContainer.getLearningCharmGroup(child);
+      LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
       childGroup.forgetCharm(child, experienced);
     }
   }
 
   private void learnParents(Charm charm, boolean experienced) {
     for (Charm parent : charm.getLearnPrerequisitesCharms(learnArbitrator)) {
-      ILearningCharmGroup parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
+      LearningCharmTree parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
       if (!parentGroup.isLearned(parent)) {
         parentGroup.learnCharm(parent, experienced);
       }
@@ -177,7 +177,7 @@ public class LearningCharmGroup extends CharmGroup implements ILearningCharmGrou
       return false;
     }
     for (Charm child : charm.getLearnFollowUpCharms(learnArbitrator)) {
-      ILearningCharmGroup childGroup = charmGroupContainer.getLearningCharmGroup(child);
+      LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
       if (childGroup.isLearned(child)) {
         return false;
       }

@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.display.special;
 
 import com.google.common.base.Predicate;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 
 public class VisibilityPredicate implements Predicate<String> {
 
@@ -26,7 +26,7 @@ public class VisibilityPredicate implements Predicate<String> {
     if (!charmGroupInformer.hasGroupSelected()) {
       return false;
     }
-    ICharmGroup group = charmGroupInformer.getCurrentGroup();
-    return group.isCharmFromGroup(charm);
+    CharmTree group = charmGroupInformer.getCurrentGroup();
+    return group.isCharmFromTree(charm);
   }
 }

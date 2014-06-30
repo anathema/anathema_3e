@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
-import net.sf.anathema.hero.charms.display.presenter.CharmGroupArbitrator;
+import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroup;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -16,20 +16,20 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmGroupArbitrator, CharmIdMap,
+public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmTreeArbitrator, CharmIdMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
   Identifier ID = new SimpleIdentifier("Charms");
 
   void addLearnableListener(ChangeListener listener);
 
-  ILearningCharmGroup[] getAllGroups();
+  LearningCharmTree[] getAllGroups();
 
   CharacterType[] getCharacterTypes(boolean includeAlienTypes);
 
   CharmIdMap getCharmIdMap();
 
-  ILearningCharmGroup[] getCharmGroups(Identifier type);
+  LearningCharmTree[] getCharmGroups(Identifier type);
 
   Charm[] getLearnedCharms(boolean experienced);
 
@@ -41,7 +41,7 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   CharmSpecialsModel getCharmSpecialsModel(Charm charm);
 
-  ILearningCharmGroup getGroup(Charm charm);
+  LearningCharmTree getGroup(Charm charm);
 
   ISpecialCharm[] getSpecialCharms();
 

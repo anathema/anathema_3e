@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.options;
 
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmGroup;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -33,24 +33,24 @@ public class CharmTreeCategoryImpl implements CharmTreeCategory {
     return allCharms;
   }
 
-  private void addCharmGroupsFor(Collection<String> groupIds, List<ICharmGroup> charmGroups, Charm[] charms) {
+  private void addCharmGroupsFor(Collection<String> groupIds, List<CharmTree> charmGroups, Charm[] charms) {
     for (Charm charm : charms) {
       String groupId = charm.getGroupId();
       if (!groupIds.contains(groupId) && isLearnable(charm)) {
         groupIds.add(groupId);
         List<Charm> groupCharms = getAllCharmsForGroup(groupId);
-        charmGroups.add(new CharmGroup(charm.getCharacterType(), groupId, groupCharms.toArray(new Charm[groupCharms.size()])
+        charmGroups.add(new CharmTreeImpl(charm.getCharacterType(), groupId, groupCharms.toArray(new Charm[groupCharms.size()])
         ));
       }
     }
   }
 
   @Override
-  public final ICharmGroup[] getAllCharmGroups() {
+  public final CharmTree[] getAllCharmTrees() {
     Set<String> charmGroupSet = new HashSet<>();
-    List<ICharmGroup> charmGroups = new ArrayList<>();
+    List<CharmTree> charmGroups = new ArrayList<>();
     addCharmGroupsFor(charmGroupSet, charmGroups, getAllCharms());
-    return charmGroups.toArray(new ICharmGroup[charmGroups.size()]);
+    return charmGroups.toArray(new CharmTree[charmGroups.size()]);
   }
 
   public final List<Charm> getAllCharmsForGroup(String id) {

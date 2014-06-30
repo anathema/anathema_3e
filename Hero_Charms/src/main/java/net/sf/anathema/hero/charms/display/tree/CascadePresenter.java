@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display.tree;
 
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.framework.ui.RGBColor;
@@ -14,9 +15,7 @@ import net.sf.anathema.hero.charms.display.view.DefaultNodePresentationPropertie
 import net.sf.anathema.hero.charms.display.view.DefaultTooltipProperties;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.CharmGroupCollection;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
@@ -40,7 +39,7 @@ public class CascadePresenter {
   private CharmView view;
   private CharmDye dye;
   private CharmTypes charmTypes;
-  protected CharmGroupCollection charmGroups;
+  protected CharmTreeCollection charmTrees;
   private SpecialCharmViewPresenter specialCharmPresenter = new NullSpecialCharmPresenter();
   private AlienCharmPresenter alienPresenter = new NullAlienCharmPresenter();
   private CharmInteractionPresenter interactionPresenter = new NullInteractionPresenter();
@@ -117,7 +116,7 @@ public class CascadePresenter {
   }
 
   private ObjectSelectionView<Identifier> createCharmGroupSelector() {
-    ICharmGroup[] allGroups = charmGroups.getCharmGroups();
+    CharmTree[] allGroups = charmTrees.getAllCharmTrees();
     AgnosticUIConfiguration<Identifier> config = new SelectIdentifierConfiguration<>(resources);
     String title = getResources().getString("CardView.CharmConfiguration.AlienCharms.CharmGroup");
     ObjectSelectionView<Identifier> selector = view.addSelectionViewAndSizeItFor(title, config, allGroups);
@@ -126,10 +125,10 @@ public class CascadePresenter {
     return selector;
   }
 
-  private List<ICharmGroup> sortCharmGroups(ICharmGroup[] originalGroups) {
-    ArrayList<ICharmGroup> filteredGroups = new ArrayList<>();
+  private List<CharmTree> sortCharmGroups(CharmTree[] originalGroups) {
+    ArrayList<CharmTree> filteredGroups = new ArrayList<>();
     Collections.addAll(filteredGroups, originalGroups);
-    return new I18nedIdentificateSorter<ICharmGroup>().sortAscending(filteredGroups, resources);
+    return new I18nedIdentificateSorter<CharmTree>().sortAscending(filteredGroups, resources);
   }
 
   protected void setSpecialPresenter(SpecialCharmViewPresenter presenter) {
@@ -162,9 +161,9 @@ public class CascadePresenter {
       groupSelector.setObjects(new Identifier[0]);
       return;
     }
-    ICharmGroup[] allCharmGroups = charmTree.getAllCharmGroups();
-    List<ICharmGroup> sortedGroups = sortCharmGroups(allCharmGroups);
-    groupSelector.setObjects(sortedGroups.toArray(new ICharmGroup[sortedGroups.size()]));
+    CharmTree[] allCharmGroups = charmTree.getAllCharmTrees();
+    List<CharmTree> sortedGroups = sortCharmGroups(allCharmGroups);
+    groupSelector.setObjects(sortedGroups.toArray(new CharmTree[sortedGroups.size()]));
     specialCharmPresenter.showSpecialViews();
   }
 
@@ -176,8 +175,8 @@ public class CascadePresenter {
     this.interactionPresenter = presenter;
   }
 
-  public void setCharmGroups(CharmGroupCollection charmGroups) {
-    this.charmGroups = charmGroups;
+  public void setCharmTrees(CharmTreeCollection charmTrees) {
+    this.charmTrees = charmTrees;
   }
 
   public void setSpecialCharmSet(SpecialCharmSet specialCharmSet) {

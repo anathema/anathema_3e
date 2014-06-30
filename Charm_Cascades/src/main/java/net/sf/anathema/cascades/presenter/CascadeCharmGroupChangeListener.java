@@ -13,7 +13,7 @@ public class CascadeCharmGroupChangeListener extends AbstractCharmGroupChangeLis
 
   public CascadeCharmGroupChangeListener(CascadeSpecialCharmSet specialCharmSet,
                                          CharmDisplayPropertiesMap charmDisplayPropertiesMap) {
-    super(new FriendlyCharmGroupArbitrator(), charmDisplayPropertiesMap);
+    super(new FriendlyCharmTreeArbitrator(), charmDisplayPropertiesMap);
     this.specialCharmSet = specialCharmSet;
   }
 

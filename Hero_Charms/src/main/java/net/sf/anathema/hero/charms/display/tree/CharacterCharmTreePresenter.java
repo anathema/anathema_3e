@@ -58,7 +58,7 @@ public class CharacterCharmTreePresenter {
     cascadePresenter.setAlienCharmPresenter(new CharacterAlienCharmPresenter(model));
     cascadePresenter.setInteractionPresenter(
             new LearnInteractionPresenter(model, new DefaultFunctionalNodeProperties(), colorist));
-    cascadePresenter.setCharmGroups(new CharacterGroupCollection(model));
+    cascadePresenter.setCharmTrees(new CharacterGroupCollection(model));
     cascadePresenter.setSpecialCharmSet(new CharacterSpecialCharmSet(model));
     cascadePresenter.initPresentation();
   }

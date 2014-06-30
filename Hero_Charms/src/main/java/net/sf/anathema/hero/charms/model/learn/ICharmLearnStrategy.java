@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.hero.charms.model.BasicLearnCharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.IBasicLearnCharmGroup;
 
 public interface ICharmLearnStrategy {
 
-  boolean isUnlearnable(IBasicLearnCharmGroup group, Charm charm);
+  boolean isUnlearnable(BasicLearnCharmTree group, Charm charm);
 
-  boolean isLearned(IBasicLearnCharmGroup group, Charm charm);
+  boolean isLearned(BasicLearnCharmTree group, Charm charm);
 
-  void toggleLearned(IBasicLearnCharmGroup group, Charm charm);
+  void toggleLearned(BasicLearnCharmTree group, Charm charm);
 }

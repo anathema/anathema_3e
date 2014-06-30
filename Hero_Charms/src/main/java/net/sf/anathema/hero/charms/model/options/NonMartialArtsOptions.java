@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
-import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.charms.display.presenter.CharmGroupArbitrator;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
@@ -23,7 +23,7 @@ import java.util.Map;
 
 import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 
-public class NonMartialArtsOptions implements CharmIdMap, CharmGroupArbitrator {
+public class NonMartialArtsOptions implements CharmIdMap, CharmTreeArbitrator {
 
   private final CharacterTypes characterTypes;
   private CharmProvider charmProvider;
@@ -57,7 +57,7 @@ public class NonMartialArtsOptions implements CharmIdMap, CharmGroupArbitrator {
   }
 
   @Override
-  public Charm[] getCharms(ICharmGroup charmGroup) {
+  public Charm[] getCharms(CharmTree charmGroup) {
     Charm[] allCharms = charmGroup.getAllCharms();
     if (characterMayLearnAlienCharms()) {
       return allCharms;
