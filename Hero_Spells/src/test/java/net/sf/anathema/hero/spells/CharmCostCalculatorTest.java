@@ -71,7 +71,9 @@ public class CharmCostCalculatorTest {
   public void setUp() throws Exception {
     CharmsModel charmModel = new CharmsModelImpl(new CharmsTemplate());
     spells.initializeMagicModel(charmModel);
-    DummyHero hero = new CharmHeroObjectMother().createModelContextWithEssence2(new CreationTraitValueStrategy());
+    CharmHeroObjectMother objectMother = new CharmHeroObjectMother();
+    CreationTraitValueStrategy valueStrategy = new CreationTraitValueStrategy();
+    DummyHero hero = objectMother.createModelContextWithEssence2(valueStrategy);
     traitModel = TraitModelFetcher.fetch(hero);
     addAbilityAndEssence(traitModel, hero);
     hero.addModel(charmModel);
