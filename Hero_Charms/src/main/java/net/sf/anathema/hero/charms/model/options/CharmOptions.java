@@ -1,25 +1,37 @@
 package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.concept.HeroConcept;
+import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.template.NativeCharacterType;
+import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class CharmOptions {
-  private NonMartialArtsOptions nonMartialArtsOptions;
+
+  private CharmsRules charmsRules;
+  private final CharacterTypeList availableTypes;
+  private final Map<Identifier, CharmTreeCategory> treesByType = new HashMap<>();
+  private Hero hero;
   private final MartialArtsCharmTreeCategory martialArtsCharmTree;
   private CharmProvider charmProvider;
 
@@ -27,7 +39,23 @@ public class CharmOptions {
     this.charmProvider = charmProvider;
     MartialArtsLevel standardLevel = charmsRules.getMartialArtsRules().getStandardLevel();
     this.martialArtsCharmTree = new MartialArtsCharmTreeCategory(charmProvider, standardLevel);
-    this.nonMartialArtsOptions = new NonMartialArtsOptions(hero, characterTypes, charmProvider, charmsRules);
+    this.hero = hero;
+    this.charmProvider = charmProvider;
+    this.charmsRules = charmsRules;
+    this.availableTypes = new CharacterTypeList(charmProvider);
+    availableTypes.collectAvailableTypes(getNativeCharacterType(), characterTypes);
+    initCharmTreesForAvailableTypes();
+  }
+
+  private void initCharmTreesForAvailableTypes() {
+    for (CharacterType type : availableTypes) {
+      Charm[] charms = charmProvider.getCharms(type);
+      treesByType.put(type, new CharmTreeCategoryImpl(charms));
+    }
+  }
+
+  private CharacterType getNativeCharacterType() {
+    return NativeCharacterType.get(hero);
   }
 
   public CharmTree[] getAllMartialArtsTrees() {
@@ -35,40 +63,74 @@ public class CharmOptions {
   }
 
   public Iterable<CharacterType> getAvailableCharacterTypes() {
-    return nonMartialArtsOptions.getAvailableCharacterTypes();
+    return availableTypes;
   }
 
   public CharmTree[] getAllTreesForType(CharacterType characterType) {
-    return nonMartialArtsOptions.getCharmTrees(characterType).getAllCharmTrees();
+    return getCharmTrees(characterType).getAllCharmTrees();
+  }
+
+  private CharmTreeCategory getCharmTrees(CharacterType type) {
+    return treesByType.get(type);
   }
 
   public CharmIdMap getCharmIdMap() {
     List<CharmIdMap> trees = new ArrayList<>();
-    trees.add(nonMartialArtsOptions);
+    trees.addAll(treesByType.values());
     trees.add(martialArtsCharmTree);
     return new GroupedCharmIdMap(trees);
   }
 
   public ISpecialCharm[] getSpecialCharms() {
     ICharmLearnableArbitrator arbitrator = charm -> !isMartialArts(charm) || martialArtsCharmTree.isLearnable(charm);
-    return charmProvider.getSpecialCharms(arbitrator, getCharmIdMap(), nonMartialArtsOptions.getNativeCharacterType());
+    return charmProvider.getSpecialCharms(arbitrator, getCharmIdMap(), getNativeCharacterType());
   }
 
   public boolean isAlienType(CharacterType characterType) {
-    return nonMartialArtsOptions.isAlienType(characterType);
+    CharacterType nativeType = getNativeCharacterType();
+    return !characterType.equals(nativeType);
   }
 
   public CharacterType[] getCharacterTypes(boolean includeAlienTypes) {
-    return nonMartialArtsOptions.getCharacterTypes(includeAlienTypes);
+    if (!includeAlienTypes) {
+      return new CharacterType[]{getNativeCharacterType()};
+    }
+    return availableTypes.asArray();
   }
 
   public boolean isAlienCharm(Charm charm) {
     boolean isNotMartialArts = !isMartialArts(charm);
-    boolean isOfAlienType = nonMartialArtsOptions.isAlienType(charm.getCharacterType());
+    boolean isOfAlienType = isAlienType(charm.getCharacterType());
     return isNotMartialArts && isOfAlienType;
   }
 
   public Charm[] getCharms(CharmTree tree) {
-    return nonMartialArtsOptions.getCharms(tree);
+    Charm[] allCharms = tree.getAllCharms();
+    if (characterMayLearnAlienCharms()) {
+      return allCharms;
+    }
+    return charmsThatAreNativeOrNotExclusive(allCharms);
+  }
+
+  private Charm[] charmsThatAreNativeOrNotExclusive(Charm[] allCharms) {
+    List<Charm> charms = new ArrayList<>();
+    for (Charm charm : allCharms) {
+      if (!charm.hasAttribute(EXCLUSIVE_ATTRIBUTE)) {
+        charms.add(charm);
+      }
+      if (isNativeCharm(charm)) {
+        charms.add(charm);
+      }
+    }
+    return charms.toArray(new Charm[charms.size()]);
+  }
+
+  private boolean isNativeCharm(Charm charm) {
+    return new CharmHasSameTypeAsCharacter(hero).apply(charm);
+  }
+
+  private boolean characterMayLearnAlienCharms() {
+    HeroConcept concept = HeroConceptFetcher.fetch(hero);
+    return charmsRules.isAllowedAlienCharms(concept.getCaste().getType());
   }
 }
