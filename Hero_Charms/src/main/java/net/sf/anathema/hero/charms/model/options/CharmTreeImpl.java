@@ -29,7 +29,6 @@ public class CharmTreeImpl implements CharmTree {
     return charmById.get(charmID);
   }
 
-  @Override
   public Charm[] getAllCharms() {
     return allCharms;
   }
@@ -54,7 +53,6 @@ public class CharmTreeImpl implements CharmTree {
     return charmGroups.toArray(new ICharmGroup[charmGroups.size()]);
   }
 
-  @Override
   public final List<Charm> getAllCharmsForGroup(String id) {
     List<Charm> groupCharms = new ArrayList<>();
     for (Charm charm : getAllCharms()) {
