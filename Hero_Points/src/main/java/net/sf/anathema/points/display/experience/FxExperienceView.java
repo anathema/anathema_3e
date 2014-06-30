@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.experience.display;
+package net.sf.anathema.points.display.experience;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Node;

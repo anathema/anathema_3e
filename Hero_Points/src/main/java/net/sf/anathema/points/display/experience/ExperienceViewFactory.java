@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.experience.display;
+package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.character.framework.display.SubViewFactory;
 import net.sf.anathema.framework.util.Produces;
@@ -10,7 +10,7 @@ public class ExperienceViewFactory implements SubViewFactory {
   @Override
   public <T> T create() {
     FxExperienceView fxView = new FxExperienceView();
-    new Stylesheet("skin/experience/experience.css").applyToParent(fxView.getNode());
+    new Stylesheet("net/sf/anathema/hero/traits/template/experience/experience.css").applyToParent(fxView.getNode());
     return (T) fxView;
   }
 }

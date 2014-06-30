@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.experience.display;
+package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.character.framework.display.SectionView;
 import net.sf.anathema.framework.environment.Resources;

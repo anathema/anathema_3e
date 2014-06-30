@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.experience.display;
+package net.sf.anathema.points.display.experience;
 
 public interface ExperienceUpdateListener {
   void update(int points, String description);
