@@ -9,7 +9,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.DummyHeroEnvironment;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
-import net.sf.anathema.hero.dummy.models.DummyTraitModel;
+import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.equipment.EquipmentModelImpl;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelImpl;

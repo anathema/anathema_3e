@@ -11,7 +11,7 @@ import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 import net.sf.anathema.hero.spells.template.SpellsTemplateLoader;
-import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
+import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.hero.traits.model.TraitModel;
 

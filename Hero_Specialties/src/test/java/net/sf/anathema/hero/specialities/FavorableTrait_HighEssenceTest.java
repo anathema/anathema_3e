@@ -14,7 +14,7 @@ import net.sf.anathema.hero.dummy.DummyCasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
-import net.sf.anathema.hero.dummy.models.DummyTraitModel;
+import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;

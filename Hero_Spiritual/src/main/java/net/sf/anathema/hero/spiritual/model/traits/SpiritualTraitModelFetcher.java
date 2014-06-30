@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spiritual;
+package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.model.Hero;
 

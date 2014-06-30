@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.dummy.models;
+package net.sf.anathema.hero.traits.dummy;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
@@ -9,6 +9,8 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
 import net.sf.anathema.lib.util.Identifier;
 
@@ -40,5 +42,10 @@ public class DummyTraitModel extends DefaultTraitMap implements TraitModel, Hero
   @Override
   public TraitValueStrategy getValueStrategy() {
     return valueStrategy;
+  }
+
+  @Override
+  public TraitLimitation createLimitation(LimitationTemplate limitation) {
+    return null;
   }
 }

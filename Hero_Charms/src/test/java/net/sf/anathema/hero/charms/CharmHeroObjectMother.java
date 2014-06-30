@@ -5,7 +5,7 @@ import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
-import net.sf.anathema.hero.dummy.models.DummyTraitModel;
+import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 
 public class CharmHeroObjectMother {
 
