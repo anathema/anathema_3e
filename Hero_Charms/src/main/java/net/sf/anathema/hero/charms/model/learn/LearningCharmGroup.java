@@ -1,19 +1,12 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmGroup;
-import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.ICharmGroup;
-
+import net.sf.anathema.hero.magic.charm.Charm;
 import org.jmock.example.announcer.Announcer;
+
+import java.util.*;
 
 public class LearningCharmGroup extends CharmGroup implements ILearningCharmGroup {
 
@@ -23,20 +16,13 @@ public class LearningCharmGroup extends CharmGroup implements ILearningCharmGrou
   private final IExtendedCharmLearnableArbitrator learnArbitrator;
   private final ICharmLearnStrategy learnStrategy;
   private final ILearningCharmGroupContainer charmGroupContainer;
-  private final CharmsModel charmConfig;
 
   public LearningCharmGroup(ICharmLearnStrategy learnStrategy, ICharmGroup simpleCharmGroup, IExtendedCharmLearnableArbitrator arbitrator,
                             ILearningCharmGroupContainer charmGroupContainer) {
-    this(learnStrategy, simpleCharmGroup, arbitrator, charmGroupContainer, null);
-  }
-
-  public LearningCharmGroup(ICharmLearnStrategy learnStrategy, ICharmGroup simpleCharmGroup, IExtendedCharmLearnableArbitrator arbitrator,
-                            ILearningCharmGroupContainer charmGroupContainer, CharmsModel charmConfig) {
-    super(simpleCharmGroup.getCharacterType(), simpleCharmGroup.getId(), simpleCharmGroup.getAllCharms(), simpleCharmGroup.isMartialArtsGroup());
+    super(simpleCharmGroup.getCharacterType(), simpleCharmGroup.getId(), simpleCharmGroup.getAllCharms());
     this.learnStrategy = learnStrategy;
     this.learnArbitrator = arbitrator;
     this.charmGroupContainer = charmGroupContainer;
-    this.charmConfig = charmConfig;
   }
 
   @Override

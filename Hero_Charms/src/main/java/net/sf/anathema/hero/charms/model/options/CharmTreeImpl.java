@@ -3,7 +3,6 @@ package net.sf.anathema.hero.charms.model.options;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmGroup;
 import net.sf.anathema.hero.charms.model.ICharmGroup;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -41,8 +40,8 @@ public class CharmTreeImpl implements CharmTree {
       if (!groupIds.contains(groupId) && isLearnable(charm)) {
         groupIds.add(groupId);
         List<Charm> groupCharms = getAllCharmsForGroup(groupId);
-        charmGroups.add(new CharmGroup(charm.getCharacterType(), groupId, groupCharms.toArray(new Charm[groupCharms.size()]),
-                MartialArtsUtilities.isMartialArts(charm)));
+        charmGroups.add(new CharmGroup(charm.getCharacterType(), groupId, groupCharms.toArray(new Charm[groupCharms.size()])
+        ));
       }
     }
   }

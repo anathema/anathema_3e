@@ -32,14 +32,14 @@ public class LearningCharmGroupTest {
     ICharmLearnStrategy learnStrategy = new CreationCharmLearnStrategy();
     CharmTreeImpl charmTree = new CharmTreeImpl(new Charm[0]);
     CharmGroup group = new CharmGroup(new DummyExaltCharacterType(), groupId,
-            charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]), false);
+            charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]));
     return new LearningCharmGroup(learnStrategy, group, learnableArbitrator, container);
   }
 
   private LearningCharmGroup createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, CharmTree charmTree, String groupId) {
     ICharmLearnStrategy learnSrategy = new CreationCharmLearnStrategy();
     CharmGroup group = new CharmGroup(new DummyExaltCharacterType(), groupId,
-            charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]), false);
+            charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]));
     return new LearningCharmGroup(learnSrategy, group, learnableArbitrator, container);
   }
 

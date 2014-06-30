@@ -239,7 +239,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     };
     for (ICharmGroup charmGroup : charmGroups) {
-      ILearningCharmGroup group = new LearningCharmGroup(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer, this);
+      ILearningCharmGroup group = new LearningCharmGroup(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer);
       newGroups.add(group);
 
       group.addCharmLearnListener(mergedListener);

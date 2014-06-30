@@ -38,6 +38,6 @@ public class CharmGroupTest {
   }
 
   private CharmGroup createGroupWithCharacterType(DummyExaltCharacterType type) {
-    return new CharmGroup(type, Default_Group_Id, new Charm[0], false);
+    return new CharmGroup(type, Default_Group_Id, new Charm[0]);
   }
 }

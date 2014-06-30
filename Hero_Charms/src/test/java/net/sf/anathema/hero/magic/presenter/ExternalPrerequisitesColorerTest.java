@@ -39,7 +39,7 @@ public class ExternalPrerequisitesColorerTest {
   }
 
   private ICharmGroup createGroupWithCharms(DummyCharm parent, Charm child) {
-    return new CharmGroup(new DummyMundaneCharacterType(), "CurrentGroup", new Charm[]{parent, child}, false);
+    return new CharmGroup(new DummyMundaneCharacterType(), "CurrentGroup", new Charm[]{parent, child});
   }
 
   private DummyCharm createParentCharmFromGroup(String group) {
