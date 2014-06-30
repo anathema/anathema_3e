@@ -1,4 +1,4 @@
-package net.sf.anathema.fx.hero.overview;
+package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;

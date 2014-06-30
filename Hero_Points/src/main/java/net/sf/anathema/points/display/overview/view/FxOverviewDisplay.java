@@ -1,4 +1,4 @@
-package net.sf.anathema.fx.hero.overview;
+package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.Node;
 import net.sf.anathema.hero.points.display.overview.view.OverviewDisplay;

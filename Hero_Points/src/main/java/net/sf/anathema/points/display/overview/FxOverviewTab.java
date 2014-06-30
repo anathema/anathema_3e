@@ -2,9 +2,9 @@ package net.sf.anathema.points.display.overview;
 
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
-import net.sf.anathema.fx.hero.overview.DefaultCategorizedOverview;
-import net.sf.anathema.fx.hero.overview.FxOverviewDisplay;
-import net.sf.anathema.fx.hero.overview.NullOverviewContainer;
+import net.sf.anathema.points.display.overview.view.DefaultCategorizedOverview;
+import net.sf.anathema.points.display.overview.view.FxOverviewDisplay;
+import net.sf.anathema.points.display.overview.view.NullOverviewContainer;
 import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.platform.fx.NodeHolder;
