@@ -2,16 +2,16 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
-import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
 import net.sf.anathema.lib.util.Identifier;
@@ -25,7 +25,6 @@ import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_A
 
 public class NonMartialArtsOptions implements CharmIdMap, CharmTreeArbitrator {
 
-  private final CharacterTypes characterTypes;
   private CharmProvider charmProvider;
   private CharmsRules charmsRules;
   private final CharacterTypeList availableTypes;
@@ -34,7 +33,6 @@ public class NonMartialArtsOptions implements CharmIdMap, CharmTreeArbitrator {
 
   public NonMartialArtsOptions(Hero hero, CharacterTypes characterTypes, CharmProvider charmProvider, CharmsRules charmsRules) {
     this.hero = hero;
-    this.characterTypes = characterTypes;
     this.charmProvider = charmProvider;
     this.charmsRules = charmsRules;
     this.availableTypes = new CharacterTypeList(charmProvider);
@@ -96,13 +94,6 @@ public class NonMartialArtsOptions implements CharmIdMap, CharmTreeArbitrator {
       Charm[] charms = charmProvider.getCharms(type);
       treesByType.put(type, new CharmTreeCategoryImpl(charms));
     }
-  }
-
-  public CharacterType getCharacterType(String characterTypeId) {
-    if (characterTypeId == null) {
-      return getNativeCharacterType();
-    }
-    return characterTypes.findById(characterTypeId);
   }
 
   public CharacterType[] getCharacterTypes(boolean includeAlienTypes) {
