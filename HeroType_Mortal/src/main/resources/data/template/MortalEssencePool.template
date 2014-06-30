@@ -1,5 +1,4 @@
 {
-  isEssenceUser: false;
-  peripheralPool: Essence;
+  peripheralPool: 0;
   personalPool: 0
 }

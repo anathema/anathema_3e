@@ -1,23 +1,21 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class EssencePoolConfiguration {
 
-  private final EssencePoolTemplate template;
   private final int personalBase;
   private final List<PoolPartTemplate> personalParts;
   private final int peripheralBase;
   private final List<PoolPartTemplate> peripheralParts;
 
   public EssencePoolConfiguration(EssencePoolTemplate template) {
-    this.template = template;
     EssenceExpressionParser personalParser = new EssenceExpressionParser(template.personalPool);
     this.personalBase = personalParser.getBase();
     this.personalParts = personalParser.getPartTemplates();
@@ -32,10 +30,6 @@ public class EssencePoolConfiguration {
 
   public FactorizedTrait[] getPeripheralTraits(TraitMap traitMap) {
     return createFactorizedTraits(peripheralParts, traitMap);
-  }
-
-  public boolean isEssenceUser() {
-    return template.isEssenceUser;
   }
 
   private FactorizedTrait[] createFactorizedTraits(List<PoolPartTemplate> parts, TraitMap traitMap) {

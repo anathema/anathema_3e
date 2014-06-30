@@ -8,7 +8,6 @@ import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.IdentifiedInteger;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -20,6 +19,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
   private EssencePoolStrategy poolStrategy = null;
   private List<IEssencePoolModifier> essencePoolModifiers = new ArrayList<>();
   private EssencePoolTemplate template;
+  private Hero hero;
 
   public EssencePoolModelImpl(EssencePoolTemplate template) {
     this.template = template;
@@ -32,6 +32,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    this.hero = hero;
     if (!isEssenceUser()) {
       return;
     }
@@ -88,11 +89,6 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
   }
 
   @Override
-  public IdentifiedInteger[] getComplexPools() {
-    return poolStrategy.getComplexPools();
-  }
-
-  @Override
   public String getAttunedPool() {
     return "" + poolStrategy.getAttunementExpenditures();
   }
@@ -108,7 +104,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
   @Override
   public boolean isEssenceUser() {
-    return template.isEssenceUser;
+    return hero.getTemplate().getTemplateType().getCharacterType().isEssenceUser();
   }
 
   @Override
