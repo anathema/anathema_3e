@@ -1,23 +1,23 @@
 package net.sf.anathema.cascades.presenter;
 
-import net.sf.anathema.hero.charms.display.tree.CharmTreeMap;
-import net.sf.anathema.hero.charms.model.GroupCharmTree;
-import net.sf.anathema.hero.charms.model.options.CharmTree;
+import net.sf.anathema.hero.charms.display.tree.CharmTreeCollectionMap;
+import net.sf.anathema.hero.charms.model.CharmTreeCollection;
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class CharmTreeIdentifierMap implements CharmTreeMap {
+public class CharmTreeIdentifierMap implements CharmTreeCollectionMap {
 
-  Map<Identifier, CharmTree> charmTreesById = new HashMap<>();
+  Map<Identifier, CharmTreeCategory> charmTreesById = new HashMap<>();
 
-  public void put(Identifier id, CharmTree tree) {
+  public void put(Identifier id, CharmTreeCategory tree) {
     charmTreesById.put(id, tree);
   }
 
   @Override
-  public GroupCharmTree getCharmTree(Identifier type) {
+  public CharmTreeCollection getCharmTree(Identifier type) {
     return charmTreesById.get(type);
   }
 }

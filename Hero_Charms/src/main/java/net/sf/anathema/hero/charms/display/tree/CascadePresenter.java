@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display.tree;
 
+import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.points.display.overview.presenter.SelectIdentifierConfiguration;
@@ -15,7 +16,6 @@ import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.CharmGroupCollection;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.charms.model.GroupCharmTree;
 import net.sf.anathema.hero.charms.model.ICharmGroup;
 import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.control.ObjectValueListener;
@@ -33,7 +33,7 @@ import java.util.List;
 public class CascadePresenter {
 
   private final Resources resources;
-  private CharmTreeMap charmTreeMap;
+  private CharmTreeCollectionMap charmTreeCollectionMap;
   private CharmIdMap charmIdMap;
   private MagicDescriptionProvider magicDescriptionProvider;
   private ICharmGroupChangeListener changeListener;
@@ -157,7 +157,7 @@ public class CascadePresenter {
       groupSelector.setObjects(new Identifier[0]);
       return;
     }
-    GroupCharmTree charmTree = charmTreeMap.getCharmTree(cascadeType);
+    CharmTreeCollection charmTree = charmTreeCollectionMap.getCharmTree(cascadeType);
     if (charmTree == null) {
       groupSelector.setObjects(new Identifier[0]);
       return;
@@ -184,7 +184,7 @@ public class CascadePresenter {
     this.specialCharmSet = specialCharmSet;
   }
 
-  public void setCharmTreeMap(CharmTreeMap charmTreeMap) {
-    this.charmTreeMap = charmTreeMap;
+  public void setCharmTreeCollectionMap(CharmTreeCollectionMap charmTreeCollectionMap) {
+    this.charmTreeCollectionMap = charmTreeCollectionMap;
   }
 }

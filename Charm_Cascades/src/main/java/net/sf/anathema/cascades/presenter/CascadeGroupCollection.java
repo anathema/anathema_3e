@@ -1,5 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.framework.type.CharacterType;
@@ -7,9 +8,8 @@ import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmGroupCollection;
 import net.sf.anathema.hero.charms.model.ICharmGroup;
-import net.sf.anathema.hero.charms.model.options.CharmTree;
-import net.sf.anathema.hero.charms.model.options.CharmTreeImpl;
-import net.sf.anathema.hero.charms.model.options.MartialArtsCharmTree;
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
+import net.sf.anathema.hero.charms.model.options.MartialArtsCharmTreeCategory;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -44,20 +44,20 @@ public class CascadeGroupCollection implements CharmGroupCollection {
   }
 
   private void initMartialArtsCharms(List<ICharmGroup> allCharmGroups) {
-    CharmTree martialArtsTree = new MartialArtsCharmTree(charmProvider, MartialArtsLevel.Sidereal);
+    CharmTreeCategory martialArtsTree = new MartialArtsCharmTreeCategory(charmProvider, MartialArtsLevel.Sidereal);
     treeIdentifierMap.put(MartialArtsUtilities.MARTIAL_ARTS, martialArtsTree);
     allCharmGroups.addAll(Arrays.asList(martialArtsTree.getAllCharmGroups()));
   }
 
   private void registerTypeCharms(List<ICharmGroup> allCharmGroups, CharacterType type) {
-    CharmTree typeTree = new CharmTreeImpl(charmProvider.getCharms(type));
+    CharmTreeCategory typeTree = new CharmTreeCategoryImpl(charmProvider.getCharms(type));
     registerGroups(allCharmGroups, type, typeTree);
   }
 
-  private void registerGroups(List<ICharmGroup> allCharmGroups, Identifier typeId, CharmTree charmTree) {
-    ICharmGroup[] groups = charmTree.getAllCharmGroups();
+  private void registerGroups(List<ICharmGroup> allCharmGroups, Identifier typeId, CharmTreeCategory charmTreeCategory) {
+    ICharmGroup[] groups = charmTreeCategory.getAllCharmGroups();
     if (groups.length != 0) {
-      treeIdentifierMap.put(typeId, charmTree);
+      treeIdentifierMap.put(typeId, charmTreeCategory);
       allCharmGroups.addAll(Arrays.asList(groups));
     }
   }

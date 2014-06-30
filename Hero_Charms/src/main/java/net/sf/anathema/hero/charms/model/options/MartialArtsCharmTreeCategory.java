@@ -7,11 +7,11 @@ import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.text.MessageFormat;
 
-public class MartialArtsCharmTree extends CharmTreeImpl {
+public class MartialArtsCharmTreeCategory extends CharmTreeCategoryImpl {
 
   private final MartialArtsLevel standardLevel;
 
-  public MartialArtsCharmTree(CharmProvider charmProvider, MartialArtsLevel standardLevel) {
+  public MartialArtsCharmTreeCategory(CharmProvider charmProvider, MartialArtsLevel standardLevel) {
     super(charmProvider.getMartialArtsCharms());
     this.standardLevel = standardLevel;
   }

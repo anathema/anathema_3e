@@ -295,7 +295,7 @@ public class CharmsModelImpl implements CharmsModel {
     return manager.getSpecialCharmConfiguration(charm);
   }
 
-  private void initLearnGroupForCharacterType(CharacterType type, GroupCharmTree charmTree) {
+  private void initLearnGroupForCharacterType(CharacterType type, CharmTreeCollection charmTree) {
     ICharmGroup[] treeGroups = charmTree.getAllCharmGroups();
     ILearningCharmGroup[] groups = createGroups(treeGroups);
     nonMartialArtsGroupsByType.put(type, groups);

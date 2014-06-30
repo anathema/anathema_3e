@@ -12,11 +12,11 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMa
 
 public class MartialArtsOptions implements CharmIdMap, ICharmLearnableArbitrator {
 
-  private final MartialArtsCharmTree martialArtsCharmTree;
+  private final MartialArtsCharmTreeCategory martialArtsCharmTree;
 
   public MartialArtsOptions(CharmProvider charmProvider, CharmsRules charmsRules) {
     MartialArtsLevel standardLevel = charmsRules.getMartialArtsRules().getStandardLevel();
-    this.martialArtsCharmTree = new MartialArtsCharmTree(charmProvider, standardLevel);
+    this.martialArtsCharmTree = new MartialArtsCharmTreeCategory(charmProvider, standardLevel);
   }
 
   @Override

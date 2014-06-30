@@ -46,7 +46,7 @@ public class CharacterCharmTreePresenter {
             charmConfiguration, displayPropertiesMap);
     ConfigurableCharmDye colorist = new ConfigurableCharmDye(charmGroupChangeListener,
             new CharacterColoringStrategy(presentationProperties.getColor(), model));
-    cascadePresenter.setCharmTreeMap(new CharacterCharmTreeMap(model));
+    cascadePresenter.setCharmTreeCollectionMap(new CharacterCharmTreeMap(model));
     cascadePresenter.setCharmTypes(new CharacterCharmTypes(model));
     cascadePresenter.setChangeListener(charmGroupChangeListener);
     cascadePresenter.setView(view);

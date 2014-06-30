@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class CharmTreeImpl implements CharmTree {
+public class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   private final Map<String, Charm> charmById = new HashMap<>();
   private Charm[] allCharms;
 
-  public CharmTreeImpl(Charm[] charms) {
+  public CharmTreeCategoryImpl(Charm[] charms) {
     this.allCharms = charms;
     for (Charm charm : allCharms) {
       charmById.put(charm.getId(), charm);
