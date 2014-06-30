@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
@@ -11,9 +12,11 @@ public abstract class AbstractCharmTreeCategory implements CharmTreeCategory {
 
   private final Map<String, Charm> charmById = new HashMap<>();
   private Charm[] allCharms;
+  private TreeCategory category;
 
-  public AbstractCharmTreeCategory(Charm[] allCharms) {
+  public AbstractCharmTreeCategory(Charm[] allCharms, TreeCategory category) {
     this.allCharms = allCharms;
+    this.category = category;
     for (Charm charm : allCharms) {
       charmById.put(charm.getId(), charm);
     }

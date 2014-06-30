@@ -4,7 +4,7 @@ import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
-import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
+import net.sf.anathema.hero.charms.model.options.NonMartialArtsCharmTreeCategoryImpl;
 import net.sf.anathema.hero.charms.model.options.MartialArtsCharmTreeCategory;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
@@ -50,7 +50,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   private void registerTypeCharms(List<CharmTree> allCharmGroups, CharacterType type) {
-    CharmTreeCategory typeTree = new CharmTreeCategoryImpl(charmProvider, type);
+    CharmTreeCategory typeTree = new NonMartialArtsCharmTreeCategoryImpl(charmProvider, type);
     registerGroups(allCharmGroups, type, typeTree);
   }
 

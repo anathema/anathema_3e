@@ -44,7 +44,7 @@ public class CharmOptions {
     this.availableTypes = new CharacterTypeList(charmProvider);
     availableTypes.collectAvailableTypes(getNativeCharacterType(), characterTypes);
     for (CharacterType type : availableTypes) {
-      treesByType.put(type, new CharmTreeCategoryImpl(charmProvider, type));
+      treesByType.put(type, new NonMartialArtsCharmTreeCategoryImpl(charmProvider, type));
     }
   }
 
