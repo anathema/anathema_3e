@@ -1,7 +1,7 @@
 package net.sf.anathema.points.model.creation;
 
-import net.sf.anathema.hero.points.model.BonusPointManagement;
-import net.sf.anathema.hero.points.model.overview.SpendingModel;
+import net.sf.anathema.points.model.BonusPointManagement;
+import net.sf.anathema.points.model.overview.SpendingModel;
 
 public class BonusPointManagementImpl implements BonusPointManagement {
 
@@ -17,7 +17,7 @@ public class BonusPointManagementImpl implements BonusPointManagement {
     bonusPointCalculator.recalculate();
   }
 
-  public void addBonusPointCalculator(net.sf.anathema.hero.points.model.BonusPointCalculator calculator) {
+  public void addBonusPointCalculator(net.sf.anathema.points.model.BonusPointCalculator calculator) {
     bonusPointCalculator.addBonusPointCalculator(calculator);
   }
 

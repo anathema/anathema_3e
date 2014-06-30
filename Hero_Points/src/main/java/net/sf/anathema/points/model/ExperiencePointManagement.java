@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.points.model;
+package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.points.model.overview.IValueModel;
+import net.sf.anathema.points.model.overview.IValueModel;
 
 import java.util.List;
 

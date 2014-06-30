@@ -4,7 +4,7 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.points.model.PointsModel;
+import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.hero.traits.model.TraitModel;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.model.overview;
+package net.sf.anathema.points.model.overview;
 
 public class WeightedCategory implements Comparable<WeightedCategory> {
 

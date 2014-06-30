@@ -5,12 +5,12 @@ import net.sf.anathema.character.framework.display.labelledvalue.LabelledAllotme
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.model.ExperiencePointManagement;
+import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.model.PointModelFetcher;
-import net.sf.anathema.hero.points.model.overview.IValueModel;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.overview.IValueModel;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 
 import java.util.ArrayList;

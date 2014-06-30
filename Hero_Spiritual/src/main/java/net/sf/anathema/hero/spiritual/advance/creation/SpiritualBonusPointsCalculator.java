@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spiritual.advance.creation;
 
-import net.sf.anathema.hero.points.model.BonusPointCalculator;
+import net.sf.anathema.points.model.BonusPointCalculator;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.model.traits.TraitCollectionUtilities;
 import net.sf.anathema.hero.traits.model.Trait;

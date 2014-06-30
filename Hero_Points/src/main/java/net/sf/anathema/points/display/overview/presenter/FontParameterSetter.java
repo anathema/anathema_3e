@@ -2,7 +2,7 @@ package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.character.framework.display.labelledvalue.IStyleableView;
 import net.sf.anathema.framework.ui.FontStyle;
-import net.sf.anathema.hero.points.model.overview.SpendingModel;
+import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 import net.sf.anathema.lib.control.legality.LegalityFontProvider;
 import net.sf.anathema.lib.control.legality.ValueLegalityState;

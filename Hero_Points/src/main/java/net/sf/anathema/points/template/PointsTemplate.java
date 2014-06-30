@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.template;
+package net.sf.anathema.points.template;
 
 public class PointsTemplate {
 

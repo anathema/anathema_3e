@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.model;
+package net.sf.anathema.points.model;
 
 import net.sf.anathema.hero.model.Hero;
 

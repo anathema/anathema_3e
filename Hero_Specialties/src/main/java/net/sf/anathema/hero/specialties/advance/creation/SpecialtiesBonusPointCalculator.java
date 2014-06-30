@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.hero.points.model.BonusPointCalculator;
+import net.sf.anathema.points.model.BonusPointCalculator;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.specialties.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;

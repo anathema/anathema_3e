@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.model.overview;
+package net.sf.anathema.points.model.overview;
 
 import net.sf.anathema.lib.util.Identifier;
 

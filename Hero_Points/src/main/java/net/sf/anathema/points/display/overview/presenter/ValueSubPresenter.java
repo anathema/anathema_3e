@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.hero.points.model.overview.IValueModel;
+import net.sf.anathema.points.model.overview.IValueModel;
 
 public class ValueSubPresenter implements IOverviewSubPresenter {
 

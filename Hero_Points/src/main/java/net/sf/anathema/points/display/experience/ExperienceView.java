@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.experience;
 
-import net.sf.anathema.hero.points.model.xp.ExperiencePointEntry;
-import net.sf.anathema.hero.points.model.xp.ExperienceSelectionListener;
+import net.sf.anathema.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 import net.sf.anathema.interaction.Tool;
 
 public interface ExperienceView {

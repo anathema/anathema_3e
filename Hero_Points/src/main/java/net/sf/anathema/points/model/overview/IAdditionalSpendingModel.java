@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.model.overview;
+package net.sf.anathema.points.model.overview;
 
 public interface IAdditionalSpendingModel extends SpendingModel {
 

@@ -2,7 +2,7 @@ package net.sf.anathema.points.sheet.content;
 
 import net.sf.anathema.points.model.ExperiencePointManagementImpl;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.framework.environment.Resources;
 

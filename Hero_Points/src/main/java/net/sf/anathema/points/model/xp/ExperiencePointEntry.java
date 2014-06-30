@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.model.xp;
+package net.sf.anathema.points.model.xp;
 
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 

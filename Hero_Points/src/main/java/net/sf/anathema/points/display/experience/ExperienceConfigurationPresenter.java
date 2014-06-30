@@ -1,10 +1,10 @@
 package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.points.model.xp.ExperiencePoints;
-import net.sf.anathema.hero.points.model.xp.ExperiencePointsListener;
-import net.sf.anathema.hero.points.model.xp.ExperiencePointEntry;
-import net.sf.anathema.hero.points.model.xp.ExperienceSelectionListener;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.xp.ExperiencePointsListener;
+import net.sf.anathema.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.framework.environment.Resources;
