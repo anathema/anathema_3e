@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.type;
 
-import net.sf.anathema.character.framework.type.CharacterType;
-import net.sf.anathema.character.framework.type.CharacterTypes;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
 
 import java.util.ArrayList;
 import java.util.Iterator;

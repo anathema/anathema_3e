@@ -1,6 +1,6 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.character.framework.display.SectionView;
+import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.model.ApplicationModel;

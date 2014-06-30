@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
-import net.sf.anathema.character.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.Charm;
 
 public class SimpleCharmColorer implements CharmColorer {
   private final CharmColoring coloring;

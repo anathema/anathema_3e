@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
-import net.sf.anathema.character.magic.parser.charms.TraitTypeFinder;
+import net.sf.anathema.hero.magic.parser.charms.TraitTypeFinder;
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
 import net.sf.anathema.hero.traits.model.TraitType;
 

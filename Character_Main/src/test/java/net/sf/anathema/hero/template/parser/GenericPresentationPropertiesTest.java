@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.template.parser;
 
-import net.sf.anathema.character.framework.presentation.GenericPresentationTemplate;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;

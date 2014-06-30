@@ -1,7 +1,7 @@
 package net.sf.anathema.fx.hero.traitview;
 
 import net.sf.anathema.hero.traits.display.GroupedTraitView;
-import net.sf.anathema.character.framework.display.ColumnCount;
+import net.sf.anathema.hero.framework.display.ColumnCount;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import org.tbee.javafx.scene.layout.MigPane;
 

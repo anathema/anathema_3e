@@ -1,7 +1,7 @@
 package net.sf.anathema;
 
 import com.google.inject.Singleton;
-import net.sf.anathema.character.framework.Character;
+import net.sf.anathema.hero.framework.Character;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.concept.HeroConcept;

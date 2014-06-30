@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.character.framework.display.labelledvalue.NullValueView;
+import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.hero.framework.display.labelledvalue.NullValueView;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;

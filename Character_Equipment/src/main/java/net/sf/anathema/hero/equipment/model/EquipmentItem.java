@@ -7,7 +7,7 @@ import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStat
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.InertBaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.ReactiveBaseMaterial;
-import net.sf.anathema.character.framework.library.Proxy;
+import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;

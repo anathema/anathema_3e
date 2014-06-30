@@ -6,7 +6,7 @@ import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.character.framework.presentation.GenericPresentationTemplate;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;

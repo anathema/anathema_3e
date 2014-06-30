@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.character.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.Charm;
 
 public interface IBasicLearnCharmGroup {
 

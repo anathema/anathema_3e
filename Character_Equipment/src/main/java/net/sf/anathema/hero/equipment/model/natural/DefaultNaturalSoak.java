@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.model.natural;
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.health.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;

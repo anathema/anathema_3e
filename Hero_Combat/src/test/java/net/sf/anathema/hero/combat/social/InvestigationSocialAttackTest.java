@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.combat.social;
 
-import net.sf.anathema.character.framework.library.HeroStatsModifiers;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.dummy.trait.DummyTrait;
 import net.sf.anathema.hero.combat.model.social.InvestigationSocialAttack;
 import net.sf.anathema.hero.traits.model.TraitMap;

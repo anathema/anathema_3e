@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.character.framework.item.HeroNameFetcher;
-import net.sf.anathema.character.framework.item.Item;
+import net.sf.anathema.hero.framework.item.HeroNameFetcher;
+import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;

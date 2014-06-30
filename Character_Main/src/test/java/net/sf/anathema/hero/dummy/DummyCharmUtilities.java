@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.character.magic.charm.Charm;
-import net.sf.anathema.character.magic.charm.type.CharmType;
-import net.sf.anathema.character.magic.charm.combos.ComboRestrictions;
-import net.sf.anathema.character.magic.charm.combos.IComboRestrictions;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
+import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 public class DummyCharmUtilities {

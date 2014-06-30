@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.character.framework.type.CharacterTypes;
-import net.sf.anathema.character.magic.charm.Charm;
-import net.sf.anathema.character.magic.charm.CharmException;
-import net.sf.anathema.character.magic.charm.CharmImpl;
-import net.sf.anathema.character.magic.parser.charms.CharmAlternativeBuilder;
-import net.sf.anathema.character.magic.parser.charms.CharmMergedBuilder;
-import net.sf.anathema.character.magic.parser.charms.CharmSetBuilder;
-import net.sf.anathema.character.magic.parser.charms.IIdentificateRegistry;
-import net.sf.anathema.character.magic.parser.charms.IdentificateRegistry;
-import net.sf.anathema.character.magic.parser.charms.special.ReflectionSpecialCharmParser;
-import net.sf.anathema.character.magic.parser.dto.special.SpecialCharmDto;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.CharmException;
+import net.sf.anathema.hero.magic.charm.CharmImpl;
+import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmMergedBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmSetBuilder;
+import net.sf.anathema.hero.magic.parser.charms.IIdentificateRegistry;
+import net.sf.anathema.hero.magic.parser.charms.IdentificateRegistry;
+import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
+import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;

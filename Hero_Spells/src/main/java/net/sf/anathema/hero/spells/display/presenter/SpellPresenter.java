@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.character.magic.charm.Charm;
-import net.sf.anathema.character.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.character.magic.spells.CircleType;
-import net.sf.anathema.character.magic.spells.Spell;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;

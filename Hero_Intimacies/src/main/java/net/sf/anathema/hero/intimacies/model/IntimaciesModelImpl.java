@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.intimacies.model;
 
 import com.google.common.base.Strings;
-import net.sf.anathema.character.framework.library.removableentry.AbstractRemovableEntryModel;
+import net.sf.anathema.hero.framework.library.removableentry.AbstractRemovableEntryModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
@@ -12,7 +12,6 @@ import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import org.jmock.example.announcer.Announcer;

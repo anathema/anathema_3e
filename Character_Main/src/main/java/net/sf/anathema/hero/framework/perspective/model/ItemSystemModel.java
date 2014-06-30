@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.character.framework.item.Item;
+import net.sf.anathema.hero.framework.item.Item;
 
 import java.util.Collection;
 

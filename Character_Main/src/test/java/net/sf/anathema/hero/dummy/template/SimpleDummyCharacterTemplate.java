@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.dummy.template;
 
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.ConfiguredModel;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateType;

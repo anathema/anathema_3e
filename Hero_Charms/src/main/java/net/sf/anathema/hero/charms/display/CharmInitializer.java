@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.character.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.character.framework.type.CharacterType;
-import net.sf.anathema.character.framework.display.SectionView;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.charms.compiler.CharmCache;

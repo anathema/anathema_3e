@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells;
 
 import com.google.common.collect.ImmutableList;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
@@ -10,7 +10,7 @@ import net.sf.anathema.hero.traits.model.ValueChangeChecker;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.character.magic.spells.Spell;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

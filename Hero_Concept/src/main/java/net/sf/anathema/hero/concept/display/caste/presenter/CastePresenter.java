@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.character.framework.presentation.GenericPresentationTemplate;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.CasteSelection;
 import net.sf.anathema.hero.concept.CasteType;

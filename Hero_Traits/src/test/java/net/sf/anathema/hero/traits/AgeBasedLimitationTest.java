@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits;
 
-import net.sf.anathema.character.framework.IntegerDescription;
+import net.sf.anathema.hero.framework.IntegerDescription;
 import net.sf.anathema.hero.traits.model.rules.limitation.AgeBasedLimitation;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.dummy.DummyHero;

@@ -3,7 +3,7 @@ package net.sf.anathema.hero.languages.model;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
-import net.sf.anathema.character.framework.library.removableentry.AbstractRemovableEntryModel;
+import net.sf.anathema.hero.framework.library.removableentry.AbstractRemovableEntryModel;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;

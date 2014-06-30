@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.type;
 
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 
 public class SimpleCharacterType implements CharacterType {
 

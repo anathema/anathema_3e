@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.type;
 
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.environment.resources.ResourceFile;

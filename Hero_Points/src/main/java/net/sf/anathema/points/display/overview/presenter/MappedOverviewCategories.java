@@ -1,6 +1,6 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.character.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.tooltip.source;
 
-import net.sf.anathema.character.magic.basic.Magic;
-import net.sf.anathema.character.magic.basic.source.SourceBook;
+import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.hero.magic.basic.source.SourceBook;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.MagicTooltipContributor;

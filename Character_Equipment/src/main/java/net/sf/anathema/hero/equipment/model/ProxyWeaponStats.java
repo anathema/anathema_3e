@@ -27,7 +27,7 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.ma
 import net.sf.anathema.character.equipment.character.model.stats.modification.modifier.AttunementModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.modifier.BestModifier;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.character.framework.library.Proxy;
+import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.HealthType;

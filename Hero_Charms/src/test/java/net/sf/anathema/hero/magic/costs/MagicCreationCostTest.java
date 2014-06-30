@@ -2,10 +2,10 @@ package net.sf.anathema.hero.magic.costs;
 
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.character.magic.basic.Magic;
+import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

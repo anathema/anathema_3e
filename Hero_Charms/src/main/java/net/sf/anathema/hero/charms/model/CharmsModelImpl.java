@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
-import net.sf.anathema.character.framework.type.CharacterType;
-import net.sf.anathema.character.magic.basic.attribute.MagicAttribute;
-import net.sf.anathema.character.magic.charm.Charm;
-import net.sf.anathema.character.magic.charm.CharmAttributeList;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.character.magic.charm.martial.MartialArtsUtilities;
-import net.sf.anathema.character.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.CharmAttributeList;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -60,10 +60,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.sf.anathema.character.magic.charm.martial.MartialArtsLevel.Sidereal;
-import static net.sf.anathema.character.magic.charm.martial.MartialArtsUtilities.hasLevel;
-import static net.sf.anathema.character.magic.charm.martial.MartialArtsUtilities.isFormMagic;
-import static net.sf.anathema.character.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isFormMagic;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class CharmsModelImpl implements CharmsModel {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.character.framework.type.CharacterTypes;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.character.framework.CharacterUI;
+import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;

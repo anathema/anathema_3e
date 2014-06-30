@@ -2,7 +2,7 @@ package net.sf.anathema.fx.hero.traitview;
 
 import javafx.scene.Node;
 import net.sf.anathema.hero.traits.display.GroupedFavorableTraitConfigurationView;
-import net.sf.anathema.character.framework.display.ColumnCount;
+import net.sf.anathema.hero.framework.display.ColumnCount;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;

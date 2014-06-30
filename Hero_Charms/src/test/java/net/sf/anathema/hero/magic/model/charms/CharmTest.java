@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.character.magic.basic.cost.CostList;
-import net.sf.anathema.character.magic.basic.source.SourceBook;
-import net.sf.anathema.character.magic.charm.CharmImpl;
-import net.sf.anathema.character.magic.charm.combos.ComboRestrictions;
-import net.sf.anathema.character.magic.charm.duration.SimpleDuration;
-import net.sf.anathema.character.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.character.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
-import net.sf.anathema.character.magic.charm.type.CharmType;
-import net.sf.anathema.character.magic.charm.type.CharmTypeModel;
-import net.sf.anathema.character.magic.parser.charms.CharmPrerequisiteList;
+import net.sf.anathema.hero.magic.basic.cost.CostList;
+import net.sf.anathema.hero.magic.basic.source.SourceBook;
+import net.sf.anathema.hero.magic.charm.CharmImpl;
+import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
+import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.hero.magic.charm.type.CharmTypeModel;
+import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;

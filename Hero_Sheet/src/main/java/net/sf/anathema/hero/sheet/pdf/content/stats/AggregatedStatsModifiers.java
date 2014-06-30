@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.sheet.pdf.content.stats;
 
-import net.sf.anathema.character.framework.library.HeroStatsModifiers;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 
 import java.util.ArrayList;
 import java.util.List;

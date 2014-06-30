@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.prerequisite;
 
-import net.sf.anathema.character.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 

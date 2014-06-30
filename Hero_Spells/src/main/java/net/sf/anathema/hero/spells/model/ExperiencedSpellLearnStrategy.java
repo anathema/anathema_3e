@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.model;
 
-import net.sf.anathema.character.magic.spells.Spell;
+import net.sf.anathema.hero.magic.spells.Spell;
 
 import java.util.List;
 

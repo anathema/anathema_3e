@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.character.magic.basic.Magic;
-import net.sf.anathema.character.magic.spells.CircleType;
-import net.sf.anathema.character.magic.spells.Spell;
+import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.framework.HeroEnvironment;

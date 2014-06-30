@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 
 public class DummyMundaneCharacterType implements CharacterType {
 

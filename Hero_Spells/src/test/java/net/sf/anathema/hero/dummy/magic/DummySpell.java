@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.dummy.magic;
 
-import net.sf.anathema.character.magic.basic.attribute.MagicAttribute;
-import net.sf.anathema.character.magic.basic.cost.ICostList;
-import net.sf.anathema.character.magic.basic.source.SourceBook;
-import net.sf.anathema.character.magic.spells.CircleType;
-import net.sf.anathema.character.magic.spells.Spell;
+import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
+import net.sf.anathema.hero.magic.basic.cost.ICostList;
+import net.sf.anathema.hero.magic.basic.source.SourceBook;
+import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

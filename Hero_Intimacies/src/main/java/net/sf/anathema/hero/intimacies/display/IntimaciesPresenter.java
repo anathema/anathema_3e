@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.character.framework.CharacterUI;
-import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.character.framework.library.overview.OverviewCategory;
-import net.sf.anathema.character.framework.library.removableentry.RemovableEntryListener;
+import net.sf.anathema.hero.framework.CharacterUI;
+import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;

@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.model;
 import net.sf.anathema.character.equipment.character.EquipmentHeroEvaluator;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.hero.equipment.SpecialtiesCollectionImpl;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.type;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.character.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import org.apache.commons.io.IOUtils;
 
 import java.net.URL;
