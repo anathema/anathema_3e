@@ -90,7 +90,8 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
 
   private TreePresentationProperties getDisplayProperties(CharmTree charmGroup) {
     CharacterType characterType = charmGroup.getCharacterType();
-    return getDisplayProperties(characterType);
+    //return getDisplayProperties(characterType);
+    return null;
   }
 
   protected TreePresentationProperties getDisplayProperties(CharacterType characterType) {

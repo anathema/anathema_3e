@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
@@ -27,9 +28,10 @@ public class LearningCharmTreeImplTest {
   }
 
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, String groupId) {
+    DummyExaltCharacterType type = new DummyExaltCharacterType();
     ICharmLearnStrategy learnStrategy = new CreationCharmLearnStrategy();
-    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory();
-    CharmTreeImpl group = new CharmTreeImpl(new DummyExaltCharacterType(), groupId,
+    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(new TreeCategory(type.getId()));
+    CharmTreeImpl group = new CharmTreeImpl(type, groupId,
             charmTree.getAllCharmsForGroup(groupId).toArray(new Charm[charmTree.getAllCharmsForGroup(groupId).size()]));
     return new LearningCharmTreeImpl(learnStrategy, group, learnableArbitrator, container);
   }
@@ -75,7 +77,7 @@ public class LearningCharmTreeImplTest {
             new DummyCharm(externalPrerequisiteId, new Charm[0], new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 1)});
     DummyCharm learnCharm = new DummyCharm(learCharmID, new Charm[]{internalPrerequisite, externalPrerequisite},
             new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Melee, 1)});
-    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(internalPrerequisite, externalPrerequisite, learnCharm);
+    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(null, internalPrerequisite, externalPrerequisite, learnCharm);
     externalPrerequisite.addLearnFollowUpCharm(learnCharm);
     IExtendedCharmLearnableArbitrator learnableArbitrator =
             new DummyLearnableArbitrator(externalPrerequisiteId, internalPrerequisiteId, learCharmID);
