@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.parser.dto;
 
-import net.sf.anathema.charm.data.cost.HealthCostType;
+import net.sf.anathema.charm.old.cost.HealthCostType;
 
 public class HealthCostDto {
 

@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
-import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
-import net.sf.anathema.charm.data.attribute.MagicAttribute;
-import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.IAttributePrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ICharmPrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ITraitPrerequisitesBuilder;

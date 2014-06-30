@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.charm.data.attribute.CharmAttributeList;
-import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.old.attribute.CharmAttributeList;
+import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
-import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;

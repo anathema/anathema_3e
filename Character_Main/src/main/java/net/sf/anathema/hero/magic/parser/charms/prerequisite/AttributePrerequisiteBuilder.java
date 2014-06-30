@@ -7,7 +7,7 @@ import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM_ATTRIBUT
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmLearnPrerequisite;

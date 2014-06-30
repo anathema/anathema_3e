@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.charm.data.cost.Cost;
+import net.sf.anathema.charm.old.cost.Cost;
 
 public interface ICostStringBuilder<T extends Cost> {
 

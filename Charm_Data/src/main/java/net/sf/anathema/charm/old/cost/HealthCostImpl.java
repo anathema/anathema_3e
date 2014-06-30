@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.data.cost;
+package net.sf.anathema.charm.old.cost;
 
 import com.google.common.base.Preconditions;
 

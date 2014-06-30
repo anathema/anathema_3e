@@ -7,7 +7,7 @@ import net.sf.anathema.hero.experience.ExperienceModel;
 import java.util.HashSet;
 import java.util.Set;
 
-import static net.sf.anathema.charm.data.attribute.CharmAttributeList.NO_STYLE_ATTRIBUTE;
+import static net.sf.anathema.charm.old.attribute.CharmAttributeList.NO_STYLE_ATTRIBUTE;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Celestial;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;

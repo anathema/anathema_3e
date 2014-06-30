@@ -2,8 +2,8 @@ package net.sf.anathema.hero.magic.model.charms;
 
 import java.util.Arrays;
 
-import net.sf.anathema.charm.data.attribute.MagicAttribute;
-import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmLearnPrerequisite;

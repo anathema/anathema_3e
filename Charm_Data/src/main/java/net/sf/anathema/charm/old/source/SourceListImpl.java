@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.data.source;
+package net.sf.anathema.charm.old.source;
 
 public class SourceListImpl implements SourceList {
 

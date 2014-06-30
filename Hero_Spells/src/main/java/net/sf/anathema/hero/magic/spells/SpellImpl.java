@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.spells;
 
-import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.charm.data.source.SourceList;
+import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.old.source.SourceList;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;

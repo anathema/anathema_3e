@@ -7,10 +7,10 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import net.sf.anathema.charm.data.cost.CostListImpl;
-import net.sf.anathema.charm.data.attribute.MagicAttribute;
-import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
-import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.old.cost.CostListImpl;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;

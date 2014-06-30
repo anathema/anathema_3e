@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.charm.data.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.charm.data.attribute.CharmAttributeList;
+import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.charm.data.cost.CostListImpl;
-import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.old.cost.CostListImpl;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;

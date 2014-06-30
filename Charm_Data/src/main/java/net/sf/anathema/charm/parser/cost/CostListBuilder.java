@@ -1,9 +1,9 @@
 package net.sf.anathema.charm.parser.cost;
 
-import net.sf.anathema.charm.data.cost.Cost;
-import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.charm.data.cost.CostListImpl;
-import net.sf.anathema.charm.data.cost.HealthCost;
+import net.sf.anathema.charm.old.cost.Cost;
+import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.old.cost.CostListImpl;
+import net.sf.anathema.charm.old.cost.HealthCost;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 

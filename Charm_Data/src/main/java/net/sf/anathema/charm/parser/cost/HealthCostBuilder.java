@@ -1,8 +1,8 @@
 package net.sf.anathema.charm.parser.cost;
 
-import net.sf.anathema.charm.data.cost.HealthCost;
-import net.sf.anathema.charm.data.cost.HealthCostImpl;
-import net.sf.anathema.charm.data.cost.HealthCostType;
+import net.sf.anathema.charm.old.cost.HealthCost;
+import net.sf.anathema.charm.old.cost.HealthCostImpl;
+import net.sf.anathema.charm.old.cost.HealthCostType;
 import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import net.sf.anathema.lib.exception.PersistenceException;

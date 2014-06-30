@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser;
 
-import net.sf.anathema.charm.data.source.SourceBook;
-import net.sf.anathema.charm.data.source.SourceBookImpl;
+import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.charm.old.source.SourceBookImpl;
 import net.sf.anathema.charm.parser.source.SourceBuilder;
 import net.sf.anathema.lib.xml.DocumentUtilities;
 import org.dom4j.Element;

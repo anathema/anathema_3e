@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.dummy;
 
-import net.sf.anathema.charm.data.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.ICharmGroup;

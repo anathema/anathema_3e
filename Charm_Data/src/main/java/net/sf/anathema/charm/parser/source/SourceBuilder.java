@@ -1,7 +1,7 @@
 package net.sf.anathema.charm.parser.source;
 
-import net.sf.anathema.charm.data.source.SourceBook;
-import net.sf.anathema.charm.data.source.SourceBookImpl;
+import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.charm.old.source.SourceBookImpl;
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 

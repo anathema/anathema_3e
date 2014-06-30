@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.data.attribute;
+package net.sf.anathema.charm.old.attribute;
 
 import net.sf.anathema.lib.util.Identifier;
 
