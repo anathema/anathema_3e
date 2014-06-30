@@ -2,16 +2,15 @@ package net.sf.anathema.hero.magic.model.charms;
 
 import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.hero.dummy.DummyCharm;
+import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.type.CharmTypeModel;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
-import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
@@ -39,12 +38,10 @@ public class CharmTest {
     ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
-    CharmTypeModel model = new CharmTypeModel();
-    model.setCharmType(CharmType.Simple);
     try {
       new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
               new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
-              model, null);
+              CharmType.Simple, null);
       fail();
     } catch (NullPointerException e) {
       // Nothing to do
@@ -56,12 +53,10 @@ public class CharmTest {
     ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
-    CharmTypeModel model = new CharmTypeModel();
-    model.setCharmType(CharmType.Simple);
     CharmImpl charmImpl =
             new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
                     new ComboRestrictions(), SimpleDuration.getDuration("Duration"),
-                    model, new SourceBook[0]);
+                    CharmType.Simple, new SourceBook[0]);
     charmImpl.addParentCharms(parent);
     return charmImpl;
   }

@@ -16,7 +16,7 @@ public class SecondEditionComboArbitrator extends AbstractComboArbitrator {
   @SuppressWarnings("SimplifiableIfStatement")
   @Override
   protected boolean specialRestrictionsApply(Charm charm1, Charm charm2) {
-    if (isComboBasic(charm1) && charm2.getCharmTypeModel().getCharmType() != CharmType.Reflexive) {
+    if (isComboBasic(charm1) && charm2.getCharmType() != CharmType.Reflexive) {
       return true;
     }
     return super.specialRestrictionsApply(charm1, charm2);

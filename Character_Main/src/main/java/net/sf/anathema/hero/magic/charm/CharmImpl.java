@@ -2,32 +2,27 @@ package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
+import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.hero.concept.HeroConcept;
+import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
-import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.*;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
@@ -50,10 +45,10 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final List<CharmLearnPrerequisite> prerequisites = new ArrayList<>();
   private final Set<String> favoredCasteIds = new HashSet<>();
 
-  private final ICharmTypeModel typeModel;
+  private final CharmType charmType;
 
   public CharmImpl(CharacterType characterType, String id, String group, boolean isGeneric, CharmPrerequisiteList prerequisiteList,
-                   CostList temporaryCost, IComboRestrictions comboRules, Duration duration, ICharmTypeModel charmTypeModel,
+                   CostList temporaryCost, IComboRestrictions comboRules, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
     super(id);
     Preconditions.checkNotNull(prerequisiteList);
@@ -63,7 +58,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(temporaryCost);
     Preconditions.checkNotNull(comboRules);
     Preconditions.checkNotNull(duration);
-    Preconditions.checkNotNull(charmTypeModel.getCharmType());
+    Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
     this.characterType = characterType;
     this.group = group;
@@ -72,13 +67,13 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     this.temporaryCost = temporaryCost;
     this.comboRules = comboRules;
     this.duration = duration;
-    this.typeModel = charmTypeModel;
+    this.charmType = charmType;
     this.sources = sources;
   }
 
   @Override
-  public ICharmTypeModel getCharmTypeModel() {
-    return typeModel;
+  public CharmType getCharmType() {
+    return charmType;
   }
 
   @Override

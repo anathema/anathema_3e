@@ -1,6 +1,5 @@
 package net.sf.anathema.charm.data;
 
-import com.sun.jdi.CharType;
 import net.sf.anathema.charm.data.reference.CharmReference;
 import net.sf.anathema.charm.parser.template.CharmTemplate;
 

@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.charms.display.tooltip.type.VerboseCharmTypeContributor;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.lib.gui.ConfigurableTooltip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,7 @@ public class CharmTooltipBuilderImpl implements CharmTooltipBuilder {
     builders.add(new MagicNameContributor(resources));
     builders.add(new ScreenDisplayInfoContributor(resources));
     builders.add(new CharmDurationContributor(resources));
-    builders.add(new VerboseCharmTypeContributor(resources));
+    builders.add(new CharmTypeContributor(resources));
     builders.add(new MartialArtsCharmContributor(resources));
     builders.add(new CharmKeywordsContributor(resources));
     builders.add(new CharmPrerequisitesContributor(resources));

@@ -56,7 +56,7 @@ public class ComboRestrictions implements IComboRestrictions {
 
   @Override
   public boolean isRestrictedCharm(Charm charm) {
-    if (restrictedCharmTypes.contains(charm.getCharmTypeModel().getCharmType())) {
+    if (restrictedCharmTypes.contains(charm.getCharmType())) {
       return true;
     }
     return restrictedCharmIds.contains(charm.getId());

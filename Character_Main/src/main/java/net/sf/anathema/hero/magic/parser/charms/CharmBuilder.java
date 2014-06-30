@@ -1,13 +1,21 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.charm.parser.ICharmXMLConstants;
+import net.sf.anathema.charm.parser.cost.CostListBuilder;
+import net.sf.anathema.charm.parser.cost.ICostListBuilder;
+import net.sf.anathema.charm.parser.source.SourceBuilder;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
+import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.hero.magic.charm.duration.Duration;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.IAttributePrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ICharmPrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ITraitPrerequisitesBuilder;
@@ -15,24 +23,13 @@ import net.sf.anathema.hero.magic.parser.charms.prerequisite.PrerequisiteListBui
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
 import net.sf.anathema.hero.magic.parser.combos.IComboRulesBuilder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.charm.parser.cost.CostListBuilder;
-import net.sf.anathema.charm.parser.cost.ICostListBuilder;
-import net.sf.anathema.charm.parser.source.SourceBuilder;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 import java.util.List;
 
-import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_EXALT;
-import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_COST;
-import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_DURATION;
-import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_PREREQUISITE_LIST;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.*;
 
 public class CharmBuilder implements ICharmBuilder {
 
@@ -75,14 +72,14 @@ public class CharmBuilder implements ICharmBuilder {
       }
       IComboRestrictions comboRules = comboBuilder.buildComboRules(charmElement);
       Duration duration = buildDuration(charmElement);
-      ICharmTypeModel charmTypeModel = charmTypeBuilder.build(charmElement);
+      CharmType charmType = charmTypeBuilder.build(charmElement);
       SourceBook[] sources = sourceBuilder.buildSourceList(charmElement);
       CharmPrerequisiteList prerequisiteList = getPrerequisites(charmElement);
       ValuedTraitType[] prerequisites = prerequisiteList.getTraitPrerequisites();
       ValuedTraitType primaryPrerequisite = prerequisites.length != 0 ? prerequisites[0] : null;
       String group = groupBuilder.build(charmElement, primaryPrerequisite);
       CharmImpl charm =
-              new CharmImpl(characterType, id, group, isBuildingGenericCharms(), prerequisiteList, temporaryCost, comboRules, duration, charmTypeModel,
+              new CharmImpl(characterType, id, group, isBuildingGenericCharms(), prerequisiteList, temporaryCost, comboRules, duration, charmType,
                       sources);
       for (MagicAttribute attribute : attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite)) {
         charm.addMagicAttribute(attribute);

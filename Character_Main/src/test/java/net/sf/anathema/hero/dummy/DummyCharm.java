@@ -1,16 +1,10 @@
 package net.sf.anathema.hero.dummy;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
-import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;
@@ -22,15 +16,15 @@ import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.type.CharmTypeModel;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+
+import java.util.*;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
@@ -42,8 +36,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   private Set<Charm> learnFollowUpCharms = new HashSet<>();
   private CharacterType characterType;
   private String groupId;
-  private CharmTypeModel model = new CharmTypeModel();
   public List<MagicAttribute> attributes = new ArrayList<>();
+  private CharmType charmType;
 
   public void setGeneric(boolean generic) {
     isGeneric = generic;
@@ -56,7 +50,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.prerequisites = prerequisites;
     this.duration = SimpleDuration.getDuration(duration);
     this.comboRestrictions = comboRestrictions;
-    this.model.setCharmType(charmType);
+    this.charmType = charmType;
   }
 
   public DummyCharm() {
@@ -231,7 +225,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   public void setCharmType(CharmType type) {
-    model.setCharmType(type);
+    this.charmType = type;
   }
 
   public void setDuration(Duration duration) {
@@ -243,8 +237,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public CharmTypeModel getCharmTypeModel() {
-    return model;
+  public CharmType getCharmType() {
+    return charmType;
   }
 
   @Override

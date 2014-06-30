@@ -15,7 +15,7 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
   @Override
   public boolean isComboLegal(final Charm supplementalCharm, final Charm otherCharm) {
     final boolean[] legal = new boolean[1];
-    otherCharm.getCharmTypeModel().getCharmType().accept(new ICharmTypeVisitor() {
+    otherCharm.getCharmType().accept(new ICharmTypeVisitor() {
       @Override
       public void visitSimple(CharmType visitedType) {
         boolean allAbilitiesRule = allAbilitiesRuleApplied(supplementalCharm, otherCharm);

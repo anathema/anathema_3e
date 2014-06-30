@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 
 public interface ICharmTypeStringBuilder {
 
-  String createTypeString(ICharmTypeModel charmTypeModel);
+  String createTypeString(CharmType charmType);
 }

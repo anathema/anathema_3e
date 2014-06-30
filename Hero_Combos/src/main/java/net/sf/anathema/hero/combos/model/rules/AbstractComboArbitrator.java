@@ -61,7 +61,7 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
 
   private boolean handleComboRules(final Charm charm1, final Charm charm2) {
     final boolean[] legal = new boolean[1];
-    charm1.getCharmTypeModel().getCharmType().accept(new ICharmTypeVisitor() {
+    charm1.getCharmType().accept(new ICharmTypeVisitor() {
       @Override
       public void visitSimple(CharmType visitedType) {
         legal[0] = simpleCharmRules.isComboLegal(charm1, charm2);

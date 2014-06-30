@@ -47,10 +47,10 @@ public class ComboImpl implements Combo {
   public void addCharm(Charm charm, boolean experienced) {
     List<Charm> targetList = experienced ? experiencedCharmList : creationCharmList;
     targetList.add(charm);
-    if (charm.getCharmTypeModel().getCharmType() == CharmType.Simple) {
+    if (charm.getCharmType() == CharmType.Simple) {
       simpleCharm = charm;
     }
-    if (charm.getCharmTypeModel().getCharmType() == CharmType.ExtraAction) {
+    if (charm.getCharmType() == CharmType.ExtraAction) {
       extraActionCharm = charm;
     }
     fireComboChanged();

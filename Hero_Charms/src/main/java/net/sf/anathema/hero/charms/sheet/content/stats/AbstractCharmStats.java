@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.charms.display.tooltip.type.ShortCharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +27,8 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 
   @Override
   public String getType(Resources resources) {
-    ICharmTypeModel model = getMagic().getCharmTypeModel();
-    return new ShortCharmTypeContributor(resources).createTypeString(model);
+    CharmType charmType = getMagic().getCharmType();
+    return new CharmTypeContributor(resources).createTypeString(charmType);
   }
 
   @Override

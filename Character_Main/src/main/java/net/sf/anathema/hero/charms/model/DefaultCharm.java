@@ -12,7 +12,7 @@ import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
@@ -76,7 +76,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public ICharmTypeModel getCharmTypeModel() {
+  public CharmType getCharmType() {
     return null;
   }
 

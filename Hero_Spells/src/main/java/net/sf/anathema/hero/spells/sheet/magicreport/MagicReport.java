@@ -6,6 +6,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.MultiColumnText;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescription;
@@ -19,7 +20,6 @@ import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.charms.display.tooltip.type.VerboseCharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
@@ -123,7 +123,7 @@ public class MagicReport extends AbstractPdfReport {
 
   private void addTypeCell(Charm charm, PdfPTable table) {
     String typeLabel = environment.getString("MagicReport.Type.Label") + ": ";
-    String typeValue = new VerboseCharmTypeContributor(environment).createTypeString(charm.getCharmTypeModel());
+    String typeValue = new CharmTypeContributor(environment).createTypeString(charm.getCharmType());
     table.addCell(partFactory.createDataCell(typeLabel, typeValue));
   }
 

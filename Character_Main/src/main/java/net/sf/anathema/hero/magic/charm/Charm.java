@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.magic.charm;
 
-import java.util.List;
-import java.util.Set;
-
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeModel;
+import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.framework.type.CharacterType;
+
+import java.util.List;
+import java.util.Set;
 
 public interface Charm extends Magic {
 
@@ -32,7 +32,7 @@ public interface Charm extends Magic {
   
   List<CharmLearnPrerequisite> getLearnPrerequisites();
 
-  ICharmTypeModel getCharmTypeModel();
+  CharmType getCharmType();
 
   boolean isInstanceOfGenericCharm();
 
