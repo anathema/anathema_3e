@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.platform;
 
-import net.sf.anathema.character.framework.CharacterTemplateInitializer;
+import net.sf.anathema.hero.template.CharacterTemplateInitializer;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.ResourceLoader;
 import net.sf.anathema.framework.extension.AnathemaExtension;

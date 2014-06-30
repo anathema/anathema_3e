@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.template.parser;
 
-import net.sf.anathema.character.framework.xml.GenericCharacterTemplate;
 import net.sf.anathema.character.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
+import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.junit.Assert;
@@ -17,8 +17,9 @@ public class GenericPresentationPropertiesTest {
   }
 
   private GenericPresentationTemplate setTemplateType(TemplateTypeImpl templateType) {
-    GenericCharacterTemplate dummyCharacterTemplate = new GenericCharacterTemplate();
-    dummyCharacterTemplate.setTemplateType(templateType);
+    DummyHeroTemplate dummyCharacterTemplate = new DummyHeroTemplate();
+    dummyCharacterTemplate.setCharacterType(templateType.getCharacterType());
+    dummyCharacterTemplate.setSubType(templateType.getSubType().getId());
     return new GenericPresentationTemplate(dummyCharacterTemplate);
   }
 
