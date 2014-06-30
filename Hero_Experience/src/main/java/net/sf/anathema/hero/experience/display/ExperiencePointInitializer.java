@@ -20,4 +20,9 @@ public class ExperiencePointInitializer implements HeroModelInitializer {
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
     new ExperiencePointPresenter(environment, hero).initPresentation(sectionView);
   }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return true;
+  }
 }

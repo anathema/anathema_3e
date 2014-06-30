@@ -27,4 +27,9 @@ public class SpecialtiesInitializer implements HeroModelInitializer {
     SpecialtiesModel specialtiesModel = SpecialtiesModelFetcher.fetch(hero);
     new SpecialtiesConfigurationPresenter(hero, specialtiesModel, view, environment).initPresentation();
   }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return SpecialtiesModelFetcher.fetch(hero) != null;
+  }
 }

@@ -36,10 +36,6 @@ public class CharmInitializer implements HeroModelInitializer {
 
   @Override
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    boolean canLearnCharms = CharmsModelFetcher.fetch(hero) != null;
-    if (!canLearnCharms) {
-      return;
-    }
     MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(applicationModel, environment);
     CharmDisplayModel model = new CharmDisplayModel(hero, provider);
     CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
@@ -52,6 +48,11 @@ public class CharmInitializer implements HeroModelInitializer {
     treePresenter.initPresentation();
     //MagicDetailPresenter detailPresenter = createMagicDetailPresenter();
     //new MagicAndDetailPresenter(detailPresenter, treePresenter).initPresentation();
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return CharmsModelFetcher.fetch(hero) != null;
   }
 
   private CharmIdMap getCharmIdMap() {

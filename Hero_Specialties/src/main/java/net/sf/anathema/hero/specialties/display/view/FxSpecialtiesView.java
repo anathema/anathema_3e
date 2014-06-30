@@ -2,17 +2,16 @@ package net.sf.anathema.hero.specialties.display.view;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.fx.hero.traitview.FxExtensibleTraitView;
 import net.sf.anathema.fx.hero.traitview.FxTraitView;
 import net.sf.anathema.fx.hero.traitview.SimpleTraitViewPanel;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtiesConfigurationView;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtyCreationView;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
-import net.sf.anathema.platform.fx.FxThreading;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 

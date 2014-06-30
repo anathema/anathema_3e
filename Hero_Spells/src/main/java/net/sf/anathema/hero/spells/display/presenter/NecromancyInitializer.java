@@ -26,14 +26,16 @@ public class NecromancyInitializer implements HeroModelInitializer {
   @Override
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
     SpellsModel spellsModel = SpellsModelFetcher.fetch(hero);
-    if (spellsModel == null) {
-      return;
-    }
     boolean canLeanNecromancy = spellsModel.canLearnNecromancy();
     if (canLeanNecromancy) {
       String titleKey = "CardView.CharmConfiguration.Necromancy.Title";
       CircleModel circleModel = new CircleModel(spellsModel.getNecromancyCircles());
       new SpellInitializer(applicationModel, titleKey, circleModel).initialize(sectionView, hero, environment);
     }
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return SpellsModelFetcher.fetch(hero) != null;
   }
 }

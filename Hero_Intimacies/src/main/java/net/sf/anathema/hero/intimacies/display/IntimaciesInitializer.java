@@ -28,4 +28,8 @@ public class IntimaciesInitializer implements HeroModelInitializer {
     new IntimaciesPresenter(intimaciesModel, view, environment).initPresentation();
   }
 
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return IntimaciesModelFetcher.fetch(hero) != null;
+  }
 }

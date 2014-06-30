@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.abilities.display;
 
+import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.traits.display.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.character.framework.display.SectionView;
 import net.sf.anathema.framework.IApplicationModel;
@@ -25,5 +26,10 @@ public class AbilitiesInitializer implements HeroModelInitializer {
     GroupedFavorableTraitConfigurationView abilityView = sectionView
             .addView(abilityHeader, GroupedFavorableTraitConfigurationView.class);
     new AbilitiesPresenter(hero, environment, abilityView).initPresentation();
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return AbilityModelFetcher.fetch(hero) != null;
   }
 }

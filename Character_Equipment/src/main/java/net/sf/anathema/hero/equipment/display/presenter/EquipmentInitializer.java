@@ -26,4 +26,9 @@ public class EquipmentInitializer implements HeroModelInitializer {
     EquipmentModel equipmentModel = EquipmentModelFetcher.fetch(hero);
     new EquipmentPresenter(environment, equipmentModel, view).initPresentation();
   }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return EquipmentModelFetcher.fetch(hero) != null;
+  }
 }

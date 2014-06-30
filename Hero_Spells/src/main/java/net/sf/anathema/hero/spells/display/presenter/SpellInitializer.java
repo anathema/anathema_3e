@@ -36,4 +36,9 @@ public class SpellInitializer implements HeroModelInitializer {
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     new SpellPresenter(circleModel, environment, view, magicDescriptionProvider, experienceModel, spellsModel,charmsModel).initPresentation();
   }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return true;
+  }
 }

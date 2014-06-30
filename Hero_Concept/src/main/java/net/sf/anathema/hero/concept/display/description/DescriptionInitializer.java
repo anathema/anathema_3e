@@ -33,8 +33,12 @@ public class DescriptionInitializer implements HeroModelInitializer {
     new DescriptionPresenter(descriptionDetails, environment, descriptionView).initPresentation();
   }
 
-  private DescriptionDetails createDescriptionDetails(Hero hero
-  ) {
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return HeroDescriptionFetcher.fetch(hero) != null && HeroConceptFetcher.fetch(hero) != null;
+  }
+
+  private DescriptionDetails createDescriptionDetails(Hero hero) {
     HeroDescription characterDescription = HeroDescriptionFetcher.fetch(hero);
     HeroConcept heroConcept = HeroConceptFetcher.fetch(hero);
     boolean isExalt = hero.getTemplate().getTemplateType().getCharacterType().isExaltType();

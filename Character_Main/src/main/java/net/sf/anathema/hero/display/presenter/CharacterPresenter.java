@@ -26,7 +26,7 @@ public class CharacterPresenter {
     this.characterView = view;
     this.environment = environment;
   }
-  
+
   public void initPresentation() {
     initializeSection("CardView.Outline.Title", Outline);
     initializeSection("CardView.NaturalTraits.Title", NaturalTraits);
@@ -48,7 +48,9 @@ public class CharacterPresenter {
 
   private void initializeGroup(HeroModelGroup group, SectionView sectionView) {
     for (HeroModelInitializer initializer : initializerList.getInOrderFor(group)) {
-      initializer.initialize(sectionView, hero, environment);
+      if (initializer.canWorkForHero(hero)) {
+        initializer.initialize(sectionView, hero, environment);
+      }
     }
   }
 }

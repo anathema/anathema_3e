@@ -7,4 +7,6 @@ import net.sf.anathema.hero.model.Hero;
 public interface HeroModelInitializer {
 
   void initialize(SectionView sectionView, Hero hero, Environment environment);
+
+  boolean canWorkForHero(Hero hero);
 }

@@ -3,6 +3,7 @@ package net.sf.anathema.hero.concept.display.caste.presenter;
 import net.sf.anathema.character.framework.display.SectionView;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
+import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
@@ -22,11 +23,14 @@ public class CasteInitializer implements HeroModelInitializer {
 
   @Override
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    if (HeroConceptFetcher.fetch(hero).getCasteCollection().isEmpty()){
-      return;
-    }
     String conceptHeader = environment.getString("CardView.CharacterConcept.Title");
     CasteView conceptView = sectionView.addView(conceptHeader, CasteView.class);
     new CastePresenter(hero, conceptView, environment).initPresentation();
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    HeroConcept concept = HeroConceptFetcher.fetch(hero);
+    return concept != null && !concept.getCasteCollection().isEmpty();
   }
 }

@@ -26,15 +26,16 @@ public class ComboInitializer implements HeroModelInitializer {
 
   @Override
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    boolean canLearnCharms = CharmsModelFetcher.fetch(hero) != null;
-    if (!canLearnCharms) {
-      return;
-    }
     String header = environment.getString("CardView.CharmConfiguration.ComboCreation.Title");
     ComboConfigurationView comboView = sectionView.addView(header, ComboConfigurationView.class);
     MagicDescriptionProvider magicDescriptionProvider = CharmDescriptionProviderExtractor.CreateFor(model, environment);
     ComboConfigurationModel comboModel = new ComboConfigurationModel(hero, magicDescriptionProvider);
     new ComboConfigurationPresenter(hero, environment, comboModel, comboView).initPresentation();
 
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return CharmsModelFetcher.fetch(hero) != null;
   }
 }
