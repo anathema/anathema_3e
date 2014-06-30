@@ -9,6 +9,7 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
 import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
@@ -46,6 +47,6 @@ public class DummyTraitModel extends DefaultTraitMap implements TraitModel, Hero
 
   @Override
   public TraitLimitation createLimitation(LimitationTemplate limitation) {
-    return null;
+    return new StaticTraitLimitation(5);
   }
 }
