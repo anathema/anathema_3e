@@ -38,7 +38,7 @@ public class CharmTest {
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     try {
-      new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
+      new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", prerequisiteList, new CostListImpl(null, null, null, null),
                SimpleDuration.getDuration("Duration"),
               CharmType.Simple, null);
       fail();
@@ -53,7 +53,7 @@ public class CharmTest {
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     CharmImpl charmImpl =
-            new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", false, prerequisiteList, new CostListImpl(null, null, null, null),
+            new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", prerequisiteList, new CostListImpl(null, null, null, null),
                     SimpleDuration.getDuration("Duration"),
                     CharmType.Simple, new SourceBook[0]);
     charmImpl.addParentCharms(parent);

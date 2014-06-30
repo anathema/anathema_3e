@@ -17,6 +17,10 @@ public interface Charm extends Magic {
 
   CharacterType getCharacterType();
 
+  String getGroupId();
+
+  CharmType getCharmType();
+
   Duration getDuration();
 
   ValuedTraitType getEssence();
@@ -25,13 +29,7 @@ public interface Charm extends Magic {
 
   TraitType getPrimaryTraitType();
 
-  String getGroupId();
-
   List<CharmLearnPrerequisite> getLearnPrerequisites();
-
-  CharmType getCharmType();
-
-  boolean isInstanceOfGenericCharm();
 
   Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator);
 
@@ -39,7 +37,7 @@ public interface Charm extends Magic {
   
   <T extends CharmLearnPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
 
-  boolean isBlockedByAlternative(ICharmLearnArbitrator  learnArbitrator);
+  boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator);
 
   Set<Charm> getLearnChildCharms();
 

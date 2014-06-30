@@ -36,12 +36,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
 
-  public void setGeneric(boolean generic) {
-    isGeneric = generic;
-  }
-
-  private boolean isGeneric = false;
-
   public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
     super("DummyCharmDefaultId");
     this.prerequisites = prerequisites;
@@ -82,11 +76,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   public void setCharacterType(CharacterType type) {
     characterType = type;
-  }
-
-  @Override
-  public boolean isInstanceOfGenericCharm() {
-    return isGeneric;
   }
 
   @Override

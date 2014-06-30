@@ -26,7 +26,7 @@ public class CharmCardData extends AbstractMagicCardData {
 
   @Override
   public Image getPrimaryIcon() {
-    if (MartialArtsUtilities.isMartialArts(charm) && !charm.isInstanceOfGenericCharm()) {
+    if (MartialArtsUtilities.isMartialArts(charm)) {
       Image image = getResourceProvider().getMartialArtIcon(charm.getGroupId());
       return image != null ? image : getResourceProvider().getTraitIcon(AbilityType.MartialArts);
     } else {
@@ -37,7 +37,7 @@ public class CharmCardData extends AbstractMagicCardData {
 
   @Override
   public Image getSecondaryIcon() {
-    if (MartialArtsUtilities.isMartialArts(charm) && !charm.isInstanceOfGenericCharm()) {
+    if (MartialArtsUtilities.isMartialArts(charm)) {
       return getResourceProvider().getMartialArtLevelIcon(MartialArtsUtilities.getLevel(charm));
     } else {
       return getResourceProvider().getCharacterIcon(charm.getCharacterType());

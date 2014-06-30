@@ -74,7 +74,7 @@ public class CharmBuilder implements ICharmBuilder {
       ValuedTraitType primaryPrerequisite = prerequisites.length != 0 ? prerequisites[0] : null;
       String group = groupBuilder.build(charmElement, primaryPrerequisite);
       CharmImpl charm =
-              new CharmImpl(characterType, id, group, isBuildingGenericCharms(), prerequisiteList, temporaryCost, duration, charmType,
+              new CharmImpl(characterType, id, group, prerequisiteList, temporaryCost, duration, charmType,
                       sources);
       for (MagicAttribute attribute : attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite)) {
         charm.addMagicAttribute(attribute);
@@ -137,9 +137,5 @@ public class CharmBuilder implements ICharmBuilder {
       String casteId = favoredElement.attributeValue(ICharmXMLConstants.TAG_CASTE);
       charm.addFavoredCasteId(casteId);
     }
-  }
-
-  protected boolean isBuildingGenericCharms() {
-    return false;
   }
 }

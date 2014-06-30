@@ -91,7 +91,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
 
   private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Charm[] charms) {
     for (Charm charm : charms) {
-      if (!MartialArtsUtilities.isMartialArts(charm) || charm.isInstanceOfGenericCharm()) {
+      if (!MartialArtsUtilities.isMartialArts(charm)) {
         LegendEntry trait =
                 new LegendEntry(resourceProvider.getTraitIcon(charm.getPrimaryTraitType()), resources.getString(charm.getPrimaryTraitType().getId()));
         LegendEntry character =

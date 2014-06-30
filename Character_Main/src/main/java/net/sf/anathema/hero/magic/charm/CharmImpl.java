@@ -32,7 +32,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CharacterType characterType;
   private final Duration duration;
   private final String group;
-  private final boolean isGeneric;
 
   private final SourceBook[] sources;
   private final CostList temporaryCost;
@@ -45,7 +44,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private final CharmType charmType;
 
-  public CharmImpl(CharacterType characterType, String id, String group, boolean isGeneric, CharmPrerequisiteList prerequisiteList,
+  public CharmImpl(CharacterType characterType, String id, String group, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
     super(id);
@@ -59,7 +58,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(sources);
     this.characterType = characterType;
     this.group = group;
-    this.isGeneric = isGeneric;
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
     this.duration = duration;
@@ -110,11 +108,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public String getGroupId() {
     return group;
-  }
-
-  @Override
-  public boolean isInstanceOfGenericCharm() {
-    return isGeneric;
   }
 
   public void addAlternative(Set<Charm> alternative) {

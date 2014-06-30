@@ -65,11 +65,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public boolean isInstanceOfGenericCharm() {
-    return false;
-  }
-
-  @Override
   public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
     return null;
   }
