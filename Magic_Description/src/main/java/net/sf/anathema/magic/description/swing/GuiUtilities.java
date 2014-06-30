@@ -1,4 +1,4 @@
-package net.sf.anathema.lib.gui.swing;
+package net.sf.anathema.magic.description.swing;
 
 import javax.swing.SwingUtilities;
 import java.awt.Component;

@@ -1,9 +1,8 @@
-package net.sf.anathema.lib.workflow.textualdescription.view;
+package net.sf.anathema.magic.description.swing;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
 import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.workflow.textualdescription.SwingTextView;
 
 import javax.swing.JComponent;
 import javax.swing.JTextField;

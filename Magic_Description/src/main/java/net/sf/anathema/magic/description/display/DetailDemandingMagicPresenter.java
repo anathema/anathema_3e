@@ -1,6 +1,6 @@
 package net.sf.anathema.magic.description.display;
 
-import net.sf.anathema.lib.gui.SubPresenter;
+import net.sf.anathema.magic.description.swing.SubPresenter;
 
 public interface DetailDemandingMagicPresenter extends SubPresenter{
 

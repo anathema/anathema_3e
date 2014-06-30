@@ -7,7 +7,7 @@ import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
 import jfxtras.scene.control.ListSpinnerIntegerList;
 import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.lib.gui.widgets.IIntegerView;
+import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
 
 public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
 

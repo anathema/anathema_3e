@@ -1,6 +1,6 @@
-package net.sf.anathema.lib.workflow.textualdescription.view;
+package net.sf.anathema.magic.description.swing;
 
-import net.sf.anathema.lib.gui.widgets.RevalidatingScrollPane;
+import net.sf.anathema.magic.description.swing.widgets.RevalidatingScrollPane;
 
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;

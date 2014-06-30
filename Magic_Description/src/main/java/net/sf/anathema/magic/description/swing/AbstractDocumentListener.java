@@ -1,4 +1,4 @@
-package net.sf.anathema.lib.workflow.textualdescription.view;
+package net.sf.anathema.magic.description.swing;
 
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;

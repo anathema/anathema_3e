@@ -1,4 +1,4 @@
-package net.sf.anathema.framework.swing;
+package net.sf.anathema.magic.description.swing;
 
 import javax.swing.JComponent;
 

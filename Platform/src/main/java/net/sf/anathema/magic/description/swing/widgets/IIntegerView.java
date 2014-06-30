@@ -1,4 +1,4 @@
-package net.sf.anathema.lib.gui.widgets;
+package net.sf.anathema.magic.description.swing.widgets;
 
 import net.sf.anathema.lib.control.IntValueChangedListener;
 
