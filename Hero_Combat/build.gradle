@@ -1,9 +1,11 @@
 dependencies {
     compile project(':Character_Main')
+    compile project(':Hero')
     compile project(':Hero_Abilities')
     compile project(':Hero_Attributes')
     compile project(':Hero_Charms')
     compile project(':Hero_Concept')
+    compile project(':Hero_Points')
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
     compile project(':Hero_Traits')

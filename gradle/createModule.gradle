@@ -10,5 +10,5 @@ task createModule << {
     mkdir "$moduleName/src/main/resources"
     mkdir "$moduleName/src/test/java"
     mkdir "$moduleName/src/test/resources"
-    new File("$moduleName/build.gradle") << new File("gradle/build.gradle.template").text
+    new File("$moduleName/build.gradle") << new File("gradle/build.gradle").text
 }
