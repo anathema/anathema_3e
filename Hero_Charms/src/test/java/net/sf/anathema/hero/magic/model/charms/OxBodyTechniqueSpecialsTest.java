@@ -17,7 +17,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.health.HealthLevelType;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.trait.TraitRulesImpl;
+import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 import org.junit.Before;

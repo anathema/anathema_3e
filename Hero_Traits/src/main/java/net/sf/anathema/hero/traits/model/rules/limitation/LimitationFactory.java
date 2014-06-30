@@ -1,9 +1,8 @@
-package net.sf.anathema.hero.traits.model.trait.template;
+package net.sf.anathema.hero.traits.model.rules.limitation;
 
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 
-public interface TraitLimitationFactory {
+public interface LimitationFactory {
 
   boolean supports(LimitationTemplate template);
 

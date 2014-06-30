@@ -16,7 +16,7 @@ import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.trait.LimitedTrait;
+import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 import net.sf.anathema.lib.control.IntValueChangedListener;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits.model.trait;
+package net.sf.anathema.hero.traits.model.rules;
 
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;

@@ -11,9 +11,8 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
-import net.sf.anathema.hero.traits.model.trait.template.TraitLimitationFactory;
-import net.sf.anathema.hero.traits.model.trait.template.TraitTemplateMap;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.Identifier;
 

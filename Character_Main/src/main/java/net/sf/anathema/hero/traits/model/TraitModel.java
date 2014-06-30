@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;

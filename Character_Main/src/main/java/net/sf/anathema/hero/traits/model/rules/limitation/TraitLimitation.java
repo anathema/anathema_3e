@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits.model.limitation;
+package net.sf.anathema.hero.traits.model.rules.limitation;
 
 import net.sf.anathema.hero.model.Hero;
 

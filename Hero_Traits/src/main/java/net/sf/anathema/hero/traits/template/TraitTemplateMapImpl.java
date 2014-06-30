@@ -1,8 +1,6 @@
-package net.sf.anathema.hero.traits.model.trait.template;
+package net.sf.anathema.hero.traits.template;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
-import net.sf.anathema.hero.traits.template.TraitTemplate;
 
 public class TraitTemplateMapImpl implements TraitTemplateMap {
 

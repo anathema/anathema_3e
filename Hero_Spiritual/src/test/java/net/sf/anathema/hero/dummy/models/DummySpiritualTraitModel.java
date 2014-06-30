@@ -6,8 +6,8 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.SpiritualTraitModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
-import net.sf.anathema.hero.traits.model.limitation.StaticTraitLimitation;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.Identifier;
 

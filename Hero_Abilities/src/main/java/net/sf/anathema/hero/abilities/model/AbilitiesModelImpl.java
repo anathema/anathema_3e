@@ -8,16 +8,14 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.traits.model.*;
 import net.sf.anathema.hero.traits.model.event.FavoredChangedListener;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.model.lists.AllAbilityTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
-import net.sf.anathema.hero.traits.model.trait.template.TraitLimitationFactory;
-import net.sf.anathema.hero.traits.model.trait.template.TraitTemplateMapImpl;
+import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;

@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.traits.model.trait;
+package net.sf.anathema.hero.traits.model.rules;
 
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.lib.data.Range;

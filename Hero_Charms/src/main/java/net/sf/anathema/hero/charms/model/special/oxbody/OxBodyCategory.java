@@ -4,7 +4,7 @@ import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
 import net.sf.anathema.hero.health.HealthLevelType;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.trait.LimitedTrait;
+import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
 public class OxBodyCategory extends LimitedTrait {

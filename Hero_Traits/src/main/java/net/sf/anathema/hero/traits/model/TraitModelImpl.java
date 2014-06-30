@@ -12,14 +12,13 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
-import net.sf.anathema.hero.traits.model.limitation.AgeBasedLimitation;
-import net.sf.anathema.hero.traits.model.limitation.EssenceBasedLimitation;
-import net.sf.anathema.hero.traits.model.limitation.StaticTraitLimitation;
-import net.sf.anathema.hero.traits.model.limitation.TraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.limitation.*;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.lib.util.Identifier;
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
+import java.util.Collection;
 import java.util.Iterator;
 
 import static java.util.Arrays.asList;
@@ -28,6 +27,7 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
 
   private final ProxyTraitValueStrategy traitValueStrategy = new ProxyTraitValueStrategy(new CreationTraitValueStrategy());
   private ExperienceModel experience;
+  private Collection<LimitationFactory> limitationFactories;
 
   @Override
   public Identifier getId() {
@@ -36,6 +36,7 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    limitationFactories = environment.getObjectFactory().instantiateAllImplementers(LimitationFactory.class);
     experience = ExperienceModelFetcher.fetch(hero);
   }
 
@@ -72,12 +73,11 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
 
   @Override
   public TraitLimitation createLimitation(LimitationTemplate limitation) {
-    if (limitation.type == LimitationType.Static) {
-      return new StaticTraitLimitation(limitation.value);
+    for (LimitationFactory factory : limitationFactories) {
+      if (factory.supports(limitation)) {
+        return factory.createLimitation(limitation);
+      }
     }
-    if (limitation.type == LimitationType.Age) {
-      return new AgeBasedLimitation(limitation.value);
-    }
-    return new EssenceBasedLimitation();
+    throw new IllegalArgumentException();
   }
 }
