@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.display.overview.model;
+package net.sf.anathema.points.display.overview.model;
 
 import net.sf.anathema.hero.points.model.overview.IOverviewModelVisitor;
 import net.sf.anathema.hero.points.model.overview.IValueModel;

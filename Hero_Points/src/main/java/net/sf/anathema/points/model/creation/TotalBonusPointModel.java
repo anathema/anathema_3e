@@ -1,6 +1,6 @@
 package net.sf.anathema.points.model.creation;
 
-import net.sf.anathema.hero.points.display.overview.model.AbstractSpendingModel;
+import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class TotalBonusPointModel extends AbstractSpendingModel {
 

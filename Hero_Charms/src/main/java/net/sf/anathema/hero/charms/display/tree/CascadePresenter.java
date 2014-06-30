@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.character.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.hero.points.display.overview.presenter.SelectIdentifierConfiguration;
+import net.sf.anathema.points.display.overview.presenter.SelectIdentifierConfiguration;
 import net.sf.anathema.hero.charms.display.coloring.CharmDye;
 import net.sf.anathema.hero.charms.display.model.CharmTypes;
 import net.sf.anathema.hero.charms.display.special.NullSpecialCharmPresenter;

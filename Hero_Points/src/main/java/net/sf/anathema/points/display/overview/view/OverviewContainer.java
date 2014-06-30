@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.display.overview.view;
+package net.sf.anathema.points.display.overview.view;
 
 public interface OverviewContainer {
 

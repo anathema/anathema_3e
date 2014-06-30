@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.display.overview.presenter;
+package net.sf.anathema.points.display.overview.presenter;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;

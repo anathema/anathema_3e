@@ -1,8 +1,6 @@
 package net.sf.anathema.points.display.overview.view;
 
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
-import net.sf.anathema.hero.points.display.overview.view.OverviewDisplay;
 
 public class NullOverviewContainer implements CategorizedOverview {
   @Override
