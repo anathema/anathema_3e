@@ -9,8 +9,8 @@ import net.sf.anathema.hero.advance.experience.ExperiencePointManagement;
 import net.sf.anathema.hero.advance.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.PointModelFetcher;
-import net.sf.anathema.hero.points.overview.IValueModel;
+import net.sf.anathema.hero.points.model.PointModelFetcher;
+import net.sf.anathema.hero.points.display.overview.IValueModel;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 
 import java.util.ArrayList;

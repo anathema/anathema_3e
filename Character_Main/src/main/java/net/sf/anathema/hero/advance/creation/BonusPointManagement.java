@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.advance.creation;
 
-import net.sf.anathema.hero.points.HeroBonusPointCalculator;
-import net.sf.anathema.hero.points.overview.SpendingModel;
+import net.sf.anathema.hero.points.advance.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.display.overview.SpendingModel;
 
 public class BonusPointManagement implements IBonusPointManagement {
 

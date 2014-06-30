@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.advance.experience;
 
-import net.sf.anathema.hero.points.overview.IValueModel;
+import net.sf.anathema.hero.points.display.overview.IValueModel;
 
 import java.util.List;
 

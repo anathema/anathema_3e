@@ -6,9 +6,9 @@ import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.hero.advance.creation.IBonusPointManagement;
 import net.sf.anathema.hero.advance.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.PointModelFetcher;
-import net.sf.anathema.hero.points.overview.IOverviewModel;
-import net.sf.anathema.hero.points.overview.WeightedCategory;
+import net.sf.anathema.hero.points.model.PointModelFetcher;
+import net.sf.anathema.hero.points.display.overview.IOverviewModel;
+import net.sf.anathema.hero.points.display.overview.WeightedCategory;
 
 public class CreationOverviewPresenter {
 

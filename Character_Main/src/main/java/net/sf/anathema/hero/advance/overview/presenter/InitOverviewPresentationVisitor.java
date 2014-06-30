@@ -4,10 +4,10 @@ import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.character.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.points.overview.IOverviewModel;
-import net.sf.anathema.hero.points.overview.IOverviewModelVisitor;
-import net.sf.anathema.hero.points.overview.IValueModel;
-import net.sf.anathema.hero.points.overview.SpendingModel;
+import net.sf.anathema.hero.points.display.overview.IOverviewModel;
+import net.sf.anathema.hero.points.display.overview.IOverviewModelVisitor;
+import net.sf.anathema.hero.points.display.overview.IValueModel;
+import net.sf.anathema.hero.points.display.overview.SpendingModel;
 
 public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
 

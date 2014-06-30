@@ -2,7 +2,7 @@ package net.sf.anathema.hero.advance.overview.presenter;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.hero.points.overview.IValueModel;
+import net.sf.anathema.hero.points.display.overview.IValueModel;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 import net.sf.anathema.framework.environment.Resources;
 

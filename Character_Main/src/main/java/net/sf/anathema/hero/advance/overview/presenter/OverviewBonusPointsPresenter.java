@@ -2,7 +2,7 @@ package net.sf.anathema.hero.advance.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.overview.SpendingModel;
+import net.sf.anathema.hero.points.display.overview.SpendingModel;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageType;
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.advance.creation;
 
-import net.sf.anathema.hero.points.PointsTemplate;
+import net.sf.anathema.hero.points.template.PointsTemplate;
 
 public class PointsCreationData {
 

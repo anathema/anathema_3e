@@ -5,7 +5,7 @@ import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.PointModelFetcher;
+import net.sf.anathema.hero.points.model.PointModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
 
 public class ExperiencePointPresenter {

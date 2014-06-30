@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.advance.overview.model;
 
-import net.sf.anathema.hero.points.overview.IOverviewModelVisitor;
-import net.sf.anathema.hero.points.overview.IValueModel;
+import net.sf.anathema.hero.points.display.overview.IOverviewModelVisitor;
+import net.sf.anathema.hero.points.display.overview.IValueModel;
 
 public abstract class AbstractIntegerValueModel extends AbstractOverviewModel implements IValueModel<Integer> {
 

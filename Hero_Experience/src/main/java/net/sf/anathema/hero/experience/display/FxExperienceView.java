@@ -12,6 +12,7 @@ import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.advance.experience.ExperiencePointEntry;
 import net.sf.anathema.hero.advance.experience.ExperienceSelectionListener;
+import net.sf.anathema.hero.points.display.experience.ExperienceViewProperties;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import net.sf.anathema.platform.fx.NodeHolder;

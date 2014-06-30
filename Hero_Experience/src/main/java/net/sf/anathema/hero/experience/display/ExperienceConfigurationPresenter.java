@@ -5,6 +5,7 @@ import net.sf.anathema.hero.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.advance.experience.ExperiencePointConfigurationListener;
 import net.sf.anathema.hero.advance.experience.ExperiencePointEntry;
 import net.sf.anathema.hero.advance.experience.ExperienceSelectionListener;
+import net.sf.anathema.hero.points.display.experience.DefaultExperienceProperties;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.framework.environment.Resources;

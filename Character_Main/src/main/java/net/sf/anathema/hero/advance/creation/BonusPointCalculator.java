@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.advance.creation;
 
-import net.sf.anathema.hero.points.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.advance.HeroBonusPointCalculator;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.advance.overview.presenter;
 
 import net.sf.anathema.character.framework.display.labelledvalue.LabelledAllotmentView;
-import net.sf.anathema.hero.points.overview.SpendingModel;
+import net.sf.anathema.hero.points.display.overview.SpendingModel;
 
 public class AllotmentSubPresenter implements IOverviewSubPresenter {
 
