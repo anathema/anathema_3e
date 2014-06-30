@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.points.display.overview.presenter;
+package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.hero.points.model.BonusPointManagement;
-import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
+import net.sf.anathema.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.points.model.PointModelFetcher;
 import net.sf.anathema.hero.points.model.overview.IOverviewModel;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.display.overview.presenter;
+package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;

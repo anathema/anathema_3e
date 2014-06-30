@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.display.overview.presenter;
+package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.character.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.character.framework.display.labelledvalue.LabelledAllotmentView;

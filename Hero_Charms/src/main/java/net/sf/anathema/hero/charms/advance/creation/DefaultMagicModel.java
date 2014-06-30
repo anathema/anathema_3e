@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
-import net.sf.anathema.hero.points.display.overview.model.AbstractSpendingModel;
+import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class DefaultMagicModel extends AbstractSpendingModel {
 

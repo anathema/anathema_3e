@@ -1,8 +1,6 @@
 package net.sf.anathema.points.display.overview.view;
 
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
-import net.sf.anathema.hero.points.display.overview.view.OverviewDisplay;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 
