@@ -1,15 +1,15 @@
-package net.sf.anathema.hero.magic.parser.magic;
+package net.sf.anathema.charm.parser.source;
 
-import net.sf.anathema.hero.magic.basic.source.SourceBook;
-import net.sf.anathema.hero.magic.basic.source.SourceBookImpl;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.data.source.SourceBookImpl;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_SOURCE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_SOURCE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_SOURCE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_SOURCE;
 
 public class SourceBuilder {
 

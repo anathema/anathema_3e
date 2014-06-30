@@ -2,13 +2,13 @@ package net.sf.anathema.hero.magic.parser.charms.prerequisite;
 
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_TRAIT;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_TRAIT;
 
 public class TraitPrerequisitesBuilder implements ITraitPrerequisitesBuilder {
   @Override

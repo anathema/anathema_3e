@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.magic.parser.charms;
+package net.sf.anathema.charm.parser.cost;
 
 import net.sf.anathema.charm.data.cost.HealthCost;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
 import net.sf.anathema.charm.data.cost.HealthCostType;
-import net.sf.anathema.hero.magic.charm.ICharmXMLConstants;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.ICharmXMLConstants;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 

@@ -9,7 +9,7 @@ import net.sf.anathema.hero.magic.parser.dto.special.TierDto;
 import net.sf.anathema.hero.magic.parser.dto.special.TierRepurchaseDto;
 import net.sf.anathema.hero.magic.parser.dto.special.TraitRepurchaseDto;
 import net.sf.anathema.hero.traits.model.SystemConstants;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")

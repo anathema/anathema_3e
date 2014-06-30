@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.parser.magic;
+package net.sf.anathema.charm.parser.cost;
 
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.lib.exception.PersistenceException;

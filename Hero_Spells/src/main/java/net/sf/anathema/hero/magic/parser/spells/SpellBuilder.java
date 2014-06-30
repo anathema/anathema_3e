@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.magic.parser.spells;
 
 import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.hero.magic.basic.source.ISourceList;
-import net.sf.anathema.hero.magic.basic.source.SourceBook;
-import net.sf.anathema.hero.magic.basic.source.SourceList;
-import net.sf.anathema.hero.magic.parser.magic.CostListBuilder;
-import net.sf.anathema.hero.magic.parser.magic.ICostListBuilder;
-import net.sf.anathema.hero.magic.parser.magic.SourceBuilder;
+import net.sf.anathema.charm.data.source.SourceList;
+import net.sf.anathema.charm.data.source.SourceBook;
+import net.sf.anathema.charm.data.source.SourceListImpl;
+import net.sf.anathema.charm.parser.cost.CostListBuilder;
+import net.sf.anathema.charm.parser.cost.ICostListBuilder;
+import net.sf.anathema.charm.parser.source.SourceBuilder;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.magic.spells.SpellImpl;
@@ -40,16 +40,16 @@ public class SpellBuilder {
     if (targetElement != null) {
       target = targetElement.attributeValue("target");
     }
-    ISourceList sourceList = buildSource(spellElement);
+    SourceList sourceList = buildSource(spellElement);
     if (sourceList.isEmpty()) {
       return;
     }
     spellList.add(new SpellImpl(id, CircleType.valueOf(circleId), temporaryCost, sourceList, target));
   }
 
-  private ISourceList buildSource(Element spellElement) {
+  private SourceList buildSource(Element spellElement) {
     SourceBook[] sources = sourceBuilder.buildSourceList(spellElement);
-    SourceList sourceList = new SourceList();
+    SourceListImpl sourceList = new SourceListImpl();
     for (SourceBook source : sources) {
       sourceList.addSource(source);
     }

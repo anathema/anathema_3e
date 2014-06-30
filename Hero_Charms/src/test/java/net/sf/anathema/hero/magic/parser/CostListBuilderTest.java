@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.charm.data.cost.Cost;
 import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.hero.magic.parser.magic.CostListBuilder;
+import net.sf.anathema.charm.parser.cost.CostListBuilder;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.junit.Test;
 

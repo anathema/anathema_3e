@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
 import net.sf.anathema.hero.magic.charm.CharmException;
-import net.sf.anathema.hero.magic.charm.ICharmXMLConstants;
+import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.lib.lang.StringUtilities;
 import org.dom4j.Element;
 

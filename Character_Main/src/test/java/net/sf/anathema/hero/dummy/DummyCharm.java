@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Set;
 
 import net.sf.anathema.charm.data.cost.CostListImpl;
-import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.basic.attribute.MagicAttributeImpl;
-import net.sf.anathema.hero.magic.basic.source.SourceBook;
+import net.sf.anathema.charm.data.attribute.MagicAttribute;
+import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.data.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;

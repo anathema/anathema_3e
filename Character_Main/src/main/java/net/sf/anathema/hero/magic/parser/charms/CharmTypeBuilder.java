@@ -12,17 +12,17 @@ import net.sf.anathema.hero.magic.charm.type.ReflexiveSpecialsModel;
 import net.sf.anathema.hero.magic.charm.type.SimpleSpecialsModel;
 import net.sf.anathema.hero.magic.charm.type.TurnType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_DEFENSE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_PRIMARY_STEP;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_SECONDARY_STEP;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_SPEED;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_TURN_TYPE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_TYPE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARMTYPE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_SPECIAL;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_DEFENSE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_PRIMARY_STEP;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_SECONDARY_STEP;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_SPEED;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_TURN_TYPE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_TYPE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARMTYPE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_SPECIAL;
 
 public class CharmTypeBuilder {
 

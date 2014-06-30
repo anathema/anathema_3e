@@ -4,7 +4,7 @@ import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.options.MartialArtsCharmTree;
-import net.sf.anathema.hero.magic.basic.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import org.junit.Test;
 

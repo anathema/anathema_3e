@@ -4,11 +4,11 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_ID;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_VALUE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_ID;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_VALUE;
 
 public class TraitPrerequisiteBuilder implements ITraitPrerequisiteBuilder {
   private final TraitTypeUtils traitUtils = new TraitTypeUtils();

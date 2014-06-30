@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm;
 
-import net.sf.anathema.hero.magic.basic.attribute.MagicAttribute;
+import net.sf.anathema.charm.data.attribute.MagicAttribute;
 
 import java.util.HashSet;
 import java.util.Set;

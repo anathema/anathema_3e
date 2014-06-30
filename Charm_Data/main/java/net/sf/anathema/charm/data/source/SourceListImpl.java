@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.magic.basic.source;
+package net.sf.anathema.charm.data.source;
 
-public class SourceList implements ISourceList {
+public class SourceListImpl implements SourceList {
 
   private SourceBook primarySource;
 

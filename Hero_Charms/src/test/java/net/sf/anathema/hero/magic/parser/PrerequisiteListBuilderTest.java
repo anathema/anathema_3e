@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.charm.ICharmXMLConstants;
+import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;

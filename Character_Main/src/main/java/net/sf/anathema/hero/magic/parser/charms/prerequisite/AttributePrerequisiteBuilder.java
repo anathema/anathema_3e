@@ -1,18 +1,18 @@
 package net.sf.anathema.hero.magic.parser.charms.prerequisite;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_ATTRIBUTE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_COUNT;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARM_ATTRIBUTE_REQUIREMENT;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_ATTRIBUTE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_COUNT;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM_ATTRIBUTE_REQUIREMENT;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.hero.magic.basic.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.data.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmLearnPrerequisite;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 
 import org.dom4j.Element;
 

@@ -7,19 +7,19 @@ import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisit
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_THRESHOLD;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_VALUE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_ESSENCE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_SELECTIVE_CHARM_GROUP;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_THRESHOLD;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_VALUE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_ESSENCE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_SELECTIVE_CHARM_GROUP;
 import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
-import static net.sf.anathema.hero.magic.parser.util.ElementUtilities.elements;
+import static net.sf.anathema.charm.parser.util.ElementUtilities.elements;
 
 public class PrerequisiteListBuilder {
 

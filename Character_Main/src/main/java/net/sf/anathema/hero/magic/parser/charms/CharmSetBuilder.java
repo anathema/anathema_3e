@@ -10,7 +10,7 @@ import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmPa
 import net.sf.anathema.hero.magic.parser.combos.ComboRulesBuilder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARM;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM;
 
 public class CharmSetBuilder {
 

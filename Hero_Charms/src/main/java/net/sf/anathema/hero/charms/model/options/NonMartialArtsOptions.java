@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.sf.anathema.hero.magic.charm.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
+import static net.sf.anathema.charm.data.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 
 public class NonMartialArtsOptions implements CharmIdMap, CharmGroupArbitrator {
 

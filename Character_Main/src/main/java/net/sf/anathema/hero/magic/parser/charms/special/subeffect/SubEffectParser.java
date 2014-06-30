@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.parser.charms.special.subeffect;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.magic.parser.dto.special.SubEffectDto;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")

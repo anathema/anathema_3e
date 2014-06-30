@@ -5,20 +5,20 @@ import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.charm.combos.ComboRestrictions;
 import net.sf.anathema.hero.magic.charm.combos.IComboRestrictions;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
 import java.util.List;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_ALL_ABILITIES;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_ID;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_SELECT_ABILITIES;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_TYPE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARM;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARMTYPE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_COMBO;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_RESTRICTIONS;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_TRAIT_REFERENCE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_ALL_ABILITIES;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_ID;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_SELECT_ABILITIES;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_TYPE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARMTYPE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_COMBO;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_RESTRICTIONS;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_TRAIT_REFERENCE;
 
 public class ComboRulesBuilder implements IComboRulesBuilder {
 

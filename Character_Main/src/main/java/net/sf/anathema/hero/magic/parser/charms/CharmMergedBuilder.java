@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.lib.logging.Logger;
-import net.sf.anathema.hero.magic.parser.util.ElementUtilities;
+import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Document;
 import org.dom4j.Element;
 
@@ -12,10 +12,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.ATTRIB_ID;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_CHARM_REFERENCE;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_MERGED;
-import static net.sf.anathema.hero.magic.charm.ICharmXMLConstants.TAG_MERGES;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_ID;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM_REFERENCE;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_MERGED;
+import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_MERGES;
 import static net.sf.anathema.lib.lang.ArrayUtilities.getFirst;
 
 public class CharmMergedBuilder {

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.parser.util;
+package net.sf.anathema.charm.parser.util;
 
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.charm;
+package net.sf.anathema.charm.parser;
 
 public interface ICharmXMLConstants {
 
@@ -38,10 +38,8 @@ public interface ICharmXMLConstants {
   String TAG_GENERIC_ATTRIBUTE = "genericCharmAttribute";
   String TAG_CASTE = "caste";
   String TAG_CHARM = "charm";
-  String TAG_GENERIC_CHARM = "genericCharm";
   String TAG_CHARM_ATTRIBUTE_REQUIREMENT = "charmAttributeRequirement";
   String TAG_CHARM_REFERENCE = "charmReference";
-  String TAG_GENERIC_CHARM_REFERENCE = "genericCharmReference";
   String TAG_CHARMTYPE = "charmtype";
   String TAG_COMBO = "combo";
   String TAG_COST = "cost";
@@ -57,5 +55,4 @@ public interface ICharmXMLConstants {
 
   String ATTRIB_COST = "cost";
   String ATTRIB_TEXT = "text";
-  String TAG_GENERIC_CHARM_ATTRIBUTE_REQUIREMENT = "genericCharmAttributeRequirement";
 }
