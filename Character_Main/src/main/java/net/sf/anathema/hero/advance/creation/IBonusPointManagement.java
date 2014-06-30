@@ -6,7 +6,5 @@ public interface IBonusPointManagement {
 
   void recalculate();
 
-  String getSummaryCategory();
-
   SpendingModel getTotalModel();
 }

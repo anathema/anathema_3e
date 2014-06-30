@@ -1,9 +1,6 @@
 package net.sf.anathema.hero.advance.creation;
 
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.points.HeroBonusPointCalculator;
-import net.sf.anathema.hero.points.PointModelFetcher;
-import net.sf.anathema.hero.points.PointsModel;
 import net.sf.anathema.hero.points.overview.SpendingModel;
 
 public class BonusPointManagement implements IBonusPointManagement {
@@ -27,10 +24,5 @@ public class BonusPointManagement implements IBonusPointManagement {
   @Override
   public SpendingModel getTotalModel() {
     return totalModel;
-  }
-
-  @Override
-  public String getSummaryCategory() {
-    return TotalBonusPointModel.SUMMARY_CATEGORY_ID;
   }
 }
