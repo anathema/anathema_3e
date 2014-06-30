@@ -1,12 +1,12 @@
 package net.sf.anathema.charm.data.reference;
 
 public class TreeReference {
-  public final CharacterTypeName typeName;
-  public final TreeName treeName;
+  public final TreeCategory category;
+  public final TreeName name;
 
-  public TreeReference(CharacterTypeName typeName, TreeName treeName) {
-    this.typeName = typeName;
-    this.treeName = treeName;
+  public TreeReference(TreeCategory category, TreeName name) {
+    this.category = category;
+    this.name = name;
   }
 
   @Override
@@ -15,11 +15,11 @@ public class TreeReference {
       return false;
     }
     TreeReference other = (TreeReference) obj;
-    return other.treeName.equals(treeName) && other.typeName.equals(treeName);
+    return other.name.equals(name) && other.category.equals(name);
   }
 
   @Override
   public int hashCode() {
-    return treeName.hashCode() * 3 + typeName.hashCode() * 7;
+    return name.hashCode() * 3 + category.hashCode() * 7;
   }
 }

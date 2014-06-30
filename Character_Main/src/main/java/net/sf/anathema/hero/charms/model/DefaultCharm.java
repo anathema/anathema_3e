@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.CharmData;
-import net.sf.anathema.charm.data.reference.CharacterTypeName;
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
@@ -24,21 +24,13 @@ import java.util.Set;
 public class DefaultCharm implements Charm {
 
   private CharmData charmData;
-  private CharacterType characterType;
 
   public DefaultCharm(CharmData charmData) {
     this.charmData = charmData;
   }
 
-  public void initialize(CharacterTypes characterTypes) {
-    CharacterTypeName characterTypeName = charmData.getCharmReference().treeReference.typeName;
-    this.characterType = characterTypes.findById(characterTypeName.text);
-  }
-
   @Override
-  public CharacterType getCharacterType() {
-    return characterType;
-  }
+  public CharacterType getCharacterType() { return null; } // to be generalized to category
 
   @Override
   public Duration getDuration() {

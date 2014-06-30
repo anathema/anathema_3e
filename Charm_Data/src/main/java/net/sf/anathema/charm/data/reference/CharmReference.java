@@ -2,7 +2,7 @@ package net.sf.anathema.charm.data.reference;
 
 public class CharmReference {
 
-  public TreeReference treeReference;
+  public final TreeReference treeReference;
   public final CharmName charmName;
 
   public CharmReference(CharmName charmName, TreeReference treeReference) {

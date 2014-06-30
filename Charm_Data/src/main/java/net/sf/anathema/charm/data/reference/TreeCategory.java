@@ -1,10 +1,10 @@
 package net.sf.anathema.charm.data.reference;
 
-public class CharacterTypeName {
+public class TreeCategory {
 
   public final String text;
 
-  public CharacterTypeName(String charmName) {
+  public TreeCategory(String charmName) {
     this.text = charmName;
   }
 
