@@ -4,7 +4,6 @@ import net.sf.anathema.character.framework.display.SectionView;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.hero.advance.creation.IBonusPointManagement;
 import net.sf.anathema.hero.advance.experience.ExperiencePointManagement;
@@ -32,6 +31,11 @@ public class OverviewInitializer implements HeroModelInitializer {
     String header = "Overview";
     OverviewContainer container = sectionView.addView(header, OverviewContainer.class);
     initOverviewPresentation(hero, container, environment);
+  }
+
+  @Override
+  public boolean canWorkForHero(Hero hero) {
+    return PointModelFetcher.fetch(hero) != null;
   }
 
   private void initOverviewPresentation(Hero hero, OverviewContainer container, Resources resources) {
