@@ -20,12 +20,7 @@ public class WeaponTagsModel implements IWeaponTagsModel {
       selectedMap.put(tag, new BooleanValueModel(false));
       enabledMap.put(tag, new BooleanValueModel(true));
     }
-    IBooleanValueChangedListener updateRangeEnabledListener = new IBooleanValueChangedListener() {
-      @Override
-      public void valueChanged(boolean newValue) {
-        setTagsRangedCombatStyle();
-      }
-    };
+    IBooleanValueChangedListener updateRangeEnabledListener = newValue -> setTagsRangedCombatStyle();
     for (WeaponTag rangedTag : WeaponTag.getRangedWeaponTypeTags()) {
       getSelectedModel(rangedTag).addChangeListener(updateRangeEnabledListener);
     }
