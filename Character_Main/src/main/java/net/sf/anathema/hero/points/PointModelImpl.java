@@ -19,11 +19,9 @@ public class PointModelImpl implements PointsModel {
   private final List<IValueModel<Integer>> experienceOverviewModels = new ArrayList<>();
   private final List<IOverviewModel> bonusOverviewModels = new ArrayList<>();
   private final List<WeightedCategory> bonusCategories = new ArrayList<>();
-  private PointsTemplate template;
   private BonusPointManagement bonusPointManagement;
 
   public PointModelImpl(PointsTemplate template) {
-    this.template = template;
     this.bonusPointManagement = new BonusPointManagement(new PointsCreationData(template));
   }
 
