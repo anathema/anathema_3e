@@ -9,7 +9,7 @@ import net.sf.anathema.lib.util.Identifier;
 public class ExperiencePersister extends AbstractModelJsonPersister<ExperiencePto, ExperienceModel> {
 
   public ExperiencePersister() {
-    super("experience", ExperiencePto.class);
+    super("xp", ExperiencePto.class);
   }
 
   @Override

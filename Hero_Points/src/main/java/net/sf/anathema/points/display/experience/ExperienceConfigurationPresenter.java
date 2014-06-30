@@ -1,21 +1,21 @@
 package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfiguration;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfigurationListener;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointEntry;
-import net.sf.anathema.hero.points.advance.experience.ExperienceSelectionListener;
+import net.sf.anathema.hero.points.model.xp.ExperiencePoints;
+import net.sf.anathema.hero.points.model.xp.ExperiencePointsListener;
+import net.sf.anathema.hero.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.hero.points.model.xp.ExperienceSelectionListener;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.framework.environment.Resources;
 
 public class ExperienceConfigurationPresenter {
 
-  private final ExperiencePointConfiguration experiencePoints;
+  private final ExperiencePoints experiencePoints;
   private final ExperienceView experienceView;
   private final Resources resources;
 
-  public ExperienceConfigurationPresenter(Resources resources, ExperiencePointConfiguration experiencePoints,
+  public ExperienceConfigurationPresenter(Resources resources, ExperiencePoints experiencePoints,
                                           ExperienceView experienceView) {
     this.resources = resources;
     this.experiencePoints = experiencePoints;
@@ -31,7 +31,7 @@ public class ExperienceConfigurationPresenter {
     });
     configureAddTool();
     configureRemoveTool();
-    experiencePoints.addExperiencePointConfigurationListener(new ExperiencePointConfigurationListener() {
+    experiencePoints.addExperiencePointConfigurationListener(new ExperiencePointsListener() {
       @Override
       public void entriesAddedRemovedOrChanged() {
         refreshEntriesInView();

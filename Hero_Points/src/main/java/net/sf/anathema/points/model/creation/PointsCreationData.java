@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.points.advance.creation;
+package net.sf.anathema.points.model.creation;
 
 import net.sf.anathema.hero.points.template.PointsTemplate;
 

@@ -1,20 +1,20 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfiguration;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfigurationListener;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointEntry;
-import net.sf.anathema.hero.points.advance.experience.ExperienceSelectionListener;
+import net.sf.anathema.hero.points.model.xp.ExperiencePoints;
+import net.sf.anathema.hero.points.model.xp.ExperiencePointsListener;
+import net.sf.anathema.hero.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.hero.points.model.xp.ExperienceSelectionListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DefaultExperiencePointConfiguration implements ExperiencePointConfiguration {
+public class DefaultExperiencePointConfiguration implements ExperiencePoints {
 
   public static final ExperiencePointEntry NO_ENTRY = null;
   private ExperiencePointEntry currentlySelectedEntry = NO_ENTRY;
   private final List<ExperiencePointEntry> entries = new ArrayList<>();
-  private final Announcer<ExperiencePointConfigurationListener> control = Announcer.to(ExperiencePointConfigurationListener.class);
+  private final Announcer<ExperiencePointsListener> control = Announcer.to(ExperiencePointsListener.class);
   private final Announcer<ExperienceSelectionListener> selectionAnnouncer = Announcer.to(ExperienceSelectionListener.class);
 
   @Override
@@ -47,7 +47,7 @@ public class DefaultExperiencePointConfiguration implements ExperiencePointConfi
   }
 
   @Override
-  public void addExperiencePointConfigurationListener(ExperiencePointConfigurationListener listener) {
+  public void addExperiencePointConfigurationListener(ExperiencePointsListener listener) {
     control.addListener(listener);
   }
 

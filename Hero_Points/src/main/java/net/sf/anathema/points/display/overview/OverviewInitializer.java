@@ -5,9 +5,9 @@ import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.advance.creation.IBonusPointManagement;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointManagement;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointManagementImpl;
+import net.sf.anathema.hero.points.model.BonusPointManagement;
+import net.sf.anathema.hero.points.model.ExperiencePointManagement;
+import net.sf.anathema.points.model.ExperiencePointManagementImpl;
 import net.sf.anathema.hero.points.display.overview.presenter.OverviewPresenter;
 import net.sf.anathema.hero.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
@@ -39,7 +39,7 @@ public class OverviewInitializer implements HeroModelInitializer {
   }
 
   private void initOverviewPresentation(Hero hero, OverviewContainer container, Resources resources) {
-    IBonusPointManagement bonusPoints = PointModelFetcher.fetch(hero).getBonusPointManagement();
+    BonusPointManagement bonusPoints = PointModelFetcher.fetch(hero).getBonusPointManagement();
     ExperiencePointManagement experiencePoints = new ExperiencePointManagementImpl(hero);
     IMessaging messaging = applicationModel.getMessaging();
     OverviewPresenter presenter = new OverviewPresenter(resources, hero, container, bonusPoints, experiencePoints, messaging);

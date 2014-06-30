@@ -1,6 +1,7 @@
-package net.sf.anathema.hero.points.advance.experience;
+package net.sf.anathema.points.model;
 
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.points.model.ExperiencePointManagement;
 import net.sf.anathema.hero.points.model.PointModelFetcher;
 import net.sf.anathema.hero.points.model.PointsModel;
 import net.sf.anathema.hero.points.model.overview.IValueModel;

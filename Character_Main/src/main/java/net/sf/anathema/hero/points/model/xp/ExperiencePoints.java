@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.points.advance.experience;
+package net.sf.anathema.hero.points.model.xp;
 
-public interface ExperiencePointConfiguration {
+public interface ExperiencePoints {
 
   ExperiencePointEntry[] getAllEntries();
 
@@ -10,7 +10,7 @@ public interface ExperiencePointConfiguration {
 
   int getTotalExperiencePoints();
 
-  void addExperiencePointConfigurationListener(ExperiencePointConfigurationListener listener);
+  void addExperiencePointConfigurationListener(ExperiencePointsListener listener);
 
   void addEntrySelectionListener(ExperienceSelectionListener listener);
 

@@ -1,12 +1,12 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.points.advance.creation.BonusPointManagement;
-import net.sf.anathema.hero.points.advance.creation.PointsCreationData;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfiguration;
+import net.sf.anathema.hero.points.model.BonusPointCalculator;
+import net.sf.anathema.hero.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.creation.BonusPointManagementImpl;
+import net.sf.anathema.points.model.creation.PointsCreationData;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.points.advance.creation.HeroBonusPointCalculator;
 import net.sf.anathema.hero.points.model.PointsModel;
 import net.sf.anathema.hero.points.template.PointsTemplate;
 import net.sf.anathema.hero.points.model.overview.IOverviewModel;
@@ -20,14 +20,14 @@ import java.util.List;
 
 public class PointModelImpl implements PointsModel {
 
-  private final ExperiencePointConfiguration experiencePoints = new DefaultExperiencePointConfiguration();
+  private final ExperiencePoints experiencePoints = new DefaultExperiencePointConfiguration();
   private final List<IValueModel<Integer>> experienceOverviewModels = new ArrayList<>();
   private final List<IOverviewModel> bonusOverviewModels = new ArrayList<>();
   private final List<WeightedCategory> bonusCategories = new ArrayList<>();
-  private BonusPointManagement bonusPointManagement;
+  private BonusPointManagementImpl bonusPointManagement;
 
   public PointModelImpl(PointsTemplate template) {
-    this.bonusPointManagement = new BonusPointManagement(new PointsCreationData(template));
+    this.bonusPointManagement = new BonusPointManagementImpl(new PointsCreationData(template));
   }
 
   @Override
@@ -41,7 +41,7 @@ public class PointModelImpl implements PointsModel {
   }
 
   @Override
-  public void addBonusPointCalculator(HeroBonusPointCalculator calculator) {
+  public void addBonusPointCalculator(BonusPointCalculator calculator) {
     bonusPointManagement.addBonusPointCalculator(calculator);
   }
 
@@ -81,12 +81,12 @@ public class PointModelImpl implements PointsModel {
     return ID;
   }
 
-  public BonusPointManagement getBonusPointManagement() {
+  public BonusPointManagementImpl getBonusPointManagement() {
     return bonusPointManagement;
   }
 
   @Override
-  public ExperiencePointConfiguration getExperiencePoints() {
+  public ExperiencePoints getExperiencePoints() {
     return experiencePoints;
   }
 }

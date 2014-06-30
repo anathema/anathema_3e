@@ -1,8 +1,8 @@
-package net.sf.anathema.hero.points.advance.creation;
+package net.sf.anathema.hero.points.model;
 
 import net.sf.anathema.hero.points.model.overview.SpendingModel;
 
-public interface IBonusPointManagement {
+public interface BonusPointManagement {
 
   void recalculate();
 

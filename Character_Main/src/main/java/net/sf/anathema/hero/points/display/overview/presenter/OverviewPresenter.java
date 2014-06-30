@@ -2,8 +2,8 @@ package net.sf.anathema.hero.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.advance.creation.IBonusPointManagement;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointManagement;
+import net.sf.anathema.hero.points.model.BonusPointManagement;
+import net.sf.anathema.hero.points.model.ExperiencePointManagement;
 import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.hero.experience.ExperienceChange;
@@ -15,11 +15,11 @@ public class OverviewPresenter {
   private Resources resources;
   private Hero hero;
   private OverviewContainer container;
-  private IBonusPointManagement bonusPoints;
+  private BonusPointManagement bonusPoints;
   private ExperiencePointManagement experiencePoints;
   private IMessaging messaging;
 
-  public OverviewPresenter(Resources resources, Hero hero, OverviewContainer container, IBonusPointManagement bonusPoints,
+  public OverviewPresenter(Resources resources, Hero hero, OverviewContainer container, BonusPointManagement bonusPoints,
                            ExperiencePointManagement experiencePoints, IMessaging messaging) {
     this.resources = resources;
     this.hero = hero;

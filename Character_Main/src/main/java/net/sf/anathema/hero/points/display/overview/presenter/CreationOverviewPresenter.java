@@ -3,7 +3,7 @@ package net.sf.anathema.hero.points.display.overview.presenter;
 import net.sf.anathema.character.framework.library.overview.OverviewCategory;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.advance.creation.IBonusPointManagement;
+import net.sf.anathema.hero.points.model.BonusPointManagement;
 import net.sf.anathema.hero.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.points.model.PointModelFetcher;
@@ -16,11 +16,11 @@ public class CreationOverviewPresenter {
   private final CategorizedOverview view;
   private final Hero hero;
   private IMessaging messaging;
-  private final IBonusPointManagement management;
+  private final BonusPointManagement management;
   private final OverviewUpdater updater = new OverviewUpdater();
   private final MappedOverviewCategories categoriesById = new MappedOverviewCategories();
 
-  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, IBonusPointManagement management, IMessaging messaging) {
+  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, BonusPointManagement management, IMessaging messaging) {
     this.management = management;
     this.resources = resources;
     this.hero = hero;

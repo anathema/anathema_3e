@@ -1,6 +1,6 @@
 package net.sf.anathema.points.persistence;
 
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointEntry;
+import net.sf.anathema.hero.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.points.model.PointsModel;

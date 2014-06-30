@@ -2,7 +2,7 @@ package net.sf.anathema.hero.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointManagement;
+import net.sf.anathema.hero.points.model.ExperiencePointManagement;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.points.model.PointModelFetcher;
 import net.sf.anathema.lib.message.Message;

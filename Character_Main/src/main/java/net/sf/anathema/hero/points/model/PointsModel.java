@@ -1,9 +1,7 @@
 package net.sf.anathema.hero.points.model;
 
-import net.sf.anathema.hero.points.advance.creation.BonusPointManagement;
-import net.sf.anathema.hero.points.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.points.advance.creation.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.model.xp.ExperiencePoints;
 import net.sf.anathema.hero.points.model.overview.IOverviewModel;
 import net.sf.anathema.hero.points.model.overview.IValueModel;
 import net.sf.anathema.hero.points.model.overview.WeightedCategory;
@@ -14,7 +12,7 @@ public interface PointsModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("Points");
 
-  void addBonusPointCalculator(HeroBonusPointCalculator bonusPointCalculator);
+  void addBonusPointCalculator(BonusPointCalculator bonusPointCalculator);
 
   void addBonusCategory(WeightedCategory category);
 
@@ -30,5 +28,5 @@ public interface PointsModel extends HeroModel {
 
   BonusPointManagement getBonusPointManagement();
 
-  ExperiencePointConfiguration getExperiencePoints();
+  ExperiencePoints getExperiencePoints();
 }

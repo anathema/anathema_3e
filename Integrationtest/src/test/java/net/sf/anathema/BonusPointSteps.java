@@ -2,8 +2,8 @@ package net.sf.anathema;
 
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
-import net.sf.anathema.hero.points.advance.creation.BonusPointManagement;
 import net.sf.anathema.hero.points.model.PointModelFetcher;
+import net.sf.anathema.hero.points.model.BonusPointManagement;
 import net.sf.anathema.hero.points.model.overview.SpendingModel;
 
 import static org.hamcrest.CoreMatchers.is;
