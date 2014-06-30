@@ -13,4 +13,6 @@ dependencies {
     testCompile project(path: ':Hero_Abilities', configuration: 'tests')
     testCompile project(path: ':Hero_Concept', configuration: 'tests')
     testCompile project(path: ':Hero_Experience', configuration: 'tests')
+    testCompile project(path: ':Hero_Spiritual', configuration: 'tests')
+    testCompile project(path: ':Hero_Traits', configuration: 'tests')
 }
