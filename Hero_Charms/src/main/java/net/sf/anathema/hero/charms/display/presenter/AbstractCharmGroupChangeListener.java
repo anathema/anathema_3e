@@ -23,12 +23,10 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
   private final CharmTreeArbitrator arbitrator;
   private CharmTree currentGroup;
   private Identifier currentType;
-  private final CharmDisplayPropertiesMap displayPropertiesMap;
   private TreeView treeView;
 
-  public AbstractCharmGroupChangeListener(CharmTreeArbitrator arbitrator, CharmDisplayPropertiesMap charmDisplayPropertiesMap) {
+  public AbstractCharmGroupChangeListener(CharmTreeArbitrator arbitrator) {
     this.arbitrator = arbitrator;
-    this.displayPropertiesMap = charmDisplayPropertiesMap;
   }
 
   @Override
@@ -82,10 +80,6 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
       }
     }
     return charmsToDisplay;
-  }
-
-  protected TreePresentationProperties getDisplayProperties(CharacterType characterType) {
-    return displayPropertiesMap.getDisplayProperties(characterType);
   }
 
   @Override

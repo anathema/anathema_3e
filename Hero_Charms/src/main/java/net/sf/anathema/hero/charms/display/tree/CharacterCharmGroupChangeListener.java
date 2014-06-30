@@ -9,7 +9,7 @@ import net.sf.anathema.lib.util.Identifier;
 public class CharacterCharmGroupChangeListener extends AbstractCharmGroupChangeListener {
 
   public CharacterCharmGroupChangeListener(CharmTreeArbitrator arbitrator, CharmDisplayPropertiesMap displayPropertiesMap) {
-    super(arbitrator, displayPropertiesMap);
+    super(arbitrator);
   }
 
   @Override
