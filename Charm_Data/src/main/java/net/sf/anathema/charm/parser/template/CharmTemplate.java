@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.parser;
+package net.sf.anathema.charm.parser.template;
 
 import java.util.ArrayList;
 import java.util.HashMap;
