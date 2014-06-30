@@ -59,9 +59,9 @@ public class LearningCharmTreeImplTest {
     IExtendedCharmLearnableArbitrator learnableArbitrator = new DummyLearnableArbitrator(learnableCharm.getId());
     LearningCharmTreeImpl learningCharmGroup = createSolarMeleeGroup(learnableArbitrator);
     container.setLearningCharmGroup(learningCharmGroup);
-    assertFalse(learningCharmGroup.isUnlearnable(learnableCharm));
+    assertFalse(learningCharmGroup.isForgettable(learnableCharm));
     learningCharmGroup.toggleLearned(learnableCharm);
-    assertTrue(learningCharmGroup.isUnlearnable(learnableCharm));
+    assertTrue(learningCharmGroup.isForgettable(learnableCharm));
   }
 
   @Test

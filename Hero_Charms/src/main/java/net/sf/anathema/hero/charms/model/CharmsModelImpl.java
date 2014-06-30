@@ -278,15 +278,15 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void unlearnAllAlienCharms() {
-    for (LearningCharmTree[] groups : nonMartialArtsTreesByType.values()) {
-      for (LearningCharmTree group : groups) {
+    for (LearningCharmTree[] learnTree : nonMartialArtsTreesByType.values()) {
+      for (LearningCharmTree group : learnTree) {
         if (options.isAlienType(group.getCharacterType())) {
           group.forgetAll();
         }
       }
     }
-    for (LearningCharmTree group : martialArtsLearnTrees) {
-      group.unlearnExclusives();
+    for (LearningCharmTree learnTree : martialArtsLearnTrees) {
+      learnTree.unlearnExclusives();
     }
   }
 
@@ -399,7 +399,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   public final boolean isUnlearnable(Charm charm) {
     LearningCharmTree group = getGroup(charm);
-    return group.isUnlearnable(charm);
+    return group.isForgettable(charm);
   }
 
   @Override

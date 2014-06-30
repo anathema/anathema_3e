@@ -16,17 +16,13 @@ public interface LearningCharmTree extends CharmTree, BasicLearnCharmTree {
 
   void learnCharmNoParents(Charm charm, boolean experienced, boolean announce);
 
-  boolean isUnlearnable(Charm charm);
-
-  boolean isUnlearnableWithoutConsequences(Charm charm);
+  boolean isForgettable(Charm charm);
 
   Charm[] getExperienceLearnedCharms();
 
   void forgetCharm(Charm child, boolean experienced);
 
   void forgetAll();
-
-  boolean hasLearnedCharms();
 
   Charm[] getCoreCharms();
 

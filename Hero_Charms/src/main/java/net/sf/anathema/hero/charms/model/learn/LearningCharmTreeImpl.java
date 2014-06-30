@@ -69,7 +69,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   @Override
   public void forgetCharm(Charm charm, boolean experienced) {
-    if (isUnlearnable(charm)) {
+    if (isForgettable(charm)) {
       if (experienced) {
         charmsLearnedWithExperience.remove(charm);
       } else {
@@ -168,22 +168,8 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   @Override
-  public boolean isUnlearnable(Charm charm) {
+  public boolean isForgettable(Charm charm) {
     return !learnArbitrator.isCompulsiveCharm(charm) && learnStrategy.isUnlearnable(this, charm);
-  }
-
-  @Override
-  public boolean isUnlearnableWithoutConsequences(Charm charm) {
-    if (!isUnlearnable(charm)) {
-      return false;
-    }
-    for (Charm child : charm.getLearnFollowUpCharms(learnArbitrator)) {
-      LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
-      if (childGroup.isLearned(child)) {
-        return false;
-      }
-    }
-    return true;
   }
 
   @Override
@@ -196,11 +182,6 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
     for (Charm charm : forgetCloneCharms) {
       forgetCharm(charm, false);
     }
-  }
-
-  @Override
-  public boolean hasLearnedCharms() {
-    return charmsLearnedOnCreation.size() + charmsLearnedWithExperience.size() > 0;
   }
 
   @Override
