@@ -10,6 +10,7 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
 
 import java.util.ArrayList;
@@ -18,18 +19,19 @@ import java.util.List;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class CharmOptions {
-  private MartialArtsOptions martialArtsOptions;
   private NonMartialArtsOptions nonMartialArtsOptions;
-  private CharmProvider provider;
+  private final MartialArtsCharmTreeCategory martialArtsCharmTree;
+  private CharmProvider charmProvider;
 
-  public CharmOptions(CharmProvider provider, CharmsRules charmsRules, Hero hero, CharacterTypes characterTypes) {
-    this.provider = provider;
-    this.martialArtsOptions = new MartialArtsOptions(provider, charmsRules);
-    this.nonMartialArtsOptions = new NonMartialArtsOptions(hero, characterTypes, provider, charmsRules);
+  public CharmOptions(CharmProvider charmProvider, CharmsRules charmsRules, Hero hero, CharacterTypes characterTypes) {
+    this.charmProvider = charmProvider;
+    MartialArtsLevel standardLevel = charmsRules.getMartialArtsRules().getStandardLevel();
+    this.martialArtsCharmTree = new MartialArtsCharmTreeCategory(charmProvider, standardLevel);
+    this.nonMartialArtsOptions = new NonMartialArtsOptions(hero, characterTypes, charmProvider, charmsRules);
   }
 
   public CharmTree[] getAllMartialArtsTrees() {
-    return martialArtsOptions.getAllCharmGroups();
+    return martialArtsCharmTree.getAllCharmTrees();
   }
 
   public Iterable<CharacterType> getAvailableCharacterTypes() {
@@ -43,13 +45,13 @@ public class CharmOptions {
   public CharmIdMap getCharmIdMap() {
     List<CharmIdMap> trees = new ArrayList<>();
     trees.add(nonMartialArtsOptions);
-    trees.add(martialArtsOptions);
+    trees.add(martialArtsCharmTree);
     return new GroupedCharmIdMap(trees);
   }
 
   public ISpecialCharm[] getSpecialCharms() {
-    ICharmLearnableArbitrator arbitrator = martialArtsOptions;
-    return provider.getSpecialCharms(arbitrator, getCharmIdMap(), nonMartialArtsOptions.getNativeCharacterType());
+    ICharmLearnableArbitrator arbitrator = charm -> !isMartialArts(charm) || martialArtsCharmTree.isLearnable(charm);
+    return charmProvider.getSpecialCharms(arbitrator, getCharmIdMap(), nonMartialArtsOptions.getNativeCharacterType());
   }
 
   public boolean isAlienType(CharacterType characterType) {
