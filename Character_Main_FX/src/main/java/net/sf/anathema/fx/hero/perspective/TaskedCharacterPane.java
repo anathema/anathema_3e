@@ -3,14 +3,13 @@ package net.sf.anathema.fx.hero.perspective;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.hero.display.CharacterPane;
 import net.sf.anathema.framework.view.util.OptionalView;
-import net.sf.anathema.fx.hero.overview.FxOverviewDisplay;
+import net.sf.anathema.hero.display.CharacterPane;
 import net.sf.anathema.hero.display.MultipleContentView;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class TaskedCharacterPane implements CharacterPane, FxOverviewDisplay {
+public class TaskedCharacterPane implements CharacterPane {
 
   private final MigPane paneContainer = new MigPane(new LC().wrapAfter(1));
   private final MigPane viewPanel = new MigPane();
@@ -31,11 +30,6 @@ public class TaskedCharacterPane implements CharacterPane, FxOverviewDisplay {
   @Override
   public MultipleContentView addMultipleContentView(String header) {
     return new TaskedMultipleContentView(header, paneContainer, viewPanel);
-  }
-
-  @Override
-  public void setOverviewPane(final Node node) {
-    overview.setOverview(node);
   }
 
   public Node getNode() {

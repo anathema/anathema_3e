@@ -4,7 +4,7 @@ import net.sf.anathema.character.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.hero.advance.overview.model.AbstractIntegerValueModel;
+import net.sf.anathema.hero.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.model.Hero;

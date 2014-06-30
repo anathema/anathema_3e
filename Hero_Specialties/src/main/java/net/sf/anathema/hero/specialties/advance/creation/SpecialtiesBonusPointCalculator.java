@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
+import net.sf.anathema.hero.points.model.BonusPointCalculator;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.specialties.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
@@ -7,14 +8,13 @@ import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.specialties.ISubTraitContainer;
 import net.sf.anathema.hero.template.creation.IGenericSpecialty;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.points.HeroBonusPointCalculator;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.advance.TraitCalculationUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialtiesBonusPointCalculator implements HeroBonusPointCalculator {
+public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
 
   private SpecialtyCalculator specialtyCalculator;
   private Hero hero;

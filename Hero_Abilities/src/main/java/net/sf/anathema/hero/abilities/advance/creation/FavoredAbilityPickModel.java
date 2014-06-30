@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.advance.overview.model.AbstractSpendingModel;
+import net.sf.anathema.hero.points.display.overview.model.AbstractSpendingModel;
 
 public class FavoredAbilityPickModel extends AbstractSpendingModel {
 

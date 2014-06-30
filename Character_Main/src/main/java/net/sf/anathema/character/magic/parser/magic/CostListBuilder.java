@@ -19,7 +19,7 @@ public class CostListBuilder implements ICostListBuilder {
       Cost essenceCost = costBuilder.buildCost(costListElement.element("essence"));
       Cost willpowerCost = costBuilder.buildCost(costListElement.element("willpower"));
       IHealthCost healthCost = healthCostBuilder.buildCost(costListElement.element("health"));
-      Cost xpCost = costBuilder.buildCost(costListElement.element("experience"));
+      Cost xpCost = costBuilder.buildCost(costListElement.element("xp"));
       return new CostList(essenceCost, willpowerCost, healthCost, xpCost);
     } catch (Exception e) {
       return new CostList(null, null, null, null);

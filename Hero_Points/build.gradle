@@ -1,8 +1,10 @@
 dependencies {
 //  Insert your dependencies here like this:
 //  compile project(':Character_Equipment')
-  compile project(':Character_Main')
-  compile project(':Character_Main_FX')
-  testCompile testDependencies //includes JUnit etc.
-//  testCompile project(path: ':Platform', templateHolder: 'tests')
+    compile project(':Character_Main')
+    compile project(':Character_Main_FX')
+    compile project(':Hero_Experience')
+    compile project(':Hero_Sheet')
+    testCompile project(path: ':Platform', configuration: 'tests')
+    testCompile project(path: ':Character_Main', configuration: 'tests')
 }

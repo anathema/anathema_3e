@@ -1,9 +1,9 @@
 package net.sf.anathema;
 
-import net.sf.anathema.hero.points.PointModelFetcher;
-import net.sf.anathema.hero.points.PointsModel;
-import net.sf.anathema.hero.points.overview.IOverviewModel;
-import net.sf.anathema.hero.points.overview.IValueModel;
+import net.sf.anathema.hero.points.model.PointModelFetcher;
+import net.sf.anathema.hero.points.model.PointsModel;
+import net.sf.anathema.hero.points.model.overview.IOverviewModel;
+import net.sf.anathema.hero.points.model.overview.IValueModel;
 
 public class BonusModelFetcher {
 

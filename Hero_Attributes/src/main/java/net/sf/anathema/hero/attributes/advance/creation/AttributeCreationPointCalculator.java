@@ -1,9 +1,7 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
 import net.sf.anathema.hero.attributes.model.AttributeModel;
-import net.sf.anathema.hero.attributes.template.AttributeGroupPointsTemplate;
-import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
-import net.sf.anathema.hero.points.HeroBonusPointCalculator;
+import net.sf.anathema.hero.points.model.BonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
@@ -12,7 +10,7 @@ import java.util.Map;
 
 import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
 
-public class AttributeCreationPointCalculator implements AttributeGroupPoints, HeroBonusPointCalculator {
+public class AttributeCreationPointCalculator implements AttributeGroupPoints, BonusPointCalculator {
 
   private final AttributeModel attributes;
   private AttributeCreationData creationData;

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.experience.model;
 
-import net.sf.anathema.hero.advance.experience.ExperiencePointConfiguration;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.framework.HeroEnvironment;
