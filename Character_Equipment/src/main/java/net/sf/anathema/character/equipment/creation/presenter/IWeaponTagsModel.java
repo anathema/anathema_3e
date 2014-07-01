@@ -10,15 +10,16 @@ public interface IWeaponTagsModel {
 
   BooleanValueModel getSelectedModel(IWeaponTag tag);
 
-  void setTagsCloseCombatStyle();
-
-  void setTagsRangedCombatStyle();
-
   IWeaponTag[] getSelectedTags();
 
   boolean isRangedTypeTagSelected();
-  
-  boolean isThrownTypeTagSelected();
-  
-  boolean isThrownWeaponTagSelected();
+
+  boolean isRangeSelected();
+
+  boolean isDamageTypeSelected();
+
+  boolean isSizeSelected();
+
+  void makeValid();
+
 }

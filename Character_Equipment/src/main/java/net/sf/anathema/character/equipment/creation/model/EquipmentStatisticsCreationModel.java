@@ -2,9 +2,8 @@ package net.sf.anathema.character.equipment.creation.model;
 
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
-import net.sf.anathema.character.equipment.creation.presenter.ICloseCombatStatsticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
-import net.sf.anathema.character.equipment.creation.presenter.IRangedCombatStatisticsModel;
+import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
@@ -15,8 +14,7 @@ import org.jmock.example.announcer.Announcer;
 public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCreationModel {
 
   private final IWeaponTagsModel weaponTagsModel = new WeaponTagsModel();
-  private final ICloseCombatStatsticsModel closeCombatStatisticsModel = new CloseCombatStatsticsModel();
-  private final IRangedCombatStatisticsModel rangedWeaponStatisticsModel = new RangedWeaponStatisticsModel(weaponTagsModel);
+  private final IEquipmentStatisticsModel weaponNameModel = new WeaponLegalityModel(weaponTagsModel);
   private final IArmourStatisticsModel armourStatisticsModel = new ArmourStatsticsModel();
   private final IArtifactStatisticsModel artifactStatisticsModel = new ArtifactStatisticsModel();
   private final ITraitModifyingStatisticsModel traitModifyingStatisticsModel = new TraitModifyingStatisticsModel();
@@ -29,28 +27,18 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
     if (this.statisticsType == statisticsType) {
       return;
     }
-    if (statisticsType == EquipmentStatisticsType.RangedCombat) {
-      getWeaponTagsModel().setTagsRangedCombatStyle();
-    } else {
-      getWeaponTagsModel().setTagsCloseCombatStyle();
-    }
     this.statisticsType = statisticsType;
     equipmentTypeChangeControl.announce().changeOccurred();
   }
 
   @Override
-  public ICloseCombatStatsticsModel getCloseCombatStatsticsModel() {
-    return closeCombatStatisticsModel;
+  public IEquipmentStatisticsModel getWeaponModel() {
+    return weaponNameModel;
   }
 
   @Override
   public IWeaponTagsModel getWeaponTagsModel() {
     return weaponTagsModel;
-  }
-
-  @Override
-  public IRangedCombatStatisticsModel getRangedWeaponStatisticsModel() {
-    return rangedWeaponStatisticsModel;
   }
 
   @Override

@@ -2,8 +2,10 @@ package net.sf.anathema.character.equipment.character.model.stats;
 
 import com.google.common.base.Function;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
@@ -13,11 +15,11 @@ import java.util.List;
 
 import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
 
-public abstract class AbstractWeaponStats extends AbstractCombatStats implements IWeaponStats {
+public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   private int accuracy;
   private int damage;
-  private String damageTypeString;
+  private String damageTypeString = "Lethal";
   private Integer defence;
   private Integer range;
   private Integer rate;
@@ -73,12 +75,7 @@ public abstract class AbstractWeaponStats extends AbstractCombatStats implements
   @Override
   public Identifier[] getTags() {
     String[] tagIds = tags.toArray(new String[tags.size()]);
-    return transform(tagIds, WeaponTag.class, new Function<String, WeaponTag>() {
-      @Override
-      public WeaponTag apply(String input) {
-        return WeaponTag.valueOf(input);
-      }
-    });
+    return transform(tagIds, WeaponTag.class, WeaponTag::valueOf);
   }
 
   protected final boolean hasTag(WeaponTag tag) {
@@ -139,5 +136,30 @@ public abstract class AbstractWeaponStats extends AbstractCombatStats implements
   @Override
   public String getId() {
     return getName().getId();
+  }
+
+  @Override
+  public AbilityType getTraitType() {
+    return isMartialArtsOnlyWeapon() ? AbilityType.MartialArts : AbilityType.Melee;
+  }
+
+  private boolean isMartialArtsOnlyWeapon() {
+    return hasTag(WeaponTag.Natural);
+  }
+
+  @Override
+  public int getMobilityPenalty() {
+    return 0;
+  }
+
+  @Override
+  public IEquipmentStats[] getViews() {
+    if (isMartialArtsOnlyWeapon()) {
+      return new IEquipmentStats[]{this};
+    }
+    IEquipmentStats[] views = new IEquipmentStats[2];
+    views[0] = new WeaponStatsDecorator(this, AbilityType.Melee);
+    views[1] = new WeaponStatsDecorator(this, AbilityType.MartialArts);
+    return views;
   }
 }

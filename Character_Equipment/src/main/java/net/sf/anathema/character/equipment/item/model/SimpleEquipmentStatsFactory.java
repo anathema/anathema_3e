@@ -1,7 +1,6 @@
 package net.sf.anathema.character.equipment.item.model;
 
 import net.sf.anathema.character.equipment.creation.model.EquipmentStatisticsCreationModel;
-import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.core.MaterialComposition;
@@ -26,14 +25,7 @@ public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
     model.setEquipmentType(type);
     String finalName = createUniqueName(nameProposal, model);
     setNameOnCorrectModel(model, finalName);
-    ensureModelIsValid(model);
     return modelToStats.createStats(model);
-  }
-
-  private void ensureModelIsValid(IEquipmentStatisticsCreationModel model) {
-    if (model.getEquipmentType() == EquipmentStatisticsType.RangedCombat) {
-      model.getWeaponTagsModel().getSelectedModel(WeaponTag.BowType).setValue(true);
-    }
   }
 
   private void setNameOnCorrectModel(IEquipmentStatisticsCreationModel model, String finalName) {
@@ -42,10 +34,8 @@ public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
 
   private IEquipmentStatisticsModel findMatchingModel(IEquipmentStatisticsCreationModel model) {
     switch (model.getEquipmentType()) {
-      case CloseCombat:
-        return model.getCloseCombatStatsticsModel();
-      case RangedCombat:
-        return model.getRangedWeaponStatisticsModel();
+      case Weapon:
+        return model.getWeaponModel();
       case Armor:
         return model.getArmourStatisticsModel();
       case TraitModifying:

@@ -5,15 +5,12 @@ import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.character.equipment.character.EquipmentHeroEvaluator;
 import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
-import net.sf.anathema.character.equipment.creation.model.WeaponTag;
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.framework.environment.Resources;
-
-import java.util.Arrays;
 
 public class AccuracyWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWeaponStats> {
 
@@ -60,12 +57,6 @@ public class AccuracyWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<I
 
   protected int getFinalValue(IWeaponStats weapon, int weaponValue) {
     ValuedTraitType trait = collection.getTrait(AttributeType.Dexterity);
-    if (Arrays.asList(weapon.getTags()).contains(WeaponTag.ClinchEnhancer)) {
-      ValuedTraitType str = collection.getTrait(AttributeType.Strength);
-      if (trait.getCurrentValue() < str.getCurrentValue()) {
-        trait = str;
-      }
-    }
     return calculateFinalValue(weaponValue + getOptionModifiers(weapon), trait, collection.getTrait(weapon.getTraitType()));
   }
 }

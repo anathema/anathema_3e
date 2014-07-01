@@ -2,19 +2,15 @@ package net.sf.anathema.character.equipment.creation.view.fx;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.control.Separator;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.character.equipment.creation.presenter.EquipmentStatsView;
 import net.sf.anathema.fx.hero.configurableview.IIntegerSpinner;
 import net.sf.anathema.fx.hero.configurableview.IntegerSpinner;
 import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.platform.fx.FxTextView;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.platform.tool.FxCheckToggleTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -31,20 +27,10 @@ public class FxEquipmentStatsView implements EquipmentStatsView {
     return textView;
   }
 
-  public void addHorizontalSeparator() {
-    panel.add(new Separator(), new CC().newline().pushX().growX().spanX());
-  }
-
   public ToggleTool addToggleTool() {
     FxCheckToggleTool tool = FxCheckToggleTool.create();
     panel.add(tool.getNode(), new CC().spanX(2));
     return tool;
-  }
-
-  public <T> ObjectSelectionView<T> addObjectSelection(AgnosticUIConfiguration<T> agnosticUIConfiguration) {
-    ComboBoxSelectionView<T> selectionView = new ComboBoxSelectionView<>("", agnosticUIConfiguration);
-    panel.add(selectionView.getNode(), new CC().growX().spanX());
-    return selectionView;
   }
 
   public BooleanValueView addBooleanSelector(String label) {

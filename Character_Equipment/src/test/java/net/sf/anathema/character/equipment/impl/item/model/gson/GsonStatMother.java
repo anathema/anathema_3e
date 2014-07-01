@@ -2,31 +2,17 @@ package net.sf.anathema.character.equipment.impl.item.model.gson;
 
 import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
-import net.sf.anathema.character.equipment.character.model.stats.MeleeWeaponStats;
-import net.sf.anathema.character.equipment.character.model.stats.RangedWeaponStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
+import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import static java.lang.Integer.MAX_VALUE;
 
 public class GsonStatMother {
-  public static RangedWeaponStats createRangedWeapon() {
-    RangedWeaponStats stats = new RangedWeaponStats();
-    stats.setName(new SimpleIdentifier("Fire!"));
-    stats.setAccuracy(0);
-    stats.setDamage(0);
-    stats.setDamage(0);
-    stats.setDamageType(HealthType.Lethal);
-    stats.setMinimumDamage(0);
-    stats.setRange(400);
-    stats.setRate(1);
-    stats.setSpeed(5);
-    return stats;
-  }
 
-  public static MeleeWeaponStats createMeleeWeapon() {
-    MeleeWeaponStats stats = new MeleeWeaponStats();
+  public static WeaponStats createMeleeWeapon() {
+    WeaponStats stats = new WeaponStats();
     stats.setName(new SimpleIdentifier("Chaaarge!"));
     stats.setAccuracy(0);
     stats.setDamage(0);

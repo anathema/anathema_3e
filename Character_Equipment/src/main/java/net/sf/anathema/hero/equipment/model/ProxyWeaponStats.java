@@ -11,7 +11,6 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.Ra
 import net.sf.anathema.character.equipment.character.model.stats.modification.SpeedModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.StatModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.StatsModification;
-import net.sf.anathema.character.equipment.character.model.stats.modification.TagsModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.WeaponStatsType;
 import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentAccuracyModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentDamageModifier;
@@ -77,18 +76,14 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
   }
 
   private WeaponStatsType getWeaponStatsType() {
-    if (ArrayUtils.contains(getTags(), WeaponTag.BowType)) {
+    if (ArrayUtils.contains(getTags(), WeaponTag.Archery)) {
       return WeaponStatsType.Bow;
     }
-    if (ArrayUtils.contains(getTags(), WeaponTag.FlameType)) {
+    if (ArrayUtils.contains(getTags(), WeaponTag.Flame)) {
       return WeaponStatsType.Flame;
     }
     if (ArrayUtils.contains(getTags(), WeaponTag.Thrown)) {
-      if (ArrayUtils.contains(getTags(), WeaponTag.BowBonuses)) {
-        return WeaponStatsType.Thrown_BowBonuses;
-      } else {
-        return WeaponStatsType.Thrown;
-      }
+      return WeaponStatsType.Thrown;
     }
     return WeaponStatsType.Melee;
   }
@@ -159,7 +154,7 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
 
   @Override
   public Identifier[] getTags() {
-    return new TagsModification(material).getModifiedValue(delegate.getTags());
+    return delegate.getTags();
   }
 
   private AttunementModifier createAttunementModifier(StatModifier modifier) {

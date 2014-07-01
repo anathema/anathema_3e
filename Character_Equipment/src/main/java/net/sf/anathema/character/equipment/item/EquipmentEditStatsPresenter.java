@@ -5,8 +5,6 @@ import net.sf.anathema.character.equipment.item.view.EquipmentDetails;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.Closure;
 
 public class EquipmentEditStatsPresenter {
 
@@ -29,24 +27,13 @@ public class EquipmentEditStatsPresenter {
   }
 
   private void initListening(final ToolListView<IEquipmentStats> view) {
-    model.addStatsChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        updateStatListContent(view);
-      }
-    });
-    view.addListSelectionListener(new Closure<IEquipmentStats>() {
-      @Override
-      public void execute(IEquipmentStats selected) {
-        model.selectStats(selected);
-      }
-    });
+    model.addStatsChangeListener(() -> updateStatListContent(view));
+    view.addListSelectionListener(model::selectStats);
   }
 
   private void initButtons(ToolListView<IEquipmentStats> statsListView) {
     AddNewStats addNewStats = new AddNewStats(resources, model, model.getStatsCreationFactory());
-    addNewStats.addTool(new MeleeStatsConfiguration(), statsListView);
-    addNewStats.addTool(new RangedStatsConfiguration(), statsListView);
+    addNewStats.addTool(new WeaponStatsConfiguration(), statsListView);
     addNewStats.addTool(new ArmourStatsConfiguration(), statsListView);
     addNewStats.addTool(new ArtifactStatsConfiguration(), statsListView);
     addNewStats.addTool(new TraitModifierStatsConfiguration(), statsListView);
