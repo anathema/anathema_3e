@@ -15,7 +15,6 @@ import java.util.List;
 
 import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getTreeCategory;
 
 public class CharmOptionRulesImpl implements CharmOptionRules {
 
@@ -42,16 +41,16 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
   public List<CategoryReference> getAllCategories() {
     List<CategoryReference> categories = new ArrayList<>();
     for(CharacterType type: characterTypes) {
-      categories.add(getTreeCategory(type));
+      categories.add(MartialArtsUtilities.getCategory(type));
     }
-    categories.add(getTreeCategory(MARTIAL_ARTS));
+    categories.add(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
     return categories;
   }
 
   @Override
   public List<CategoryReference> getNativeCategories() {
-    CategoryReference typeCategory = getTreeCategory(getNativeCharacterType());
-    CategoryReference martialArtsCategory = getTreeCategory(MARTIAL_ARTS);
+    CategoryReference typeCategory = MartialArtsUtilities.getCategory(getNativeCharacterType());
+    CategoryReference martialArtsCategory = MartialArtsUtilities.getCategory(MARTIAL_ARTS);
     return asList(typeCategory, martialArtsCategory);
   }
 

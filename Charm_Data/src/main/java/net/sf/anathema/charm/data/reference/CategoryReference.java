@@ -1,11 +1,18 @@
 package net.sf.anathema.charm.data.reference;
 
-public class CategoryReference {
+import net.sf.anathema.lib.util.Identifier;
+
+public class CategoryReference implements Identifier {
 
   public final String text;
 
-  public CategoryReference(String charmName) {
-    this.text = charmName;
+  public CategoryReference(String id) {
+    this.text = id;
+  }
+
+  @Override
+  public String getId() {
+    return text;
   }
 
   @Override

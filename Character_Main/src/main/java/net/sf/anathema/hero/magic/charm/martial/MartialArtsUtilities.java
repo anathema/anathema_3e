@@ -56,7 +56,7 @@ public class MartialArtsUtilities {
     return new CategoryReference(categoryText);
   }
 
-  public static CategoryReference getTreeCategory(Identifier identifier) {
+  public static CategoryReference getCategory(Identifier identifier) {
     return new CategoryReference(identifier.getId());
   }
 }

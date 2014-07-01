@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.tree;
 
+import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.charms.display.coloring.CharacterColoringStrategy;
 import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
-import net.sf.anathema.hero.charms.display.model.CharacterCharmTypes;
 import net.sf.anathema.hero.charms.display.model.CharacterGroupCollection;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
@@ -47,7 +47,7 @@ public class CharacterCharmTreePresenter {
     ConfigurableCharmDye colorist = new ConfigurableCharmDye(charmGroupChangeListener,
             new CharacterColoringStrategy(presentationProperties.getColor(), model));
     cascadePresenter.setCharmTreeCollectionMap(new CharacterCharmTreeMap(model));
-    cascadePresenter.setCharmTypes(new CharacterCharmTypes(model));
+    cascadePresenter.setCategoryCollection(new CharacterCategoryCollection(model));
     cascadePresenter.setChangeListener(charmGroupChangeListener);
     cascadePresenter.setView(view);
     SpecialCharmViewBuilder specialViewBuilder = new AgnosticSpecialCharmViewBuilder(resources, charmConfiguration, view);

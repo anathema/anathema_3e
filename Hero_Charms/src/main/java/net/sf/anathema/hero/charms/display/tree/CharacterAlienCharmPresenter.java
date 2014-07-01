@@ -1,11 +1,14 @@
 package net.sf.anathema.hero.charms.display.tree;
 
-import net.sf.anathema.hero.charms.display.model.CharacterCharmTypes;
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.util.Identifier;
+
+import java.util.List;
 
 public class CharacterAlienCharmPresenter implements AlienCharmPresenter {
 
@@ -25,8 +28,8 @@ public class CharacterAlienCharmPresenter implements AlienCharmPresenter {
         if (!alienCharms) {
           charmConfiguration.forgetAllAlienCharms();
         }
-        Identifier[] currentCharmTypes = new CharacterCharmTypes(model).getCurrentCharmTypes();
-        typeSelector.setObjects(currentCharmTypes);
+        List<CategoryReference> categories = new CharacterCategoryCollection(model).getCurrentCategories();
+        typeSelector.setObjects(categories.toArray(new CategoryReference[categories.size()]));
       }
     });
   }

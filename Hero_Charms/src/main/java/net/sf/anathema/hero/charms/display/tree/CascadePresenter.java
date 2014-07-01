@@ -1,29 +1,25 @@
 package net.sf.anathema.hero.charms.display.tree;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.hero.charms.display.coloring.CharmDye;
+import net.sf.anathema.hero.charms.display.model.CategoryCollection;
+import net.sf.anathema.hero.charms.display.special.NullSpecialCharmPresenter;
+import net.sf.anathema.hero.charms.display.special.SpecialCharmViewPresenter;
+import net.sf.anathema.hero.charms.display.view.*;
+import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.points.display.overview.presenter.SelectIdentifierConfiguration;
-import net.sf.anathema.hero.charms.display.coloring.CharmDye;
-import net.sf.anathema.hero.charms.display.model.CharmTypes;
-import net.sf.anathema.hero.charms.display.special.NullSpecialCharmPresenter;
-import net.sf.anathema.hero.charms.display.special.SpecialCharmViewPresenter;
-import net.sf.anathema.hero.charms.display.view.CharmView;
-import net.sf.anathema.hero.charms.display.view.DefaultFunctionalNodeProperties;
-import net.sf.anathema.hero.charms.display.view.DefaultNodePresentationProperties;
-import net.sf.anathema.hero.charms.display.view.DefaultTooltipProperties;
-import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
-import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.CascadeLoadedListener;
 import net.sf.anathema.platform.tree.display.TreeView;
+import net.sf.anathema.points.display.overview.presenter.SelectIdentifierConfiguration;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -38,7 +34,7 @@ public class CascadePresenter {
   private ICharmGroupChangeListener changeListener;
   private CharmView view;
   private CharmDye dye;
-  private CharmTypes charmTypes;
+  private CategoryCollection categoryCollection;
   protected CharmTreeCollection charmTrees;
   private SpecialCharmViewPresenter specialCharmPresenter = new NullSpecialCharmPresenter();
   private AlienCharmPresenter alienPresenter = new NullAlienCharmPresenter();
@@ -106,11 +102,11 @@ public class CascadePresenter {
   }
 
   private ObjectSelectionView<Identifier> createCharmTypeSelector() {
-    Identifier[] types = charmTypes.getCurrentCharmTypes();
+    List<CategoryReference> categories = categoryCollection.getCurrentCategories();
     String title = getResources().getString("CharmTreeView.GUI.CharmType");
     SelectIdentifierConfiguration<Identifier> config = new SelectIdentifierConfiguration<>(resources);
     ObjectSelectionView<Identifier> typeSelector = view.addSelectionView(title, config);
-    typeSelector.setObjects(types);
+    typeSelector.setObjects(categories.toArray(new CategoryReference[categories.size()]));
     typeSelector.setSelectedObject(null);
     return typeSelector;
   }
@@ -147,8 +143,8 @@ public class CascadePresenter {
     this.dye = dye;
   }
 
-  public void setCharmTypes(CharmTypes types) {
-    this.charmTypes = types;
+  public void setCategoryCollection(CategoryCollection types) {
+    this.categoryCollection = types;
   }
 
   private void handleTypeSelectionChange(Identifier cascadeType, ObjectSelectionView<Identifier> groupSelector) {
