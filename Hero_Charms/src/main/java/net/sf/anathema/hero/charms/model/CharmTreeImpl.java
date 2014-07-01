@@ -1,9 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.lib.util.Identifier;
 
 public class CharmTreeImpl implements CharmTree, Identifier {
@@ -38,7 +36,7 @@ public class CharmTreeImpl implements CharmTree, Identifier {
 
   @Override
   public boolean isCharmFromTree(Charm charm) {
-    TreeReference referenceOfCharm = MartialArtsUtilities.getTreeReference(charm);
+    TreeReference referenceOfCharm = charm.getTreeReference();
     return referenceOfCharm.equals(reference);
   }
 }
