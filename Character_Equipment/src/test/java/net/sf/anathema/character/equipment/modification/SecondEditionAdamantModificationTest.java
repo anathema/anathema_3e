@@ -3,7 +3,7 @@ package net.sf.anathema.character.equipment.modification;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import org.junit.Test;
 
-public class SecondEditionAdamantModificiationTest extends AbstractEquipmentModificationTest {
+public class SecondEditionAdamantModificationTest extends AbstractEquipmentModificationTest {
 
   @Test
   public void accuracyUnmodified() throws Exception {
