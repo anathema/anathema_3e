@@ -2,13 +2,20 @@ package net.sf.anathema.character.equipment.creation.model;
 
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
-import net.sf.anathema.lib.control.IBooleanValueChangedListener;
 import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Lethal;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Light;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getDamageTags;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getRangeTags;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getRangedWeaponExclusiveTags;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getRangedWeaponTypeTags;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getSizeTags;
 
 public class WeaponTagsModel implements IWeaponTagsModel {
 
@@ -20,9 +27,12 @@ public class WeaponTagsModel implements IWeaponTagsModel {
       selectedMap.put(tag, new BooleanValueModel(false));
       enabledMap.put(tag, new BooleanValueModel(true));
     }
-    IBooleanValueChangedListener updateRangeEnabledListener = newValue -> setTagsRangedCombatStyle();
-    for (WeaponTag rangedTag : WeaponTag.getRangedWeaponTypeTags()) {
-      getSelectedModel(rangedTag).addChangeListener(updateRangeEnabledListener);
+    enableRangedCombatTags();
+    updateOnChange(getSizeTags());
+    updateOnChange(getDamageTags());
+    updateOnChange(getRangeTags());
+    for (WeaponTag typeTag : getRangedWeaponTypeTags()) {
+      getSelectedModel(typeTag).addChangeListener(newValue -> enableRangedCombatTags());
     }
   }
 
@@ -56,21 +66,6 @@ public class WeaponTagsModel implements IWeaponTagsModel {
     return getSelectedModel(tag).getValue();
   }
 
-  private void setAllCloseCombatTagsEnabled(boolean enabled) {
-    for (WeaponTag tag : WeaponTag.getMeleeWeaponTags()) {
-      setEnabled(enabled, tag);
-    }
-  }
-
-  private void setAllRangedWeaponTagsEnabled(boolean enabled) {
-    for (WeaponTag tag : WeaponTag.getRangedWeaponTypeTags()) {
-      setEnabled(enabled, tag);
-    }
-    for (WeaponTag tag : WeaponTag.getRangedWeaponTags()) {
-      setEnabled(enabled, tag);
-    }
-  }
-
   private void setEnabled(boolean enabled, WeaponTag tag) {
     getEnabledModel(tag).setValue(enabled);
     if (!enabled) {
@@ -78,47 +73,84 @@ public class WeaponTagsModel implements IWeaponTagsModel {
     }
   }
 
-  @Override
-  public void setTagsCloseCombatStyle() {
-    setAllRangedWeaponTagsEnabled(false);
-    setAllCloseCombatTagsEnabled(true);
+  private void updateOnChange(WeaponTag[] tags) {
+    for (WeaponTag sizeTag : tags) {
+      getSelectedModel(sizeTag).addChangeListener(newValue -> allowOneOrAll(tags));
+    }
+  }
+
+  private void enableRangedCombatTags() {
+    if (isRangedTypeTagSelected()) {
+      allowOnlyOne(getRangedWeaponTypeTags());
+      allowAll(getRangedWeaponExclusiveTags());
+    } else {
+      allowAll(getRangedWeaponTypeTags());
+      allowNone(getRangedWeaponExclusiveTags());
+    }
   }
 
   @Override
-  public void setTagsRangedCombatStyle() {
-    setAllCloseCombatTagsEnabled(false);
-    if (isRangedTypeTagSelected()) {
-      for (WeaponTag tag : WeaponTag.getRangedWeaponTypeTags()) {
-        getEnabledModel(tag).setValue(isSelected(tag));
-      }
-    } else {
-      setAllRangedWeaponTagsEnabled(true);
+  public boolean isSizeSelected() {
+    return isAnySelected(getSizeTags());
+  }
+
+  @Override
+  public void makeValid() {
+    if (!isSizeSelected()) {
+      getSelectedModel(Light).setValue(true);
     }
+    if (!isDamageTypeSelected()) {
+      getSelectedModel(Lethal).setValue(true);
+    }
+  }
+
+  @Override
+  public boolean isDamageTypeSelected() {
+    return isAnySelected(getDamageTags());
   }
 
   @Override
   public boolean isRangedTypeTagSelected() {
-    int selectionCount = 0;
-    for (WeaponTag tag : WeaponTag.getRangedWeaponTypeTags()) {
-      if (isSelected(tag)) {
-        selectionCount++;
-      }
-    }
-    return selectionCount == 1;
+    return isAnySelected(getRangedWeaponTypeTags());
   }
 
   @Override
-  public boolean isThrownTypeTagSelected() {
-    return isSelected(WeaponTag.Thrown);
+  public boolean isRangeSelected() {
+    return isAnySelected(getRangeTags());
   }
 
-  @Override
-  public boolean isThrownWeaponTagSelected() {
-    for (WeaponTag tag : WeaponTag.getThrownWeaponTags()) {
+  private boolean isAnySelected(WeaponTag[] tags) {
+    for (WeaponTag tag : tags) {
       if (isSelected(tag)) {
         return true;
       }
     }
     return false;
+  }
+
+  private void allowOneOrAll(WeaponTag[] tags) {
+    if (isAnySelected(tags)) {
+      allowOnlyOne(tags);
+    } else {
+      allowAll(tags);
+    }
+  }
+
+  private void allowNone(WeaponTag[] tags) {
+    for (WeaponTag tag : tags) {
+      setEnabled(false, tag);
+    }
+  }
+
+  private void allowAll(WeaponTag[] tags) {
+    for (WeaponTag tag : tags) {
+      setEnabled(true, tag);
+    }
+  }
+
+  private void allowOnlyOne(WeaponTag[] tags) {
+    for (WeaponTag tag : tags) {
+      setEnabled(isSelected(tag), tag);
+    }
   }
 }

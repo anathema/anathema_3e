@@ -3,7 +3,6 @@ package net.sf.anathema.character.equipment.view;
 import net.sf.anathema.character.equipment.character.IEquipmentStringBuilder;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DemoNaturalArmour;
-import net.sf.anathema.character.equipment.dummy.DemoRangeWeapon;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.dummy.DummyResources;
@@ -40,18 +39,6 @@ public class EquipmentStringBuilderTest {
   public void testMeleeWeapon() {
     DemoMeleeWeapon weapon = new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 5, 2, 7, 1, HealthType.Lethal, -1, 0, 2);
     assertEquals("Sword (Melee): Speed:5 Acc:+2 Dam:+7L Def:-1 Rate:2", equipmentStringBuilder.createString(null, weapon));
-  }
-
-  @Test
-  public void testFixedDamageRangedWeapon() {
-    DemoRangeWeapon weapon = new DemoRangeWeapon(new SimpleIdentifier("Bow"), 5, 2, 17, 1, HealthType.Bashing, 200, 4, false);
-    assertEquals("Bow (Martial Arts): Speed:5 Acc:+2 Dam:17B Range:200 Rate:4", equipmentStringBuilder.createString(null, weapon));
-  }
-
-  @Test
-  public void testNoDamageRangedWeapon() {
-    DemoRangeWeapon weapon = new DemoRangeWeapon(new SimpleIdentifier("Bow"), 5, 2, 17, 1, HealthType.Bashing, 200, 4, true);
-    assertEquals("Bow (Martial Arts): Speed:5 Acc:+2 Dam:- Range:200 Rate:4", equipmentStringBuilder.createString(null, weapon));
   }
 
   @Test

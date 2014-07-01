@@ -5,9 +5,7 @@ import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
-import net.sf.anathema.character.equipment.creation.presenter.IOffensiveStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
-import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
@@ -24,16 +22,12 @@ public class StatsToModel {
     EquipmentStatisticsCreationModel model = new EquipmentStatisticsCreationModel();
     if (stats instanceof IWeaponStats) {
       IWeaponStats weaponStats = (IWeaponStats) stats;
-      fillWeaponTagsModel(model.getWeaponTagsModel(), weaponStats);
-      if (!weaponStats.isRangedCombat()) {
-        model.setEquipmentType(EquipmentStatisticsType.CloseCombat);
-        fillOffensiveModel(model.getCloseCombatStatsticsModel(), weaponStats);
-        model.getCloseCombatStatsticsModel().getDefenseModel().setValue(weaponStats.getDefence());
-      } else {
-        model.setEquipmentType(EquipmentStatisticsType.RangedCombat);
-        fillOffensiveModel(model.getRangedWeaponStatisticsModel(), weaponStats);
-        model.getRangedWeaponStatisticsModel().getRangeModel().setValue(weaponStats.getRange());
+      model.setEquipmentType(EquipmentStatisticsType.Weapon);
+      model.getWeaponModel().getName().setText(weaponStats.getName().getId());
+      for (Identifier tag : weaponStats.getTags()) {
+        model.getWeaponTagsModel().getSelectedModel((WeaponTag) tag).setValue(true);
       }
+      model.getWeaponTagsModel().makeValid();
     } else if (stats instanceof IArmourStats) {
       IArmourStats armourStats = (IArmourStats) stats;
       model.setEquipmentType(EquipmentStatisticsType.Armor);
@@ -46,7 +40,9 @@ public class StatsToModel {
       armourModel.getAggravatedSoakModel().setValue(armourStats.getSoak(HealthType.Aggravated));
       armourModel.getFatigueModel().setValue(armourStats.getFatigue());
       armourModel.getMobilityPenaltyModel().setValue(armourStats.getMobilityPenalty());
-    } else if (stats instanceof ArtifactStats) {
+    } else if (stats instanceof ArtifactStats)
+
+    {
       ArtifactStats artifactStats = (ArtifactStats) stats;
       model.setEquipmentType(Artifact);
       IArtifactStatisticsModel artifactModel = model.getArtifactStatisticsModel();
@@ -54,7 +50,9 @@ public class StatsToModel {
       artifactModel.getAttuneCostModel().setValue(artifactStats.getAttuneCost());
       artifactModel.getForeignAttunementModel().setValue(artifactStats.allowForeignAttunement());
       artifactModel.getRequireAttunementModel().setValue(artifactStats.requireAttunementToUse());
-    } else if (stats instanceof ITraitModifyingStats) {
+    } else if (stats instanceof ITraitModifyingStats)
+
+    {
       ITraitModifyingStats modifierStats = (ITraitModifyingStats) stats;
       model.setEquipmentType(EquipmentStatisticsType.TraitModifying);
       ITraitModifyingStatisticsModel modifierModel = model.getTraitModifyingStatisticsModel();
@@ -75,22 +73,7 @@ public class StatsToModel {
       modifierModel.getJoinDebateModel().setValue(modifierStats.getJoinDebateMod());
       modifierModel.getJoinWarModel().setValue(modifierStats.getJoinWarMod());
     }
+
     return model;
-  }
-
-  private void fillWeaponTagsModel(IWeaponTagsModel weaponTagsModel, IWeaponStats weaponStats) {
-    for (Identifier tag : weaponStats.getTags()) {
-      weaponTagsModel.getSelectedModel((WeaponTag) tag).setValue(true);
-    }
-  }
-
-  private void fillOffensiveModel(IOffensiveStatisticsModel offensiveModel, IWeaponStats weaponStats) {
-    offensiveModel.getAccuracyModel().setValue(weaponStats.getAccuracy());
-    offensiveModel.getName().setText(weaponStats.getName().getId());
-    offensiveModel.getRateModel().setValue(weaponStats.getRate());
-    offensiveModel.getSpeedModel().setValue(weaponStats.getSpeed());
-    offensiveModel.getWeaponDamageModel().getDamageModel().setValue(weaponStats.getDamage());
-    offensiveModel.getWeaponDamageModel().getMinDamageModel().setValue(weaponStats.getMinimumDamage());
-    offensiveModel.getWeaponDamageModel().setHealthType(weaponStats.getDamageType());
   }
 }

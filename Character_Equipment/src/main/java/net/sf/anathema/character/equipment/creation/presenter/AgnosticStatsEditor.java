@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.character.equipment.creation.presenter.stats.properties.WeaponDamageProperties;
+import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TagPageProperties;
 import net.sf.anathema.character.equipment.item.model.ModelToStats;
 import net.sf.anathema.character.equipment.item.model.NullClosure;
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
@@ -12,9 +12,8 @@ import net.sf.anathema.lib.util.Closure;
 
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Armor;
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Artifact;
-import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.CloseCombat;
-import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.RangedCombat;
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.TraitModifying;
+import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Weapon;
 
 public class AgnosticStatsEditor implements StatsEditor {
 
@@ -33,10 +32,8 @@ public class AgnosticStatsEditor implements StatsEditor {
   }
 
   private void initPresentation(Resources resources, IEquipmentStatisticsCreationModel model, EquipmentStatsDialog dialog) {
-    if (CloseCombat == model.getEquipmentType()) {
-      initCloseCombatPresentation(resources, model, dialog);
-    } else if (RangedCombat == model.getEquipmentType()) {
-      initRangedCombatPresentation(resources, model, dialog);
+    if (Weapon == model.getEquipmentType()) {
+      initWeaponPresentation(resources, model, dialog);
     } else if (Armor == model.getEquipmentType()) {
       initArmourPresentation(resources, model, dialog);
     } else if (Artifact == model.getEquipmentType()) {
@@ -46,23 +43,13 @@ public class AgnosticStatsEditor implements StatsEditor {
     }
   }
 
-  private void initCloseCombatPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
-                                           EquipmentStatsDialog dialog) {
+  private void initWeaponPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
+                                      EquipmentStatsDialog dialog) {
     EquipmentStatsView view = dialog.getEquipmentStatsView();
-    ICloseCombatStatsticsModel closeModel = model.getCloseCombatStatsticsModel();
+    IEquipmentStatisticsModel nameModel = model.getWeaponModel();
     IWeaponTagsModel tagModel = model.getWeaponTagsModel();
-    new GeneralStatsPresenter(view, dialog, closeModel, model, resources).initPresentation();
-    new CloseCombatStatisticsPresenter(closeModel, tagModel, view, resources).initPresentation();
-  }
-
-  private void initRangedCombatPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
-                                            EquipmentStatsDialog dialog) {
-    EquipmentStatsView view = dialog.getEquipmentStatsView();
-    IRangedCombatStatisticsModel rangedModel = model.getRangedWeaponStatisticsModel();
-    IWeaponTagsModel tagModel = model.getWeaponTagsModel();
-    WeaponDamageProperties damageProperties = new WeaponDamageProperties(resources);
-    new GeneralStatsPresenter(view, dialog, rangedModel, model, resources).initPresentation();
-    new RangedStatisticsPresenter(rangedModel, tagModel, view, damageProperties, resources).initPresentation();
+    new GeneralStatsPresenter(view, dialog, nameModel, model, resources).initPresentation();
+    new BasicWeaponPresenter(tagModel, view, new TagPageProperties(resources)).initPresentation();
   }
 
   private void initArtifactPresentation(Resources resources, IEquipmentStatisticsCreationModel model,

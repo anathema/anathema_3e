@@ -3,9 +3,8 @@ package net.sf.anathema.character.equipment.impl.item.model.gson;
 import net.sf.anathema.character.equipment.character.model.EquipmentTemplate;
 import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
-import net.sf.anathema.character.equipment.character.model.stats.MeleeWeaponStats;
-import net.sf.anathema.character.equipment.character.model.stats.RangedWeaponStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
+import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
 import net.sf.anathema.character.equipment.item.model.gson.EquipmentGson;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
@@ -24,9 +23,9 @@ public class EquipmentGsonTest {
 
   @Test
   public void mentionsTypeInMeleeWeaponStats() throws Exception {
-    MeleeWeaponStats meleeWeapon = GsonStatMother.createMeleeWeapon();
+    WeaponStats meleeWeapon = GsonStatMother.createMeleeWeapon();
     String json = serializeWithStats(meleeWeapon);
-    assertThat(json.contains("Melee Weapon"), is(true));
+    assertThat(json.contains("Weapon"), is(true));
   }
 
   @Test
@@ -47,23 +46,8 @@ public class EquipmentGsonTest {
 
   @Test
   public void roundTripForMeleeWeapon() throws Exception {
-    MeleeWeaponStats meleeWeapon = GsonStatMother.createMeleeWeapon();
+    WeaponStats meleeWeapon = GsonStatMother.createMeleeWeapon();
     String json = serializeWithStats(meleeWeapon);
-    IEquipmentTemplate readTemplate = deserialize(json);
-    assertThat(gson.toJson(readTemplate), is(json));
-  }
-
-  @Test
-  public void mentionsTypeInRangedWeaponStats() throws Exception {
-    RangedWeaponStats rangedWeapon = GsonStatMother.createRangedWeapon();
-    String json = serializeWithStats(rangedWeapon);
-    assertThat(json.contains("Ranged Weapon"), is(true));
-  }
-
-  @Test
-  public void roundTripForRangedWeapon() throws Exception {
-    RangedWeaponStats rangedWeapon = GsonStatMother.createRangedWeapon();
-    String json = serializeWithStats(rangedWeapon);
     IEquipmentTemplate readTemplate = deserialize(json);
     assertThat(gson.toJson(readTemplate), is(json));
   }

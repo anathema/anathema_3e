@@ -6,10 +6,6 @@ public interface IEquipmentStatisticsCreationModel {
 
   void setEquipmentType(EquipmentStatisticsType type);
 
-  ICloseCombatStatsticsModel getCloseCombatStatsticsModel();
-
-  IRangedCombatStatisticsModel getRangedWeaponStatisticsModel();
-
   IArmourStatisticsModel getArmourStatisticsModel();
   
   IArtifactStatisticsModel getArtifactStatisticsModel();
@@ -23,4 +19,6 @@ public interface IEquipmentStatisticsCreationModel {
   boolean isNameUnique(String name);
 
   void setForbiddenNames(String[] definedNames);
+
+  IEquipmentStatisticsModel getWeaponModel();
 }

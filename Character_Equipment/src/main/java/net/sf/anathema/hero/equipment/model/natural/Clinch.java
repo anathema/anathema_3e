@@ -41,7 +41,7 @@ public class Clinch extends AbstractNaturalWeaponStats {
 
   @Override
   public Identifier[] getTags() {
-    return new Identifier[]{WeaponTag.ClinchEnhancer, WeaponTag.Natural, WeaponTag.Piercing};
+    return new Identifier[]{WeaponTag.Natural};
   }
 
   @Override

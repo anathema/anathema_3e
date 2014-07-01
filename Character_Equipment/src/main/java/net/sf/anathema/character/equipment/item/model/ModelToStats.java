@@ -1,22 +1,16 @@
 package net.sf.anathema.character.equipment.item.model;
 
 import net.sf.anathema.character.equipment.character.model.stats.AbstractStats;
-import net.sf.anathema.character.equipment.character.model.stats.AbstractWeaponStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
-import net.sf.anathema.character.equipment.character.model.stats.MeleeWeaponStats;
-import net.sf.anathema.character.equipment.character.model.stats.RangedWeaponStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
+import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
-import net.sf.anathema.character.equipment.creation.presenter.ICloseCombatStatsticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsModel;
-import net.sf.anathema.character.equipment.creation.presenter.IOffensiveStatisticsModel;
-import net.sf.anathema.character.equipment.creation.presenter.IRangedCombatStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
-import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
@@ -36,18 +30,14 @@ public class ModelToStats {
           armourStats.setHardness(healthType, armourModel.getHardnessModel(healthType).getValue());
         }
         return armourStats;
-      case CloseCombat:
-        AbstractWeaponStats closeCombatStats = new MeleeWeaponStats();
-        ICloseCombatStatsticsModel closeCombatModel = model.getCloseCombatStatsticsModel();
-        setBasicWeaponStats(closeCombatStats, closeCombatModel, model.getWeaponTagsModel());
-        closeCombatStats.setDefence(closeCombatModel.getDefenseModel().getValue());
-        return closeCombatStats;
-      case RangedCombat:
-        AbstractWeaponStats rangedCombatStats = new RangedWeaponStats();
-        IRangedCombatStatisticsModel rangedCombatModel = model.getRangedWeaponStatisticsModel();
-        setBasicWeaponStats(rangedCombatStats, rangedCombatModel, model.getWeaponTagsModel());
-        rangedCombatStats.setRange(rangedCombatModel.getRangeModel().getValue());
-        return rangedCombatStats;
+      case Weapon:
+        WeaponStats weaponStats = new WeaponStats();
+        IEquipmentStatisticsModel weaponModel = model.getWeaponModel();
+        setName(weaponStats, weaponModel);
+        for (IWeaponTag tag : model.getWeaponTagsModel().getSelectedTags()) {
+          weaponStats.addTag(tag);
+        }
+        return weaponStats;
       case Artifact:
         ArtifactStats artifactStats = new ArtifactStats();
         IArtifactStatisticsModel artifactModel = model.getArtifactStatisticsModel();
@@ -78,19 +68,6 @@ public class ModelToStats {
         return modifierStats;
     }
     return null;
-  }
-
-  private void setBasicWeaponStats(AbstractWeaponStats stats, IOffensiveStatisticsModel model, IWeaponTagsModel tagsModel) {
-    setName(stats, model);
-    stats.setAccuracy(model.getAccuracyModel().getValue());
-    stats.setDamage(model.getWeaponDamageModel().getDamageModel().getValue());
-    stats.setMinimumDamage(model.getWeaponDamageModel().getMinDamageModel().getValue());
-    stats.setDamageType(model.getWeaponDamageModel().getHealthType());
-    stats.setRate(model.getRateModel().getValue());
-    stats.setSpeed(model.getSpeedModel().getValue());
-    for (IWeaponTag tag : tagsModel.getSelectedTags()) {
-      stats.addTag(tag);
-    }
   }
 
   private void setName(AbstractStats stats, IEquipmentStatisticsModel model) {
