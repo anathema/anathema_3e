@@ -62,7 +62,7 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
   private final void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
     for (Charm charm : charms) {
       TreeName treeName = new TreeName(charm.getGroupId());
-      if (!treeNameList.contains(treeName) && optionCheck.isValidOptionForHeroesType(charm)) {
+      if (!treeNameList.contains(treeName) && optionCheck.isValidOptionForHeroType(charm)) {
         treeNameList.add(treeName);
         List<Charm> treeCharms = getAllCharmsForTree(treeName.text);
         Charm[] charmArray = treeCharms.toArray(new Charm[treeCharms.size()]);

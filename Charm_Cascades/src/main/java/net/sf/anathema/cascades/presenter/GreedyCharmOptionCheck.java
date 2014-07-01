@@ -5,7 +5,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 public class GreedyCharmOptionCheck implements CharmOptionCheck {
   @Override
-  public boolean isValidOptionForHeroesType(Charm charm) {
+  public boolean isValidOptionForHeroType(Charm charm) {
     return true;
   }
 }

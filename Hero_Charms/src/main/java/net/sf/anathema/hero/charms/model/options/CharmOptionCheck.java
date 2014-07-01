@@ -4,5 +4,5 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 public interface CharmOptionCheck {
 
-  boolean isValidOptionForHeroesType(Charm charm);
+  boolean isValidOptionForHeroType(Charm charm);
 }

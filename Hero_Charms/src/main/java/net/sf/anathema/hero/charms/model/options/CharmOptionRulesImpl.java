@@ -30,7 +30,7 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
   }
 
   @Override
-  public boolean isValidOptionForHeroesType(Charm charm) {
+  public boolean isValidOptionForHeroType(Charm charm) {
     MartialArtsLevel level = MartialArtsUtilities.getLevel(charm);
     if (level != null) {
       return level.compareTo(standardLevel) <= 1;

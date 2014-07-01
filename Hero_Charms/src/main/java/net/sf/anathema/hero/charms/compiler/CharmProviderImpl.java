@@ -45,7 +45,7 @@ public class CharmProviderImpl implements CharmProvider {
     ISpecialCharm[] allSpecialCharms = getAllSpecialCharms(preferredType);
     for (ISpecialCharm specialCharm : allSpecialCharms) {
       Charm charm = map.getCharmById(specialCharm.getCharmId());
-      if (charm != null && check.isValidOptionForHeroesType(charm)) {
+      if (charm != null && check.isValidOptionForHeroType(charm)) {
         relevantCharms.add(specialCharm);
       }
     }
