@@ -13,8 +13,6 @@ import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
 import net.sf.anathema.lib.util.Identifier;
@@ -31,19 +29,20 @@ public class CharmOptions {
   private final CharacterTypeList availableTypes;
   private final Map<Identifier, CharmTreeCategory> treesByType = new HashMap<>();
   private final Hero hero;
-  private final MartialArtsCharmTreeCategory martialArtsCharmTree;
+  private final CharmTreeCategory martialArtsCharmTree;
   private final CharmProvider charmProvider;
+  private final CharmOptionCheck optionCheck;
 
   public CharmOptions(CharmProvider charmProvider, CharmsRules charmsRules, Hero hero, CharacterTypes characterTypes) {
     this.charmProvider = charmProvider;
     this.hero = hero;
     this.charmsRules = charmsRules;
-    MartialArtsLevel standardLevel = charmsRules.getMartialArtsRules().getStandardLevel();
-    this.martialArtsCharmTree = new MartialArtsCharmTreeCategory(charmProvider, standardLevel);
+    this.optionCheck = new CharmOptionCheckImpl(charmsRules);
+    this.martialArtsCharmTree = CharmTreeCategoryImpl.ForMartialArts(optionCheck, charmProvider);
     this.availableTypes = new CharacterTypeList(charmProvider);
     availableTypes.collectAvailableTypes(getNativeCharacterType(), characterTypes);
     for (CharacterType type : availableTypes) {
-      treesByType.put(type, new NonMartialArtsCharmTreeCategoryImpl(charmProvider, type));
+      treesByType.put(type,  CharmTreeCategoryImpl.ForNonMartialArts(optionCheck, charmProvider, type));
     }
   }
 
@@ -67,8 +66,7 @@ public class CharmOptions {
   }
 
   public ISpecialCharm[] getSpecialCharms() {
-    ICharmLearnableArbitrator arbitrator = charm -> !isMartialArts(charm) || martialArtsCharmTree.isLearnable(charm);
-    return charmProvider.getSpecialCharms(arbitrator, getCharmIdMap(), getNativeCharacterType());
+    return charmProvider.getSpecialCharms(optionCheck, getCharmIdMap(), getNativeCharacterType());
   }
 
   public boolean isAlienType(TreeCategory category) {

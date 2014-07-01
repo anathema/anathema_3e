@@ -11,6 +11,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getTreeCategory;
+
 public class CascadeCharmTypes extends AbstractCharmTypes {
   private final CharacterTypes characterTypes;
   private CharmProvider charmProvider;
@@ -24,7 +26,7 @@ public class CascadeCharmTypes extends AbstractCharmTypes {
   protected List<Identifier> getCurrentCharacterTypes() {
     Set<Identifier> set = new LinkedHashSet<>();
     for (CharacterType type : characterTypes) {
-       if (charmProvider.getCharms(type).length > 0) {
+       if (charmProvider.getCharms(getTreeCategory(type)).length > 0) {
         set.add(type);
       }
     }

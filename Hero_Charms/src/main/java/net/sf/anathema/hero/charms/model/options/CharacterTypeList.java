@@ -3,10 +3,13 @@ package net.sf.anathema.hero.charms.model.options;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getTreeCategory;
 
 public class CharacterTypeList implements Iterable<CharacterType> {
   private final List<CharacterType> availableTypes = new ArrayList<>();
@@ -18,7 +21,7 @@ public class CharacterTypeList implements Iterable<CharacterType> {
 
   public void collectAvailableTypes(CharacterType nativeCharacterType, CharacterTypes characterTypes) {
     for (CharacterType type : characterTypes) {
-      if (charmProvider.getCharms(type).length > 0) {
+      if (charmProvider.getCharms(getTreeCategory(type)).length > 0) {
         availableTypes.add(type);
       }
     }

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -28,13 +28,8 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public Charm[] getMartialArtsCharms() {
-    return getCharms(MARTIAL_ARTS.getId());
-  }
-
-  @Override
-  public Charm[] getCharms(CharacterType characterType) {
-    return getCharms(characterType.getId());
+  public Charm[] getCharms(TreeCategory category) {
+    return getCharms(category.text);
   }
 
   private Charm[] getCharms(String id) {
@@ -45,12 +40,12 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms(ICharmLearnableArbitrator arbitrator, CharmIdMap map, Identifier preferredType) {
+  public ISpecialCharm[] getSpecialCharms(CharmOptionCheck check, CharmIdMap map, Identifier preferredType) {
     List<ISpecialCharm> relevantCharms = new ArrayList<>();
     ISpecialCharm[] allSpecialCharms = getAllSpecialCharms(preferredType);
     for (ISpecialCharm specialCharm : allSpecialCharms) {
       Charm charm = map.getCharmById(specialCharm.getCharmId());
-      if (charm != null && arbitrator.isLearnable(charm)) {
+      if (charm != null && check.isValidOptionForHeroesType(charm)) {
         relevantCharms.add(specialCharm);
       }
     }

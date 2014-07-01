@@ -30,9 +30,9 @@ public class CharmTreeImplTest {
 
   @Test
   public void identifiesContainedCharm() throws Exception {
-    CharmTreeImpl group = createGroupWithCharacterType(new DummyExaltCharacterType());
+    CharmTreeImpl tree = createGroupWithCharacterType(new DummyExaltCharacterType());
     Charm charm = CharmMother.createCharmForCharacterTypeFromGroup(new DummyExaltCharacterType(), Default_Group_Id);
-    assertThat(group.isCharmFromTree(charm), is(true));
+    assertThat(tree.isCharmFromTree(charm), is(true));
 
   }
 

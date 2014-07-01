@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.reference.*;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.text.MessageFormat;
@@ -53,5 +54,9 @@ public class MartialArtsUtilities {
   public static TreeCategory getTreeCategory(Charm charm) {
     String categoryText = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
     return new TreeCategory(categoryText);
+  }
+
+  public static TreeCategory getTreeCategory(Identifier identifier) {
+    return new TreeCategory(identifier.getId());
   }
 }

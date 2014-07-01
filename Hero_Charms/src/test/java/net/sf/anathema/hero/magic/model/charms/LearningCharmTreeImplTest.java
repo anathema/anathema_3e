@@ -9,6 +9,7 @@ import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -32,19 +33,19 @@ public class LearningCharmTreeImplTest {
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, String groupId) {
     DummyExaltCharacterType type = new DummyExaltCharacterType();
     ICharmLearnStrategy learnStrategy = new CreationCharmLearnStrategy();
-    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(new TreeCategory(type.getId()));
+    CharmTreeCategoryImpl treeCategory = DummyCharmTreeCategory.Create(new TreeCategory(type.getId()));
     TreeReference reference = new TreeReference(new TreeCategory(type.getId()), new TreeName(groupId));
     CharmTreeImpl group = new CharmTreeImpl(reference,
-            charmTree.getAllCharmsForTree(groupId).toArray(new Charm[charmTree.getAllCharmsForTree(groupId).size()]));
+            treeCategory.getAllCharmsForTree(groupId).toArray(new Charm[treeCategory.getAllCharmsForTree(groupId).size()]));
     return new LearningCharmTreeImpl(learnStrategy, group, learnableArbitrator, container);
   }
 
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator,
-                                                 DummyCharmTreeCategory charmTree, String groupId) {
+                                                 CharmTreeCategoryImpl treeCategory, String groupId) {
     ICharmLearnStrategy learnSrategy = new CreationCharmLearnStrategy();
     TreeReference reference = new TreeReference(new TreeCategory(new DummyExaltCharacterType().getId()), new TreeName(groupId));
     CharmTreeImpl group = new CharmTreeImpl(reference,
-            charmTree.getAllCharmsForTree(groupId).toArray(new Charm[charmTree.getAllCharmsForTree(groupId).size()]));
+            treeCategory.getAllCharmsForTree(groupId).toArray(new Charm[treeCategory.getAllCharmsForTree(groupId).size()]));
     return new LearningCharmTreeImpl(learnSrategy, group, learnableArbitrator, container);
   }
 
@@ -81,12 +82,12 @@ public class LearningCharmTreeImplTest {
             new DummyCharm(externalPrerequisiteId, new Charm[0], new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 1)});
     DummyCharm learnCharm = new DummyCharm(learCharmID, new Charm[]{internalPrerequisite, externalPrerequisite},
             new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Melee, 1)});
-    DummyCharmTreeCategory charmTree = new DummyCharmTreeCategory(null, internalPrerequisite, externalPrerequisite, learnCharm);
+    CharmTreeCategoryImpl treeCategory = DummyCharmTreeCategory.Create(null, internalPrerequisite, externalPrerequisite, learnCharm);
     externalPrerequisite.addLearnFollowUpCharm(learnCharm);
     IExtendedCharmLearnableArbitrator learnableArbitrator =
             new DummyLearnableArbitrator(externalPrerequisiteId, internalPrerequisiteId, learCharmID);
-    LearningCharmTreeImpl internalGroup = createSolarGroup(learnableArbitrator, charmTree, AbilityType.Melee.getId());
-    LearningCharmTreeImpl externalGroup = createSolarGroup(learnableArbitrator, charmTree, AbilityType.Archery.getId());
+    LearningCharmTreeImpl internalGroup = createSolarGroup(learnableArbitrator, treeCategory, AbilityType.Melee.getId());
+    LearningCharmTreeImpl externalGroup = createSolarGroup(learnableArbitrator, treeCategory, AbilityType.Archery.getId());
     container.setLearningCharmGroups(new LearningCharmTree[]{internalGroup, externalGroup});
     assertFalse(externalGroup.isLearned(externalPrerequisite));
     assertFalse(internalGroup.isLearned(internalPrerequisite));
