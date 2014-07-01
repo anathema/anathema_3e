@@ -10,7 +10,6 @@ import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
@@ -63,7 +62,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   private ISpecialCharm[] getAllSpecialCharms() {
-    CategoryReference preferredCategory = getCategory(getNativeCharacterType());
+    CategoryReference preferredCategory = getCategory(NativeCharacterType.get(hero));
     SpecialCharmSet set = new SpecialCharmSet();
     for (CategoryReference type : charmProvider.getAllCategories()) {
       set.add(charmProvider.getSpecialCharms(type));
@@ -94,10 +93,6 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
       return charmProvider.getAllCategories();
     }
     return charmsRule.getNativeCategories();
-  }
-
-  private CharacterType getNativeCharacterType() {
-    return NativeCharacterType.get(hero);
   }
 
   private Charm[] collectCharmsThatAreNativeOrNotExclusive(Charm[] allCharms) {
