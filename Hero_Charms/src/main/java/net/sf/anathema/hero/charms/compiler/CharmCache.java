@@ -1,18 +1,18 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.magic.charm.Charm;
 
-public interface CharmCache extends ExtensibleDataSet, CharmIdMap{
+public interface CharmCache extends ExtensibleDataSet, CharmIdMap {
 
-  Identifier[] getCharmTypes();
+  CategoryReference[] getCharmCategories();
 
-  ISpecialCharm[] getSpecialCharmData(Identifier type);
+  ISpecialCharm[] getSpecialCharmData(CategoryReference category);
 
-  Charm[] getCharms(Identifier type);
+  Charm[] getCharms(CategoryReference category);
 
   CharmProvider getCharmProvider();
 }

@@ -1,26 +1,22 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmException;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeBuilder;
-import net.sf.anathema.hero.magic.parser.charms.CharmMergedBuilder;
-import net.sf.anathema.hero.magic.parser.charms.CharmSetBuilder;
-import net.sf.anathema.hero.magic.parser.charms.IIdentificateRegistry;
-import net.sf.anathema.hero.magic.parser.charms.IdentificateRegistry;
-import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.CharmException;
+import net.sf.anathema.hero.magic.charm.CharmImpl;
+import net.sf.anathema.hero.magic.parser.charms.*;
+import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
+import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
@@ -39,7 +35,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   //the pattern is data/charms/REST_OF_PATH/Charms_TYPE_EDITION_ANYTHING.xml
   private static final String Charm_Data_Extraction_Pattern = ".*/Charms_(.*?)_(.*?)(?:_.*)?\\.xml";
   private final Map<Identifier, List<Document>> charmFileTable = new HashMap<>();
-  private final IIdentificateRegistry<Identifier> registry = new IdentificateRegistry<>();
+  private final IIdentificateRegistry<CategoryReference> registry = new IdentificateRegistry<>();
   private final CharmAlternativeBuilder alternativeBuilder = new CharmAlternativeBuilder();
   private final CharmMergedBuilder mergedBuilder = new CharmMergedBuilder();
   private final SAXReader reader = new SAXReader();
@@ -69,9 +65,9 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   public void registerFile(ResourceFile resource) throws Exception {
     Matcher matcher = Pattern.compile(Charm_Data_Extraction_Pattern).matcher(resource.getFileName());
     matcher.matches();
-    String typeString = matcher.group(1);
-    Identifier type = new SimpleIdentifier(typeString);
-    if (!registry.idRegistered(typeString)) {
+    String categoryString = matcher.group(1);
+    CategoryReference type = new CategoryReference(categoryString);
+    if (!registry.idRegistered(categoryString)) {
       registry.add(type);
     }
     List<Document> list = charmFileTable.get(type);
@@ -88,7 +84,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() throws PersistenceException {
-    for (Identifier type : registry.getAll()) {
+    for (CategoryReference type : registry.getAll()) {
       buildStandardCharms(type);
       buildCharmAlternatives(type);
       buildCharmMerges(type);
@@ -97,7 +93,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     return charmCache;
   }
 
-  private void buildStandardCharms(Identifier type) throws PersistenceException {
+  private void buildStandardCharms(CategoryReference type) throws PersistenceException {
     if (charmFileTable.containsKey(type)) {
       List<Document> documents = charmFileTable.get(type);
       for (Document charmDocument : documents) {
@@ -106,7 +102,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     }
   }
 
-  private void buildCharmAlternatives(Identifier type) {
+  private void buildCharmAlternatives(CategoryReference type) {
     if (charmFileTable.containsKey(type)) {
       for (Document charmDocument : charmFileTable.get(type)) {
         alternativeBuilder.buildAlternatives(charmDocument, charmCache.getCharms(type));
@@ -114,7 +110,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     }
   }
 
-  private void buildCharmMerges(Identifier type) {
+  private void buildCharmMerges(CategoryReference type) {
     if (charmFileTable.containsKey(type)) {
       for (Document charmDocument : charmFileTable.get(type)) {
         mergedBuilder.buildMerges(charmDocument, charmCache.getCharms(type));
@@ -122,7 +118,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     }
   }
 
-  private void buildTypeCharms(Identifier type, Document charmDocument) throws PersistenceException {
+  private void buildTypeCharms(CategoryReference type, Document charmDocument) throws PersistenceException {
     List<SpecialCharmDto> specialCharms = new ArrayList<>();
     Charm[] charmArray = setBuilder.buildCharms(charmDocument, specialCharms);
     for (Charm charm : charmArray) {

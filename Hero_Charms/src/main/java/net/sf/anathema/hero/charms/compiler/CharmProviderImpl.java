@@ -5,7 +5,6 @@ import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,13 +20,13 @@ public class CharmProviderImpl implements CharmProvider {
   private final Map<CategoryReference, Charm[]> charmsByCategory = new HashMap<>();
 
   public CharmProviderImpl(CharmCache cache) {
-    for (Identifier type : cache.getCharmTypes()) {
+    for (CategoryReference type : cache.getCharmCategories()) {
       CategoryReference categoryReference = getCategory(type);
       specialCharmsByCategory.put(categoryReference, cache.getSpecialCharmData(type));
       charmsByCategory.put(categoryReference, cache.getCharms(type));
     }
     CategoryReference martialArtsReference = getCategory(MARTIAL_ARTS);
-    charmsByCategory.put(martialArtsReference, cache.getCharms(MARTIAL_ARTS));
+    charmsByCategory.put(martialArtsReference, cache.getCharms(martialArtsReference));
   }
 
   @Override

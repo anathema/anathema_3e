@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.magic.model.charms;
 
 import com.google.common.collect.Lists;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.MagicName;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -27,10 +26,10 @@ public class CharmCacheTest {
   public void matchesCharacterTypesToIdentificatesForSpecialCharmLookup() throws Exception {
     SpecialCharmDto specialCharmDto = mock(SpecialCharmDto.class);
     ISpecialCharm specialCharm = mock(ISpecialCharm.class);
-    SimpleIdentifier solar = new SimpleIdentifier("Dummy");
+    CategoryReference solar = new CategoryReference("Dummy");
     addSpecialCharmForSolar(specialCharmDto, solar);
     when(specialCharmBuilderMock.readCharm(specialCharmDto)).thenReturn(specialCharm);
-    ISpecialCharm[] charmData = cache.getSpecialCharmData(new DummyExaltCharacterType());
+    ISpecialCharm[] charmData = cache.getSpecialCharmData(solar);
     assertThat(charmData[0], is(specialCharm));
   }
 
@@ -38,13 +37,13 @@ public class CharmCacheTest {
   public void matchesCharacterTypesToIdentificatesForCharmLookup() throws Exception {
     Charm charm = mock(Charm.class);
     when(charm.getMagicName()).thenReturn(new MagicName("Charm"));
-    SimpleIdentifier solar = new SimpleIdentifier("Dummy");
+    CategoryReference solar = new CategoryReference("Dummy");
     cache.addCharm(solar, charm);
-    Charm[] charmData = cache.getCharms(new DummyExaltCharacterType());
+    Charm[] charmData = cache.getCharms(solar);
     assertThat(charmData[0], is(charm));
   }
 
-  private void addSpecialCharmForSolar(SpecialCharmDto specialCharm, SimpleIdentifier solar) {
+  private void addSpecialCharmForSolar(SpecialCharmDto specialCharm, CategoryReference solar) {
     ArrayList<SpecialCharmDto> data = Lists.newArrayList(specialCharm);
     cache.addSpecialCharmData(solar, data);
   }

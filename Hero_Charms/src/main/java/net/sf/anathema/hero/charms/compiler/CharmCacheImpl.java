@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
@@ -8,14 +9,11 @@ import net.sf.anathema.lib.collection.MultiEntryMap;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CharmCacheImpl implements CharmCache {
 
-  private MultiEntryMap<Identifier, Charm> charmSets = new MultiEntryMap<>();
+  private MultiEntryMap<CategoryReference, Charm> charmSets = new MultiEntryMap<>();
   private Map<Identifier, List<SpecialCharmDto>> specialCharmsByType = new HashMap<>();
   private Map<String, Charm> charmsById = new HashMap<>();
   private CharmProvider charmProvider;
@@ -31,8 +29,7 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public Charm[] getCharms(Identifier type) {
-    type = new SimpleIdentifier(type.getId());
+  public Charm[] getCharms(CategoryReference type) {
     List<Charm> charmList = charmSets.get(type);
     return charmList.toArray(new Charm[charmList.size()]);
   }
@@ -45,9 +42,7 @@ public class CharmCacheImpl implements CharmCache {
     return charmProvider;
   }
 
-  // todo (sandra) eliminate Identifier-Type
-  public void addCharm(Identifier type, Charm charm) {
-    type = new SimpleIdentifier(type.getId());
+  public void addCharm(CategoryReference type, Charm charm) {
     charmSets.replace(type, charm, charm);
     charmsById.put(charm.getMagicName().text, charm);
     if (charmProvider != null) {
@@ -61,7 +56,7 @@ public class CharmCacheImpl implements CharmCache {
 
   public Iterable<Charm> getCharms() {
     List<Charm> allCharms = new ArrayList<>();
-    for (Identifier type : charmSets.keySet()) {
+    for (CategoryReference type : charmSets.keySet()) {
       for (Charm charm : charmSets.get(type)) {
         allCharms.add(charm);
       }
@@ -81,7 +76,7 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharmData(Identifier type) {
+  public ISpecialCharm[] getSpecialCharmData(CategoryReference type) {
     List<ISpecialCharm> specialCharms = new ArrayList<>();
     for (SpecialCharmDto dto : getSpecialCharmList(type)) {
       specialCharms.add(specialCharmBuilder.readCharm(dto));
@@ -98,7 +93,8 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public Identifier[] getCharmTypes() {
-    return charmSets.keySet().toArray(new Identifier[0]);
+  public CategoryReference[] getCharmCategories() {
+    Set<CategoryReference> categories = charmSets.keySet();
+    return categories.toArray(new CategoryReference[categories.size()]);
   }
 }
