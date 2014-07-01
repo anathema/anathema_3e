@@ -58,10 +58,10 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   private void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
     for (Charm charm : charms) {
-      TreeName treeName = new TreeName(charm.getGroupId());
+      TreeName treeName = charm.getTreeReference().name;
       if (!treeNameList.contains(treeName) && optionCheck.isValidOptionForHeroType(charm)) {
         treeNameList.add(treeName);
-        List<Charm> treeCharms = getAllCharmsForTree(treeName.text);
+        List<Charm> treeCharms = getAllCharmsForTree(treeName);
         Charm[] charmArray = treeCharms.toArray(new Charm[treeCharms.size()]);
         treeList.add(new CharmTreeImpl(new TreeReference(category, treeName), charmArray));
       }
@@ -81,10 +81,10 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     return treeList.toArray(new CharmTree[treeList.size()]);
   }
 
-  public final List<Charm> getAllCharmsForTree(String id) {
+  public final List<Charm> getAllCharmsForTree(TreeName treeName) {
     List<Charm> groupCharms = new ArrayList<>();
     for (Charm charm : getAllCharms()) {
-      if (charm.getGroupId().equals(id)) {
+      if (charm.getTreeReference().name.equals(treeName)) {
         groupCharms.add(charm);
       }
     }

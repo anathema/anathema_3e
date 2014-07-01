@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.magic.spells.CircleType;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
+import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.experience.ExperienceModel;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
-import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -103,7 +103,7 @@ public class SpellPresenter {
 
   private void showAvailableSpells(MagicLearnView magicLearnView) {
     List<Spell> availableSpells = spellConfiguration.getAvailableSpellsInCircle(circleModel.getSelectedCircle());
-    List<Spell> sortedSpells = new I18nedIdentificateSorter<Spell>().sortAscending(availableSpells, resources);
+    List<Spell> sortedSpells = new MagicSorter<Spell>(resources).sortAscending(availableSpells);
     magicLearnView.setAvailableMagic(sortedSpells);
   }
 

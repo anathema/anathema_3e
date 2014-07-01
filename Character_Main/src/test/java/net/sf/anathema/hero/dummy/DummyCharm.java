@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -76,12 +76,13 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public TreeReference getTreeReference() {
     String category = MartialArtsUtilities.isMartialArts(this) ? MartialArtsUtilities.MARTIAL_ARTS.getId() : characterType.getId();
-    return new TreeReference(new CategoryReference(category), new TreeName(groupId));
+    String treeGroup = groupId != null ? groupId : prerequisites[0].getType().getId();
+    return new TreeReference(new CategoryReference(category), new TreeName(treeGroup));
   }
 
   @Override
-  public CharmName getCharmName() {
-    return getId() != null ? new CharmName(getId()) : null;
+  public MagicName getCharmName() {
+    return getId() != null ? new MagicName(getId()) : null;
   }
 
   @Override
@@ -101,11 +102,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public ValuedTraitType getEssence() {
     return null;
-  }
-
-  @Override
-  public String getGroupId() {
-    return groupId != null ? groupId : prerequisites[0].getType().getId();
   }
 
   @Override

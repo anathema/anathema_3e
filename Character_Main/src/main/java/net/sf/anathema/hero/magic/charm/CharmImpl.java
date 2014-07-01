@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
@@ -37,11 +37,9 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private final CharacterType characterType;
   private final Duration duration;
-  private final String group;
-
+  private final TreeName treeName;
   private final SourceBook[] sources;
   private final CostList temporaryCost;
-
   private final List<Set<Charm>> alternatives = new ArrayList<>();
   private final List<Set<Charm>> merges = new ArrayList<>();
   private final List<CharmImpl> children = new ArrayList<>();
@@ -63,7 +61,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
     this.characterType = characterType;
-    this.group = group;
+    this.treeName = new TreeName(group);
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
     this.duration = duration;
@@ -79,12 +77,12 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public TreeReference getTreeReference() {
     String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : getCharacterType().getId();
-    return new TreeReference(new CategoryReference(categoryText), new TreeName(getGroupId()));
+    return new TreeReference(new CategoryReference(categoryText), treeName);
   }
 
   @Override
-  public CharmName getCharmName() {
-    return new CharmName(getId());
+  public MagicName getCharmName() {
+    return new MagicName(getId());
   }
 
   @Override
@@ -120,11 +118,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public CostList getTemporaryCost() {
     return temporaryCost;
-  }
-
-  @Override
-  public String getGroupId() {
-    return group;
   }
 
   public void addAlternative(Set<Charm> alternative) {

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.CharmData;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
@@ -34,8 +34,8 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public CharmName getCharmName() {
-    return charmData.getCharmName();
+  public MagicName getCharmName() {
+    return charmData.getMagicName();
   }
 
   @Override
@@ -58,11 +58,6 @@ public class DefaultCharm implements Charm {
 
   @Override
   public TraitType getPrimaryTraitType() {
-    return null;
-  }
-
-  @Override
-  public String getGroupId() {
     return null;
   }
 

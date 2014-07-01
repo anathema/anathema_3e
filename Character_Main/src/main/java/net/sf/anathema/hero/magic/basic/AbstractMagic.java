@@ -2,16 +2,21 @@ package net.sf.anathema.hero.magic.basic;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractMagic extends SimpleIdentifier implements Magic {
+public abstract class AbstractMagic implements Magic {
   private final List<MagicAttribute> magicAttributes = new ArrayList<>();
+  private final String id;
 
   protected AbstractMagic(String id) {
-    super(id);
+    this.id = id;
+  }
+
+  @Override
+  public final String getId() {
+    return id;
   }
 
   public void addMagicAttribute(MagicAttribute attribute) {
@@ -33,8 +38,26 @@ public abstract class AbstractMagic extends SimpleIdentifier implements Magic {
     int index = magicAttributes.indexOf(attribute);
     if (index < 0) {
       return null;
-    } else {
-      return magicAttributes.get(index).getValue();
     }
+    return magicAttributes.get(index).getValue();
+  }
+
+  @Override
+  public final boolean equals(Object obj) {
+    if (!(obj instanceof AbstractMagic)) {
+      return false;
+    }
+    AbstractMagic other = (AbstractMagic) obj;
+    return other.id.equals(id);
+  }
+
+  @Override
+  public int hashCode() {
+    return getId().hashCode();
+  }
+
+  @Override
+  public String toString() {
+    return id;
   }
 }

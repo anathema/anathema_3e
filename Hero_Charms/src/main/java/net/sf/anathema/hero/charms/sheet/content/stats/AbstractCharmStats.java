@@ -22,7 +22,7 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 
   @Override
   public String getGroupName(Resources resources) {
-    return resources.getString(getMagic().getGroupId());
+    return resources.getString(getMagic().getTreeReference().name.text);
   }
 
   @Override
