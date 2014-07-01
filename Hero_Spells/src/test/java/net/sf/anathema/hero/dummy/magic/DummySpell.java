@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.dummy.magic;
 
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.source.SourceBook;
@@ -23,6 +24,11 @@ public class DummySpell implements Spell {
 
   @Override
   public String getId() {
+    return null;
+  }
+
+  @Override
+  public MagicName getMagicName() {
     return null;
   }
 

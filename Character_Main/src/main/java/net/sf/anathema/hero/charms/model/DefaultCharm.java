@@ -33,7 +33,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public MagicName getCharmName() {
+  public MagicName getMagicName() {
     return charmData.getMagicName();
   }
 

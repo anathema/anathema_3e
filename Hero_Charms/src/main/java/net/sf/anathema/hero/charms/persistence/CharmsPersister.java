@@ -90,7 +90,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
         charms.add(charm);
       }
     }
-    Collections.sort(charms, (o1, o2) -> o1.getCharmName().compareTo(o2.getCharmName()));
+    Collections.sort(charms, (o1, o2) -> o1.getMagicName().compareTo(o2.getMagicName()));
     return charms;
   }
 

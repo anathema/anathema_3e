@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -77,7 +78,7 @@ public class CharmBuilder implements ICharmBuilder {
       String group = groupBuilder.build(charmElement, primaryPrerequisite);
       MagicAttribute[] magicAttributes = attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite);
       TreeReference treeReference = createTreeReference(magicAttributes, characterType, group);
-      CharmImpl charm = new CharmImpl(treeReference, id, prerequisiteList, temporaryCost, duration, charmType, sources);
+      CharmImpl charm = new CharmImpl(treeReference, new MagicName(id), prerequisiteList, temporaryCost, duration, charmType, sources);
       for (MagicAttribute attribute : magicAttributes) {
         charm.addMagicAttribute(attribute);
       }

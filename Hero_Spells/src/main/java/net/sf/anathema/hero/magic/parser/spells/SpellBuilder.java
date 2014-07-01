@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.magic.parser.spells;
 
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.charm.old.source.SourceList;
 import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.charm.old.source.SourceList;
 import net.sf.anathema.charm.old.source.SourceListImpl;
 import net.sf.anathema.charm.parser.cost.CostListBuilder;
 import net.sf.anathema.charm.parser.cost.ICostListBuilder;
@@ -44,7 +45,7 @@ public class SpellBuilder {
     if (sourceList.isEmpty()) {
       return;
     }
-    spellList.add(new SpellImpl(id, CircleType.valueOf(circleId), temporaryCost, sourceList, target));
+    spellList.add(new SpellImpl(new MagicName(id), CircleType.valueOf(circleId), temporaryCost, sourceList, target));
   }
 
   private SourceList buildSource(Element spellElement) {

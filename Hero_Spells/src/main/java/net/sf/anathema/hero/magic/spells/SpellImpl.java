@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.magic.spells;
 
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.charm.old.source.SourceList;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -15,8 +16,8 @@ public class SpellImpl extends AbstractMagic implements Spell {
   private SourceList source;
   private final String target;
 
-  public SpellImpl(String id, CircleType circleType, CostList temporaryCost, SourceList source, String target) {
-    super(id);
+  public SpellImpl(MagicName name, CircleType circleType, CostList temporaryCost, SourceList source, String target) {
+    super(name);
     this.circleType = circleType;
     this.temporaryCost = temporaryCost;
     this.source = source;

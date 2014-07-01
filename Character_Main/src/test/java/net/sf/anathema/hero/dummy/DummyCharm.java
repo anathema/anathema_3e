@@ -82,7 +82,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public MagicName getCharmName() {
+  public MagicName getMagicName() {
     return getId() != null ? new MagicName(getId()) : null;
   }
 

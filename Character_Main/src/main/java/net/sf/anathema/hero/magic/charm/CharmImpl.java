@@ -42,13 +42,13 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CharmType charmType;
   private TreeReference treeReference;
 
-  public CharmImpl(TreeReference treeReference, String id, CharmPrerequisiteList prerequisiteList,
+  public CharmImpl(TreeReference treeReference, MagicName name, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
-    super(id);
+    super(name);
     Preconditions.checkNotNull(prerequisiteList);
     Preconditions.checkNotNull(treeReference);
-    Preconditions.checkNotNull(id);
+    Preconditions.checkNotNull(name);
     Preconditions.checkNotNull(temporaryCost);
     Preconditions.checkNotNull(duration);
     Preconditions.checkNotNull(charmType);
@@ -69,11 +69,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public TreeReference getTreeReference() {
     return treeReference;
-  }
-
-  @Override
-  public MagicName getCharmName() {
-    return new MagicName(getId());
   }
 
   @Override

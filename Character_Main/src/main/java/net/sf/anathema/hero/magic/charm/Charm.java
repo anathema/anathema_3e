@@ -19,8 +19,6 @@ public interface Charm extends Magic {
 
   TreeReference getTreeReference();
 
-  MagicName getCharmName();
-
   CharmType getCharmType();
 
   Duration getDuration();
