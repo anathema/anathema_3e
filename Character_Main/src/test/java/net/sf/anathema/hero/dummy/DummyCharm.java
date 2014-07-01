@@ -76,7 +76,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public TreeReference getTreeReference() {
     String category = MartialArtsUtilities.isMartialArts(this) ? MartialArtsUtilities.MARTIAL_ARTS.getId() : characterType.getId();
-    return new TreeReference(new CategoryReference(category), new TreeName(groupId));
+    String treeGroup = groupId != null ? groupId : prerequisites[0].getType().getId();
+    return new TreeReference(new CategoryReference(category), new TreeName(treeGroup));
   }
 
   @Override
@@ -101,11 +102,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public ValuedTraitType getEssence() {
     return null;
-  }
-
-  @Override
-  public String getGroupId() {
-    return groupId != null ? groupId : prerequisites[0].getType().getId();
   }
 
   @Override

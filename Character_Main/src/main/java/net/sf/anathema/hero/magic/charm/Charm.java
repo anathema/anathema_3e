@@ -23,8 +23,6 @@ public interface Charm extends Magic {
 
   CharacterType getCharacterType();
 
-  String getGroupId();
-
   CharmType getCharmType();
 
   Duration getDuration();

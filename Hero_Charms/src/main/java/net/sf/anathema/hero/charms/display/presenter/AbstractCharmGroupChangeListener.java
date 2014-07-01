@@ -63,12 +63,12 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     return sortedNodes.toArray(new IRegularNode[sortedNodes.size()]);
   }
 
-  private Set<Charm> getDisplayCharms(CharmTree charmGroup) {
+  private Set<Charm> getDisplayCharms(CharmTree charmTree) {
     Set<Charm> charmsToDisplay = new LinkedHashSet<>();
-    for (Charm charm : arbitrator.getCharms(charmGroup)) {
+    for (Charm charm : arbitrator.getCharms(charmTree)) {
       charmsToDisplay.add(charm);
       for (Charm prerequisite : charm.getRenderingPrerequisiteCharms()) {
-        if (charmGroup.getReference().name.text.equals(prerequisite.getGroupId())) {
+        if (charmTree.getReference().name.equals(prerequisite.getTreeReference().name)) {
           charmsToDisplay.add(prerequisite);
         }
       }

@@ -108,9 +108,9 @@ public class LegendCardDataProvider implements ICardDataProvider {
 
         LegendEntry level = new LegendEntry(resourceProvider.getMartialArtLevelIcon(MartialArtsUtilities.getLevel(charm)), levelString);
 
-        Image styleIcon = resourceProvider.getMartialArtIcon(charm.getGroupId());
+        Image styleIcon = resourceProvider.getMartialArtIcon(charm.getTreeReference().name.text);
         if (styleIcon != null) {
-          String styleString = resources.getString(charm.getGroupId());
+          String styleString = resources.getString(charm.getTreeReference().name.text);
           int parenIndex = styleString.indexOf(')');
           if (parenIndex > 0) {
             styleString = styleString.substring(parenIndex + 1).trim();

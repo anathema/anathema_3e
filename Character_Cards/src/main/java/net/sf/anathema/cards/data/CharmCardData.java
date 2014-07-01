@@ -27,7 +27,7 @@ public class CharmCardData extends AbstractMagicCardData {
   @Override
   public Image getPrimaryIcon() {
     if (MartialArtsUtilities.isMartialArts(charm)) {
-      Image image = getResourceProvider().getMartialArtIcon(charm.getGroupId());
+      Image image = getResourceProvider().getMartialArtIcon(charm.getTreeReference().name.text);
       return image != null ? image : getResourceProvider().getTraitIcon(AbilityType.MartialArts);
     } else {
       return getResourceProvider().getTraitIcon(charm.getPrimaryTraitType());

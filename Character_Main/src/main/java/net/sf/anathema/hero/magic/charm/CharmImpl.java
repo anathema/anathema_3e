@@ -37,11 +37,9 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private final CharacterType characterType;
   private final Duration duration;
-  private final String group;
-
+  private final TreeName treeName;
   private final SourceBook[] sources;
   private final CostList temporaryCost;
-
   private final List<Set<Charm>> alternatives = new ArrayList<>();
   private final List<Set<Charm>> merges = new ArrayList<>();
   private final List<CharmImpl> children = new ArrayList<>();
@@ -63,7 +61,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
     this.characterType = characterType;
-    this.group = group;
+    this.treeName = new TreeName(group);
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
     this.duration = duration;
@@ -79,7 +77,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public TreeReference getTreeReference() {
     String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : getCharacterType().getId();
-    return new TreeReference(new CategoryReference(categoryText), new TreeName(getGroupId()));
+    return new TreeReference(new CategoryReference(categoryText), treeName);
   }
 
   @Override
@@ -120,11 +118,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public CostList getTemporaryCost() {
     return temporaryCost;
-  }
-
-  @Override
-  public String getGroupId() {
-    return group;
   }
 
   public void addAlternative(Set<Charm> alternative) {

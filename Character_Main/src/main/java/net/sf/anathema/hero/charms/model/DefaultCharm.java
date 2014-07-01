@@ -62,11 +62,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public String getGroupId() {
-    return null;
-  }
-
-  @Override
   public List<CharmLearnPrerequisite> getLearnPrerequisites() {
     return null;
   }
