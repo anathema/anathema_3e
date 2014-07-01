@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
@@ -16,6 +17,8 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
+import java.util.List;
+
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmTreeArbitrator, CharmIdMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
@@ -24,8 +27,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   void addLearnableListener(ChangeListener listener);
 
   LearningCharmTree[] getAllGroups();
-
-  CharacterType[] getCharacterTypes(boolean includeAlienTypes);
 
   CharmIdMap getCharmIdMap();
 
@@ -54,4 +55,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   MartialArtsLevel getStandardMartialArtsLevel();
 
   boolean isAlienCharmAllowed();
+
+  List<CategoryReference> getValidCategoriesForHero();
 }

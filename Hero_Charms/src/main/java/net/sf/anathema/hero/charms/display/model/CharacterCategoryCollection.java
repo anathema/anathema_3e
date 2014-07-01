@@ -19,12 +19,7 @@ public class CharacterCategoryCollection implements CategoryCollection {
 
   @Override
   public List<CategoryReference> getCurrentCategories() {
-    List<CategoryReference> categoryReferences = new ArrayList<>();
-    boolean alienCharms = model.isAllowedAlienCharms();
-    for(CharacterType type : model.getCharmModel().getCharacterTypes(alienCharms)) {
-      categoryReferences.add(MartialArtsUtilities.getCategory(type));
-    }
-    categoryReferences.add(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
-    return categoryReferences;
+    List<CategoryReference> categories = model.getValidCategoriesForHero();
+    return categories;
   }
 }

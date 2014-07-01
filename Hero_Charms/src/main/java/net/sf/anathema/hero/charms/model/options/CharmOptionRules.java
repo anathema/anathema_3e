@@ -9,7 +9,7 @@ public interface CharmOptionRules extends CharmOptionCheck {
 
   boolean isValidOptionForHeroType(Charm charm);
 
-  // boolean isValidOptionForHero(Charm charm);
+  // boolean isLearnOptionForHero(Charm charm);
 
   List<CategoryReference> getAllCategories();
 
