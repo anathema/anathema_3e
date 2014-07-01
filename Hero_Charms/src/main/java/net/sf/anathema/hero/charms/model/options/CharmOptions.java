@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeCategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
@@ -15,19 +15,19 @@ import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
-import net.sf.anathema.lib.util.Identifier;
 
 import java.util.*;
 
 import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.ForMartialArts;
+import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.ForNonMartialArts;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.*;
 
-public class CharmOptions {
+public class CharmOptions implements Iterable<CharmTreeCategory> {
 
   private final CharmsRules charmsRules;
   private final CharacterTypeList availableTypes;
-  private final Map<Identifier, CharmTreeCategory> treesByType = new HashMap<>();
+  private final Map<CharacterType, CharmTreeCategory> treesByType = new HashMap<>();
   private final Hero hero;
   private final CharmTreeCategory martialArtsCharmTree;
   private final CharmProvider charmProvider;
@@ -37,25 +37,13 @@ public class CharmOptions {
     this.charmProvider = charmProvider;
     this.hero = hero;
     this.charmsRules = charmsRules;
-    this.optionCheck = new CharmOptionCheckImpl(charmsRules);
-    this.martialArtsCharmTree = CharmTreeCategoryImpl.ForMartialArts(optionCheck, charmProvider);
+    this.optionCheck = new CharmOptionRulesImpl(hero, charmsRules, characterTypes);
+    this.martialArtsCharmTree = ForMartialArts(optionCheck, charmProvider);
     this.availableTypes = new CharacterTypeList(charmProvider);
     availableTypes.collectAvailableTypes(getNativeCharacterType(), characterTypes);
     for (CharacterType type : availableTypes) {
-      treesByType.put(type,  CharmTreeCategoryImpl.ForNonMartialArts(optionCheck, charmProvider, type));
+      treesByType.put(type,  ForNonMartialArts(optionCheck, charmProvider, type));
     }
-  }
-
-  public CharmTree[] getAllMartialArtsTrees() {
-    return martialArtsCharmTree.getAllCharmTrees();
-  }
-
-  public Iterable<CharacterType> getAvailableCharacterTypes() {
-    return availableTypes;
-  }
-
-  public CharmTree[] getAllTreesForType(CharacterType characterType) {
-    return treesByType.get(characterType).getAllCharmTrees();
   }
 
   public CharmIdMap getCharmIdMap() {
@@ -69,7 +57,7 @@ public class CharmOptions {
     return charmProvider.getSpecialCharms(optionCheck, getCharmIdMap(), getNativeCharacterType());
   }
 
-  public boolean isAlienType(TreeCategory category) {
+  public boolean isAlienType(TreeCategoryReference category) {
     List<String> nativeCategories = Arrays.asList(getNativeCharacterType().getId(), MARTIAL_ARTS.getId());
     return !nativeCategories.contains(category.text);
   }
@@ -83,7 +71,7 @@ public class CharmOptions {
 
   public boolean isAlienCharm(Charm charm) {
     String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
-    return isAlienType(new TreeCategory(category));
+    return isAlienType(new TreeCategoryReference(category));
   }
 
   public Charm[] getCharms(CharmTree tree) {
@@ -118,5 +106,13 @@ public class CharmOptions {
   private boolean characterMayLearnAlienCharms() {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     return charmsRules.isAllowedAlienCharms(concept.getCaste().getType());
+  }
+
+  @Override
+  public Iterator<CharmTreeCategory> iterator() {
+    List<CharmTreeCategory> categories = new ArrayList<>();
+    categories.addAll(treesByType.values());
+    categories.add(martialArtsCharmTree);
+    return categories.iterator();
   }
 }

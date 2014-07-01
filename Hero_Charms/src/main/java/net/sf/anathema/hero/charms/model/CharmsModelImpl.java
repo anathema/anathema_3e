@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
-import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeCategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -14,6 +14,7 @@ import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.*;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
@@ -58,7 +59,7 @@ public class CharmsModelImpl implements CharmsModel {
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
-  private final Map<TreeCategory, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
+  private final Map<TreeCategoryReference, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private ExperienceModel experience;
   private TraitModel traits;
@@ -95,10 +96,9 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private void initializeCharmTrees() {
-    learnTreesByCategory.put(new TreeCategory(MARTIAL_ARTS.getId()), createTrees(options.getAllMartialArtsTrees()));
-    for (CharacterType characterType : options.getAvailableCharacterTypes()) {
-      CharmTree[] categoryTrees = options.getAllTreesForType(characterType);
-      learnTreesByCategory.put(new TreeCategory(characterType.getId()), createTrees(categoryTrees));
+    for (CharmTreeCategory category : options) {
+      LearningCharmTree[] learningCharmTrees = createTrees(category.getAllCharmTrees());
+      learnTreesByCategory.put(category.getReference(), learningCharmTrees);
     }
   }
 
@@ -247,11 +247,11 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public LearningCharmTree[] getCharmGroups(Identifier type) {
-    TreeCategory category = new TreeCategory(type.getId());
+    TreeCategoryReference category = new TreeCategoryReference(type.getId());
     return getLearningCharmTrees(category);
   }
 
-  private LearningCharmTree[] getLearningCharmTrees(TreeCategory category) {
+  private LearningCharmTree[] getLearningCharmTrees(TreeCategoryReference category) {
     return Functions.forMap(learnTreesByCategory, new LearningCharmTree[0]).apply(category);
   }
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.presenter;
 
-import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeCategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.CharmTree;
@@ -42,8 +42,8 @@ public class ExternalPrerequisitesColorerTest {
   }
 
   private CharmTree createGroupWithCharms(DummyCharm parent, Charm child) {
-    TreeCategory treeCategory = new TreeCategory(new DummyMundaneCharacterType().getId());
-    TreeReference reference = new TreeReference(treeCategory, new TreeName("CurrentGroup"));
+    TreeCategoryReference treeCategoryReference = new TreeCategoryReference(new DummyMundaneCharacterType().getId());
+    TreeReference reference = new TreeReference(treeCategoryReference, new TreeName("CurrentGroup"));
     return new CharmTreeImpl(reference, new Charm[]{parent, child});
   }
 

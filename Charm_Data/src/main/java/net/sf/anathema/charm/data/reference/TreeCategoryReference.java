@@ -1,19 +1,19 @@
 package net.sf.anathema.charm.data.reference;
 
-public class TreeCategory {
+public class TreeCategoryReference {
 
   public final String text;
 
-  public TreeCategory(String charmName) {
+  public TreeCategoryReference(String charmName) {
     this.text = charmName;
   }
 
   @Override
   public boolean equals(Object obj) {
-    if (!(obj instanceof TreeCategory)) {
+    if (!(obj instanceof TreeCategoryReference)) {
       return false;
     }
-    TreeCategory other = (TreeCategory) obj;
+    TreeCategoryReference other = (TreeCategoryReference) obj;
     return other.text.equals(text);
   }
 

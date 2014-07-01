@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeCategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
@@ -41,7 +41,7 @@ public class CharmTreeImplTest {
   }
 
   private CharmTreeImpl createGroupWithCharacterType(DummyExaltCharacterType type) {
-    TreeReference reference = new TreeReference(new TreeCategory(type.getId()), new TreeName(Default_Group_Id));
+    TreeReference reference = new TreeReference(new TreeCategoryReference(type.getId()), new TreeName(Default_Group_Id));
     return new CharmTreeImpl(reference, new Charm[0]);
   }
 }

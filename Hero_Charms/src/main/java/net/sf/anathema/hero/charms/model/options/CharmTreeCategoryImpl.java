@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.reference.TreeCategory;
+import net.sf.anathema.charm.data.reference.TreeCategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -19,24 +19,29 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
     Identifier treeIdentifier = MARTIAL_ARTS;
-    TreeCategory treeCategory = getTreeCategory(treeIdentifier);
-    Charm[] charms = provider.getCharms(treeCategory);
-    return new CharmTreeCategoryImpl(check, charms, treeCategory);
+    TreeCategoryReference treeCategoryReference = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(treeCategoryReference);
+    return new CharmTreeCategoryImpl(check, charms, treeCategoryReference);
   }
 
   public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, CharacterType characterType) {
     Identifier treeIdentifier = characterType;
-    TreeCategory treeCategory = getTreeCategory(treeIdentifier);
-    Charm[] charms = provider.getCharms(treeCategory);
-    return new CharmTreeCategoryImpl(check, charms, treeCategory);
+    TreeCategoryReference treeCategoryReference = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(treeCategoryReference);
+    return new CharmTreeCategoryImpl(check, charms, treeCategoryReference);
+  }
+
+  public static CharmTreeCategory For(CharmOptionCheck check, CharmProvider charmProvider, TreeCategoryReference category) {
+    Charm[] charms = charmProvider.getCharms(category);
+    return new CharmTreeCategoryImpl(check, charms, category);
   }
 
   private final Map<String, Charm> charmById = new HashMap<>();
   private CharmOptionCheck optionCheck;
   private Charm[] allCharms;
-  private TreeCategory category;
+  private TreeCategoryReference category;
 
-  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Charm[] allCharms, TreeCategory category) {
+  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Charm[] allCharms, TreeCategoryReference category) {
     this.optionCheck = optionCheck;
     this.allCharms = allCharms;
     this.category = category;
@@ -82,5 +87,10 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
       }
     }
     return groupCharms;
+  }
+
+  @Override
+  public TreeCategoryReference getReference() {
+    return category;
   }
 }
