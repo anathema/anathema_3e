@@ -18,9 +18,9 @@ public class DummyCharmUtilities {
     return new DummyCharm(duration, CharmType.Reflexive, null);
   }
 
-  public static Charm createCharm(String id, String groupId) {
+  public static Charm createCharm(String id, String treeName) {
     DummyCharm dummyCharm = new DummyCharm(id);
-    dummyCharm.setGroupId(groupId);
+    dummyCharm.setTreeName(treeName);
     return dummyCharm;
   }
 }

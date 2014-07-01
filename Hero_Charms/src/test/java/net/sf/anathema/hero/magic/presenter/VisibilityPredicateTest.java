@@ -1,15 +1,13 @@
 package net.sf.anathema.hero.magic.presenter;
 
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
-import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.charms.display.special.VisibilityPredicate;
+import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.dummy.DummyCharm;
+import net.sf.anathema.hero.magic.charm.Charm;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.magic.model.charms.CharmMother.createCharmForCharacterTypeFromGroup;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -21,8 +19,7 @@ public class VisibilityPredicateTest {
 
   @Test
   public void charmIsVisibleIfCharacterTypesMatchButAreNotIdentical() throws Exception {
-    CharacterType characterTypeForCharm = new DummyExaltCharacterType();
-    Charm charm = createCharmForCharacterTypeFromGroup(characterTypeForCharm, ANY_ID);
+    Charm charm = DummyCharm.ForIdAndTree(ANY_ID, ANY_ID);
     CharmIdMap map = createMapWithCharm(charm);
     CharmTree charmGroup = createACharmGroupThatContainsTheCharm(charm);
     selectGroup(charmGroup);

@@ -14,7 +14,6 @@ import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
@@ -30,22 +29,20 @@ import java.util.*;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
+  public static DummyCharm ForIdAndTree(String id, String tree) {
+    DummyCharm charm = new DummyCharm(id);
+    charm.setTreeName(tree);
+    return charm;
+  }
+
   private Duration duration;
   private ValuedTraitType[] prerequisites;
   private List<CharmLearnPrerequisite> learnPrerequisites = new ArrayList<>();
   private Set<Charm> parentCharms;
   private Set<Charm> learnFollowUpCharms = new HashSet<>();
-  private CharacterType characterType;
-  private String groupId;
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
-
-  public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
-    super("DummyCharmDefaultId");
-    this.prerequisites = prerequisites;
-    this.duration = SimpleDuration.getDuration(duration);
-    this.charmType = charmType;
-  }
+  public TreeReference treeReference = new TreeReference(new CategoryReference("AnyCategory"), new TreeName("AnyTree"));
 
   public DummyCharm() {
     this(null);
@@ -69,15 +66,20 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.prerequisites = prerequisites;
   }
 
+  public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
+    super("DummyCharmDefaultId");
+    this.prerequisites = prerequisites;
+    this.duration = SimpleDuration.getDuration(duration);
+    this.charmType = charmType;
+  }
+
   public void addLearnFollowUpCharm(Charm charm) {
     learnFollowUpCharms.add(charm);
   }
 
   @Override
   public TreeReference getTreeReference() {
-    String category = MartialArtsUtilities.isMartialArts(this) ? MartialArtsUtilities.MARTIAL_ARTS.getId() : characterType.getId();
-    String treeGroup = groupId != null ? groupId : prerequisites[0].getType().getId();
-    return new TreeReference(new CategoryReference(category), new TreeName(treeGroup));
+    return treeReference;
   }
 
   @Override
@@ -87,11 +89,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   @Override
   public CharacterType getCharacterType() {
-    return characterType;
-  }
-
-  public void setCharacterType(CharacterType type) {
-    characterType = type;
+    return null;
   }
 
   @Override
@@ -201,8 +199,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     return getId();
   }
 
-  public void setGroupId(String expectedGroup) {
-    this.groupId = expectedGroup;
+  public void setTreeName(String treeName) {
+    this.treeReference = new TreeReference(this.treeReference.category, new TreeName(treeName));
   }
 
   @Override

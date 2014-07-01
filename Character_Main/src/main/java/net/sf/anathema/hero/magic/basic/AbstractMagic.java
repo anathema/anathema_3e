@@ -15,7 +15,7 @@ public abstract class AbstractMagic implements Magic {
   }
 
   @Override
-  public final String getId() {
+  public String getId() {
     return id;
   }
 
@@ -48,12 +48,12 @@ public abstract class AbstractMagic implements Magic {
       return false;
     }
     AbstractMagic other = (AbstractMagic) obj;
-    return other.id.equals(id);
+    return other.getId().equals(getId());
   }
 
   @Override
   public int hashCode() {
-    return getId().hashCode();
+    return id.hashCode();
   }
 
   @Override

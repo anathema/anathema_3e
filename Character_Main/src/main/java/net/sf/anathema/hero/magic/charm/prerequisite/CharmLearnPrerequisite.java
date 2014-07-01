@@ -7,6 +7,7 @@ import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 
 public interface CharmLearnPrerequisite {
+
 	void link(Map<String, CharmImpl> charmsById);
 	
 	boolean isSatisfied(ICharmLearnArbitrator arbitrator);

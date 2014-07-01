@@ -4,8 +4,8 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
+import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -13,35 +13,32 @@ import static org.junit.Assert.assertThat;
 
 public class CharmTreeImplTest {
 
-  private static final String Default_Group_Id = "AnyId";
+  private static final String ANY_ID = "AnyId";
 
   @Test
   public void equalsSelf() throws Exception {
-    CharmTreeImpl group = createGroupWithCharacterType();
+    TreeReference reference = new TreeReference(new CategoryReference(ANY_ID), new TreeName(ANY_ID));
+    CharmTreeImpl group = createGroupWithCharacterType(reference);
     assertThat(group.equals(group), is(true));
   }
 
   @Test
   public void doesNotEqualSimilarGroup() throws Exception {
-    CharmTreeImpl group = createGroupWithCharacterType();
-    CharmTreeImpl group2 = createGroupWithCharacterType();
+    TreeReference reference = new TreeReference(new CategoryReference(ANY_ID), new TreeName(ANY_ID));
+    CharmTreeImpl group = createGroupWithCharacterType(reference);
+    CharmTreeImpl group2 = createGroupWithCharacterType(reference);
     assertThat(group.equals(group2), is(false));
   }
 
   @Test
   public void identifiesContainedCharm() throws Exception {
-    CharmTreeImpl tree = createGroupWithCharacterType(new DummyExaltCharacterType());
-    Charm charm = CharmMother.createCharmForCharacterTypeFromGroup(new DummyExaltCharacterType(), Default_Group_Id);
+    Charm charm =  new DummyCharm(ANY_ID);
+    CharmTreeImpl tree = createGroupWithCharacterType(charm.getTreeReference());
     assertThat(tree.isCharmFromTree(charm), is(true));
 
   }
 
-  private CharmTreeImpl createGroupWithCharacterType() {
-    return createGroupWithCharacterType(new DummyExaltCharacterType());
-  }
-
-  private CharmTreeImpl createGroupWithCharacterType(DummyExaltCharacterType type) {
-    TreeReference reference = new TreeReference(new CategoryReference(type.getId()), new TreeName(Default_Group_Id));
+  private CharmTreeImpl createGroupWithCharacterType(TreeReference reference) {
     return new CharmTreeImpl(reference, new Charm[0]);
   }
 }
