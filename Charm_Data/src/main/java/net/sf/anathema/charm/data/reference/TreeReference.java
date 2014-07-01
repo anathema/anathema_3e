@@ -15,7 +15,7 @@ public class TreeReference {
       return false;
     }
     TreeReference other = (TreeReference) obj;
-    return other.name.equals(name) && other.category.equals(name);
+    return other.name.equals(name) && other.category.equals(category);
   }
 
   @Override

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler;
 
+import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.framework.type.CharacterType;
@@ -45,12 +45,12 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms(ICharmLearnableArbitrator arbitrator, CharmIdMap map, Identifier preferredType) {
+  public ISpecialCharm[] getSpecialCharms(CharmOptionCheck check, CharmIdMap map, Identifier preferredType) {
     List<ISpecialCharm> relevantCharms = new ArrayList<>();
     ISpecialCharm[] allSpecialCharms = getAllSpecialCharms(preferredType);
     for (ISpecialCharm specialCharm : allSpecialCharms) {
       Charm charm = map.getCharmById(specialCharm.getCharmId());
-      if (charm != null && arbitrator.isLearnable(charm)) {
+      if (charm != null && check.isValidOptionForHeroesType(charm)) {
         relevantCharms.add(specialCharm);
       }
     }

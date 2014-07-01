@@ -4,11 +4,9 @@ import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
-import net.sf.anathema.hero.charms.model.options.NonMartialArtsCharmTreeCategoryImpl;
-import net.sf.anathema.hero.charms.model.options.MartialArtsCharmTreeCategory;
+import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.lib.util.Identifier;
 
@@ -44,13 +42,13 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   private void initMartialArtsCharms(List<CharmTree> allCharmGroups) {
-    CharmTreeCategory martialArtsTree = new MartialArtsCharmTreeCategory(charmProvider, MartialArtsLevel.Sidereal);
+    CharmTreeCategory martialArtsTree = CharmTreeCategoryImpl.ForMartialArts(new GreedyCharmOptionCheck(), charmProvider);
     treeIdentifierMap.put(MartialArtsUtilities.MARTIAL_ARTS, martialArtsTree);
     allCharmGroups.addAll(Arrays.asList(martialArtsTree.getAllCharmTrees()));
   }
 
   private void registerTypeCharms(List<CharmTree> allCharmGroups, CharacterType type) {
-    CharmTreeCategory typeTree = new NonMartialArtsCharmTreeCategoryImpl(charmProvider, type);
+    CharmTreeCategory typeTree = CharmTreeCategoryImpl.ForNonMartialArts(new GreedyCharmOptionCheck(), charmProvider, type);
     registerGroups(allCharmGroups, type, typeTree);
   }
 
@@ -61,4 +59,5 @@ public class CascadeGroupCollection implements CharmTreeCollection {
       allCharmGroups.addAll(Arrays.asList(groups));
     }
   }
+
 }
