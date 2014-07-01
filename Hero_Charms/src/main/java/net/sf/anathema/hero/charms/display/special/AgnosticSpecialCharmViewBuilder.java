@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display.special;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmViewContainer;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -15,7 +16,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.traitcap.ITraitCapModifyingCharm;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharm;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.platform.tree.display.CategorizedSpecialNodeView;
 import net.sf.anathema.platform.tree.display.SpecialNodeView;
 
@@ -109,7 +110,8 @@ public class AgnosticSpecialCharmViewBuilder implements SpecialCharmViewBuilder 
 
     @SuppressWarnings("unchecked")
     private <T> T getModelFromCharm(ISpecialCharm visitedCharm) {
-      return (T) configuration.getSpecialCharmConfiguration(visitedCharm.getCharmId());
+      Charm charm = configuration.getCharmById(visitedCharm.getCharmId());
+      return (T) configuration.getCharmSpecialsModel(charm);
     }
   }
 

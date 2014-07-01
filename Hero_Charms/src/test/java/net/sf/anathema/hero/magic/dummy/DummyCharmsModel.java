@@ -52,11 +52,6 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public CharmSpecialsModel getSpecialCharmConfiguration(String charmId) {
-    return null;
-  }
-
-  @Override
   public LearningCharmTree[] getCharmGroups(CategoryReference category) {
     return groups;
   }

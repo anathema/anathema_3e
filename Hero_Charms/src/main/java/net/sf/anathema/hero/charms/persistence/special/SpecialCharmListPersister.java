@@ -93,7 +93,7 @@ public class SpecialCharmListPersister {
 
   public void loadSpecials(CharmsModel model, Charm charm, CharmListPto pto, boolean isExperienceLearned) {
     SpecialCharmPersister specialPersister = persisterByCharm.get(charm);
-    CharmSpecialsModel charmSpecials = model.getSpecialCharmConfiguration(charm.getMagicName().text);
+    CharmSpecialsModel charmSpecials = model.getCharmSpecialsModel(charm);
     CharmSpecialsPto charmSpecialsPto = getSpecialCharmPto(charm.getMagicName().text, pto);
     if (charmSpecialsPto != null && charmSpecials != null) {
       specialPersister.loadCharmSpecials(charmSpecials, charmSpecialsPto);

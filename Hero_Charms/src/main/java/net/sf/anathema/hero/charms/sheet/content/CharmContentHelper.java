@@ -64,7 +64,7 @@ public class CharmContentHelper {
   }
 
   private int getLearnCount(Charm charm, CharmsModel model) {
-    CharmSpecialsModel specialCharmConfiguration = model.getSpecialCharmConfiguration(charm.getMagicName().text);
+    CharmSpecialsModel specialCharmConfiguration = model.getCharmSpecialsModel(charm);
     if (specialCharmConfiguration != null) {
       return specialCharmConfiguration.getCurrentLearnCount();
     }

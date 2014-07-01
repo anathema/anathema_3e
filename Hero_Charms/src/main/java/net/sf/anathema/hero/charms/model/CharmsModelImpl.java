@@ -397,12 +397,6 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public CharmSpecialsModel getSpecialCharmConfiguration(String charmId) {
-    Charm charm = getCharmById(charmId);
-    return getCharmSpecialsModel(charm);
-  }
-
-  @Override
   public final boolean isCompulsiveCharm(Charm charm) {
     String[] compulsiveCharmIDs = getCompulsiveCharmIds();
     return ArrayUtils.contains(compulsiveCharmIDs, charm.getMagicName().text);
