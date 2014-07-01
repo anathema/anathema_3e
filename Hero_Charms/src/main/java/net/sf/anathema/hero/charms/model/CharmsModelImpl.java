@@ -30,7 +30,6 @@ import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
@@ -57,6 +56,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
+  private final CharmsTemplate template;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
   private final Map<CategoryReference, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
@@ -70,6 +70,7 @@ public class CharmsModelImpl implements CharmsModel {
   private final List<MagicLearner> magicLearners = new ArrayList<>();
 
   public CharmsModelImpl(CharmsTemplate charmsTemplate) {
+    this.template = charmsTemplate;
     this.charmsRules = new CharmsRulesImpl(charmsTemplate);
   }
 
@@ -437,8 +438,8 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private String[] getCompulsiveCharmIds() {
-    // todo (sandra): compulsive charms
-    return new String[0];
+    List<String> compulsiveCharms = template.compulsiveCharms;
+    return compulsiveCharms.toArray(new String[compulsiveCharms.size()]);
   }
 
 
