@@ -2,28 +2,20 @@ package net.sf.anathema.character.equipment.dummy;
 
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 
 public class DemoNaturalArmour extends AbstractCombatStats implements IArmourStats {
 
-  private final int bashingSoak;
-  private final int lethalSoak;
+  private final int soak;
   private final Identifier name;
 
-  public DemoNaturalArmour(Identifier identificate, int bashingSoak, int lethalSoak) {
+  public DemoNaturalArmour(Identifier identificate, int soak) {
     this.name = identificate;
-    this.bashingSoak = bashingSoak;
-    this.lethalSoak = lethalSoak;
+    this.soak = soak;
   }
 
   @Override
-  public Integer getFatigue() {
-    return null;
-  }
-
-  @Override
-  public Integer getHardness(HealthType healthType) {
+  public Integer getHardness() {
     return null;
   }
 
@@ -33,14 +25,13 @@ public class DemoNaturalArmour extends AbstractCombatStats implements IArmourSta
   }
 
   @Override
-  public Integer getSoak(HealthType type) {
-    if (type == HealthType.Aggravated) {
-      return null;
-    }
-    if (type == HealthType.Lethal) {
-      return lethalSoak;
-    }
-    return bashingSoak;
+  public Integer getSoak() {
+    return soak;
+  }
+
+  @Override
+  public Identifier[] getTags() {
+    return new Identifier[0];
   }
 
   @Override

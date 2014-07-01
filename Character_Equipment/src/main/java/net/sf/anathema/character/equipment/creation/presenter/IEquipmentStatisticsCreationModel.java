@@ -1,5 +1,6 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
 
 public interface IEquipmentStatisticsCreationModel {
@@ -21,4 +22,6 @@ public interface IEquipmentStatisticsCreationModel {
   void setForbiddenNames(String[] definedNames);
 
   IEquipmentStatisticsModel getWeaponModel();
+
+  TagsModel<ArmourTag> getArmorTagsModel();
 }

@@ -4,8 +4,6 @@ import net.sf.anathema.hero.concept.CasteType;
 
 public interface CharmsRules {
 
-  boolean canLearnCharms();
-
   boolean isAllowedAlienCharms(CasteType caste);
 
   MartialArtsRules getMartialArtsRules();

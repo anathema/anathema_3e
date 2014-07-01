@@ -2,7 +2,6 @@ package net.sf.anathema.character.equipment.modification;
 
 import net.sf.anathema.character.equipment.character.model.stats.modification.WeaponStatsType;
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.hero.health.model.HealthType;
 import org.junit.Test;
 
 public class SecondEditionOrichalcumModificationTest extends AbstractEquipmentModificationTest {
@@ -63,9 +62,9 @@ public class SecondEditionOrichalcumModificationTest extends AbstractEquipmentMo
 
   @Test
   public void soakIncreasedBy2() throws Exception {
-    assertSoakModification(3, 1, HealthType.Lethal);
-    assertSoakModification(3, 1, HealthType.Bashing);
-    assertSoakModification(3, 1, HealthType.Aggravated);
+    assertSoakModification(3, 1);
+    assertSoakModification(3, 1);
+    assertSoakModification(3, 1);
   }
 
   @Test

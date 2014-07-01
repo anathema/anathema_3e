@@ -1,6 +1,8 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TagPageProperties;
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
+import net.sf.anathema.character.equipment.creation.presenter.stats.properties.ArmourTagProperties;
+import net.sf.anathema.character.equipment.creation.presenter.stats.properties.WeaponTagProperties;
 import net.sf.anathema.character.equipment.item.model.ModelToStats;
 import net.sf.anathema.character.equipment.item.model.NullClosure;
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
@@ -43,13 +45,20 @@ public class AgnosticStatsEditor implements StatsEditor {
     }
   }
 
-  private void initWeaponPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
-                                      EquipmentStatsDialog dialog) {
+  private void initWeaponPresentation(Resources resources, IEquipmentStatisticsCreationModel model, EquipmentStatsDialog dialog) {
     EquipmentStatsView view = dialog.getEquipmentStatsView();
     IEquipmentStatisticsModel nameModel = model.getWeaponModel();
     IWeaponTagsModel tagModel = model.getWeaponTagsModel();
     new GeneralStatsPresenter(view, dialog, nameModel, model, resources).initPresentation();
-    new BasicWeaponPresenter(tagModel, view, new TagPageProperties(resources)).initPresentation();
+    new TagPresenter<>(tagModel, view, new WeaponTagProperties(resources)).initPresentation();
+  }
+
+  private void initArmourPresentation(Resources resources, IEquipmentStatisticsCreationModel model, EquipmentStatsDialog dialog) {
+    EquipmentStatsView view = dialog.getEquipmentStatsView();
+    IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
+    TagsModel<ArmourTag> tagModel = model.getArmorTagsModel();
+    new GeneralStatsPresenter(view, dialog, armourModel, model, resources).initPresentation();
+    new TagPresenter<>(tagModel, view, new ArmourTagProperties(resources)).initPresentation();
   }
 
   private void initArtifactPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
@@ -66,14 +75,6 @@ public class AgnosticStatsEditor implements StatsEditor {
     ITraitModifyingStatisticsModel modModel = model.getTraitModifyingStatisticsModel();
     new GeneralStatsPresenter(view, dialog, modModel, model, resources).initPresentation();
     new ModifierStatisticsPresenter(modModel, view, resources).initPresentation();
-  }
-
-  private void initArmourPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
-                                      EquipmentStatsDialog dialog) {
-    EquipmentStatsView view = dialog.getEquipmentStatsView();
-    IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
-    new GeneralStatsPresenter(view, dialog, armourModel, model, resources).initPresentation();
-    new ArmourStatisticsPresenter(armourModel, view, resources).initPresentation();
   }
 
   private class CreateStatsHandler implements OperationResultHandler {

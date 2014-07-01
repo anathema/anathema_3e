@@ -5,6 +5,7 @@ import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
@@ -12,7 +13,6 @@ import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisti
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class ModelToStats {
@@ -23,11 +23,8 @@ public class ModelToStats {
         ArmourStats armourStats = new ArmourStats();
         IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
         setName(armourStats, armourModel);
-        armourStats.setFatigue(armourModel.getFatigueModel().getValue());
-        armourStats.setMobilityPenalty(armourModel.getMobilityPenaltyModel().getValue());
-        for (HealthType healthType : HealthType.values()) {
-          armourStats.setSoak(healthType, armourModel.getSoakModel(healthType).getValue());
-          armourStats.setHardness(healthType, armourModel.getHardnessModel(healthType).getValue());
+        for (ArmourTag tag : model.getArmorTagsModel().getSelectedTags()) {
+          armourStats.addTag(tag);
         }
         return armourStats;
       case Weapon:

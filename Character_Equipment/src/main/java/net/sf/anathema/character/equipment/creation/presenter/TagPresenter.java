@@ -1,31 +1,29 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TagPageProperties;
+import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TagProperties;
 import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
 
-public class BasicWeaponPresenter {
+public class TagPresenter<TAG> {
 
-  private IWeaponTagsModel weaponTagsModel;
+  private final TagsModel<TAG> tagsModel;
   private final EquipmentStatsView view;
-  private final TagPageProperties tagProperties;
+  private final TagProperties<TAG> tagProperties;
 
-  public BasicWeaponPresenter(IWeaponTagsModel weaponTagsModel,
-                              EquipmentStatsView view,
-                              TagPageProperties tagProperties) {
-    this.weaponTagsModel = weaponTagsModel;
+  public TagPresenter(TagsModel<TAG> tagsModel, EquipmentStatsView view, TagProperties<TAG> tagProperties) {
+    this.tagsModel = tagsModel;
     this.view = view;
     this.tagProperties = tagProperties;
   }
 
   public void initPresentation() {
     BooleanValuePresentation booleanValuePresentation = new BooleanValuePresentation();
-    for (IWeaponTag tag : weaponTagsModel.getAllTags()) {
+    for (TAG tag : tagsModel.getAllTags()) {
       ToggleTool tool = view.addToggleTool();
       tool.setText(tagProperties.getLabel(tag));
       tool.setTooltip(tagProperties.getToolTip(tag));
-      booleanValuePresentation.initPresentation(tool, weaponTagsModel.getSelectedModel(tag));
-      BooleanValueModel enabledModel = weaponTagsModel.getEnabledModel(tag);
+      booleanValuePresentation.initPresentation(tool, tagsModel.getSelectedModel(tag));
+      BooleanValueModel enabledModel = tagsModel.getEnabledModel(tag);
       enabledModel.addChangeListener(newValue -> this.enableBasedOnModelState(enabledModel, tool));
       enableBasedOnModelState(enabledModel, tool);
     }

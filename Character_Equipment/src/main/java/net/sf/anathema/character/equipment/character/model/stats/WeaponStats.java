@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.character.model.stats;
 
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.hero.equipment.model.WeaponStatisticsTable;
+import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
@@ -18,13 +18,12 @@ import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Heavy
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Lethal;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Light;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Medium;
-import static net.sf.anathema.hero.equipment.model.WeaponStatisticsTable.forArtifactWeapons;
-import static net.sf.anathema.hero.equipment.model.WeaponStatisticsTable.forMundaneWeapons;
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forArtifactWeapons;
+import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forMundaneWeapons;
 
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
-  private final List<String> tags = new ArrayList<>();
+  private final List<IWeaponTag> tags = new ArrayList<>();
 
   @Override
   public int getAccuracy() {
@@ -58,12 +57,11 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   @Override
   public Identifier[] getTags() {
-    String[] tagIds = tags.toArray(new String[tags.size()]);
-    return transform(tagIds, WeaponTag.class, WeaponTag::valueOf);
+    return tags.toArray(new IWeaponTag[tags.size()]);
   }
 
   protected final boolean hasTag(WeaponTag tag) {
-    return tags.contains(tag.getId());
+    return tags.contains(tag);
   }
 
   @Override
@@ -71,8 +69,8 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
     return false;
   }
 
-  public void addTag(Identifier tag) {
-    tags.add(tag.getId());
+  public void addTag(IWeaponTag tag) {
+    tags.add(tag);
   }
 
   @Override

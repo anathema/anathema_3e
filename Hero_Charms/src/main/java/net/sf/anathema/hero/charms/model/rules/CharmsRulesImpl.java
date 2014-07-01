@@ -17,11 +17,6 @@ public class CharmsRulesImpl implements CharmsRules {
   }
 
   @Override
-  public boolean canLearnCharms() {
-    return !"None".equals(template.charmType);
-  }
-
-  @Override
   public boolean isAllowedAlienCharms(CasteType caste) {
     return template.alienCharmCastes.contains(caste.getId());
   }

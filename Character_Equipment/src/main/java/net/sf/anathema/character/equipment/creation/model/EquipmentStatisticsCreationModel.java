@@ -6,6 +6,7 @@ import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisti
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
+import net.sf.anathema.character.equipment.creation.presenter.TagsModel;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
 import net.sf.anathema.lib.control.ChangeListener;
 import org.apache.commons.lang3.ArrayUtils;
@@ -15,6 +16,7 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
 
   private final IWeaponTagsModel weaponTagsModel = new WeaponTagsModel();
   private final IEquipmentStatisticsModel weaponNameModel = new WeaponLegalityModel(weaponTagsModel);
+  private final TagsModel<ArmourTag> armourTagsModel = new ArmourTagsModel();
   private final IArmourStatisticsModel armourStatisticsModel = new ArmourStatsticsModel();
   private final IArtifactStatisticsModel artifactStatisticsModel = new ArtifactStatisticsModel();
   private final ITraitModifyingStatisticsModel traitModifyingStatisticsModel = new TraitModifyingStatisticsModel();
@@ -34,6 +36,11 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
   @Override
   public IEquipmentStatisticsModel getWeaponModel() {
     return weaponNameModel;
+  }
+
+  @Override
+  public TagsModel<ArmourTag> getArmorTagsModel() {
+    return armourTagsModel;
   }
 
   @Override

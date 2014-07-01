@@ -1,5 +1,6 @@
 package net.sf.anathema.character.equipment.item.model;
 
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.creation.model.EquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
@@ -11,7 +12,6 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Artifact;
@@ -33,13 +33,16 @@ public class StatsToModel {
       model.setEquipmentType(EquipmentStatisticsType.Armor);
       IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
       armourModel.getName().setText(armourStats.getName().getId());
-      armourModel.getBashingHardnessModel().setValue(armourStats.getHardness(HealthType.Bashing));
-      armourModel.getBashingSoakModel().setValue(armourStats.getSoak(HealthType.Bashing));
-      armourModel.getLethalHardnessModel().setValue(armourStats.getHardness(HealthType.Lethal));
-      armourModel.getLethalSoakModel().setValue(armourStats.getSoak(HealthType.Lethal));
-      armourModel.getAggravatedSoakModel().setValue(armourStats.getSoak(HealthType.Aggravated));
-      armourModel.getFatigueModel().setValue(armourStats.getFatigue());
+      armourModel.getBashingHardnessModel().setValue(armourStats.getHardness());
+      armourModel.getBashingSoakModel().setValue(armourStats.getSoak());
+      armourModel.getLethalHardnessModel().setValue(armourStats.getHardness());
+      armourModel.getLethalSoakModel().setValue(armourStats.getSoak());
+      armourModel.getAggravatedSoakModel().setValue(armourStats.getSoak());
       armourModel.getMobilityPenaltyModel().setValue(armourStats.getMobilityPenalty());
+      for (Identifier tag : armourStats.getTags()) {
+        model.getArmorTagsModel().getSelectedModel((ArmourTag) tag).setValue(true);
+      }
+      model.getArmorTagsModel().makeValid();
     } else if (stats instanceof ArtifactStats)
 
     {
