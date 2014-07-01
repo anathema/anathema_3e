@@ -9,7 +9,6 @@ import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
-import net.sf.anathema.lib.util.Identifier;
 
 import java.util.*;
 
@@ -18,15 +17,13 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MART
 public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
-    Identifier treeIdentifier = MARTIAL_ARTS;
-    CategoryReference categoryReference = MartialArtsUtilities.getCategory(treeIdentifier);
+    CategoryReference categoryReference = MartialArtsUtilities.getCategory(MARTIAL_ARTS);
     Charm[] charms = provider.getCharms(categoryReference);
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
   public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, CharacterType characterType) {
-    Identifier treeIdentifier = characterType;
-    CategoryReference categoryReference = MartialArtsUtilities.getCategory(treeIdentifier);
+    CategoryReference categoryReference = MartialArtsUtilities.getCategory(characterType);
     Charm[] charms = provider.getCharms(categoryReference);
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
@@ -59,7 +56,7 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     return allCharms;
   }
 
-  private final void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
+  private void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
     for (Charm charm : charms) {
       TreeName treeName = new TreeName(charm.getGroupId());
       if (!treeNameList.contains(treeName) && optionCheck.isValidOptionForHeroType(charm)) {
@@ -69,6 +66,11 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
         treeList.add(new CharmTreeImpl(new TreeReference(category, treeName), charmArray));
       }
     }
+  }
+
+  @Override
+  public boolean isEmpty() {
+    return allCharms.length == 0;
   }
 
   @Override

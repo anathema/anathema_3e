@@ -26,6 +26,11 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   @Override
+  public boolean isEmpty() {
+    return treeIdentifierMap.isEmpty();
+  }
+
+  @Override
   public CharmTree[] getAllCharmTrees() {
     List<CharmTree> allCharmGroups = new ArrayList<>();
     initCharacterTypeCharms(allCharmGroups);

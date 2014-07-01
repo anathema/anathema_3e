@@ -20,4 +20,8 @@ public class CharmTreeIdentifierMap implements CharmTreeCollectionMap {
   public CharmTreeCollection getCharmTree(Identifier type) {
     return charmTreesById.get(type);
   }
+
+  public boolean isEmpty() {
+    return charmTreesById.isEmpty();
+  }
 }

@@ -1,20 +1,20 @@
 package net.sf.anathema.hero.magic.dummy;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.PrintMagicProvider;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
-import net.sf.anathema.hero.charms.model.PrintMagicProvider;
 import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
@@ -22,6 +22,7 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
 import net.sf.anathema.lib.util.Identifier;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DummyCharmsModel implements CharmsModel {
@@ -117,11 +118,6 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public CharacterType[] getCharacterTypes(boolean includeAlienTypes) {
-    throw new NotYetImplementedException();
-  }
-
-  @Override
   public Charm[] getCharms(CharmTree charmGroup) {
     return charmGroup.getAllCharms();
   }
@@ -159,6 +155,11 @@ public class DummyCharmsModel implements CharmsModel {
   @Override
   public boolean isAlienCharmAllowed() {
     return false;
+  }
+
+  @Override
+  public List<CategoryReference> getValidCategoriesForHero() {
+    return new ArrayList<>();
   }
 
   public void setGroups(LearningCharmTree... groups) {

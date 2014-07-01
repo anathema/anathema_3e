@@ -15,6 +15,11 @@ public final class CharacterGroupCharmTree implements CharmTreeCollection {
   }
 
   @Override
+  public boolean isEmpty() {
+    return getAllCharmTrees().length > 0;
+  }
+
+  @Override
   public CharmTree[] getAllCharmTrees() {
     return model.getCharmModel().getCharmGroups(cascadeType);
   }

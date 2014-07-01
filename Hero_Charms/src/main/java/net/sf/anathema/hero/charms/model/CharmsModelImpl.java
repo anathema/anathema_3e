@@ -285,10 +285,6 @@ public class CharmsModelImpl implements CharmsModel {
     }
   }
 
-  private CharacterType[] getCharacterTypes(boolean includeAlienTypes) {
-    return options.getCharacterTypes(includeAlienTypes);
-  }
-
   private void verifyCharms() {
     if (!hero.isFullyLoaded()) {
       return;
@@ -474,18 +470,11 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public boolean isAlienCharmAllowed() {
-    CasteType caste = HeroConceptFetcher.fetch(hero).getCaste().getType();
-    return charmsRules.isAllowedAlienCharms(caste);
+    return options.isAlienCharmAllowed();
   }
 
   @Override
   public List<CategoryReference> getValidCategoriesForHero() {
-    List<CategoryReference> categoryReferences = new ArrayList<>();
-    boolean alienCharms = isAlienCharmAllowed();
-    for(CharacterType type : getCharacterTypes(alienCharms)) {
-      categoryReferences.add(MartialArtsUtilities.getCategory(type));
-    }
-    categoryReferences.add(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
-    return categoryReferences;
+    return options.getValidCategoryReferencesForHero();
   }
 }
