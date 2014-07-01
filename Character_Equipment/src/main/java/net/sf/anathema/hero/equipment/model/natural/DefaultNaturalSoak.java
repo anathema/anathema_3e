@@ -3,28 +3,19 @@ package net.sf.anathema.hero.equipment.model.natural;
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class DefaultNaturalSoak extends AbstractCombatStats implements IArmourStats, NaturalSoak {
 
   private final ValuedTraitType stamina;
-  private final CharacterType characterType;
 
-  public DefaultNaturalSoak(ValuedTraitType stamina, CharacterType characterType) {
+  public DefaultNaturalSoak(ValuedTraitType stamina) {
     this.stamina = stamina;
-    this.characterType = characterType;
   }
 
   @Override
-  public Integer getFatigue() {
-    return null;
-  }
-
-  @Override
-  public Integer getHardness(HealthType type) {
+  public Integer getHardness() {
     return null;
   }
 
@@ -34,23 +25,13 @@ public class DefaultNaturalSoak extends AbstractCombatStats implements IArmourSt
   }
 
   @Override
-  public Integer getSoak(HealthType type) {
-    if (type == HealthType.Aggravated) {
-      return null;
-    }
-    if (!characterType.isEssenceUser() && type == HealthType.Lethal) {
-      return 0;
-    }
-    return getExaltedSoak(type);
+  public Integer getSoak() {
+    return stamina.getCurrentValue();
   }
 
-  private Integer getExaltedSoak(HealthType type) {
-    if (type == HealthType.Lethal) {
-        return (stamina.getCurrentValue() / 2);
-    }
-    else {
-      return stamina.getCurrentValue();
-    }
+  @Override
+  public Identifier[] getTags() {
+    return new Identifier[0];
   }
 
   @Override

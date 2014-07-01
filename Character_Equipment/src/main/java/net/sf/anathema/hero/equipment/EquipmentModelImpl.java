@@ -99,9 +99,8 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   private IArmourStats determineNaturalArmor(Hero hero) {
-    CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
     Trait stamina = TraitModelFetcher.fetch(hero).getTrait(AttributeType.Stamina);
-    return new DefaultNaturalSoak(stamina, characterType);
+    return new DefaultNaturalSoak(stamina);
   }
 
   @Override

@@ -4,10 +4,7 @@ import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
-
-import static java.lang.Integer.MAX_VALUE;
 
 public class GsonStatMother {
 
@@ -29,12 +26,6 @@ public class GsonStatMother {
   public static ArmourStats createArmour() {
     ArmourStats stats = new ArmourStats();
     stats.setName(new SimpleIdentifier("Bounce!"));
-    stats.setFatigue(5);
-    stats.setMobilityPenalty(-2);
-    stats.setSoak(HealthType.Bashing, 5);
-    stats.setSoak(HealthType.Lethal, 7);
-    stats.setSoak(HealthType.Aggravated, MAX_VALUE);
-    stats.setHardness(HealthType.Lethal, 7);
     return stats;
   }
 

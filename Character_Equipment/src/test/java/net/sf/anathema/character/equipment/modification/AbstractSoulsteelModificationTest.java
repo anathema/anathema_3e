@@ -1,7 +1,6 @@
 package net.sf.anathema.character.equipment.modification;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.hero.health.model.HealthType;
 import org.junit.Test;
 
 public abstract class AbstractSoulsteelModificationTest extends AbstractEquipmentModificationTest {
@@ -33,9 +32,9 @@ public abstract class AbstractSoulsteelModificationTest extends AbstractEquipmen
 
   @Test
   public void soakIncreasedBy2() throws Exception {
-    assertSoakModification(3, 1, HealthType.Lethal);
-    assertSoakModification(3, 1, HealthType.Bashing);
-    assertSoakModification(3, 1, HealthType.Aggravated);
+    assertSoakModification(3, 1);
+    assertSoakModification(3, 1);
+    assertSoakModification(3, 1);
   }
 
   @Test

@@ -8,7 +8,6 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
@@ -35,7 +34,6 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     }
     stringBuilder.append(": ");
     stringBuilder.append(getTagsString(weapon.getTags()));
-
     return stringBuilder.toString();
   }
 
@@ -123,23 +121,8 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
   private String createArmourString(IArmourStats armourStats) {
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append(armourStats.getName().getId());
-    stringBuilder.append(":");
-    stringBuilder.append(createtNewStatsStart("Soak"));
-    stringBuilder.append(createArmourStat(armourStats.getSoak(HealthType.Bashing), "+"));
-    stringBuilder.append("/");
-    stringBuilder.append(createArmourStat(armourStats.getSoak(HealthType.Lethal), "+"));
-    stringBuilder.append("/");
-    stringBuilder.append(createArmourStat(armourStats.getSoak(HealthType.Aggravated), "+"));
-    stringBuilder.append(createtNewStatsStart("Hardness"));
-    stringBuilder.append(createArmourStat(armourStats.getHardness(HealthType.Bashing), ""));
-    stringBuilder.append("/");
-    stringBuilder.append(createArmourStat(armourStats.getHardness(HealthType.Lethal), ""));
-    stringBuilder.append(getStatsString("MobilityPenalty", armourStats.getMobilityPenalty(), false));
-    stringBuilder.append(getStatsString("Fatigue", armourStats.getFatigue(), false));
+    stringBuilder.append(": ");
+    stringBuilder.append(getTagsString(armourStats.getTags()));
     return stringBuilder.toString();
-  }
-
-  private CharSequence createArmourStat(Integer soak, String prefix) {
-    return soak == null ? "-" : prefix + soak;
   }
 }

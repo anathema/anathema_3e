@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapon;
 
-import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.lib.util.Identifier;
 
 public interface IArmourStats extends IEquipmentStats {
 
-  Integer getFatigue();
-
   Integer getMobilityPenalty();
 
-  Integer getHardness(HealthType type);
+  Integer getHardness();
 
-  Integer getSoak(HealthType type);
+  Integer getSoak();
+
+  Identifier[] getTags();
 }

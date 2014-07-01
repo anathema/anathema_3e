@@ -1,49 +1,21 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.model.natural.NaturalSoak;
-import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class EffectiveArmour extends AbstractCombatStats implements IArmourStats {
 
-  private int fatigue;
-  private int mobilityPenalty;
-  private final Map<HealthType, Integer> naturalSoakByHealthType = new HashMap<HealthType, Integer>() {
-    {
-      for (HealthType healthType : HealthType.values()) {
-        put(healthType, 0);
-      }
-    }
-  };
-  private final Map<HealthType, Integer> equipmentSoakByHealthType = new HashMap<HealthType, Integer>() {
-    {
-      for (HealthType healthType : HealthType.values()) {
-        put(healthType, 0);
-      }
-    }
-  };
-  private final Map<HealthType, Integer> hardnessByHealthType = new HashMap<HealthType, Integer>() {
-    {
-      for (HealthType healthType : HealthType.values()) {
-        put(healthType, 0);
-      }
-    }
-  };
+  private int mobilityPenalty = 0;
+  private int naturalSoak = 0;
+  private int equipmentSoak = 0;
+  private int hardness = 0;
 
   @Override
-  public Integer getFatigue() {
-    return fatigue;
-  }
-
-  @Override
-  public Integer getHardness(HealthType type) {
-    return hardnessByHealthType.get(type);
+  public Integer getHardness() {
+    return hardness;
   }
 
   @Override
@@ -52,8 +24,13 @@ public class EffectiveArmour extends AbstractCombatStats implements IArmourStats
   }
 
   @Override
-  public Integer getSoak(HealthType type) {
-    return naturalSoakByHealthType.get(type) + equipmentSoakByHealthType.get(type);
+  public Integer getSoak() {
+    return naturalSoak + equipmentSoak;
+  }
+
+  @Override
+  public Identifier[] getTags() {
+    return new Identifier[0];
   }
 
   @Override
@@ -70,28 +47,19 @@ public class EffectiveArmour extends AbstractCombatStats implements IArmourStats
   }
 
   private void handleNaturalArmour(IArmourStats armour) {
-    for (HealthType healthType : HealthType.values()) {
-      naturalSoakByHealthType.put(healthType, getIncrementValue(naturalSoakByHealthType.get(healthType), armour.getSoak(healthType)));
-    }
+    naturalSoak = armour.getSoak();
   }
 
   private void handleEquipmentArmour(IArmourStats armour) {
-    fatigue = getHighestValue(fatigue, armour.getFatigue());
     modifyMobilityPenalty(armour.getMobilityPenalty());
-    for (HealthType healthType : HealthType.values()) {
-      equipmentSoakByHealthType.put(healthType, getHighestValue(equipmentSoakByHealthType.get(healthType), armour.getSoak(healthType)));
-      hardnessByHealthType.put(healthType, getHighestValue(hardnessByHealthType.get(healthType), armour.getHardness(healthType)));
-    }
+    equipmentSoak = getHighestValue(equipmentSoak, armour.getSoak());
+    hardness = getHighestValue(hardness, armour.getHardness());
   }
 
   public void modifyMobilityPenalty(Integer amount) {
     if (amount != null) {
       mobilityPenalty += amount;
     }
-  }
-
-  private int getIncrementValue(int value, Integer increment) {
-    return increment == null ? value : value + increment;
   }
 
   private int getHighestValue(int currentValue, Integer newValue) {

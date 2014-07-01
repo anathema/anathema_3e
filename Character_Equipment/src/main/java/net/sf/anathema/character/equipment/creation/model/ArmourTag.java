@@ -1,8 +1,11 @@
 package net.sf.anathema.character.equipment.creation.model;
 
-public enum ArmourTag {
+import net.sf.anathema.lib.util.Identifier;
+
+public enum ArmourTag implements Identifier {
   Light, Medium, Heavy, Artifact;
 
+  @Override
   public String getId() {
     return name();
   }

@@ -23,7 +23,6 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.ma
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSoakModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSpeedModifier;
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.hero.health.model.HealthType;
 import org.junit.Assert;
 
 public abstract class AbstractEquipmentModificationTest {
@@ -68,13 +67,13 @@ public abstract class AbstractEquipmentModificationTest {
     assertSpeedModification(5, 5);
   }
 
-  protected final void assertSoakModification(int expected, int original, HealthType type) {
-    SoakModification modification = new SoakModification(new MaterialSoakModifier(getBaseMaterial(), type));
+  protected final void assertSoakModification(int expected, int original) {
+    SoakModification modification = new SoakModification(new MaterialSoakModifier(getBaseMaterial()));
     Assert.assertEquals(expected, modification.getModifiedValue(original));
   }
 
   protected final void assertLethalSoakUnmodified() {
-    assertSoakModification(1, 1, HealthType.Lethal);
+    assertSoakModification(1, 1);
   }
 
   protected final void assertHardnessModification(int expected, int original) {

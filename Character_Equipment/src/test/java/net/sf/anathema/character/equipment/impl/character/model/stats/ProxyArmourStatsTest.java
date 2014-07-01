@@ -4,6 +4,7 @@ import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.modification.InertBaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.ReactiveBaseMaterial;
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import org.junit.Test;
 
 import static net.sf.anathema.equipment.core.MagicalMaterial.Adamant;
@@ -36,7 +37,7 @@ public class ProxyArmourStatsTest {
 
   private ArmourStats createArmorWithMobilityPenalty() {
     ArmourStats original = new ArmourStats();
-    original.setMobilityPenalty(-2);
+    original.addTag(ArmourTag.Heavy);
     return original;
   }
 }

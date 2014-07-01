@@ -4,7 +4,6 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -34,13 +33,8 @@ public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFa
     final String name = createItemName(item, stats);
     return new IArmourStats() {
       @Override
-      public Integer getFatigue() {
-        return stats.getFatigue();
-      }
-
-      @Override
-      public Integer getHardness(HealthType type) {
-        return stats.getHardness(type);
+      public Integer getHardness() {
+        return stats.getHardness();
       }
 
       @Override
@@ -49,8 +43,13 @@ public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFa
       }
 
       @Override
-      public Integer getSoak(HealthType type) {
-        return stats.getSoak(type);
+      public Integer getSoak() {
+        return stats.getSoak();
+      }
+
+      @Override
+      public Identifier[] getTags() {
+        return stats.getTags();
       }
 
       @Override

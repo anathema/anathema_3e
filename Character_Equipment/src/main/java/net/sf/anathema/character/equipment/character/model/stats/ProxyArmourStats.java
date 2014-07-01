@@ -2,20 +2,17 @@ package net.sf.anathema.character.equipment.character.model.stats;
 
 import com.google.common.base.Objects;
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
-import net.sf.anathema.character.equipment.character.model.stats.modification.FatigueModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.HardnessModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.MobilityPenaltyModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.SoakModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.StatModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.StatsModification;
-import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialFatigueModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialHardnessModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialMobilityPenaltyModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSoakModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.modifier.AttunementModifier;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.lib.util.Identifier;
 
 public class ProxyArmourStats extends AbstractStats implements IArmourStats, Proxy<IArmourStats> {
@@ -34,15 +31,8 @@ public class ProxyArmourStats extends AbstractStats implements IArmourStats, Pro
   }
 
   @Override
-  public Integer getFatigue() {
-    Integer fatigue = delegate.getFatigue();
-    StatModifier modifier = createAttunementModifier(new MaterialFatigueModifier(material, fatigue));
-    return getModifiedValue(new FatigueModification(modifier), fatigue);
-  }
-
-  @Override
-  public Integer getHardness(HealthType type) {
-    Integer hardness = delegate.getHardness(type);
+  public Integer getHardness() {
+    Integer hardness = delegate.getHardness();
     StatModifier modifier = createAttunementModifier(new MaterialHardnessModifier(material));
     return getModifiedValue(new HardnessModification(modifier), hardness);
   }
@@ -55,10 +45,15 @@ public class ProxyArmourStats extends AbstractStats implements IArmourStats, Pro
   }
 
   @Override
-  public Integer getSoak(HealthType type) {
-    Integer soak = delegate.getSoak(type);
-    StatModifier modifier = createAttunementModifier(new MaterialSoakModifier(material, type));
+  public Integer getSoak() {
+    Integer soak = delegate.getSoak();
+    StatModifier modifier = createAttunementModifier(new MaterialSoakModifier(material));
     return getModifiedValue(new SoakModification(modifier), soak);
+  }
+
+  @Override
+  public Identifier[] getTags() {
+    return delegate.getTags();
   }
 
   private AttunementModifier createAttunementModifier(StatModifier modifier) {
