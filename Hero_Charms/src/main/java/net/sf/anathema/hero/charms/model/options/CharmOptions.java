@@ -11,7 +11,6 @@ import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
@@ -26,19 +25,19 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getC
 
 public class CharmOptions implements Iterable<CharmTreeCategory> {
 
-  private final CharmsRules charmsRules;
   private final List<CharmTreeCategory> treeCategories = new ArrayList<>();
+  private final CharmsRules charmsRule;
   private final Hero hero;
   private final CharmProvider charmProvider;
-  private final CharmOptionRules optionRules;
+  private final CharmOptionCheck optionsCheck;
 
-  public CharmOptions(CharmProvider charmProvider, CharmsRules charmsRules, Hero hero, CharacterTypes characterTypes) {
+  public CharmOptions(CharmProvider charmProvider, CharmsRules charmsRule, Hero hero) {
     this.charmProvider = charmProvider;
     this.hero = hero;
-    this.charmsRules = charmsRules;
-    this.optionRules = new CharmOptionRulesImpl(charmsRules, characterTypes);
-    for(CategoryReference reference : optionRules.getAllCategories()) {
-      CharmTreeCategory treeCategory = CreateFor(optionRules, charmProvider, reference);
+    this.charmsRule = charmsRule;
+    this.optionsCheck = new CharmOptionCheckImpl(charmsRule);
+    for(CategoryReference reference : charmProvider.getAllCategories()) {
+      CharmTreeCategory treeCategory = CreateFor(optionsCheck, charmProvider, reference);
       if (!treeCategory.isEmpty()) {
         treeCategories.add(treeCategory);
       }
@@ -51,7 +50,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
 
   public ISpecialCharm[] getSpecialCharms() {
     CategoryReference primaryCategory = getCategory(getNativeCharacterType());
-    return charmProvider.getSpecialCharms(optionRules, getCharmIdMap(), primaryCategory);
+    return charmProvider.getSpecialCharms(optionsCheck, getCharmIdMap(), primaryCategory);
   }
 
   public boolean isAlienCharm(Charm charm) {
@@ -59,7 +58,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
   }
 
   public boolean isAlienCategory(CategoryReference category) {
-    return !optionRules.getNativeCategories().contains(category);
+    return !charmsRule.getNativeCategories().contains(category);
   }
 
   public Charm[] getCharms(CharmTree tree) {
@@ -77,14 +76,14 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
 
   public List<CategoryReference> getValidCategoryReferencesForHero() {
     if (isAlienCharmAllowed()) {
-      return getNonEmptyCategoryReferences();
+      return charmProvider.getAllCategories();
     }
-    return optionRules.getNativeCategories();
+    return charmsRule.getNativeCategories();
   }
 
   public boolean isAlienCharmAllowed() {
     CasteType caste = HeroConceptFetcher.fetch(hero).getCaste().getType();
-    return charmsRules.isAllowedAlienCharms(caste);
+    return charmsRule.isAllowedAlienCharms(caste);
   }
 
   private CharacterType getNativeCharacterType() {
@@ -106,14 +105,6 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
 
   private boolean isAlienCharmsAllowedForHero() {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
-    return charmsRules.isAllowedAlienCharms(concept.getCaste().getType());
-  }
-
-  private List<CategoryReference> getNonEmptyCategoryReferences() {
-    List<CategoryReference> references = new ArrayList<>();
-    for(CharmTreeCategory category : treeCategories) {
-      references.add(category.getReference());
-    }
-    return references;
+    return charmsRule.isAllowedAlienCharms(concept.getCaste().getType());
   }
 }

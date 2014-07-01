@@ -6,10 +6,7 @@ import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getCategory;
@@ -18,15 +15,18 @@ public class CharmProviderImpl implements CharmProvider {
 
   private final Map<CategoryReference, ISpecialCharm[]> specialCharmsByCategory = new HashMap<>();
   private final Map<CategoryReference, Charm[]> charmsByCategory = new HashMap<>();
+  private CharmCache cache;
 
   public CharmProviderImpl(CharmCache cache) {
-    for (CategoryReference type : cache.getCharmCategories()) {
-      CategoryReference categoryReference = getCategory(type);
-      specialCharmsByCategory.put(categoryReference, cache.getSpecialCharmData(type));
-      charmsByCategory.put(categoryReference, cache.getCharms(type));
+    this.cache = cache;
+    for (CategoryReference category : cache.getCharmCategories()) {
+      specialCharmsByCategory.put(category, cache.getSpecialCharmData(category));
+      charmsByCategory.put(category, cache.getCharms(category));
     }
-    CategoryReference martialArtsReference = getCategory(MARTIAL_ARTS);
-    charmsByCategory.put(martialArtsReference, cache.getCharms(martialArtsReference));
+  }
+
+  public List<CategoryReference> getAllCategories() {
+    return Arrays.asList(cache.getCharmCategories());
   }
 
   @Override
