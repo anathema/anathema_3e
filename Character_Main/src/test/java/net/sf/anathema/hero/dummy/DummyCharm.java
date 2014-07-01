@@ -88,7 +88,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public CharacterType getCharacterType() {
+  public CharacterType getNativeCharacterType() {
     return null;
   }
 

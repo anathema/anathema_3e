@@ -40,7 +40,7 @@ public class CharmCardData extends AbstractMagicCardData {
     if (MartialArtsUtilities.isMartialArts(charm)) {
       return getResourceProvider().getMartialArtLevelIcon(MartialArtsUtilities.getLevel(charm));
     } else {
-      return getResourceProvider().getCharacterIcon(charm.getCharacterType());
+      return getResourceProvider().getCharacterIcon(charm.getNativeCharacterType());
     }
   }
 

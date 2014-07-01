@@ -76,7 +76,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public TreeReference getTreeReference() {
-    String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : getCharacterType().getId();
+    String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : getNativeCharacterType().getId();
     return new TreeReference(new CategoryReference(categoryText), treeName);
   }
 
@@ -86,7 +86,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public CharacterType getCharacterType() {
+  public CharacterType getNativeCharacterType() {
     return characterType;
   }
 

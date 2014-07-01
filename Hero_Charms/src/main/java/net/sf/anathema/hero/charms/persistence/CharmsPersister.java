@@ -33,14 +33,14 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
   private void learnCharm(CharmsModel model, CharmPto charmPto, CharmListPto pto) {
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
-      Charm charm = model.getCharmById(charmPto.id);
+      Charm charm = model.getCharmById(charmPto.charm);
       LearningCharmTree group = model.getGroup(charm);
       if (!group.isLearned(charm, false)) {
         group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
     } catch (IllegalArgumentException e) {
-      messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charmPto.id);
+      messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charmPto.charm);
     }
   }
 
@@ -62,7 +62,9 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private void saveCharm(Charm charm, boolean isExperienceLearned, CharmListPto pto) {
     CharmPto charmPto = new CharmPto();
-    charmPto.id = charm.getId();
+    charmPto.charm = charm.getId();
+    charmPto.tree = charm.getTreeReference().name.text;
+    charmPto.category = charm.getTreeReference().category.text;
     charmPto.isExperienceLearned = isExperienceLearned;
     pto.charms.add(charmPto);
   }

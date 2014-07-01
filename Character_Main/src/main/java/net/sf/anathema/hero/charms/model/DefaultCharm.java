@@ -39,7 +39,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public CharacterType getCharacterType() { return null; } // to be generalized to category
+  public CharacterType getNativeCharacterType() { return null; } // to be generalized to category
 
   @Override
   public Duration getDuration() {

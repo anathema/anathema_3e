@@ -2,7 +2,6 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
-import net.sf.anathema.hero.charms.model.CharmHasSameTypeAsCharacter;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
@@ -60,7 +59,8 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
   }
 
   public boolean isAlienCharm(Charm charm) {
-    String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
+    // todo (sandra): rewrite as soon as (non-exclusive) martial arts charms no longer have charm type
+    String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getNativeCharacterType().getId();
     return isAlienCategory(new CategoryReference(category));
   }
 
@@ -107,7 +107,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
   }
 
   private boolean isNativeCharm(Charm charm) {
-    return new CharmHasSameTypeAsCharacter(hero).apply(charm);
+    return !isAlienCharm(charm);
   }
 
   private boolean characterMayLearnAlienCharms() {

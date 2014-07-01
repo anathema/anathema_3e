@@ -5,14 +5,14 @@ import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.LegendCardData;
 import net.sf.anathema.cards.data.LegendEntry;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
-import net.sf.anathema.framework.environment.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +95,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
         LegendEntry trait =
                 new LegendEntry(resourceProvider.getTraitIcon(charm.getPrimaryTraitType()), resources.getString(charm.getPrimaryTraitType().getId()));
         LegendEntry character =
-                new LegendEntry(resourceProvider.getCharacterIcon(charm.getCharacterType()), resources.getString(charm.getCharacterType().getId()));
+                new LegendEntry(resourceProvider.getCharacterIcon(charm.getNativeCharacterType()), resources.getString(charm.getNativeCharacterType().getId()));
         if (!traits.contains(trait)) {
           traits.add(trait);
         }

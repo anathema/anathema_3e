@@ -1,10 +1,11 @@
 package net.sf.anathema.hero.combos.persistence;
 
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.persistence.CharmPto;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.display.presenter.CombosModel;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.lib.message.MessageType;
@@ -39,12 +40,12 @@ public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, Co
   }
 
   private void loadCharms(CharmsModel charms, CombosModel model, ComboPto comboPto) {
-    for (ComboCharmPto charm : comboPto.charms) {
+    for (CharmPto charm : comboPto.charms) {
       try {
-        Charm comboCharm = charms.getCharmById(charm.charmId);
-        model.addCharmToCombo(comboCharm, charm.experienceLearned);
+        Charm comboCharm = charms.getCharmById(charm.charm);
+        model.addCharmToCombo(comboCharm, charm.isExperienceLearned);
       } catch (IllegalArgumentException e) {
-        messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charm.charmId);
+        messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charm.charm);
       }
     }
   }
@@ -69,10 +70,11 @@ public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, Co
 
   private void saveCharms(ComboPto pto, Charm[] charms, boolean experiencedLearned) {
     for (Charm charm : charms) {
-      ComboCharmPto charmPto = new ComboCharmPto();
-      charmPto.charmId = charm.getId();
-      charmPto.type = charm.getCharacterType().getId();
-      charmPto.experienceLearned = experiencedLearned;
+      CharmPto charmPto = new CharmPto();
+      charmPto.charm = charm.getId();
+      charmPto.tree = charm.getTreeReference().name.text;
+      charmPto.category = charm.getTreeReference().category.text;
+      charmPto.isExperienceLearned = experiencedLearned;
       pto.charms.add(charmPto);
     }
   }
