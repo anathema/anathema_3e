@@ -277,7 +277,7 @@ public class CharmsModelImpl implements CharmsModel {
   public void forgetAllAlienCharms() {
     for (LearningCharmTree[] allLearnTrees : learnTreesByCategory.values()) {
       for (LearningCharmTree learnTree : allLearnTrees) {
-        if (options.isAlienType(learnTree.getReference().category)) {
+        if (options.isAlienCategory(learnTree.getReference().category)) {
           learnTree.forgetAll();
         } else {
           learnTree.forgetExclusives();

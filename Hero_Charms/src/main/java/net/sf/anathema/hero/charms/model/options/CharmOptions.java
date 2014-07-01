@@ -56,14 +56,13 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
     return charmProvider.getSpecialCharms(optionRules, getCharmIdMap(), getNativeCharacterType());
   }
 
-  public boolean isAlienType(CategoryReference category) {
-    List<String> nativeCategories = Arrays.asList(getNativeCharacterType().getId(), MARTIAL_ARTS.getId());
-    return !nativeCategories.contains(category.text);
+  public boolean isAlienCategory(CategoryReference category) {
+    return !optionRules.getNativeCategories().contains(category);
   }
 
   public boolean isAlienCharm(Charm charm) {
     String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
-    return isAlienType(new CategoryReference(category));
+    return isAlienCategory(new CategoryReference(category));
   }
 
   public Charm[] getCharms(CharmTree tree) {
