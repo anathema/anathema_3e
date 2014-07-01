@@ -1,3 +1,5 @@
+apply from: 'gradle/ssh.gradle'
+
 task createModule << {
     def newModuleName = usePropertyOrPrompt("moduleName", "\nPlease enter the module's name")
     if (!newModuleName) {

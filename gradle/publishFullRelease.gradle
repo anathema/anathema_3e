@@ -1,3 +1,5 @@
+apply from: 'gradle/ssh.gradle'
+
 //Compile and publish a stand-alone release
 task prepareFullRelease << {
   def command = "mkdir -p ~/wwwroot/full/${versionString}"

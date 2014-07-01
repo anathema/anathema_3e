@@ -32,6 +32,7 @@ apply from: "gradle/publishFullRelease.gradle"
 apply from: "gradle/createModule.gradle"
 apply from: 'gradle/copyDependencies.gradle'
 apply from: 'gradle/gitTag.gradle'
+apply from: 'gradle/ssh.gradle'
 
 configurations {
     launch4j
@@ -54,7 +55,7 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.11'
+    gradleVersion = '1.12'
 }
 
 def os = operatingSystem()
@@ -323,67 +324,3 @@ assembleWin.dependsOn compileLauncherWin
 assembleMac.dependsOn compileLauncherMac
 
 assemble.dependsOn assembleZip, assembleWin, assembleMac
-
-//SSH Support
-def usePropertyOrPrompt(property, prompt) {
-    if (project.hasProperty(property)) {
-        return project.property(property);
-    }
-    def propertyValue = System.console().readLine("\n${prompt}: ")
-    ext[property] = propertyValue
-    return propertyValue
-}
-
-def findKeyFile() {
-    def keyfile = "${System.properties['user.home']}/.ssh/id_rsa"
-    while (!new File(keyfile).exists()) {
-        keyfile = System.console().readLine("\nCould not find the ssh private keyfile: ${keyfile}\nEnter your keyfile pathname: ")
-        keyfile = keyfile.replace("~", System.properties['user.home'])
-    }
-    return keyfile
-}
-
-void runSshExecOnBuildServer(command) {
-    def host = "butatopanto.de"
-    def user = "anathema"
-    def keyfile = findKeyFile()
-    def passphrase = usePropertyOrPrompt('anathemaPassphrase', "Anathema SSH Key Passphrase")
-    sshExec(host, user, keyfile, passphrase, command)
-}
-
-void sshExec(String host, String user, keyfile, passphrase, command) {
-    ant.taskdef(
-            name: "sshexec",
-            classname: "org.apache.tools.ant.taskdefs.optional.ssh.SSHExec",
-            classpath: configurations.scp.asPath
-    )
-    ant.sshexec(
-            host: host,
-            username: user,
-            keyfile: keyfile,
-            passphrase: "${passphrase}",
-            trust: "true",
-            command: command
-    )
-}
-
-def scp(connectString, keyfile, passphrase, Closure fileset) {
-    out.println("\nPlease be patient, it takes a few minutes to upload the releases")
-    out.println("Unfortunately, feedback during the upload is unavailable (unless you use the -i option)")
-
-    ant.taskdef(
-            name: "scp2",
-            classname: "org.apache.tools.ant.taskdefs.optional.ssh.Scp",
-            classpath: configurations.scp.asPath
-    )
-    ant.scp2(
-            todir: connectString,
-            keyfile: keyfile,
-            passphrase: "${passphrase}",
-            trust: "true",
-            verbose: "true", // only visible at the info logging level
-            sftp: "true"
-    ) {
-        fileset()
-    }
-}

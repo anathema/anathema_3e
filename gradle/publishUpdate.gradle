@@ -1,3 +1,5 @@
+apply from: 'gradle/ssh.gradle'
+
 //Compile and publish an update
 // Your ssh key-auth passphrase for the Anathema Update Server will be prompted for, or can be entered at the command line like so:
 // gradlew uploadUpdate -PanathemaUsername=MyPassphraseHere
