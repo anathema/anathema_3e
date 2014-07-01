@@ -22,7 +22,7 @@ import java.util.List;
 
 import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.*;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getCategory;
 
 public class CharmOptions implements Iterable<CharmTreeCategory> {
 
@@ -54,19 +54,17 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
     return charmProvider.getSpecialCharms(optionRules, getCharmIdMap(), primaryCategory);
   }
 
+  public boolean isAlienCharm(Charm charm) {
+    return isAlienCategory(charm.getTreeReference().category);
+  }
+
   public boolean isAlienCategory(CategoryReference category) {
     return !optionRules.getNativeCategories().contains(category);
   }
 
-  public boolean isAlienCharm(Charm charm) {
-    // todo (sandra): rewrite as soon as (non-exclusive) martial arts charms no longer have charm type
-    String category = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getNativeCharacterType().getId();
-    return isAlienCategory(new CategoryReference(category));
-  }
-
   public Charm[] getCharms(CharmTree tree) {
     Charm[] allCharms = tree.getAllCharms();
-    if (characterMayLearnAlienCharms()) {
+    if (isAlienCharmsAllowedForHero()) {
       return allCharms;
     }
     return charmsThatAreNativeOrNotExclusive(allCharms);
@@ -79,7 +77,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
 
   public List<CategoryReference> getValidCategoryReferencesForHero() {
     if (isAlienCharmAllowed()) {
-      return getNonEmptyReferences();
+      return getNonEmptyCategoryReferences();
     }
     return optionRules.getNativeCategories();
   }
@@ -99,21 +97,19 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
       if (!charm.hasAttribute(EXCLUSIVE_ATTRIBUTE)) {
         charms.add(charm);
       }
-      if (isNativeCharm(charm)) {
+      if (!isAlienCharm(charm)) {
         charms.add(charm);
       }
     }
     return charms.toArray(new Charm[charms.size()]);
   }
 
-  private boolean isNativeCharm(Charm charm) { return !isAlienCharm(charm); }
-
-  private boolean characterMayLearnAlienCharms() {
+  private boolean isAlienCharmsAllowedForHero() {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     return charmsRules.isAllowedAlienCharms(concept.getCaste().getType());
   }
 
-  private List<CategoryReference> getNonEmptyReferences() {
+  private List<CategoryReference> getNonEmptyCategoryReferences() {
     List<CategoryReference> references = new ArrayList<>();
     for(CharmTreeCategory category : treeCategories) {
       references.add(category.getReference());
