@@ -132,7 +132,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
   }
 
   private LearnRangeContext createLearnRangeContext() {
-    PrerequisiteModifyingCharms modifyingCharms = new PrerequisiteModifyingCharms(config.getSpecialCharms());
+    PrerequisiteModifyingCharms modifyingCharms = new PrerequisiteModifyingCharms(config.getOptions().getSpecialCharms());
     CharmTraitRequirementChecker requirementChecker = new CharmTraitRequirementChecker(modifyingCharms, specialist.getTraits(), config);
     return new LearnRangeContext(TraitModelFetcher.fetch(hero), requirementChecker, charm);
   }

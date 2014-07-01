@@ -10,6 +10,7 @@ import net.sf.anathema.hero.charms.model.PrintMagicProvider;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
+import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
@@ -25,7 +26,7 @@ import net.sf.anathema.lib.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DummyCharmsModel implements CharmsModel {
+public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
   private Charm[] charms = new Charm[0];
 
@@ -118,6 +119,16 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
+  public boolean isAlienCharmsAllowedForHero() {
+    return false;
+  }
+
+  @Override
+  public List<CategoryReference> getValidCategoryReferencesForHero() {
+    return new ArrayList<>();
+  }
+
+  @Override
   public CharmIdMap getCharmIdMap() {
     throw new NotYetImplementedException();
   }
@@ -143,18 +154,13 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
+  public CharmOptions getOptions() {
+    return this;
+  }
+
+  @Override
   public MartialArtsLevel getStandardMartialArtsLevel() {
     return MartialArtsLevel.Mortal;
-  }
-
-  @Override
-  public boolean isAlienCharmAllowed() {
-    return false;
-  }
-
-  @Override
-  public List<CategoryReference> getValidCategoriesForHero() {
-    return new ArrayList<>();
   }
 
   public void setGroups(LearningCharmTree... groups) {

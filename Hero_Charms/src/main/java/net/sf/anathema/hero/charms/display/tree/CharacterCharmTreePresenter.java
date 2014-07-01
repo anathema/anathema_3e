@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.tree;
 
-import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.coloring.CharacterColoringStrategy;
 import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
+import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
 import net.sf.anathema.hero.charms.display.model.CharacterGroupCollection;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
@@ -16,7 +16,7 @@ import net.sf.anathema.hero.charms.display.view.DefaultFunctionalNodeProperties;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CharacterCharmTreePresenter {
@@ -41,16 +41,16 @@ public class CharacterCharmTreePresenter {
   }
 
   public void initPresentation() {
-    CharmsModel charmConfiguration = model.getCharmModel();
+    CharmsModel charmsModel = model.getCharmModel();
     CharacterCharmGroupChangeListener charmGroupChangeListener = new CharacterCharmGroupChangeListener(
-            charmConfiguration);
+            charmsModel.getOptions());
     ConfigurableCharmDye colorist = new ConfigurableCharmDye(charmGroupChangeListener,
             new CharacterColoringStrategy(presentationProperties.getColor(), model));
     cascadePresenter.setCharmTreeCollectionMap(new CharacterCharmTreeMap(model));
     cascadePresenter.setCategoryCollection(new CharacterCategoryCollection(model));
     cascadePresenter.setChangeListener(charmGroupChangeListener);
     cascadePresenter.setView(view);
-    SpecialCharmViewBuilder specialViewBuilder = new AgnosticSpecialCharmViewBuilder(resources, charmConfiguration, view);
+    SpecialCharmViewBuilder specialViewBuilder = new AgnosticSpecialCharmViewBuilder(resources, charmsModel, view);
     SpecialCharmList specialCharmList = new CommonSpecialCharmList(specialViewBuilder);
     cascadePresenter.setSpecialPresenter(
             new CharacterSpecialCharmPresenter(charmGroupChangeListener, model, specialCharmList));

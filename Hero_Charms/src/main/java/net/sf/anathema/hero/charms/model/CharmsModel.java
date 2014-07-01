@@ -2,12 +2,11 @@ package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
-import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
+import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
@@ -16,9 +15,7 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.List;
-
-public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmTreeArbitrator, CharmIdMap,
+public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmIdMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
   Identifier ID = new SimpleIdentifier("Charms");
@@ -28,10 +25,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   void addLearnableListener(ChangeListener listener);
 
   void addLearnProvider(MagicLearner provider);
-
-  List<CategoryReference> getValidCategoriesForHero();
-
-  CharmIdMap getCharmIdMap();
 
   LearningCharmTree getGroup(Charm charm);
 
@@ -47,11 +40,9 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   CharmSpecialsModel getCharmSpecialsModel(Charm charm);
 
-  ISpecialCharm[] getSpecialCharms();
-
   MartialArtsLevel getStandardMartialArtsLevel();
 
   MagicCreationCostEvaluator getMagicCostEvaluator();
 
-  boolean isAlienCharmAllowed();
+  CharmOptions getOptions();
 }

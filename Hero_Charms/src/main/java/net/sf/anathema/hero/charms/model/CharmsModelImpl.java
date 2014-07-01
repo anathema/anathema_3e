@@ -14,6 +14,7 @@ import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.*;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
+import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
@@ -42,7 +43,6 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
-import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.*;
@@ -64,7 +64,7 @@ public class CharmsModelImpl implements CharmsModel {
   private TraitModel traits;
   private PrerequisiteModifyingCharms prerequisiteModifyingCharms;
   private Hero hero;
-  private CharmOptions options;
+  private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final List<MagicLearner> magicLearners = new ArrayList<>();
 
@@ -85,7 +85,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.traits = TraitModelFetcher.fetch(hero);
     this.hero = hero;
     CharmProvider provider = environment.getDataSet(CharmCache.class);
-    this.options = new CharmOptions(provider, charmsRules, hero);
+    this.options = new CharmOptionsImpl(provider, charmsRules, hero);
     this.manager = new SpecialCharmManager(specialist, hero, this);
     initializeCharmTrees();
     initSpecialCharmConfigurations();
@@ -141,7 +141,8 @@ public class CharmsModelImpl implements CharmsModel {
 
   @SuppressWarnings("UnusedParameters")
   private void addCompulsiveCharms(HeroTemplate template) {
-    String[] compulsiveCharms = getCompulsiveCharmIds();
+    List<String> compulsiveCharms1 = this.template.compulsiveCharms;
+    String[] compulsiveCharms = compulsiveCharms1.toArray(new String[compulsiveCharms1.size()]);
 
     for (String charmId : compulsiveCharms) {
       Charm charm = getCharmById(charmId);
@@ -156,25 +157,15 @@ public class CharmsModelImpl implements CharmsModel {
     }
   }
 
-  @Override
-  public CharmIdMap getCharmIdMap() {
-    return options.getCharmIdMap();
-  }
-
-  @Override
-  public ISpecialCharm[] getSpecialCharms() {
-    return options.getSpecialCharms();
-  }
-
   private void initSpecialCharmConfigurations() {
-    CharmIdMap charmIdMap = getCharmIdMap();
-    ISpecialCharm[] specialCharms = getSpecialCharms();
+    CharmIdMap charmIdMap = options.getCharmIdMap();
+    ISpecialCharm[] specialCharms = options.getSpecialCharms();
     for (ISpecialCharm specialCharm : specialCharms) {
       Charm charm = charmIdMap.getCharmById(specialCharm.getCharmId());
       if (charm == null) {
         continue;
       }
-      LearningCharmTree group = getGroupById(charm.getTreeReference());
+      LearningCharmTree group = getLearningTree(charm.getTreeReference());
       manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
     }
   }
@@ -238,7 +229,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public Charm getCharmById(String charmId) {
-    Charm charm = getCharmIdMap().getCharmById(charmId);
+    Charm charm = options.getCharmIdMap().getCharmById(charmId);
     if (charm != null) {
       return charm;
     }
@@ -275,7 +266,7 @@ public class CharmsModelImpl implements CharmsModel {
   public void forgetAllAlienCharms() {
     for (LearningCharmTree[] allLearnTrees : learnTreesByCategory.values()) {
       for (LearningCharmTree learnTree : allLearnTrees) {
-        if (options.isAlienCategory(learnTree.getReference().category)) {
+        if (charmsRules.isAlienCategory(learnTree.getReference().category)) {
           learnTree.forgetAll();
         } else {
           learnTree.forgetExclusives();
@@ -363,7 +354,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private PrerequisiteModifyingCharms getPrerequisiteModifyingCharms() {
     if (prerequisiteModifyingCharms == null) {
-      this.prerequisiteModifyingCharms = new PrerequisiteModifyingCharms(getSpecialCharms());
+      this.prerequisiteModifyingCharms = new PrerequisiteModifyingCharms(options.getSpecialCharms());
     }
     return prerequisiteModifyingCharms;
   }
@@ -392,23 +383,12 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public boolean isAlienCharm(Charm charm) {
-    return options.isAlienCharm(charm);
-  }
-
-  @Override
-  public final boolean isCompulsiveCharm(Charm charm) {
-    String[] compulsiveCharmIDs = getCompulsiveCharmIds();
-    return ArrayUtils.contains(compulsiveCharmIDs, charm.getMagicName().text);
-  }
-
-  @Override
   public final boolean isLearned(Charm charm) {
     LearningCharmTree group = getGroup(charm);
     return group != null && group.isLearned(charm);
   }
 
-  private LearningCharmTree getGroupById(TreeReference reference) {
+  private LearningCharmTree getLearningTree(TreeReference reference) {
     LearningCharmTree[] charmTrees = getLearningCharmTrees(reference.category);
     for(LearningCharmTree tree : charmTrees) {
       if (tree.getReference().name.equals(reference.name)) {
@@ -421,23 +401,20 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public final LearningCharmTree getGroup(Charm charm) {
-    return getGroupById(charm.getTreeReference());
-  }
-
-  @Override
-  public Charm[] getCharms(CharmTree tree) {
-    return options.getCharms(tree);
-  }
-
-  private String[] getCompulsiveCharmIds() {
-    List<String> compulsiveCharms = template.compulsiveCharms;
-    return compulsiveCharms.toArray(new String[compulsiveCharms.size()]);
+    return getLearningTree(charm.getTreeReference());
   }
 
 
   @Override
   public void addPrintProvider(PrintMagicProvider provider) {
     printMagicProviders.add(provider);
+  }
+
+  @Override
+  public void addPrintMagic(List<IMagicStats> printMagic) {
+    for (PrintMagicProvider provider : printMagicProviders) {
+      provider.addPrintMagic(printMagic);
+    }
   }
 
   @Override
@@ -451,10 +428,13 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public void addPrintMagic(List<IMagicStats> printMagic) {
-    for (PrintMagicProvider provider : printMagicProviders) {
-      provider.addPrintMagic(printMagic);
-    }
+  public boolean isAlienCharm(Charm charm) {
+    return charmsRules.isAlienCharm(charm);
+  }
+
+  @Override
+  public final boolean isCompulsiveCharm(Charm charm) {
+    return charmsRules.isCompulsiveCharm(charm);
   }
 
   public MartialArtsLevel getStandardMartialArtsLevel() {
@@ -462,12 +442,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public boolean isAlienCharmAllowed() {
-    return options.isAlienCharmAllowed();
-  }
-
-  @Override
-  public List<CategoryReference> getValidCategoriesForHero() {
-    return options.getValidCategoryReferencesForHero();
+  public CharmOptions getOptions() {
+    return options;
   }
 }

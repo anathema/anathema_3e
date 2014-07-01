@@ -16,7 +16,7 @@ public class CharacterSpecialCharmSet implements SpecialCharmSet {
 
   @Override
   public Iterator<ISpecialCharm> iterator() {
-    ISpecialCharm[] specialCharms = model.getCharmModel().getSpecialCharms();
+    ISpecialCharm[] specialCharms = model.getCharmModel().getOptions().getSpecialCharms();
     return Arrays.asList(specialCharms).iterator();
   }
 }

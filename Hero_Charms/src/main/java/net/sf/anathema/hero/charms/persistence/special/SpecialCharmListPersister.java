@@ -29,8 +29,8 @@ public class SpecialCharmListPersister {
   private final Map<Charm, SpecialCharmPersister> persisterByCharm = new HashMap<>();
 
   public SpecialCharmListPersister(CharmsModel model) {
-    final CharmIdMap charmTree = model.getCharmIdMap();
-    for (ISpecialCharm specialCharm : model.getSpecialCharms()) {
+    final CharmIdMap charmTree = model.getOptions().getCharmIdMap();
+    for (ISpecialCharm specialCharm : model.getOptions().getSpecialCharms()) {
       specialCharm.accept(new ISpecialCharmVisitor() {
         @Override
         public void visitMultiLearnableCharm(IMultiLearnableCharm charm) {

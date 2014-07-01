@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
+import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
 import net.sf.anathema.platform.tree.display.TreeView;
 
@@ -22,7 +22,7 @@ public class CharacterSpecialCharmPresenter implements SpecialCharmViewPresenter
 
   @Override
   public void initPresentation() {
-    for (ISpecialCharm charm : getCharmConfiguration().getSpecialCharms()) {
+    for (ISpecialCharm charm : getCharmModel().getOptions().getSpecialCharms()) {
       list.add(charm);
     }
   }
@@ -40,7 +40,7 @@ public class CharacterSpecialCharmPresenter implements SpecialCharmViewPresenter
     list.operateOn(treeView);
   }
 
-  private CharmsModel getCharmConfiguration() {
+  private CharmsModel getCharmModel() {
     return charmModel.getCharmModel();
   }
 }
