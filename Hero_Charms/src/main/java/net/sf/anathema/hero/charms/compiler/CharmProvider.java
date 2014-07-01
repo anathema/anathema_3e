@@ -14,7 +14,7 @@ public interface CharmProvider {
 
   Charm[] getCharms(CategoryReference category);
 
-  ISpecialCharm[] getSpecialCharms(CategoryReference categoryReference);
+  ISpecialCharm[] getSpecialCharms(CategoryReference category);
 
   ISpecialCharm[] getSpecialCharms(CharmOptionCheck optionCheck, CharmIdMap map, CategoryReference preferredCategory);
 }

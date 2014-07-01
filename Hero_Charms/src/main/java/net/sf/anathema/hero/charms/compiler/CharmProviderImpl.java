@@ -6,10 +6,10 @@ import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 
-import java.util.*;
-
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getCategory;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CharmProviderImpl implements CharmProvider {
 
@@ -19,14 +19,14 @@ public class CharmProviderImpl implements CharmProvider {
 
   public CharmProviderImpl(CharmCache cache) {
     this.cache = cache;
-    for (CategoryReference category : cache.getCharmCategories()) {
-      specialCharmsByCategory.put(category, cache.getSpecialCharmData(category));
+    for (CategoryReference category : cache.getAllCategories()) {
+      specialCharmsByCategory.put(category, cache.getSpecialCharms(category));
       charmsByCategory.put(category, cache.getCharms(category));
     }
   }
 
   public List<CategoryReference> getAllCategories() {
-    return Arrays.asList(cache.getCharmCategories());
+    return cache.getAllCategories();
   }
 
   @Override

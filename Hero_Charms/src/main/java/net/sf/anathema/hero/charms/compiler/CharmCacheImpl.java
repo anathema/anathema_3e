@@ -1,15 +1,18 @@
 package net.sf.anathema.hero.charms.compiler;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.lib.collection.MultiEntryMap;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class CharmCacheImpl implements CharmCache {
 
@@ -76,7 +79,7 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharmData(CategoryReference type) {
+  public ISpecialCharm[] getSpecialCharms(CategoryReference type) {
     List<ISpecialCharm> specialCharms = new ArrayList<>();
     for (SpecialCharmDto dto : getSpecialCharmList(type)) {
       specialCharms.add(specialCharmBuilder.readCharm(dto));
@@ -93,8 +96,7 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public CategoryReference[] getCharmCategories() {
-    Set<CategoryReference> categories = charmSets.keySet();
-    return categories.toArray(new CategoryReference[categories.size()]);
+  public List<CategoryReference> getAllCategories() {
+    return new ArrayList(charmSets.keySet());
   }
 }

@@ -29,7 +29,7 @@ public class CharmCacheTest {
     CategoryReference solar = new CategoryReference("Dummy");
     addSpecialCharmForSolar(specialCharmDto, solar);
     when(specialCharmBuilderMock.readCharm(specialCharmDto)).thenReturn(specialCharm);
-    ISpecialCharm[] charmData = cache.getSpecialCharmData(solar);
+    ISpecialCharm[] charmData = cache.getSpecialCharms(solar);
     assertThat(charmData[0], is(specialCharm));
   }
 
