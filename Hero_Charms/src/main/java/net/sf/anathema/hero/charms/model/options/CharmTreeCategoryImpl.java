@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -19,29 +19,29 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
     Identifier treeIdentifier = MARTIAL_ARTS;
-    TreeCategoryReference treeCategoryReference = getTreeCategory(treeIdentifier);
-    Charm[] charms = provider.getCharms(treeCategoryReference);
-    return new CharmTreeCategoryImpl(check, charms, treeCategoryReference);
+    CategoryReference categoryReference = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(categoryReference);
+    return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
   public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, CharacterType characterType) {
     Identifier treeIdentifier = characterType;
-    TreeCategoryReference treeCategoryReference = getTreeCategory(treeIdentifier);
-    Charm[] charms = provider.getCharms(treeCategoryReference);
-    return new CharmTreeCategoryImpl(check, charms, treeCategoryReference);
+    CategoryReference categoryReference = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(categoryReference);
+    return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
-  public static CharmTreeCategory For(CharmOptionCheck check, CharmProvider charmProvider, TreeCategoryReference category) {
-    Charm[] charms = charmProvider.getCharms(category);
-    return new CharmTreeCategoryImpl(check, charms, category);
+  public static CharmTreeCategory CreateFor(CharmOptionCheck check, CharmProvider provider, CategoryReference reference) {
+    Charm[] charms = provider.getCharms(reference);
+    return new CharmTreeCategoryImpl(check, charms, reference);
   }
 
   private final Map<String, Charm> charmById = new HashMap<>();
   private CharmOptionCheck optionCheck;
   private Charm[] allCharms;
-  private TreeCategoryReference category;
+  private CategoryReference category;
 
-  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Charm[] allCharms, TreeCategoryReference category) {
+  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Charm[] allCharms, CategoryReference category) {
     this.optionCheck = optionCheck;
     this.allCharms = allCharms;
     this.category = category;
@@ -90,7 +90,7 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
   }
 
   @Override
-  public TreeCategoryReference getReference() {
+  public CategoryReference getReference() {
     return category;
   }
 }

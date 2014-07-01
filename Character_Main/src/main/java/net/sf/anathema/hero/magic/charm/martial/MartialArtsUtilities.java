@@ -47,16 +47,16 @@ public class MartialArtsUtilities {
   }
 
   public static TreeReference getTreeReference(Charm charm) {
-    TreeCategoryReference category = getTreeCategory(charm);
+    CategoryReference category = getTreeCategory(charm);
     return new TreeReference(category, new TreeName(charm.getGroupId()));
   }
 
-  public static TreeCategoryReference getTreeCategory(Charm charm) {
+  public static CategoryReference getTreeCategory(Charm charm) {
     String categoryText = isMartialArts(charm) ? MARTIAL_ARTS.getId() : charm.getCharacterType().getId();
-    return new TreeCategoryReference(categoryText);
+    return new CategoryReference(categoryText);
   }
 
-  public static TreeCategoryReference getTreeCategory(Identifier identifier) {
-    return new TreeCategoryReference(identifier.getId());
+  public static CategoryReference getTreeCategory(Identifier identifier) {
+    return new CategoryReference(identifier.getId());
   }
 }

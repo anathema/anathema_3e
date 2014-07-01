@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -28,7 +28,7 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public Charm[] getCharms(TreeCategoryReference category) {
+  public Charm[] getCharms(CategoryReference category) {
     return getCharms(category.text);
   }
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -59,7 +59,7 @@ public class CharmsModelImpl implements CharmsModel {
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
-  private final Map<TreeCategoryReference, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
+  private final Map<CategoryReference, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private ExperienceModel experience;
   private TraitModel traits;
@@ -247,11 +247,11 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public LearningCharmTree[] getCharmGroups(Identifier type) {
-    TreeCategoryReference category = new TreeCategoryReference(type.getId());
+    CategoryReference category = new CategoryReference(type.getId());
     return getLearningCharmTrees(category);
   }
 
-  private LearningCharmTree[] getLearningCharmTrees(TreeCategoryReference category) {
+  private LearningCharmTree[] getLearningCharmTrees(CategoryReference category) {
     return Functions.forMap(learnTreesByCategory, new LearningCharmTree[0]).apply(category);
   }
 

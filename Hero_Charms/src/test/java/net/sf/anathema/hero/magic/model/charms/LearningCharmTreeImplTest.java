@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
@@ -33,8 +33,8 @@ public class LearningCharmTreeImplTest {
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator, String groupId) {
     DummyExaltCharacterType type = new DummyExaltCharacterType();
     ICharmLearnStrategy learnStrategy = new CreationCharmLearnStrategy();
-    CharmTreeCategoryImpl treeCategory = DummyCharmTreeCategory.Create(new TreeCategoryReference(type.getId()));
-    TreeReference reference = new TreeReference(new TreeCategoryReference(type.getId()), new TreeName(groupId));
+    CharmTreeCategoryImpl treeCategory = DummyCharmTreeCategory.Create(new CategoryReference(type.getId()));
+    TreeReference reference = new TreeReference(new CategoryReference(type.getId()), new TreeName(groupId));
     CharmTreeImpl group = new CharmTreeImpl(reference,
             treeCategory.getAllCharmsForTree(groupId).toArray(new Charm[treeCategory.getAllCharmsForTree(groupId).size()]));
     return new LearningCharmTreeImpl(learnStrategy, group, learnableArbitrator, container);
@@ -43,7 +43,7 @@ public class LearningCharmTreeImplTest {
   private LearningCharmTreeImpl createSolarGroup(IExtendedCharmLearnableArbitrator learnableArbitrator,
                                                  CharmTreeCategoryImpl treeCategory, String groupId) {
     ICharmLearnStrategy learnSrategy = new CreationCharmLearnStrategy();
-    TreeReference reference = new TreeReference(new TreeCategoryReference(new DummyExaltCharacterType().getId()), new TreeName(groupId));
+    TreeReference reference = new TreeReference(new CategoryReference(new DummyExaltCharacterType().getId()), new TreeName(groupId));
     CharmTreeImpl group = new CharmTreeImpl(reference,
             treeCategory.getAllCharmsForTree(groupId).toArray(new Charm[treeCategory.getAllCharmsForTree(groupId).size()]));
     return new LearningCharmTreeImpl(learnSrategy, group, learnableArbitrator, container);

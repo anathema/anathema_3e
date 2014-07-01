@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -9,7 +9,7 @@ import net.sf.anathema.lib.util.Identifier;
 
 public interface CharmProvider {
 
-  Charm[] getCharms(TreeCategoryReference category);
+  Charm[] getCharms(CategoryReference category);
 
   ISpecialCharm[] getSpecialCharms(Identifier type);
 

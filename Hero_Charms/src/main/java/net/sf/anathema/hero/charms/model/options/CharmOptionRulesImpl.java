@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.reference.TreeCategoryReference;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
@@ -39,8 +39,8 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
   }
 
   @Override
-  public List<TreeCategoryReference> getAllCategories() {
-    List<TreeCategoryReference> categories = new ArrayList<>();
+  public List<CategoryReference> getAllCategories() {
+    List<CategoryReference> categories = new ArrayList<>();
     for(CharacterType type: characterTypes) {
       categories.add(getTreeCategory(type));
     }
@@ -49,9 +49,9 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
   }
 
   @Override
-  public List<TreeCategoryReference> getNativeCategories() {
-    TreeCategoryReference typeCategory = getTreeCategory(getNativeCharacterType());
-    TreeCategoryReference martialArtsCategory = getTreeCategory(MARTIAL_ARTS);
+  public List<CategoryReference> getNativeCategories() {
+    CategoryReference typeCategory = getTreeCategory(getNativeCharacterType());
+    CategoryReference martialArtsCategory = getTreeCategory(MARTIAL_ARTS);
     return asList(typeCategory, martialArtsCategory);
   }
 

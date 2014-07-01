@@ -20,7 +20,7 @@ public class CharmDataMap {
   }
 
   private CharmReference createReference(CharmCollectionTemplate template, Map.Entry<String,CharmTemplate> charmTemplateByName) {
-    TreeCategoryReference typeName = new TreeCategoryReference(template.characterType);
+    CategoryReference typeName = new CategoryReference(template.characterType);
     TreeName treeName = new TreeName(template.treeName);
     TreeReference treeReference = new TreeReference(typeName, treeName);
     CharmName charmName = new CharmName(charmTemplateByName.getKey());

@@ -1,10 +1,10 @@
 package net.sf.anathema.charm.data.reference;
 
 public class TreeReference {
-  public final TreeCategoryReference category;
+  public final CategoryReference category;
   public final TreeName name;
 
-  public TreeReference(TreeCategoryReference category, TreeName name) {
+  public TreeReference(CategoryReference category, TreeName name) {
     this.category = category;
     this.name = name;
   }
