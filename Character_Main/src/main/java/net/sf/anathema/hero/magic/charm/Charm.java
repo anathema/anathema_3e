@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm;
 
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.Magic;
@@ -19,7 +19,7 @@ public interface Charm extends Magic {
 
   TreeReference getTreeReference();
 
-  CharmName getCharmName();
+  MagicName getCharmName();
 
   CharacterType getCharacterType();
 

@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.magic.basic;
 
-import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.util.Identifier;
 
-public interface Magic extends Identifier {
+public interface Magic {
+
+  String getId();
 
   MagicAttribute[] getAttributes();
 

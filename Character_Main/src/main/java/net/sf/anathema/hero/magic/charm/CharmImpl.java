@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
@@ -83,8 +83,8 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public CharmName getCharmName() {
-    return new CharmName(getId());
+  public MagicName getCharmName() {
+    return new MagicName(getId());
   }
 
   @Override

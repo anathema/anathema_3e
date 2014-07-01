@@ -13,9 +13,9 @@ public class I18nedIdentificateSorterTest {
 
   @Test
   public void worksOnEmptyLists() throws Exception {
-    I18nedIdentificateSorter sorter = new I18nedIdentificateSorter();
+    I18nedIdentificateSorter sorter = new I18nedIdentificateSorter(null);
     List<Identifier> originalGroup = Collections.emptyList();
-    List<Identifier> identificates = sorter.sortAscending(originalGroup, null);
+    List<Identifier> identificates = sorter.sortAscending(originalGroup);
     assertThat(identificates.size(), is(0));
   }
 }

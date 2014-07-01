@@ -124,7 +124,7 @@ public class CascadePresenter {
   private List<CharmTree> sortCharmGroups(CharmTree[] originalGroups) {
     ArrayList<CharmTree> filteredGroups = new ArrayList<>();
     Collections.addAll(filteredGroups, originalGroups);
-    return new I18nedIdentificateSorter<CharmTree>().sortAscending(filteredGroups, resources);
+    return new I18nedIdentificateSorter<CharmTree>(resources).sortAscending(filteredGroups);
   }
 
   protected void setSpecialPresenter(SpecialCharmViewPresenter presenter) {

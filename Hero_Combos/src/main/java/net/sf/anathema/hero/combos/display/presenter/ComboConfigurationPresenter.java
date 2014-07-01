@@ -5,36 +5,31 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
-import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
-import net.sf.anathema.hero.concept.ConceptChange;
+import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
+import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
+import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
+import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
+import net.sf.anathema.hero.concept.ConceptChange;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.compare.I18nedIdentificateComparator;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ComboConfigurationPresenter {
 
@@ -297,8 +292,8 @@ public class ComboConfigurationPresenter {
 
   private void showEligibleCharms() {
     List<Charm> eligibleCharms = comboModel.getEligibleCharms();
-    Collections.sort(eligibleCharms, new I18nedIdentificateComparator(resources));
-    learnView.setAvailableMagic(eligibleCharms);
+    List<Charm> sortedCharms = new MagicSorter<Charm>(resources).sortAscending(eligibleCharms);
+    learnView.setAvailableMagic(sortedCharms);
   }
 
   private void showCharmsInCombo() {
