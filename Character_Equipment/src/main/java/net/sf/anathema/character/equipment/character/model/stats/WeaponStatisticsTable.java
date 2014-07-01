@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.equipment.model;
+package net.sf.anathema.character.equipment.character.model.stats;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

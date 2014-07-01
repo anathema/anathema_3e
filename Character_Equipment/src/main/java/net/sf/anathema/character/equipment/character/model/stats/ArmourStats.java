@@ -1,13 +1,17 @@
 package net.sf.anathema.character.equipment.character.model.stats;
 
+import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.health.model.HealthType;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ArmourStats extends AbstractCombatStats implements IArmourStats {
 
+  private final List<ArmourTag> tags = new ArrayList<>();
   private final Map<String, Integer> hardnessByHealthType = new HashMap<>();
   private final Map<String, Integer> soakByHealthType = new HashMap<>();
   private Integer fatigue;
@@ -60,5 +64,9 @@ public class ArmourStats extends AbstractCombatStats implements IArmourStats {
   @Override
   public String getId() {
     return getName().getId();
+  }
+
+  public void addTag(ArmourTag tag) {
+    tags.add(tag);
   }
 }

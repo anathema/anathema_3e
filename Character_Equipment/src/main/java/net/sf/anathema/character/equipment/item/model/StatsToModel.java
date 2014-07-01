@@ -40,6 +40,7 @@ public class StatsToModel {
       armourModel.getAggravatedSoakModel().setValue(armourStats.getSoak(HealthType.Aggravated));
       armourModel.getFatigueModel().setValue(armourStats.getFatigue());
       armourModel.getMobilityPenaltyModel().setValue(armourStats.getMobilityPenalty());
+      model.getArmorTagsModel().makeValid();
     } else if (stats instanceof ArtifactStats)
 
     {
