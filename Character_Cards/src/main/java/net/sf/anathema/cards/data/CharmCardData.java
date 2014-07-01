@@ -10,9 +10,7 @@ import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 public class CharmCardData extends AbstractMagicCardData {
   private Charm charm;
@@ -26,22 +24,12 @@ public class CharmCardData extends AbstractMagicCardData {
 
   @Override
   public Image getPrimaryIcon() {
-    if (MartialArtsUtilities.isMartialArts(charm)) {
-      Image image = getResourceProvider().getMartialArtIcon(charm.getTreeReference().name.text);
-      return image != null ? image : getResourceProvider().getTraitIcon(AbilityType.MartialArts);
-    } else {
-      return getResourceProvider().getTraitIcon(charm.getPrimaryTraitType());
-    }
-
+    return getResourceProvider().getTreeIcon(charm);
   }
 
   @Override
   public Image getSecondaryIcon() {
-    if (MartialArtsUtilities.isMartialArts(charm)) {
-      return getResourceProvider().getMartialArtLevelIcon(MartialArtsUtilities.getLevel(charm));
-    } else {
-      return getResourceProvider().getCharacterIcon(charm.getNativeCharacterType());
-    }
+    return getResourceProvider().getCategoryIcon(charm);
   }
 
   @Override

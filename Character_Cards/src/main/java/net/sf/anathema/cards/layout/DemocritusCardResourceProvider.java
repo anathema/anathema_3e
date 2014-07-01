@@ -4,10 +4,9 @@ import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.spells.CircleType;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.icon.ImageLoadingException;
 import net.sf.anathema.lib.gui.icon.ImageProvider;
@@ -15,6 +14,10 @@ import net.sf.anathema.lib.gui.icon.ImageProvider;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.text.MessageFormat.format;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getLevel;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class DemocritusCardResourceProvider implements ICardReportResourceProvider {
 
@@ -39,6 +42,11 @@ public class DemocritusCardResourceProvider implements ICardReportResourceProvid
           new Font(Font.FontFamily.HELVETICA, MAGIC_SMALL_FONT_SIZE, Font.NORMAL, BaseColor.BLACK);
   private final Font SOURCE_FONT =
           new Font(Font.FontFamily.HELVETICA, MAGIC_TINY_FONT_SIZE, Font.ITALIC, BaseColor.BLACK);
+  private Resources resources;
+
+  public DemocritusCardResourceProvider(Resources resources) {
+    this.resources = resources;
+  }
 
   @Override
   public Image getCardBaseImage() {
@@ -56,6 +64,38 @@ public class DemocritusCardResourceProvider implements ICardReportResourceProvid
   }
 
   @Override
+  public Image getCategoryIcon(Charm charm) {
+    String category = isMartialArts(charm) ? ("MA_" + getLevel(charm).getId()) : charm.getTreeReference().category.text;
+    return getImage("icons/categories/" + category + ".png");
+  }
+
+  @Override
+  public String getCategoryLabel(Charm charm) {
+    if (isMartialArts(charm)) {
+      return format(resources.getString("CardsReport.Legend.MartialArt"), resources.getString(getLevel(charm).getId()));
+    }
+    return  resources.getString(charm.getTreeReference().category.text);
+  }
+
+  @Override
+  public Image getTreeIcon(Charm charm) {
+    return getImage("icons/trees/" + charm.getTreeReference().name.text + ".png");
+  }
+
+  @Override
+  public String getTreeLabel(Charm charm) {
+    if (isMartialArts(charm)) {
+      String styleString = resources.getString(charm.getTreeReference().name.text);
+      int parenIndex = styleString.indexOf(')');
+      if (parenIndex > 0) {
+        styleString = styleString.substring(parenIndex + 1).trim();
+      }
+      return styleString;
+    }
+    return  resources.getString(charm.getTreeReference().name.text);
+  }
+
+  @Override
   public Image getCardIconBlockImage() {
     return getImage("icons/democritus_base/card_icon.png");
   }
@@ -66,28 +106,8 @@ public class DemocritusCardResourceProvider implements ICardReportResourceProvid
   }
 
   @Override
-  public Image getCharacterIcon(CharacterType type) {
-    return getImage("icons/character/" + type.getId() + ".png");
-  }
-
-  @Override
-  public Image getTraitIcon(TraitType trait) {
-    return getImage("icons/traits/" + trait.getId() + ".png");
-  }
-
-  @Override
   public Image getSpellIcon(CircleType circle) {
     return getImage("icons/spell/" + circle.getId() + ".png");
-  }
-
-  @Override
-  public Image getMartialArtLevelIcon(MartialArtsLevel level) {
-    return getImage("icons/martial_art_level/" + level.getId() + ".png");
-  }
-
-  @Override
-  public Image getMartialArtIcon(String groupId) {
-    return getImage("icons/martial_art/" + groupId + ".png");
   }
 
   @Override

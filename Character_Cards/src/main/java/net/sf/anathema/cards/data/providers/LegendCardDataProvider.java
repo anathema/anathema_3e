@@ -92,38 +92,26 @@ public class LegendCardDataProvider implements ICardDataProvider {
   private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Charm[] charms) {
     for (Charm charm : charms) {
       if (!MartialArtsUtilities.isMartialArts(charm)) {
-        LegendEntry trait =
-                new LegendEntry(resourceProvider.getTraitIcon(charm.getPrimaryTraitType()), resources.getString(charm.getPrimaryTraitType().getId()));
-        LegendEntry character =
-                new LegendEntry(resourceProvider.getCharacterIcon(charm.getNativeCharacterType()), resources.getString(charm.getNativeCharacterType().getId()));
+        LegendEntry trait = new LegendEntry(resourceProvider.getTreeIcon(charm), resourceProvider.getTreeLabel(charm));
         if (!traits.contains(trait)) {
           traits.add(trait);
         }
+        LegendEntry character = new LegendEntry(resourceProvider.getCategoryIcon(charm), resourceProvider.getCategoryLabel(charm));
         if (!characterTypes.contains(character)) {
           characterTypes.add(character);
         }
       } else {
-        String levelString =
-                format(resources.getString("CardsReport.Legend.MartialArt"), resources.getString(MartialArtsUtilities.getLevel(charm).getId()));
-
-        LegendEntry level = new LegendEntry(resourceProvider.getMartialArtLevelIcon(MartialArtsUtilities.getLevel(charm)), levelString);
-
-        Image styleIcon = resourceProvider.getMartialArtIcon(charm.getTreeReference().name.text);
-        if (styleIcon != null) {
-          String styleString = resources.getString(charm.getTreeReference().name.text);
-          int parenIndex = styleString.indexOf(')');
-          if (parenIndex > 0) {
-            styleString = styleString.substring(parenIndex + 1).trim();
-          }
-          LegendEntry style = new LegendEntry(styleIcon, styleString);
-
-          if (!martialArtStyles.contains(style)) {
-            martialArtStyles.add(style);
-          }
-        }
-
+        LegendEntry level = new LegendEntry(resourceProvider.getCategoryIcon(charm), resourceProvider.getCategoryLabel(charm));
         if (!martialArtLevels.contains(level)) {
           martialArtLevels.add(level);
+        }
+        Image styleIcon = resourceProvider.getTreeIcon(charm);
+        if (styleIcon != null) {
+          String styleString = resourceProvider.getTreeLabel(charm);
+          LegendEntry styleEntry = new LegendEntry(styleIcon, styleString);
+          if (!martialArtStyles.contains(styleEntry)) {
+            martialArtStyles.add(styleEntry);
+          }
         }
       }
     }

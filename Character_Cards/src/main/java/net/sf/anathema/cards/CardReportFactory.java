@@ -27,7 +27,7 @@ public class CardReportFactory implements IReportFactory {
     dataProviders.add(new SpellCardDataProvider(model, environment));
     dataProviders.add(new EquipmentCardDataProvider(environment));
     dataProviders.add(new LegendCardDataProvider(environment));
-    ICardLayout layout = new DemocritusCardLayout(.23f);
+    ICardLayout layout = new DemocritusCardLayout(.23f, environment);
     return new Report[]{new CardReport(environment, layout, dataProviders.toArray(new ICardDataProvider[dataProviders.size()]))};
   }
 }
