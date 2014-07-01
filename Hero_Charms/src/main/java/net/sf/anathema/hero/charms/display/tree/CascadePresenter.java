@@ -11,6 +11,7 @@ import net.sf.anathema.hero.charms.display.view.*;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.control.ObjectValueListener;
@@ -86,7 +87,7 @@ public class CascadePresenter {
     typeSelector.addObjectSelectionChangedListener(new ObjectValueListener<Identifier>() {
       @Override
       public void valueChanged(Identifier cascadeType) {
-        handleTypeSelectionChange(cascadeType, groupSelector);
+        handleTypeSelectionChange(MartialArtsUtilities.getCategory(cascadeType), groupSelector);
       }
     });
     groupSelector.addObjectSelectionChangedListener(new ObjectValueListener<Identifier>() {
@@ -147,7 +148,7 @@ public class CascadePresenter {
     this.categoryCollection = types;
   }
 
-  private void handleTypeSelectionChange(Identifier cascadeType, ObjectSelectionView<Identifier> groupSelector) {
+  private void handleTypeSelectionChange(CategoryReference cascadeType, ObjectSelectionView<Identifier> groupSelector) {
     if (cascadeType == null) {
       groupSelector.setObjects(new Identifier[0]);
       return;

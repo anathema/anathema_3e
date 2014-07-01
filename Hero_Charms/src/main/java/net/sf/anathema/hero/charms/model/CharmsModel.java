@@ -3,14 +3,13 @@ package net.sf.anathema.hero.charms.model;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.lib.control.ChangeListener;
@@ -24,13 +23,21 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   Identifier ID = new SimpleIdentifier("Charms");
 
+  void addPrintProvider(PrintMagicProvider provider);
+
   void addLearnableListener(ChangeListener listener);
 
-  LearningCharmTree[] getAllGroups();
+  void addLearnProvider(MagicLearner provider);
+
+  List<CategoryReference> getValidCategoriesForHero();
 
   CharmIdMap getCharmIdMap();
 
-  LearningCharmTree[] getCharmGroups(Identifier type);
+  LearningCharmTree getGroup(Charm charm);
+
+  LearningCharmTree[] getAllGroups();
+
+  LearningCharmTree[] getCharmGroups(CategoryReference type);
 
   Charm[] getLearnedCharms(boolean experienced);
 
@@ -42,19 +49,11 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   CharmSpecialsModel getCharmSpecialsModel(Charm charm);
 
-  LearningCharmTree getGroup(Charm charm);
-
   ISpecialCharm[] getSpecialCharms();
-
-  void addPrintProvider(PrintMagicProvider provider);
-
-  void addLearnProvider(MagicLearner provider);
-
-  MagicCreationCostEvaluator getMagicCostEvaluator();
 
   MartialArtsLevel getStandardMartialArtsLevel();
 
-  boolean isAlienCharmAllowed();
+  MagicCreationCostEvaluator getMagicCostEvaluator();
 
-  List<CategoryReference> getValidCategoriesForHero();
+  boolean isAlienCharmAllowed();
 }

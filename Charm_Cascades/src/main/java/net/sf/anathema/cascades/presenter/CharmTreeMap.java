@@ -1,5 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.display.tree.CharmTreeCollectionMap;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
@@ -8,16 +9,16 @@ import net.sf.anathema.lib.util.Identifier;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CharmTreeIdentifierMap implements CharmTreeCollectionMap {
+public class CharmTreeMap implements CharmTreeCollectionMap {
 
-  Map<Identifier, CharmTreeCategory> charmTreesById = new HashMap<>();
+  Map<CategoryReference, CharmTreeCategory> charmTreesById = new HashMap<>();
 
-  public void put(Identifier id, CharmTreeCategory tree) {
+  public void put(CategoryReference id, CharmTreeCategory tree) {
     charmTreesById.put(id, tree);
   }
 
   @Override
-  public CharmTreeCollection getCharmTree(Identifier type) {
+  public CharmTreeCollection getCharmTree(CategoryReference type) {
     return charmTreesById.get(type);
   }
 

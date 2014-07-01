@@ -57,7 +57,7 @@ public class DummyCharmsModel implements CharmsModel {
   }
 
   @Override
-  public LearningCharmTree[] getCharmGroups(Identifier type) {
+  public LearningCharmTree[] getCharmGroups(CategoryReference category) {
     return groups;
   }
 

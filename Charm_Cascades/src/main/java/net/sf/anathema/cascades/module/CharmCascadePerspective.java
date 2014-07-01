@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.cascades.presenter.CharmCascadesPresenterImpl;
-import net.sf.anathema.cascades.presenter.CharmTreeIdentifierMap;
+import net.sf.anathema.cascades.presenter.CharmTreeMap;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
@@ -36,7 +36,7 @@ public class CharmCascadePerspective implements Perspective {
     MagicDescriptionProvider magicDescriptionProvider = getCharmDescriptionProvider(applicationModel, environment);
     FxCharmView cascadeView = new FxCharmView();
     new CharmCascadesPresenterImpl(environment, characterGenerics, cascadeView, magicDescriptionProvider,
-            new CharmTreeIdentifierMap()).initPresentation();
+            new CharmTreeMap()).initPresentation();
     MigPane content = createContentPane(cascadeView);
     container.setContent(content);
   }

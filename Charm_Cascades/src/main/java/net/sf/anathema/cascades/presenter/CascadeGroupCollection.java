@@ -17,9 +17,9 @@ import java.util.List;
 public class CascadeGroupCollection implements CharmTreeCollection {
   private final CharacterTypes characterTypes;
   private CharmProvider charmProvider;
-  private CharmTreeIdentifierMap treeIdentifierMap;
+  private CharmTreeMap treeIdentifierMap;
 
-  public CascadeGroupCollection(CharmProvider charmProvider, CharacterTypes characterTypes, CharmTreeIdentifierMap treeIdentifierMap) {
+  public CascadeGroupCollection(CharmProvider charmProvider, CharacterTypes characterTypes, CharmTreeMap treeIdentifierMap) {
     this.charmProvider = charmProvider;
     this.treeIdentifierMap = treeIdentifierMap;
     this.characterTypes = characterTypes;

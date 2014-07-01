@@ -246,8 +246,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public LearningCharmTree[] getCharmGroups(Identifier type) {
-    CategoryReference category = new CategoryReference(type.getId());
+  public LearningCharmTree[] getCharmGroups(CategoryReference category) {
     return getLearningCharmTrees(category);
   }
 

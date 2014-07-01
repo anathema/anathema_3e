@@ -17,11 +17,11 @@ public class CharmCascadesPresenterImpl {
   private final ObjectFactory objectFactory;
   private final CharacterTypes characterTypes;
   private final CharmView view;
-  private final CharmTreeIdentifierMap identifierMap;
+  private final CharmTreeMap identifierMap;
 
   public CharmCascadesPresenterImpl(Environment environment, HeroEnvironment heroEnvironment, CharmView view,
                                     MagicDescriptionProvider magicDescriptionProvider,
-                                    CharmTreeIdentifierMap identifierMap) {
+                                    CharmTreeMap identifierMap) {
     this.view = view;
     this.identifierMap = identifierMap;
     this.cache = heroEnvironment.getDataSet(CharmCache.class);

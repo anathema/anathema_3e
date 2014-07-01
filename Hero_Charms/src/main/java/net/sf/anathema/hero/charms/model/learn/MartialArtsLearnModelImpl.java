@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.experience.ExperienceModel;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -95,6 +96,6 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   }
 
   private LearningCharmTree[] getMartialArtsGroups() {
-    return charmModel.getCharmGroups(MARTIAL_ARTS);
+    return charmModel.getCharmGroups(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
   }
 }
