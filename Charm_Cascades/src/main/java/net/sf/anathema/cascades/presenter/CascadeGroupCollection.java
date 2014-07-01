@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getTreeCategory;
+
 public class CascadeGroupCollection implements CharmTreeCollection {
   private final CharacterTypes characterTypes;
   private CharmProvider charmProvider;
@@ -35,7 +37,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
 
   private void initCharacterTypeCharms(List<CharmTree> allCharmGroups) {
     for (CharacterType type : characterTypes) {
-       if (charmProvider.getCharms(type).length > 0) {
+       if (charmProvider.getCharms(getTreeCategory(type)).length > 0) {
         registerTypeCharms(allCharmGroups, type);
       }
     }

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler;
 
-import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.reference.TreeCategory;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -28,13 +28,8 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public Charm[] getMartialArtsCharms() {
-    return getCharms(MARTIAL_ARTS.getId());
-  }
-
-  @Override
-  public Charm[] getCharms(CharacterType characterType) {
-    return getCharms(characterType.getId());
+  public Charm[] getCharms(TreeCategory category) {
+    return getCharms(category.text);
   }
 
   private Charm[] getCharms(String id) {

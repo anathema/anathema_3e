@@ -8,22 +8,26 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.lib.util.Identifier;
 
 import java.util.*;
 
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getTreeCategory;
 
 public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
-    Charm[] charms = provider.getMartialArtsCharms();
-    TreeCategory treeCategory = new TreeCategory(MARTIAL_ARTS.getId());
+    Identifier treeIdentifier = MARTIAL_ARTS;
+    TreeCategory treeCategory = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(treeCategory);
     return new CharmTreeCategoryImpl(check, charms, treeCategory);
   }
 
   public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, CharacterType characterType) {
-    Charm[] charms = provider.getCharms(characterType);
-    TreeCategory treeCategory = new TreeCategory(characterType.getId());
+    Identifier treeIdentifier = characterType;
+    TreeCategory treeCategory = getTreeCategory(treeIdentifier);
+    Charm[] charms = provider.getCharms(treeCategory);
     return new CharmTreeCategoryImpl(check, charms, treeCategory);
   }
 
