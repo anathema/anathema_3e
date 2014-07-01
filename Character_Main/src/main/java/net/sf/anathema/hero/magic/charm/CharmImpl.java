@@ -1,6 +1,10 @@
 package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.charm.old.cost.CostList;
@@ -23,6 +27,8 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.*;
 
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
@@ -68,6 +74,17 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public CharmType getCharmType() {
     return charmType;
+  }
+
+  @Override
+  public TreeReference getTreeReference() {
+    String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : getCharacterType().getId();
+    return new TreeReference(new CategoryReference(categoryText), new TreeName(getGroupId()));
+  }
+
+  @Override
+  public CharmName getCharmName() {
+    return new CharmName(getId());
   }
 
   @Override

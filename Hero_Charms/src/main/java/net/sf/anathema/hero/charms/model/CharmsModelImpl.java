@@ -32,7 +32,6 @@ import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
@@ -175,7 +174,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      LearningCharmTree group = getGroupById(MartialArtsUtilities.getTreeReference(charm));
+      LearningCharmTree group = getGroupById(charm.getTreeReference());
       manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
     }
   }
@@ -429,7 +428,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public final LearningCharmTree getGroup(Charm charm) {
-    return getGroupById(MartialArtsUtilities.getTreeReference(charm));
+    return getGroupById(charm.getTreeReference());
   }
 
   @Override

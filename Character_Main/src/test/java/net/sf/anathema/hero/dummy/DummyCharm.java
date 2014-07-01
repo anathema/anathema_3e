@@ -1,7 +1,10 @@
 package net.sf.anathema.hero.dummy;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.framework.type.CharacterType;
@@ -11,6 +14,7 @@ import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
@@ -68,7 +72,18 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   public void addLearnFollowUpCharm(Charm charm) {
     learnFollowUpCharms.add(charm);
   }
-  
+
+  @Override
+  public TreeReference getTreeReference() {
+    String category = MartialArtsUtilities.isMartialArts(this) ? MartialArtsUtilities.MARTIAL_ARTS.getId() : characterType.getId();
+    return new TreeReference(new CategoryReference(category), new TreeName(groupId));
+  }
+
+  @Override
+  public CharmName getCharmName() {
+    return getId() != null ? new CharmName(getId()) : null;
+  }
+
   @Override
   public CharacterType getCharacterType() {
     return characterType;
@@ -204,18 +219,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     return null;
   }
 
-  public void setCharmType(CharmType type) {
-    this.charmType = type;
-  }
-
-  public void setDuration(Duration duration) {
-    this.duration = duration;
-  }
-
-  public void setPrerequisites(net.sf.anathema.hero.traits.model.types.ValuedTraitType[] prerequisites) {
-    this.prerequisites = prerequisites;
-  }
-
   @Override
   public CharmType getCharmType() {
     return charmType;
@@ -224,10 +227,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public MagicAttribute[] getAttributes() {
     return attributes.toArray(new MagicAttribute[attributes.size()]);
-  }
-
-  public void addKeyword(MagicAttributeImpl attribute) {
-    this.attributes.add(attribute);
   }
 
   @Override
