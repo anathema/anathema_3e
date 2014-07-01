@@ -6,7 +6,6 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
@@ -37,9 +36,6 @@ public class DefaultCharm implements Charm {
   public MagicName getCharmName() {
     return charmData.getMagicName();
   }
-
-  @Override
-  public CharacterType getNativeCharacterType() { return null; } // to be generalized to category
 
   @Override
   public Duration getDuration() {

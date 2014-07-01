@@ -86,11 +86,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public CharacterType getNativeCharacterType() {
-    return characterType;
-  }
-
-  @Override
   public Duration getDuration() {
     return duration;
   }

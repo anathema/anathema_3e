@@ -21,8 +21,6 @@ public interface Charm extends Magic {
 
   MagicName getCharmName();
 
-  CharacterType getNativeCharacterType();
-
   CharmType getCharmType();
 
   Duration getDuration();

@@ -7,7 +7,6 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;
@@ -85,11 +84,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public MagicName getCharmName() {
     return getId() != null ? new MagicName(getId()) : null;
-  }
-
-  @Override
-  public CharacterType getNativeCharacterType() {
-    return null;
   }
 
   @Override
