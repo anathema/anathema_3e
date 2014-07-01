@@ -84,7 +84,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.traits = TraitModelFetcher.fetch(hero);
     this.hero = hero;
-    CharmProvider provider = environment.getDataSet(CharmCache.class).getCharmProvider();
+    CharmProvider provider = environment.getDataSet(CharmCache.class);
     this.options = new CharmOptions(provider, charmsRules, hero);
     this.manager = new SpecialCharmManager(specialist, hero, this);
     initializeCharmTrees();

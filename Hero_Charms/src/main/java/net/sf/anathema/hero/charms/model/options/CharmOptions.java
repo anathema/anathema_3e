@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.charms.compiler.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
@@ -49,8 +50,27 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
   }
 
   public ISpecialCharm[] getSpecialCharms() {
-    CategoryReference primaryCategory = getCategory(getNativeCharacterType());
-    return charmProvider.getSpecialCharms(optionsCheck, getCharmIdMap(), primaryCategory);
+    List<ISpecialCharm> relevantCharms = new ArrayList<>();
+    ISpecialCharm[] allSpecialCharms = getAllSpecialCharms();
+    for (ISpecialCharm specialCharm : allSpecialCharms) {
+      Charm charm = getCharmIdMap().getCharmById(specialCharm.getCharmId());
+      if (charm != null && optionsCheck.isValidOptionForHeroType(charm)) {
+        relevantCharms.add(specialCharm);
+      }
+    }
+    return relevantCharms.toArray(new ISpecialCharm[relevantCharms.size()]);
+  }
+
+  private ISpecialCharm[] getAllSpecialCharms() {
+    CategoryReference preferredCategory = getCategory(getNativeCharacterType());
+    SpecialCharmSet set = new SpecialCharmSet();
+    for (CategoryReference type : charmProvider.getAllCategories()) {
+      set.add(charmProvider.getSpecialCharms(type));
+    }
+    for (ISpecialCharm preferredCharm : charmProvider.getSpecialCharms(preferredCategory)) {
+      set.add(preferredCharm);
+    }
+    return set.toArray(new ISpecialCharm[set.size()]);
   }
 
   public boolean isAlienCharm(Charm charm) {

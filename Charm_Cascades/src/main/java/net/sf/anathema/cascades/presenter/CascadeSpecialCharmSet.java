@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class CascadeSpecialCharmSet implements SpecialCharmSet {
+
   private CategoryReference category;
   private final CharmCache cache;
 
@@ -22,7 +23,7 @@ public class CascadeSpecialCharmSet implements SpecialCharmSet {
 
   @Override
   public Iterator<ISpecialCharm> iterator() {
-    ISpecialCharm[] specialCharms = cache.getCharmProvider().getSpecialCharms(category);
+    ISpecialCharm[] specialCharms = cache.getSpecialCharms(category);
     return Arrays.asList(specialCharms).iterator();
   }
 }

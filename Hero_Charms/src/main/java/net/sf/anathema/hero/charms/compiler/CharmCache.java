@@ -8,13 +8,13 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.List;
 
-public interface CharmCache extends ExtensibleDataSet, CharmIdMap {
+public interface CharmCache extends CharmProvider, ExtensibleDataSet, CharmIdMap {
+
+  Charm getCharmById(String charmId);
 
   List<CategoryReference> getAllCategories();
 
   Charm[] getCharms(CategoryReference category);
 
   ISpecialCharm[] getSpecialCharms(CategoryReference category);
-
-  CharmProvider getCharmProvider();
 }

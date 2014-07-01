@@ -6,8 +6,6 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.lib.collection.MultiEntryMap;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,8 +14,8 @@ import java.util.Map;
 
 public class CharmCacheImpl implements CharmCache {
 
-  private MultiEntryMap<CategoryReference, Charm> charmSets = new MultiEntryMap<>();
-  private Map<Identifier, List<SpecialCharmDto>> specialCharmsByType = new HashMap<>();
+  private MultiEntryMap<CategoryReference, Charm> charmsByCategory = new MultiEntryMap<>();
+  private Map<CategoryReference, List<ISpecialCharm>> specialCharmsByCategory = new HashMap<>();
   private Map<String, Charm> charmsById = new HashMap<>();
   private CharmProvider charmProvider;
   private ReflectionSpecialCharmBuilder specialCharmBuilder;
@@ -33,70 +31,56 @@ public class CharmCacheImpl implements CharmCache {
 
   @Override
   public Charm[] getCharms(CategoryReference type) {
-    List<Charm> charmList = charmSets.get(type);
+    if (!charmsByCategory.containsKey(type)) {
+      return new Charm[0];
+    }
+    List<Charm> charmList = charmsByCategory.get(type);
     return charmList.toArray(new Charm[charmList.size()]);
   }
 
   @Override
-  public CharmProvider getCharmProvider() {
-    if (charmProvider == null) {
-      charmProvider = new CharmProviderImpl(this);
-    }
-    return charmProvider;
+  public List<CategoryReference> getAllCategories() {
+    return new ArrayList(charmsByCategory.keySet());
   }
 
-  public void addCharm(CategoryReference type, Charm charm) {
-    charmSets.replace(type, charm, charm);
-    charmsById.put(charm.getMagicName().text, charm);
-    if (charmProvider != null) {
-      throw new IllegalStateException("Charms worked before compilation is complete.");
+  @Override
+  public ISpecialCharm[] getSpecialCharms(CategoryReference type) {
+    if (specialCharmsByCategory.containsKey(type)) {
+      List<ISpecialCharm> specials = specialCharmsByCategory.get(type);
+      return specials.toArray(new ISpecialCharm[specials.size()]);
     }
-  }
-
-  public boolean isEmpty() {
-    return charmSets.keySet().isEmpty();
+    return new ISpecialCharm[0];
   }
 
   public Iterable<Charm> getCharms() {
     List<Charm> allCharms = new ArrayList<>();
-    for (CategoryReference type : charmSets.keySet()) {
-      for (Charm charm : charmSets.get(type)) {
+    for (CategoryReference type : charmsByCategory.keySet()) {
+      for (Charm charm : charmsByCategory.get(type)) {
         allCharms.add(charm);
       }
     }
     return allCharms;
   }
 
-  private List<SpecialCharmDto> getSpecialCharmList(Identifier type) {
-    Map<Identifier, List<SpecialCharmDto>> map = specialCharmsByType;
-    type = new SimpleIdentifier(type.getId());
-    List<SpecialCharmDto> list = map.get(type);
-    if (list == null) {
-      list = new ArrayList<>();
-      map.put(type, list);
-    }
-    return list;
+  public void addCharm(CategoryReference type, Charm charm) {
+    charmsByCategory.replace(type, charm, charm);
+    charmsById.put(charm.getMagicName().text, charm);
   }
 
-  @Override
-  public ISpecialCharm[] getSpecialCharms(CategoryReference type) {
-    List<ISpecialCharm> specialCharms = new ArrayList<>();
-    for (SpecialCharmDto dto : getSpecialCharmList(type)) {
-      specialCharms.add(specialCharmBuilder.readCharm(dto));
-    }
-    return specialCharms.toArray(new ISpecialCharm[specialCharms.size()]);
-  }
-
-  public void addSpecialCharmData(Identifier type, List<SpecialCharmDto> data) {
+  public void addSpecialCharmData(CategoryReference type, List<SpecialCharmDto> data) {
     if (data == null) {
       return;
     }
-    List<SpecialCharmDto> list = getSpecialCharmList(type);
-    list.addAll(data);
+    List<ISpecialCharm> specialCharms = addAndGetSpecialCharmList(type);
+    for (SpecialCharmDto dto : data) {
+      specialCharms.add(specialCharmBuilder.readCharm(dto));
+    }
   }
 
-  @Override
-  public List<CategoryReference> getAllCategories() {
-    return new ArrayList(charmSets.keySet());
+  private List<ISpecialCharm> addAndGetSpecialCharmList(CategoryReference type) {
+    if (!specialCharmsByCategory.containsKey(type)) {
+      specialCharmsByCategory.put(type, new ArrayList<>());
+    }
+    return specialCharmsByCategory.get(type);
   }
 }
