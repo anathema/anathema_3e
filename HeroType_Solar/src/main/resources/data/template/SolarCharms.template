@@ -1,8 +1,8 @@
 {
-  charmType: "Solar";
   martialArts: {
     standardLevel: Celestial;
     highLevelAtCreation: false
   };
+  nativeCategories: [ "Solar", "MartialArts"];
   alienCharmCastes: [ "Eclipse" ]
 }

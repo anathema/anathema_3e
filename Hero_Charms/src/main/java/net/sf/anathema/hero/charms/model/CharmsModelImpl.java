@@ -68,9 +68,9 @@ public class CharmsModelImpl implements CharmsModel {
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final List<MagicLearner> magicLearners = new ArrayList<>();
 
-  public CharmsModelImpl(CharmsTemplate charmsTemplate) {
-    this.template = charmsTemplate;
-    this.charmsRules = new CharmsRulesImpl(charmsTemplate);
+  public CharmsModelImpl(CharmsTemplate template) {
+    this.template = template;
+    this.charmsRules = new CharmsRulesImpl(template);
   }
 
   @Override

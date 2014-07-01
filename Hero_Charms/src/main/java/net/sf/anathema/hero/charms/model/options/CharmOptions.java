@@ -36,7 +36,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
     this.charmProvider = charmProvider;
     this.hero = hero;
     this.charmsRules = charmsRules;
-    this.optionRules = new CharmOptionRulesImpl(hero, charmsRules, characterTypes);
+    this.optionRules = new CharmOptionRulesImpl(charmsRules, characterTypes);
     for(CategoryReference reference : optionRules.getAllCategories()) {
       CharmTreeCategory treeCategory = CreateFor(optionRules, charmProvider, reference);
       if (!treeCategory.isEmpty()) {
@@ -106,9 +106,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
     return charms.toArray(new Charm[charms.size()]);
   }
 
-  private boolean isNativeCharm(Charm charm) {
-    return !isAlienCharm(charm);
-  }
+  private boolean isNativeCharm(Charm charm) { return !isAlienCharm(charm); }
 
   private boolean characterMayLearnAlienCharms() {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);

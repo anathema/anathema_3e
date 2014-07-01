@@ -5,8 +5,8 @@ import java.util.List;
 
 public class CharmsTemplate {
 
-  public String charmType;
   public MartialArtsTemplate martialArts = new MartialArtsTemplate();
+  public List<String> nativeCategories = new ArrayList<>();
   public List<String> alienCharmCastes = new ArrayList<>();
   public List<String> compulsiveCharms = new ArrayList<>();
 }

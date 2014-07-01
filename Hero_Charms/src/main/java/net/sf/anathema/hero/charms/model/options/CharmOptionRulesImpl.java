@@ -7,23 +7,20 @@ import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.NativeCharacterType;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 
 public class CharmOptionRulesImpl implements CharmOptionRules {
 
   private final MartialArtsLevel standardLevel;
-  private Hero hero;
+  private CharmsRules rules;
   private CharacterTypes characterTypes;
 
-  public CharmOptionRulesImpl(Hero hero, CharmsRules rules, CharacterTypes characterTypes) {
-    this.hero = hero;
+  public CharmOptionRulesImpl(CharmsRules rules, CharacterTypes characterTypes) {
+    this.rules = rules;
     this.characterTypes = characterTypes;
     standardLevel = rules.getMartialArtsRules().getStandardLevel();
   }
@@ -38,6 +35,7 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
   }
 
   @Override
+  // todo sandra: collect from all charms
   public List<CategoryReference> getAllCategories() {
     List<CategoryReference> categories = new ArrayList<>();
     for(CharacterType type: characterTypes) {
@@ -49,12 +47,12 @@ public class CharmOptionRulesImpl implements CharmOptionRules {
 
   @Override
   public List<CategoryReference> getNativeCategories() {
-    CategoryReference typeCategory = MartialArtsUtilities.getCategory(getNativeCharacterType());
-    CategoryReference martialArtsCategory = MartialArtsUtilities.getCategory(MARTIAL_ARTS);
-    return asList(typeCategory, martialArtsCategory);
-  }
-
-  private CharacterType getNativeCharacterType() {
-    return NativeCharacterType.get(hero);
+    List<CategoryReference> nativeCategories = new ArrayList<>();
+    for(CategoryReference category : getAllCategories()) {
+      if (rules.isNative(category)) {
+        nativeCategories.add(category);
+      }
+    }
+    return nativeCategories;
   }
 }

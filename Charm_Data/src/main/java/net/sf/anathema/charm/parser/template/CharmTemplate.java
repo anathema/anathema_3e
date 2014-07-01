@@ -11,7 +11,6 @@ public class CharmTemplate {
   public List<String> prerequisiteCharms = new ArrayList<>();
   public String duration;
   public String cost;
-  public String nativeFor;
   public List<String> tags = new ArrayList<>();
   public List<String> internals = new ArrayList<>();
   public List<String> sources = new ArrayList<>();
