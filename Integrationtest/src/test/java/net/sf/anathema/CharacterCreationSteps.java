@@ -1,9 +1,11 @@
 package net.sf.anathema;
 
 import com.google.inject.Inject;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import net.sf.anathema.hero.framework.Character;
 import net.sf.anathema.integration.CharacterFactory;
 import net.sf.anathema.integration.concept.ConceptModelUtilities;
@@ -51,9 +53,19 @@ public class CharacterCreationSteps {
     characterFactory.createCharacter(type, subtype);
   }
 
+  @When("^I save and reload the character$")
+  public void I_save_and_reload_the_character() throws Throwable {
+    Character reloadedCharacter = characterFactory.saveAndReload(holder.getHero());
+    holder.setCharacter(reloadedCharacter);
+  }
 
   @Given("^a new Character of any kind$")
   public void a_new_Character_of_any_kind() throws Throwable {
     I_create_a_new_character_with_subtype("Solar", "RookieLawgiver");
+  }
+
+  @After
+  public void deleteRepository() throws Throwable {
+    this.characterFactory.tearDownRepository();
   }
 }

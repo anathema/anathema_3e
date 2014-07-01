@@ -13,3 +13,10 @@ Feature: Eclipse have the Caste ability to learn alien charms
     When she learns the Charm Mortal.TerrestrialCircleSorcery
     And she changes her caste to Twilight
     Then she does not know the Charm Mortal.TerrestrialCircleSorcery
+
+  Scenario: Anathema saves learned alien charms properly
+    Given any Solar with Caste Eclipse
+    And I set her Essence to 3
+    When she learns the Charm Mortal.TerrestrialCircleSorcery
+    And I save and reload the character
+    Then she knows the Charm Mortal.TerrestrialCircleSorcery
