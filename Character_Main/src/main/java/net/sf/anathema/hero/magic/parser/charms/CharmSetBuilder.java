@@ -26,7 +26,7 @@ public class CharmSetBuilder {
   public CharmSetBuilder(CharacterTypes characterTypes, ReflectionSpecialCharmParser specialCharmParser) {
     this.builder =
             new CharmBuilder(new IdStringBuilder(), new TraitPrerequisitesBuilder(), new AttributePrerequisiteBuilder(),
-                    new CharmPrerequisiteBuilder(), characterTypes, specialCharmParser);
+                    new CharmPrerequisiteBuilder(), specialCharmParser);
   }
 
   public Charm[] buildCharms(Document charmDoc, List<SpecialCharmDto> specialCharms) throws PersistenceException {

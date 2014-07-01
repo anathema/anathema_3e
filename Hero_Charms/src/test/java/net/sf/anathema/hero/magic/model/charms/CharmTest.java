@@ -1,9 +1,11 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
@@ -38,7 +40,8 @@ public class CharmTest {
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     try {
-      new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", prerequisiteList, new CostListImpl(null, null, null, null),
+      TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
+      new CharmImpl(treeReference, "ATTRIBUTES", prerequisiteList, new CostListImpl(null, null, null, null),
                SimpleDuration.getDuration("Duration"),
               CharmType.Simple, null);
       fail();
@@ -52,10 +55,10 @@ public class CharmTest {
     ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
     CharmPrerequisiteList prerequisiteList =
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
+    TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
     CharmImpl charmImpl =
-            new CharmImpl(new DummyExaltCharacterType(), "ATTRIBUTES", "Group", prerequisiteList, new CostListImpl(null, null, null, null),
-                    SimpleDuration.getDuration("Duration"),
-                    CharmType.Simple, new SourceBook[0]);
+            new CharmImpl(treeReference, "ATTRIBUTES", prerequisiteList, new CostListImpl(null, null, null, null),
+                    SimpleDuration.getDuration("Duration"), CharmType.Simple, new SourceBook[0]);
     charmImpl.addParentCharms(parent);
     return charmImpl;
   }

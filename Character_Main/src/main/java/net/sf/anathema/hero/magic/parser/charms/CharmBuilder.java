@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
@@ -25,9 +28,11 @@ import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.*;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 
 public class CharmBuilder implements ICharmBuilder {
 
@@ -42,16 +47,13 @@ public class CharmBuilder implements ICharmBuilder {
   private final ITraitPrerequisitesBuilder traitsBuilder;
   private final IAttributePrerequisiteBuilder attributeRequirementsBuilder;
   private final ICharmPrerequisiteBuilder charmPrerequisiteBuilder;
-  private final CharacterTypes characterTypes;
 
   public CharmBuilder(IIdStringBuilder idBuilder, ITraitPrerequisitesBuilder traitsBuilder, IAttributePrerequisiteBuilder attributeRequirementsBuilder,
-                      ICharmPrerequisiteBuilder charmPrerequisiteBuilder, CharacterTypes characterTypes,
-                      ReflectionSpecialCharmParser specialCharmParser) {
+                      ICharmPrerequisiteBuilder charmPrerequisiteBuilder, ReflectionSpecialCharmParser specialCharmParser) {
     this.idBuilder = idBuilder;
     this.traitsBuilder = traitsBuilder;
     this.attributeRequirementsBuilder = attributeRequirementsBuilder;
     this.charmPrerequisiteBuilder = charmPrerequisiteBuilder;
-    this.characterTypes = characterTypes;
     this.specialCharmParser = specialCharmParser;
   }
 
@@ -59,7 +61,7 @@ public class CharmBuilder implements ICharmBuilder {
   public CharmImpl buildCharm(Element charmElement, List<SpecialCharmDto> specialCharms) throws PersistenceException {
     String id = idBuilder.build(charmElement);
     try {
-      CharacterType characterType = getCharacterType(charmElement);
+      String characterType = getCharacterType(charmElement);
       CostList temporaryCost;
       try {
         temporaryCost = costListBuilder.buildCostList(charmElement.element(TAG_COST));
@@ -73,10 +75,10 @@ public class CharmBuilder implements ICharmBuilder {
       ValuedTraitType[] prerequisites = prerequisiteList.getTraitPrerequisites();
       ValuedTraitType primaryPrerequisite = prerequisites.length != 0 ? prerequisites[0] : null;
       String group = groupBuilder.build(charmElement, primaryPrerequisite);
-      CharmImpl charm =
-              new CharmImpl(characterType, id, group, prerequisiteList, temporaryCost, duration, charmType,
-                      sources);
-      for (MagicAttribute attribute : attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite)) {
+      MagicAttribute[] magicAttributes = attributeBuilder.buildCharmAttributes(charmElement, primaryPrerequisite);
+      TreeReference treeReference = createTreeReference(magicAttributes, characterType, group);
+      CharmImpl charm = new CharmImpl(treeReference, id, prerequisiteList, temporaryCost, duration, charmType, sources);
+      for (MagicAttribute attribute : magicAttributes) {
         charm.addMagicAttribute(attribute);
       }
       loadSpecialLearning(charmElement, charm);
@@ -89,6 +91,12 @@ public class CharmBuilder implements ICharmBuilder {
     } catch (PersistenceException e) {
       throw new PersistenceException("Parsing error for Charm " + id, e);
     }
+  }
+
+  private TreeReference createTreeReference(MagicAttribute[] magicAttribute, String characterType, String group) {
+    boolean isMartialArts = Arrays.asList(magicAttribute).contains(MARTIAL_ARTS);
+    String categoryText = isMartialArts ? MARTIAL_ARTS.getId() : characterType;
+    return new TreeReference(new CategoryReference(categoryText), new TreeName(group));
   }
 
   private Duration buildDuration(Element charmElement) throws CharmException {
@@ -111,15 +119,8 @@ public class CharmBuilder implements ICharmBuilder {
     }
   }
 
-  private CharacterType getCharacterType(Element charmElement) throws CharmException {
-    String typeAttribute = charmElement.attributeValue(ATTRIB_EXALT);
-    CharacterType characterType;
-    try {
-      characterType = characterTypes.findById(typeAttribute);
-    } catch (IllegalArgumentException e) {
-      throw new CharmException("No chararacter type given.", e);
-    }
-    return characterType;
+  private String getCharacterType(Element charmElement) throws CharmException {
+    return charmElement.attributeValue(ATTRIB_EXALT);
   }
 
   private void loadSpecialLearning(Element charmElement, CharmImpl charm) {

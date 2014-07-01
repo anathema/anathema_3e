@@ -1,9 +1,7 @@
 package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.MagicName;
-import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
@@ -11,7 +9,6 @@ import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
@@ -27,17 +24,13 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.*;
 
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private final CharmPrerequisiteList prerequisisteList;
 
-  private final CharacterType characterType;
   private final Duration duration;
-  private final TreeName treeName;
   private final SourceBook[] sources;
   private final CostList temporaryCost;
   private final List<Set<Charm>> alternatives = new ArrayList<>();
@@ -47,21 +40,20 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final Set<String> favoredCasteIds = new HashSet<>();
 
   private final CharmType charmType;
+  private TreeReference treeReference;
 
-  public CharmImpl(CharacterType characterType, String id, String group, CharmPrerequisiteList prerequisiteList,
+  public CharmImpl(TreeReference treeReference, String id, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
     super(id);
     Preconditions.checkNotNull(prerequisiteList);
-    Preconditions.checkNotNull(characterType);
+    Preconditions.checkNotNull(treeReference);
     Preconditions.checkNotNull(id);
-    Preconditions.checkNotNull(group);
     Preconditions.checkNotNull(temporaryCost);
     Preconditions.checkNotNull(duration);
     Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
-    this.characterType = characterType;
-    this.treeName = new TreeName(group);
+    this.treeReference = treeReference;
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
     this.duration = duration;
@@ -76,8 +68,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public TreeReference getTreeReference() {
-    String categoryText = isMartialArts(this) ? MARTIAL_ARTS.getId() : characterType.getId();
-    return new TreeReference(new CategoryReference(categoryText), treeName);
+    return treeReference;
   }
 
   @Override
