@@ -36,11 +36,6 @@ public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats 
   }
 
   @Override
-  public int getMinimumDamage() {
-    return stats.getMinimumDamage();
-  }
-
-  @Override
   public TraitType getDamageTraitType() {
     return stats.getDamageTraitType();
   }
@@ -58,21 +53,6 @@ public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats 
   @Override
   public int getMobilityPenalty() {
     return stats.getMobilityPenalty();
-  }
-
-  @Override
-  public Integer getRange() {
-    return stats.getRange();
-  }
-
-  @Override
-  public Integer getRate() {
-    return stats.getRate();
-  }
-
-  @Override
-  public int getSpeed() {
-    return stats.getSpeed();
   }
 
   @Override
@@ -98,6 +78,11 @@ public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats 
   @Override
   public IEquipmentStats[] getViews() {
     return new IEquipmentStats[]{this};
+  }
+
+  @Override
+  public int getOverwhelmingValue() {
+    return stats.getOverwhelmingValue();
   }
 
   @Override

@@ -14,14 +14,6 @@ public class GsonStatMother {
   public static WeaponStats createMeleeWeapon() {
     WeaponStats stats = new WeaponStats();
     stats.setName(new SimpleIdentifier("Chaaarge!"));
-    stats.setAccuracy(0);
-    stats.setDamage(0);
-    stats.setDamage(0);
-    stats.setDamageType(HealthType.Lethal);
-    stats.setDefence(0);
-    stats.setMinimumDamage(0);
-    stats.setRate(1);
-    stats.setSpeed(5);
     return stats;
   }
 

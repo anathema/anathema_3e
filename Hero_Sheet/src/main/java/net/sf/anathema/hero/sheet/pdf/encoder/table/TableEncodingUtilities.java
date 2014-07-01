@@ -23,11 +23,11 @@ public class TableEncodingUtilities {
     return columnWeights;
   }
 
-  public static final PdfPCell createContentCellTable(BaseColor borderColor, String text, Font font, float borderWidth, int border, int alignment) {
+  public static PdfPCell createContentCellTable(BaseColor borderColor, String text, Font font, float borderWidth, int border, int alignment) {
     return createContentCellTable(borderColor, text, font, borderWidth, border, alignment, true);
   }
 
-  public static final PdfPCell createContentCellTable(BaseColor borderColor, String text, Font font, float borderWidth, int border, int alignment,
+  public static PdfPCell createContentCellTable(BaseColor borderColor, String text, Font font, float borderWidth, int border, int alignment,
                                                       boolean enabled) {
     PdfPCell innerCell = new PdfPCell(new Phrase(text, font));
     innerCell.setBorderColor(borderColor);
@@ -52,14 +52,6 @@ public class TableEncodingUtilities {
     outerCell.setBorder(Rectangle.NO_BORDER);
     outerCell.setPadding(1);
     return outerCell;
-  }
-
-  public static Font createTableFont(BaseFont baseFont) {
-    return new Font(baseFont, IVoidStateFormatConstants.TABLE_FONT_SIZE, Font.NORMAL, BaseColor.BLACK);
-  }
-
-  public static Font createBoldTableFont(BaseFont baseFont) {
-    return new Font(baseFont, IVoidStateFormatConstants.TABLE_FONT_SIZE + 1f, Font.BOLD, BaseColor.BLACK);
   }
 
   public static Font createHeaderFont(BaseFont baseFont) {

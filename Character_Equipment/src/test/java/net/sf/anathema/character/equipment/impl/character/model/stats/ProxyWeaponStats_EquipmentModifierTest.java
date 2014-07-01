@@ -29,21 +29,6 @@ public class ProxyWeaponStats_EquipmentModifierTest {
   @Before
   public void setUpWeapon() throws Exception {
     when(original.getTags()).thenReturn(new Identifier[]{});
-    when(original.getSpeed()).thenReturn(5);
-  }
-
-  @Test
-  public void respectsSpeedFromEquipment() throws Exception {
-    when(modifiers.getMeleeSpeedMod()).thenReturn(-2);
-    int speed = stats.getSpeed();
-    assertThat(speed, is(3));
-  }
-
-  @Test
-  public void usesBestSpeedFromEquipmentAndMaterial() throws Exception {
-    when(material.isJadeBased()).thenReturn(true);
-    int speed = stats.getSpeed();
-    assertThat(speed, is(4));
   }
 
   @Test
@@ -94,19 +79,5 @@ public class ProxyWeaponStats_EquipmentModifierTest {
     when(modifiers.getPDVPoolMod()).thenReturn(3);
     int defence = stats.getDefence();
     assertThat(defence, is(3));
-  }
-
-  @Test
-  public void respectsRateFromEquipment() throws Exception {
-    when(modifiers.getMeleeRateMod()).thenReturn(2);
-    int rate = stats.getRate();
-    assertThat(rate, is(2));
-  }
-
-  @Test
-  public void usesBestRateFromEquipmentAndMaterial() throws Exception {
-    when(material.isOrichalcumBased()).thenReturn(true);
-    int rate = stats.getRate();
-    assertThat(rate, is(1));
   }
 }

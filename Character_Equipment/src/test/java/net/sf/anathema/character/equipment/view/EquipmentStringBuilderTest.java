@@ -10,6 +10,7 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.junit.Before;
 import org.junit.Test;
 
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.*;
 import static org.junit.Assert.assertEquals;
 
 public class EquipmentStringBuilderTest {
@@ -37,8 +38,8 @@ public class EquipmentStringBuilderTest {
 
   @Test
   public void testMeleeWeapon() {
-    DemoMeleeWeapon weapon = new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 5, 2, 7, 1, HealthType.Lethal, -1, 0, 2);
-    assertEquals("Sword (Melee): Speed:5 Acc:+2 Dam:+7L Def:-1 Rate:2", equipmentStringBuilder.createString(null, weapon));
+    DemoMeleeWeapon weapon = new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 0, 0, HealthType.Lethal, 0, 0, Light, Lethal, Artifact);
+    assertEquals("Sword (Melee): Light, Lethal, Artifact", equipmentStringBuilder.createString(null, weapon));
   }
 
   @Test

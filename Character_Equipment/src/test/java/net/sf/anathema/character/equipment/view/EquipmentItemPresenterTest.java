@@ -55,7 +55,7 @@ public class EquipmentItemPresenterTest {
     StatsView isPrintSelectedModel = mock(StatsView.class);
     when(view.addStats("Passt!")).thenReturn(isPrintSelectedModel);
     DummyEquipmentItem model = new DummyEquipmentItem("Title", null);
-    model.addEquipment(new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 5, 2, 7, 1, HealthType.Lethal, -1, 0, 2));
+    model.addEquipment(new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 2, 7, HealthType.Lethal, -1, 0));
     initPresentation(model, view);
   }
 
@@ -66,7 +66,7 @@ public class EquipmentItemPresenterTest {
     StatsView isPrintSelectedModel = mock(StatsView.class);
     when(view.addStats("Passt!")).thenReturn(isPrintSelectedModel);
     DummyEquipmentItem model = new DummyEquipmentItem("Title", null);
-    model.addEquipment(new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 5, 2, 7, 1, HealthType.Lethal, -1, 0, 2));
+    model.addEquipment(new DemoMeleeWeapon(new SimpleIdentifier("Sword"), 2, 7, HealthType.Lethal, -1, 0));
     initPresentation(model, view);
     Assert.assertFalse(isPrintSelectedModel.getSelected());
   }

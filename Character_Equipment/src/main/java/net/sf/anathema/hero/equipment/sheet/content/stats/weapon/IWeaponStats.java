@@ -12,19 +12,11 @@ public interface IWeaponStats extends IEquipmentStats {
 
   HealthType getDamageType();
 
-  int getSpeed();
-
   Identifier[] getTags();
 
   TraitType getTraitType();
 
   Integer getDefence();
-
-  Integer getRange();
-
-  Integer getRate();
-  
-  int getMinimumDamage();
 
   TraitType getDamageTraitType();
 
@@ -35,4 +27,6 @@ public interface IWeaponStats extends IEquipmentStats {
   int getMobilityPenalty();
 
   IEquipmentStats[] getViews();
+
+  int getOverwhelmingValue();
 }

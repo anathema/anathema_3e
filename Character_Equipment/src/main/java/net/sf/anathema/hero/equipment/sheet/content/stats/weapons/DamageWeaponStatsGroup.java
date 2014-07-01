@@ -3,12 +3,12 @@ package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.traits.model.TraitType;
 
 public class DamageWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWeaponStats> {
 
@@ -51,7 +51,7 @@ public class DamageWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWe
       } else {
         table.addCell(createEquipmentValueCell(font, null));
       }
-      table.addCell(createFinalValueCell(font, finalValue + (weapon.getMinimumDamage() > 1 ? "/" + weapon.getMinimumDamage() : "")));
+      table.addCell(createFinalValueCell(font, finalValue));
       table.addCell(createFinalValueCell(font, getDamageTypeLabel(weapon.getDamageType()), Element.ALIGN_CENTER));
     }
   }

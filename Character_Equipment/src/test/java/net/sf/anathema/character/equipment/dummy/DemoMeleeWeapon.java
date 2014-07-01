@@ -4,36 +4,30 @@ import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatS
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.util.Identifier;
 
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
 
   private final int accuracy;
   private final int damage;
-  private final int minimumDamage;
   private final HealthType healthType;
   private final Integer defense;
-  private final int rate;
-  private final int speed;
   private final int mobility;
   private final WeaponTag[] tags;
   private Identifier name;
 
-  public DemoMeleeWeapon(Identifier name, int speed, int accuracy, int damage, int minimumDamage, HealthType healthType, int defense, int mobility,
-                         int rate, WeaponTag... tags) {
+  public DemoMeleeWeapon(Identifier name, int accuracy, int damage, HealthType healthType, int defense, int mobility,
+                         WeaponTag... tags) {
     this.name = name;
     this.accuracy = accuracy;
     this.damage = damage;
-    this.minimumDamage = minimumDamage;
     this.healthType = healthType;
     this.defense = defense;
     this.mobility = mobility;
-    this.rate = rate;
-    this.speed = speed;
     this.tags = tags;
   }
 
@@ -53,11 +47,6 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
   }
 
   @Override
-  public int getMinimumDamage() {
-    return minimumDamage;
-  }
-
-  @Override
   public Integer getDefence() {
     return defense;
   }
@@ -65,21 +54,6 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
   @Override
   public int getMobilityPenalty() {
     return mobility;
-  }
-
-  @Override
-  public Integer getRange() {
-    return null;
-  }
-
-  @Override
-  public Integer getRate() {
-    return rate;
-  }
-
-  @Override
-  public int getSpeed() {
-    return speed;
   }
 
   @Override
@@ -115,6 +89,11 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
   @Override
   public IEquipmentStats[] getViews() {
     return new IEquipmentStats[]{this};
+  }
+
+  @Override
+  public int getOverwhelmingValue() {
+    return 1;
   }
 
   @Override
