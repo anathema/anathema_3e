@@ -27,7 +27,7 @@ public abstract class AbstractMagicStats<T extends Magic> implements IMagicStats
 
   @Override
   public Identifier getName() {
-    return new SimpleIdentifier(magic.getId());
+    return new SimpleIdentifier(magic.getMagicName().text);
   }
 
   @Override

@@ -15,7 +15,7 @@ public class RepositoryMagicDescriptionProvider implements MagicDescriptionProvi
 
   @Override
   public MagicDescription getCharmDescription(Magic magic) {
-    String description = dataBase.loadDescription(magic.getId());
+    String description = dataBase.loadDescription(magic.getMagicName().text);
     return new DirectMagicDescription(description);
   }
 }

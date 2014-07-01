@@ -141,9 +141,4 @@ public class DefaultCharm implements Charm {
   public String getAttributeValue(Identifier attribute) {
     return null;
   }
-
-  @Override
-  public String getId() {
-    return null;
-  }
 }

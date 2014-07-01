@@ -45,10 +45,11 @@ public class CharmCacheImpl implements CharmCache {
     return charmProvider;
   }
 
+  // todo (sandra) eliminate Identifier-Type
   public void addCharm(Identifier type, Charm charm) {
     type = new SimpleIdentifier(type.getId());
     charmSets.replace(type, charm, charm);
-    charmsById.put(charm.getId(), charm);
+    charmsById.put(charm.getMagicName().text, charm);
     if (charmProvider != null) {
       throw new IllegalStateException("Charms worked before compilation is complete.");
     }

@@ -15,7 +15,7 @@ public class MultipleEffectCharmStats extends AbstractCharmStats implements IMag
 
   @Override
   public String getNameString(Resources resources) {
-    String effectString = resources.getString(getMagic().getId() + ".Subeffects." + effect);
-    return resources.getString(getMagic().getId() + ".PrintPattern", effectString);
+    String effectString = resources.getString(getMagic().getMagicName().text + ".Subeffects." + effect);
+    return resources.getString(getMagic().getMagicName().text + ".PrintPattern", effectString);
   }
 }

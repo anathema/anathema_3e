@@ -42,12 +42,7 @@ public class CharmMergedBuilder {
     Set<Charm> charms = new HashSet<>(charmReferences.size());
     for (Element charmReference : charmReferences) {
       final String charmId = charmReference.attributeValue(ATTRIB_ID);
-      Charm charm = getFirst(existingCharms, new Predicate<Charm>() {
-        @Override
-        public boolean apply(Charm candidate) {
-          return candidate.getId().equals(charmId);
-        }
-      });
+      Charm charm = getFirst(existingCharms, candidate -> candidate.getMagicName().text.equals(charmId));
       if (charm == null) {
         logger.warn("Merge charm not found " + charmId);
         continue;

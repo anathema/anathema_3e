@@ -21,7 +21,7 @@ public class MultipleEffectCharmPresenter {
 
   public void initPresentation() {
     for (final SubEffect subeffect : model.getEffects()) {
-      String key = model.getCharm().getId() + ".Subeffects." + subeffect.getId();
+      String key = model.getCharm().getMagicName().text + ".Subeffects." + subeffect.getId();
       String label = resources.getString(key);
       final BooleanValueView display = view.addSubeffect(label);
       subeffect.addChangeListener(new ChangeListener() {

@@ -17,7 +17,7 @@ public class SpellUiConfiguration extends AbstractUIConfiguration<Spell> {
 
   @Override
   protected String labelForExistingValue(Spell value) {
-    return resources.getString(value.getId());
+    return resources.getString(value.getMagicName().text);
   }
 
   @Override

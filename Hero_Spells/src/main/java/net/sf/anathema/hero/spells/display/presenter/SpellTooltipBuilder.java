@@ -21,7 +21,7 @@ public class SpellTooltipBuilder {
   }
 
   public void createTooltip(Spell spell, ConfigurableTooltip tooltip) {
-    tooltip.appendTitleLine(resources.getString(spell.getId()));
+    tooltip.appendTitleLine(resources.getString(spell.getMagicName().text));
     tooltip.appendLine(properties.getCircleLabel(), getCircleValue(spell));
     tooltip.appendLine(getCostLabel(), getCostValue(spell));
     tooltip.appendLine(getTargetLabel(), getTargetValue(spell));

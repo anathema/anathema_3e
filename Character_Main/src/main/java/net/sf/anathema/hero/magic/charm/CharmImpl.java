@@ -109,7 +109,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
     for (Set<Charm> alternative : alternatives) {
       for (Charm charm : alternative) {
-        boolean isThis = charm.getId().equals(getId());
+        boolean isThis = charm.getMagicName().text.equals(getMagicName().text);
         if (!isThis && learnArbitrator.isLearned(charm)) {
           return true;
         }

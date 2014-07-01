@@ -23,11 +23,6 @@ public class DummySpell implements Spell {
   }
 
   @Override
-  public String getId() {
-    return null;
-  }
-
-  @Override
   public MagicName getMagicName() {
     return null;
   }

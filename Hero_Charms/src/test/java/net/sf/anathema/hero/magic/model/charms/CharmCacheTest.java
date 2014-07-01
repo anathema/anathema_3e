@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms;
 
 import com.google.common.collect.Lists;
+import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
@@ -36,6 +37,7 @@ public class CharmCacheTest {
   @Test
   public void matchesCharacterTypesToIdentificatesForCharmLookup() throws Exception {
     Charm charm = mock(Charm.class);
+    when(charm.getMagicName()).thenReturn(new MagicName("Charm"));
     SimpleIdentifier solar = new SimpleIdentifier("Dummy");
     cache.addCharm(solar, charm);
     Charm[] charmData = cache.getCharms(new DummyExaltCharacterType());

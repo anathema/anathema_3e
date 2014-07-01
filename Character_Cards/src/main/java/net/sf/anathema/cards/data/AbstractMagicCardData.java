@@ -35,7 +35,7 @@ public abstract class AbstractMagicCardData implements ICardData {
 
   @Override
   public String getTitle() {
-    return getResources().getString(magic.getId());
+    return getResources().getString(magic.getMagicName().text);
   }
 
   @Override

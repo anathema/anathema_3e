@@ -11,13 +11,13 @@ public class MagicDisplayLabeler {
   }
 
   public String getLabelForMagic(Magic magic) {
-    return resources.getString(magic.getId());
+    return resources.getString(magic.getMagicName().text);
   }
 
   public boolean supportsMagic(Magic magic) {
     if (magic == null) {
       return false;
     }
-    return resources.supportsKey(magic.getId());
+    return resources.supportsKey(magic.getMagicName().text);
   }
 }

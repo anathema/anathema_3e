@@ -86,15 +86,15 @@ public class SpecialCharmListPersister {
       return;
     }
     CharmSpecialsPto specialPto = new CharmSpecialsPto();
-    specialPto.charmId = charm.getId();
+    specialPto.charmId = charm.getMagicName().text;
     specialCharmPersister.saveCharmSpecials(charmSpecials, specialPto);
     charmPto.charmSpecials.add(specialPto);
   }
 
   public void loadSpecials(CharmsModel model, Charm charm, CharmListPto pto, boolean isExperienceLearned) {
     SpecialCharmPersister specialPersister = persisterByCharm.get(charm);
-    CharmSpecialsModel charmSpecials = model.getSpecialCharmConfiguration(charm.getId());
-    CharmSpecialsPto charmSpecialsPto = getSpecialCharmPto(charm.getId(), pto);
+    CharmSpecialsModel charmSpecials = model.getSpecialCharmConfiguration(charm.getMagicName().text);
+    CharmSpecialsPto charmSpecialsPto = getSpecialCharmPto(charm.getMagicName().text, pto);
     if (charmSpecialsPto != null && charmSpecials != null) {
       specialPersister.loadCharmSpecials(charmSpecials, charmSpecialsPto);
     } else if (charmSpecials instanceof MultiLearnCharmSpecials) {

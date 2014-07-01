@@ -43,7 +43,7 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     this.allCharms = allCharms;
     this.category = category;
     for (Charm charm : allCharms) {
-      charmById.put(charm.getId(), charm);
+      charmById.put(charm.getMagicName().text, charm);
     }
   }
 

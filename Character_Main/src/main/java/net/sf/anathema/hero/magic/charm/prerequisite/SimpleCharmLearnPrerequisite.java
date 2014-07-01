@@ -21,7 +21,7 @@ public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisit
 	
 	public SimpleCharmLearnPrerequisite(Charm charm) {
 		this.prerequisite = charm;
-		this.prerequisiteId = charm.getId();
+		this.prerequisiteId = charm.getMagicName().text;
 	}
 
 	@Override

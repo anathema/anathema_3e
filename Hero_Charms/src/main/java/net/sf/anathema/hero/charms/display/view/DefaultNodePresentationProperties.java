@@ -52,8 +52,8 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
     if (charmLabeler.supportsMagic(charm)) {
       return charmLabeler.getLabelForMagic(charm);
     }
-    logger.warn(format("No resource key found for node {0}. It must be a requirement or a charm.", charm.getId()));
-    return resources.getString(charm.getId());
+    logger.warn(format("No resource key found for node {0}. It must be a requirement or a charm.", charm.getMagicName().text));
+    return resources.getString(charm.getMagicName().text);
   }
 
   private Charm findNonNullCharm(final String charmId) {

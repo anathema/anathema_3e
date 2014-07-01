@@ -406,7 +406,7 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public final boolean isCompulsiveCharm(Charm charm) {
     String[] compulsiveCharmIDs = getCompulsiveCharmIds();
-    return ArrayUtils.contains(compulsiveCharmIDs, charm.getId());
+    return ArrayUtils.contains(compulsiveCharmIDs, charm.getMagicName().text);
   }
 
   @Override

@@ -20,11 +20,6 @@ public abstract class AbstractMagic implements Magic {
     return magicName;
   }
 
-  @Override
-  public String getId() {
-    return magicName.text;
-  }
-
   public void addMagicAttribute(MagicAttribute attribute) {
     magicAttributes.add(attribute);
   }
@@ -54,7 +49,7 @@ public abstract class AbstractMagic implements Magic {
       return false;
     }
     AbstractMagic other = (AbstractMagic) obj;
-    return other.getId().equals(getId());
+    return other.getMagicName().text.equals(getMagicName().text);
   }
 
   @Override

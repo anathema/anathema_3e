@@ -11,9 +11,9 @@ public class CharmNodeConnector {
 
   public static void connectNodes(Collection<Charm> groupCharms, Map<String, IIdentifiedRegularNode> charmNodesById) {
     for (Charm charm : groupCharms) {
-      IIdentifiedRegularNode childNode = charmNodesById.get(charm.getId());
+      IIdentifiedRegularNode childNode = charmNodesById.get(charm.getMagicName().text);
       for (Charm parentCharm : charm.getRenderingPrerequisiteCharms()) {
-        IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getId());
+        IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getMagicName().text);
         connectNodes(childNode, parentNode);
       }
       for (IndirectCharmLearnPrerequisite requirement : charm.getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class)) {

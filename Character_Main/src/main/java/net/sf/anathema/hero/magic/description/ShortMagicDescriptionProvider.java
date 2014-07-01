@@ -30,7 +30,7 @@ public class ShortMagicDescriptionProvider implements MagicDescriptionProvider {
       }
 
       private String getDescriptionString(Magic magic) {
-        String id = magic.getId();
+        String id = magic.getMagicName().text;
         String genericId = id.substring(0, id.lastIndexOf('.'));
         String description = getDescriptionPattern(id, genericId);
         if (magic instanceof Charm) {
