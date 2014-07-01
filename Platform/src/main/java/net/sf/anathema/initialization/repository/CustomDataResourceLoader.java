@@ -22,7 +22,8 @@ public class CustomDataResourceLoader implements ResourceLoader {
 
   @Override
   public Set<ResourceFile> getResourcesMatching(final String namePattern) {
-    Collection<File> customFiles = Lists.newArrayList(customFolder.listFiles((dir, name) -> name.matches(namePattern)));
+    File[] elements = customFolder.listFiles((dir, name) -> name.matches(namePattern));
+    Collection<File> customFiles = Lists.newArrayList(elements);
     HashSet<ResourceFile> resourceFiles = Sets.newHashSet();
     for (File file : customFiles) {
       resourceFiles.add(new ExternalResourceFile(file));

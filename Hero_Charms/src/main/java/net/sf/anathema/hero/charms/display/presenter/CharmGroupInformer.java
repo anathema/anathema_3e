@@ -5,5 +5,5 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 public interface CharmGroupInformer {
   boolean hasGroupSelected();
 
-  CharmTree getCurrentGroup();
+  CharmTree getCurrentTree();
 }

@@ -18,14 +18,12 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
 import static net.sf.anathema.charm.old.attribute.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.*;
 
 public class CharmOptions implements Iterable<CharmTreeCategory> {
 
@@ -53,7 +51,8 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
   }
 
   public ISpecialCharm[] getSpecialCharms() {
-    return charmProvider.getSpecialCharms(optionRules, getCharmIdMap(), getNativeCharacterType());
+    CategoryReference primaryCategory = getCategory(getNativeCharacterType());
+    return charmProvider.getSpecialCharms(optionRules, getCharmIdMap(), primaryCategory);
   }
 
   public boolean isAlienCategory(CategoryReference category) {

@@ -13,36 +13,35 @@ import java.util.List;
 import java.util.Map;
 
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getCategory;
 
 public class CharmProviderImpl implements CharmProvider {
 
-  private final Map<String, ISpecialCharm[]> specialCharmsByType = new HashMap<>();
-  private final Map<String, Charm[]> charmsByType = new HashMap<>();
+  private final Map<CategoryReference, ISpecialCharm[]> specialCharmsByCategory = new HashMap<>();
+  private final Map<CategoryReference, Charm[]> charmsByCategory = new HashMap<>();
 
   public CharmProviderImpl(CharmCache cache) {
     for (Identifier type : cache.getCharmTypes()) {
-      specialCharmsByType.put(type.getId(), cache.getSpecialCharmData(type));
-      charmsByType.put(type.getId(), cache.getCharms(type));
+      CategoryReference categoryReference = getCategory(type);
+      specialCharmsByCategory.put(categoryReference, cache.getSpecialCharmData(type));
+      charmsByCategory.put(categoryReference, cache.getCharms(type));
     }
-    charmsByType.put(MARTIAL_ARTS.getId(), cache.getCharms(MARTIAL_ARTS));
+    CategoryReference martialArtsReference = getCategory(MARTIAL_ARTS);
+    charmsByCategory.put(martialArtsReference, cache.getCharms(MARTIAL_ARTS));
   }
 
   @Override
   public Charm[] getCharms(CategoryReference category) {
-    return getCharms(category.text);
-  }
-
-  private Charm[] getCharms(String id) {
-    if (!charmsByType.containsKey(id)) {
+    if (!charmsByCategory.containsKey(category)) {
       return new Charm[0];
     }
-    return charmsByType.get(id);
+    return charmsByCategory.get(category);
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms(CharmOptionCheck check, CharmIdMap map, Identifier preferredType) {
+  public ISpecialCharm[] getSpecialCharms(CharmOptionCheck check, CharmIdMap map, CategoryReference preferredCategory) {
     List<ISpecialCharm> relevantCharms = new ArrayList<>();
-    ISpecialCharm[] allSpecialCharms = getAllSpecialCharms(preferredType);
+    ISpecialCharm[] allSpecialCharms = getAllSpecialCharms(preferredCategory);
     for (ISpecialCharm specialCharm : allSpecialCharms) {
       Charm charm = map.getCharmById(specialCharm.getCharmId());
       if (charm != null && check.isValidOptionForHeroType(charm)) {
@@ -53,24 +52,20 @@ public class CharmProviderImpl implements CharmProvider {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms(Identifier type) {
-    return getSpecialCharms(type.getId());
-  }
-
-  private ISpecialCharm[] getSpecialCharms(String id) {
-    ISpecialCharm[] specialCharms = specialCharmsByType.get(id);
+  public ISpecialCharm[] getSpecialCharms(CategoryReference categoryReference) {
+     ISpecialCharm[] specialCharms = specialCharmsByCategory.get(categoryReference);
     if (specialCharms == null) {
       specialCharms = new ISpecialCharm[0];
     }
     return specialCharms;
   }
 
-  private ISpecialCharm[] getAllSpecialCharms(Identifier preferredCharacterType) {
+  private ISpecialCharm[] getAllSpecialCharms(CategoryReference preferredCategory) {
     SpecialCharmSet set = new SpecialCharmSet();
-    for (String type : specialCharmsByType.keySet()) {
+    for (CategoryReference type : specialCharmsByCategory.keySet()) {
       set.add(getSpecialCharms(type));
     }
-    for (ISpecialCharm preferredCharm : getSpecialCharms(preferredCharacterType)) {
+    for (ISpecialCharm preferredCharm : getSpecialCharms(preferredCategory)) {
       set.add(preferredCharm);
     }
     return set.toArray(new ISpecialCharm[set.size()]);

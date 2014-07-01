@@ -1,5 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
@@ -19,8 +20,8 @@ public class CascadeCharmGroupChangeListener extends AbstractCharmGroupChangeLis
   }
 
   @Override
-  protected final void modifyCharmVisuals(Identifier type) {
-    specialCharmSet.setType(type);
+  protected final void modifyCharmVisuals(CategoryReference type) {
+    specialCharmSet.setCategory(type);
     RGBColor color = findColor(type);
     getTreeView().setCanvasBackground(color);
   }

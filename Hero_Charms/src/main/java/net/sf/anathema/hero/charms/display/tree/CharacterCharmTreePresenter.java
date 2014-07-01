@@ -43,7 +43,7 @@ public class CharacterCharmTreePresenter {
   public void initPresentation() {
     CharmsModel charmConfiguration = model.getCharmModel();
     CharacterCharmGroupChangeListener charmGroupChangeListener = new CharacterCharmGroupChangeListener(
-            charmConfiguration, displayPropertiesMap);
+            charmConfiguration);
     ConfigurableCharmDye colorist = new ConfigurableCharmDye(charmGroupChangeListener,
             new CharacterColoringStrategy(presentationProperties.getColor(), model));
     cascadePresenter.setCharmTreeCollectionMap(new CharacterCharmTreeMap(model));

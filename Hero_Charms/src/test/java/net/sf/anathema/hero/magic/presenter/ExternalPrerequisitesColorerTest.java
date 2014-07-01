@@ -38,7 +38,7 @@ public class ExternalPrerequisitesColorerTest {
   }
 
   private void selectGroup(CharmTree currentGroup) {
-    when(informer.getCurrentGroup()).thenReturn(currentGroup);
+    when(informer.getCurrentTree()).thenReturn(currentGroup);
   }
 
   private CharmTree createGroupWithCharms(DummyCharm parent, Charm child) {

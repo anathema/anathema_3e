@@ -26,7 +26,7 @@ public class VisibilityPredicate implements Predicate<String> {
     if (!charmGroupInformer.hasGroupSelected()) {
       return false;
     }
-    CharmTree group = charmGroupInformer.getCurrentGroup();
+    CharmTree group = charmGroupInformer.getCurrentTree();
     return group.isCharmFromTree(charm);
   }
 }

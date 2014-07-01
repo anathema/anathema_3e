@@ -42,6 +42,6 @@ public class ConfigurableCharmDye implements CharmDye {
   }
 
   private Charm[] getAllCharmsFromCurrentGroup() {
-    return groupInformer.getCurrentGroup().getAllCharms();
+    return groupInformer.getCurrentTree().getAllCharms();
   }
 }

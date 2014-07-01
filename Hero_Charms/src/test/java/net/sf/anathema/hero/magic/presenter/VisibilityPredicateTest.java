@@ -38,7 +38,7 @@ public class VisibilityPredicateTest {
 
   private void selectGroup(CharmTree charmGroup) {
     when(informer.hasGroupSelected()).thenReturn(true);
-    when(informer.getCurrentGroup()).thenReturn(charmGroup);
+    when(informer.getCurrentTree()).thenReturn(charmGroup);
   }
 
   private CharmIdMap createMapWithCharm(Charm charm) {

@@ -1,18 +1,17 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.hero.charms.display.node.CharmGraphNodeBuilder;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.platform.tree.document.GenericCascadeFactory;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensionsImpl;
-import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.view.AgnosticCascadeStrategy;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 
@@ -31,7 +30,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
 
   @Override
   public final void valueChanged(Object cascade, Object type) {
-    loadCharmTree((CharmTree) cascade, (Identifier) type);
+    loadCharmTree((CharmTree) cascade, (CategoryReference) type);
   }
 
   @Override
@@ -39,12 +38,12 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     this.treeView = treeView;
   }
 
-  private void loadCharmTree(CharmTree charmGroup, Identifier type) {
+  private void loadCharmTree(CharmTree charmGroup, CategoryReference category) {
     boolean resetView = !(currentGroup != null && currentGroup.equals(
-            charmGroup) && currentType != null && currentType.equals(type));
+            charmGroup) && currentType != null && currentType.equals(category));
     this.currentGroup = charmGroup;
-    this.currentType = type;
-    modifyCharmVisuals(type);
+    this.currentType = category;
+    modifyCharmVisuals(category);
     if (charmGroup == null) {
       treeView.clear();
     } else {
@@ -60,12 +59,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
   private IRegularNode[] prepareNodes(Set<Charm> charms) {
     Collection<IIdentifiedRegularNode> nodes = CharmGraphNodeBuilder.createNodesFromCharms(charms);
     List<IIdentifiedRegularNode> sortedNodes = new ArrayList<>(nodes);
-    Collections.sort(sortedNodes, new Comparator<IIdentifiedRegularNode>() {
-      @Override
-      public int compare(IIdentifiedRegularNode o1, IIdentifiedRegularNode o2) {
-        return o1.getId().compareTo(o2.getId());
-      }
-    });
+    Collections.sort(sortedNodes, (o1, o2) -> o1.getId().compareTo(o2.getId()));
     return sortedNodes.toArray(new IRegularNode[sortedNodes.size()]);
   }
 
@@ -83,15 +77,15 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
   }
 
   @Override
-  public CharmTree getCurrentGroup() {
+  public CharmTree getCurrentTree() {
     return currentGroup;
   }
 
-  protected abstract void modifyCharmVisuals(Identifier type);
+  protected abstract void modifyCharmVisuals(CategoryReference type);
 
   @Override
   public boolean hasGroupSelected() {
-    return getCurrentGroup() != null;
+    return getCurrentTree() != null;
   }
 
   protected TreeView getTreeView() {
