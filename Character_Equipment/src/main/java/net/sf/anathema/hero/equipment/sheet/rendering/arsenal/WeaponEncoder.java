@@ -7,12 +7,12 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
-public class WeaponryEncoder<C extends SubBoxContent> extends AbstractContentEncoder<C> {
+public class WeaponEncoder<C extends SubBoxContent> extends AbstractContentEncoder<C> {
 
   private final WeaponryTableEncoder tableEncoder;
 
   @SuppressWarnings("unchecked")
-  public WeaponryEncoder(Class<C> contentClass) {
+  public WeaponEncoder(Class<C> contentClass) {
     super(contentClass);
     this.tableEncoder = new WeaponryTableEncoder(contentClass);
   }

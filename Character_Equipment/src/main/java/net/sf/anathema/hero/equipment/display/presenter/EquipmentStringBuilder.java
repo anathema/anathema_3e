@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
+import com.google.common.base.Joiner;
 import net.sf.anathema.character.equipment.character.IEquipmentStringBuilder;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
@@ -11,6 +12,10 @@ import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class EquipmentStringBuilder implements IEquipmentStringBuilder {
 
@@ -28,22 +33,9 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     } else {
       stringBuilder.append(new WeaponStatsNameStringFactory(resources).create(item, weapon));
     }
-    stringBuilder.append(":");
-    stringBuilder.append(getStatsString("Speed", weapon.getSpeed(), false));
-    stringBuilder.append(getStatsString("Accuracy", weapon.getAccuracy(), true));
-    if (weapon.inflictsNoDamage()) {
-      stringBuilder.append(" ").append(resources.getString("Equipment.Stats.Short.Damage")).append(":-");
-    } else {
-      stringBuilder.append(getStatsString("Damage", weapon.getDamage(), weapon.getDamageTraitType() != null));
-      stringBuilder.append(resources.getString("HealthType." + weapon.getDamageType().getId() + ".Short"));
-      if (weapon.getMinimumDamage() > 1)
-    	  stringBuilder.append("/").append(weapon.getMinimumDamage());
-    }
-    stringBuilder.append(getStatsString("Defence", weapon.getDefence(), true));
-    stringBuilder.append(getStatsString("Range", weapon.getRange(), false));
-    stringBuilder.append(getStatsString("Rate", weapon.getRate(), false));
-    stringBuilder.append( getTagsString( weapon.getTags() ) );
-    
+    stringBuilder.append(": ");
+    stringBuilder.append(getTagsString(weapon.getTags()));
+
     return stringBuilder.toString();
   }
 
@@ -54,13 +46,11 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     String signum = printSignum && value >= 0 ? "+" : "";
     return createtNewStatsStart(keyPart) + signum + value;
   }
-  
-  private String getTagsString( Identifier[] tags ) {
-      StringBuilder result = new StringBuilder();
-      for( Identifier tag : tags ) {
-          result.append(" ").append(tag.getId());
-      }
-      return result.toString();
+
+  private String getTagsString(Identifier[] tags) {
+    List<String> ids = new ArrayList<>();
+    Arrays.asList(tags).forEach(tag -> ids.add(tag.getId()));
+    return Joiner.on(", ").join(ids);
   }
 
   private String createtNewStatsStart(String keyPart) {
@@ -84,6 +74,7 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     throw new UnreachableCodeReachedException("All subclasses covered. Something appears to be wrong.");
   }
 
+  @SuppressWarnings("StringBufferReplaceableByString")
   private String createArtifactString(ArtifactStats stats) {
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append(getStatsString(stats.getAttuneType().name(), stats.getAttuneCost(), false));
@@ -128,6 +119,7 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     return stringBuilder.toString();
   }
 
+  @SuppressWarnings("StringBufferReplaceableByString")
   private String createArmourString(IArmourStats armourStats) {
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append(armourStats.getName().getId());

@@ -1,24 +1,38 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 
-import com.google.common.base.Function;
 import com.google.common.base.Joiner;
+import com.google.common.collect.Lists;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
-import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
+import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.lib.util.Identifier;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Artifact;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Balanced;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.CloseRange;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Flame;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.LongRange;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.MediumRange;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Natural;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Shield;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.ShortRange;
 
 public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> {
   private final String title;
   private final Resources resources;
+  private final List<WeaponTag> printedTags = Lists.newArrayList(Artifact, Shield, Balanced, CloseRange, ShortRange, MediumRange, LongRange, Flame, Natural);
 
   public TagsStatsGroup(Resources resources) {
     this.resources = resources;
@@ -46,13 +60,8 @@ public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> 
       table.addCell(createEmptyNameCell(font));
     } else {
       Identifier[] tags = weapon.getTags();
-      String[] values = transform(tags, String.class, new Function<Identifier, String>() {
-        @Override
-        public String apply(Identifier input) {
-          return resources.getString("Weapons.Tags." + input.getId() + ".Short");
-        }
-      });
-      String valueString = values.length == 0 ? " " : Joiner.on(",").join(values);
+      List<String> values = Stream.of(tags).filter(printedTags::contains).map(input -> resources.getString("Weapons.Tags." + input.getId() + ".Short")).collect(toList());
+      String valueString = values.isEmpty() ? " " : Joiner.on(",").join(values);
       table.addCell(createFilledContentCell(font, valueString));
     }
   }

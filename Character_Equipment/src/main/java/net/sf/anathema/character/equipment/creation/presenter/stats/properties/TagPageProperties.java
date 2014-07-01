@@ -12,12 +12,12 @@ public class TagPageProperties {
   }
 
   public String getLabel(IWeaponTag tag) {
-    return resources.getString("Equipment.Tag." + tag.getId());
+    return resources.getString("Weapons.Tags." + tag.getId());
   }
 
   public String getToolTip(IWeaponTag tag) {
     String abbreviation = resources.getString("Weapons.Tags." + tag.getId() + ".Short");
-    String explanation = resources.getString("Equipment.Tag.Tooltip." + tag.getId());
+    String explanation = resources.getString("Weapons.Tags." + tag.getId() + ".Tooltip");
     return explanation + " (" + abbreviation + ")";
   }
 }

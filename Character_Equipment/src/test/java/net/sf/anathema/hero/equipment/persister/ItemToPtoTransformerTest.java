@@ -32,7 +32,7 @@ public class ItemToPtoTransformerTest {
   }
 
   private DemoMeleeWeapon createStats(String id) {
-    return new DemoMeleeWeapon(new SimpleIdentifier(id), 0, 0, 0, 0, HealthType.Aggravated, 0, 0, 0);
+    return new DemoMeleeWeapon(new SimpleIdentifier(id), 0, 0, HealthType.Aggravated, 0, 0);
   }
 
   private EquipmentModel createEquipmentModel(DummyEquipmentItem item, IEquipmentStats stats) {

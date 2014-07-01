@@ -5,17 +5,17 @@ import net.sf.anathema.hero.sheet.pdf.content.ReportContentFactory;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.framework.environment.Resources;
 
-@Produces(WeaponryContent.class)
-public class WeaponryContentFactory implements ReportContentFactory<WeaponryContent> {
+@Produces(WeaponContent.class)
+public class WeaponContentFactory implements ReportContentFactory<WeaponContent> {
 
   private Resources resources;
 
-  public WeaponryContentFactory(Resources resources) {
+  public WeaponContentFactory(Resources resources) {
     this.resources = resources;
   }
 
   @Override
-  public WeaponryContent create(ReportSession session) {
-    return new WeaponryContent(session.getHero(), resources);
+  public WeaponContent create(ReportSession session) {
+    return new WeaponContent(session.getHero(), resources);
   }
 }
