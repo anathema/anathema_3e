@@ -26,20 +26,6 @@ public class CharmRulesTest {
   }
 
   @Test
-  public void cannotLearnCharmsForCharmTypeNone() throws Exception {
-    template.charmType = "None";
-    CharmsRulesImpl charmsRules = new CharmsRulesImpl(template);
-    assertThat(charmsRules.canLearnCharms(), is(false));
-  }
-
-  @Test
-  public void canLearnCharmsForCharmTypeSolar() throws Exception {
-    template.charmType = "Solar";
-    CharmsRulesImpl charmsRules = new CharmsRulesImpl(template);
-    assertThat(charmsRules.canLearnCharms(), is(true));
-  }
-
-  @Test
   public void forbidsAllowHighLevelMartialArtsWhenNotConfigured() throws Exception {
     template.martialArts.highLevelAtCreation = false;
     template.martialArts.standardLevel = "Mortal";

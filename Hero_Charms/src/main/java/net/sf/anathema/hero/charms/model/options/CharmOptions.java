@@ -115,7 +115,7 @@ public class CharmOptions implements Iterable<CharmTreeCategory> {
     return charmsRules.isAllowedAlienCharms(concept.getCaste().getType());
   }
 
-  public List<CategoryReference> getNonEmptyReferences() {
+  private List<CategoryReference> getNonEmptyReferences() {
     List<CategoryReference> references = new ArrayList<>();
     for(CharmTreeCategory category : treeCategories) {
       references.add(category.getReference());
