@@ -5,7 +5,7 @@ import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.util.Identifier;
 
-public class SelectObjectConfiguration<T extends Identifier> extends AbstractUIConfiguration<T> {
+public class SelectObjectConfiguration<T> extends AbstractUIConfiguration<T> {
   private final Resources resources;
   private ValueI18n<T> valueI18n;
 

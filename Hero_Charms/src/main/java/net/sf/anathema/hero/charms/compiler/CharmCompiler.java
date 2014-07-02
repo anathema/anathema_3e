@@ -11,7 +11,11 @@ import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.parser.charms.*;
+import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmMergedBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmSetBuilder;
+import net.sf.anathema.hero.magic.parser.charms.ObjectRegistry;
+import net.sf.anathema.hero.magic.parser.charms.ObjectRegistryImpl;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
@@ -28,6 +32,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static net.sf.anathema.hero.magic.parser.charms.HasId.HasId;
+
 @ExtensibleDataSetCompiler
 public class CharmCompiler implements IExtensibleDataSetCompiler {
   private static final String Charm_File_Recognition_Pattern = "Charms.*\\.xml";
@@ -35,7 +41,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   //the pattern is data/charms/REST_OF_PATH/Charms_TYPE_EDITION_ANYTHING.xml
   private static final String Charm_Data_Extraction_Pattern = ".*/Charms_(.*?)_(.*?)(?:_.*)?\\.xml";
   private final Map<Identifier, List<Document>> charmFileTable = new HashMap<>();
-  private final IIdentificateRegistry<CategoryReference> registry = new IdentificateRegistry<>();
+  private final ObjectRegistry<CategoryReference> registry = new ObjectRegistryImpl<>();
   private final CharmAlternativeBuilder alternativeBuilder = new CharmAlternativeBuilder();
   private final CharmMergedBuilder mergedBuilder = new CharmMergedBuilder();
   private final SAXReader reader = new SAXReader();
@@ -67,7 +73,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     matcher.matches();
     String categoryString = matcher.group(1);
     CategoryReference type = new CategoryReference(categoryString);
-    if (!registry.idRegistered(categoryString)) {
+    if (!registry.isRegistered(HasId(categoryString))) {
       registry.add(type);
     }
     List<Document> list = charmFileTable.get(type);
