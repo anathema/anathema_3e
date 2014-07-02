@@ -15,7 +15,7 @@ public class CascadeColoringStrategy implements CharmColoring {
   }
 
   @Override
-  public void setPrerequisiteVisuals(IndirectCharmPrerequisite prerequisite) {
+  public void colorNonCharmPrerequisite(IndirectCharmPrerequisite prerequisite) {
     treeView.colorNode(prerequisite.getStringLabel(), RGBColor.White);
   }
 
