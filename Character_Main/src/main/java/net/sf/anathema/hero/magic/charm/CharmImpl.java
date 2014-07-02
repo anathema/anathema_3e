@@ -3,8 +3,6 @@ package net.sf.anathema.hero.magic.charm;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.attribute.CharmAttributeList;
-import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.concept.HeroConcept;
@@ -18,11 +16,19 @@ import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisit
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.*;
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
@@ -34,7 +40,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final SourceBook[] sources;
   private final CostList temporaryCost;
   private final List<Set<Charm>> alternatives = new ArrayList<>();
-  private final List<Set<Charm>> merges = new ArrayList<>();
   private final List<CharmImpl> children = new ArrayList<>();
   private final List<CharmLearnPrerequisite> prerequisites = new ArrayList<>();
   private final Set<String> favoredCasteIds = new HashSet<>();
@@ -124,23 +129,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return false;
   }
 
-  public void addMerged(Set<Charm> merged) {
-    if (!merged.isEmpty()) {
-      merges.add(merged);
-      if (!hasAttribute(CharmAttributeList.MERGED_ATTRIBUTE)) {
-        addMagicAttribute(new MagicAttributeImpl(CharmAttributeList.MERGED_ATTRIBUTE.getId(), true));
-      }
-    }
-  }
-
-  @Override
-  public Set<Charm> getMergedCharms() {
-    Set<Charm> mergedCharms = new HashSet<>();
-    for (Set<Charm> merge : merges) {
-      mergedCharms.addAll(merge);
-    }
-    return mergedCharms;
-  }
 
   public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
     prerequisites.addAll(Arrays.asList(prerequisisteList.getCharmPrerequisites()));

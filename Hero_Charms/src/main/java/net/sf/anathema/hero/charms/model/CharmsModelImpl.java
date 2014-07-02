@@ -181,48 +181,9 @@ public class CharmsModelImpl implements CharmsModel {
 
   private LearningCharmTree[] createTrees(CharmTree[] charmGroups) {
     List<LearningCharmTree> newGroups = new ArrayList<>();
-    ICharmLearnListener mergedListener = new CharmLearnAdapter() {
-      @Override
-      public void charmLearned(Charm charm) {
-        learnOtherCharmsFromMerge(charm);
-        learnDirectChildrenActivatedViaThereMerge(charm);
-      }
-
-      private void learnDirectChildrenActivatedViaThereMerge(Charm charm) {
-        for (Charm child : charm.getLearnChildCharms()) {
-          boolean learnedMerged = false;
-          for (Charm mergedCharm : child.getMergedCharms()) {
-            learnedMerged = learnedMerged || isLearned(mergedCharm);
-          }
-          if (learnedMerged && isLearnable(child)) {
-            getGroup(child).learnCharm(child, isExperienced());
-          }
-        }
-      }
-
-      private void learnOtherCharmsFromMerge(Charm charm) {
-        for (Charm mergedCharm : charm.getMergedCharms()) {
-          if (!isLearned(mergedCharm) && isLearnableWithoutPrerequisites(mergedCharm) &&
-                  CharmsModelImpl.this.getCharmSpecialsModel(mergedCharm) == null) {
-            getGroup(mergedCharm).learnCharm(mergedCharm, isExperienced());
-          }
-        }
-      }
-
-      @Override
-      public void charmForgotten(Charm charm) {
-        for (Charm mergedCharm : charm.getMergedCharms()) {
-          if (isLearned(mergedCharm)) {
-            getGroup(mergedCharm).forgetCharm(mergedCharm, isExperienced());
-          }
-        }
-      }
-    };
     for (CharmTree charmGroup : charmGroups) {
       LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer);
       newGroups.add(group);
-
-      group.addCharmLearnListener(mergedListener);
     }
     return newGroups.toArray(new LearningCharmTree[newGroups.size()]);
   }

@@ -42,8 +42,6 @@ public interface Charm extends Magic {
 
   Set<Charm> getLearnChildCharms();
 
-  Set<Charm> getMergedCharms();
-  
   boolean isTreeRoot();
 
   Set<Charm> getRenderingPrerequisiteCharms();

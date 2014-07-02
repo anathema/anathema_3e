@@ -24,7 +24,12 @@ import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
@@ -166,11 +171,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
     return false;
-  }
-
-  @Override
-  public Set<Charm> getMergedCharms() {
-    return new HashSet<>();
   }
 
   @Override

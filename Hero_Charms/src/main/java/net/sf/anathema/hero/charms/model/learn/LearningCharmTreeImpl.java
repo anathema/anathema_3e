@@ -6,7 +6,12 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class LearningCharmTreeImpl implements LearningCharmTree {
 
@@ -35,16 +40,6 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   public void toggleLearnedOnCreation(Charm charm) {
     if (charmsLearnedOnCreation.contains(charm)) {
       forgetCharm(charm, false);
-      return;
-    }
-    if (!learnArbitrator.isLearnable(charm)) {
-      boolean mergedLearned = false;
-      for (Charm merged : charm.getMergedCharms()) {
-        mergedLearned = mergedLearned || learnArbitrator.isLearned(merged);
-      }
-      if (!mergedLearned) {
-        fireNotLearnableEvent(charm);
-      }
       return;
     }
     learnCharm(charm, false);

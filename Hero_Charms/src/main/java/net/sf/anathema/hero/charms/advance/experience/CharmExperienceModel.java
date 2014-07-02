@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
-import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
+import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -50,7 +50,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();
       int specialCharmCost = timesLearnedWithExperience * charmCost;
       if (specialCharm instanceof IUpgradableCharmConfiguration) {
-        return (costsExperience(charms, charm, charmsCalculated) ? charmCost : 0) +
+        return (charms.getGroup(charm).isLearned(charm, true) ? charmCost : 0) +
                ((IUpgradableCharmConfiguration) specialCharm).getUpgradeXPCost();
       }
       if (!(specialCharm instanceof SubEffectCharmSpecials)) {
@@ -62,22 +62,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       int subEffectCost = (int) Math.ceil(count * subEffectCharmConfiguration.getPointCostPerEffect() * 2);
       return subEffectCost + specialCharmCost;
     }
-    return costsExperience(charms, charm, charmsCalculated) ? charmCost : 0;
+    return charms.getGroup(charm).isLearned(charm, true) ? charmCost : 0;
   }
 
-  private boolean costsExperience(CharmsModel charmConfiguration, Charm charm, Set<Charm> charmsCalculated) {
-    if (charmConfiguration.getGroup(charm).isLearned(charm, true)) {
-      for (Charm mergedCharm : charm.getMergedCharms()) {
-        if (charmsCalculated.contains(mergedCharm) && !isSpecialCharm(charm)) {
-          return false;
-        }
-      }
-      return true;
-    }
-    return false;
-  }
-
-  private boolean isSpecialCharm(Charm charm) {
-    return CharmsModelFetcher.fetch(hero).getCharmSpecialsModel(charm) != null;
-  }
 }

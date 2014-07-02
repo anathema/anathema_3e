@@ -93,11 +93,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public Set<Charm> getMergedCharms() {
-    return null;
-  }
-
-  @Override
   public boolean isTreeRoot() {
     return false;
   }
