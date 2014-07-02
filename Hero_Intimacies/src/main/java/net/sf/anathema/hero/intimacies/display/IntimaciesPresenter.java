@@ -1,23 +1,18 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
+import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
-import net.sf.anathema.hero.traits.display.TraitPresenter;
-import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.interaction.Tool;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static net.sf.anathema.lib.gui.AgnosticUIConfiguration.NO_ICON;
 
 public class IntimaciesPresenter {
 
@@ -100,12 +95,8 @@ public class IntimaciesPresenter {
   }
 
   private ExtensibleTraitView createSubView(final Intimacy intimacy) {
-    int maximalValue = model.getCompletionValue();
-    int currentValue = intimacy.getTrait().getCurrentValue();
     String name = intimacy.getName();
-    ExtensibleTraitView intimacyView = view.addIntimacy(name, currentValue, maximalValue);
-    new TraitPresenter(intimacy.getTrait(), intimacyView.getIntValueView()).initPresentation();
-    addLinkToggle(intimacyView, intimacy);
+    ExtensibleTraitView intimacyView = view.addIntimacy(name, 0, 0);
     addDeleteTool(intimacyView, intimacy);
     return intimacyView;
   }
@@ -116,23 +107,6 @@ public class IntimaciesPresenter {
     tool.setCommand(() -> model.removeEntry(intimacy));
   }
 
-  private void addLinkToggle(ExtensibleTraitView extensibleTraitView, final Intimacy intimacy) {
-    final ToggleTool toggleTool = extensibleTraitView.addToggleBehind();
-    toggleTool.setCommand(() -> intimacy.setComplete(!intimacy.isComplete()));
-    intimacy.addCompletionListener(isComplete -> setCompletionState(isComplete, toggleTool));
-    setCompletionState(intimacy.isComplete(), toggleTool);
-  }
-
-
-  private void setCompletionState(boolean isComplete, ToggleTool toggleTool) {
-    if (isComplete) {
-      toggleTool.select();
-      toggleTool.setIcon(new CharacterUI().getLinkIconPath());
-    } else {
-      toggleTool.deselect();
-      toggleTool.setIcon(NO_ICON);
-    }
-  }
 
   protected void initModelListening(final StringEntryView selectionView, final Tool tool) {
     model.addModelChangeListener(new RemovableEntryListener<Intimacy>() {

@@ -17,12 +17,7 @@ public class IntimaciesPersister extends AbstractModelJsonPersister<IntimaciesPt
   protected void loadModelFromPto(Hero hero, IntimaciesModel model, IntimaciesPto pto) {
     for (IntimacyPto intimacyPto : pto.intimacies) {
       model.setCurrentName(intimacyPto.name);
-      Intimacy intimacy = model.commitSelection();
-      intimacy.getTrait().setUncheckedCreationValue(intimacyPto.creationValue);
-      if (intimacyPto.experiencedValue != null) {
-        intimacy.getTrait().setUncheckedExperiencedValue(intimacyPto.experiencedValue);
-      }
-      intimacy.setComplete(intimacyPto.complete);
+      model.commitSelection();
     }
   }
 
@@ -38,11 +33,6 @@ public class IntimaciesPersister extends AbstractModelJsonPersister<IntimaciesPt
   private IntimacyPto createIntimacyPto(Intimacy intimacy) {
     IntimacyPto pto = new IntimacyPto();
     pto.name = intimacy.getName();
-    pto.complete = intimacy.isComplete();
-    pto.creationValue = intimacy.getTrait().getCreationValue();
-    if (intimacy.getTrait().getExperiencedValue() >= 0) {
-      pto.experiencedValue = intimacy.getTrait().getExperiencedValue();
-    }
     return pto;
   }
 
