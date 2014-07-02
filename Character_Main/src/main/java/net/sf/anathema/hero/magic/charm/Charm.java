@@ -25,23 +25,23 @@ public interface Charm extends Magic {
 
   Duration getDuration();
 
+  TraitType getPrimaryTraitType();
+
   ValuedTraitType getEssence();
 
   ValuedTraitType[] getPrerequisites();
 
-  TraitType getPrimaryTraitType();
-
-  List<CharmPrerequisite> getLearnPrerequisites();
-
-  Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator);
-  
-  <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
+  List<CharmPrerequisite> getCharmPrerequisites();
 
   boolean isTreeRoot();
-
-  Set<Charm> getRenderingPrerequisiteCharms();
 
   void forEachChild(Consumer<Charm> consumer);
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
+
+  Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator);
+
+  <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
+
+  Set<Charm> getRenderingPrerequisiteCharms();
 }

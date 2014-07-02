@@ -294,7 +294,7 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    for (CharmPrerequisite prerequisite : charm.getLearnPrerequisites()) {
+    for (CharmPrerequisite prerequisite : charm.getCharmPrerequisites()) {
       if (!isSatisfied(prerequisite, this) && !prerequisite.isAutoSatisfiable(this)) {
         return false;
       }
@@ -333,7 +333,7 @@ public class CharmsModelImpl implements CharmsModel {
     if (!isLearnable(charm)) {
       return false;
     }
-    for (Charm parentCharm : charm.getLearnPrerequisitesCharms(this)) {
+    for (Charm parentCharm : charm.getPrerequisiteCharms(this)) {
       if (!isLearned(parentCharm)) {
         return false;
       }

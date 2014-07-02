@@ -41,7 +41,7 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
               "The prerequisite Charm isn't linked yet. Please call ``link(Map)`` prior to using this object.");
     }
     Set<Charm> prerequisiteCharms = new HashSet<>();
-    prerequisiteCharms.addAll(prerequisite.getLearnPrerequisitesCharms(arbitrator));
+    prerequisiteCharms.addAll(prerequisite.getPrerequisiteCharms(arbitrator));
     prerequisiteCharms.add(prerequisite);
     return prerequisiteCharms.toArray(new Charm[prerequisiteCharms.size()]);
   }

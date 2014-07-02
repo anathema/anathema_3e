@@ -67,7 +67,7 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
     Set<Charm> prerequisiteCharms = new LinkedHashSet<>();
     List<Charm> charmsToLearn = selectCharmsToLearn(learnArbitrator);
     for (Charm learnCharm : charmsToLearn) {
-      prerequisiteCharms.addAll(learnCharm.getLearnPrerequisitesCharms(learnArbitrator));
+      prerequisiteCharms.addAll(learnCharm.getPrerequisiteCharms(learnArbitrator));
       prerequisiteCharms.add(learnCharm);
     }
     return prerequisiteCharms.toArray(new Charm[prerequisiteCharms.size()]);

@@ -59,7 +59,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public List<CharmPrerequisite> getLearnPrerequisites() {
+  public List<CharmPrerequisite> getCharmPrerequisites() {
     return null;
   }
 
@@ -69,7 +69,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator) {
+  public Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator) {
     return null;
   }
 

@@ -108,7 +108,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   private void learnParents(Charm charm, boolean experienced) {
-    for (Charm parent : charm.getLearnPrerequisitesCharms(learnArbitrator)) {
+    for (Charm parent : charm.getPrerequisiteCharms(learnArbitrator)) {
       LearningCharmTree parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
       if (!parentGroup.isLearned(parent)) {
         parentGroup.learnCharm(parent, experienced);
