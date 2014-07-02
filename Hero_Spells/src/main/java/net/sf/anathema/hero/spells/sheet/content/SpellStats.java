@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
-import com.google.common.base.Function;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.stats.AbstractCharmStats;
 import net.sf.anathema.hero.charms.sheet.content.stats.AbstractMagicStats;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.magic.spells.Spell;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
@@ -49,12 +48,7 @@ public class SpellStats extends AbstractMagicStats<Spell> {
 
   @Override
   public String[] getDetailStrings(final Resources resources) {
-    return transform(getDetailKeys(), String.class, new Function<String, String>() {
-      @Override
-      public String apply(String input) {
-        return resources.getString(input);
-      }
-    });
+    return transform(getDetailKeys(), String.class, resources::getString);
   }
 
   @Override
@@ -62,6 +56,7 @@ public class SpellStats extends AbstractMagicStats<Spell> {
     return resources.getString(getMagic().getName().text);
   }
 
+  @SuppressWarnings("NullableProblems")
   @Override
   public int compareTo(IMagicStats stats) {
     if (stats instanceof AbstractCharmStats) {

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.equipment.model;
 
-import com.google.common.base.Function;
 import net.sf.anathema.character.equipment.character.ItemAttunementEvaluator;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStats;
@@ -25,6 +24,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
 import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
