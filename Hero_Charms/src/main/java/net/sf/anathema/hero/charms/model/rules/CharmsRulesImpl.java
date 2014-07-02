@@ -1,12 +1,17 @@
 package net.sf.anathema.hero.charms.model.rules;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class CharmsRulesImpl implements CharmsRules {
 
@@ -33,6 +38,12 @@ public class CharmsRulesImpl implements CharmsRules {
   @Override
   public boolean isCompulsiveCharm(Charm charm) {
     return template.compulsiveCharms.contains(charm.getName().text);
+  }
+
+  @Override
+  public void forAllCompulsiveCharms(Consumer<? super CharmName> consumer) {
+    Stream<String> templateIds = template.compulsiveCharms.stream();
+    templateIds.map(CharmName::new).forEach(consumer);
   }
 
   @Override
