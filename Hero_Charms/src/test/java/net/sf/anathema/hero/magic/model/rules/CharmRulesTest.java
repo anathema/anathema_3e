@@ -1,22 +1,22 @@
 package net.sf.anathema.hero.magic.model.rules;
 
-import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
 import net.sf.anathema.hero.charms.model.rules.MartialArtsRules;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyCasteType;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.testing.CharmObjectMother;
 import org.junit.Test;
 
+import static net.sf.anathema.hero.magic.testing.CharmObjectMother.createMartialArtsCharm;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class CharmRulesTest {
 
   private CharmsTemplate template = new CharmsTemplate();
-  private DummyCharm celestialMartialArmsCharm = CharmObjectMother.createMartialArtsCharm(MartialArtsLevel.Celestial);
-  private DummyCharm siderealMartialArmsCharm = CharmObjectMother.createMartialArtsCharm(MartialArtsLevel.Sidereal);
+  private Charm celestialMartialArmsCharm = createMartialArtsCharm(MartialArtsLevel.Celestial);
+  private Charm siderealMartialArmsCharm = createMartialArtsCharm(MartialArtsLevel.Sidereal);
 
   @Test
   public void createsStandardMartialArtsLevelFromString() throws Exception {
