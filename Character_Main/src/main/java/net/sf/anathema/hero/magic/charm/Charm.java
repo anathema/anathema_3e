@@ -42,6 +42,4 @@ public interface Charm extends Magic {
   Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator);
 
   <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
-
-  Set<Charm> getRenderingPrerequisiteCharms();
 }

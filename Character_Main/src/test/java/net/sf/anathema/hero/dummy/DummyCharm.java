@@ -129,11 +129,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getRenderingPrerequisiteCharms() {
-    return parentCharms;
-  }
-
-  @Override
   public void forEachChild(Consumer<Charm> consumer) {
     // nothing to do
   }

@@ -137,15 +137,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getRenderingPrerequisiteCharms() {
-    Set<Charm> prerequisiteCharms = new HashSet<>();
-    for (DirectCharmPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
-      prerequisiteCharms.addAll(Arrays.asList(prerequisite.getDirectPredecessors()));
-    }
-    return prerequisiteCharms;
-  }
-
-  @Override
   public void forEachChild(Consumer<Charm> consumer) {
     children.forEach(consumer);
   }
