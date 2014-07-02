@@ -2,10 +2,10 @@ package net.sf.anathema.hero.charms.display.coloring;
 
 import net.sf.anathema.hero.magic.charm.Charm;
 
-public class SimpleCharmColorer implements CharmColorer {
+public class SimpleCharmBrush implements CharmBrush {
   private final CharmColoring coloring;
 
-  public SimpleCharmColorer(CharmColoring coloring) {
+  public SimpleCharmBrush(CharmColoring coloring) {
     this.coloring = coloring;
   }
 

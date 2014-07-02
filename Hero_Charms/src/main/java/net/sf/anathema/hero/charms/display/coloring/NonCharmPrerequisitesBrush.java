@@ -3,10 +3,10 @@ package net.sf.anathema.hero.charms.display.coloring;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 
-public class NonCharmPrerequisitesColorer implements CharmColorer {
+public class NonCharmPrerequisitesBrush implements CharmBrush {
   private CharmColoring coloring;
 
-  public NonCharmPrerequisitesColorer(CharmColoring coloring) {
+  public NonCharmPrerequisitesBrush(CharmColoring coloring) {
     this.coloring = coloring;
   }
 

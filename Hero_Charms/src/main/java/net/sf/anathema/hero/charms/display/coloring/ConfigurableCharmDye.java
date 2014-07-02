@@ -11,14 +11,14 @@ public class ConfigurableCharmDye implements CharmDye {
 
   private final CharmGroupInformer groupInformer;
   private final CharmColoring coloring;
-  private final List<CharmColorer> colorers = new ArrayList<>();
+  private final List<CharmBrush> brushes = new ArrayList<>();
 
   public ConfigurableCharmDye(CharmGroupInformer informer, CharmColoring coloring) {
     this.groupInformer = informer;
     this.coloring = coloring;
-    colorers.add(new SimpleCharmColorer(coloring));
-    colorers.add(new ExternalPrerequisitesColorer(groupInformer, coloring));
-    colorers.add(new NonCharmPrerequisitesColorer(coloring));
+    brushes.add(new SimpleCharmBrush(coloring));
+    brushes.add(new ExternalPrerequisitesBrush(groupInformer, coloring));
+    brushes.add(new NonCharmPrerequisitesBrush(coloring));
   }
 
   public void colorCharm(Charm charm) {
@@ -30,8 +30,8 @@ public class ConfigurableCharmDye implements CharmDye {
       return;
     }
     for (Charm charm : getAllCharmsFromCurrentGroup()) {
-      for (CharmColorer colorer : colorers) {
-        colorer.color(charm);
+      for (CharmBrush brush : brushes) {
+        brush.color(charm);
       }
     }
   }

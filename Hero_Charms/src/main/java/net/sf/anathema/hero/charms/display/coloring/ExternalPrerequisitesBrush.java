@@ -5,11 +5,11 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 import static net.sf.anathema.hero.charms.display.node.RenderingParents.collectRenderingParents;
 
-public class ExternalPrerequisitesColorer implements CharmColorer {
+public class ExternalPrerequisitesBrush implements CharmBrush {
   private final CharmGroupInformer groupInformer;
   private final CharmColoring coloring;
 
-  public ExternalPrerequisitesColorer(CharmGroupInformer groupInformer, CharmColoring coloring) {
+  public ExternalPrerequisitesBrush(CharmGroupInformer groupInformer, CharmColoring coloring) {
     this.groupInformer = groupInformer;
     this.coloring = coloring;
   }
