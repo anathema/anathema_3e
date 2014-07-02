@@ -52,6 +52,11 @@ public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisit
   }
 
   @Override
+  public void accept(CharmPrerequisiteVisitor visitor) {
+    visitor.requiresCharm(prerequisiteId);
+  }
+
+  @Override
   public void link(UnlinkedCharmMap charmsById) {
     if (prerequisite != PREREQUISITE_NOT_SET) {
       return;

@@ -6,9 +6,11 @@ import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 public interface CharmLearnPrerequisite {
 
-	void link(UnlinkedCharmMap unlinkedCharms);
-	
-	boolean isSatisfied(ICharmLearnArbitrator arbitrator);
-	
-	boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator);
+  void accept(CharmPrerequisiteVisitor visitor);
+
+  void link(UnlinkedCharmMap unlinkedCharms);
+
+  boolean isSatisfied(ICharmLearnArbitrator arbitrator);
+
+  boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator);
 }

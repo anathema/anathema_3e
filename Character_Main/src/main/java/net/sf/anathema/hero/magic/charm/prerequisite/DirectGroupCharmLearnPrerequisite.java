@@ -42,6 +42,11 @@ public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrereq
   }
 
   @Override
+  public void accept(CharmPrerequisiteVisitor visitor) {
+    visitor.requiresCharmFromSelection(prerequisiteIds, threshold);
+  }
+
+  @Override
   public void link(UnlinkedCharmMap charmsById) {
     if (prerequisites != null) {
       return;
