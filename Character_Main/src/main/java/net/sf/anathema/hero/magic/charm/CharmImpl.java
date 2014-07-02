@@ -187,11 +187,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return learnWorker.getForgottenCharms();
   }
 
-  @Override
-  public Set<Charm> getLearnChildCharms() {
-    return new HashSet<>(children);
-  }
-
   private void addCharmsToForget(ICharmLearnWorker learnWorker) {
     if (isCharmPrerequisiteListFulfilled(learnWorker)) {
       return;

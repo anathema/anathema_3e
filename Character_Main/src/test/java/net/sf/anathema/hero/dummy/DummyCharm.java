@@ -112,11 +112,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getLearnChildCharms() {
-    return learnFollowUpCharms;
-  }
-  
-  @Override
   public List<CharmLearnPrerequisite> getLearnPrerequisites() {
   	return learnPrerequisites;
   }

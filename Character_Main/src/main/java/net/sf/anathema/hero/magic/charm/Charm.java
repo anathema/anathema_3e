@@ -40,8 +40,6 @@ public interface Charm extends Magic {
 
   boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator);
 
-  Set<Charm> getLearnChildCharms();
-
   boolean isTreeRoot();
 
   Set<Charm> getRenderingPrerequisiteCharms();

@@ -88,11 +88,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public Set<Charm> getLearnChildCharms() {
-    return null;
-  }
-
-  @Override
   public boolean isTreeRoot() {
     return false;
   }

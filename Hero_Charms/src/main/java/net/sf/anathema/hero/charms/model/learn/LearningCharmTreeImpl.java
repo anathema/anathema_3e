@@ -48,7 +48,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   @Override
   public void toggleExperienceLearnedCharm(Charm charm) {
     if (charmsLearnedOnCreation.contains(charm)) {
-      fireNotUnlearnableEvent(charm);
+      fireNotForgettableEvent(charm);
       return;
     }
     if (charmsLearnedWithExperience.contains(charm)) {
@@ -121,7 +121,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
     control.announce().charmNotLearnable(charm);
   }
 
-  private void fireNotUnlearnableEvent(Charm charm) {
+  private void fireNotForgettableEvent(Charm charm) {
     control.announce().charmNotUnlearnable(charm);
   }
 
