@@ -96,6 +96,7 @@ public class IntimaciesPresenter {
   private void addSubView(Intimacy intimacy) {
     RemovableEntryView subView = createSubView(intimacy);
     viewsByEntry.put(intimacy, subView);
+    subView.addButtonListener(() -> model.removeEntry(intimacy));
   }
 
   private RemovableEntryView createSubView(final Intimacy intimacy) {
