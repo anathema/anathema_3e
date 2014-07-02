@@ -65,7 +65,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
 
   private Set<Charm> getDisplayCharms(CharmTree charmTree) {
     Set<Charm> charmsToDisplay = new LinkedHashSet<>();
-    for (Charm charm : arbitrator.getCharms(charmTree)) {
+    for (Charm charm : arbitrator.filterAvailableCharms(charmTree)) {
       charmsToDisplay.add(charm);
       for (Charm prerequisite : charm.getRenderingPrerequisiteCharms()) {
         if (charmTree.getReference().name.equals(prerequisite.getTreeReference().name)) {

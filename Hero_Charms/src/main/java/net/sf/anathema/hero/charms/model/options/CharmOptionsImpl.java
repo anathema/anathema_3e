@@ -74,7 +74,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   @Override
-  public Charm[] getCharms(CharmTree tree) {
+  public Charm[] filterAvailableCharms(CharmTree tree) {
     Charm[] allCharms = tree.getAllCharms();
     if (isAlienCharmsAllowedForHero()) {
       return allCharms;
