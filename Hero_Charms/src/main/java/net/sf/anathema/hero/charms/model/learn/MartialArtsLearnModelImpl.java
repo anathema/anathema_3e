@@ -88,7 +88,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isCompleted(LearningCharmTree group) {
     for (Charm charm : group.getCoreCharms()) {
-      if (!group.isLearned(charm) && !charm.isBlockedByAlternative(charmModel)) {
+      if (!group.isLearned(charm)) {
         return false;
       }
     }

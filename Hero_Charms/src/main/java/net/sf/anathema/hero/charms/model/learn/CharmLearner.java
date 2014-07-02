@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
+import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,11 +44,6 @@ public class CharmLearner implements MagicLearner {
     int learnCount = handleSpecialCharm(charm);
     if (charms.isAlienCharm(charm)) {
       learnCount *= 2;
-    }
-    for (Charm mergedCharm : charm.getMergedCharms()) {
-      if (alreadyHandledMagic.contains(mergedCharm) && !isSpecialCharm(charm)) {
-        return 0;
-      }
     }
     return learnCount;
   }

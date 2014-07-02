@@ -5,5 +5,5 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 public interface CharmTreeArbitrator {
 
-  Charm[] getCharms(CharmTree charmGroup);
+  Charm[] filterAvailableCharms(CharmTree charmGroup);
 }

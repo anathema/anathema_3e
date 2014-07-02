@@ -4,9 +4,16 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class LearningCharmTreeImpl implements LearningCharmTree {
 
@@ -37,23 +44,13 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
       forgetCharm(charm, false);
       return;
     }
-    if (!learnArbitrator.isLearnable(charm)) {
-      boolean mergedLearned = false;
-      for (Charm merged : charm.getMergedCharms()) {
-        mergedLearned = mergedLearned || learnArbitrator.isLearned(merged);
-      }
-      if (!mergedLearned) {
-        fireNotLearnableEvent(charm);
-      }
-      return;
-    }
     learnCharm(charm, false);
   }
 
   @Override
   public void toggleExperienceLearnedCharm(Charm charm) {
     if (charmsLearnedOnCreation.contains(charm)) {
-      fireNotUnlearnableEvent(charm);
+      fireNotForgettableEvent(charm);
       return;
     }
     if (charmsLearnedWithExperience.contains(charm)) {
@@ -99,14 +96,19 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   private void forgetChildren(Charm charm, boolean experienced) {
-    for (Charm child : charm.getLearnFollowUpCharms(learnArbitrator)) {
+    for (Charm child : getLearnFollowUpCharms(charm, learnArbitrator)) {
       LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
       childGroup.forgetCharm(child, experienced);
     }
   }
 
+  private Set<Charm> getLearnFollowUpCharms(Charm charm, ICharmLearnArbitrator learnArbitrator) {
+    CharmsToForget charmsToForget = new CharmsToForget(charm, learnArbitrator);
+    return charmsToForget.getLearnFollowUpCharms();
+  }
+
   private void learnParents(Charm charm, boolean experienced) {
-    for (Charm parent : charm.getLearnPrerequisitesCharms(learnArbitrator)) {
+    for (Charm parent : charm.getPrerequisiteCharms(learnArbitrator)) {
       LearningCharmTree parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
       if (!parentGroup.isLearned(parent)) {
         parentGroup.learnCharm(parent, experienced);
@@ -126,7 +128,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
     control.announce().charmNotLearnable(charm);
   }
 
-  private void fireNotUnlearnableEvent(Charm charm) {
+  private void fireNotForgettableEvent(Charm charm) {
     control.announce().charmNotUnlearnable(charm);
   }
 

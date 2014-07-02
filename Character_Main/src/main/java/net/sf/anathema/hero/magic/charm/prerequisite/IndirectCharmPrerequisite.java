@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
-public interface IndirectCharmLearnPrerequisite extends CharmLearnPrerequisite {
+public interface IndirectCharmPrerequisite extends CharmPrerequisite {
+
 	String getStringLabel();
 }

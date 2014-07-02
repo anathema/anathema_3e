@@ -13,8 +13,8 @@ import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
@@ -24,7 +24,12 @@ import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
@@ -36,9 +41,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   private Duration duration;
   private ValuedTraitType[] prerequisites;
-  private List<CharmLearnPrerequisite> learnPrerequisites = new ArrayList<>();
+  private List<CharmPrerequisite> learnPrerequisites = new ArrayList<>();
   private Set<Charm> parentCharms;
-  private Set<Charm> learnFollowUpCharms = new HashSet<>();
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
   public TreeReference treeReference = new TreeReference(new CategoryReference("AnyCategory"), new TreeName("AnyTree"));
@@ -60,7 +64,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.parentCharms = new LinkedHashSet<>();
     Collections.addAll(parentCharms, parents);
     for (Charm charm : parents) {
-    	learnPrerequisites.add(new SimpleCharmLearnPrerequisite(charm));
+    	learnPrerequisites.add(new SimpleCharmPrerequisite(charm));
     }
     this.prerequisites = prerequisites;
   }
@@ -70,10 +74,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.prerequisites = prerequisites;
     this.duration = SimpleDuration.getDuration(duration);
     this.charmType = charmType;
-  }
-
-  public void addLearnFollowUpCharm(Charm charm) {
-    learnFollowUpCharms.add(charm);
   }
 
   @Override
@@ -97,30 +97,20 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
-    return learnFollowUpCharms;
-  }
-
-  @Override
-  public Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator) {
+  public Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator) {
     return parentCharms;
   }
 
   @Override
-  public Set<Charm> getLearnChildCharms() {
-    return learnFollowUpCharms;
-  }
-  
-  @Override
-  public List<CharmLearnPrerequisite> getLearnPrerequisites() {
+  public List<CharmPrerequisite> getCharmPrerequisites() {
   	return learnPrerequisites;
   }
   
 
   @Override
-  public <T extends CharmLearnPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
+  public <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
 	  List<T> matches = new ArrayList<>();
-	  for (CharmLearnPrerequisite prerequisite : learnPrerequisites) {
+	  for (CharmPrerequisite prerequisite : learnPrerequisites) {
 		  if (clazz.isInstance(prerequisite)) {
 			  matches.add((T) prerequisite);
 		  }
@@ -139,8 +129,13 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getRenderingPrerequisiteCharms() {
-    return parentCharms;
+  public void forEachChild(Consumer<Charm> consumer) {
+    // nothing to do
+  }
+
+  @Override
+  public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
+    learnPrerequisites.forEach(consumer);
   }
 
   @Override
@@ -161,16 +156,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public String getAttributeValue(Identifier attribute) {
     return null;
-  }
-
-  @Override
-  public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
-    return false;
-  }
-
-  @Override
-  public Set<Charm> getMergedCharms() {
-    return new HashSet<>();
   }
 
   @Override

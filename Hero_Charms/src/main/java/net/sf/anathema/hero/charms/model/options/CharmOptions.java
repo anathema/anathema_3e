@@ -15,7 +15,7 @@ public interface CharmOptions extends CharmTreeArbitrator {
 
   ISpecialCharm[] getSpecialCharms();
 
-  Charm[] getCharms(CharmTree tree);
+  Charm[] filterAvailableCharms(CharmTree tree);
 
   boolean isAlienCharmsAllowedForHero();
 

@@ -3,45 +3,34 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrerequisite {
+public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
 
   private final int threshold;
   private final CharmName[] prerequisiteIds;
   private Charm[] prerequisites;
 
 
-  public DirectGroupCharmLearnPrerequisite(CharmName[] charms, int threshold) {
+  public DirectGroupCharmPrerequisite(CharmName[] charms, int threshold) {
     this.prerequisiteIds = charms;
     this.threshold = threshold;
   }
 
   @Override
-  public boolean isSatisfied(ICharmLearnArbitrator arbitrator) {
-    int known = 0;
-    for (Charm charm : prerequisites) {
-      if (arbitrator.isLearned(charm)) {
-        known++;
-      }
-      if (known >= threshold) {
-        return true;
-      }
-    }
-    return false;
+  public void accept(CharmPrerequisiteVisitor visitor) {
+    visitor.requiresCharmFromSelection(prerequisites, threshold);
   }
 
   @Override
-  public void link(Map<CharmName, CharmImpl> charmsById) {
+  public void link(UnlinkedCharmMap charmsById) {
     if (prerequisites != null) {
       return;
     }
@@ -59,25 +48,11 @@ public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrereq
     return prerequisites;
   }
 
-  @Override
-  public boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator) {
-    int knowable = 0;
-    for (Charm charm : prerequisites) {
-      if (arbitrator.isLearnable(charm)) {
-        knowable++;
-      }
-      if (knowable >= threshold) {
-        return true;
-      }
-    }
-    return false;
-  }
-
   public Charm[] getLearnPrerequisites(ICharmLearnArbitrator learnArbitrator) {
     Set<Charm> prerequisiteCharms = new LinkedHashSet<>();
     List<Charm> charmsToLearn = selectCharmsToLearn(learnArbitrator);
     for (Charm learnCharm : charmsToLearn) {
-      prerequisiteCharms.addAll(learnCharm.getLearnPrerequisitesCharms(learnArbitrator));
+      prerequisiteCharms.addAll(learnCharm.getPrerequisiteCharms(learnArbitrator));
       prerequisiteCharms.add(learnCharm);
     }
     return prerequisiteCharms.toArray(new Charm[prerequisiteCharms.size()]);
@@ -106,8 +81,8 @@ public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrereq
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof DirectGroupCharmLearnPrerequisite) {
-      DirectGroupCharmLearnPrerequisite prerequisite = (DirectGroupCharmLearnPrerequisite) obj;
+    if (obj instanceof DirectGroupCharmPrerequisite) {
+      DirectGroupCharmPrerequisite prerequisite = (DirectGroupCharmPrerequisite) obj;
       return Arrays.deepEquals(prerequisites, prerequisite.prerequisites) && prerequisite.threshold == threshold;
     }
     return false;

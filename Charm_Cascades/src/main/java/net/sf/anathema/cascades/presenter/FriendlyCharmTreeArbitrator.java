@@ -7,7 +7,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 public class FriendlyCharmTreeArbitrator implements CharmTreeArbitrator {
 
   @Override
-  public Charm[] getCharms(CharmTree charmGroup) {
+  public Charm[] filterAvailableCharms(CharmTree charmGroup) {
     return charmGroup.getAllCharms();
   }
 }

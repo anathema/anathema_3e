@@ -1,23 +1,20 @@
 package net.sf.anathema.hero.charms.display.node;
 
+import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
+import net.sf.anathema.hero.magic.charm.Charm;
+
 import java.util.Collection;
 import java.util.Map;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
-import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
+import static net.sf.anathema.hero.charms.display.node.RenderingParentIds.collectNodeIdsOfRenderingParents;
 
 public class CharmNodeConnector {
 
   public static void connectNodes(Collection<Charm> groupCharms, Map<String, IIdentifiedRegularNode> charmNodesById) {
     for (Charm charm : groupCharms) {
       IIdentifiedRegularNode childNode = charmNodesById.get(charm.getName().text);
-      for (Charm parentCharm : charm.getRenderingPrerequisiteCharms()) {
-        IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getName().text);
-        connectNodes(childNode, parentNode);
-      }
-      for (IndirectCharmLearnPrerequisite requirement : charm.getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class)) {
-        IIdentifiedRegularNode parentNode = charmNodesById.get(requirement.getStringLabel());
+      for (String renderingParentNodeId : collectNodeIdsOfRenderingParents(charm)) {
+        IIdentifiedRegularNode parentNode = charmNodesById.get(renderingParentNodeId);
         connectNodes(childNode, parentNode);
       }
     }

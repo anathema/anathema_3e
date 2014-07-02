@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.CharmTraitRequirementChecker;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.IncrementChecker;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
@@ -125,9 +125,8 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
   }
 
   private Range getRange() {
-    int mergedDots = getMergedDots();
-    int minValue = specialCharm.getMinimumLearnCount(createLearnRangeContext()) - mergedDots;
-    int maxValue = specialCharm.getMaximumLearnCount(createLearnRangeContext()) - mergedDots;
+    int minValue = specialCharm.getMinimumLearnCount(createLearnRangeContext());
+    int maxValue = specialCharm.getMaximumLearnCount(createLearnRangeContext());
     return new Range(minValue, maxValue);
   }
 
@@ -135,14 +134,6 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     PrerequisiteModifyingCharms modifyingCharms = new PrerequisiteModifyingCharms(config.getOptions().getSpecialCharms());
     CharmTraitRequirementChecker requirementChecker = new CharmTraitRequirementChecker(modifyingCharms, specialist.getTraits(), config);
     return new LearnRangeContext(TraitModelFetcher.fetch(hero), requirementChecker, charm);
-  }
-
-  private int getMergedDots() {
-    int dots = 0;
-    for (Charm mergedCharm : charm.getMergedCharms()) {
-      dots += mergedCharm == charm ? 0 : config.getCharmSpecialsModel(mergedCharm).getCurrentLearnCount();
-    }
-    return dots;
   }
 
   private class MultiLearnableIncrementChecker implements IncrementChecker {

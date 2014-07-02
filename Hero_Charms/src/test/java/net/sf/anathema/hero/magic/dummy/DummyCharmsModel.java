@@ -115,7 +115,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public Charm[] getCharms(CharmTree charmGroup) {
+  public Charm[] filterAvailableCharms(CharmTree charmGroup) {
     return charmGroup.getAllCharms();
   }
 

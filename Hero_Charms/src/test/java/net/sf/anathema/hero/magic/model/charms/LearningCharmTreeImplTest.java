@@ -7,7 +7,6 @@ import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.dummy.DummyCharm;
@@ -46,41 +45,6 @@ public class LearningCharmTreeImplTest {
     learningCharmGroup.toggleLearned(learnableCharm);
     assertTrue(learningCharmGroup.isForgettable(learnableCharm));
   }
-
-  @Test
-  public void testMultipleGroupsPrerequisiteCharms() throws Exception {
-    String internalPrerequisiteId = "internalPrerquisite";
-    String externalPrerequisiteId = "externalPrerquisite";
-    String learCharmID = "learnCharm";
-    TreeReference internalTreeReference = new TreeReference(ANY_CATEGORY_REFERENCE, new TreeName("internalGroup"));
-    TreeReference externalTreeReference = new TreeReference(ANY_CATEGORY_REFERENCE, new TreeName("externalGroup"));
-    DummyCharm internalPrerequisite = new DummyCharm(internalPrerequisiteId, new Charm[0]);
-    internalPrerequisite.treeReference = internalTreeReference;
-    DummyCharm externalPrerequisite = new DummyCharm(externalPrerequisiteId, new Charm[0]);
-    externalPrerequisite.treeReference = externalTreeReference;
-    DummyCharm learnCharm = new DummyCharm(learCharmID, new Charm[]{internalPrerequisite, externalPrerequisite});
-    learnCharm.treeReference = internalTreeReference;
-
-    CharmTreeCategoryImpl treeCategory = DummyCharmTreeCategory.Create(ANY_CATEGORY_REFERENCE, internalPrerequisite, externalPrerequisite, learnCharm);
-    externalPrerequisite.addLearnFollowUpCharm(learnCharm);
-    IExtendedCharmLearnableArbitrator learnableArbitrator =
-            new DummyLearnableArbitrator(externalPrerequisiteId, internalPrerequisiteId, learCharmID);
-    LearningCharmTreeImpl internalGroup = createTree(learnableArbitrator, treeCategory, internalTreeReference.name);
-    LearningCharmTreeImpl externalGroup = createTree(learnableArbitrator, treeCategory, externalTreeReference.name);
-    container.setLearningCharmGroups(new LearningCharmTree[]{internalGroup, externalGroup});
-    assertFalse(externalGroup.isLearned(externalPrerequisite));
-    assertFalse(internalGroup.isLearned(internalPrerequisite));
-    assertFalse(internalGroup.isLearned(learnCharm));
-    internalGroup.learnCharm(learnCharm, false);
-    assertTrue(externalGroup.isLearned(externalPrerequisite));
-    assertTrue(internalGroup.isLearned(internalPrerequisite));
-    assertTrue(internalGroup.isLearned(learnCharm));
-    externalGroup.forgetCharm(externalPrerequisite, false);
-    assertFalse(externalGroup.isLearned(externalPrerequisite));
-    assertTrue(internalGroup.isLearned(internalPrerequisite));
-    assertFalse(internalGroup.isLearned(learnCharm));
-  }
-
 
   private LearningCharmTreeImpl createMeleeTree(IExtendedCharmLearnableArbitrator learnableArbitrator) {
     return createTree(learnableArbitrator, new TreeName(Melee.getId()));
