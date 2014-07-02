@@ -9,7 +9,6 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.learn.CharmsToForget;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
@@ -169,12 +168,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   public boolean isTreeRoot() {
     return getPrerequisitesOfType(DirectCharmPrerequisite.class).isEmpty() &&
             getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class).isEmpty();
-  }
-
-  @Override
-  public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
-    CharmsToForget charmsToForget = new CharmsToForget(this, learnArbitrator);
-    return charmsToForget.getLearnFollowUpCharms();
   }
 
   public void addFavoredCasteId(String casteId) {

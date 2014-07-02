@@ -44,7 +44,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   private ValuedTraitType[] prerequisites;
   private List<CharmLearnPrerequisite> learnPrerequisites = new ArrayList<>();
   private Set<Charm> parentCharms;
-  private Set<Charm> learnFollowUpCharms = new HashSet<>();
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
   public TreeReference treeReference = new TreeReference(new CategoryReference("AnyCategory"), new TreeName("AnyTree"));
@@ -78,10 +77,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.charmType = charmType;
   }
 
-  public void addLearnFollowUpCharm(Charm charm) {
-    learnFollowUpCharms.add(charm);
-  }
-
   @Override
   public TreeReference getTreeReference() {
     return treeReference;
@@ -100,11 +95,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public ValuedTraitType getEssence() {
     return null;
-  }
-
-  @Override
-  public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
-    return learnFollowUpCharms;
   }
 
   @Override
@@ -151,7 +141,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   @Override
   public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
-    // nothing to do
+    learnPrerequisites.forEach(consumer);
   }
 
   @Override

@@ -4,6 +4,8 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.learn.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -94,10 +96,15 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   private void forgetChildren(Charm charm, boolean experienced) {
-    for (Charm child : charm.getLearnFollowUpCharms(learnArbitrator)) {
+    for (Charm child : getLearnFollowUpCharms(charm, learnArbitrator)) {
       LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
       childGroup.forgetCharm(child, experienced);
     }
+  }
+
+  private Set<Charm> getLearnFollowUpCharms(Charm charm, ICharmLearnArbitrator learnArbitrator) {
+    CharmsToForget charmsToForget = new CharmsToForget(charm, learnArbitrator);
+    return charmsToForget.getLearnFollowUpCharms();
   }
 
   private void learnParents(Charm charm, boolean experienced) {

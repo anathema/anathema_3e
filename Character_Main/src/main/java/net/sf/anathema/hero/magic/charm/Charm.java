@@ -5,7 +5,6 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
@@ -33,8 +32,6 @@ public interface Charm extends Magic {
   TraitType getPrimaryTraitType();
 
   List<CharmLearnPrerequisite> getLearnPrerequisites();
-
-  Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator);
 
   Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator);
   

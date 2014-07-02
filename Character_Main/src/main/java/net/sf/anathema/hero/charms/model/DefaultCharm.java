@@ -69,11 +69,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
-    return null;
-  }
-
-  @Override
   public Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator) {
     return null;
   }
