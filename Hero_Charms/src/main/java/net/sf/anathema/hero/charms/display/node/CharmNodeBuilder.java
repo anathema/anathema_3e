@@ -41,9 +41,6 @@ public class CharmNodeBuilder {
            }
         }
       }));
-      for (Charm parentCharm : charm.getRenderingPrerequisiteCharms()) {
-        handleDirectParent(groupCharms, charmNodesById, parentCharm);
-      }
     }
   }
 
