@@ -10,16 +10,16 @@ import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisite {
+public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
   private static final Charm PREREQUISITE_NOT_SET = null;
   private final CharmName prerequisiteId;
   private Charm prerequisite;
 
-  public SimpleCharmLearnPrerequisite(CharmName charm) {
+  public SimpleCharmPrerequisite(CharmName charm) {
     this.prerequisiteId = charm;
   }
 
-  public SimpleCharmLearnPrerequisite(Charm charm) {
+  public SimpleCharmPrerequisite(Charm charm) {
     this.prerequisite = charm;
     this.prerequisiteId = charm.getName();
   }
@@ -53,7 +53,7 @@ public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisit
 
   @Override
   public void accept(CharmPrerequisiteVisitor visitor) {
-    visitor.requiresCharm(prerequisiteId);
+    visitor.requiresCharm(prerequisite);
   }
 
   @Override
@@ -67,8 +67,8 @@ public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisit
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof SimpleCharmLearnPrerequisite) {
-      SimpleCharmLearnPrerequisite prerequisite = (SimpleCharmLearnPrerequisite) obj;
+    if (obj instanceof SimpleCharmPrerequisite) {
+      SimpleCharmPrerequisite prerequisite = (SimpleCharmPrerequisite) obj;
       return prerequisite.prerequisite.equals(prerequisite);
     }
     return false;

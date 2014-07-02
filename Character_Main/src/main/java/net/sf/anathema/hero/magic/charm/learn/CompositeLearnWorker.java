@@ -1,6 +1,9 @@
-package net.sf.anathema.hero.magic.charm;
+package net.sf.anathema.hero.magic.charm.learn;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.ICharmLearnWorker;
 
 import java.util.HashSet;
 import java.util.Set;

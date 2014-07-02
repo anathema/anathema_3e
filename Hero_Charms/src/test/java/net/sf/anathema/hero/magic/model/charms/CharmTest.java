@@ -11,7 +11,7 @@ import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
@@ -31,8 +31,8 @@ public class CharmTest {
     CharmImpl charm = createCharm(dummy);
     UnlinkedCharms unlinkedCharms = mock(UnlinkedCharms.class);
     charm.extractParentCharms(unlinkedCharms);
-    assertEquals(1, charm.getPrerequisitesOfType(SimpleCharmLearnPrerequisite.class).size());
-    assertEquals(dummy, charm.getPrerequisitesOfType(SimpleCharmLearnPrerequisite.class).toArray(new SimpleCharmLearnPrerequisite[1])[0].getDirectPredecessors()[0]);
+    assertEquals(1, charm.getPrerequisitesOfType(SimpleCharmPrerequisite.class).size());
+    assertEquals(dummy, charm.getPrerequisitesOfType(SimpleCharmPrerequisite.class).toArray(new SimpleCharmPrerequisite[1])[0].getDirectPredecessors()[0]);
   }
 
   @Test

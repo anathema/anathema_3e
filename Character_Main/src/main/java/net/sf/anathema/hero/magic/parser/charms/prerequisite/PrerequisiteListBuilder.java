@@ -3,8 +3,8 @@ package net.sf.anathema.hero.magic.parser.charms.prerequisite;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectGroupCharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.DirectGroupCharmPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
@@ -55,7 +55,7 @@ public class PrerequisiteListBuilder {
     CharmName[] prerequisiteCharmIDs = charmBuilder.buildCharmPrerequisites(prerequisiteListElement);
     List<CharmLearnPrerequisite> prerequisites = new ArrayList<>();
     for (CharmName id : prerequisiteCharmIDs) {
-      prerequisites.add(new SimpleCharmLearnPrerequisite(id));
+      prerequisites.add(new SimpleCharmPrerequisite(id));
     }
     return prerequisites;
   }
@@ -81,7 +81,7 @@ public class PrerequisiteListBuilder {
     for (Element groupElement : selectiveCharmGroupElements) {
       CharmName[] groupCharmIds = charmBuilder.buildCharmPrerequisites(groupElement);
       int threshold = ElementUtilities.getRequiredIntAttrib(groupElement, ATTRIB_THRESHOLD);
-      prerequisites.add(new DirectGroupCharmLearnPrerequisite(groupCharmIds, threshold));
+      prerequisites.add(new DirectGroupCharmPrerequisite(groupCharmIds, threshold));
     }
     return prerequisites;
   }

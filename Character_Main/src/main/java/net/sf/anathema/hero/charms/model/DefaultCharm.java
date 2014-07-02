@@ -18,6 +18,7 @@ import net.sf.anathema.lib.util.Identifier;
 
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public class DefaultCharm implements Charm {
 
@@ -90,6 +91,16 @@ public class DefaultCharm implements Charm {
   @Override
   public Set<Charm> getRenderingPrerequisiteCharms() {
     return null;
+  }
+
+  @Override
+  public void forEachChild(Consumer<Charm> consumer) {
+
+  }
+
+  @Override
+  public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
+
   }
 
   @Override

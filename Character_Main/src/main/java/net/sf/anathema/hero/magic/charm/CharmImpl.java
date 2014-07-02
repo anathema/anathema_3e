@@ -9,10 +9,11 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
+import net.sf.anathema.hero.magic.charm.learn.CompositeLearnWorker;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import net.sf.anathema.hero.model.Hero;
@@ -29,6 +30,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
@@ -116,8 +118,8 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     for (CharmLearnPrerequisite prerequisite : prerequisites) {
       prerequisite.link(unlinkedCharms);
     }
-    List<DirectCharmLearnPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmLearnPrerequisite.class);
-    for (DirectCharmLearnPrerequisite prerequisite : directPrerequisites) {
+    List<DirectCharmPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmPrerequisite.class);
+    for (DirectCharmPrerequisite prerequisite : directPrerequisites) {
       Charm[] charms = prerequisite.getDirectPredecessors();
       for (Charm charm : charms) {
         ((CharmParent) charm).addChild(this);
@@ -138,16 +140,26 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public Set<Charm> getRenderingPrerequisiteCharms() {
     Set<Charm> prerequisiteCharms = new HashSet<>();
-    for (DirectCharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmLearnPrerequisite.class)) {
+    for (DirectCharmPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
       prerequisiteCharms.addAll(Arrays.asList(prerequisite.getDirectPredecessors()));
     }
     return prerequisiteCharms;
   }
 
   @Override
+  public void forEachChild(Consumer<Charm> consumer) {
+    children.forEach(consumer);
+  }
+
+  @Override
+  public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
+    prerequisites.forEach(consumer);
+  }
+
+  @Override
   public Set<Charm> getLearnPrerequisitesCharms(ICharmLearnArbitrator learnArbitrator) {
     Set<Charm> prerequisiteCharms = new HashSet<>();
-    for (DirectCharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmLearnPrerequisite.class)) {
+    for (DirectCharmPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
       prerequisiteCharms.addAll(Arrays.asList(prerequisite.getLearnPrerequisites(learnArbitrator)));
     }
     return prerequisiteCharms;
@@ -155,7 +167,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public boolean isTreeRoot() {
-    return getPrerequisitesOfType(DirectCharmLearnPrerequisite.class).isEmpty() &&
+    return getPrerequisitesOfType(DirectCharmPrerequisite.class).isEmpty() &&
             getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class).isEmpty();
   }
 
@@ -179,7 +191,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   private boolean isCharmPrerequisiteListFulfilled(ICharmLearnArbitrator learnArbitrator) {
-    for (CharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmLearnPrerequisite.class)) {
+    for (CharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
       if (!prerequisite.isSatisfied(learnArbitrator)) {
         return false;
       }
@@ -239,7 +251,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   public void addParentCharms(Charm... parent) {
     for (Charm charm : parent) {
-      prerequisites.add(new SimpleCharmLearnPrerequisite(charm));
+      prerequisites.add(new SimpleCharmPrerequisite(charm));
     }
   }
 }

@@ -14,7 +14,7 @@ import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
@@ -30,6 +30,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
@@ -65,7 +66,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
     this.parentCharms = new LinkedHashSet<>();
     Collections.addAll(parentCharms, parents);
     for (Charm charm : parents) {
-    	learnPrerequisites.add(new SimpleCharmLearnPrerequisite(charm));
+    	learnPrerequisites.add(new SimpleCharmPrerequisite(charm));
     }
     this.prerequisites = prerequisites;
   }
@@ -141,6 +142,16 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public Set<Charm> getRenderingPrerequisiteCharms() {
     return parentCharms;
+  }
+
+  @Override
+  public void forEachChild(Consumer<Charm> consumer) {
+    // nothing to do
+  }
+
+  @Override
+  public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
+    // nothing to do
   }
 
   @Override

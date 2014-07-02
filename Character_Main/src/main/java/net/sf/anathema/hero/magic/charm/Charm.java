@@ -5,12 +5,14 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 
 public interface Charm extends Magic {
 
@@ -41,4 +43,8 @@ public interface Charm extends Magic {
   boolean isTreeRoot();
 
   Set<Charm> getRenderingPrerequisiteCharms();
+
+  void forEachChild(Consumer<Charm> consumer);
+
+  void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer);
 }
