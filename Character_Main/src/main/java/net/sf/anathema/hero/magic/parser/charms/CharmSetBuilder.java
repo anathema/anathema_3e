@@ -29,11 +29,11 @@ public class CharmSetBuilder {
                     new CharmPrerequisiteBuilder(), specialCharmParser);
   }
 
-  public Charm[] buildCharms(Document charmDoc, List<SpecialCharmDto> specialCharms) throws PersistenceException {
+  public CharmImpl[] buildCharms(Document charmDoc, List<SpecialCharmDto> specialCharms) throws PersistenceException {
     Collection<CharmImpl> allCharms = new HashSet<>();
     Element charmListElement = charmDoc.getRootElement();
     buildCharms(allCharms, specialCharms, charmListElement);
-    return allCharms.toArray(new Charm[allCharms.size()]);
+    return allCharms.toArray(new CharmImpl[allCharms.size()]);
   }
 
   private void buildCharms(Collection<CharmImpl> allCharms, List<SpecialCharmDto> specialCharms, Element charmListElement) throws
