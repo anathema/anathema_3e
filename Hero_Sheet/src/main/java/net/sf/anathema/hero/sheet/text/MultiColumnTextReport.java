@@ -8,6 +8,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 
 public class MultiColumnTextReport {
+  public static final int TwoColumns = 2;
   private final Document document;
   private final float[][] columns;
   private final ColumnText columnText;
@@ -18,14 +19,12 @@ public class MultiColumnTextReport {
   public MultiColumnTextReport(Document document, PdfWriter writer) {
     this.document = document;
     this.columnText = new ColumnText(writer.getDirectContent());
-    float middle = (document.left() + document.right()) / 2;
+    float middle = (document.left() + document.right()) / TwoColumns;
     this.columns = new float[][]{
             {document.left(), document.bottom(), middle - 15, document.top()},
             {middle + 15, document.bottom(), document.right(), document.top()}
     };
-    columnText.setSimpleColumn(
-            columns[column][0], columns[column][1],
-            columns[column][2], columns[column][3]);
+    setColumnToPrintIn();
   }
 
   public void addElement(Element element) {
@@ -49,12 +48,11 @@ public class MultiColumnTextReport {
 
   private float switchColumns() {
     if (ColumnText.hasMoreText(status)) {
-      column = (column + 1) % 2;
-      if (column == 0)
+      column = (column + 1) % TwoColumns;
+      if (column == 0) {
         document.newPage();
-      columnText.setSimpleColumn(
-              columns[column][0], columns[column][1],
-              columns[column][2], columns[column][3]);
+      }
+      setColumnToPrintIn();
       y = columns[column][3];
     }
     return y;
@@ -66,5 +64,11 @@ public class MultiColumnTextReport {
     } catch (DocumentException e) {
       throw new ReportException(e);
     }
+  }
+
+  private void setColumnToPrintIn() {
+    columnText.setSimpleColumn(
+            columns[column][0], columns[column][1],
+            columns[column][2], columns[column][3]);
   }
 }
