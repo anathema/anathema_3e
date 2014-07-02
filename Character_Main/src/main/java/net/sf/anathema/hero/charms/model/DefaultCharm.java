@@ -83,11 +83,6 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
-    return false;
-  }
-
-  @Override
   public boolean isTreeRoot() {
     return false;
   }

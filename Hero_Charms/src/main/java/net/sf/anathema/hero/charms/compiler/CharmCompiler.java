@@ -11,7 +11,6 @@ import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeParser;
 import net.sf.anathema.hero.magic.parser.charms.CharmSetBuilder;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
@@ -32,7 +31,6 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   //matches stuff like data/charms/solar/Charms_Solar_SecondEdition_Occult.xml
   //the pattern is data/charms/REST_OF_PATH/Charms_TYPE_EDITION_ANYTHING.xml
   private static final String Charm_Data_Extraction_Pattern = ".*/Charms_(.*?)_(.*?)(?:_.*)?\\.xml";
-  private final CharmAlternativeParser alternativeBuilder = new CharmAlternativeParser();
   private final SAXReader reader = new SAXReader();
   private final CharmSetBuilder setBuilder;
   private final CharmDocuments charmDocuments = new CharmDocuments();
@@ -78,7 +76,6 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   @Override
   public ExtensibleDataSet build() throws PersistenceException {
     buildStandardCharms();
-    buildCharmAlternatives();
     return charmCollection.createCharmCache();
   }
 
@@ -102,10 +99,5 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
       specialCharms.add(specialCharmBuilder.readCharm(dto));
     }
     charmCollection.addSpecialCharmData(reference, specialCharms);
-  }
-
-  private void buildCharmAlternatives() {
-    charmDocuments.forEach((document, category) -> alternativeBuilder.buildAlternatives(document,
-            charmCollection.getCharms(category)));
   }
 }

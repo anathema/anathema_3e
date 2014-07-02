@@ -164,11 +164,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
-    return false;
-  }
-
-  @Override
   public boolean isFavored(Hero hero) {
     if (prerequisites.length <= 0) {
       return false;

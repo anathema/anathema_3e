@@ -39,7 +39,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final Duration duration;
   private final SourceBook[] sources;
   private final CostList temporaryCost;
-  private final List<Set<Charm>> alternatives = new ArrayList<>();
   private final List<CharmImpl> children = new ArrayList<>();
   private final List<CharmLearnPrerequisite> prerequisites = new ArrayList<>();
   private final Set<String> favoredCasteIds = new HashSet<>();
@@ -111,24 +110,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   public CostList getTemporaryCost() {
     return temporaryCost;
   }
-
-  public void addAlternative(Set<Charm> alternative) {
-    alternatives.add(alternative);
-  }
-
-  @Override
-  public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
-    for (Set<Charm> alternative : alternatives) {
-      for (Charm charm : alternative) {
-        boolean isThis = charm.getName().text.equals(getName().text);
-        if (!isThis && learnArbitrator.isLearned(charm)) {
-          return true;
-        }
-      }
-    }
-    return false;
-  }
-
 
   public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
     prerequisites.addAll(Arrays.asList(prerequisisteList.getCharmPrerequisites()));

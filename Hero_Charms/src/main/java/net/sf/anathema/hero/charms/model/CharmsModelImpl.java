@@ -281,9 +281,6 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    if (charm.isBlockedByAlternative(this)) {
-      return false;
-    }
     if (isMartialArts(charm)) {
       boolean isSiderealFormCharm = isFormMagic(charm) && hasLevel(Sidereal, charm);
       MartialArtsLearnModel martialArtsConfiguration = new MartialArtsLearnModelImpl(this, experience);

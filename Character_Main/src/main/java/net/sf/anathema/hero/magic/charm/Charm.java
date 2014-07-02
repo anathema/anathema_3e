@@ -38,8 +38,6 @@ public interface Charm extends Magic {
   
   <T extends CharmLearnPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
 
-  boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator);
-
   boolean isTreeRoot();
 
   Set<Charm> getRenderingPrerequisiteCharms();
