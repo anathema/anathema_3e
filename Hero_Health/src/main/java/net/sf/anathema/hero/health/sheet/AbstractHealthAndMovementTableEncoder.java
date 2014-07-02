@@ -25,6 +25,8 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.framework.environment.Resources;
 import org.apache.commons.lang3.ArrayUtils;
 
+import static net.sf.anathema.lib.lang.ArrayUtilities.concat;
+
 public abstract class AbstractHealthAndMovementTableEncoder implements ITableEncoder<ReportSession> {
   public static final int HEALTH_RECT_SIZE = 6;
   private static final int HEALTH_COLUMN_COUNT = 10;
@@ -83,7 +85,7 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
     int rowCount = getRowCount(type);
     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
       if (rowIndex == 0) {
-        int painTolerance = HealthModelFetcher.fetch(hero).getPainToleranceLevel();;
+        int painTolerance = HealthModelFetcher.fetch(hero).getPainToleranceLevel();
         if (type == HealthLevelType.INCAPACITATED) {
           addIncapacitatedMovement(graphics, table);
         } else {
@@ -216,9 +218,9 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   }
 
   private float[] createColumnWidth() {
-    Float[] movementAndLevelColumns = net.sf.anathema.lib.lang.ArrayUtilities.concat(Float.class, getMovementColumns(), HEALTH_LEVEL_COLUMNS);
+    Float[] movementAndLevelColumns = concat(Float.class, getMovementColumns(), HEALTH_LEVEL_COLUMNS);
     Float[] healthColumns = TableEncodingUtilities.createStandardColumnWidths(HEALTH_COLUMN_COUNT, 0.4f);
-    Float[] objectArray = net.sf.anathema.lib.lang.ArrayUtilities.concat(Float.class, movementAndLevelColumns, healthColumns);
+    Float[] objectArray = concat(Float.class, movementAndLevelColumns, healthColumns);
     return ArrayUtils.toPrimitive(objectArray);
   }
 

@@ -1,32 +1,20 @@
 package net.sf.anathema.lib.lang;
 
-import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class ArrayUtilities {
 
-  public static int[] createIndexArray(int length) {
-    int[] indexArray = new int[length];
-    for (int index = 0; index < length; index++) {
-      indexArray[index] = index;
-    }
-    return indexArray;
-  }
-
-  public static <T> T find(Predicate<T> predicate, T[] inputArray) {
-    for (T input : inputArray) {
-      if (predicate.apply(input)) {
-        return input;
-      }
-    }
-    return null;
+  public static <T> T getFirst(T[] array, Predicate<T> predicate) {
+    return Stream.of(array).filter(predicate).findFirst().orElse(null);
   }
 
   public static <R> int indexOf(R[] array, R value) {
@@ -35,21 +23,6 @@ public class ArrayUtilities {
       return index;
     }
     throw new IllegalArgumentException("Value not contained in array: " + value);
-  }
-
-  public static <T> void reorder(T[] objects, int[] originalIndices, int[] newIndices) {
-    if (originalIndices.length <= 1) {
-      return;
-    }
-    Map<Integer, T> nodesByOriginalIndex = new HashMap<>();
-    for (int element : originalIndices) {
-      nodesByOriginalIndex.put(element, objects[element]);
-    }
-    for (int indexIndex = 0; indexIndex < originalIndices.length; indexIndex++) {
-      int originalIndex = originalIndices[indexIndex];
-      int newIndex = newIndices[indexIndex];
-      objects[newIndex] = nodesByOriginalIndex.get(originalIndex);
-    }
   }
 
   @SuppressWarnings("unchecked")
@@ -63,16 +36,8 @@ public class ArrayUtilities {
     ArrayList<T> list = new ArrayList<>();
     Collections.addAll(list, array1);
     Collections.addAll(list, array2);
-    return list.toArray(new ArrayFactory<>(clazz).createArray(list.size()));
-  }
-
-  public static <T> T getFirst(T[] array, Predicate<T> predicate) {
-    for (T element : array) {
-      if (predicate.apply(element)) {
-        return element;
-      }
-    }
-    return null;
+    T[] concatenated = (T[]) Array.newInstance(clazz, list.size());
+    return list.toArray(concatenated);
   }
 
   @SuppressWarnings("unchecked")
@@ -81,9 +46,6 @@ public class ArrayUtilities {
           Class<? super O> clazz,
           Function<I, O> transformer) {
     O[] transformed = (O[]) Array.newInstance(clazz, array.length);
-    for (int i = 0; i < array.length; i++) {
-      transformed[i] = transformer.apply(array[i]);
-    }
-    return transformed;
+    return Stream.of(array).map(transformer).collect(toList()).toArray(transformed);
   }
 }

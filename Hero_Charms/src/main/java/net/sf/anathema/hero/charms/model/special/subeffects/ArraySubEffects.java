@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
 import java.util.Iterator;
@@ -21,12 +20,7 @@ public class ArraySubEffects implements SubEffects {
 
   @Override
   public SubEffect getById(final String id) {
-    return getFirst(subeffects, new Predicate<SubEffect>() {
-      @Override
-      public boolean apply(SubEffect input) {
-        return input.getId().equals(id);
-      }
-    });
+    return getFirst(subeffects, input -> input.getId().equals(id));
   }
 
   @Override
