@@ -9,7 +9,7 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.learn.CompositeLearnWorker;
+import net.sf.anathema.hero.magic.charm.learn.CharmsToForget;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
@@ -173,30 +173,8 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public Set<Charm> getLearnFollowUpCharms(ICharmLearnArbitrator learnArbitrator) {
-    CompositeLearnWorker learnWorker = new CompositeLearnWorker(learnArbitrator);
-    for (CharmImpl child : children) {
-      child.addCharmsToForget(learnWorker);
-    }
-    return learnWorker.getForgottenCharms();
-  }
-
-  private void addCharmsToForget(ICharmLearnWorker learnWorker) {
-    if (isCharmPrerequisiteListFulfilled(learnWorker)) {
-      return;
-    }
-    learnWorker.forget(this);
-    for (CharmImpl child : children) {
-      child.addCharmsToForget(learnWorker);
-    }
-  }
-
-  private boolean isCharmPrerequisiteListFulfilled(ICharmLearnArbitrator learnArbitrator) {
-    for (CharmLearnPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
-      if (!prerequisite.isSatisfied(learnArbitrator)) {
-        return false;
-      }
-    }
-    return true;
+    CharmsToForget charmsToForget = new CharmsToForget(this, learnArbitrator);
+    return charmsToForget.getLearnFollowUpCharms();
   }
 
   public void addFavoredCasteId(String casteId) {

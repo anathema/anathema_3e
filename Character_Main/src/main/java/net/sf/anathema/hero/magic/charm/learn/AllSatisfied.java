@@ -6,7 +6,7 @@ import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-class AllSatisfied implements Consumer<CharmLearnPrerequisite> {
+public class AllSatisfied implements Consumer<CharmLearnPrerequisite> {
   private final ICharmLearnArbitrator learnArbitrator;
   private Predicate<CharmLearnPrerequisite> predicate;
   public boolean isFulfilled;
