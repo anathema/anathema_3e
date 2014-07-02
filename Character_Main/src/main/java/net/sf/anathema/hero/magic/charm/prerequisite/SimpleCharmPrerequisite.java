@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.HashSet;
@@ -27,11 +26,6 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
   @Override
   public Charm[] getDirectPredecessors() {
     return new Charm[]{prerequisite};
-  }
-
-  @Override
-  public boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator) {
-    return arbitrator.isLearnable(prerequisite);
   }
 
   @Override

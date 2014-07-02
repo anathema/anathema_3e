@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisite {
@@ -12,11 +11,6 @@ public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisit
   public AttributeKnownCharmPrerequisite(MagicAttribute attribute, int count) {
     this.attribute = attribute;
     this.count = count;
-  }
-
-  @Override
-  public boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator) {
-    return false;
   }
 
   @Override

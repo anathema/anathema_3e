@@ -66,6 +66,7 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isFormMagic;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 
 public class CharmsModelImpl implements CharmsModel {
 
@@ -295,7 +296,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     for (CharmPrerequisite prerequisite : charm.getCharmPrerequisites()) {
-      if (!isSatisfied(prerequisite, this) && !prerequisite.isAutoSatisfiable(this)) {
+      if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {
         return false;
       }
     }

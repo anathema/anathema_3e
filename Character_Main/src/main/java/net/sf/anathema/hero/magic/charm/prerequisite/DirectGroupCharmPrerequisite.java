@@ -4,7 +4,6 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.ArrayList;
@@ -47,20 +46,6 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
   @Override
   public Charm[] getDirectPredecessors() {
     return prerequisites;
-  }
-
-  @Override
-  public boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator) {
-    int knowable = 0;
-    for (Charm charm : prerequisites) {
-      if (arbitrator.isLearnable(charm)) {
-        knowable++;
-      }
-      if (knowable >= threshold) {
-        return true;
-      }
-    }
-    return false;
   }
 
   public Charm[] getLearnPrerequisites(ICharmLearnArbitrator learnArbitrator) {

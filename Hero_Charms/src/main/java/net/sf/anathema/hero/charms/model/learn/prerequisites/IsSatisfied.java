@@ -8,17 +8,17 @@ import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
 
 public class IsSatisfied implements CharmPrerequisiteVisitor {
 
+  public static boolean isSatisfied(CharmPrerequisite prerequisite, ICharmLearnArbitrator arbitrator) {
+    IsSatisfied satisfied = new IsSatisfied(arbitrator);
+    prerequisite.accept(satisfied);
+    return satisfied.satisfied;
+  }
+
   private ICharmLearnArbitrator arbitrator;
   public boolean satisfied = true;
 
   public IsSatisfied(ICharmLearnArbitrator learnArbitrator) {
     this.arbitrator = learnArbitrator;
-  }
-
-  public static boolean isSatisfied(CharmPrerequisite prerequisite, ICharmLearnArbitrator arbitrator) {
-    IsSatisfied satisfied = new IsSatisfied(arbitrator);
-    prerequisite.accept(satisfied);
-    return satisfied.satisfied;
   }
 
   @Override

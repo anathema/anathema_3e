@@ -7,7 +7,7 @@ public interface CharmPrerequisiteVisitor {
 
   void requiresMagicAttributes(MagicAttribute attribute, int count);
 
-  void requiresCharm(Charm prerequisiteName);
+  void requiresCharm(Charm prerequisite);
 
-  void requiresCharmFromSelection(Charm[] prerequisiteIds, int threshold);
+  void requiresCharmFromSelection(Charm[] prerequisites, int threshold);
 }
