@@ -3,27 +3,27 @@ package net.sf.anathema.hero.spells.sheet.magicreport;
 import com.google.common.base.Joiner;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.MultiColumnText;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
-import net.sf.anathema.hero.magic.basic.Magic;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.framework.reporting.ReportException;
+import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.description.MagicDescription;
+import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 
@@ -48,71 +48,78 @@ public class MagicReport extends AbstractPdfReport {
 
   @Override
   public void performPrint(Hero hero, Document document, PdfWriter writer) throws ReportException {
-    MultiColumnText columnText = new MultiColumnText(document.top() - document.bottom() - 15);
-    columnText.addRegularColumns(document.left(), document.right(), 20, 2);
     try {
-      printCharms(columnText, hero);
-      printSpells(columnText, hero);
-      writeColumnText(document, columnText);
+      MultiColumnTextReport report = new MultiColumnTextReport(document, writer);
+      String currentGroup = "";
+      for (Charm charm : new CharmFetcher().getCharms(hero)) {
+        report.startSimulation();
+        printCharm(report, hero, currentGroup, charm);
+        report.simulateAndReset();
+        currentGroup = printCharm(report, hero, currentGroup, charm);
+        report.printForReal();
+      }
+      for (Spell spell : getCurrentSpells(hero)) {
+        report.startSimulation();
+        printSpell(report, currentGroup, spell);
+        report.simulateAndReset();
+        currentGroup = printSpell(report, currentGroup, spell);
+        report.printForReal();
+      }
     } catch (DocumentException e) {
       throw new ReportException(e);
     }
   }
 
-  private void printSpells(MultiColumnText columnText, Hero hero) throws DocumentException {
-    String currentGroup = "";
-    for (Spell spell : getCurrentSpells(hero)) {
-      SpellStats spellStats = createSpellStats(spell);
-      String nextGroupName = format("{0} {1}", spellStats.getType(environment), spellStats.getGroupName(environment));
-      if (!currentGroup.equals(nextGroupName)) {
-        currentGroup = nextGroupName;
-        columnText.addElement(partFactory.createGroupTitle(currentGroup));
-      }
-      addMagicName(spell, columnText);
-      addSpellCost(spell, columnText);
-      addSpellTarget(spellStats, columnText);
-      addCharmDescription(spell, columnText);
+  private String printCharm(MultiColumnTextReport report, Hero hero, String currentGroup, Charm charm) throws DocumentException {
+    CharmStats charmStats = createCharmStats(hero, charm);
+    if (!currentGroup.equals(charmStats.getGroupName(environment))) {
+      currentGroup = charmStats.getGroupName(environment);
+      report.addElement(partFactory.createGroupTitle(currentGroup));
     }
+    addMagicName(charm, report);
+    addCharmData(charmStats, charm, report);
+    addCharmDescription(charm, report);
+    return currentGroup;
   }
 
-  public void printCharms(MultiColumnText columnText, Hero hero) throws DocumentException {
-    String currentGroup = "";
-    for (Charm charm : new CharmFetcher().getCharms(hero)) {
-      CharmStats charmStats = createCharmStats(hero, charm);
-      if (!currentGroup.equals(charmStats.getGroupName(environment))) {
-        currentGroup = charmStats.getGroupName(environment);
-        columnText.addElement(partFactory.createGroupTitle(currentGroup));
-      }
-      addMagicName(charm, columnText);
-      addCharmData(charmStats, charm, columnText);
-      addCharmDescription(charm, columnText);
+  private String printSpell(MultiColumnTextReport report, String currentGroup, Spell spell) throws DocumentException {
+    SpellStats spellStats = createSpellStats(spell);
+    String nextGroupName = format("{0} {1}", spellStats.getType(environment), spellStats.getGroupName(environment));
+    if (!currentGroup.equals(nextGroupName)) {
+      currentGroup = nextGroupName;
+      report.addElement(partFactory.createGroupTitle(currentGroup));
     }
+    addMagicName(spell, report);
+    addSpellCost(spell, report);
+    addSpellTarget(spellStats, report);
+    addCharmDescription(spell, report);
+    return currentGroup;
   }
 
-  private void addSpellCost(Spell charm, MultiColumnText columnText) throws DocumentException {
+  private void addSpellCost(Spell charm, MultiColumnTextReport report) throws DocumentException {
     String costsLabel = environment.getString("MagicReport.Costs.Label") + ": ";
     String costsValue = new ScreenDisplayInfoContributor(environment).createCostString(charm);
-    columnText.addElement(partFactory.createDataPhrase(costsLabel, costsValue));
+    report.addElement(partFactory.createDataPhrase(costsLabel, costsValue));
   }
 
-  private void addSpellTarget(SpellStats spellStats, MultiColumnText columnText) throws DocumentException {
+  private void addSpellTarget(SpellStats spellStats, MultiColumnTextReport report) throws DocumentException {
     String targetLabel = environment.getString("MagicReport.Target.Label") + ": ";
     String target = Joiner.on(", ").join(spellStats.getDetailStrings(environment));
-    columnText.addElement(partFactory.createDataPhrase(targetLabel, target));
+    report.addElement(partFactory.createDataPhrase(targetLabel, target));
   }
 
-  private void addMagicName(Magic magic, MultiColumnText columnText) throws DocumentException {
+  private void addMagicName(Magic magic, MultiColumnTextReport report) throws DocumentException {
     String charmName = new MagicDisplayLabeler(environment).getLabelForMagic(magic);
-    columnText.addElement(partFactory.createCharmTitle(charmName));
+    report.addElement(partFactory.createCharmTitle(charmName));
   }
 
-  private void addCharmData(CharmStats charmStats, Charm charm, MultiColumnText columnText) throws DocumentException {
+  private void addCharmData(CharmStats charmStats, Charm charm, MultiColumnTextReport report) throws DocumentException {
     PdfPTable table = partFactory.createDataTable();
     addCostsCell(charm, table);
     addTypeCell(charm, table);
     addKeywordsRow(charmStats, table);
     addDurationRow(charmStats, table);
-    columnText.addElement(table);
+    report.addElement(table);
   }
 
   private void addCostsCell(Charm charm, PdfPTable table) {
@@ -139,15 +146,15 @@ public class MagicReport extends AbstractPdfReport {
     table.addCell(partFactory.createDoubleDataCell(durationLabel, durationString));
   }
 
-  private void addCharmDescription(Magic magic, MultiColumnText columnText) throws DocumentException {
+  private void addCharmDescription(Magic magic, MultiColumnTextReport report) throws DocumentException {
     MagicDescription charmDescription = getCharmDescription(magic);
     if (charmDescription.isEmpty()) {
       String sourceString = new MagicSourceContributor<>(environment).createSourceString(magic);
       String sourceReference = environment.getString("MagicReport.See.Source", sourceString);
-      columnText.addElement(partFactory.createDescriptionParagraph(sourceReference));
+      report.addElement(partFactory.createDescriptionParagraph(sourceReference));
     }
     for (String paragraph : charmDescription.getParagraphs()) {
-      columnText.addElement(partFactory.createDescriptionParagraph(paragraph));
+      report.addElement(partFactory.createDescriptionParagraph(paragraph));
     }
   }
 
@@ -161,13 +168,6 @@ public class MagicReport extends AbstractPdfReport {
 
   private MagicDescription getCharmDescription(Magic magic) {
     return CharmDescriptionProviderExtractor.CreateFor(model, environment).getCharmDescription(magic);
-  }
-
-  private void writeColumnText(Document document, MultiColumnText columnText) throws DocumentException {
-    do {
-      document.add(columnText);
-      columnText.nextColumn();
-    } while (columnText.isOverflow());
   }
 
   @Override
