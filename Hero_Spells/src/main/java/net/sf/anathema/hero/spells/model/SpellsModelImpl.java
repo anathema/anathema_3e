@@ -195,7 +195,7 @@ public class SpellsModelImpl implements SpellsModel {
   @Override
   public Spell getSpellById(String id) {
     for (Spell spell : getAllSpells()) {
-      if (spell.getMagicName().text.equals(id)) {
+      if (spell.getName().text.equals(id)) {
         return spell;
       }
     }

@@ -11,7 +11,7 @@ public class CascadeColoringStrategy implements CharmColoring {
 
   @Override
   public void colorCharm(Charm charm) {
-    treeView.colorNode(charm.getMagicName().text, RGBColor.White);
+    treeView.colorNode(charm.getName().text, RGBColor.White);
   }
 
   @Override

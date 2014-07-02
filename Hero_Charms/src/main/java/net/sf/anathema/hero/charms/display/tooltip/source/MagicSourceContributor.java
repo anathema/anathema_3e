@@ -35,7 +35,7 @@ public class MagicSourceContributor<T extends Magic> implements IMagicSourceStri
     for (int i = 0; i != sources.length; i++) {
       StringBuilder builder = new StringBuilder();
       builder.append(resources.getString(createSourceBookKey(sources[i])));
-      String pageKey = createPageKey(t.getMagicName().text, sources[i]);
+      String pageKey = createPageKey(t.getName().text, sources[i]);
       if (resources.supportsKey(pageKey)) {
         builder.append(ConfigurableTooltip.CommaSpace);
         builder.append(resources.getString("CharmTreeView.ToolTip.Page"));
@@ -59,7 +59,7 @@ public class MagicSourceContributor<T extends Magic> implements IMagicSourceStri
   @Override
   public String createShortSourceString(T t) {
     SourceBook source = t.getPrimarySource();
-    String id = t.getMagicName().text;
+    String id = t.getName().text;
     return createShortSourceString(source, id);
   }
 

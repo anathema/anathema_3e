@@ -16,7 +16,7 @@ public class DummyLearnableArbitrator implements IExtendedCharmLearnableArbitrat
 
   @Override
   public boolean isLearnable(Charm charm) {
-    return ArrayUtils.contains(learnableCharmIds, charm.getMagicName().text);
+    return ArrayUtils.contains(learnableCharmIds, charm.getName().text);
   }
   
   @Override

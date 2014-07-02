@@ -1,8 +1,7 @@
 package net.sf.anathema.hero.magic.charm;
 
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
@@ -16,6 +15,8 @@ import java.util.Set;
 public interface Charm extends Magic {
 
   String FAVORED_CASTE_PREFIX = "FavoredCaste.";
+
+  CharmName getName();
 
   TreeReference getTreeReference();
 

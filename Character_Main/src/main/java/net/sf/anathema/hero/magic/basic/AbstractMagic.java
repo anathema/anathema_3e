@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.magic.basic;
 
-import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.lib.util.Identifier;
 
@@ -9,16 +8,6 @@ import java.util.List;
 
 public abstract class AbstractMagic implements Magic {
   private final List<MagicAttribute> magicAttributes = new ArrayList<>();
-  private MagicName magicName;
-
-  protected AbstractMagic(MagicName magicName) {
-    this.magicName = magicName;
-  }
-
-  @Override
-  public MagicName getMagicName() {
-    return magicName;
-  }
 
   public void addMagicAttribute(MagicAttribute attribute) {
     magicAttributes.add(attribute);
@@ -49,16 +38,16 @@ public abstract class AbstractMagic implements Magic {
       return false;
     }
     AbstractMagic other = (AbstractMagic) obj;
-    return other.getMagicName().text.equals(getMagicName().text);
+    return other.getName().text.equals(getName().text);
   }
 
   @Override
   public int hashCode() {
-    return magicName.hashCode();
+    return getName().hashCode();
   }
 
   @Override
   public String toString() {
-    return magicName.toString();
+    return getName().toString();
   }
 }

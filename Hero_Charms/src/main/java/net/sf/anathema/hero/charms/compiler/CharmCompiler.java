@@ -130,7 +130,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   private void extractParents(Iterable<Charm> charms) {
     Map<String, CharmImpl> charmsById = new HashMap<>();
     for (Charm charm : charms) {
-      charmsById.put(charm.getMagicName().text, (CharmImpl) charm);
+      charmsById.put(charm.getName().text, (CharmImpl) charm);
     }
     for (CharmImpl charm : charmsById.values()) {
       charm.extractParentCharms(charmsById);

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.charm;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
@@ -41,11 +41,11 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private final CharmType charmType;
   private TreeReference treeReference;
+  private CharmName name;
 
-  public CharmImpl(TreeReference treeReference, MagicName name, CharmPrerequisiteList prerequisiteList,
+  public CharmImpl(TreeReference treeReference, CharmName name, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
                    SourceBook[] sources) {
-    super(name);
     Preconditions.checkNotNull(prerequisiteList);
     Preconditions.checkNotNull(treeReference);
     Preconditions.checkNotNull(name);
@@ -53,12 +53,18 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Preconditions.checkNotNull(duration);
     Preconditions.checkNotNull(charmType);
     Preconditions.checkNotNull(sources);
+    this.name = name;
     this.treeReference = treeReference;
     this.prerequisisteList = prerequisiteList;
     this.temporaryCost = temporaryCost;
     this.duration = duration;
     this.charmType = charmType;
     this.sources = sources;
+  }
+
+  @Override
+  public CharmName getName() {
+    return name;
   }
 
   @Override
@@ -109,7 +115,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   public boolean isBlockedByAlternative(ICharmLearnArbitrator learnArbitrator) {
     for (Set<Charm> alternative : alternatives) {
       for (Charm charm : alternative) {
-        boolean isThis = charm.getMagicName().text.equals(getMagicName().text);
+        boolean isThis = charm.getName().text.equals(getName().text);
         if (!isThis && learnArbitrator.isLearned(charm)) {
           return true;
         }

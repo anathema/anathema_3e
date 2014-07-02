@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.model.charms;
 
 import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -39,7 +39,7 @@ public class CharmCacheTest {
   @Test
   public void matchesCharacterTypesToIdentificatesForCharmLookup() throws Exception {
     Charm charm = mock(Charm.class);
-    when(charm.getMagicName()).thenReturn(new MagicName("Charm"));
+    when(charm.getName()).thenReturn(new CharmName("Charm"));
     CategoryReference solar = new CategoryReference("Dummy");
     cache.addCharm(solar, charm);
     Charm[] charmData = cache.getCharms(solar);

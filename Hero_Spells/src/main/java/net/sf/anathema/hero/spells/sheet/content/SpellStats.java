@@ -59,7 +59,7 @@ public class SpellStats extends AbstractMagicStats<Spell> {
 
   @Override
   public String getNameString(Resources resources) {
-    return resources.getString(getMagic().getMagicName().text);
+    return resources.getString(getMagic().getName().text);
   }
 
   @Override
@@ -70,7 +70,7 @@ public class SpellStats extends AbstractMagicStats<Spell> {
     SpellStats spell = (SpellStats) stats;
     int r = getMagic().getCircleType().compareTo(spell.getMagic().getCircleType());
     if (r == 0) {
-      r = getMagic().getMagicName().text.compareTo(spell.getMagic().getMagicName().text);
+      r = getMagic().getName().text.compareTo(spell.getMagic().getName().text);
     }
     return r;
   }
@@ -86,6 +86,6 @@ public class SpellStats extends AbstractMagicStats<Spell> {
 
   @Override
   public int hashCode() {
-    return new HashCodeBuilder().append(getMagic().getCircleType()).append(getMagic().getMagicName().text).build();
+    return new HashCodeBuilder().append(getMagic().getCircleType()).append(getMagic().getName().text).build();
   }
 }

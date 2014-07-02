@@ -28,7 +28,7 @@ public class LearningCharmTreeImplTest {
   @Test
   public void testIsLearnedCreationCharmOnCreation() throws Exception {
     Charm learnableCharm = new DummyCharm("learnableDummyCharm");
-    IExtendedCharmLearnableArbitrator learnableArbitrator = new DummyLearnableArbitrator(learnableCharm.getMagicName().text);
+    IExtendedCharmLearnableArbitrator learnableArbitrator = new DummyLearnableArbitrator(learnableCharm.getName().text);
     LearningCharmTreeImpl learningCharmGroup = createMeleeTree(learnableArbitrator);
     container.setLearningCharmGroup(learningCharmGroup);
     assertFalse(learningCharmGroup.isLearned(learnableCharm));
@@ -39,7 +39,7 @@ public class LearningCharmTreeImplTest {
   @Test
   public void testLearnedCreationCharmsUnlearnableOnCreation() throws Exception {
     Charm learnableCharm = new DummyCharm("learnableDummyCharm");
-    IExtendedCharmLearnableArbitrator learnableArbitrator = new DummyLearnableArbitrator(learnableCharm.getMagicName().text);
+    IExtendedCharmLearnableArbitrator learnableArbitrator = new DummyLearnableArbitrator(learnableCharm.getName().text);
     LearningCharmTreeImpl learningCharmGroup = createMeleeTree(learnableArbitrator);
     container.setLearningCharmGroup(learningCharmGroup);
     assertFalse(learningCharmGroup.isForgettable(learnableCharm));

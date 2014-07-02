@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.cost.CostListImpl;
@@ -42,7 +42,7 @@ public class CharmTest {
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     try {
       TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
-      new CharmImpl(treeReference, new MagicName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
+      new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
                SimpleDuration.getDuration("Duration"),
               CharmType.Simple, null);
       fail();
@@ -58,7 +58,7 @@ public class CharmTest {
             new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
     TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
     CharmImpl charmImpl =
-            new CharmImpl(treeReference, new MagicName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
+            new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
                     SimpleDuration.getDuration("Duration"), CharmType.Simple, new SourceBook[0]);
     charmImpl.addParentCharms(parent);
     return charmImpl;
