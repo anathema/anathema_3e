@@ -7,7 +7,7 @@ import org.dom4j.Element;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_TYPE;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARMTYPE;
 
-public class CharmTypeBuilder {
+public class CharmTypeParser {
 
   public CharmType build(Element rulesElement) throws CharmException {
     final Element typeElement = rulesElement.element(TAG_CHARMTYPE);

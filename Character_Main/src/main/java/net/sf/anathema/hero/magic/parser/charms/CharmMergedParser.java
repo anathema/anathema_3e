@@ -17,9 +17,9 @@ import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_MERGED;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_MERGES;
 import static net.sf.anathema.lib.lang.ArrayUtilities.getFirst;
 
-public class CharmMergedBuilder {
+public class CharmMergedParser {
 
-  private final Logger logger = Logger.getLogger(CharmMergedBuilder.class);
+  private final Logger logger = Logger.getLogger(CharmMergedParser.class);
 
   public void buildMerges(Document charmDoc, Charm[] charms) {
     Element charmListElement = charmDoc.getRootElement();

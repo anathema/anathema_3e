@@ -2,7 +2,6 @@ package net.sf.anathema.hero.magic.parser.charms;
 
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.AttributePrerequisiteBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.CharmPrerequisiteBuilder;
@@ -21,19 +20,19 @@ import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM;
 
 public class CharmSetBuilder {
 
-  private final ICharmBuilder builder;
+  private final CharmParser builder;
 
   public CharmSetBuilder(CharacterTypes characterTypes, ReflectionSpecialCharmParser specialCharmParser) {
     this.builder =
-            new CharmBuilder(new IdStringBuilder(), new TraitPrerequisitesBuilder(), new AttributePrerequisiteBuilder(),
+            new CharmParserImpl(new IdStringParserImpl(), new TraitPrerequisitesBuilder(), new AttributePrerequisiteBuilder(),
                     new CharmPrerequisiteBuilder(), specialCharmParser);
   }
 
-  public Charm[] buildCharms(Document charmDoc, List<SpecialCharmDto> specialCharms) throws PersistenceException {
+  public CharmImpl[] buildCharms(Document charmDoc, List<SpecialCharmDto> specialCharms) throws PersistenceException {
     Collection<CharmImpl> allCharms = new HashSet<>();
     Element charmListElement = charmDoc.getRootElement();
     buildCharms(allCharms, specialCharms, charmListElement);
-    return allCharms.toArray(new Charm[allCharms.size()]);
+    return allCharms.toArray(new CharmImpl[allCharms.size()]);
   }
 
   private void buildCharms(Collection<CharmImpl> allCharms, List<SpecialCharmDto> specialCharms, Element charmListElement) throws
@@ -43,7 +42,7 @@ public class CharmSetBuilder {
     }
   }
 
-  private void createCharm(Collection<CharmImpl> allCharms, List<SpecialCharmDto> specialCharms, ICharmBuilder currentbuilder,
+  private void createCharm(Collection<CharmImpl> allCharms, List<SpecialCharmDto> specialCharms, CharmParser currentbuilder,
                                    Element charmElement) throws PersistenceException {
     CharmImpl newCharm = currentbuilder.buildCharm(charmElement, specialCharms);
     if (allCharms.contains(newCharm)) {

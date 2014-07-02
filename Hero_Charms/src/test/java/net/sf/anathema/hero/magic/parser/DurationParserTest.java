@@ -5,7 +5,7 @@ import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.QualifiedAmountDuration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.duration.UntilEventDuration;
-import net.sf.anathema.hero.magic.parser.charms.DurationBuilder;
+import net.sf.anathema.hero.magic.parser.charms.DurationParser;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 import org.dom4j.tree.DefaultElement;
@@ -14,9 +14,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-public class DurationBuilderTest {
+public class DurationParserTest {
 
-  private DurationBuilder builder = new DurationBuilder();
+  private DurationParser builder = new DurationParser();
 
   @Test
   public void testAnyDuration() throws Exception {

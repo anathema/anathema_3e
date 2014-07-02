@@ -9,4 +9,9 @@ public class MagicName extends ReflectionEqualsObject{
   public MagicName(String charmName) {
     this.text = charmName;
   }
+
+  @Override
+  public String toString() {
+    return text;
+  }
 }

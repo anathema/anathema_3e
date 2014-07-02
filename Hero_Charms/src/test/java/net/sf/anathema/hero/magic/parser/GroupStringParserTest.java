@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.hero.magic.charm.CharmException;
-import net.sf.anathema.hero.magic.parser.charms.GroupStringBuilder;
+import net.sf.anathema.hero.magic.parser.charms.GroupStringParser;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
 import net.sf.anathema.lib.xml.DocumentUtilities;
@@ -10,9 +10,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class GroupStringBuilderTest {
+public class GroupStringParserTest {
 
-  private GroupStringBuilder builder = new GroupStringBuilder();
+  private GroupStringParser builder = new GroupStringParser();
 
   @Test
   public void testBuildGroupFromAttribute() throws Exception {

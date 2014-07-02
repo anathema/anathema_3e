@@ -20,4 +20,9 @@ public class InternalResourceFile implements ResourceFile {
   public String getFileName() {
     return fileName;
   }
+
+  @Override
+  public String toString() {
+    return "External: " + getFileName();
+  }
 }

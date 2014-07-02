@@ -15,7 +15,7 @@ import static net.sf.anathema.charm.parser.ICharmXMLConstants.ATTRIB_VISUALIZE;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_ATTRIBUTE;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_GENERIC_ATTRIBUTE;
 
-public class CharmAttributeBuilder {
+public class CharmAttributeParser {
 
   public MagicAttribute[] buildCharmAttributes(Element rulesElement, ValuedTraitType primaryPrerequisite) {
     List<MagicAttribute> attributes = new ArrayList<>();

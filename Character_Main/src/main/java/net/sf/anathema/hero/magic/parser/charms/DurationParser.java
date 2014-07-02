@@ -10,7 +10,7 @@ import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
-public class DurationBuilder {
+public class DurationParser {
 
   public Duration buildDuration(Element durationElement) throws PersistenceException {
     if (durationElement == null) {

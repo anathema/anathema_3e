@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
@@ -16,11 +17,11 @@ import java.util.Set;
 public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrerequisite {
 
   private final int threshold;
-  private final String[] prerequisiteIds;
+  private final CharmName[] prerequisiteIds;
   private Charm[] prerequisites;
 
 
-  public DirectGroupCharmLearnPrerequisite(String[] charms, int threshold) {
+  public DirectGroupCharmLearnPrerequisite(CharmName[] charms, int threshold) {
     this.prerequisiteIds = charms;
     this.threshold = threshold;
   }
@@ -40,12 +41,12 @@ public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrereq
   }
 
   @Override
-  public void link(Map<String, CharmImpl> charmsById) {
+  public void link(Map<CharmName, CharmImpl> charmsById) {
     if (prerequisites != null) {
       return;
     }
     List<Charm> prerequisites = new ArrayList<>();
-    for (String id : prerequisiteIds) {
+    for (CharmName id : prerequisiteIds) {
       Charm parentCharm = charmsById.get(id);
       Preconditions.checkNotNull(parentCharm, "Parent Charm " + id + " not defined.");
       prerequisites.add(parentCharm);

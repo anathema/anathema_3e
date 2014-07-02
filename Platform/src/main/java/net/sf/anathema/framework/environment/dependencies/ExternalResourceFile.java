@@ -27,4 +27,9 @@ public class ExternalResourceFile implements ResourceFile {
   public String getFileName() {
     return FilenameUtils.separatorsToUnix(file.getAbsolutePath());
   }
+
+  @Override
+  public String toString() {
+    return "External: " + getFileName();
+  }
 }
