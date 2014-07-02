@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -89,7 +90,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.manager = new SpecialCharmManager(specialist, hero, this);
     initializeCharmTrees();
     initSpecialCharmConfigurations();
-    addCompulsiveCharms(hero.getTemplate());
+    learnCompulsiveCharms(hero.getTemplate());
     addOverdrivePools(hero);
     addPrintProvider(new PrintCharmsProvider(hero));
     addLearnProvider(new CharmLearner(this));
@@ -140,7 +141,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @SuppressWarnings("UnusedParameters")
-  private void addCompulsiveCharms(HeroTemplate template) {
+  private void learnCompulsiveCharms(HeroTemplate template) {
     List<String> compulsiveCharms1 = this.template.compulsiveCharms;
     String[] compulsiveCharms = compulsiveCharms1.toArray(new String[compulsiveCharms1.size()]);
 

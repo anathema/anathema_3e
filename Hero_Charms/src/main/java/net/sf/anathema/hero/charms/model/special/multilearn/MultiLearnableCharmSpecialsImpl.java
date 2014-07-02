@@ -43,7 +43,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     this.specialCharm = specialCharm;
     this.arbitrator = arbitrator;
     TraitTemplate template = TraitTemplateFactory.createStaticLimitedTemplate(0, specialCharm.getAbsoluteLearnLimit());
-    this.trait = new LimitedTrait(hero, new DefaultTraitType(charm.getMagicName().text), template, new MultiLearnableIncrementChecker());
+    this.trait = new LimitedTrait(hero, new DefaultTraitType(charm.getName().text), template, new MultiLearnableIncrementChecker());
     this.trait.addCurrentValueListener(new IntValueChangedListener() {
       @Override
       public void valueChanged(int newValue) {

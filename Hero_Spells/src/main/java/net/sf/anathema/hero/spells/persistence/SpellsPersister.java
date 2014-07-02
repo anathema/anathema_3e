@@ -59,7 +59,7 @@ public class SpellsPersister extends AbstractModelJsonPersister<SpellListPto, Sp
 
   private AttributedPto createSpellPto(SpellsModel model, Spell spell) {
     AttributedPto spellPto = new AttributedPto();
-    spellPto.id = spell.getMagicName().text;
+    spellPto.id = spell.getName().text;
     spellPto.isExperienceLearned = !model.isLearnedOnCreation(spell);
     return spellPto;
   }

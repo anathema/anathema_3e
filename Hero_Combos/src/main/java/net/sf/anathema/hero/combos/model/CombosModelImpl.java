@@ -77,7 +77,7 @@ public class CombosModelImpl implements CombosModel {
     if (rules.canBeAddedToCombo(getEditCombo(), charm)) {
       getEditCombo().addCharm(charm, experienced);
     } else {
-      throw new IllegalArgumentException("The charm " + charm.getMagicName().text + " is illegal in this combo.");
+      throw new IllegalArgumentException("The charm " + charm.getName().text + " is illegal in this combo.");
     }
   }
 

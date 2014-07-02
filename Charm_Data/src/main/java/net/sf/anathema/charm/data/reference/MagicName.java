@@ -1,29 +1,12 @@
 package net.sf.anathema.charm.data.reference;
 
-public class MagicName implements Comparable<MagicName>{
+import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+
+public class MagicName extends ReflectionEqualsObject{
 
   public final String text;
 
   public MagicName(String charmName) {
     this.text = charmName;
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (!(obj instanceof MagicName)) {
-      return false;
-    }
-    MagicName other = (MagicName) obj;
-    return other.text.equals(text);
-  }
-
-  @Override
-  public int hashCode() {
-    return text.hashCode();
-  }
-
-  @Override
-  public int compareTo(MagicName o) {
-    return text.compareTo(o.text);
   }
 }

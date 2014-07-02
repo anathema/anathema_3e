@@ -15,6 +15,6 @@ public class MagicToI18n<M extends Magic> implements Function<M, String> {
 
   @Override
   public String apply(M m) {
-    return resources.getString(m.getMagicName().text);
+    return resources.getString(m.getName().text);
   }
 }

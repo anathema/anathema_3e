@@ -151,7 +151,7 @@ public class SpecialCharmManager implements ISpecialCharmManager {
   private void addSpecialCharmConfiguration(final Charm charm, final LearningCharmTree group, final CharmSpecialsModel configuration,
                                             boolean learnListener, final boolean forgetAtZero) {
     if (specialConfigurationsByCharm.containsKey(charm)) {
-      throw new IllegalArgumentException("Special configuration already defined for charm " + charm.getMagicName().text);
+      throw new IllegalArgumentException("Special configuration already defined for charm " + charm.getName().text);
     }
     specialConfigurationsByCharm.put(charm, configuration);
     if (learnListener) {

@@ -64,7 +64,7 @@ public class CharmCacheImpl implements CharmCache {
 
   public void addCharm(CategoryReference type, Charm charm) {
     charmsByCategory.replace(type, charm, charm);
-    charmsById.put(charm.getMagicName().text, charm);
+    charmsById.put(charm.getName().text, charm);
   }
 
   public void addSpecialCharmData(CategoryReference type, List<SpecialCharmDto> data) {

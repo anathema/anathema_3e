@@ -12,17 +12,17 @@ public class CharmNodeBuilder {
 
   public static void buildNodes(Collection<Charm> groupCharms, Map<String, IIdentifiedRegularNode> charmNodesById) {
     for (Charm charm : groupCharms) {
-      IIdentifiedRegularNode node = NodeFactory.createChildlessNode(charm.getMagicName().text);
-      charmNodesById.put(charm.getMagicName().text, node);
+      IIdentifiedRegularNode node = NodeFactory.createChildlessNode(charm.getName().text);
+      charmNodesById.put(charm.getName().text, node);
     }
     for (Charm charm : groupCharms) {
       for (Charm parentCharm : charm.getRenderingPrerequisiteCharms()) {
         if (!groupCharms.contains(parentCharm)) {
-          IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getMagicName().text);
+          IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getName().text);
           if (parentNode == null) {
-            parentNode = NodeFactory.createChildlessNode(parentCharm.getMagicName().text);
+            parentNode = NodeFactory.createChildlessNode(parentCharm.getName().text);
             parentNode.setLowerToChildren(true);
-            charmNodesById.put(parentCharm.getMagicName().text, parentNode);
+            charmNodesById.put(parentCharm.getName().text, parentNode);
           } else {
             parentNode.setLowerToChildren(false);
           }

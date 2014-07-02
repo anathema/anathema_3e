@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.CharmData;
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
@@ -33,8 +33,8 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public MagicName getMagicName() {
-    return charmData.getMagicName();
+  public CharmName getName() {
+    return charmData.getName();
   }
 
   @Override

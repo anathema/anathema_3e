@@ -9,7 +9,7 @@ import net.sf.anathema.lib.util.Identifier;
 
 public interface Magic {
 
-  MagicName getMagicName();
+  MagicName getName();
 
   MagicAttribute[] getAttributes();
 

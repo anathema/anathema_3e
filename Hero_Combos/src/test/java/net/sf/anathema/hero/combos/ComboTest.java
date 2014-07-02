@@ -28,7 +28,7 @@ public class ComboTest {
     if (comboRules.canBeAddedToCombo(combo, charm)) {
       combo.addCharm(charm, false);
     } else {
-      throw new IllegalArgumentException("The charm " + charm.getMagicName().text + " is illegal in this combo.");
+      throw new IllegalArgumentException("The charm " + charm.getName().text + " is illegal in this combo.");
     }
   }
 

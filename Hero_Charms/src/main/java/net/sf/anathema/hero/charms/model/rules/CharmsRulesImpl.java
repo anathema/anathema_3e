@@ -32,7 +32,7 @@ public class CharmsRulesImpl implements CharmsRules {
 
   @Override
   public boolean isCompulsiveCharm(Charm charm) {
-    return template.compulsiveCharms.contains(charm.getMagicName().text);
+    return template.compulsiveCharms.contains(charm.getName().text);
   }
 
   @Override

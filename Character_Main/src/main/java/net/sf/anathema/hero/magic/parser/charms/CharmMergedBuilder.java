@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
-import com.google.common.base.Predicate;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.lib.logging.Logger;
@@ -42,7 +41,7 @@ public class CharmMergedBuilder {
     Set<Charm> charms = new HashSet<>(charmReferences.size());
     for (Element charmReference : charmReferences) {
       final String charmId = charmReference.attributeValue(ATTRIB_ID);
-      Charm charm = getFirst(existingCharms, candidate -> candidate.getMagicName().text.equals(charmId));
+      Charm charm = getFirst(existingCharms, candidate -> candidate.getName().text.equals(charmId));
       if (charm == null) {
         logger.warn("Merge charm not found " + charmId);
         continue;

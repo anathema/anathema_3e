@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.MagicName;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -82,8 +82,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public MagicName getMagicName() {
-    return getId() != null ? new MagicName(getId()) : null;
+  public CharmName getName() {
+    return getId() != null ? new CharmName(getId()) : null;
   }
 
   @Override
