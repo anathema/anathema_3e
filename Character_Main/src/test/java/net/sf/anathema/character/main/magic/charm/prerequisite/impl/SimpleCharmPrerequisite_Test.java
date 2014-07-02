@@ -6,7 +6,7 @@ import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-public class SimpleCharmLearnPrerequisite_Test {
+public class SimpleCharmPrerequisite_Test {
 
   @Test(expected = IllegalStateException.class)
   public void cantProvidePrerequisitesUntilLinked() throws Exception {

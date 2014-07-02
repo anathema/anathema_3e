@@ -4,7 +4,7 @@ import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
-public interface CharmLearnPrerequisite {
+public interface CharmPrerequisite {
 
   void accept(CharmPrerequisiteVisitor visitor);
 

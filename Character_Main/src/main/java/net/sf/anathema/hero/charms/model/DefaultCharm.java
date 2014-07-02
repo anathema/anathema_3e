@@ -9,7 +9,7 @@ import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -59,7 +59,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public List<CharmLearnPrerequisite> getLearnPrerequisites() {
+  public List<CharmPrerequisite> getLearnPrerequisites() {
     return null;
   }
 
@@ -74,7 +74,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public <T extends CharmLearnPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
+  public <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
     return null;
   }
 
@@ -94,7 +94,7 @@ public class DefaultCharm implements Charm {
   }
 
   @Override
-  public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
+  public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
 
   }
 

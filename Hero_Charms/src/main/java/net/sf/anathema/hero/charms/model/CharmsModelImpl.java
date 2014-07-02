@@ -42,7 +42,7 @@ import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
@@ -291,7 +291,7 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    for (CharmLearnPrerequisite prerequisite : charm.getLearnPrerequisites()) {
+    for (CharmPrerequisite prerequisite : charm.getLearnPrerequisites()) {
     	if (!prerequisite.isSatisfied(this) && !prerequisite.isAutoSatisfiable(this)) {
     		return false;
     	}

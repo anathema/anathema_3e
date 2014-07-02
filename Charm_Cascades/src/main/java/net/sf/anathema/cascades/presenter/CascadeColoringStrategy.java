@@ -1,7 +1,7 @@
 package net.sf.anathema.cascades.presenter;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
 import net.sf.anathema.platform.tree.display.TreeView;
@@ -15,7 +15,7 @@ public class CascadeColoringStrategy implements CharmColoring {
   }
 
   @Override
-  public void setPrerequisiteVisuals(IndirectCharmLearnPrerequisite prerequisite) {
+  public void setPrerequisiteVisuals(IndirectCharmPrerequisite prerequisite) {
     treeView.colorNode(prerequisite.getStringLabel(), RGBColor.White);
   }
 

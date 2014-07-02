@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 
 public class CharmNodeConnector {
@@ -16,7 +16,7 @@ public class CharmNodeConnector {
         IIdentifiedRegularNode parentNode = charmNodesById.get(parentCharm.getName().text);
         connectNodes(childNode, parentNode);
       }
-      for (IndirectCharmLearnPrerequisite requirement : charm.getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class)) {
+      for (IndirectCharmPrerequisite requirement : charm.getPrerequisitesOfType(IndirectCharmPrerequisite.class)) {
         IIdentifiedRegularNode parentNode = charmNodesById.get(requirement.getStringLabel());
         connectNodes(childNode, parentNode);
       }

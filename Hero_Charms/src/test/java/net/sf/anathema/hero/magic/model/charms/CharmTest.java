@@ -10,7 +10,7 @@ import net.sf.anathema.hero.charms.compiler.UnlinkedCharms;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
@@ -40,7 +40,7 @@ public class CharmTest {
     ValuedTraitType[] prerequisites = new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 5)};
     ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
     CharmPrerequisiteList prerequisiteList =
-            new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
+            new CharmPrerequisiteList(prerequisites, essence, new CharmPrerequisite[0]);
     try {
       TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
       new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
@@ -56,7 +56,7 @@ public class CharmTest {
     ValuedTraitType[] prerequisites = new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 5)};
     ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
     CharmPrerequisiteList prerequisiteList =
-            new CharmPrerequisiteList(prerequisites, essence, new CharmLearnPrerequisite[0]);
+            new CharmPrerequisiteList(prerequisites, essence, new CharmPrerequisite[0]);
     TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
     CharmImpl charmImpl =
             new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 
 public class NonCharmPrerequisitesColorer implements CharmColorer {
   private CharmColoring coloring;
@@ -11,7 +11,7 @@ public class NonCharmPrerequisitesColorer implements CharmColorer {
   }
 
   public void color(Charm charm) {
-    for (IndirectCharmLearnPrerequisite prerequisite : charm.getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class)) {
+    for (IndirectCharmPrerequisite prerequisite : charm.getPrerequisitesOfType(IndirectCharmPrerequisite.class)) {
       coloring.setPrerequisiteVisuals(prerequisite);
     }
   }

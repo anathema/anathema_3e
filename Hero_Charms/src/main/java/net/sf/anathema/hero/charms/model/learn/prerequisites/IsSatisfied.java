@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.charm.learn;
+package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;

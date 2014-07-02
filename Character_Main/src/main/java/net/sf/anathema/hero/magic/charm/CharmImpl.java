@@ -9,9 +9,9 @@ import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
@@ -41,7 +41,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final SourceBook[] sources;
   private final CostList temporaryCost;
   private final List<CharmImpl> children = new ArrayList<>();
-  private final List<CharmLearnPrerequisite> prerequisites = new ArrayList<>();
+  private final List<CharmPrerequisite> prerequisites = new ArrayList<>();
   private final Set<String> favoredCasteIds = new HashSet<>();
 
   private final CharmType charmType;
@@ -114,7 +114,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
     prerequisites.addAll(Arrays.asList(prerequisisteList.getCharmPrerequisites()));
-    for (CharmLearnPrerequisite prerequisite : prerequisites) {
+    for (CharmPrerequisite prerequisite : prerequisites) {
       prerequisite.link(unlinkedCharms);
     }
     List<DirectCharmPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmPrerequisite.class);
@@ -127,7 +127,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public List<CharmLearnPrerequisite> getLearnPrerequisites() {
+  public List<CharmPrerequisite> getLearnPrerequisites() {
     return prerequisites;
   }
 
@@ -151,7 +151,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public void forEachCharmPrerequisite(Consumer<CharmLearnPrerequisite> consumer) {
+  public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
     prerequisites.forEach(consumer);
   }
 
@@ -167,7 +167,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public boolean isTreeRoot() {
     return getPrerequisitesOfType(DirectCharmPrerequisite.class).isEmpty() &&
-            getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class).isEmpty();
+            getPrerequisitesOfType(IndirectCharmPrerequisite.class).isEmpty();
   }
 
   public void addFavoredCasteId(String casteId) {
@@ -210,9 +210,9 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @SuppressWarnings("unchecked")
   @Override
-  public <T extends CharmLearnPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
+  public <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
     List<T> matches = new ArrayList<>();
-    for (CharmLearnPrerequisite prerequisite : prerequisites) {
+    for (CharmPrerequisite prerequisite : prerequisites) {
       if (clazz.isInstance(prerequisite)) {
         matches.add((T) prerequisite);
       }

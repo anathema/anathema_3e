@@ -5,12 +5,12 @@ import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
-public class AttributeKnownCharmLearnPrerequisite implements IndirectCharmLearnPrerequisite {
+public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisite {
 
   private final MagicAttribute attribute;
   private final int count;
 
-  public AttributeKnownCharmLearnPrerequisite(MagicAttribute attribute, int count) {
+  public AttributeKnownCharmPrerequisite(MagicAttribute attribute, int count) {
     this.attribute = attribute;
     this.count = count;
   }
@@ -42,8 +42,8 @@ public class AttributeKnownCharmLearnPrerequisite implements IndirectCharmLearnP
 
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof AttributeKnownCharmLearnPrerequisite) {
-      AttributeKnownCharmLearnPrerequisite prerequisite = (AttributeKnownCharmLearnPrerequisite) obj;
+    if (obj instanceof AttributeKnownCharmPrerequisite) {
+      AttributeKnownCharmPrerequisite prerequisite = (AttributeKnownCharmPrerequisite) obj;
       return prerequisite.attribute.equals(attribute) && prerequisite.count == count;
     }
     return false;

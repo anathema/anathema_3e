@@ -1,24 +1,24 @@
-package net.sf.anathema.hero.magic.charm.learn;
+package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class AllSatisfied implements Consumer<CharmLearnPrerequisite> {
+public class AllSatisfied implements Consumer<CharmPrerequisite> {
   private final ICharmLearnArbitrator learnArbitrator;
-  private Predicate<CharmLearnPrerequisite> predicate;
+  private Predicate<CharmPrerequisite> predicate;
   public boolean isFulfilled;
 
-  public AllSatisfied(ICharmLearnArbitrator learnArbitrator, Predicate<CharmLearnPrerequisite> predicate) {
+  public AllSatisfied(ICharmLearnArbitrator learnArbitrator, Predicate<CharmPrerequisite> predicate) {
     this.learnArbitrator = learnArbitrator;
     this.predicate = predicate;
     isFulfilled = true;
   }
 
   @Override
-  public void accept(CharmLearnPrerequisite prerequisite) {
+  public void accept(CharmPrerequisite prerequisite) {
     if (!isFulfilled || !predicate.test(prerequisite)) {
       return;
     }

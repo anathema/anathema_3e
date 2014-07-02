@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmLearnPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
 
@@ -30,7 +30,7 @@ public class CharmNodeBuilder {
       }
     }
     for (Charm charm : groupCharms) {
-      for (IndirectCharmLearnPrerequisite prerequisite : charm.getPrerequisitesOfType(IndirectCharmLearnPrerequisite.class)) {
+      for (IndirectCharmPrerequisite prerequisite : charm.getPrerequisitesOfType(IndirectCharmPrerequisite.class)) {
         String label = prerequisite.getStringLabel();
         IIdentifiedRegularNode parentNode = NodeFactory.createChildlessNode(label);
         charmNodesById.put(label, parentNode);
