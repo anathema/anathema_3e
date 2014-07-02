@@ -4,13 +4,13 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import com.itextpdf.text.pdf.MultiColumnText;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
+import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.sheet.text.TextPartFactory;
-import net.sf.anathema.framework.environment.Resources;
 
 public class HeroDescriptionTextEncoder implements HeroTextEncoder {
 
@@ -22,15 +22,15 @@ public class HeroDescriptionTextEncoder implements HeroTextEncoder {
     this.partFactory = new TextPartFactory(utils);
   }
 
-  public void createParagraphs(MultiColumnText columnText, Hero hero) throws DocumentException {
+  public void createParagraphs(MultiColumnTextReport report, Hero hero) throws DocumentException {
     TextDescriptionContentImpl content = new TextDescriptionContentImpl(HeroDescriptionFetcher.fetch(hero));
-    columnText.addElement(partFactory.createTitleParagraph(content.getName()));
+    report.addElement(partFactory.createTitleParagraph(content.getName()));
     Chunk labelChunk = createDescriptionTitleChunk();
     Phrase descriptionPhrase = partFactory.createTextParagraph(labelChunk);
     boolean isFirst = true;
     for (String descriptionPart : content.getDescription()) {
       Chunk chunk = partFactory.createTextChunk(descriptionPart);
-      addTextualDescriptionPart(columnText, descriptionPhrase, isFirst, chunk);
+      addTextualDescriptionPart(report, descriptionPhrase, isFirst, chunk);
       isFirst = false;
     }
   }
@@ -40,14 +40,14 @@ public class HeroDescriptionTextEncoder implements HeroTextEncoder {
     return partFactory.createBoldChunk(label);
   }
 
-  private void addTextualDescriptionPart(MultiColumnText columnText, Phrase potentialParent, boolean isFirst, Chunk chunk) throws DocumentException {
+  private void addTextualDescriptionPart(MultiColumnTextReport report, Phrase potentialParent, boolean isFirst, Chunk chunk) throws DocumentException {
     if (isFirst) {
       potentialParent.add(chunk);
-      columnText.addElement(potentialParent);
+      report.addElement(potentialParent);
     } else {
       Paragraph descriptionParagraph = partFactory.createTextParagraph(chunk);
       descriptionParagraph.setFirstLineIndent(5f);
-      columnText.addElement(descriptionParagraph);
+      report.addElement(descriptionParagraph);
     }
   }
 }
