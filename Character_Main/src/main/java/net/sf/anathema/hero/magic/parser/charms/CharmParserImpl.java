@@ -33,22 +33,24 @@ import java.util.List;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.*;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
 
-public class CharmBuilder implements ICharmBuilder {
+public class CharmParserImpl implements CharmParser {
 
-  private final CharmTypeBuilder charmTypeBuilder = new CharmTypeBuilder();
+  private final CharmTypeParser charmTypeParser = new CharmTypeParser();
   private final ICostListBuilder costListBuilder = new CostListBuilder();
-  private final DurationBuilder durationBuilder = new DurationBuilder();
-  private final GroupStringBuilder groupBuilder = new GroupStringBuilder();
+  private final DurationParser durationParser = new DurationParser();
+  private final GroupStringParser groupBuilder = new GroupStringParser();
   private final SourceBuilder sourceBuilder = new SourceBuilder();
-  private final CharmAttributeBuilder attributeBuilder = new CharmAttributeBuilder();
+  private final CharmAttributeParser attributeBuilder = new CharmAttributeParser();
   private final ReflectionSpecialCharmParser specialCharmParser;
-  private final IIdStringBuilder idBuilder;
+  private final IdStringParser idBuilder;
   private final ITraitPrerequisitesBuilder traitsBuilder;
   private final IAttributePrerequisiteBuilder attributeRequirementsBuilder;
   private final ICharmPrerequisiteBuilder charmPrerequisiteBuilder;
 
-  public CharmBuilder(IIdStringBuilder idBuilder, ITraitPrerequisitesBuilder traitsBuilder, IAttributePrerequisiteBuilder attributeRequirementsBuilder,
-                      ICharmPrerequisiteBuilder charmPrerequisiteBuilder, ReflectionSpecialCharmParser specialCharmParser) {
+  public CharmParserImpl(IdStringParser idBuilder, ITraitPrerequisitesBuilder traitsBuilder,
+                         IAttributePrerequisiteBuilder attributeRequirementsBuilder,
+                         ICharmPrerequisiteBuilder charmPrerequisiteBuilder,
+                         ReflectionSpecialCharmParser specialCharmParser) {
     this.idBuilder = idBuilder;
     this.traitsBuilder = traitsBuilder;
     this.attributeRequirementsBuilder = attributeRequirementsBuilder;
@@ -68,7 +70,7 @@ public class CharmBuilder implements ICharmBuilder {
         throw new CharmException("Error building costlist for charm " + id, e);
       }
       Duration duration = buildDuration(charmElement);
-      CharmType charmType = charmTypeBuilder.build(charmElement);
+      CharmType charmType = charmTypeParser.build(charmElement);
       SourceBook[] sources = sourceBuilder.buildSourceList(charmElement);
       CharmPrerequisiteList prerequisiteList = getPrerequisites(charmElement);
       ValuedTraitType[] prerequisites = prerequisiteList.getTraitPrerequisites();
@@ -101,7 +103,7 @@ public class CharmBuilder implements ICharmBuilder {
   private Duration buildDuration(Element charmElement) throws CharmException {
     Duration duration;
     try {
-      duration = durationBuilder.buildDuration(charmElement.element(TAG_DURATION));
+      duration = durationParser.buildDuration(charmElement.element(TAG_DURATION));
     } catch (PersistenceException e) {
       throw new CharmException("Error in Charm duration.", e);
     }

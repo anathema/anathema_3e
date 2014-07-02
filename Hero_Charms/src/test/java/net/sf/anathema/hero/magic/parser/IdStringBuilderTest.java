@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.hero.magic.charm.CharmException;
-import net.sf.anathema.hero.magic.parser.charms.IIdStringBuilder;
-import net.sf.anathema.hero.magic.parser.charms.IdStringBuilder;
+import net.sf.anathema.hero.magic.parser.charms.IdStringParser;
+import net.sf.anathema.hero.magic.parser.charms.IdStringParserImpl;
 import net.sf.anathema.lib.xml.DocumentUtilities;
 import org.dom4j.Element;
 import org.junit.Test;
@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 
 public class IdStringBuilderTest {
 
-  private IIdStringBuilder builder = new IdStringBuilder();
+  private IdStringParser builder = new IdStringParserImpl();
 
   @Test
   public void testIdPresent() throws Exception {

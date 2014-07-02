@@ -2,16 +2,16 @@ package net.sf.anathema.hero.magic.parser;
 
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.parser.charms.CharmTypeBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmTypeParser;
 import net.sf.anathema.lib.xml.DocumentUtilities;
 import org.dom4j.Element;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class CharmTypeBuilderTest {
+public class CharmTypeParserTest {
 
-  private CharmTypeBuilder builder = new CharmTypeBuilder();
+  private CharmTypeParser builder = new CharmTypeParser();
 
   @Test(expected = CharmException.class)
   public void testTypeRequired() throws Exception {

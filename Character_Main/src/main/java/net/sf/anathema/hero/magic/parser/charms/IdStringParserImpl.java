@@ -5,7 +5,7 @@ import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.lib.lang.StringUtilities;
 import org.dom4j.Element;
 
-public class IdStringBuilder implements IIdStringBuilder {
+public class IdStringParserImpl implements IdStringParser {
 
   @Override
   public String build(Element element) throws CharmException {

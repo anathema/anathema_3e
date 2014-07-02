@@ -10,8 +10,8 @@ import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeBuilder;
-import net.sf.anathema.hero.magic.parser.charms.CharmMergedBuilder;
+import net.sf.anathema.hero.magic.parser.charms.CharmAlternativeParser;
+import net.sf.anathema.hero.magic.parser.charms.CharmMergedParser;
 import net.sf.anathema.hero.magic.parser.charms.CharmSetBuilder;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
@@ -22,9 +22,7 @@ import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,12 +32,12 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   //matches stuff like data/charms/solar/Charms_Solar_SecondEdition_Occult.xml
   //the pattern is data/charms/REST_OF_PATH/Charms_TYPE_EDITION_ANYTHING.xml
   private static final String Charm_Data_Extraction_Pattern = ".*/Charms_(.*?)_(.*?)(?:_.*)?\\.xml";
-  private final Map<CategoryReference, List<Document>> charmFileTable = new HashMap<>();
-  private final CharmAlternativeBuilder alternativeBuilder = new CharmAlternativeBuilder();
-  private final CharmMergedBuilder mergedBuilder = new CharmMergedBuilder();
+  private final CharmAlternativeParser alternativeBuilder = new CharmAlternativeParser();
+  private final CharmMergedParser mergedBuilder = new CharmMergedParser();
   private final SAXReader reader = new SAXReader();
   private final CharmCacheImpl charmCache;
   private final CharmSetBuilder setBuilder;
+  private final CharmDocuments charmDocuments = new CharmDocuments();
 
   public CharmCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
     ReflectionSpecialCharmBuilder specialCharmBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
@@ -62,62 +60,49 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   @SuppressWarnings("ResultOfMethodCallIgnored")
   @Override
   public void registerFile(ResourceFile resource) throws Exception {
-    Matcher matcher = Pattern.compile(Charm_Data_Extraction_Pattern).matcher(resource.getFileName());
-    matcher.matches();
-    String categoryString = matcher.group(1);
-    CategoryReference category = new CategoryReference(categoryString);
-    List<Document> list = charmFileTable.get(category);
-    if (list == null) {
-      list = new ArrayList<>();
-      charmFileTable.put(category, list);
-    }
+    CategoryReference category = getCategoryFromResourceName(resource);
     try {
-      list.add(reader.read(resource.getURL()));
+      Document document = reader.read(resource.getURL());
+      charmDocuments.addDocument(category, document);
     } catch (DocumentException e) {
       throw new CharmException(resource.getURL().toExternalForm(), e);
     }
   }
 
+  private CategoryReference getCategoryFromResourceName(ResourceFile resource) {
+    Matcher matcher = Pattern.compile(Charm_Data_Extraction_Pattern).matcher(resource.getFileName());
+    matcher.matches();
+    String categoryString = matcher.group(1);
+    return new CategoryReference(categoryString);
+  }
+
   @Override
   public ExtensibleDataSet build() throws PersistenceException {
-    for (CategoryReference type : charmFileTable.keySet()) {
-      buildStandardCharms(type);
-      buildCharmAlternatives(type);
-      buildCharmMerges(type);
-    }
+    buildStandardCharms();
+    buildCharmAlternatives();
+    buildCharmMerges();
     charmCache.extractParents();
     return charmCache;
   }
 
-  private void buildStandardCharms(CategoryReference category) throws PersistenceException {
-    List<Document> documents = charmFileTable.get(category);
-    for (Document charmDocument : documents) {
-      buildTypeCharms(category, charmDocument);
-    }
-  }
-
-  private void buildCharmAlternatives(CategoryReference type) {
-    if (charmFileTable.containsKey(type)) {
-      for (Document charmDocument : charmFileTable.get(type)) {
-        alternativeBuilder.buildAlternatives(charmDocument, charmCache.getCharms(type));
+  private void buildStandardCharms() throws PersistenceException {
+    charmDocuments.forEach((document, category) -> {
+      List<SpecialCharmDto> specialCharms = new ArrayList<>();
+      CharmImpl[] charmArray = setBuilder.buildCharms(document, specialCharms);
+      for (CharmImpl charm : charmArray) {
+        charmCache.addCharm(category, charm);
       }
-    }
+      charmCache.addSpecialCharmData(category, specialCharms);
+    });
   }
 
-  private void buildCharmMerges(CategoryReference type) {
-    if (charmFileTable.containsKey(type)) {
-      for (Document charmDocument : charmFileTable.get(type)) {
-        mergedBuilder.buildMerges(charmDocument, charmCache.getCharms(type));
-      }
-    }
+  private void buildCharmAlternatives() {
+    charmDocuments.forEach((document, category) -> alternativeBuilder.buildAlternatives(document,
+            charmCache.getCharms(category)));
   }
 
-  private void buildTypeCharms(CategoryReference type, Document charmDocument) throws PersistenceException {
-    List<SpecialCharmDto> specialCharms = new ArrayList<>();
-    CharmImpl[] charmArray = setBuilder.buildCharms(charmDocument, specialCharms);
-    for (CharmImpl charm : charmArray) {
-      charmCache.addCharm(type, charm);
-    }
-    charmCache.addSpecialCharmData(type, specialCharms);
+  private void buildCharmMerges() {
+    charmDocuments.forEach((document, category) -> mergedBuilder.buildMerges(document, charmCache.getCharms(category)));
   }
+
 }

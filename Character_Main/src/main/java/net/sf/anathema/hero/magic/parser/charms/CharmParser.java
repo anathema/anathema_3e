@@ -7,7 +7,7 @@ import org.dom4j.Element;
 
 import java.util.List;
 
-public interface ICharmBuilder {
+public interface CharmParser {
 
   CharmImpl buildCharm(Element charmElement, List<SpecialCharmDto> specialCharms) throws PersistenceException;
 }

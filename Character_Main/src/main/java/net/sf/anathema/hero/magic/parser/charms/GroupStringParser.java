@@ -5,7 +5,7 @@ import net.sf.anathema.charm.parser.ICharmXMLConstants;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import org.dom4j.Element;
 
-public class GroupStringBuilder {
+public class GroupStringParser {
 
   public String build(Element rootElement, ValuedTraitType trait) throws CharmException {
     String value = rootElement.attributeValue(ICharmXMLConstants.ATTRIB_GROUP);

@@ -17,7 +17,7 @@ import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_ALTERNATIVES;
 import static net.sf.anathema.charm.parser.ICharmXMLConstants.TAG_CHARM_REFERENCE;
 import static net.sf.anathema.lib.lang.ArrayUtilities.getFirst;
 
-public class CharmAlternativeBuilder {
+public class CharmAlternativeParser {
 
   public void buildAlternatives(Document charmDoc, Charm[] charms) {
     Element charmListElement = charmDoc.getRootElement();
