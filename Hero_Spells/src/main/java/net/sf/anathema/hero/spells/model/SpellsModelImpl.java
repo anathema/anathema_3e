@@ -2,6 +2,7 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.spells.ISpellCache;
 import net.sf.anathema.hero.magic.spells.CircleType;
@@ -164,7 +165,7 @@ public class SpellsModelImpl implements SpellsModel {
       return false;
     }
     String initiationCharm = getInitiation(spell.getCircleType());
-    return charms.isLearned(initiationCharm);
+    return charms.isLearned(new CharmName(initiationCharm));
   }
 
   @Override

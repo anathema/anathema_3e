@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.attribute.CharmAttributeList;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
@@ -380,8 +381,8 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public boolean isLearned(String charmId) {
-    Charm charm = getCharmById(charmId);
+  public boolean isLearned(CharmName charmId) {
+    Charm charm = getCharmById(charmId.text);
     return charm != null && isLearned(charm);
   }
 

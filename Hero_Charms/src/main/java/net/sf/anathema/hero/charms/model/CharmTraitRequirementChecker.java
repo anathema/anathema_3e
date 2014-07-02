@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
@@ -21,7 +22,6 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
     this.learnArbitrator = learnArbitrator;
   }
 
-  @SuppressWarnings("RedundantIfStatement")
   public boolean areTraitMinimumsSatisfied(Charm charm) {
     for (ValuedTraitType prerequisite : charm.getPrerequisites()) {
       if (!isMinimumSatisfied(charm, prerequisite)) {
@@ -42,7 +42,7 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
     }
     int requiredValue = prerequisite.getCurrentValue();
     for (IPrerequisiteModifyingCharm modifier : prerequisiteModifyingCharms.getPrerequisiteModifyingCharms()) {
-      if (learnArbitrator.isLearned(modifier.getCharmId())) {
+      if (learnArbitrator.isLearned(new CharmName(modifier.getCharmId()))) {
         requiredValue = modifier.modifyRequiredValue(charm, requiredValue);
       }
     }
