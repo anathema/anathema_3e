@@ -7,12 +7,14 @@ import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
-import net.sf.anathema.lib.util.Identifier;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.util.Arrays;
+
+import static org.mockito.Mockito.when;
 
 public class AttributePrerequisiteSatisfiedTest {
 
@@ -33,7 +35,7 @@ public class AttributePrerequisiteSatisfiedTest {
   @Test
   public void isFulfilledIfAttributeIsPresent() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 1);
-    DummyCharm charm = createAttributedDummyCharm();
+    Charm charm = createAttributedDummyCharm();
     Assert.assertTrue(isSatisfied(requirement, new Charm[]{charm}));
   }
 
@@ -47,21 +49,21 @@ public class AttributePrerequisiteSatisfiedTest {
   @Test
   public void isNotFulfilledWithoutCorrectCount() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
-    DummyCharm charm = createAttributedDummyCharm();
+    Charm charm = createAttributedDummyCharm();
     Assert.assertFalse(isSatisfied(requirement, new Charm[]{charm}));
   }
 
   @Test
   public void isNotFulfilledWithoutCorrectAttributesAndCount() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
-    DummyCharm charm = createAttributedDummyCharm();
+    Charm charm = createAttributedDummyCharm();
     Assert.assertFalse(isSatisfied(requirement, new Charm[]{charm, new DummyCharm()}));
   }
 
   @Test
   public void isFulfilledEvenIfChainIsBroken() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
-    DummyCharm charm = createAttributedDummyCharm();
+    Charm charm = createAttributedDummyCharm();
     Assert.assertTrue(isSatisfied(requirement, new Charm[]{charm, new DummyCharm(), charm}));
   }
 
@@ -94,12 +96,9 @@ public class AttributePrerequisiteSatisfiedTest {
 	  };
   }
 
-  private DummyCharm createAttributedDummyCharm() {
-    return new DummyCharm() {
-      @Override
-      public boolean hasAttribute(Identifier charmAttribute) {
-        return true;
-      }
-    };
+  private Charm createAttributedDummyCharm() {
+    Charm charm = Mockito.mock(Charm.class);
+    when(charm.hasAttribute(Mockito.any())).thenReturn(true);
+    return charm;
   }
 }
