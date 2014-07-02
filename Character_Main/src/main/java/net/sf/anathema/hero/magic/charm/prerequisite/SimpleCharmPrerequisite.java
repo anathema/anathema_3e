@@ -30,11 +30,6 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
   }
 
   @Override
-  public boolean isSatisfied(ICharmLearnArbitrator arbitrator) {
-    return arbitrator.isLearned(prerequisite);
-  }
-
-  @Override
   public boolean isAutoSatisfiable(ICharmLearnableArbitrator arbitrator) {
     return arbitrator.isLearnable(prerequisite);
   }

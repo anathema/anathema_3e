@@ -26,20 +26,6 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
   }
 
   @Override
-  public boolean isSatisfied(ICharmLearnArbitrator arbitrator) {
-    int known = 0;
-    for (Charm charm : prerequisites) {
-      if (arbitrator.isLearned(charm)) {
-        known++;
-      }
-      if (known >= threshold) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  @Override
   public void accept(CharmPrerequisiteVisitor visitor) {
     visitor.requiresCharmFromSelection(prerequisites, threshold);
   }

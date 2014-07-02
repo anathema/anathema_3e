@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
@@ -13,11 +12,6 @@ public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisit
   public AttributeKnownCharmPrerequisite(MagicAttribute attribute, int count) {
     this.attribute = attribute;
     this.count = count;
-  }
-
-  @Override
-  public boolean isSatisfied(ICharmLearnArbitrator arbitrator) {
-    return arbitrator.hasLearnedThresholdCharmsWithKeyword(attribute, count);
   }
 
   @Override

@@ -61,6 +61,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.text.MessageFormat.format;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isFormMagic;
@@ -68,7 +69,8 @@ import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMa
 
 public class CharmsModelImpl implements CharmsModel {
 
-  private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(new CreationCharmLearnStrategy());
+  private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(
+          new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
@@ -182,12 +184,13 @@ public class CharmsModelImpl implements CharmsModel {
   private LearningCharmTree[] createTrees(CharmTree[] charmGroups) {
     List<LearningCharmTree> newGroups = new ArrayList<>();
     for (CharmTree charmGroup : charmGroups) {
-      LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, learningCharmGroupContainer);
+      LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this,
+              learningCharmGroupContainer);
       newGroups.add(group);
     }
     return newGroups.toArray(new LearningCharmTree[newGroups.size()]);
   }
-  
+
   @Override
   public LearningCharmTree[] getAllGroups() {
     List<LearningCharmTree> allGroups = new ArrayList<>();
@@ -292,27 +295,27 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     for (CharmPrerequisite prerequisite : charm.getLearnPrerequisites()) {
-    	if (!prerequisite.isSatisfied(this) && !prerequisite.isAutoSatisfiable(this)) {
-    		return false;
-    	}
+      if (!isSatisfied(prerequisite, this) && !prerequisite.isAutoSatisfiable(this)) {
+        return false;
+      }
     }
-    return new CharmTraitRequirementChecker(getPrerequisiteModifyingCharms(), traits, this).areTraitMinimumsSatisfied(charm);
+    return new CharmTraitRequirementChecker(getPrerequisiteModifyingCharms(), traits, this).areTraitMinimumsSatisfied(
+            charm);
   }
-  
+
   @Override
-  public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute,
-  		int threshold) {
-	  Charm[] learnedCharms = getLearnedCharms(true);
-	  int count = 0;
-	  for (Charm charm : learnedCharms) {
-		  if (charm.hasAttribute(attribute)) {
-			  count++;
-		  }
-		  if (count >= threshold) {
-			  return true;
-		  }
-	  }
-	  return false;
+  public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
+    Charm[] learnedCharms = getLearnedCharms(true);
+    int count = 0;
+    for (Charm charm : learnedCharms) {
+      if (charm.hasAttribute(attribute)) {
+        count++;
+      }
+      if (count >= threshold) {
+        return true;
+      }
+    }
+    return false;
   }
 
   private boolean isExperienced() {
@@ -357,7 +360,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private LearningCharmTree getLearningTree(TreeReference reference) {
     LearningCharmTree[] charmTrees = getLearningCharmTrees(reference.category);
-    for(LearningCharmTree tree : charmTrees) {
+    for (LearningCharmTree tree : charmTrees) {
       if (tree.getReference().name.equals(reference.name)) {
         return tree;
       }

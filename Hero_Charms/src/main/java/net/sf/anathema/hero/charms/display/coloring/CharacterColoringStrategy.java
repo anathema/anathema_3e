@@ -1,11 +1,13 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.prerequisite.IndirectCharmPrerequisite;
 import net.sf.anathema.platform.tree.display.TreeView;
+
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 
 public class CharacterColoringStrategy implements CharmColoring {
 
@@ -25,15 +27,15 @@ public class CharacterColoringStrategy implements CharmColoring {
   @Override
   public void colorCharm(Charm charm) {
     String id = charm.getName().text;
-    RGBColor color = getCharmConfiguration().isLearned(charm) ? characterColor : UNSELECTED_COLOR;
-    int opacity = getCharmConfiguration().isLearnable(charm) ? MAXIMUM_OPACITY : REDUCED_OPACITY;
+    RGBColor color = getCharmModel().isLearned(charm) ? characterColor : UNSELECTED_COLOR;
+    int opacity = getCharmModel().isLearnable(charm) ? MAXIMUM_OPACITY : REDUCED_OPACITY;
     treeView.colorNode(id, new RGBColor(color, opacity));
   }
 
   @Override
   public void setPrerequisiteVisuals(IndirectCharmPrerequisite prerequisite) {
     String id = prerequisite.getStringLabel();
-    boolean fulfilled = prerequisite.isSatisfied(getCharmConfiguration());
+    boolean fulfilled = isSatisfied(prerequisite, getCharmModel());
     RGBColor color = fulfilled ? characterColor.brighter() : UNSELECTED_COLOR;
     treeView.colorNode(id, new RGBColor(color, MAXIMUM_OPACITY));
   }
@@ -43,7 +45,7 @@ public class CharacterColoringStrategy implements CharmColoring {
     this.treeView = treeView;
   }
 
-  private CharmsModel getCharmConfiguration() {
+  private CharmsModel getCharmModel() {
     return model.getCharmModel();
   }
 }
