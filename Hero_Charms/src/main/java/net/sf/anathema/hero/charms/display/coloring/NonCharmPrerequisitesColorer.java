@@ -12,7 +12,7 @@ public class NonCharmPrerequisitesColorer implements CharmColorer {
 
   public void color(Charm charm) {
     for (IndirectCharmPrerequisite prerequisite : charm.getPrerequisitesOfType(IndirectCharmPrerequisite.class)) {
-      coloring.setPrerequisiteVisuals(prerequisite);
+      coloring.colorNonCharmPrerequisite(prerequisite);
     }
   }
 }

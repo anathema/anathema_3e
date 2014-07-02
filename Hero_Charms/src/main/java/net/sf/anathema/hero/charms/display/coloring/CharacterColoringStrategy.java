@@ -33,7 +33,7 @@ public class CharacterColoringStrategy implements CharmColoring {
   }
 
   @Override
-  public void setPrerequisiteVisuals(IndirectCharmPrerequisite prerequisite) {
+  public void colorNonCharmPrerequisite(IndirectCharmPrerequisite prerequisite) {
     String id = prerequisite.getStringLabel();
     boolean fulfilled = isSatisfied(prerequisite, getCharmModel());
     RGBColor color = fulfilled ? characterColor.brighter() : UNSELECTED_COLOR;
