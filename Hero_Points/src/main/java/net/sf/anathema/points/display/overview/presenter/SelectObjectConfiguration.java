@@ -1,15 +1,17 @@
 package net.sf.anathema.points.display.overview.presenter;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
 
-public class SelectIdentifierConfiguration<T extends Identifier> extends AbstractUIConfiguration<T> {
-  private Resources resources;
+public class SelectObjectConfiguration<T extends Identifier> extends AbstractUIConfiguration<T> {
+  private final Resources resources;
+  private ValueI18n<T> valueI18n;
 
-  public SelectIdentifierConfiguration(Resources resources) {
+  public SelectObjectConfiguration(Resources resources, ValueI18n<T> valueI18n) {
     this.resources = resources;
+    this.valueI18n = valueI18n;
   }
 
   @Override
@@ -17,7 +19,7 @@ public class SelectIdentifierConfiguration<T extends Identifier> extends Abstrac
     if (isUnselected(value)) {
       return resources.getString("ComboBox.SelectLabel");
     }
-    return resources.getString(getKeyForObject(value));
+    return valueI18n.getLabel(resources, value);
   }
 
   @Override
@@ -31,10 +33,6 @@ public class SelectIdentifierConfiguration<T extends Identifier> extends Abstrac
   @SuppressWarnings("UnusedParameters")
   protected RelativePath getIconForObject(T value) {
     return NO_ICON;
-  }
-
-  protected String getKeyForObject(T value) {
-    return value.getId();
   }
 
   private boolean isUnselected(T value) {
