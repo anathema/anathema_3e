@@ -1,10 +1,11 @@
 package net.sf.anathema.hero.charms.display.special;
 
 import com.google.common.base.Predicate;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
+import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
 
 public class VisibilityPredicate implements Predicate<String> {
 
@@ -18,7 +19,7 @@ public class VisibilityPredicate implements Predicate<String> {
 
   @Override
   public boolean apply(String charmId) {
-    Charm charm = charmMap.getCharmById(charmId);
+    Charm charm = charmMap.getCharmById(new CharmName(charmId));
     return isVisible(charm);
   }
 

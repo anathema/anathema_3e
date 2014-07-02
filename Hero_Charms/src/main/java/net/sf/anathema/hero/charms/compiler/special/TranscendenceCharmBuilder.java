@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -15,7 +16,7 @@ public class TranscendenceCharmBuilder implements SpecialCharmBuilder {
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
     TraitType trait = traitTypeFinder.getTrait(overallDto.transcendence.trait);
     int modifier = overallDto.transcendence.modifier;
-    return new PrerequisiteModifyingCharm(overallDto.charmId, trait, modifier);
+    return new PrerequisiteModifyingCharm(new CharmName(overallDto.charmId), trait, modifier);
   }
 
   @Override

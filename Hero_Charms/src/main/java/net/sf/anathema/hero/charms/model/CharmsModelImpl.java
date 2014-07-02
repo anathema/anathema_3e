@@ -154,7 +154,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void learnCompulsiveCharms() {
     charmsRules.forAllCompulsiveCharms(charmName -> {
-      Charm charm = getCharmById(charmName.text);
+      Charm charm = getCharmById(charmName);
       getGroup(charm).learnCharm(charm, false);
     });
   }
@@ -170,7 +170,7 @@ public class CharmsModelImpl implements CharmsModel {
     CharmIdMap charmIdMap = options.getCharmIdMap();
     ISpecialCharm[] specialCharms = options.getSpecialCharms();
     for (ISpecialCharm specialCharm : specialCharms) {
-      Charm charm = charmIdMap.getCharmById(specialCharm.getCharmId());
+      Charm charm = charmIdMap.getCharmById(specialCharm.getCharmName());
       if (charm == null) {
         continue;
       }
@@ -237,12 +237,12 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
+  public Charm getCharmById(CharmName charmId) {
     Charm charm = options.getCharmIdMap().getCharmById(charmId);
     if (charm != null) {
       return charm;
     }
-    throw new IllegalArgumentException("No charm found for id \"" + charmId + "\"");
+    throw new IllegalArgumentException("No charm found for id \"" + charmId.text + "\"");
   }
 
   @Override
@@ -382,7 +382,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public boolean isLearned(CharmName charmId) {
-    Charm charm = getCharmById(charmId.text);
+    Charm charm = getCharmById(charmId);
     return charm != null && isLearned(charm);
   }
 

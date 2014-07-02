@@ -6,9 +6,10 @@ import net.sf.anathema.hero.charms.display.view.FunctionalNodeProperties;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.platform.tree.display.NodeInteractionListener;
 import net.sf.anathema.platform.tree.display.TreeView;
+
+import static net.sf.anathema.hero.charms.display.view.NodeIds.toCharmName;
 
 public class LearnInteractionPresenter implements CharmInteractionPresenter {
 
@@ -28,11 +29,11 @@ public class LearnInteractionPresenter implements CharmInteractionPresenter {
     CharmsModel charms = model.getCharmModel();
     treeView.addNodeInteractionListener(new NodeInteractionListener() {
       @Override
-      public void nodeSelected(String charmId) {
-        if (viewProperties.isRequirementNode(charmId)) {
+      public void nodeSelected(String nodeId) {
+        if (viewProperties.isRequirementNode(nodeId)) {
           return;
         }
-        model.toggleLearned(charmId);
+        model.toggleLearned(toCharmName(nodeId));
       }
 
       @Override
@@ -41,12 +42,7 @@ public class LearnInteractionPresenter implements CharmInteractionPresenter {
       }
     });
     initCharmLearnListening(charms);
-    charms.addLearnableListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        dye.setCharmVisuals();
-      }
-    });
+    charms.addLearnableListener(dye::setCharmVisuals);
   }
 
   private void initCharmLearnListening(CharmsModel charmConfiguration) {

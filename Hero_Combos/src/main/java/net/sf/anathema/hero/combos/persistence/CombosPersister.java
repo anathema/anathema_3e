@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.combos.persistence;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.persistence.CharmPto;
@@ -42,7 +43,7 @@ public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, Co
   private void loadCharms(CharmsModel charms, CombosModel model, ComboPto comboPto) {
     for (CharmPto charm : comboPto.charms) {
       try {
-        Charm comboCharm = charms.getCharmById(charm.charm);
+        Charm comboCharm = charms.getCharmById(new CharmName(charm.charm));
         model.addCharmToCombo(comboCharm, charm.isExperienceLearned);
       } catch (IllegalArgumentException e) {
         messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charm.charm);

@@ -18,7 +18,7 @@ public class SpecialCharmSet {
 
   private void addCharm(ISpecialCharm identificate) {
     for (ISpecialCharm existing : new ArrayList<>(list)) {
-      if (existing.getCharmId().equals(identificate.getCharmId())) {
+      if (existing.getCharmName().equals(identificate.getCharmName())) {
         list.remove(existing);
       }
     }

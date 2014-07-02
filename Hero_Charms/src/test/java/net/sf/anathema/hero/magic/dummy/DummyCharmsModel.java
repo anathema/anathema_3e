@@ -75,7 +75,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
+  public Charm getCharmById(CharmName charmId) {
     throw new NotYetImplementedException();
   }
 

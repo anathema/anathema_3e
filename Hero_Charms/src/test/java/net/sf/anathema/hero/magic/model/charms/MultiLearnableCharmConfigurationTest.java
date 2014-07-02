@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -24,7 +25,7 @@ public class MultiLearnableCharmConfigurationTest {
 
   private CharmsModel config = new DummyCharmsModel();
   private Charm charm = new DummyCharm("id");
-  private IMultiLearnableCharm specialCharm = new StaticMultiLearnableCharm("id", 5);
+  private IMultiLearnableCharm specialCharm = new StaticMultiLearnableCharm(new CharmName("id"), 5);
   private ICharmLearnableArbitrator arbitrator = new DummyLearnableArbitrator("id");
   private DummyHero hero = new DummyHero();
   private MultiLearnableCharmSpecialsImpl configuration;

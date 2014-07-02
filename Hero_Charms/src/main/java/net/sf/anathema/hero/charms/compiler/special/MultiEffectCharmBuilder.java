@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.subeffects.ComplexMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.parser.dto.special.MultiEffectDto;
@@ -12,7 +13,7 @@ public class MultiEffectCharmBuilder implements SpecialCharmBuilder {
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
     MultiEffectDto multiEffect = overallDto.multiEffect;
     String[] effects = multiEffect.effects.toArray(new String[multiEffect.effects.size()]);
-    return new ComplexMultipleEffectCharm(overallDto.charmId, effects, multiEffect.prerequisiteEffectMap);
+    return new ComplexMultipleEffectCharm(new CharmName(overallDto.charmId), effects, multiEffect.prerequisiteEffectMap);
   }
 
   @Override

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
 import com.google.common.base.Objects;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
@@ -12,10 +13,10 @@ import java.util.List;
 
 public class MultipleEffectCharm implements IMultipleEffectCharm {
 
-  private final String charmId;
+  private final CharmName charmId;
   protected final String[] effectIds;
 
-  public MultipleEffectCharm(String charmId, String[] effectIds) {
+  public MultipleEffectCharm(CharmName charmId, String[] effectIds) {
     this.charmId = charmId;
     this.effectIds = effectIds;
   }
@@ -26,7 +27,7 @@ public class MultipleEffectCharm implements IMultipleEffectCharm {
   }
 
   @Override
-  public String getCharmId() {
+  public CharmName getCharmName() {
     return charmId;
   }
 
@@ -50,6 +51,6 @@ public class MultipleEffectCharm implements IMultipleEffectCharm {
       list.append(effect);
       list.append(isLastEffect ? "" : ",");
     }
-    return "[" + getCharmId() + ";" + list + "]";
+    return "[" + getCharmName() + ";" + list + "]";
   }
 }

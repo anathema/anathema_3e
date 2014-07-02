@@ -1,17 +1,18 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 
 public abstract class AbstractMultiLearnableCharm implements IMultiLearnableCharm {
 
-  private final String charmId;
+  private final CharmName charmId;
 
-  public AbstractMultiLearnableCharm(String charmId) {
+  public AbstractMultiLearnableCharm(CharmName charmId) {
     this.charmId = charmId;
   }
 
   @Override
-  public final String getCharmId() {
+  public final CharmName getCharmName() {
     return charmId;
   }
 

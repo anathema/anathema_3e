@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.magic.parser.dto.special.TraitCapModifierDto;
@@ -14,7 +15,7 @@ public class TraitCapModifierCharmBuilder implements SpecialCharmBuilder {
   @Override
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
     TraitCapModifierDto dto = overallDto.traitCapModifier;
-    return new TraitCapModifyingCharm(overallDto.charmId, traitTypeFinder.getTrait(dto.trait), dto.modifier);
+    return new TraitCapModifyingCharm(new CharmName(overallDto.charmId), traitTypeFinder.getTrait(dto.trait), dto.modifier);
   }
 
   @Override

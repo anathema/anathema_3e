@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
@@ -20,7 +21,7 @@ public class ComplexMultipleEffectCharmTest {
   private ICharmLearnableArbitrator arbitrator = mock(ICharmLearnableArbitrator.class);
   private Charm baseCharm = mock(Charm.class);
   private IMultipleEffectCharm charmWithThreeEffects =
-          new ComplexMultipleEffectCharm("Solar.TestCharm", new String[]{"A", "B", "C"}, new HashMap<>());
+          new ComplexMultipleEffectCharm(new CharmName("Solar.TestCharm"), new String[]{"A", "B", "C"}, new HashMap<>());
 
   @Test
   public void instantiatesSubeffects() throws Exception {

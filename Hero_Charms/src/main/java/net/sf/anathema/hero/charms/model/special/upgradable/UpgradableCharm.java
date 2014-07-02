@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.upgradable;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
@@ -21,7 +22,7 @@ public class UpgradableCharm extends MultipleEffectCharm implements IUpgradableC
   private final Map<String, TraitType> traits;
   private final boolean requiresBase;
 
-  public UpgradableCharm(String charmId, String[] effectIds, boolean requiresBase, Map<String, Integer> bpCosts, Map<String, Integer> xpCosts,
+  public UpgradableCharm(CharmName charmId, String[] effectIds, boolean requiresBase, Map<String, Integer> bpCosts, Map<String, Integer> xpCosts,
                          Map<String, Integer> essenceMins, Map<String, Integer> traitMins, Map<String, TraitType> traits) {
     super(charmId, effectIds);
     this.bpCosts = bpCosts;

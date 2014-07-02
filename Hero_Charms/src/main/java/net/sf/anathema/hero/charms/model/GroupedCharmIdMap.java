@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.Collection;
@@ -13,7 +14,7 @@ public class GroupedCharmIdMap implements CharmIdMap {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
+  public Charm getCharmById(CharmName charmId) {
     for (CharmIdMap tree : trees) {
       Charm charm = tree.getCharmById(charmId);
       if (charm != null) {

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.persistence;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
@@ -33,7 +34,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
   private void learnCharm(CharmsModel model, CharmPto charmPto, CharmListPto pto) {
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
-      Charm charm = model.getCharmById(charmPto.charm);
+      Charm charm = model.getCharmById(new CharmName(charmPto.charm));
       LearningCharmTree group = model.getGroup(charm);
       if (!group.isLearned(charm, false)) {
         group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);

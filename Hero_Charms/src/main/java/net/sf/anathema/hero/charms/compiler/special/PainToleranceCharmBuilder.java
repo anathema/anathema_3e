@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.paintolerance.StaticPainToleranceCharm;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
@@ -8,7 +9,7 @@ import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 public class PainToleranceCharmBuilder implements SpecialCharmBuilder {
 
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
-    return new StaticPainToleranceCharm(overallDto.charmId, overallDto.painTolerance);
+    return new StaticPainToleranceCharm(new CharmName(overallDto.charmId), overallDto.painTolerance);
   }
 
   @Override

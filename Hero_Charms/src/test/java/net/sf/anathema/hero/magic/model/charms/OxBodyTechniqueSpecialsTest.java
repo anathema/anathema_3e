@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -84,7 +85,7 @@ public class OxBodyTechniqueSpecialsTest {
   }
 
   private OxBodyTechniqueCharm createObtCharm() {
-    return new OxBodyTechniqueCharm("Abyssal.Ox-BodyTechnique", AbilityType.Resistance, new LinkedHashMap<String, HealthLevelType[]>() {
+    return new OxBodyTechniqueCharm(new CharmName("Abyssal.Ox-BodyTechnique"), AbilityType.Resistance, new LinkedHashMap<String, HealthLevelType[]>() {
       {
         this.put("OxBody0", new HealthLevelType[]{HealthLevelType.ZERO});
         this.put("OxBody1", new HealthLevelType[]{HealthLevelType.ONE});

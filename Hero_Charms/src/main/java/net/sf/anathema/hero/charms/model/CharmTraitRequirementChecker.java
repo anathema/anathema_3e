@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
-import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
-import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModifyingCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitRequirementChecker;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModifyingCharm;
+import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 public class CharmTraitRequirementChecker implements TraitRequirementChecker {
   private final PrerequisiteModifyingCharms prerequisiteModifyingCharms;
@@ -42,7 +41,7 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
     }
     int requiredValue = prerequisite.getCurrentValue();
     for (IPrerequisiteModifyingCharm modifier : prerequisiteModifyingCharms.getPrerequisiteModifyingCharms()) {
-      if (learnArbitrator.isLearned(new CharmName(modifier.getCharmId()))) {
+      if (learnArbitrator.isLearned(modifier.getCharmName())) {
         requiredValue = modifier.modifyRequiredValue(charm, requiredValue);
       }
     }

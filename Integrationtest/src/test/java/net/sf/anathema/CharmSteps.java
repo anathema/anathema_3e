@@ -32,14 +32,14 @@ public class CharmSteps {
 
   @Then("^she can learn the Charm (.*)$")
   public void she_can_learn_the_Charm(String id) throws Throwable {
-    Charm charm = character.getCharms().getCharmById(id);
+    Charm charm = character.getCharms().getCharmById(new CharmName(id));
     boolean learnable = character.getCharms().isLearnable(charm);
     assertThat(learnable, is(true));
   }
 
   @Then("^she can not learn the Charm (.*)$")
   public void she_can_not_learn_the_Charm(String id) throws Throwable {
-    Charm charm = character.getCharms().getCharmById(id);
+    Charm charm = character.getCharms().getCharmById(new CharmName(id));
     boolean learnable = character.getCharms().isLearnable(charm);
     assertThat(learnable, is(false));
   }
@@ -60,14 +60,14 @@ public class CharmSteps {
   public void she_has_chosen_the_effect_for_the_Charm(String effect, String charmId) throws Throwable {
     CharmsModel charms = character.getCharms();
     assertThat(charms.isLearned(new CharmName(charmId)), is(true));
-    Charm charm = character.getCharms().getCharmById(charmId);
+    Charm charm = character.getCharms().getCharmById(new CharmName(charmId));
     MultipleEffectCharmSpecials configuration = (MultipleEffectCharmSpecials) charms.getCharmSpecialsModel(charm);
     boolean effectLearned = configuration.getEffectById(effect).isLearned();
     assertThat(effectLearned, is(true));
   }
 
   private void toggleLearned(String id) {
-    Charm charm = character.getCharms().getCharmById(id);
+    Charm charm = character.getCharms().getCharmById(new CharmName(id));
     character.getCharms().getGroup(charm).toggleLearned(charm);
   }
 }

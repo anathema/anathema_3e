@@ -53,7 +53,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     List<ISpecialCharm> relevantCharms = new ArrayList<>();
     ISpecialCharm[] allSpecialCharms = getAllSpecialCharms();
     for (ISpecialCharm specialCharm : allSpecialCharms) {
-      Charm charm = getCharmIdMap().getCharmById(specialCharm.getCharmId());
+      Charm charm = getCharmIdMap().getCharmById(specialCharm.getCharmName());
       if (charm != null && optionsCheck.isValidOptionForHeroType(charm)) {
         relevantCharms.add(specialCharm);
       }

@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.model.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
+
 public class NullSpecialCharm implements ISpecialCharm {
   @Override
   public void accept(ISpecialCharmVisitor visitor) {
@@ -7,7 +9,7 @@ public class NullSpecialCharm implements ISpecialCharm {
   }
 
   @Override
-  public String getCharmId() {
-    return "";
+  public CharmName getCharmName() {
+    return new CharmName("");
   }
 }
