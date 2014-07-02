@@ -9,11 +9,10 @@ public interface CharmView extends SpecialCharmViewContainer {
 
   TreeView addTreeView();
 
-  ObjectSelectionView<Identifier> addSelectionView(String title, AgnosticUIConfiguration<Identifier> uiConfig);
+  <T> ObjectSelectionView<T> addSelectionView(String title, AgnosticUIConfiguration<T> uiConfig);
 
-  ObjectSelectionView<Identifier> addSelectionViewAndSizeItFor(String title,
-                                                               AgnosticUIConfiguration<Identifier> uiConfig,
-                                                               Identifier[] objects);
+  <T> ObjectSelectionView<T> addSelectionViewAndSizeItFor(String title, AgnosticUIConfiguration<T> uiConfig,
+                                                          T[] objects);
 
   void whenCursorLeavesCharmAreaResetAllPopups();
 }

@@ -8,7 +8,6 @@ import net.sf.anathema.hero.charms.display.special.CategorizedSpecialView;
 import net.sf.anathema.hero.charms.display.special.ToggleButtonSpecialNodeView;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.StyledTitledPane;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
@@ -41,10 +40,9 @@ public class FxCharmView implements CharmView, NodeHolder {
   }
 
   @Override
-  public ComboBoxSelectionView<Identifier> addSelectionView(String title,
-                                                            AgnosticUIConfiguration<Identifier> uiConfig) {
+  public <T> ComboBoxSelectionView<T> addSelectionView(String title, AgnosticUIConfiguration<T> uiConfig) {
     final BorderPane borderPane = new BorderPane();
-    ComboBoxSelectionView<Identifier> selectionView = new ComboBoxSelectionView<>(title, uiConfig);
+    ComboBoxSelectionView<T> selectionView = new ComboBoxSelectionView<>(title, uiConfig);
     borderPane.centerProperty().set(selectionView.getNode());
     final Node titledBorder = StyledTitledPane.Create(title, borderPane);
     selectionPanel.add(titledBorder);
@@ -52,9 +50,8 @@ public class FxCharmView implements CharmView, NodeHolder {
   }
 
   @Override
-  public ObjectSelectionView<Identifier> addSelectionViewAndSizeItFor(String title,
-                                                                      AgnosticUIConfiguration<Identifier> uiConfig,
-                                                                      Identifier[] objects) {
+  public <T> ObjectSelectionView<T> addSelectionViewAndSizeItFor(String title, AgnosticUIConfiguration<T> uiConfig,
+                                                                 T[] objects) {
     return addSelectionView(title, uiConfig);
   }
 
