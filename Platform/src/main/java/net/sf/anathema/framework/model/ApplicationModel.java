@@ -22,8 +22,6 @@ public class ApplicationModel implements IApplicationModel {
   public ApplicationModel(File repositoryFolder, Environment environment) {
     this.repository = new FileSystemRepository(repositoryFolder);
     this.messaging = new Messaging(environment);
-    InformativeMessages informativeMessages = new WordsOfTheWise(environment);
-    new WelcomeMessage(messaging, informativeMessages).show();
   }
 
   @Override
