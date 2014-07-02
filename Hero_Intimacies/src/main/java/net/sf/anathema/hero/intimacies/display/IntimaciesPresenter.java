@@ -2,17 +2,21 @@ package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
+import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.text.MessageFormat.format;
 
 public class IntimaciesPresenter {
 
@@ -20,7 +24,7 @@ public class IntimaciesPresenter {
   private final Resources resources;
   private final IntimaciesModel model;
 
-  private final Map<Intimacy, ExtensibleTraitView> viewsByEntry = new HashMap<>();
+  private final Map<Intimacy, RemovableEntryView> viewsByEntry = new HashMap<>();
 
   public IntimaciesPresenter(IntimaciesModel model, IntimaciesView view, Resources resources) {
     this.model = model;
@@ -30,8 +34,8 @@ public class IntimaciesPresenter {
 
   public void initPresentation() {
     String labelText = resources.getString("Intimacies.SelectionLabel");
-    StringEntryView selectionView = view.addSelectionView(labelText);
-    Tool tool = initSelectionViewListening(selectionView);
+    IntimacyEntryView selectionView = view.addSelectionView(labelText);
+    Tool tool = initCreationViewListening(selectionView);
     initOverviewView();
     initModelListening(selectionView, tool);
     for (Intimacy intimacy : model.getEntries()) {
@@ -89,37 +93,28 @@ public class IntimaciesPresenter {
     experienceMaximumView.setValue(model.getEntries().size());
   }
 
-  private void addSubView(Intimacy v) {
-    ExtensibleTraitView subView = createSubView(v);
-    viewsByEntry.put(v, subView);
+  private void addSubView(Intimacy intimacy) {
+    RemovableEntryView subView = createSubView(intimacy);
+    viewsByEntry.put(intimacy, subView);
   }
 
-  private ExtensibleTraitView createSubView(final Intimacy intimacy) {
-    String name = intimacy.getName();
-    ExtensibleTraitView intimacyView = view.addIntimacy(name, 0, 0);
-    addDeleteTool(intimacyView, intimacy);
-    return intimacyView;
+  private RemovableEntryView createSubView(final Intimacy intimacy) {
+    String representation = format("{0}, a {1} {2} {3}", intimacy.getName(), intimacy.getStrength(), intimacy.getOutlook(), intimacy.getBond());
+    return view.addIntimacy(representation, new BasicUi().getRemoveIconPath());
   }
 
-  private void addDeleteTool(ExtensibleTraitView extensibleTraitView, final Intimacy intimacy) {
-    Tool tool = extensibleTraitView.addToolBehind();
-    tool.setIcon(new BasicUi().getRemoveIconPath());
-    tool.setCommand(() -> model.removeEntry(intimacy));
-  }
-
-
-  protected void initModelListening(final StringEntryView selectionView, final Tool tool) {
+  protected void initModelListening(final IntimacyEntryView selectionView, final Tool tool) {
     model.addModelChangeListener(new RemovableEntryListener<Intimacy>() {
       @Override
-      public void entryAdded(Intimacy v) {
-        addSubView(v);
+      public void entryAdded(Intimacy intimacy) {
+        addSubView(intimacy);
         reset(selectionView);
       }
 
       @Override
-      public void entryRemoved(Intimacy v) {
-        ExtensibleTraitView traitView = viewsByEntry.get(v);
-        traitView.remove();
+      public void entryRemoved(Intimacy intimacy) {
+        RemovableEntryView traitView = viewsByEntry.get(intimacy);
+        traitView.delete();
       }
 
       @Override
@@ -133,15 +128,25 @@ public class IntimaciesPresenter {
     });
   }
 
-  protected final Tool initSelectionViewListening(StringEntryView selectionView) {
+  private Tool initCreationViewListening(IntimacyEntryView selectionView) {
     selectionView.addTextChangeListener(model::setCurrentName);
+    allowSelection(selectionView, model.getStrengths(), model::setCurrentStrength, model.getStrength());
+    allowSelection(selectionView, model.getOutlooks(), model::setCurrentOutlook, model.getOutlook());
+    allowSelection(selectionView, model.getBonds(), model::setCurrentBond, model.getBond());
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setCommand(model::commitSelection);
     return tool;
   }
 
-  protected final void reset(StringEntryView selectionView) {
+  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectValueListener<T> listener, T initial) {
+    ObjectSelectionView<T> selection = selectionView.addSelection();
+    selection.setObjects(objects);
+    selection.setSelectedObject(initial);
+    selection.addObjectSelectionChangedListener(listener);
+  }
+
+  private void reset(IntimacyEntryView selectionView) {
     selectionView.clear();
     model.setCurrentName(null);
   }

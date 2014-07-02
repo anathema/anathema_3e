@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.display.ExtensibleTraitView;
+import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
+import net.sf.anathema.lib.file.RelativePath;
 
 public interface IntimaciesView {
 
-  StringEntryView addSelectionView(String labelText);
+  IntimacyEntryView addSelectionView(String labelText);
 
   OverviewCategory addOverview(String border);
 
   void setOverview(OverviewCategory overviewView);
 
-  ExtensibleTraitView addIntimacy(String name, int currentValue, int maximalValue);
+  RemovableEntryView addIntimacy(String name, RelativePath removeIcon);
 }

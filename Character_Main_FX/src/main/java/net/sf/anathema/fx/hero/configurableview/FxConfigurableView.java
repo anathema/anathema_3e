@@ -7,13 +7,9 @@ import net.sf.anathema.fx.hero.traitview.FxTraitView;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.platform.fx.FxObjectSelectionView;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -23,12 +19,13 @@ import java.util.List;
 import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
 
 public class FxConfigurableView implements ConfigurableCharacterView, NodeHolder {
-  private MigPane pane = new MigPane(withoutInsets().wrapAfter(2));
+
+  private final MigPane pane = new MigPane(withoutInsets().wrapAfter(2));
   private final List<MigPane> buttonPanels = new ArrayList<>();
 
   @Override
   public MultiComponentLine addMultiComponentLine() {
-    final FxMultiComponentLine line = new FxMultiComponentLine();
+    FxMultiComponentLine line = new FxMultiComponentLine();
     pane.add(line.getNode(), new CC().spanX().wrap());
     return line;
   }
@@ -49,22 +46,15 @@ public class FxConfigurableView implements ConfigurableCharacterView, NodeHolder
 
   @Override
   public Tool addEditAction() {
-    final FxButtonTool interaction = FxButtonTool.ForToolbar();
+    FxButtonTool interaction = FxButtonTool.ForToolbar();
     MigPane mostRecentPanel = buttonPanels.get(buttonPanels.size() - 1);
     mostRecentPanel.add(interaction.getNode());
     return interaction;
   }
 
   @Override
-  public <T> ObjectSelectionView<T> addSelectionView(String label, AgnosticUIConfiguration<T> uiConfiguration) {
-    final FxObjectSelectionView<T> selectionView = new ComboBoxSelectionView<>(label, uiConfiguration);
-    pane.add(selectionView.getNode(), new CC().growX().wrap());
-    return selectionView;
-  }
-
-  @Override
   public IntValueView addDotSelector(String label, int maxValue) {
-    final FxTraitView view = FxTraitView.AsSingleNode(label, maxValue);
+    FxTraitView view = FxTraitView.AsSingleNode(label, maxValue);
     view.addTo(pane);
     return view;
   }

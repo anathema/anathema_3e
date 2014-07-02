@@ -13,9 +13,27 @@ public interface IntimaciesModel extends RemovableEntryModel<Intimacy>, HeroMode
 
   void setCurrentName(String newValue);
 
+  void setCurrentStrength(Strength newValue);
+
+  void setCurrentOutlook(Outlook outlook);
+
+  void setCurrentBond(Bond bond);
+
   void addChangeListener(FlavoredChangeListener listener);
 
   void addModelChangeListener(ChangeListener listener);
 
   boolean isCharacterExperienced();
+
+  Strength[] getStrengths();
+
+  Bond[] getBonds();
+
+  Outlook[] getOutlooks();
+
+  Strength getStrength();
+
+  Outlook getOutlook();
+
+  Bond getBond();
 }

@@ -17,6 +17,9 @@ public class IntimaciesPersister extends AbstractModelJsonPersister<IntimaciesPt
   protected void loadModelFromPto(Hero hero, IntimaciesModel model, IntimaciesPto pto) {
     for (IntimacyPto intimacyPto : pto.intimacies) {
       model.setCurrentName(intimacyPto.name);
+      model.setCurrentStrength(intimacyPto.strength);
+      model.setCurrentOutlook(intimacyPto.outlook);
+      model.setCurrentBond(intimacyPto.bond);
       model.commitSelection();
     }
   }
@@ -33,6 +36,9 @@ public class IntimaciesPersister extends AbstractModelJsonPersister<IntimaciesPt
   private IntimacyPto createIntimacyPto(Intimacy intimacy) {
     IntimacyPto pto = new IntimacyPto();
     pto.name = intimacy.getName();
+    pto.strength = intimacy.getStrength();
+    pto.outlook = intimacy.getOutlook();
+    pto.bond = intimacy.getBond();
     return pto;
   }
 

@@ -1,5 +1,5 @@
 package net.sf.anathema.hero.intimacies.model;
 
-public enum Meaning {
+public enum Bond {
   Tie, Principle
 }
