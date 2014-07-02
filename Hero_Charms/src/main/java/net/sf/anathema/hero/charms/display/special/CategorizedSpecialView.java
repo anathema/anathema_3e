@@ -24,8 +24,8 @@ public class CategorizedSpecialView implements CategorizedSpecialNodeView {
   }
 
   @Override
-  public void setCharmId(String charmId) {
-    this.id = charmId;
+  public void setNodeId(String nodeId) {
+    this.id = nodeId;
   }
 
   @Override

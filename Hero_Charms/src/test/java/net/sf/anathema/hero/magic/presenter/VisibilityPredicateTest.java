@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.presenter;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.hero.charms.display.special.VisibilityPredicate;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
@@ -40,7 +41,7 @@ public class VisibilityPredicateTest {
 
   private CharmIdMap createMapWithCharm(Charm charm) {
     CharmIdMap map = mock(CharmIdMap.class);
-    when(map.getCharmById(ANY_ID)).thenReturn(charm);
+    when(map.getCharmById(new CharmName(ANY_ID))).thenReturn(charm);
     return map;
   }
 }

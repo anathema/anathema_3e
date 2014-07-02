@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.persistence.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
@@ -34,12 +35,12 @@ public class SpecialCharmListPersister {
       specialCharm.accept(new ISpecialCharmVisitor() {
         @Override
         public void visitMultiLearnableCharm(IMultiLearnableCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new MultiLearnCharmPersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultiLearnCharmPersister());
         }
 
         @Override
         public void visitOxBodyTechnique(IOxBodyTechniqueCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new OxBodyTechniquePersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new OxBodyTechniquePersister());
         }
 
         @Override
@@ -49,17 +50,17 @@ public class SpecialCharmListPersister {
 
         @Override
         public void visitSubEffectCharm(ISubEffectCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new MultipleEffectCharmPersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultipleEffectCharmPersister());
         }
 
         @Override
         public void visitMultipleEffectCharm(IMultipleEffectCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new MultipleEffectCharmPersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultipleEffectCharmPersister());
         }
 
         @Override
         public void visitUpgradableCharm(IUpgradableCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new MultipleEffectCharmPersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultipleEffectCharmPersister());
         }
 
         @Override
@@ -69,13 +70,13 @@ public class SpecialCharmListPersister {
 
         @Override
         public void visitTraitCapModifyingCharm(ITraitCapModifyingCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmId(), charmTree), new TraitCapModifyingCharmPersister());
+          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new TraitCapModifyingCharmPersister());
         }
       });
     }
   }
 
-  private Charm getCharm(String charmId, CharmIdMap charmTree) {
+  private Charm getCharm(CharmName charmId, CharmIdMap charmTree) {
     return charmTree.getCharmById(charmId);
   }
 

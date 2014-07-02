@@ -110,20 +110,20 @@ public class AgnosticSpecialCharmViewBuilder implements SpecialCharmViewBuilder 
 
     @SuppressWarnings("unchecked")
     private <T> T getModelFromCharm(ISpecialCharm visitedCharm) {
-      Charm charm = configuration.getCharmById(visitedCharm.getCharmId());
+      Charm charm = configuration.getCharmById(visitedCharm.getCharmName());
       return (T) configuration.getCharmSpecialsModel(charm);
     }
   }
 
   private ToggleButtonSpecialNodeView createBooleanView(IMultipleEffectCharm visitedCharm) {
     ToggleButtonSpecialNodeView specialView = view.createToggleButtonSpecialView();
-    specialView.setCharmId(visitedCharm.getCharmId());
+    specialView.setNodeId(visitedCharm.getCharmName().text);
     return specialView;
   }
 
   private CategorizedSpecialNodeView createCategorizedView(ISpecialCharm visitedCharm) {
     CategorizedSpecialNodeView specialView = view.createCategorizedSpecialView();
-    specialView.setCharmId(visitedCharm.getCharmId());
+    specialView.setNodeId(visitedCharm.getCharmName().text);
     return specialView;
   }
 }

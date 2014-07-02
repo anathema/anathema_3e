@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.compiler;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -16,8 +17,7 @@ public class CharmCacheImpl implements CharmCache {
 
   private MultiEntryMap<CategoryReference, Charm> charmsByCategory = new MultiEntryMap<>();
   private Map<CategoryReference, List<ISpecialCharm>> specialCharmsByCategory = new HashMap<>();
-  private Map<String, Charm> charmsById = new HashMap<>();
-  private CharmProvider charmProvider;
+  private Map<CharmName, Charm> charmsById = new HashMap<>();
   private ReflectionSpecialCharmBuilder specialCharmBuilder;
 
   public CharmCacheImpl(ReflectionSpecialCharmBuilder builder) {
@@ -25,8 +25,8 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
-    return charmsById.get(charmId);
+  public Charm getCharmById(CharmName charmName) {
+    return charmsById.get(charmName);
   }
 
   @Override
@@ -40,7 +40,7 @@ public class CharmCacheImpl implements CharmCache {
 
   @Override
   public List<CategoryReference> getAllCategories() {
-    return new ArrayList(charmsByCategory.keySet());
+    return new ArrayList<>(charmsByCategory.keySet());
   }
 
   @Override
@@ -64,7 +64,7 @@ public class CharmCacheImpl implements CharmCache {
 
   public void addCharm(CategoryReference type, Charm charm) {
     charmsByCategory.replace(type, charm, charm);
-    charmsById.put(charm.getName().text, charm);
+    charmsById.put(charm.getName(), charm);
   }
 
   public void addSpecialCharmData(CategoryReference type, List<SpecialCharmDto> data) {

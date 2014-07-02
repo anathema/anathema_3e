@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.charms.model.special.prerequisite;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 
 public class PrerequisiteModifyingCharm implements IPrerequisiteModifyingCharm {
-  private final String charmId;
+  private final CharmName charmId;
   private final TraitType traitType;
   private final int modifier;
 
-  public PrerequisiteModifyingCharm(String charmId, TraitType traitType, int modifier) {
+  public PrerequisiteModifyingCharm(CharmName charmId, TraitType traitType, int modifier) {
     this.traitType = traitType;
     this.modifier = modifier;
     this.charmId = charmId;
@@ -43,7 +44,7 @@ public class PrerequisiteModifyingCharm implements IPrerequisiteModifyingCharm {
   }
 
   @Override
-  public String getCharmId() {
+  public CharmName getCharmName() {
     return charmId;
   }
 }

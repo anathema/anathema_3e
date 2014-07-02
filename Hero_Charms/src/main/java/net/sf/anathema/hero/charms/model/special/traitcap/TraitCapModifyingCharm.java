@@ -1,14 +1,15 @@
 package net.sf.anathema.hero.charms.model.special.traitcap;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 
 public class TraitCapModifyingCharm implements ITraitCapModifyingCharm {
-  private final String charmId;
+  private final CharmName charmId;
   private final TraitType traitType;
   private final int modifier;
 
-  public TraitCapModifyingCharm(String charmId, TraitType trait, int modifier) {
+  public TraitCapModifyingCharm(CharmName charmId, TraitType trait, int modifier) {
     this.charmId = charmId;
     this.traitType = trait;
     this.modifier = modifier;
@@ -20,7 +21,7 @@ public class TraitCapModifyingCharm implements ITraitCapModifyingCharm {
   }
 
   @Override
-  public String getCharmId() {
+  public CharmName getCharmName() {
     return charmId;
   }
 
@@ -35,6 +36,6 @@ public class TraitCapModifyingCharm implements ITraitCapModifyingCharm {
   }
 
   public String toString() {
-    return "[" + getCharmId() + ";mod " + traitType.getId() + "]";
+    return "[" + getCharmName() + ";mod " + traitType.getId() + "]";
   }
 }

@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
+import net.sf.anathema.charm.data.reference.CharmName;
+
 public class TieredMultiLearnableCharm extends AbstractMultiLearnableCharm {
 
   private final CharmTier[] tiers;
 
-  public TieredMultiLearnableCharm(String charmId, CharmTier[] tiers) {
+  public TieredMultiLearnableCharm(CharmName charmId, CharmTier[] tiers) {
     super(charmId);
     this.tiers = tiers;
   }

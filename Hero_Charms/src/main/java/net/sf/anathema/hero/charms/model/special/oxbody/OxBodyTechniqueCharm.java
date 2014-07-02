@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.oxbody;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
@@ -11,13 +12,13 @@ public class OxBodyTechniqueCharm implements IOxBodyTechniqueCharm {
 
   private final TraitType[] traitTypes;
   private final LinkedHashMap<String, HealthLevelType[]> healthLevels;
-  private final String charmId;
+  private final CharmName charmId;
 
-  public OxBodyTechniqueCharm(String charmId, TraitType traitType, LinkedHashMap<String, HealthLevelType[]> healthLevels) {
+  public OxBodyTechniqueCharm(CharmName charmId, TraitType traitType, LinkedHashMap<String, HealthLevelType[]> healthLevels) {
     this(charmId, new TraitType[]{traitType}, healthLevels);
   }
 
-  public OxBodyTechniqueCharm(String charmId, TraitType[] traitTypes, LinkedHashMap<String, HealthLevelType[]> healthLevels) {
+  public OxBodyTechniqueCharm(CharmName charmId, TraitType[] traitTypes, LinkedHashMap<String, HealthLevelType[]> healthLevels) {
     this.traitTypes = traitTypes;
     this.healthLevels = healthLevels;
     this.charmId = charmId;
@@ -34,7 +35,7 @@ public class OxBodyTechniqueCharm implements IOxBodyTechniqueCharm {
   }
 
   @Override
-  public String getCharmId() {
+  public CharmName getCharmName() {
     return charmId;
   }
 

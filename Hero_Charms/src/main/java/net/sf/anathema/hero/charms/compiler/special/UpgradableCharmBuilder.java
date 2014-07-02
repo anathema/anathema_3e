@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.magic.parser.dto.special.UpgradableDto;
@@ -18,7 +19,7 @@ public class UpgradableCharmBuilder implements SpecialCharmBuilder {
   @Override
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
     UpgradableDto dto = overallDto.upgradable;
-    return new UpgradableCharm(overallDto.charmId, createUpgrades(dto), dto.requiresBase, dto.bpCostsByName,
+    return new UpgradableCharm(new CharmName(overallDto.charmId), createUpgrades(dto), dto.requiresBase, dto.bpCostsByName,
             dto.xpCostsByName, dto.essenceMinimumsByName, dto.traitMinimumsByName, createTraitsMap(dto));
   }
 

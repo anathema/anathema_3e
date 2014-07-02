@@ -13,7 +13,15 @@ import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
-import net.sf.anathema.hero.charms.model.learn.*;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
+import net.sf.anathema.hero.charms.model.learn.CharmLearner;
+import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
+import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroupContainer;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
+import net.sf.anathema.hero.charms.model.learn.MagicLearner;
+import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModel;
+import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModelImpl;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
@@ -39,24 +47,29 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.*;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isFormMagic;
+import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
 
 public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
-  private final CharmsTemplate template;
   private ISpecialCharmManager manager;
   private ILearningCharmGroupContainer learningCharmGroupContainer = this::getGroup;
   private final Map<CategoryReference, LearningCharmTree[]> learnTreesByCategory = new HashMap<>();
@@ -70,7 +83,6 @@ public class CharmsModelImpl implements CharmsModel {
   private final List<MagicLearner> magicLearners = new ArrayList<>();
 
   public CharmsModelImpl(CharmsTemplate template) {
-    this.template = template;
     this.charmsRules = new CharmsRulesImpl(template);
   }
 
@@ -90,7 +102,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.manager = new SpecialCharmManager(specialist, hero, this);
     initializeCharmTrees();
     initSpecialCharmConfigurations();
-    learnCompulsiveCharms(hero.getTemplate());
+    learnCompulsiveCharms();
     addOverdrivePools(hero);
     addPrintProvider(new PrintCharmsProvider(hero));
     addLearnProvider(new CharmLearner(this));
@@ -140,15 +152,11 @@ public class CharmsModelImpl implements CharmsModel {
     addCharmLearnListener(new CharacterChangeCharmListener(announcer));
   }
 
-  @SuppressWarnings("UnusedParameters")
-  private void learnCompulsiveCharms(HeroTemplate template) {
-    List<String> compulsiveCharms1 = this.template.compulsiveCharms;
-    String[] compulsiveCharms = compulsiveCharms1.toArray(new String[compulsiveCharms1.size()]);
-
-    for (String charmId : compulsiveCharms) {
-      Charm charm = getCharmById(charmId);
+  private void learnCompulsiveCharms() {
+    charmsRules.forAllCompulsiveCharms(charmName -> {
+      Charm charm = getCharmById(charmName);
       getGroup(charm).learnCharm(charm, false);
-    }
+    });
   }
 
   @Override
@@ -162,7 +170,7 @@ public class CharmsModelImpl implements CharmsModel {
     CharmIdMap charmIdMap = options.getCharmIdMap();
     ISpecialCharm[] specialCharms = options.getSpecialCharms();
     for (ISpecialCharm specialCharm : specialCharms) {
-      Charm charm = charmIdMap.getCharmById(specialCharm.getCharmId());
+      Charm charm = charmIdMap.getCharmById(specialCharm.getCharmName());
       if (charm == null) {
         continue;
       }
@@ -229,12 +237,12 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
+  public Charm getCharmById(CharmName charmId) {
     Charm charm = options.getCharmIdMap().getCharmById(charmId);
     if (charm != null) {
       return charm;
     }
-    throw new IllegalArgumentException("No charm found for id \"" + charmId + "\"");
+    throw new IllegalArgumentException("No charm found for id \"" + charmId.text + "\"");
   }
 
   @Override
@@ -373,7 +381,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public boolean isLearned(String charmId) {
+  public boolean isLearned(CharmName charmId) {
     Charm charm = getCharmById(charmId);
     return charm != null && isLearned(charm);
   }

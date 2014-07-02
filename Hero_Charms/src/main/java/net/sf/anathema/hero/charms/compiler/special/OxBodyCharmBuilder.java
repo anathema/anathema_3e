@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -28,10 +29,10 @@ public class OxBodyCharmBuilder implements SpecialCharmBuilder {
 
   @Override
   public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
-    return createSpecialCharm(overallDto.charmId, overallDto.oxBodyTechnique);
+    return createSpecialCharm(new CharmName(overallDto.charmId), overallDto.oxBodyTechnique);
   }
 
-  private ISpecialCharm createSpecialCharm(String id, OxBodyTechniqueDto dto) {
+  private ISpecialCharm createSpecialCharm(CharmName id, OxBodyTechniqueDto dto) {
     TraitType[] traitList = new TraitType[dto.traits.size()];
     for (int i = 0; i != traitList.length; i++) {
       traitList[i] = traitTypeFinder.getTrait(dto.traits.get(i));

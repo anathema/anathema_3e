@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.magic.dummy;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.CharmIdMap;
@@ -48,7 +49,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public boolean isLearned(String charmId) {
+  public boolean isLearned(CharmName charmId) {
     throw new NotYetImplementedException();
   }
 
@@ -74,7 +75,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public Charm getCharmById(String charmId) {
+  public Charm getCharmById(CharmName charmId) {
     throw new NotYetImplementedException();
   }
 

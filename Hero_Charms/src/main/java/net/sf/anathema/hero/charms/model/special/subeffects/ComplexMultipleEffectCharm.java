@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
@@ -12,7 +13,7 @@ import java.util.Map;
 public class ComplexMultipleEffectCharm extends MultipleEffectCharm {
   Map<String, String> prereqEffectMap;
 
-  public ComplexMultipleEffectCharm(String charmId, String[] effectIds, Map<String, String> prereqEffect) {
+  public ComplexMultipleEffectCharm(CharmName charmId, String[] effectIds, Map<String, String> prereqEffect) {
     super(charmId, effectIds);
     prereqEffectMap = prereqEffect;
   }

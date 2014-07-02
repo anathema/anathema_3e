@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
@@ -9,11 +10,11 @@ public class TraitDependentMultiLearnableCharm extends AbstractMultiLearnableCha
   private final TraitType traitType;
   private final int countModifier;
 
-  public TraitDependentMultiLearnableCharm(String charmId, int absoluteLearnLimit, TraitType traitType) {
+  public TraitDependentMultiLearnableCharm(CharmName charmId, int absoluteLearnLimit, TraitType traitType) {
     this(charmId, absoluteLearnLimit, traitType, 0);
   }
 
-  public TraitDependentMultiLearnableCharm(String charmId, int absoluteLearnLimit, TraitType traitType, int modifier) {
+  public TraitDependentMultiLearnableCharm(CharmName charmId, int absoluteLearnLimit, TraitType traitType, int modifier) {
     super(charmId);
     this.absoluteLearnLimit = absoluteLearnLimit;
     this.traitType = traitType;
@@ -44,6 +45,6 @@ public class TraitDependentMultiLearnableCharm extends AbstractMultiLearnableCha
   }
 
   public String toString() {
-    return "[" + getCharmId() + ";" + traitType + (countModifier != 0 ? ";" + countModifier : "") + "]";
+    return "[" + getCharmName() + ";" + traitType + (countModifier != 0 ? ";" + countModifier : "") + "]";
   }
 }
