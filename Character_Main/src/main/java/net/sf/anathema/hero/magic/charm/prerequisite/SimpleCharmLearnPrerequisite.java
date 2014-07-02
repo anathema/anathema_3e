@@ -3,12 +3,11 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisite {
@@ -53,7 +52,7 @@ public class SimpleCharmLearnPrerequisite implements DirectCharmLearnPrerequisit
   }
 
   @Override
-  public void link(Map<CharmName, CharmImpl> charmsById) {
+  public void link(UnlinkedCharmMap charmsById) {
     if (prerequisite != PREREQUISITE_NOT_SET) {
       return;
     }

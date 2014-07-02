@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
@@ -35,14 +36,14 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   private final CharmAlternativeParser alternativeBuilder = new CharmAlternativeParser();
   private final CharmMergedParser mergedBuilder = new CharmMergedParser();
   private final SAXReader reader = new SAXReader();
-  private final CharmCacheImpl charmCache;
   private final CharmSetBuilder setBuilder;
   private final CharmDocuments charmDocuments = new CharmDocuments();
+  private final UnlinkedCharms charmCollection = new UnlinkedCharms();
+  private final ReflectionSpecialCharmBuilder specialCharmBuilder;
 
   public CharmCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
-    ReflectionSpecialCharmBuilder specialCharmBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
+    this.specialCharmBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
     ReflectionSpecialCharmParser specialCharmParser = new ReflectionSpecialCharmParser(objectFactory);
-    this.charmCache = new CharmCacheImpl(specialCharmBuilder);
     CharacterTypes characterTypes = provider.getDataSet(CharacterTypes.class);
     this.setBuilder = new CharmSetBuilder(characterTypes, specialCharmParser);
   }
@@ -81,28 +82,37 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
     buildStandardCharms();
     buildCharmAlternatives();
     buildCharmMerges();
-    charmCache.extractParents();
-    return charmCache;
+    return charmCollection.createCharmCache();
   }
 
   private void buildStandardCharms() throws PersistenceException {
     charmDocuments.forEach((document, category) -> {
-      List<SpecialCharmDto> specialCharms = new ArrayList<>();
-      CharmImpl[] charmArray = setBuilder.buildCharms(document, specialCharms);
+      List<SpecialCharmDto> specialCharmDtos = new ArrayList<>();
+      CharmImpl[] charmArray = setBuilder.buildCharms(document, specialCharmDtos);
       for (CharmImpl charm : charmArray) {
-        charmCache.addCharm(category, charm);
+        charmCollection.addCharm(category, charm);
       }
-      charmCache.addSpecialCharmData(category, specialCharms);
+      buildSpecialCharms(category, specialCharmDtos);
     });
+  }
+
+  private void buildSpecialCharms(CategoryReference reference, List<SpecialCharmDto> dtos) {
+    if (dtos == null) {
+      return;
+    }
+    List<ISpecialCharm> specialCharms = new ArrayList<>();
+    for (SpecialCharmDto dto : dtos) {
+      specialCharms.add(specialCharmBuilder.readCharm(dto));
+    }
+    charmCollection.addSpecialCharmData(reference,specialCharms);
   }
 
   private void buildCharmAlternatives() {
     charmDocuments.forEach((document, category) -> alternativeBuilder.buildAlternatives(document,
-            charmCache.getCharms(category)));
+            charmCollection.getCharms(category)));
   }
 
   private void buildCharmMerges() {
-    charmDocuments.forEach((document, category) -> mergedBuilder.buildMerges(document, charmCache.getCharms(category)));
+    charmDocuments.forEach((document, category) -> mergedBuilder.buildMerges(document, charmCollection.getCharms(category)));
   }
-
 }

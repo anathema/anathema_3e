@@ -6,6 +6,7 @@ import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.hero.charms.compiler.UnlinkedCharms;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
@@ -18,10 +19,9 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import org.junit.Test;
 
-import java.util.HashMap;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
+import static org.mockito.Mockito.mock;
 
 public class CharmTest {
 
@@ -29,7 +29,8 @@ public class CharmTest {
   public void testParentCharmsNotOverwritten() throws Exception {
     DummyCharm dummy = new DummyCharm("OtherDummy");
     CharmImpl charm = createCharm(dummy);
-    charm.extractParentCharms(new HashMap<>());
+    UnlinkedCharms unlinkedCharms = mock(UnlinkedCharms.class);
+    charm.extractParentCharms(unlinkedCharms);
     assertEquals(1, charm.getPrerequisitesOfType(SimpleCharmLearnPrerequisite.class).size());
     assertEquals(dummy, charm.getPrerequisitesOfType(SimpleCharmLearnPrerequisite.class).toArray(new SimpleCharmLearnPrerequisite[1])[0].getDirectPredecessors()[0]);
   }

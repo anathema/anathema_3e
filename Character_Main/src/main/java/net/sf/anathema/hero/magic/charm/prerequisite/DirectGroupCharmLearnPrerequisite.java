@@ -6,6 +6,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,7 +42,7 @@ public class DirectGroupCharmLearnPrerequisite implements DirectCharmLearnPrereq
   }
 
   @Override
-  public void link(Map<CharmName, CharmImpl> charmsById) {
+  public void link(UnlinkedCharmMap charmsById) {
     if (prerequisites != null) {
       return;
     }

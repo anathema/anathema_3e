@@ -1,12 +1,9 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
-
-import java.util.Map;
+import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 public class AttributeKnownCharmLearnPrerequisite implements IndirectCharmLearnPrerequisite {
 
@@ -34,7 +31,7 @@ public class AttributeKnownCharmLearnPrerequisite implements IndirectCharmLearnP
 	}
 
 	@Override
-	public void link(Map<CharmName, CharmImpl> charmsById) {
+	public void link(UnlinkedCharmMap charmsById) {
 		// nothing to do
 	}
 	

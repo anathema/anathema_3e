@@ -2,11 +2,8 @@ package net.sf.anathema.hero.charms.compiler;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.lib.collection.MultiEntryMap;
 
 import java.util.ArrayList;
@@ -16,14 +13,9 @@ import java.util.Map;
 
 public class CharmCacheImpl implements CharmCache {
 
-  private MultiEntryMap<CategoryReference, CharmImpl> charmsByCategory = new MultiEntryMap<>();
+  private MultiEntryMap<CategoryReference, Charm> charmsByCategory = new MultiEntryMap<>();
   private Map<CategoryReference, List<ISpecialCharm>> specialCharmsByCategory = new HashMap<>();
-  private Map<CharmName, CharmImpl> charmsById = new HashMap<>();
-  private ReflectionSpecialCharmBuilder specialCharmBuilder;
-
-  public CharmCacheImpl(ReflectionSpecialCharmBuilder builder) {
-    this.specialCharmBuilder = builder;
-  }
+  private Map<CharmName, Charm> charmsById = new HashMap<>();
 
   @Override
   public Charm getCharmById(CharmName charmName) {
@@ -35,7 +27,7 @@ public class CharmCacheImpl implements CharmCache {
     if (!charmsByCategory.containsKey(type)) {
       return new Charm[0];
     }
-    List<CharmImpl> charmList = charmsByCategory.get(type);
+    List<Charm> charmList = charmsByCategory.get(type);
     return charmList.toArray(new Charm[charmList.size()]);
   }
 
@@ -53,12 +45,6 @@ public class CharmCacheImpl implements CharmCache {
     return new ISpecialCharm[0];
   }
 
-  public void extractParents() {
-    for (CharmImpl charm : charmsById.values()) {
-      charm.extractParentCharms(charmsById);
-    }
-  }
-
   public Iterable<Charm> getCharms() {
     List<Charm> allCharms = new ArrayList<>();
     for (CategoryReference type : charmsByCategory.keySet()) {
@@ -69,22 +55,20 @@ public class CharmCacheImpl implements CharmCache {
     return allCharms;
   }
 
-  public void addCharm(CategoryReference type, CharmImpl charm) {
-    charmsByCategory.replace(type, charm, charm);
+  public void addCharm(Charm charm) {
+    charmsByCategory.replace(charm.getTreeReference().category, charm, charm);
     charmsById.put(charm.getName(), charm);
   }
 
-  public void addSpecialCharmData(CategoryReference type, List<SpecialCharmDto> data) {
-    if (data == null) {
+  public void addSpecialCharmData(CategoryReference type, List<ISpecialCharm> specialCharms) {
+    if (specialCharms == null) {
       return;
     }
-    List<ISpecialCharm> specialCharms = addAndGetSpecialCharmList(type);
-    for (SpecialCharmDto dto : data) {
-      specialCharms.add(specialCharmBuilder.readCharm(dto));
-    }
+    List<ISpecialCharm> cachedList = getCachedSpecialCharmList(type);
+    cachedList.addAll(specialCharms);
   }
 
-  private List<ISpecialCharm> addAndGetSpecialCharmList(CategoryReference type) {
+  private List<ISpecialCharm> getCachedSpecialCharmList(CategoryReference type) {
     if (!specialCharmsByCategory.containsKey(type)) {
       specialCharmsByCategory.put(type, new ArrayList<>());
     }

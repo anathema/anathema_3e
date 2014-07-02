@@ -142,10 +142,10 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return mergedCharms;
   }
 
-  public void extractParentCharms(Map<CharmName, CharmImpl> charmsById) {
+  public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
     prerequisites.addAll(Arrays.asList(prerequisisteList.getCharmPrerequisites()));
     for (CharmLearnPrerequisite prerequisite : prerequisites) {
-      prerequisite.link(charmsById);
+      prerequisite.link(unlinkedCharms);
     }
     List<DirectCharmLearnPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmLearnPrerequisite.class);
     for (DirectCharmLearnPrerequisite prerequisite : directPrerequisites) {
