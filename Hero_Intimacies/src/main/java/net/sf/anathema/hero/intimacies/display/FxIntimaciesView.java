@@ -3,11 +3,10 @@ package net.sf.anathema.hero.intimacies.display;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
+import net.sf.anathema.hero.languages.display.view.FxRemovableStringView;
+import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
-import net.sf.anathema.fx.hero.traitview.FxExtensibleTraitView;
-import net.sf.anathema.fx.hero.traitview.FxTraitView;
-import net.sf.anathema.fx.hero.traitview.SimpleTraitViewPanel;
-import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -17,13 +16,13 @@ import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
 public class FxIntimaciesView implements IntimaciesView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());
   private final MigPane creationPane = new MigPane(withoutInsets());
-  private final SimpleTraitViewPanel entryPanel = new SimpleTraitViewPanel();
+  private final MigPane entryPanel = new MigPane(withoutInsets().wrapAfter(2));
   private final MigPane overviewPanel = new MigPane();
 
   public FxIntimaciesView() {
     MigPane mainPanel = new MigPane(fillWithoutInsets().wrapAfter(1));
     mainPanel.add(creationPane, new CC().growX());
-    mainPanel.add(entryPanel.getNode(), new CC().alignY("top").growX());
+    mainPanel.add(entryPanel, new CC().alignY("top").growX());
     content.add(mainPanel, new CC().alignY("top").growX());
     content.add(overviewPanel, new CC().alignY("top").growX());
   }
@@ -34,8 +33,8 @@ public class FxIntimaciesView implements IntimaciesView, NodeHolder {
   }
 
   @Override
-  public StringEntryView addSelectionView(String labelText) {
-    final FxStringEntryView view = new FxStringEntryView(labelText);
+  public IntimacyEntryView addSelectionView(String labelText) {
+    FxIntimacyEntryView view = new FxIntimacyEntryView(labelText);
     creationPane.add(view.getNode());
     return view;
   }
@@ -53,10 +52,9 @@ public class FxIntimaciesView implements IntimaciesView, NodeHolder {
   }
 
   @Override
-  public ExtensibleTraitView addIntimacy(String name, int currentValue, int maximalValue) {
-    FxTraitView view = FxTraitView.WithDefaultLayout(name, maximalValue);
-    FxExtensibleTraitView traitView = new FxExtensibleTraitView(view);
-    traitView.addTo(entryPanel);
-    return traitView;
+  public RemovableEntryView addIntimacy(String name, RelativePath removeIcon) {
+    FxRemovableStringView view = new FxRemovableStringView(removeIcon, name);
+    view.addTo(entryPanel);
+    return view;
   }
 }

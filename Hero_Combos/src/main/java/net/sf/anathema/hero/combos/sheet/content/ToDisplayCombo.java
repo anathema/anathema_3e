@@ -2,9 +2,11 @@ package net.sf.anathema.hero.combos.sheet.content;
 
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
-import net.sf.anathema.hero.charms.sheet.content.CharmPrintNameTransformer;
-import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
+import net.sf.anathema.hero.combos.display.presenter.Combo;
+
+import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
 
 public class ToDisplayCombo implements Function<Combo, DisplayCombo> {
 
@@ -27,8 +29,8 @@ public class ToDisplayCombo implements Function<Combo, DisplayCombo> {
   }
 
   private String getCharmString(Combo combo) {
-    CharmPrintNameTransformer transformer = new CharmPrintNameTransformer(resources);
-    String[] charmNames = net.sf.anathema.lib.lang.ArrayUtilities.transform(combo.getCharms(), String.class, transformer);
+    MagicDisplayLabeler labeler = new MagicDisplayLabeler(resources);
+    String[] charmNames = transform(combo.getCharms(), String.class, labeler::getLabelForMagic);
     return Joiner.on(", ").join(charmNames);
   }
 }

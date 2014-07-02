@@ -1,16 +1,18 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import javafx.scene.Node;
-import net.sf.anathema.fx.hero.configurableview.FxConfigurableView;
+import net.sf.anathema.fx.hero.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 
-public class FxStringEntryView implements StringEntryView {
-  private final FxConfigurableView view = new FxConfigurableView();
+public class FxIntimacyEntryView implements IntimacyEntryView {
+  private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
   private final ITextView textView;
 
-  public FxStringEntryView(String labelText) {
+  public FxIntimacyEntryView(String labelText) {
     this.textView = view.addLineView(labelText);
   }
 
@@ -26,6 +28,16 @@ public class FxStringEntryView implements StringEntryView {
   @Override
   public void clear() {
     textView.setText(null);
+  }
+
+  @Override
+  public <T> ObjectSelectionView<T> addSelection() {
+    return view.addSelectionView("", new AbstractUIConfiguration<T>() {
+      @Override
+      protected String labelForExistingValue(T value) {
+        return value.toString();
+      }
+    });
   }
 
   public Node getNode() {

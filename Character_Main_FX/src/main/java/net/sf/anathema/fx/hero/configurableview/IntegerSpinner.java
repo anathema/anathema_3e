@@ -1,7 +1,5 @@
 package net.sf.anathema.fx.hero.configurableview;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
@@ -28,12 +26,7 @@ public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
 
   @Override
   public void addChangeListener(final IntValueChangedListener listener) {
-    spinner.valueProperty().addListener(new ChangeListener<Integer>() {
-      @Override
-      public void changed(ObservableValue<? extends Integer> observableValue, Integer integer, Integer newValue) {
-        listener.valueChanged(newValue);
-      }
-    });
+    spinner.valueProperty().addListener((observableValue, integer, newValue) -> listener.valueChanged(newValue));
   }
 
   @Override

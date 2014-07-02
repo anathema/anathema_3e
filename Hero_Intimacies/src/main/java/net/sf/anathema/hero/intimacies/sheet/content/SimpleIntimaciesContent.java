@@ -30,9 +30,6 @@ public class SimpleIntimaciesContent extends AbstractSubBoxContent implements Li
     List<String> printIntimacies = new ArrayList<>();
     for (Intimacy intimacy : getModel().getEntries()) {
       String text = intimacy.getName();
-      if (!intimacy.isComplete()) {
-        text += " (" + intimacy.getTrait().getCurrentValue() + "/" + intimacy.getTrait().getMaximalValue() + ")";
-      }
       printIntimacies.add(text);
     }
     return printIntimacies;

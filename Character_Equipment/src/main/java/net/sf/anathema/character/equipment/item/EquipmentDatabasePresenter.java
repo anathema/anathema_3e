@@ -1,6 +1,5 @@
 package net.sf.anathema.character.equipment.item;
 
-import com.google.common.base.Function;
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.character.equipment.item.view.EquipmentDatabaseView;
@@ -9,9 +8,6 @@ import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.gui.selection.ISelectionIntValueChangedListener;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
@@ -62,57 +58,26 @@ public class EquipmentDatabasePresenter {
     compositionView.setObjects(MaterialComposition.values());
     final ObjectSelectionView<MagicalMaterial> materialView = descriptionPanel.addMaterialView(getColonString("Equipment.Creation.Basics.Material"), new MaterialUi(resources));
     materialView.setObjects(MagicalMaterial.values());
-    String[] backgrounds = transform(defaultCostBackgrounds, String.class, new Function<String, String>() {
-      @Override
-      public String apply(String arg0) {
-        return resources.getString("Equipment.Cost.Type." + arg0);
-      }
-    });
+    String[] backgrounds = transform(defaultCostBackgrounds, String.class, background -> resources.getString("Equipment.Cost.Type." + background));
     final CostSelectionView costView = descriptionPanel.addCostView(getColonString("Equipment.Creation.Basics.Cost"));
     costView.setSelectableBackgrounds(backgrounds);
-    compositionView.addObjectSelectionChangedListener(new ObjectValueListener<MaterialComposition>() {
-      @Override
-      public void valueChanged(MaterialComposition newValue) {
-        model.getTemplateEditModel().setMaterialComposition(newValue);
+    compositionView.addObjectSelectionChangedListener(newValue -> model.getTemplateEditModel().setMaterialComposition(newValue));
+    model.getTemplateEditModel().addCompositionChangeListener(() -> {
+      MaterialComposition materialComposition = model.getTemplateEditModel().getMaterialComposition();
+      compositionView.setSelectedObject(materialComposition);
+      materialView.setEnabled(materialComposition.requiresMaterial());
+    });
+    materialView.addObjectSelectionChangedListener(newValue -> model.getTemplateEditModel().setMagicalMaterial(newValue));
+    model.getTemplateEditModel().addMagicalMaterialChangeListener(() -> materialView.setSelectedObject(model.getTemplateEditModel().getMagicalMaterial()));
+    costView.addSelectionChangedListener((selection, value) -> {
+      ItemCost cost = selection == null ? null : new ItemCost(selection, value);
+      ItemCost currentModelCost = model.getTemplateEditModel().getCost();
+      if ((cost == null && currentModelCost != null) ||
+              (cost != null && currentModelCost == null) ||
+              (cost != null && !cost.equals(currentModelCost))) {
+        model.getTemplateEditModel().setCost(cost);
       }
     });
-    model.getTemplateEditModel().addCompositionChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        MaterialComposition materialComposition = model.getTemplateEditModel().getMaterialComposition();
-        compositionView.setSelectedObject(materialComposition);
-        materialView.setEnabled(materialComposition.requiresMaterial());
-      }
-    });
-    materialView.addObjectSelectionChangedListener(new ObjectValueListener<MagicalMaterial>() {
-      @Override
-      public void valueChanged(MagicalMaterial newValue) {
-        model.getTemplateEditModel().setMagicalMaterial(newValue);
-      }
-    });
-    model.getTemplateEditModel().addMagicalMaterialChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        materialView.setSelectedObject(model.getTemplateEditModel().getMagicalMaterial());
-      }
-    });
-    costView.addSelectionChangedListener(new ISelectionIntValueChangedListener<String>() {
-      @Override
-      public void valueChanged(String selection, int value) {
-        ItemCost cost = selection == null ? null : new ItemCost(selection, value);
-        ItemCost currentModelCost = model.getTemplateEditModel().getCost();
-        if ((cost == null && currentModelCost != null) ||
-                (cost != null && currentModelCost == null) ||
-                (cost != null && !cost.equals(currentModelCost))) {
-          model.getTemplateEditModel().setCost(cost);
-        }
-      }
-    });
-    model.getTemplateEditModel().addCostChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        costView.setValue(model.getTemplateEditModel().getCost());
-      }
-    });
+    model.getTemplateEditModel().addCostChangeListener(() -> costView.setValue(model.getTemplateEditModel().getCost()));
   }
 }

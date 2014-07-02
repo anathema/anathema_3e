@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.model.special.upgradable;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffects;
 
@@ -24,12 +22,7 @@ public class CollectionSubEffects implements SubEffects {
 
   @Override
   public SubEffect getById(final String id) {
-    return Iterables.find(effects, new Predicate<SubEffect>() {
-      @Override
-      public boolean apply(SubEffect input) {
-        return input.getId().equals(id);
-      }
-    });
+    return effects.stream().filter(input -> input.getId().equals(id)).findFirst().get();
   }
 
   @Override

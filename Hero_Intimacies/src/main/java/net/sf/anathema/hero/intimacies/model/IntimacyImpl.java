@@ -1,45 +1,17 @@
 package net.sf.anathema.hero.intimacies.model;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.hero.traits.model.ValueChangeChecker;
-import net.sf.anathema.hero.traits.model.rules.ModificationType;
-import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.hero.traits.template.LimitationType;
-import net.sf.anathema.hero.traits.template.TraitTemplate;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.GlobalChangeAdapter;
-import net.sf.anathema.lib.control.IBooleanValueChangedListener;
-import org.jmock.example.announcer.Announcer;
-
 public class IntimacyImpl implements Intimacy {
 
   private final String name;
-  private final Trait trait;
-  private boolean complete;
-  private final Announcer<IBooleanValueChangedListener> control = Announcer.to(IBooleanValueChangedListener.class);
+  private final Strength strength;
+  private final Outlook outlook;
+  private final Bond bond;
 
-  public IntimacyImpl(Hero hero, String name, Integer initialValue) {
+  public IntimacyImpl(String name, Strength strength, Outlook outlook, Bond bond) {
     this.name = name;
-    TraitTemplate template = createIntimacyTemplate(0, initialValue, ModificationType.Free);
-    TraitRules traitRules = new TraitRulesImpl(new IntimacyType(name), template, hero);
-    ValueChangeChecker incrementChecker = new IntimacyValueChangeChecker();
-    this.trait = new DefaultTrait(hero, traitRules, incrementChecker);
-  }
-
-  private static TraitTemplate createIntimacyTemplate(int minimumValue, int startValue, ModificationType state) {
-    TraitTemplate template = new TraitTemplate();
-    template.minimumValue = minimumValue;
-    template.startValue = startValue;
-    template.modificationType = state;
-    LimitationTemplate limitation = new LimitationTemplate();
-    limitation.type = LimitationType.Static;
-    limitation.value = 4;
-    template.limitation = limitation;
-    return template;
+    this.strength = strength;
+    this.outlook = outlook;
+    this.bond = bond;
   }
 
   @Override
@@ -48,49 +20,17 @@ public class IntimacyImpl implements Intimacy {
   }
 
   @Override
-  public Trait getTrait() {
-    return trait;
+  public Strength getStrength() {
+    return strength;
   }
 
   @Override
-  public void resetCurrentValue() {
-    int maximumValue = 3;
-    if (complete || trait.getCurrentValue() > maximumValue) {
-      trait.setCurrentValue(maximumValue);
-    }
+  public Outlook getOutlook() {
+    return outlook;
   }
 
   @Override
-  public void setComplete(boolean complete) {
-    this.complete = complete;
-    resetCurrentValue();
-    control.announce().valueChanged(this.complete);
-  }
-
-  @Override
-  public void addCompletionListener(IBooleanValueChangedListener listener) {
-    control.addListener(listener);
-  }
-
-  @Override
-  public boolean isComplete() {
-    return complete;
-  }
-
-  public void addChangeListener(ChangeListener listener) {
-    GlobalChangeAdapter< ? > adapter = new GlobalChangeAdapter<>(listener);
-    control.addListener(adapter);
-    trait.addCurrentValueListener(adapter);
-  }
-
-  private class IntimacyValueChangeChecker implements ValueChangeChecker {
-
-    @Override
-    public boolean isValidNewValue(int value) {
-      int currentMaximum = 3;
-      boolean atMaximumValue = value == currentMaximum;
-      boolean incompleteAndBelowMaximum = !complete && value < currentMaximum;
-      return atMaximumValue || incompleteAndBelowMaximum;
-    }
+  public Bond getBond() {
+    return bond;
   }
 }

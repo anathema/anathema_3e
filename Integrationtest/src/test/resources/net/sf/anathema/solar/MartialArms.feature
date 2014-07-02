@@ -1,8 +1,6 @@
 @Integration
-Feature: Characters can learn their native Charm
-  'There is no Wind' is a Solar Archery 4/Essence 2 Root Charm.
-  'Essence Arrow Attack' is a Solar Archery Root Charm and direct prerequisite to 
-  'Phantom Arrow Technique', a Solar Archery 4/Essence 3 Charm.  
+Feature: Solars can learn Charms from the Martial Arts category
+  'Fists of Iron Technique' is a Martial Arts 2/Essence 1 Root Charm.
 
   Scenario: Solars can learn Martial Arts Charms
     Given a new Solar using rules for RookieLawgiver

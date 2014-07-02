@@ -27,7 +27,7 @@ public class FxMultiComponentLine implements MultiComponentLine {
     return spinner;
   }
 
-  private void addLabeledComponent(final String text, final Node component) {
+  private void addLabeledComponent(String text, final Node component) {
     Label label = new Label(text);
     fieldPanel.add(label);
     fieldPanel.add(component);
