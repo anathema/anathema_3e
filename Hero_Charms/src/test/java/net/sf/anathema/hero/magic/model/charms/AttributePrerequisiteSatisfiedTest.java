@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
-import net.sf.anathema.magic.attribute.MagicAttributeImpl;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;

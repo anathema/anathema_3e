@@ -1,7 +1,7 @@
 package net.sf.anathema.cards.data.providers;
 
 import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;

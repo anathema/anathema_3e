@@ -2,9 +2,9 @@ package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.charm.data.reference.SpellName;
 import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.magic.source.SourceBook;
-import net.sf.anathema.magic.source.SourceList;
-import net.sf.anathema.magic.source.SourceListImpl;
+import net.sf.anathema.magic.data.source.SourceBook;
+import net.sf.anathema.magic.data.source.SourceList;
+import net.sf.anathema.magic.data.source.SourceListImpl;
 import net.sf.anathema.hero.spells.parser.cost.CostListBuilder;
 import net.sf.anathema.hero.spells.parser.cost.ICostListBuilder;
 import net.sf.anathema.hero.spells.parser.source.SourceBuilder;

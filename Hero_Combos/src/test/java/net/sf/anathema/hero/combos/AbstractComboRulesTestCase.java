@@ -4,7 +4,7 @@ import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.duration.Duration;
+import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

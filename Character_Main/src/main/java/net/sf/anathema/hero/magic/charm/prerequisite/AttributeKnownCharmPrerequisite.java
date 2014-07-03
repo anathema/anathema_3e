@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public class AttributeKnownCharmPrerequisite implements CharmPrerequisite{
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display;
 
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 
 public class MagicDisplayLabeler {
   private Resources resources;

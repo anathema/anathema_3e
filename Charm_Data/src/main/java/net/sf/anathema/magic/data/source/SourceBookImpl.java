@@ -1,4 +1,4 @@
-package net.sf.anathema.magic.source;
+package net.sf.anathema.magic.data.source;
 
 import net.sf.anathema.lib.lang.ReflectionEqualsObject;
 

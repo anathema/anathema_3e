@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells.parser.source;
 
-import net.sf.anathema.magic.source.SourceBook;
-import net.sf.anathema.magic.source.SourceBookImpl;
+import net.sf.anathema.magic.data.source.SourceBook;
+import net.sf.anathema.magic.data.source.SourceBookImpl;
 import net.sf.anathema.hero.spells.parser.ElementUtilities;
 import org.dom4j.Element;
 

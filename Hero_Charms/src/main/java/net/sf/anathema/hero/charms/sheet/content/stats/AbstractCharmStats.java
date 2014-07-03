@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;

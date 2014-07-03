@@ -13,7 +13,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 
 public class SpecialCharmContributor implements MagicTooltipContributor {
   private Resources resources;

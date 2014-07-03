@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public interface CharmLearnArbitrator {
 

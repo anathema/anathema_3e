@@ -1,7 +1,7 @@
-package net.sf.anathema.magic;
+package net.sf.anathema.magic.data;
 
 import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
 import java.util.List;

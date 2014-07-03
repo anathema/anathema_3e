@@ -6,7 +6,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 
 import static net.sf.anathema.charm.data.CharmAttributeList.FORM_ATTRIBUTE;
 

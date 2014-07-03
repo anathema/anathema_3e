@@ -10,7 +10,7 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.magic.charm.duration.Duration.INSTANT;
+import static net.sf.anathema.charm.data.Duration.INSTANT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.model;
 
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.hero.spells.data.SpellImpl;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 

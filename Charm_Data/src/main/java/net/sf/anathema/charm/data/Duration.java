@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.charm.duration;
+package net.sf.anathema.charm.data;
 
 import net.sf.anathema.framework.environment.Resources;
 

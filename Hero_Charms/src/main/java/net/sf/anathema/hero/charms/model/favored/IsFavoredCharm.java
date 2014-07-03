@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.favored;
 
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
