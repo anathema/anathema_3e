@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.node;
+package net.sf.anathema.hero.charms.display.prerequisites;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -9,10 +9,10 @@ import java.util.List;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeId;
 
-public class RenderingParentIds implements PrerequisiteProcessor {
+public class ConcreteCharmParentIds implements PrerequisiteProcessor {
 
   public static List<String> collectNodeIdsOfRenderingParents(Charm charm) {
-    RenderingParentIds renderingParents = new RenderingParentIds();
+    ConcreteCharmParentIds renderingParents = new ConcreteCharmParentIds();
     charm.forEachCharmPrerequisite(charmPrerequisite -> charmPrerequisite.process(renderingParents));
     return renderingParents.nodeIds;
   }

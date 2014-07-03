@@ -33,8 +33,6 @@ public interface Charm extends Magic {
 
   List<CharmPrerequisite> getCharmPrerequisites();
 
-  boolean isTreeRoot();
-
   void forEachChild(Consumer<Charm> consumer);
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);

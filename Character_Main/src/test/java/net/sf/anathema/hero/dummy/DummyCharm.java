@@ -157,11 +157,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public boolean isTreeRoot() {
-    return parentCharms.size() == 0;
-  }
-
-  @Override
   public String toString() {
     return getId();
   }

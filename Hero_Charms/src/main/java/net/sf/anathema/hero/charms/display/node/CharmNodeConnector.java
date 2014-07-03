@@ -6,7 +6,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import java.util.Collection;
 import java.util.Map;
 
-import static net.sf.anathema.hero.charms.display.node.RenderingParentIds.collectNodeIdsOfRenderingParents;
+import static net.sf.anathema.hero.charms.display.prerequisites.ConcreteCharmParentIds.collectNodeIdsOfRenderingParents;
 
 public class CharmNodeConnector {
 

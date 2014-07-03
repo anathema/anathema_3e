@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.hero.charms.display.node.CharmGraphNodeBuilder;
-import net.sf.anathema.hero.charms.display.node.RenderingParents;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -19,7 +18,7 @@ import net.sf.anathema.platform.tree.view.container.Cascade;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static net.sf.anathema.hero.charms.display.node.RenderingParents.collectRenderingParents;
+import static net.sf.anathema.hero.charms.display.prerequisites.ConcreteCharmRenderingParents.collectRenderingParents;
 
 public abstract class AbstractCharmGroupChangeListener implements ICharmGroupChangeListener, CharmGroupInformer {
 
