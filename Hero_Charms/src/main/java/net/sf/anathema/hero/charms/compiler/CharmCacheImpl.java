@@ -60,7 +60,7 @@ public class CharmCacheImpl implements CharmCache {
     charmsById.put(charm.getName(), charm);
   }
 
-  public void addSpecialCharmData(CategoryReference type, List<ISpecialCharm> specialCharms) {
+  public void addSpecial(CategoryReference type, List<ISpecialCharm> specialCharms) {
     if (specialCharms == null) {
       return;
     }

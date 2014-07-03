@@ -100,31 +100,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return prerequisiteList;
   }
 
-  public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
-    prerequisiteList.forEachCharmPrerequisite(prerequisite -> prerequisite.link(unlinkedCharms));
-    prerequisiteList.forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
-      @Override
-      public void requiresMagicAttributes(MagicAttribute attribute, int count) {
-
-      }
-
-      @Override
-      public void requiresCharm(Charm prerequisite) {
-        ((CharmParent) prerequisite).addChild(CharmImpl.this);
-      }
-
-      @Override
-      public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
-        for (Charm charm : prerequisites) {
-          ((CharmParent) charm).addChild(CharmImpl.this);
-        }
-      }
-    }));
-    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
-      prerequisite.link(unlinkedCharms);
-    }
-  }
-
   public void addParentCharms(Charm... parent) {
     for (Charm charm : parent) {
       prerequisiteList.getCharmPrerequisites().add(new SimpleCharmPrerequisite(charm));

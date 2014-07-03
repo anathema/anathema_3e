@@ -5,9 +5,6 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.cost.CostListImpl;
-import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.hero.charms.compiler.UnlinkedCharms;
-import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
@@ -19,8 +16,6 @@ import org.junit.Test;
 import static net.sf.anathema.hero.magic.charm.duration.SimpleDuration.getDuration;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
 import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 public class CharmTest {
 
@@ -32,17 +27,6 @@ public class CharmTest {
   private CostListImpl anyCost = new CostListImpl(null, null, null, null);
   private SimpleDuration anyDuration = getDuration("Duration");
   private CharmType anyType = CharmType.Simple;
-  private SourceBook[] anySources = new SourceBook[0];
-
-  @Test
-  public void doesNotOverwriteExistingParentCharms() throws Exception {
-    DummyCharm dummyParent = new DummyCharm("OtherDummy");
-    CharmImpl out = new CharmImpl(anyTree, anyName, anyPrerequisites, anyCost, anyDuration, anyType, anySources);
-    out.addParentCharms(dummyParent);
-    UnlinkedCharms unlinkedCharms = mock(UnlinkedCharms.class);
-    out.extractParentCharms(unlinkedCharms);
-    verifyZeroInteractions(unlinkedCharms);
-  }
 
   @Test(expected = NullPointerException.class)
   public void doesNotCreateCharmWithoutSources() throws Exception {
