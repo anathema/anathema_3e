@@ -4,18 +4,17 @@ import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 
 @ExtensibleDataSetCompiler
 public class CharacterTemplateResourceCompiler implements IExtensibleDataSetCompiler {
 
-  private static final String CHARACTER_FILE_RECOGNITION_PATTERN = "(.+?)\\.splat";
+  private static final String CHARACTER_FILE_RECOGNITION_PATTERN = ".+?\\.splat";
 
   private final SimpleCharacterTemplateCache templateResources = new SimpleCharacterTemplateCache();
 
   @SuppressWarnings("UnusedParameters")
-  public CharacterTemplateResourceCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
+  public CharacterTemplateResourceCompiler(ObjectFactory objectFactory) {
     //nothing to do
   }
 

@@ -26,8 +26,7 @@ public class DataSetInitializer {
 
   public IExtensibleDataSetProvider initializeExtensibleResources() throws InitializationException {
     ExtensibleDataManager manager = new ExtensibleDataManager();
-    Collection<IExtensibleDataSetCompiler> compilers = objectFactory.instantiateOrdered(ExtensibleDataSetCompiler.class,
-            objectFactory, manager);
+    Collection<IExtensibleDataSetCompiler> compilers = objectFactory.instantiateOrdered(ExtensibleDataSetCompiler.class, objectFactory);
     for (IExtensibleDataSetCompiler compiler : compilers) {
       try {
         ProxySplashscreen.getInstance().displayStatusMessage("Compiling " + compiler.getName() + "...");

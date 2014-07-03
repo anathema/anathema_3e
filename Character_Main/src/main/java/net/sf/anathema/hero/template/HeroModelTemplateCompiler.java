@@ -4,18 +4,17 @@ import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 
 @ExtensibleDataSetCompiler
 public class HeroModelTemplateCompiler implements IExtensibleDataSetCompiler {
 
-  private static final String TEMPLATE_FILE_RECOGNITION_PATTERN = "(.+?)\\.template";
+  private static final String TEMPLATE_FILE_RECOGNITION_PATTERN = ".+?\\.template";
   private HeroModelTemplateCache templates = new HeroModelTemplateCache();
 
 
   @SuppressWarnings("UnusedParameters")
-  public HeroModelTemplateCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
+  public HeroModelTemplateCompiler(ObjectFactory objectFactory) {
     //nothing to do
   }
 
