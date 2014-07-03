@@ -45,7 +45,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   }
 
   @Override
-  public void registerFile(ResourceFile resource) throws Exception {
+  public void registerFile(ResourceFile resource) {
     resourceFiles.add(resource);
   }
 

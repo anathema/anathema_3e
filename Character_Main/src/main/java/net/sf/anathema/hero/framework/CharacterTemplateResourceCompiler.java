@@ -29,7 +29,7 @@ public class CharacterTemplateResourceCompiler implements IExtensibleDataSetComp
   }
 
   @Override
-  public void registerFile(ResourceFile resource) throws Exception {
+  public void registerFile(ResourceFile resource) {
     templateResources.add(resource);
   }
 

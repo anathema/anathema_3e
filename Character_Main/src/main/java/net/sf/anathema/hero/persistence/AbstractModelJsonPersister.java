@@ -10,7 +10,6 @@ import net.sf.anathema.lib.exception.AnathemaException;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.apache.commons.io.IOUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -35,6 +34,7 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
     this.messaging = messaging;
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public final void load(Hero hero, HeroModel model, HeroModelLoader loader) throws PersistenceException {
     P pto = loadPto(loader);
@@ -45,29 +45,24 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
   }
 
   private P loadPto(HeroModelLoader loader) {
-    InputStream inputStream = null;
-    try {
-      inputStream = loader.openInputStream(persistenceId);
+    try (InputStream inputStream = loader.openInputStream(persistenceId)) {
       if (inputStream != null) {
         return readFromJson(inputStream);
       }
     } catch (IOException e) {
       throw new AnathemaException(e);
-    } finally {
-      IOUtils.closeQuietly(inputStream);
     }
     return null;
   }
 
   private P readFromJson(InputStream inputStream) throws IOException {
-    ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-    IOUtils.copy(inputStream, byteStream);
-    String json = new String(byteStream.toByteArray());
+    String json = IOUtils.toString(inputStream);
     return gson.fromJson(json, ptoClass);
   }
 
   protected abstract void loadModelFromPto(Hero hero, M model, P pto);
 
+  @SuppressWarnings("unchecked")
   @Override
   public final void save(HeroModel heroModel, HeroModelSaver saver) {
     P pto = saveModelToPto((M) heroModel);
@@ -78,14 +73,10 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
   protected abstract P saveModelToPto(M heroModel);
 
   private void writePersistence(HeroModelSaver persistence, String json) {
-    OutputStream outputStream = null;
-    try {
-      outputStream = persistence.openOutputStream(persistenceId);
+    try (OutputStream outputStream = persistence.openOutputStream(persistenceId)) {
       outputStream.write(json.getBytes());
     } catch (IOException e) {
       throw new AnathemaException(e);
-    } finally {
-      IOUtils.closeQuietly(outputStream);
     }
   }
 }
