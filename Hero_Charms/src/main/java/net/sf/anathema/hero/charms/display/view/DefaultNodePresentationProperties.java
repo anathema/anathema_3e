@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.prerequisites.IsTreeRoot;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
@@ -20,9 +20,9 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
   private final FunctionalNodeProperties properties;
   private final MagicDisplayLabeler charmLabeler;
   private final Resources resources;
-  private final CharmIdMap map;
+  private final CharmMap map;
 
-  public DefaultNodePresentationProperties(Resources resources, FunctionalNodeProperties properties, CharmIdMap map) {
+  public DefaultNodePresentationProperties(Resources resources, FunctionalNodeProperties properties, CharmMap map) {
     this.properties = properties;
     this.resources = resources;
     this.map = map;

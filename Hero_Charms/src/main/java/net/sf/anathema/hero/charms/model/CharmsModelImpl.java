@@ -170,10 +170,10 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private void initSpecialCharmConfigurations() {
-    CharmIdMap charmIdMap = options.getCharmIdMap();
+    CharmMap charmMap = options.getCharmIdMap();
     ISpecialCharm[] specialCharms = options.getSpecialCharms();
     for (ISpecialCharm specialCharm : specialCharms) {
-      Charm charm = charmIdMap.getCharmById(specialCharm.getCharmName());
+      Charm charm = charmMap.getCharmById(specialCharm.getCharmName());
       if (charm == null) {
         continue;
       }

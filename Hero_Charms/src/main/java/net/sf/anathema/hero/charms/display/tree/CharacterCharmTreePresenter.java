@@ -13,7 +13,7 @@ import net.sf.anathema.hero.charms.display.special.CommonSpecialCharmList;
 import net.sf.anathema.hero.charms.display.special.SpecialCharmViewBuilder;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.DefaultFunctionalNodeProperties;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
@@ -30,13 +30,13 @@ public class CharacterCharmTreePresenter {
 
   public CharacterCharmTreePresenter(Resources resources, CharmView view, CharmDisplayModel model,
                                      TreePresentationProperties presentationProperties,
-                                     CharmDisplayPropertiesMap displayPropertiesMap, CharmIdMap charmIdMap,
+                                     CharmDisplayPropertiesMap displayPropertiesMap, CharmMap charmMap,
                                      MagicDescriptionProvider magicDescriptionProvider) {
     this.resources = resources;
     this.model = model;
     this.presentationProperties = presentationProperties;
     this.displayPropertiesMap = displayPropertiesMap;
-    this.cascadePresenter = new CascadePresenter(resources, charmIdMap, magicDescriptionProvider);
+    this.cascadePresenter = new CascadePresenter(resources, charmMap, magicDescriptionProvider);
     this.view = view;
   }
 

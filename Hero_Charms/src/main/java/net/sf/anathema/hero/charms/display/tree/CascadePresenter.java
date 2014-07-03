@@ -13,7 +13,7 @@ import net.sf.anathema.hero.charms.display.view.DefaultNodePresentationPropertie
 import net.sf.anathema.hero.charms.display.view.DefaultTooltipProperties;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
@@ -31,7 +31,7 @@ public class CascadePresenter {
 
   private final Resources resources;
   private CharmTreeCollectionMap charmTreeCollectionMap;
-  private CharmIdMap charmIdMap;
+  private CharmMap charmMap;
   private MagicDescriptionProvider magicDescriptionProvider;
   private ICharmGroupChangeListener changeListener;
   private CharmView view;
@@ -43,10 +43,10 @@ public class CascadePresenter {
   private CharmInteractionPresenter interactionPresenter = new NullInteractionPresenter();
   private SpecialCharmSet specialCharmSet;
 
-  public CascadePresenter(Resources resources, CharmIdMap charmIdMap,
+  public CascadePresenter(Resources resources, CharmMap charmMap,
                           MagicDescriptionProvider magicDescriptionProvider) {
     this.resources = resources;
-    this.charmIdMap = charmIdMap;
+    this.charmMap = charmMap;
     this.magicDescriptionProvider = magicDescriptionProvider;
   }
 
@@ -64,10 +64,10 @@ public class CascadePresenter {
   private void addTreeView() {
     DefaultFunctionalNodeProperties functionalNodeProperties = new DefaultFunctionalNodeProperties();
     final TreeView treeView = view.addTreeView();
-    treeView.loadNodeNamesFrom(new DefaultNodePresentationProperties(resources, functionalNodeProperties, charmIdMap));
+    treeView.loadNodeNamesFrom(new DefaultNodePresentationProperties(resources, functionalNodeProperties, charmMap));
     treeView.setCanvasBackground(RGBColor.White);
     treeView.initToolTips(
-            new DefaultTooltipProperties(functionalNodeProperties, charmIdMap, resources, magicDescriptionProvider,
+            new DefaultTooltipProperties(functionalNodeProperties, charmMap, resources, magicDescriptionProvider,
                     specialCharmSet));
     treeView.addCascadeLoadedListener(() -> {
       treeView.initNodeNames();

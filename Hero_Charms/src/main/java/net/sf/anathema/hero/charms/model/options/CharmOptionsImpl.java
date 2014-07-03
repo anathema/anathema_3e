@@ -3,9 +3,9 @@ package net.sf.anathema.hero.charms.model.options;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.compiler.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.charms.model.GroupedCharmIdMap;
+import net.sf.anathema.hero.charms.model.GroupedCharmMap;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.concept.HeroConcept;
@@ -44,8 +44,8 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   @Override
-  public CharmIdMap getCharmIdMap() {
-    return new GroupedCharmIdMap(new ArrayList<>(treeCategories));
+  public CharmMap getCharmIdMap() {
+    return new GroupedCharmMap(new ArrayList<>(treeCategories));
   }
 
   @Override

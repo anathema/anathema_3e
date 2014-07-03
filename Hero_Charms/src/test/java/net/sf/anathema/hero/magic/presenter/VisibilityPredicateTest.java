@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.presenter;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.hero.charms.display.special.VisibilityPredicate;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -21,7 +21,7 @@ public class VisibilityPredicateTest {
   @Test
   public void charmIsVisibleIfCharacterTypesMatchButAreNotIdentical() throws Exception {
     Charm charm = DummyCharm.ForIdAndTree(ANY_ID, ANY_ID);
-    CharmIdMap map = createMapWithCharm(charm);
+    CharmMap map = createMapWithCharm(charm);
     CharmTree charmGroup = createACharmGroupThatContainsTheCharm(charm);
     selectGroup(charmGroup);
     VisibilityPredicate predicate = new VisibilityPredicate(map, informer);
@@ -39,8 +39,8 @@ public class VisibilityPredicateTest {
     when(informer.getCurrentTree()).thenReturn(charmGroup);
   }
 
-  private CharmIdMap createMapWithCharm(Charm charm) {
-    CharmIdMap map = mock(CharmIdMap.class);
+  private CharmMap createMapWithCharm(Charm charm) {
+    CharmMap map = mock(CharmMap.class);
     when(map.getCharmById(new CharmName(ANY_ID))).thenReturn(charm);
     return map;
   }

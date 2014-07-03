@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.persistence.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
@@ -30,7 +30,7 @@ public class SpecialCharmListPersister {
   private final Map<Charm, SpecialCharmPersister> persisterByCharm = new HashMap<>();
 
   public SpecialCharmListPersister(CharmsModel model) {
-    final CharmIdMap charmTree = model.getOptions().getCharmIdMap();
+    final CharmMap charmTree = model.getOptions().getCharmIdMap();
     for (ISpecialCharm specialCharm : model.getOptions().getSpecialCharms()) {
       specialCharm.accept(new ISpecialCharmVisitor() {
         @Override
@@ -76,7 +76,7 @@ public class SpecialCharmListPersister {
     }
   }
 
-  private Charm getCharm(CharmName charmId, CharmIdMap charmTree) {
+  private Charm getCharm(CharmName charmId, CharmMap charmTree) {
     return charmTree.getCharmById(charmId);
   }
 

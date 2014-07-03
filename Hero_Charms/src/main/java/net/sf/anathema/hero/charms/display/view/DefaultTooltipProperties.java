@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.NullSpecialCharm;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
@@ -16,11 +16,11 @@ import static net.sf.anathema.hero.charms.display.view.NodeIds.toCharmName;
 
 public class DefaultTooltipProperties implements ToolTipProperties {
   private final FunctionalNodeProperties treeProperties;
-  private final CharmIdMap map;
+  private final CharmMap map;
   private final CharmTooltipBuilderImpl tooltipTextProvider;
   private SpecialCharmSet specialCharmSet;
 
-  public DefaultTooltipProperties(FunctionalNodeProperties treeProperties, CharmIdMap map, Resources resources,
+  public DefaultTooltipProperties(FunctionalNodeProperties treeProperties, CharmMap map, Resources resources,
                                   MagicDescriptionProvider magicDescriptionProvider, SpecialCharmSet specialCharmSet) {
     this.treeProperties = treeProperties;
     this.map = map;

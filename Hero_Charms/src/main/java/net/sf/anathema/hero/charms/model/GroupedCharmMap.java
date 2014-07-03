@@ -5,17 +5,17 @@ import net.sf.anathema.hero.magic.charm.Charm;
 
 import java.util.Collection;
 
-public class GroupedCharmIdMap implements CharmIdMap {
+public class GroupedCharmMap implements CharmMap {
 
-  private final Collection<? extends CharmIdMap> trees;
+  private final Collection<? extends CharmMap> trees;
 
-  public GroupedCharmIdMap(Collection<? extends CharmIdMap> trees) {
+  public GroupedCharmMap(Collection<? extends CharmMap> trees) {
     this.trees = trees;
   }
 
   @Override
   public Charm getCharmById(CharmName charmId) {
-    for (CharmIdMap tree : trees) {
+    for (CharmMap tree : trees) {
       Charm charm = tree.getCharmById(charmId);
       if (charm != null) {
         return charm;

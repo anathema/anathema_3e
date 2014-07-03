@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
@@ -16,7 +15,7 @@ import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
-public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmIdMap,
+public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
   Identifier ID = new SimpleIdentifier("Charms");

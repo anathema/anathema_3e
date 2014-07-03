@@ -11,7 +11,7 @@ import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExt
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CharacterCharmTreePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;
-import net.sf.anathema.hero.charms.model.CharmIdMap;
+import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
@@ -43,7 +43,7 @@ public class CharmInitializer implements HeroModelInitializer {
     TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(characterType);
     String header = environment.getString("CardView.CharmConfiguration.CharmSelection.Title");
     CharmView charmView = sectionView.addView(header, CharmView.class);
-    CharmIdMap charmCache = getCharmIdMap();
+    CharmMap charmCache = getCharmIdMap();
     CharacterCharmTreePresenter treePresenter = new CharacterCharmTreePresenter(environment, charmView, model, presentationProperties, propertiesMap, charmCache, provider);
     treePresenter.initPresentation();
     //MagicDetailPresenter detailPresenter = createMagicDetailPresenter();
@@ -55,7 +55,7 @@ public class CharmInitializer implements HeroModelInitializer {
     return CharmsModelFetcher.fetch(hero) != null;
   }
 
-  private CharmIdMap getCharmIdMap() {
+  private CharmMap getCharmIdMap() {
     return heroEnvironment.getDataSet(CharmCache.class);
   }
 }
