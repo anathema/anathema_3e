@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 
 public interface PrerequisiteProcessor {

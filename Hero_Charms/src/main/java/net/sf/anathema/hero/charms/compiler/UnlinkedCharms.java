@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.compiler;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.magic.charm.Charm;
@@ -55,13 +55,13 @@ public class UnlinkedCharms implements UnlinkedCharmMap {
 
   public ExtensibleDataSet createCharmCache() {
     CharmCacheImpl cache = new CharmCacheImpl();
-    forEachCharm(this::extractParentCharms);
+    forEachCharm(this::linkWithParentCharms);
     forEachCharm(cache::addCharm);
     specials.forEachKey(reference -> cache.addSpecial(reference, specials.get(reference)));
     return cache;
   }
 
-  private void extractParentCharms(CharmImpl charm) {
+  private void linkWithParentCharms(CharmImpl charm) {
     charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> prerequisite.link(this));
     charm.getPrerequisites().forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
       @Override

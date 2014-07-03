@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.display.tooltip;
 
 import net.sf.anathema.hero.magic.description.MagicDescription;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.magic.Magic;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
 
 public class MagicDescriptionContributor implements MagicTooltipContributor {

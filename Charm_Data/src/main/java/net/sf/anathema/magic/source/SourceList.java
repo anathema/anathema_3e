@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.old.source;
+package net.sf.anathema.magic.source;
 
 public interface SourceList {
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.charm.martial;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.util.Identifier;
@@ -9,7 +9,7 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.text.MessageFormat;
 
-import static net.sf.anathema.charm.old.attribute.CharmAttributeList.FORM_ATTRIBUTE;
+import static net.sf.anathema.charm.old.CharmAttributeList.FORM_ATTRIBUTE;
 
 public class MartialArtsUtilities {
 

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.magic.charm.prerequisite;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
@@ -33,14 +32,9 @@ public class DirectGroupCharmPrerequisite implements CharmPrerequisite {
 
   @Override
   public void link(UnlinkedCharmMap charmsById) {
-    if (prerequisites != null) {
-      return;
-    }
     List<Charm> prerequisites = new ArrayList<>();
     for (CharmName id : prerequisiteIds) {
-      Charm parentCharm = charmsById.get(id);
-      Preconditions.checkNotNull(parentCharm, "Parent Charm " + id + " not defined.");
-      prerequisites.add(parentCharm);
+      prerequisites.add(charmsById.get(id));
     }
     this.prerequisites = prerequisites.toArray(new Charm[prerequisites.size()]);
   }

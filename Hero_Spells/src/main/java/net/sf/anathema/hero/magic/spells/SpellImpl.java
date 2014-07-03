@@ -2,9 +2,9 @@ package net.sf.anathema.hero.magic.spells;
 
 import net.sf.anathema.charm.data.reference.SpellName;
 import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.charm.old.source.SourceList;
-import net.sf.anathema.hero.magic.basic.AbstractMagic;
+import net.sf.anathema.magic.source.SourceBook;
+import net.sf.anathema.magic.source.SourceList;
+import net.sf.anathema.magic.AbstractMagic;
 
 public class SpellImpl extends AbstractMagic implements Spell {
   private SpellName name;

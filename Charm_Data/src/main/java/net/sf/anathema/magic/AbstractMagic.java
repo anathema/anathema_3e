@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.magic.basic;
+package net.sf.anathema.magic;
 
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;

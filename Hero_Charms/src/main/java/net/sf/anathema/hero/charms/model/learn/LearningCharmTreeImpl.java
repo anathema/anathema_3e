@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.attribute.CharmAttributeList;
+import net.sf.anathema.charm.old.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;

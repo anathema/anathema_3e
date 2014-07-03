@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.dummy.magic;
 
 import net.sf.anathema.charm.data.reference.SpellName;
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.charm.old.source.SourceBook;
+import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.lib.exception.NotYetImplementedException;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.dummy;
 
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;

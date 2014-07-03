@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.favored;
 
-import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.magic.Magic;
 
 public interface FavoredChecker {
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser;
 
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
-import net.sf.anathema.charm.old.attribute.MagicAttributeImpl;
+import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.magic.parser.charms.CharmAttributeParser;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;

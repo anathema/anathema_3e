@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.node;
 
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.hero.magic.charm.Charm;

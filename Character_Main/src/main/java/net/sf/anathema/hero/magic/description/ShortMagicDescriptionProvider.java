@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.description;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.magic.Magic;
 import net.sf.anathema.framework.environment.Resources;
 import org.apache.commons.lang3.StringUtils;
 
