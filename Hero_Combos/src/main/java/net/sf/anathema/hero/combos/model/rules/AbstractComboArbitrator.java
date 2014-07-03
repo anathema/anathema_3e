@@ -4,7 +4,7 @@ import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeVisitor;
+import net.sf.anathema.hero.magic.charm.type.CharmTypeVisitor;
 
 public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
 
@@ -50,7 +50,7 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
 
   private boolean handleComboRules(final Charm charm1, final Charm charm2) {
     final boolean[] legal = new boolean[1];
-    charm1.getCharmType().accept(new ICharmTypeVisitor() {
+    charm1.getCharmType().accept(new CharmTypeVisitor() {
       @Override
       public void visitSimple(CharmType visitedType) {
         legal[0] = simpleCharmRules.isComboLegal(charm1, charm2);

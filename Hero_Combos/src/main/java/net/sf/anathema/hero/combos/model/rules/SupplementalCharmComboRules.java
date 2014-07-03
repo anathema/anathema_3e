@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.ICharmTypeVisitor;
+import net.sf.anathema.hero.magic.charm.type.CharmTypeVisitor;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 
 public class SupplementalCharmComboRules extends AbstractComboRules {
@@ -15,7 +15,7 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
   @Override
   public boolean isComboLegal(final Charm supplementalCharm, final Charm otherCharm) {
     final boolean[] legal = new boolean[1];
-    otherCharm.getCharmType().accept(new ICharmTypeVisitor() {
+    otherCharm.getCharmType().accept(new CharmTypeVisitor() {
       @Override
       public void visitSimple(CharmType visitedType) {
         boolean samePrerequisite = haveSamePrerequisite(supplementalCharm, otherCharm);

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm.type;
 
-public interface ICharmTypeVisitor {
+public interface CharmTypeVisitor {
 
   void visitSimple(CharmType visitedType);
 
