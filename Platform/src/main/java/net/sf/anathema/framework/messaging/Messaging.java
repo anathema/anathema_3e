@@ -11,6 +11,7 @@ import java.util.List;
 
 public class Messaging implements IMessaging, IMessageContainer {
 
+  private static final int MESSAGE_LIMIT = 100;
   private final Resources resources;
   private final List<Message> messages = new ArrayList<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
@@ -29,7 +30,7 @@ public class Messaging implements IMessaging, IMessageContainer {
   public synchronized void addMessage(Message message) {
     messages.add(0, message);
     changeControl.announce().changeOccurred();
-    if (messages.size() > getMessageLimit()) {
+    if (messages.size() > MESSAGE_LIMIT) {
       messages.remove(messages.size() - 1);
     }
   }
@@ -39,15 +40,16 @@ public class Messaging implements IMessaging, IMessageContainer {
     changeControl.addListener(listener);
   }
 
-  private int getMessageLimit() {
-    return 100;
-  }
-
   @Override
   public synchronized Message getLatestMessage() {
     if (messages.isEmpty()) {
       return new Message("", MessageType.NORMAL);
     }
     return messages.get(0);
+  }
+
+  @Override
+  public List<Message> getAllMessages() {
+    return messages;
   }
 }

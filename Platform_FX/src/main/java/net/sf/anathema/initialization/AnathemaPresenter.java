@@ -28,6 +28,7 @@ public class AnathemaPresenter {
     IMessageContainer messageContainer = model.getMessageContainer();
     messageContainer.addChangeListener(() -> showLatestMessage(messageContainer));
     showLatestMessage(messageContainer);
+    view.getStatusBar().whenAllMessagesAreRequested(() -> view.getStatusBar().showMessages(model.getMessageContainer().getAllMessages()));
   }
 
   private void showLatestMessage(IMessageContainer messageContainer) {
