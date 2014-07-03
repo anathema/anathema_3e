@@ -1,16 +1,15 @@
 package net.sf.anathema.character.equipment.item;
 
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
-import net.sf.anathema.framework.environment.Resources;
 
 public class EquipmentStatsUIConfiguration extends AbstractUIConfiguration<IEquipmentStats> {
   private final EquipmentStringBuilder tooltipFactory;
@@ -36,7 +35,7 @@ public class EquipmentStatsUIConfiguration extends AbstractUIConfiguration<IEqui
     if (value instanceof ITraitModifyingStats) {
       return new RelativePath("icons/TraitModifying16.png");
     }
-    throw new UnreachableCodeReachedException("All subclasses covered. Something appears to be wrong.");
+    throw new IllegalArgumentException("All subclasses covered. Something appears to be wrong.");
   }
 
   @Override

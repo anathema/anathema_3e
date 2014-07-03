@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository.access;
 
-import net.sf.anathema.framework.repository.RepositoryException;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,22 +20,22 @@ public class MultiFileWriteAccess implements RepositoryWriteAccess {
   }
 
   @Override
-  public OutputStream createMainOutputStream() throws RepositoryException {
+  public OutputStream createMainOutputStream() {
     try {
       return new FileOutputStream(new File(itemFolder, mainFileName + extension));
     }
     catch (FileNotFoundException e) {
-      throw new RepositoryException(e);
+      throw new PersistenceException(e);
     }
   }
 
   @Override
-  public OutputStream createSubOutputStream(String streamID) throws RepositoryException {
+  public OutputStream createSubOutputStream(String streamID) {
     try {
       return new FileOutputStream(new File(itemFolder, streamID + extension));
     }
     catch (FileNotFoundException e) {
-      throw new RepositoryException(e);
+      throw new PersistenceException(e);
     }
   }
 }

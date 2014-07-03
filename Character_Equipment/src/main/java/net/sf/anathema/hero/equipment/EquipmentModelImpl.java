@@ -8,6 +8,7 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateProvider;
 import net.sf.anathema.character.equipment.item.model.gson.GsonEquipmentDatabase;
+import net.sf.anathema.hero.equipment.model.MissingMaterialException;
 import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
@@ -250,7 +251,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   @Override
-  public IEquipmentItem addItem(String templateId, MagicalMaterial material) {
+  public IEquipmentItem addItem(String templateId, MagicalMaterial material) throws MissingMaterialException{
     IEquipmentTemplate template = loadEquipmentTemplate(templateId);
     if (template == null) {
       return getNaturalWeapon(templateId);
@@ -258,14 +259,14 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     return addManMadeObject(template, material);
   }
 
-  private IEquipmentItem addManMadeObject(IEquipmentTemplate template, MagicalMaterial material) {
+  private IEquipmentItem addManMadeObject(IEquipmentTemplate template, MagicalMaterial material) throws MissingMaterialException {
     IEquipmentItem item = createItem(template, material);
     equipmentItems.add(item);
     announceItemAndListenForChanges(item);
     return item;
   }
 
-  private IEquipmentItem createItem(IEquipmentTemplate template, MagicalMaterial material) {
+  private IEquipmentItem createItem(IEquipmentTemplate template, MagicalMaterial material) throws MissingMaterialException {
     return new EquipmentItem(template, material, getHeroEvaluator(), equipmentItems);
   }
 

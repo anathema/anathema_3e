@@ -15,7 +15,6 @@ import net.sf.anathema.framework.environment.resources.LocaleResources;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.initialization.repository.CustomDataResourceLoader;
 import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
-import net.sf.anathema.lib.exception.AnathemaException;
 
 import java.util.Set;
 
@@ -51,7 +50,7 @@ public class EnvironmentFactory {
       RepositoryLocationResolver resolver = new RepositoryLocationResolver(location);
       CustomDataResourceLoader customLoader = new CustomDataResourceLoader(resolver);
       return new AggregatedResourceLoader(reflections, customLoader);
-    } catch (AnathemaException e) {
+    } catch (RuntimeException e) {
       exceptionHandler.handle(e);
       return new AggregatedResourceLoader(reflections);
     }

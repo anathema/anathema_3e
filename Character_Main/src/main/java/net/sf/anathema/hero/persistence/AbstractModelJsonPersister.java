@@ -6,7 +6,6 @@ import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.framework.messaging.NullMessaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.exception.AnathemaException;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.apache.commons.io.IOUtils;
 
@@ -50,7 +49,7 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
         return readFromJson(inputStream);
       }
     } catch (IOException e) {
-      throw new AnathemaException(e);
+      throw new PersistenceException(e);
     }
     return null;
   }
@@ -76,7 +75,7 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
     try (OutputStream outputStream = persistence.openOutputStream(persistenceId)) {
       outputStream.write(json.getBytes());
     } catch (IOException e) {
-      throw new AnathemaException(e);
+      throw new PersistenceException(e);
     }
   }
 }

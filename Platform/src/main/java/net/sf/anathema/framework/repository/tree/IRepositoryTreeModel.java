@@ -1,7 +1,6 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.RepositoryException;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.lib.control.ChangeListener;
@@ -17,7 +16,7 @@ public interface IRepositoryTreeModel extends ExportModel {
 
   void addRepositoryTreeModelListener(IRepositoryTreeModelListener listener);
 
-  void deleteSelection() throws RepositoryException;
+  void deleteSelection();
 
   boolean canSelectionBeDeleted();
 
@@ -29,7 +28,7 @@ public interface IRepositoryTreeModel extends ExportModel {
 
   String createUniqueId(IItemType type, String id);
 
-  RepositoryWriteAccess getWriteAccess(IItemType type, String id) throws RepositoryException;
+  RepositoryWriteAccess getWriteAccess(IItemType type, String id);
 
   String getMainFilePath(IItemType type, String id);
 

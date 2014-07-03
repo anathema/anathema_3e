@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.combos.model;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
 import org.jmock.example.announcer.Announcer;
@@ -86,7 +85,7 @@ public class ComboImpl implements Combo {
     try {
       clone = (ComboImpl) super.clone();
     } catch (CloneNotSupportedException e) {
-      throw new UnreachableCodeReachedException(e);
+      throw new RuntimeException(e);
     }
     clone.control = Announcer.to(ChangeListener.class);
     clone.creationCharmList = new ArrayList<>(creationCharmList.size());

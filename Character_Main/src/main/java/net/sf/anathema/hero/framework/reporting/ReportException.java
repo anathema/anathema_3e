@@ -1,8 +1,6 @@
 package net.sf.anathema.hero.framework.reporting;
 
-import net.sf.anathema.lib.exception.AnathemaException;
-
-public class ReportException extends AnathemaException {
+public class ReportException extends RuntimeException {
 
   public ReportException() {
     super();

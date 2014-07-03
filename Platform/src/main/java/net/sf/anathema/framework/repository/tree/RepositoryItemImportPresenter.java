@@ -2,9 +2,9 @@ package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.RepositoryException;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.collection.MultiEntryMap;
+import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.gui.file.Extension;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
 
@@ -74,7 +74,7 @@ public class RepositoryItemImportPresenter {
         environment.handle(e, environment.getString("AnathemaCore.Tools.RepositoryView.NoZipFileError"));
       } catch (IOException e) {
         environment.handle(e, environment.getString("AnathemaCore.Tools.RepositoryView.FileError"));
-      } catch (RepositoryException e) {
+      } catch (PersistenceException e) {
         environment.handle(e, environment.getString("AnathemaCore.Tools.RepositoryView.RepositoryError"));
       }
     });

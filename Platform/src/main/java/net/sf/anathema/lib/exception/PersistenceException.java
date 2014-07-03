@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.exception;
 
-public class PersistenceException extends AnathemaException {
+public class PersistenceException extends RuntimeException {
 
   public PersistenceException() {
     super();

@@ -2,7 +2,6 @@ package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.framework.repository.RepositoryException;
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
@@ -67,7 +66,7 @@ public class RepositoryTreeModel implements IRepositoryTreeModel {
   }
 
   @Override
-  public void deleteSelection() throws RepositoryException {
+  public void deleteSelection() {
     if (!canSelectionBeDeleted()) {
       return;
     }
@@ -130,7 +129,7 @@ public class RepositoryTreeModel implements IRepositoryTreeModel {
   }
 
   @Override
-  public RepositoryWriteAccess getWriteAccess(IItemType type, String id) throws RepositoryException {
+  public RepositoryWriteAccess getWriteAccess(IItemType type, String id) {
     return repository.createWriteAccess(type, id);
   }
 

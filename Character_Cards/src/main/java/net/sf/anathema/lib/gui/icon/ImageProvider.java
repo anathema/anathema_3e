@@ -8,12 +8,12 @@ import java.io.InputStream;
 
 public class ImageProvider {
 
-  public Image getImage(RelativePath relativePath) {
+  public Image getImage(RelativePath relativePath) throws ImageLoadingException {
     InputStream inputStream = getInputStream(relativePath);
     return loadImage(inputStream);
   }
 
-  private InputStream getInputStream(RelativePath relativePath) {
+  private InputStream getInputStream(RelativePath relativePath) throws ImageLoadingException {
     InputStream inputStream = ImageProvider.class.getClassLoader().getResourceAsStream(relativePath.relativePath);
     if (inputStream == null) {
       throw new ImageLoadingException("Cannot find image resource at " + relativePath);
@@ -21,7 +21,7 @@ public class ImageProvider {
     return inputStream;
   }
 
-  private Image loadImage(InputStream inputStream) {
+  private Image loadImage(InputStream inputStream) throws ImageLoadingException {
     try {
       return ImageLoader.getMemoryImageWithoutCaching(inputStream);
     } catch (IOException e) {

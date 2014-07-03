@@ -3,7 +3,6 @@ package net.sf.anathema.graph.graph;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.util.IncidentMatrixUtilities;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -156,7 +155,7 @@ public class ProperHierarchicalGraph implements IProperHierarchicalGraph, Clonea
     try {
       clone = (ProperHierarchicalGraph)super.clone();
     } catch (CloneNotSupportedException e) {
-      throw new UnreachableCodeReachedException(e);
+      throw new RuntimeException(e);
     }
     ProperHierarchicalGraph tmpCopy = new ProperHierarchicalGraph(allNodes, deepestLayer, type);
     clone.nodesByLayer = tmpCopy.nodesByLayer;

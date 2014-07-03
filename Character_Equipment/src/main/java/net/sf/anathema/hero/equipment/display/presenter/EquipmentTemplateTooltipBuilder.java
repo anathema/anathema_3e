@@ -5,7 +5,6 @@ import com.google.common.base.Strings;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class EquipmentTemplateTooltipBuilder {
       case "Manse":
         return resources.getString("Equipment.Cost.Type.Manse");
       default:
-        throw new UnreachableCodeReachedException("Unknown Cost type: " + type);
+        throw new IllegalArgumentException("Unknown Cost type: " + type);
     }
   }
 

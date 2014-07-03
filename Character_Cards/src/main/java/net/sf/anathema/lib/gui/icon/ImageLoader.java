@@ -1,5 +1,6 @@
 package net.sf.anathema.lib.gui.icon;
 
+import net.sf.anathema.lib.exception.PersistenceException;
 import org.apache.commons.io.IOUtils;
 
 import java.awt.Image;
@@ -17,7 +18,7 @@ public class ImageLoader {
   public static Image getMemoryImageWithoutCaching(InputStream inputStream) throws IOException {
     try {
       return createMemoryImage(readImage(inputStream));
-    } catch (LoadingException e) {
+    } catch (PersistenceException e) {
       throw new IOException("Loading: " + e.getMessage());
     }
   }
@@ -37,17 +38,17 @@ public class ImageLoader {
       w = dimensionGetter.getWidth();
       h = dimensionGetter.getHeight();
     } catch (Exception e) {
-      throw new LoadingException("image missing or corrupted", e);
+      throw new PersistenceException("image missing or corrupted", e);
     }
     int[] pixels = new int[w * h];
     PixelGrabber pixelGrabber = new PixelGrabber(image, 0, 0, w, h, pixels, 0, w);
     try {
       pixelGrabber.grabPixels();
     } catch (InterruptedException e) {
-      throw new LoadingException("interrupted waiting for pixels!", e);
+      throw new PersistenceException("interrupted waiting for pixels!", e);
     }
     if ((pixelGrabber.getStatus() & ImageObserver.ABORT) != 0) {
-      throw new LoadingException("image fetch aborted or errored");
+      throw new PersistenceException("image fetch aborted or errored");
     }
     MemoryImageSource memoryImageSource = new MemoryImageSource(w, h, pixels, 0, w);
     return Toolkit.getDefaultToolkit().createImage(memoryImageSource);

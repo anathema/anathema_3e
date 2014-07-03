@@ -5,28 +5,28 @@ import net.sf.anathema.framework.configuration.PreferencesBasedRepositoryLocatio
 import net.sf.anathema.framework.configuration.RepositoryPreference;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.model.ApplicationModel;
-import net.sf.anathema.framework.repository.RepositoryException;
 import net.sf.anathema.initialization.repository.IOFileSystemAbstraction;
 import net.sf.anathema.initialization.repository.RepositoryFolderCreator;
 import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 
 public class AnathemaModelInitializer {
 
-  public IApplicationModel initializeModel(Environment environment) throws InitializationException {
+  public IApplicationModel initializeModel(Environment environment) {
     return createModel(environment);
   }
 
-  private ApplicationModel createModel(Environment environment) throws InitializationException {
+  private ApplicationModel createModel(Environment environment) {
     try {
       return new ApplicationModel(createRepositoryFolder(environment), environment);
-    } catch (RepositoryException e) {
+    } catch (PersistenceException e) {
       throw new InitializationException("Failed to create repository folder.\nPlease check read/write permissions.", e);
     }
   }
 
-  private File createRepositoryFolder(Environment environment) throws RepositoryException {
+  private File createRepositoryFolder(Environment environment) {
     IOFileSystemAbstraction fileSystem = new IOFileSystemAbstraction();
     RepositoryPreference preferences = new PreferencesBasedRepositoryLocation(environment);
     RepositoryLocationResolver repositoryLocationResolver = new RepositoryLocationResolver(preferences);
