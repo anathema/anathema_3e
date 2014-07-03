@@ -1,30 +1,27 @@
 @Integration
 Feature: Characters can learn their native Charm
-  'There is no Wind' is a Solar Archery 4/Essence 2 Root Charm.
-  'Essence Arrow Attack' is a Solar Archery Root Charm and direct prerequisite to 
-  'Phantom Arrow Technique', a Solar Archery 4/Essence 3 Charm.  
+  'Ailment-Rectifying Method' is a Solar Medicine 1/Essence 1 Root Charm.
+  'Plague-Banishing Incitation' is a Solar Medicine charm that needs Medicine 3, Essence 1 and 'Ailment-Rectifying Method'
 
   Scenario: Charm is not learnable if prerequisites are not met
     Given a new Solar using rules for RookieLawgiver
-    When I set her Archery to 0
-    Then she can not learn the Charm Solar.ThereIsNoWind
+    When I set her Medicine to 0
+    Then she can not learn the Charm Ailment-Rectifying Method
 
   Scenario: Charm is learnable if prerequisites are met
     Given a new Solar using rules for RookieLawgiver
-    When I set her Archery to 4
-    Then she can learn the Charm Solar.ThereIsNoWind
+    When I set her Medicine to 1
+    Then she can learn the Charm Ailment-Rectifying Method
 
   Scenario: Parent Charms are automatically learned
     Given a new Solar using rules for RookieLawgiver
-    And I set her Archery to 4
-    And I set her Essence to 3
-    When she learns the Charm Solar.PhantomArrowTechnique
-    Then she knows the Charm Solar.EssenceArrowAttack
+    And I set her Medicine to 3
+    When she learns the Charm Plague-Banishing Incitation
+    Then she knows the Charm Ailment-Rectifying Method
 
   Scenario: Child Charms are automatically forgotten
     Given a new Solar using rules for RookieLawgiver
-    And I set her Archery to 4
-    And I set her Essence to 3
-    And she learns the Charm Solar.PhantomArrowTechnique
-    When she forgets the Charm Solar.EssenceArrowAttack
-    Then she does not know the Charm Solar.PhantomArrowTechnique
+    And I set her Medicine to 3
+    And she learns the Charm Plague-Banishing Incitation
+    When she forgets the Charm Ailment-Rectifying Method
+    Then she does not know the Charm Plague-Banishing Incitation

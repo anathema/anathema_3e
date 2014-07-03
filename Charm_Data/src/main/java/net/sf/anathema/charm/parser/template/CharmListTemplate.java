@@ -6,6 +6,6 @@ import java.util.Map;
 public class CharmListTemplate {
 
   public String category;
-  public String treeName;
-  public Map<String, CharmTemplate> charmTemplatesByName = new HashMap<>();
+  public String tree;
+  public Map<String, CharmTemplate> charms = new HashMap<>();
 }

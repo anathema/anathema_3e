@@ -1,13 +1,11 @@
 package net.sf.anathema.hero.magic.charm.martial;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
-
-import java.text.MessageFormat;
+import net.sf.anathema.magic.Magic;
 
 import static net.sf.anathema.charm.old.CharmAttributeList.FORM_ATTRIBUTE;
 
@@ -23,18 +21,12 @@ public class MartialArtsUtilities {
     return charm.hasAttribute(FORM_ATTRIBUTE);
   }
 
+  // todo MartialArtsLevels ?
   public static MartialArtsLevel getLevel(Magic charm) {
     if (!isMartialArts(charm)) {
       return null;
     }
-    for (MartialArtsLevel level : MartialArtsLevel.values()) {
-      if (charm.hasAttribute(new SimpleIdentifier(level.name()))) {
-        return level;
-      }
-    }
-    String pattern = "Martial Arts Charm without level: {0}. Please ensure it has a Martial Arts level as a 'charmAttribute'.";
-    String message = MessageFormat.format(pattern, charm.getName().text);
-    throw new IllegalStateException(message);
+    return MartialArtsLevel.Celestial;
   }
 
   public static boolean hasLevel(MartialArtsLevel level, Charm charm) {

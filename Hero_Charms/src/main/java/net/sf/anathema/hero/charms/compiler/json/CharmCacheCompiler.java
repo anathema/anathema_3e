@@ -31,7 +31,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
     @Override
   public String getName() {
-    return "NewCharms";
+    return "Charms";
   }
 
   @Override
@@ -51,8 +51,8 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
       CharmListTemplate template = loadTemplate(resourceFile);
       factory.addTemplate(template);
     });
-    factory.createCache();
-    return null; // todo return cache
+    return factory.createCache();
+    //return null;
   }
 
   private CharmListTemplate loadTemplate(ResourceFile resource) {

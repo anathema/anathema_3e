@@ -46,7 +46,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
   @Override
   public String getName() {
-    return "Charms";
+    return "OldCharms";
   }
 
   @Override
@@ -76,7 +76,8 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   @Override
   public ExtensibleDataSet build() throws PersistenceException {
     buildStandardCharms();
-    return charmCollection.createCharmCache();
+    //return charmCollection.createCharmCache();
+    return null;
   }
 
   private void buildStandardCharms() throws PersistenceException {

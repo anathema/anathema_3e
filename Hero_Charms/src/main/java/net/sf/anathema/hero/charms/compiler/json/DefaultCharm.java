@@ -39,8 +39,8 @@ public class DefaultCharm extends AbstractMagic implements Charm {
     this.name = name;
     this.template = template;
     this.prerequisiteList = new DefaultPrerequisiteList(template);
-    template.tags.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, true)));
-    template.internals.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, false)));
+    template.keywords.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, true)));
+    template.internalTags.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, false)));
   }
 
   @Override

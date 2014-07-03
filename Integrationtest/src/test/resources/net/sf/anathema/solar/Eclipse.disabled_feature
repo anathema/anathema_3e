@@ -1,4 +1,3 @@
-@Integration
 Feature: Eclipse have the Caste ability to learn alien charms
 
   Scenario: Eclipse can learn alien charms if they meet the requirements

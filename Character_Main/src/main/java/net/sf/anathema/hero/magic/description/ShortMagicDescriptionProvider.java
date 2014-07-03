@@ -31,7 +31,7 @@ public class ShortMagicDescriptionProvider implements MagicDescriptionProvider {
 
       private String getDescriptionString(Magic magic) {
         String id = magic.getName().text;
-        String genericId = id.substring(0, id.lastIndexOf('.'));
+        String genericId = id; // todo (sandra) i18n-Key for Charms create and reuse here
         String description = getDescriptionPattern(id, genericId);
         if (magic instanceof Charm) {
           String traitId = ((Charm) magic).getPrerequisites().getPrimaryTraitType().getId();

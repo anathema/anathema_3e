@@ -39,7 +39,7 @@
       "type": "Simple",
       "duration": "Instant"
     },
-    "Wound-Cleansing Meditation": {
+    "Instant Treatment Methodology": {
       "cost": "10m",
       "minimums": {
         "Medicine": 5,
@@ -48,7 +48,114 @@
       "type": "Simple",
       "duration": "Instant",
       "prerequisiteCharms": ["Wound-Mending Care Technique"]
+    },
+    "Wound-Cleansing Meditation": {
+      "cost": "5m,1wp-or-5i,1wp",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 2
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Wound-Mending Care Technique"]
+    },
+    "Anointment of Miraculous Health": {
+      "cost": "10m",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Simple",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Instant Treatment Methodology"]
+    },
+    "Body-Sculpting Essence Method": {
+      "cost": "10m,1wp",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Simple",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Anointment of Miraculous Health"]
+    },
+    "Wholeness-Restoring Meditation": {
+      "cost": "10m,1wp",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Simple",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Anointment of Miraculous Health", "Wound-Cleansing Meditation"]
+    },
+    "Healing Trance Meditation": {
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Simple",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Contagion-Curing Touch", "Wholeness-Restoring Meditation"]
+    },
+    "Flawless Diagnosis Technique": {
+      "cost": "1m",
+      "minimums": {
+        "Medicine": 1,
+        "Essence": 1
+      },
+      "type": "Supplemental",
+      "duration": "Instant"
+    },
+    "Touch of Blissful Release": {
+      "cost": "5m",
+      "minimums": {
+        "Medicine": 3,
+        "Essence": 2
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Flawless Diagnosis Technique"]
+    },
+    "Feit of Imparted Nature": {
+      "cost": "10m",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Simple",
+      "duration": "Indefinite",
+      "prerequisiteCharms": ["Touch of Blissful Release"]
+    },
+    "Life-Exchanging Prana": {
+      "cost": "1lhl per 3m",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Feit of Imparted Nature"]
+    },
+    "Body-Purifying Admonitions": {
+      "cost": "4m,1wp",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 2
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Touch of Blissful Release"]
+    },
+    "Anodyne of Celestial Dreaming": {
+      "cost": "7m,1wp",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 3
+      },
+      "type": "Reflexive",
+      "duration": "One scene",
+      "prerequisiteCharms": ["Touch of Blissful Release"]
     }
-
   }
 }

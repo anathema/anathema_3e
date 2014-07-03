@@ -1,0 +1,17 @@
+{
+  "category": "MartialArts",
+  "tree": "Tiger Style",
+  "charms": {
+    "Crimson Leaping Cat Technique": {
+      "cost": "4m",
+      "minimums": {
+        "MartialArts": 2,
+        "Essence": 1
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "keywords": ["Uniform"],
+      "internalTags": ["MartialArts"]
+    }
+  }
+}

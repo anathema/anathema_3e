@@ -30,8 +30,8 @@ public class CharmCacheBuilder {
 
   private void addCharmSkeletons(CharmListTemplate listTemplate) {
     CategoryReference category = new CategoryReference(listTemplate.category);
-    TreeName tree = new TreeName(listTemplate.treeName);
-    listTemplate.charmTemplatesByName.forEach((name, charmTemplate) -> {
+    TreeName tree = new TreeName(listTemplate.tree);
+    listTemplate.charms.forEach((name, charmTemplate) -> {
       CharmName charmName = new CharmName(name);
       DefaultCharm charm = new DefaultCharm(category, tree, charmName, charmTemplate);
       charmList.put(charmName, charm);
