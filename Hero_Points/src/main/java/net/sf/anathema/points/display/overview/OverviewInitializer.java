@@ -3,7 +3,7 @@ package net.sf.anathema.points.display.overview;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
@@ -41,7 +41,7 @@ public class OverviewInitializer implements HeroModelInitializer {
   private void initOverviewPresentation(Hero hero, OverviewContainer container, Resources resources) {
     BonusPointManagement bonusPoints = PointModelFetcher.fetch(hero).getBonusPointManagement();
     ExperiencePointManagement experiencePoints = new ExperiencePointManagementImpl(hero);
-    IMessaging messaging = applicationModel.getMessaging();
+    Messaging messaging = applicationModel.getMessaging();
     OverviewPresenter presenter = new OverviewPresenter(resources, hero, container, bonusPoints, experiencePoints, messaging);
     presenter.initPresentation();
   }

@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
@@ -21,14 +21,14 @@ public class ExperiencedOverviewPresenter {
   private final ExperiencePointManagement management;
   private final CategorizedOverview view;
   private final Hero hero;
-  private IMessaging messaging;
+  private Messaging messaging;
   private final Resources resources;
   private final List<IOverviewSubPresenter> presenters = new ArrayList<>();
 
   private LabelledAllotmentView totalView;
 
   public ExperiencedOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overview,
-                                      ExperiencePointManagement experiencePoints, IMessaging messaging) {
+                                      ExperiencePointManagement experiencePoints, Messaging messaging) {
     this.resources = resources;
     this.hero = hero;
     this.messaging = messaging;

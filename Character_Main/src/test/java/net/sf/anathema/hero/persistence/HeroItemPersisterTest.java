@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.persistence;
 
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyObjectFactory;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 public class HeroItemPersisterTest {
-  private IMessaging messaging = mock(IMessaging.class);
+  private Messaging messaging = mock(Messaging.class);
   private SimpleDummyCharacterTemplate template = new SimpleDummyCharacterTemplate(new DummyExaltCharacterType(), null);
 
   @Test

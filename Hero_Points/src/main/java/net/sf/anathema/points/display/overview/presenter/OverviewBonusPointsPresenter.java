@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.points.model.overview.SpendingModel;
@@ -14,9 +14,9 @@ import static net.sf.anathema.lib.message.MessageType.WARNING;
 class OverviewBonusPointsPresenter implements IOverviewSubPresenter {
   private Resources resources;
   private SpendingModel model;
-  private IMessaging messaging;
+  private Messaging messaging;
 
-  public OverviewBonusPointsPresenter(Resources resources, SpendingModel model, IMessaging messaging) {
+  public OverviewBonusPointsPresenter(Resources resources, SpendingModel model, Messaging messaging) {
     this.resources = resources;
     this.model = model;
     this.messaging = messaging;

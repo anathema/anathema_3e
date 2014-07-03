@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.hero.framework.ExaltedCharacter;
@@ -22,10 +22,10 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 public class HeroItemPersister implements RepositoryItemPersister {
 
   private final HeroEnvironment generics;
-  private final IMessaging messaging;
+  private final Messaging messaging;
   private final HeroPersisterList persisterList;
 
-  public HeroItemPersister(HeroEnvironment generics, IMessaging messaging) {
+  public HeroItemPersister(HeroEnvironment generics, Messaging messaging) {
     this.generics = generics;
     this.messaging = messaging;
     this.persisterList = new HeroPersisterList(generics.getObjectFactory());

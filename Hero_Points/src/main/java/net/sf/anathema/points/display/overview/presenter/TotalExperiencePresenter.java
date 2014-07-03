@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageType;
@@ -16,10 +16,10 @@ import static net.sf.anathema.lib.message.MessageType.WARNING;
 public class TotalExperiencePresenter implements IOverviewSubPresenter {
   private final Hero hero;
   private final Resources resources;
-  private final IMessaging messaging;
+  private final Messaging messaging;
   private final ExperiencePointManagement management;
 
-  public TotalExperiencePresenter(Hero hero, Resources resources, IMessaging messaging, ExperiencePointManagement management) {
+  public TotalExperiencePresenter(Hero hero, Resources resources, Messaging messaging, ExperiencePointManagement management) {
     this.hero = hero;
     this.resources = resources;
     this.messaging = messaging;
