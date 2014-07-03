@@ -4,10 +4,10 @@ import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplateLoader;
 import net.sf.anathema.hero.template.TemplateFactory;
+import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesPointsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {

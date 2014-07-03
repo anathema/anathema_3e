@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.gui.file.Extension;
 import net.sf.anathema.lib.gui.file.FileChooserConfiguration;

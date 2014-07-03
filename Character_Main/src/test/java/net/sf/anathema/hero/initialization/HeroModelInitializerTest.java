@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.hero.template.ConfiguredModel;
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.DefaultHero;
 import net.sf.anathema.hero.model.HeroModelFactory;
+import net.sf.anathema.hero.template.ConfiguredModel;
+import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.junit.Test;
 

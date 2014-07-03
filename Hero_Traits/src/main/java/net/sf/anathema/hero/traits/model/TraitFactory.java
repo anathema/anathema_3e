@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 
 import java.util.ArrayList;
 import java.util.List;

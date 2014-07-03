@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.template.TemplateType;
 
 public class NullCasteCollection implements CasteCollection {
   @Override

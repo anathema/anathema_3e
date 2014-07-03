@@ -1,10 +1,10 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 

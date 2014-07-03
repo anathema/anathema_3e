@@ -5,10 +5,10 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.library.IStats;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 public abstract class AbstractValueStatsGroup<T extends IStats> implements IStatsGroup<T> {
 

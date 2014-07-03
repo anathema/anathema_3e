@@ -2,7 +2,6 @@ package net.sf.anathema.hero.equipment.initialization;
 
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ResourceLoader;
 import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.initialization.BootJob;
 import net.sf.anathema.initialization.IBootJob;

@@ -4,19 +4,19 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.points.model.PointModelFetcher;
-import net.sf.anathema.points.model.PointsModel;
-import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
-import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.spiritual.advance.creation.DefaultSpiritualCreationData;
 import net.sf.anathema.hero.spiritual.advance.creation.SpiritualBonusPointsCalculator;
 import net.sf.anathema.hero.spiritual.advance.experience.EssenceExperienceModel;
 import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceCalculator;
 import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceData;
 import net.sf.anathema.hero.spiritual.advance.experience.WillpowerExperienceModel;
+import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
+import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
 
 public class SpiritualPointsModel implements HeroModel {
 

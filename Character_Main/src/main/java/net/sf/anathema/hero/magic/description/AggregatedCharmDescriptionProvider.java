@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.description;
 
 import com.google.common.base.Function;
-import net.sf.anathema.magic.Magic;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;
 import java.util.List;

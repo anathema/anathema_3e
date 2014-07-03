@@ -5,6 +5,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
@@ -18,7 +19,6 @@ import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
 import net.sf.anathema.hero.concept.ConceptChange;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
@@ -29,7 +29,11 @@ import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ComboConfigurationPresenter {
 

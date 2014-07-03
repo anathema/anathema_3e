@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.template;
 
-import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.spells.data.CircleType;
 
 import java.util.Map;
 import java.util.TreeMap;

@@ -9,21 +9,7 @@ import net.sf.anathema.hero.sheet.pdf.page.layout.SheetPage;
 import net.sf.anathema.hero.sheet.pdf.page.layout.field.LayoutField;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ABILITIES_WITH_SPECIALTIES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ARSENAL;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ATTRIBUTES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.BACKGROUNDS;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.COMBAT;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.EXPERIENCE;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.HEALTH_AND_MOVEMENT;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.INTIMACIES_SIMPLE;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.LANGUAGES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.NOTES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.PANOPLY;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.PERSONAL_INFO;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.SOCIAL_COMBAT;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.VIRTUES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.WILLPOWER_SIMPLE;
+import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.*;
 
 public class MortalPageEncoder implements PageEncoder {
 

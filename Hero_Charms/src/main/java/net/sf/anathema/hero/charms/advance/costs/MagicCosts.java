@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.advance.costs;
 
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.magic.data.Magic;
 
 public interface MagicCosts {
 

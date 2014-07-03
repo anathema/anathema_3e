@@ -1,16 +1,16 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.points.model.xp.ExperiencePoints;
-import net.sf.anathema.points.model.creation.BonusPointManagementImpl;
-import net.sf.anathema.points.model.creation.PointsCreationData;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.points.template.PointsTemplate;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.points.model.creation.BonusPointManagementImpl;
+import net.sf.anathema.points.model.creation.PointsCreationData;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.IValueModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.template.PointsTemplate;
 
 import java.util.ArrayList;
 import java.util.Collections;

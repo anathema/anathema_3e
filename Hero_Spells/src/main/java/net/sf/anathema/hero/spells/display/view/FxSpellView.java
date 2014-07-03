@@ -2,10 +2,10 @@ package net.sf.anathema.hero.spells.display.view;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.charms.display.magic.FxMagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnProperties;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
+import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.display.presenter.SpellView;
 import net.sf.anathema.hero.spells.display.presenter.SpellViewProperties;
 import net.sf.anathema.lib.control.ObjectValueListener;

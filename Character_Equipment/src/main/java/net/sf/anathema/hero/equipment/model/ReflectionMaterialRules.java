@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.equipment.model;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.utilities.CharacterSpecificsMap;
 
 public class ReflectionMaterialRules implements MaterialRules {

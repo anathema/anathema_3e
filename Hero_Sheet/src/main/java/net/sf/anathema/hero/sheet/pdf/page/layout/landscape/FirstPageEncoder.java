@@ -7,21 +7,7 @@ import net.sf.anathema.hero.sheet.pdf.page.layout.SheetPage;
 import net.sf.anathema.hero.sheet.pdf.page.layout.field.LayoutField;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ABILITIES_WITH_SPECIALS_TWO_COLUMN;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ANIMA;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ATTRIBUTES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.BACKGROUNDS;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ESSENCE_SIMPLE;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.EXPERIENCE;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.GREAT_CURSE;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.INTIMACIES_EXTENDED;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.LANGUAGES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.NOTES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.PERSONAL_INFO;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.POSSESSIONS;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.SOCIAL_COMBAT;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.VIRTUES;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.WILLPOWER_SIMPLE;
+import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.*;
 
 public class FirstPageEncoder implements PageEncoder {
 

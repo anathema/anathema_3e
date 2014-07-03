@@ -1,13 +1,7 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.hero.framework.item.HeroRepositoryData;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.framework.item.ItemRepositoryLocation;
-import net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval;
-import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.framework.repository.Repository;
 import net.sf.anathema.framework.repository.RepositoryIdData;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
@@ -15,6 +9,12 @@ import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.framework.item.HeroRepositoryData;
+import net.sf.anathema.hero.framework.item.Item;
+import net.sf.anathema.hero.framework.item.ItemRepositoryLocation;
+import net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval;
+import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
+import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.model.Hero;
 
 import java.io.IOException;

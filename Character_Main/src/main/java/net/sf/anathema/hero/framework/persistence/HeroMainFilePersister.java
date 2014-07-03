@@ -2,12 +2,12 @@ package net.sf.anathema.hero.framework.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.hero.framework.item.HeroNameFetcher;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
+import net.sf.anathema.hero.framework.item.HeroNameFetcher;
+import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.apache.commons.io.IOUtils;
 

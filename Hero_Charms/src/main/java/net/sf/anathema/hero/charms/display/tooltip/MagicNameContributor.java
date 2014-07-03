@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
-import net.sf.anathema.magic.Magic;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
+import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.magic.data.Magic;
 
 public class MagicNameContributor implements MagicTooltipContributor {
   private final MagicDisplayLabeler labeler;

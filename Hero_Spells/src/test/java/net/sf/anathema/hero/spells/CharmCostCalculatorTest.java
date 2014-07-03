@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells;
 
 import com.google.common.collect.ImmutableList;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
@@ -13,10 +14,9 @@ import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.magic.DummySpell;
-import net.sf.anathema.magic.Magic;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
+import net.sf.anathema.magic.data.Magic;
 import org.junit.Before;
 import org.junit.Test;
 

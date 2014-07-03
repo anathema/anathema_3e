@@ -1,11 +1,11 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.points.model.BonusPointManagement;
-import net.sf.anathema.points.display.overview.view.CategorizedOverview;
+import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.points.display.overview.view.CategorizedOverview;
+import net.sf.anathema.points.model.BonusPointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
@@ -15,12 +15,12 @@ public class CreationOverviewPresenter {
   private final Resources resources;
   private final CategorizedOverview view;
   private final Hero hero;
-  private Messaging messaging;
+  private IMessaging messaging;
   private final BonusPointManagement management;
   private final OverviewUpdater updater = new OverviewUpdater();
   private final MappedOverviewCategories categoriesById = new MappedOverviewCategories();
 
-  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, BonusPointManagement management, Messaging messaging) {
+  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, BonusPointManagement management, IMessaging messaging) {
     this.management = management;
     this.resources = resources;
     this.hero = hero;
@@ -57,7 +57,7 @@ public class CreationOverviewPresenter {
     for (IOverviewModel model : PointModelFetcher.fetch(hero).getBonusOverviewModels()) {
       model.accept(new InitOverviewPresentationVisitor(resources, updater, categoriesById));
     }
-    updater.add(new OverviewBonusPointsPresenter(hero, resources,management.getTotalModel(), messaging));
+    updater.add(new OverviewBonusPointsPresenter(resources,management.getTotalModel(), messaging));
   }
 
   private void updateOverview() {

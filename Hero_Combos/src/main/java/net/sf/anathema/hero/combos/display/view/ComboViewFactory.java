@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.combos.display.view;
 
-import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.framework.util.Produces;
 import net.sf.anathema.hero.combos.display.presenter.ComboConfigurationView;
+import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.platform.fx.Stylesheet;
 
 @Produces(ComboConfigurationView.class)

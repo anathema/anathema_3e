@@ -1,5 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
+import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
@@ -8,7 +9,6 @@ import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.ArrayList;
 import java.util.Arrays;

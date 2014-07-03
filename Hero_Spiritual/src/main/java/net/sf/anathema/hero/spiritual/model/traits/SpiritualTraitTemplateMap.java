@@ -2,9 +2,9 @@ package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.spiritual.template.SpiritualTraitsTemplate;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 
 import java.util.HashMap;
 import java.util.Map;

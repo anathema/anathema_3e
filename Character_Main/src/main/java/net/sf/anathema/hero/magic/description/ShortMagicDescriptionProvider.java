@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.description;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.magic.data.Magic;
 import org.apache.commons.lang3.StringUtils;
 
 import java.text.MessageFormat;

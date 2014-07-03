@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.specialties;
 
+import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.model.Hero;
 
 public class HighestSpecialty {
 

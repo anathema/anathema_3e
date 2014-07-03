@@ -14,13 +14,13 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.template.points.AttributeGroupPriority;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
-import net.sf.anathema.hero.template.points.AttributeGroupPriority;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class AttributePointsModel implements HeroModel {
 

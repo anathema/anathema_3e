@@ -2,12 +2,12 @@ package net.sf.anathema.namegenerator;
 
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
+import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.view.perspective.Container;
 import net.sf.anathema.framework.view.perspective.Perspective;
 import net.sf.anathema.framework.view.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.framework.view.perspective.PerspectiveToggle;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.namegenerator.exalted.ExaltedNameGeneratorModel;
 import net.sf.anathema.namegenerator.presenter.NameGeneratorPresenter;

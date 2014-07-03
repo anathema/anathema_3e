@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.model.options;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
@@ -8,8 +10,6 @@ import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.MARTIAL_ARTS;
+import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.MARTIAL_ARTS;
 
 public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 

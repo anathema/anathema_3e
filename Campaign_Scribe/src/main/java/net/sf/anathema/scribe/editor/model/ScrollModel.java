@@ -1,10 +1,10 @@
 package net.sf.anathema.scribe.editor.model;
 
+import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.platform.markdown.HtmlConverter;
 import net.sf.anathema.platform.markdown.HtmlText;
 import net.sf.anathema.platform.markdown.WikiText;
-import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.scribe.scroll.persistence.Scroll;
 import net.sf.anathema.scribe.scroll.persistence.ScrollDto;
 import net.sf.anathema.scribe.scroll.persistence.ScrollPersister;

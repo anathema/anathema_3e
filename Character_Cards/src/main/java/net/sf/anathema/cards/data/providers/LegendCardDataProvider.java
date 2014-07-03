@@ -5,13 +5,13 @@ import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.LegendCardData;
 import net.sf.anathema.cards.data.LegendEntry;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 
 import java.util.ArrayList;

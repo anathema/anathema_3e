@@ -4,7 +4,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 
-import static net.sf.anathema.character.equipment.creation.model.ArmourTag.*;
+import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Heavy;
+import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Light;
+import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Medium;
 
 public class ArmorStatisticsTable {
 

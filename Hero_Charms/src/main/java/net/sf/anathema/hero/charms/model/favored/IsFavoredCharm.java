@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.charms.model.favored;
 
-import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.magic.Magic;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.TraitTypeUtils;
+import net.sf.anathema.magic.data.Magic;
 
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class IsFavoredCharm implements FavoredChecker {

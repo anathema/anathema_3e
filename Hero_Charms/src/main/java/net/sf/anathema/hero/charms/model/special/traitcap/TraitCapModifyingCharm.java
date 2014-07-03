@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.special.traitcap;
 
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
+import net.sf.anathema.hero.traits.model.TraitType;
 
 public class TraitCapModifyingCharm implements ITraitCapModifyingCharm {
   private final CharmName charmId;

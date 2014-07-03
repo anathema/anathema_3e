@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.display.view;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.display.prerequisites.NonCharmPrerequisiteId;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public class NodeIds {
 

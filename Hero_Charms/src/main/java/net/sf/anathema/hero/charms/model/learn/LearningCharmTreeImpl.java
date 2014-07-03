@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
@@ -15,7 +14,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static net.sf.anathema.hero.magic.charm.prerequisite.CollectPrerequisiteCharms.collectPrerequisiteCharms;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
 
 public class LearningCharmTreeImpl implements LearningCharmTree {
 

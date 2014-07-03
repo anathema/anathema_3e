@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.model;
 
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 
 import java.util.HashMap;
 import java.util.Map;

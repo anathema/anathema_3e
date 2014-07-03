@@ -1,9 +1,9 @@
 package net.sf.anathema.scribe.perspective.presenter;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.scribe.editor.presenter.ScrollPresenter;
 import net.sf.anathema.scribe.perspective.model.ScribeModel;
 import net.sf.anathema.scribe.perspective.view.ScribeView;

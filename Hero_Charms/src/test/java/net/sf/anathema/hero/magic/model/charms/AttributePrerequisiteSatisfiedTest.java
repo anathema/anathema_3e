@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
-import net.sf.anathema.magic.attribute.MagicAttributeImpl;
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
+import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

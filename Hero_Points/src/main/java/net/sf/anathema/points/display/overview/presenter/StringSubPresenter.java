@@ -1,10 +1,10 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import com.google.common.base.Strings;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.points.model.overview.IValueModel;
-import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.lib.control.legality.LegalityColorProvider;
+import net.sf.anathema.points.model.overview.IValueModel;
 
 public class StringSubPresenter implements IOverviewSubPresenter {
 

@@ -1,8 +1,8 @@
 package net.sf.anathema.magic.description.view;
 
-import net.sf.anathema.magic.description.swing.IView;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.magic.description.swing.AreaTextView;
+import net.sf.anathema.magic.description.swing.IView;
 import net.sf.anathema.magic.description.swing.TextView;
 
 import javax.swing.JComponent;

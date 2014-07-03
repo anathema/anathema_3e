@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
-import net.sf.anathema.hero.magic.charm.Charm;
 
 import static net.sf.anathema.hero.charms.display.prerequisites.ConcreteCharmRenderingParents.collectRenderingParents;
 

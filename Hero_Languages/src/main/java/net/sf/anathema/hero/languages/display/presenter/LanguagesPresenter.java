@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;

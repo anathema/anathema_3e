@@ -2,9 +2,9 @@ package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.framework.ui.FontStyle;
 import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxAllotmentOverview implements LabelledAllotmentView {

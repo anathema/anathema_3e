@@ -4,7 +4,6 @@ import net.sf.anathema.graph.SugiyamaLayout;
 import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
-import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraph;
 import net.sf.anathema.platform.tree.document.visualizer.VisualizedGraphFactory;
 import net.sf.anathema.platform.tree.view.AgnosticCascadeBuilder;

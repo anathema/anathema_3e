@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.lib.control.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 

@@ -3,7 +3,6 @@ package net.sf.anathema.character.equipment.creation.model;
 import org.junit.Test;
 
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.*;
-import static net.sf.anathema.character.equipment.creation.model.WeaponTag.MediumRange;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 

@@ -8,7 +8,7 @@ import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Mediu
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getDamageTags;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.getSizeTags;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class WeaponLegalityModel_Test {
   WeaponTagsModel tagsModel = new WeaponTagsModel();

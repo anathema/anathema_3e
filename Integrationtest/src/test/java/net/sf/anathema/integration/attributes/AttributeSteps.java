@@ -1,13 +1,11 @@
 package net.sf.anathema.integration.attributes;
 
 import com.google.inject.Inject;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.sf.anathema.CharacterHolder;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.integration.attributes.points.AttributeFreebies;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
 import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
 

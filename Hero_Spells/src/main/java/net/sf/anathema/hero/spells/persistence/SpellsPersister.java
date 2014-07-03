@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spells.persistence;
 
 import com.google.common.base.Predicate;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.lib.util.Identifier;
 

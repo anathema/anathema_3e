@@ -6,9 +6,9 @@ import net.sf.anathema.charm.template.special.OxBodyTechnique;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
+import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.health.model.HealthLevelType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -5,8 +5,6 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.points.model.PointModelFetcher;
-import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtiesBonusPointCalculator;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyBonusModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyCreationData;
@@ -16,6 +14,8 @@ import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
 
 public class SpecialtiesPointsModel implements HeroModel {
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
+import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class SpecialtyBonusModel extends AbstractSpendingModel {
   private final SpecialtiesBonusPointCalculator calculator;

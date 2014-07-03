@@ -1,9 +1,9 @@
 package net.sf.anathema.cascades.presenter;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 public class CascadeColoringStrategy implements CharmColoring {

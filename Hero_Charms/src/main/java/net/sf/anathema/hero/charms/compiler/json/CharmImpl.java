@@ -1,21 +1,21 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.charm.data.PrerequisiteList;
+import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.template.CharmTemplate;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.PrerequisiteList;
-import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
-import net.sf.anathema.magic.AbstractMagic;
-import net.sf.anathema.magic.attribute.MagicAttributeImpl;
-import net.sf.anathema.magic.source.SourceBook;
-import net.sf.anathema.magic.source.SourceBookImpl;
+import net.sf.anathema.magic.data.AbstractMagic;
+import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
+import net.sf.anathema.magic.data.source.SourceBook;
+import net.sf.anathema.magic.data.source.SourceBookImpl;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.combat.model.social;
 
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.combat.sheet.social.stats.ISocialCombatStats;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.AttributeType;
 
 public abstract class AbstractSocialAttack implements ISocialCombatStats {
 

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.hero.charms.display.node.CharmGraphNodeBuilder;
 import net.sf.anathema.hero.charms.display.view.ICharmGroupChangeListener;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.platform.tree.document.GenericCascadeFactory;
@@ -15,7 +15,12 @@ import net.sf.anathema.platform.tree.document.visualizer.NodeDimensionsImpl;
 import net.sf.anathema.platform.tree.view.AgnosticCascadeStrategy;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static net.sf.anathema.hero.charms.display.prerequisites.ConcreteCharmRenderingParents.collectRenderingParents;

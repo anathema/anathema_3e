@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
-import net.sf.anathema.magic.Magic;
-import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.magic.data.Magic;
 
 public class IsFavoredSpell implements FavoredChecker {
 

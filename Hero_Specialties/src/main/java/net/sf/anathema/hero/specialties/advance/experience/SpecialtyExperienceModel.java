@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.specialties.advance.experience;
 
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
-import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.specialties.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
 

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 
 public class SubEffectCharmSpecialsImpl extends MultipleEffectCharmSpecialsImpl implements SubEffectCharmSpecials {
 

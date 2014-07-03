@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.model.Hero;
 
 import java.util.ArrayList;

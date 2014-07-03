@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.combos.model.rules;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.combos.model.ComboRules;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 

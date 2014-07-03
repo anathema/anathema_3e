@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.Requirement;
@@ -14,8 +16,6 @@ import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnable
 import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
-import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
-import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 

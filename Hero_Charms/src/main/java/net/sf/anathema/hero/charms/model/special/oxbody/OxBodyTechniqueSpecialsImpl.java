@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.charms.model.special.oxbody;
 
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.health.model.IHealthLevelProvider;
 import net.sf.anathema.hero.health.model.HealthLevelType;
+import net.sf.anathema.hero.health.model.IHealthLevelProvider;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.traits.model.IncrementChecker;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.control.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 

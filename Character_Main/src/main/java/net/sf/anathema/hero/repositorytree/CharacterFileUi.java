@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.repositorytree;
 
-import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.creation.CharacterTypeUi;
+import net.sf.anathema.hero.framework.CharacterUI;
+import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.hero.creation.CharacterTypeUi;
 
 public class CharacterFileUi extends AbstractUIConfiguration<PrintNameFile> {
 

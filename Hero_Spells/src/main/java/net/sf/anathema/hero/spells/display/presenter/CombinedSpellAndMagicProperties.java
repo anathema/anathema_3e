@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.ui.IdentifierConfiguration;
-import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.charms.display.magic.AbstractMagicLearnProperties;
+import net.sf.anathema.hero.experience.ExperienceModel;
+import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.List;

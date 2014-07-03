@@ -2,10 +2,10 @@ package net.sf.anathema.hero.equipment.sheet.content.stats;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectPresenter;
-import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractNameStatsGroup;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectPresenter;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
+import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractNameStatsGroup;
 
 public final class EquipmentNameStatsGroup<T extends IEquipmentStats> extends AbstractNameStatsGroup<T> implements IEquipmentStatsGroup<T> {
 

@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
-import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.traits.model.FavorableState;
+import net.sf.anathema.hero.traits.model.ITraitFavorization;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.lib.collection.IdentityMapping;
 

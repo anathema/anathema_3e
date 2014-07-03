@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
-import net.sf.anathema.hero.traits.display.TraitPresenter;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.Specialty;
-import net.sf.anathema.hero.specialties.ISpecialtyListener;
-import net.sf.anathema.hero.specialties.ISubTraitContainer;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
@@ -14,6 +7,13 @@ import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
+import net.sf.anathema.hero.specialties.ISpecialtyListener;
+import net.sf.anathema.hero.specialties.ISubTraitContainer;
+import net.sf.anathema.hero.specialties.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.traits.display.TraitPresenter;
+import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.collection.IdentityMapping;

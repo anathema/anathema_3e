@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.Iterables;
-import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import org.jmock.example.announcer.Announcer;
 

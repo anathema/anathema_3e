@@ -1,18 +1,18 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.hero.framework.IIntegerDescription;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.description.HeroDescription;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
+import net.sf.anathema.hero.framework.IIntegerDescription;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
+import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
 
 import java.util.Collection;
 

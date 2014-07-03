@@ -3,8 +3,6 @@ package net.sf.anathema.hero.framework.perspective;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.framework.perspective.model.ItemSelectionModel;
 import net.sf.anathema.hero.framework.perspective.model.ReportRegister;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
 import net.sf.anathema.platform.view.MenuTool;

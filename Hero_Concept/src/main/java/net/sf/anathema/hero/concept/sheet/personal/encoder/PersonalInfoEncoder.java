@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.concept.sheet.personal.encoder;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.sheet.personal.content.PersonalInfoContent;
 import net.sf.anathema.hero.concept.sheet.personal.content.PersonalInfoRow;
 import net.sf.anathema.hero.concept.sheet.personal.content.TitledInfo;
@@ -8,7 +9,6 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.framework.environment.Resources;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.BARE_LINE_HEIGHT;
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.TEXT_PADDING;

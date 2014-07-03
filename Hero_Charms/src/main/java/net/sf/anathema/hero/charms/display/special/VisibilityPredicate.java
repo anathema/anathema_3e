@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.display.special;
 
 import com.google.common.base.Predicate;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
 
 public class VisibilityPredicate implements Predicate<String> {
 

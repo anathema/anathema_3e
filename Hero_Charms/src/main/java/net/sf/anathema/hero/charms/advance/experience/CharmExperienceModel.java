@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
-import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 

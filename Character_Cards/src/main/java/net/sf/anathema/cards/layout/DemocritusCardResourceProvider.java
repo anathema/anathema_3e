@@ -4,9 +4,9 @@ import com.itextpdf.text.BadElementException;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.icon.ImageLoadingException;
 import net.sf.anathema.lib.gui.icon.ImageProvider;
@@ -16,8 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.text.MessageFormat.format;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getLevel;
-import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.getLevel;
+import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
 
 public class DemocritusCardResourceProvider implements ICardReportResourceProvider {
 

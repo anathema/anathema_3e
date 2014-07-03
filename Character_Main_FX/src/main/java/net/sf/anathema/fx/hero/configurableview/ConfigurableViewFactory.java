@@ -1,8 +1,8 @@
 package net.sf.anathema.fx.hero.configurableview;
 
-import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.framework.util.Produces;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
+import net.sf.anathema.hero.framework.display.SubViewFactory;
 
 @Produces(ConfigurableCharacterView.class)
 public class ConfigurableViewFactory implements SubViewFactory {

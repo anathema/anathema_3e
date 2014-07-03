@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.persistence;
 
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.hero.framework.Character;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
+import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyObjectFactory;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
+import net.sf.anathema.hero.framework.Character;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentImpl;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
+import net.sf.anathema.hero.framework.item.Item;
+import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 public class HeroItemPersisterTest {
-  private Messaging messaging = mock(Messaging.class);
+  private IMessaging messaging = mock(IMessaging.class);
   private SimpleDummyCharacterTemplate template = new SimpleDummyCharacterTemplate(new DummyExaltCharacterType(), null);
 
   @Test

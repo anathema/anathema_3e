@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
+import net.sf.anathema.hero.template.TemplateType;
 
 import java.util.ArrayList;
 import java.util.List;

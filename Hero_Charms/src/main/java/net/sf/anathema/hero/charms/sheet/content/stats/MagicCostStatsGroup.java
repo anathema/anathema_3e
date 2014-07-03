@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.sheet.content.stats;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractTextStatsGroup;
-import net.sf.anathema.framework.environment.Resources;
 
 public class MagicCostStatsGroup extends AbstractTextStatsGroup<IMagicStats> {
 

@@ -9,11 +9,11 @@ import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.points.model.PointsModel;
-import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
+import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class CharmsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {

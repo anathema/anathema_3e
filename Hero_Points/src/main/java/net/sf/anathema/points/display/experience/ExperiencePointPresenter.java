@@ -1,12 +1,12 @@
 package net.sf.anathema.points.display.experience;
 
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.points.model.PointModelFetcher;
 
 public class ExperiencePointPresenter {
 

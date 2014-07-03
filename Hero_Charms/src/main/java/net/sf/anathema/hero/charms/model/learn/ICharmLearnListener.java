@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 
 public interface ICharmLearnListener {
 

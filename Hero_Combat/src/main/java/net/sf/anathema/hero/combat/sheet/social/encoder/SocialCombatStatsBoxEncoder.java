@@ -5,10 +5,9 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
-import net.sf.anathema.hero.specialties.HighestSpecialty;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
@@ -19,9 +18,10 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.hero.specialties.HighestSpecialty;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
 

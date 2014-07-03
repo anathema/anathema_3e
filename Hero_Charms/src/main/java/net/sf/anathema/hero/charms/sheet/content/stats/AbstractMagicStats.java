@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.CostStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.HealthCostStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.MagicInfoStringBuilder;
-import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.magic.data.Magic;
 
 public abstract class AbstractMagicStats<T extends Magic> implements IMagicStats {
 

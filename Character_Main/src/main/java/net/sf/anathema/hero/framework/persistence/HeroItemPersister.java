@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.Messaging;
+import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
+import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.hero.framework.ExaltedCharacter;
+import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.item.CharacterItem;
 import net.sf.anathema.hero.framework.item.HeroNameFetcher;
 import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.persistence.HeroModelPersister;
+import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.lib.util.Identifier;
@@ -22,10 +22,10 @@ import net.sf.anathema.lib.util.SimpleIdentifier;
 public class HeroItemPersister implements RepositoryItemPersister {
 
   private final HeroEnvironment generics;
-  private final Messaging messaging;
+  private final IMessaging messaging;
   private final HeroPersisterList persisterList;
 
-  public HeroItemPersister(HeroEnvironment generics, Messaging messaging) {
+  public HeroItemPersister(HeroEnvironment generics, IMessaging messaging) {
     this.generics = generics;
     this.messaging = messaging;
     this.persisterList = new HeroPersisterList(generics.getObjectFactory());

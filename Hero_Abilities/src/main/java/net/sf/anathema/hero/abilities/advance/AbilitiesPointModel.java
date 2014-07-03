@@ -1,6 +1,10 @@
 package net.sf.anathema.hero.abilities.advance;
 
-import net.sf.anathema.hero.abilities.advance.creation.*;
+import net.sf.anathema.hero.abilities.advance.creation.AbilityCostCalculatorImpl;
+import net.sf.anathema.hero.abilities.advance.creation.AbilityCreationData;
+import net.sf.anathema.hero.abilities.advance.creation.DefaultAbilityBonusModel;
+import net.sf.anathema.hero.abilities.advance.creation.FavoredAbilityBonusModel;
+import net.sf.anathema.hero.abilities.advance.creation.FavoredAbilityPickModel;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalculator;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceData;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
@@ -11,12 +15,12 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class AbilitiesPointModel implements HeroModel {
 

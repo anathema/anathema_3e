@@ -1,9 +1,9 @@
 package net.sf.anathema.magic.description.module;
 
+import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProviderFactory;
 import net.sf.anathema.hero.magic.description.RegisteredMagicDescriptionProviderFactory;
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.magic.description.persistence.MagicDescriptionDataBase;
 import net.sf.anathema.magic.description.persistence.RepositoryMagicDescriptionDataBase;
 

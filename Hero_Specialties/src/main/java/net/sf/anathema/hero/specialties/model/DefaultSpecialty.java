@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.specialties.model;
 
+import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.specialties.AbstractSubTraitContainer;
+import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.hero.specialties.Specialty;
-import net.sf.anathema.hero.specialties.AbstractSubTraitContainer;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
