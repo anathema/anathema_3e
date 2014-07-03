@@ -46,12 +46,14 @@ public class CollectingMessaging implements Messaging, MessageContainer {
     if (messages.size() > MESSAGE_LIMIT) {
       messages.remove(messages.size() - 1);
     }
-    return new ReplacingToken(message);
+    ReplacingToken token = new ReplacingToken(resources, this);
+    token.remember(message);
+    return token;
   }
 
   @Override
   public MessageToken obtainInitialToken() {
-    return new ReplacingToken();
+    return new ReplacingToken(resources, this);
   }
 
   @Override
@@ -78,29 +80,9 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   public boolean hasMessages() {
     return !messages.isEmpty();
   }
-
-  private class ReplacingToken implements MessageToken {
-    private Message oldMessage;
-
-    public ReplacingToken() {
-      this.oldMessage = null;
-    }
-
-    public ReplacingToken(Message message) {
-      this.oldMessage = message;
-    }
-
-    @Override
-    public void replaceMessage(Message message) {
-      messages.remove(oldMessage);
-      addMessage(message);
-      this.oldMessage = message;
-    }
-
-    @Override
-    public void replaceMessage(MessageType type, String pattern, String... arguments) {
-      String messageText = resources.getString(pattern, arguments);
-      replaceMessage(new Message(messageText, type));
-    }
+  
+  public void replaceMessage(Message oldMessage, Message message){
+    messages.remove(oldMessage);
+    addMessage(message);
   }
 }
