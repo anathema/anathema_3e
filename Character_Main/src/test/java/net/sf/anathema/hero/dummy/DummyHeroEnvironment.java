@@ -4,7 +4,7 @@ import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.ITemplateRegistry;
+import net.sf.anathema.hero.template.TemplateRegistry;
 import net.sf.anathema.initialization.repository.DataFileProvider;
 import org.mockito.Mockito;
 
@@ -25,7 +25,7 @@ public class DummyHeroEnvironment implements HeroEnvironment {
   }
 
   @Override
-  public ITemplateRegistry getTemplateRegistry() {
+  public TemplateRegistry getTemplateRegistry() {
     throw new UnsupportedOperationException();
   }
 

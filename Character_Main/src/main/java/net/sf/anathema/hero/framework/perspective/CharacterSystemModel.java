@@ -8,7 +8,7 @@ import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.display.ItemReceiver;
-import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
+import net.sf.anathema.hero.framework.item.HeroReferenceScanner;
 import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
@@ -23,7 +23,7 @@ import net.sf.anathema.hero.framework.perspective.sheet.ControlledPrintWithSelec
 import net.sf.anathema.hero.framework.perspective.sheet.QuickPrintCommand;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.platform.JsonCharacterReferenceScanner;
+import net.sf.anathema.hero.platform.JsonHeroReferenceScanner;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
@@ -73,10 +73,10 @@ public class CharacterSystemModel implements ItemSystemModel {
     return characters;
   }
 
-  private CharacterReferenceScanner createFileScanner() {
+  private HeroReferenceScanner createFileScanner() {
     HeroEnvironment generics = getHeroEnvironment();
     IRepositoryFileResolver repositoryFileResolver = model.getRepository().getRepositoryFileResolver();
-    return new JsonCharacterReferenceScanner(generics.getCharacterTypes(), repositoryFileResolver);
+    return new JsonHeroReferenceScanner(generics.getCharacterTypes(), repositoryFileResolver);
   }
 
   private HeroEnvironment getHeroEnvironment() {

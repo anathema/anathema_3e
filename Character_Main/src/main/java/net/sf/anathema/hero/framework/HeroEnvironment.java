@@ -3,12 +3,12 @@ package net.sf.anathema.hero.framework;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.ITemplateRegistry;
+import net.sf.anathema.hero.template.TemplateRegistry;
 import net.sf.anathema.initialization.repository.DataFileProvider;
 
 public interface HeroEnvironment {
 
-  ITemplateRegistry getTemplateRegistry();
+  TemplateRegistry getTemplateRegistry();
 
   DataFileProvider getDataFileProvider();
 

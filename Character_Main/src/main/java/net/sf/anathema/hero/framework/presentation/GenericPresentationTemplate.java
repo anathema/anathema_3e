@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.framework.presentation;
 
 import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.template.PresentationProperties;
 import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.hero.template.presentation.IPresentationProperties;
 import net.sf.anathema.lib.file.RelativePath;
 
-public class GenericPresentationTemplate implements IPresentationProperties {
+public class GenericPresentationTemplate implements PresentationProperties {
 
   private final TemplateType templateType;
 

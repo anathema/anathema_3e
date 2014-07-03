@@ -3,7 +3,7 @@ package net.sf.anathema.integration;
 import net.sf.anathema.TestInitializer;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.fx.hero.perspective.CharacterSystemInitializer;
-import net.sf.anathema.hero.application.item.Character;
+import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.item.CharacterItem;
@@ -34,18 +34,18 @@ public class CharacterFactory {
     this.characterTypes = heroEnvironment.getCharacterTypes();
   }
 
-  public Character createCharacter(String type, String subtype) {
+  public HeroItem createCharacter(String type, String subtype) {
     HeroTemplate characterTemplate = loadTemplateForType(type, subtype);
     return createCharacter(characterTemplate);
   }
 
-  public Character saveAndReload(Character character) throws  Exception{
+  public HeroItem saveAndReload(HeroItem heroItem) throws  Exception{
     CharacterPersistenceModel persistenceModel = new CharacterPersistenceModel(model, heroEnvironment);
-    CharacterItem characterItem = new CharacterItem(character);
+    CharacterItem characterItem = new CharacterItem(heroItem);
     persistenceModel.save(characterItem);
     String repositoryId = characterItem.getRepositoryLocation().getId();
     Item loadItem = persistenceModel.loadItem(new CharacterIdentifier(repositoryId));
-    return (Character) loadItem.getItemData();
+    return (HeroItem) loadItem.getItemData();
   }
 
   private HeroTemplate loadTemplateForType(String type, String subtype) {
@@ -53,10 +53,10 @@ public class CharacterFactory {
     return generics.getTemplateRegistry().getTemplate(new TemplateTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
   }
 
-  private Character createCharacter(HeroTemplate template) {
+  private HeroItem createCharacter(HeroTemplate template) {
     RepositoryItemPersister itemPersister = new HeroItemPersister(getCharacterGenerics(), model.getMessaging());
     Item item = itemPersister.createNew(template);
-    return (Character) item.getItemData();
+    return (HeroItem) item.getItemData();
   }
 
   private HeroEnvironment getCharacterGenerics() {

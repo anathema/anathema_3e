@@ -4,7 +4,7 @@ import net.sf.anathema.framework.messaging.MessageToken;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.application.item.ExaltedCharacter;
+import net.sf.anathema.hero.application.item.HeroItemImp;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.item.CharacterItem;
 import net.sf.anathema.hero.framework.item.HeroNameFetcher;
@@ -76,12 +76,12 @@ public class HeroItemPersister implements RepositoryItemPersister {
   }
 
   private Item createCharacterInItem(HeroTemplate template, CharacterInitializer initializer) {
-    ExaltedCharacter character = new ExaltedCharacter(template, generics);
+    HeroItemImp character = new HeroItemImp(template, generics);
     initializer.initialize(character);
     return initItem(character);
   }
 
-  private Item initItem(ExaltedCharacter character) {
+  private Item initItem(HeroItemImp character) {
     character.markReadyForWork();
     return new CharacterItem(character);
   }

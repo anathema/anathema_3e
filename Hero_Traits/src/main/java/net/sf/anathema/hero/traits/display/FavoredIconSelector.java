@@ -6,7 +6,7 @@ import net.sf.anathema.hero.concept.display.caste.presenter.CasteUI;
 import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.presentation.IPresentationProperties;
+import net.sf.anathema.hero.template.PresentationProperties;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
@@ -14,9 +14,9 @@ import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 
 public class FavoredIconSelector {
   private final Tool tool;
-  private final IPresentationProperties presentationProperties;
+  private final PresentationProperties presentationProperties;
 
-  public FavoredIconSelector(Tool tool, IPresentationProperties presentationProperties) {
+  public FavoredIconSelector(Tool tool, PresentationProperties presentationProperties) {
     this.tool = tool;
     this.presentationProperties = presentationProperties;
   }

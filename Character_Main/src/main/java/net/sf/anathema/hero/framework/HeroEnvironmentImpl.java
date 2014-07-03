@@ -4,13 +4,13 @@ import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.ITemplateRegistry;
 import net.sf.anathema.hero.template.TemplateRegistry;
+import net.sf.anathema.hero.template.TemplateRegistryImpl;
 import net.sf.anathema.initialization.repository.DataFileProvider;
 
 public class HeroEnvironmentImpl implements HeroEnvironment {
 
-  private final ITemplateRegistry templateRegistry = new TemplateRegistry();
+  private final TemplateRegistry templateRegistry = new TemplateRegistryImpl();
   private final DataFileProvider dataFileProvider;
   private final IExtensibleDataSetProvider dataSetProvider;
   private final ObjectFactory objectFactory;
@@ -25,7 +25,7 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
   }
 
   @Override
-  public ITemplateRegistry getTemplateRegistry() {
+  public TemplateRegistry getTemplateRegistry() {
     return templateRegistry;
   }
 

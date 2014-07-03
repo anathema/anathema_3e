@@ -6,7 +6,7 @@ import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.ITemplateRegistry;
+import net.sf.anathema.hero.template.TemplateRegistry;
 import net.sf.anathema.lib.control.ChangeListener;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -28,7 +28,7 @@ public class CharacterItemCreationModelTest {
     DummyCharacterTypes characterTypes = new DummyCharacterTypes();
     characterTypes.add(characterType);
     Mockito.when(generics.getCharacterTypes()).thenReturn(characterTypes);
-    ITemplateRegistry registry = Mockito.mock(ITemplateRegistry.class);
+    TemplateRegistry registry = Mockito.mock(TemplateRegistry.class);
     SimpleDummyCharacterTemplate characterTemplate = new SimpleDummyCharacterTemplate(characterType, null);
     Mockito.when(registry.getAllSupportedTemplates(characterType)).thenReturn(
             new HeroTemplate[]{characterTemplate});

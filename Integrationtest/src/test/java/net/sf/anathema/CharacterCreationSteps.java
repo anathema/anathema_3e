@@ -6,7 +6,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.sf.anathema.hero.application.item.Character;
+import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.integration.CharacterFactory;
 import net.sf.anathema.integration.concept.ConceptModelUtilities;
 
@@ -37,15 +37,15 @@ public class CharacterCreationSteps {
 
   @Given("^a new (.*) using rules for (.*)$")
   public void I_create_a_new_character_with_subtype(String type, String subtype) throws Throwable {
-    Character character = characterFactory.createCharacter(type, subtype);
-    holder.setCharacter(character);
+    HeroItem heroItem = characterFactory.createCharacter(type, subtype);
+    holder.setCharacter(heroItem);
   }
 
   @Given("^any Solar with Caste (.*)$")
   public void I_create_any_Solar_with_Caste(String caste) throws Throwable {
-    Character character = characterFactory.createCharacter("Solar", "RookieLawgiver");
-    ConceptModelUtilities.setCaste(character, caste);
-    holder.setCharacter(character);
+    HeroItem heroItem = characterFactory.createCharacter("Solar", "RookieLawgiver");
+    ConceptModelUtilities.setCaste(heroItem, caste);
+    holder.setCharacter(heroItem);
   }
 
   @Then("^I can create a new (.*) using rules for (.*)$")
@@ -55,8 +55,8 @@ public class CharacterCreationSteps {
 
   @When("^I save and reload the character$")
   public void I_save_and_reload_the_character() throws Throwable {
-    Character reloadedCharacter = characterFactory.saveAndReload(holder.getHero());
-    holder.setCharacter(reloadedCharacter);
+    HeroItem reloadedHeroItem = characterFactory.saveAndReload(holder.getHero());
+    holder.setCharacter(reloadedHeroItem);
   }
 
   @Given("^a new Character of any kind$")
