@@ -46,7 +46,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
-    CharmFactory factory = new CharmFactory();
+    CharmCacheBuilder factory = new CharmCacheBuilder();
     resourceFiles.stream().forEach(resourceFile -> {
       CharmListTemplate template = loadTemplate(resourceFile);
       factory.addTemplate(template);

@@ -20,6 +20,7 @@ import static net.sf.anathema.charm.old.cost.HealthCostType.Lethal;
 
 public class CostParser {
 
+  // todo sandra parse permanent and text (e.g. (optional))
   public static final String NO_COST = "0";
 
   public CostList parse(String costString) {
@@ -36,7 +37,7 @@ public class CostParser {
 
   private Cost parseCost(String costString, String unit, boolean permanent) {
     for (String costPart : costString.split(",")) {
-      String pattern = "(.*)" + unit;
+      String pattern = "(\\d+)" + unit;
       Matcher matcher = Pattern.compile(pattern).matcher(costPart);
       if (matcher.matches()) {
         String costTest = matcher.group(1);
@@ -48,7 +49,7 @@ public class CostParser {
 
   private String parseCostText(String costString, String unit) {
     for (String costPart : costString.split(",")) {
-      String pattern = "(.*)" + unit;
+      String pattern = "(\\d+)" + unit;
       Matcher matcher = Pattern.compile(pattern).matcher(costPart);
       if (matcher.matches()) {
         return matcher.group(1);

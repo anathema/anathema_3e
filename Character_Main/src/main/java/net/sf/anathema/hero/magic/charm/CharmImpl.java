@@ -23,7 +23,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CharmType charmType;
   private TreeReference treeReference;
   private CharmName name;
-  private PrerequisiteList prerequisiteList;
+  private PrerequisiteListImpl prerequisiteList;
 
   public CharmImpl(TreeReference treeReference, CharmName name, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
@@ -85,7 +85,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public PrerequisiteList getPrerequisites() {
+  public PrerequisiteListImpl getPrerequisites() {
     return prerequisiteList;
   }
 }
