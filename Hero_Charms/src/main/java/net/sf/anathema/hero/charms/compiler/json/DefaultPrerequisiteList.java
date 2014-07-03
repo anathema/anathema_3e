@@ -11,7 +11,6 @@ import net.sf.anathema.hero.traits.model.types.SimpleValuedTraitType;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
 
@@ -36,15 +35,8 @@ public class DefaultPrerequisiteList implements PrerequisiteList {
   }
 
   @Override
-  public ValuedTraitType getEssence() {
-    Stream<ValuedTraitType> essenceTraits = traitPrerequisites.stream().filter(
-            valuedTraitType -> valuedTraitType.getType().equals(Essence));
-    return essenceTraits.findFirst().get();
-  }
-
-  @Override
-  public ValuedTraitType[] getTraitPrerequisites() {
-    return traitPrerequisites.toArray(new ValuedTraitType[traitPrerequisites.size()]);
+  public List<ValuedTraitType> getTraitPrerequisites() {
+    return new ArrayList<>(traitPrerequisites);
   }
 
   @Override

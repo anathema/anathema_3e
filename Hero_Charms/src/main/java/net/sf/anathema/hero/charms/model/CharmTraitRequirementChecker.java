@@ -27,9 +27,6 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
         return false;
       }
     }
-    if (!isMinimumSatisfied(charm, charm.getPrerequisites().getEssence())) {
-      return false;
-    }
     return true;
   }
 

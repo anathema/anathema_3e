@@ -11,9 +11,7 @@ public interface PrerequisiteList {
 
   TraitType getPrimaryTraitType();
 
-  ValuedTraitType getEssence();
-
-  ValuedTraitType[] getTraitPrerequisites();
+  List<ValuedTraitType> getTraitPrerequisites();
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
 
