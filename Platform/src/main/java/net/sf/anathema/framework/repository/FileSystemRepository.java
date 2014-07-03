@@ -16,6 +16,7 @@ import net.sf.anathema.framework.repository.access.printname.PrintNameFileAccess
 import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.framework.view.PrintNameFile;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,15 +57,15 @@ public class FileSystemRepository implements Repository {
   }
 
   @Override
-  public synchronized RepositoryWriteAccess createWriteAccess(IItemType type, String id) throws RepositoryException {
+  public synchronized RepositoryWriteAccess createWriteAccess(IItemType type, String id) {
     try {
       if (type.getRepositoryConfiguration().isItemSavedToSingleFile()) {
         return createSingleFileWriteAccess(type, id);
       }
       return createMultiFileWriteAccess(type, id);
-    } catch (RepositoryException e) {
+    } catch (PersistenceException e) {
       String pattern = "Could not create RepositoryItem for {0}, {1}.";
-      throw new RepositoryException(MessageFormat.format(pattern, type, id), e);
+      throw new PersistenceException(MessageFormat.format(pattern, type, id), e);
     }
   }
 
@@ -78,18 +79,18 @@ public class FileSystemRepository implements Repository {
     return new MultiFileWriteAccess(itemFolder, configuration.getMainFileName(), configuration.getFileExtension());
   }
 
-  private RepositoryWriteAccess createSingleFileWriteAccess(IItemType type, String id) throws RepositoryException {
+  private RepositoryWriteAccess createSingleFileWriteAccess(IItemType type, String id) {
     File file = resolver.getMainFile(type.getRepositoryConfiguration(), id);
     return createSingleFileWriteAccess(file);
   }
 
   @SuppressWarnings("ResultOfMethodCallIgnored")
-  private RepositoryWriteAccess createSingleFileWriteAccess(File file) throws RepositoryException {
+  private RepositoryWriteAccess createSingleFileWriteAccess(File file) {
     if (!file.exists()) {
       try {
         file.createNewFile();
       } catch (IOException e) {
-        throw new RepositoryException("Error creating file: " + file, e);
+        throw new PersistenceException("Error creating file: " + file, e);
       }
     }
     return new SingleFileWriteAccess(file);
@@ -154,7 +155,7 @@ public class FileSystemRepository implements Repository {
     try {
       file.delete();
     } catch (IOException e) {
-      throw new RepositoryException("Deletion failed.", e);
+      throw new PersistenceException("Deletion failed.", e);
     }
   }
 }

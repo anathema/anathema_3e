@@ -3,7 +3,6 @@ package net.sf.anathema.hero.traits.model.rules.limitation;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 
 public class AgeBasedLimitation implements TraitLimitation {
   private final int absoluteLimit;
@@ -30,12 +29,13 @@ public class AgeBasedLimitation implements TraitLimitation {
     return absoluteLimit;
   }
 
+  @SuppressWarnings("CloneDoesntDeclareCloneNotSupportedException")
   @Override
   public AgeBasedLimitation clone() {
     try {
       return (AgeBasedLimitation) super.clone();
     } catch (CloneNotSupportedException e) {
-      throw new UnreachableCodeReachedException(e);
+      throw new RuntimeException(e);
     }
   }
 }

@@ -12,10 +12,10 @@ import net.sf.anathema.initialization.repository.DataFileProvider;
 
 public interface Repository extends DataFileProvider {
 
-  RepositoryWriteAccess createWriteAccess(IItemType type, String id) throws RepositoryException;
+  RepositoryWriteAccess createWriteAccess(IItemType type, String id);
 
   RepositoryReadAccess openReadAccess(IItemType type, IFileProvider provider);
-  
+
   RepositoryReadAccess openReadAccess(IItemType type, String id);
 
   boolean knowsItem(IItemType type, String id);
@@ -26,7 +26,7 @@ public interface Repository extends DataFileProvider {
 
   String getRepositoryPath();
 
-  void deleteAssociatedItem(PrintNameFile userObject) throws RepositoryException;
+  void deleteAssociatedItem(PrintNameFile userObject);
 
   String createUniqueRepositoryId(RepositoryIdData repositoryLocation);
 

@@ -1,7 +1,6 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.RepositoryException;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import org.apache.commons.io.IOUtils;
 
@@ -16,14 +15,14 @@ public class RepositoryImportHandler {
   private final String oldId;
   private final String newId;
 
-  public RepositoryImportHandler(IRepositoryTreeModel model, IItemType type, String oldId) throws RepositoryException {
+  public RepositoryImportHandler(IRepositoryTreeModel model, IItemType type, String oldId) {
     this.newId = model.createUniqueId(type, oldId);
     this.access = model.getWriteAccess(type, newId);
     this.oldId = oldId;
   }
 
   public void importStream(String mainFilePath, InputStream inputStream,
-                           String entryName) throws RepositoryException, IOException {
+                           String entryName) throws IOException {
     if (entryName.equals(mainFilePath)) {
       writeMainFileWithLegalId(inputStream);
     } else {
@@ -31,7 +30,7 @@ public class RepositoryImportHandler {
     }
   }
 
-  private void writeMainFileWithLegalId(InputStream inputStream) throws RepositoryException, IOException {
+  private void writeMainFileWithLegalId(InputStream inputStream) throws IOException {
     InputStream modifiedInput = new ImportIdReplacer(oldId, newId).createStreamWithLegalId(inputStream);
     writeMainFile(modifiedInput);
   }
@@ -43,7 +42,7 @@ public class RepositoryImportHandler {
     modifiedInput.close();
   }
 
-  private void writeSubFile(InputStream inputStream, String entryName) throws RepositoryException, IOException {
+  private void writeSubFile(InputStream inputStream, String entryName) throws IOException {
     String unextendedFileName = entryName.substring(entryName.lastIndexOf(File.separator) + 1,
             entryName.lastIndexOf("."));
     OutputStream outputStream = access.createSubOutputStream(unextendedFileName);

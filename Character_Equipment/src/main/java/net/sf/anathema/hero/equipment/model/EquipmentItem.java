@@ -40,7 +40,7 @@ public class EquipmentItem implements IEquipmentItem {
   private String customTitle = null;
   private String customDescription = null;
 
-  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) {
+  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) throws MissingMaterialException{
     this.modifiers = modifiers;
     if (template.getComposition() == Variable && material == null) {
       throw new MissingMaterialException("Variable material items must be created with material.");

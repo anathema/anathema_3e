@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.spiritual.sheet.essence.content;
 
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
-import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
-import net.sf.anathema.lib.exception.ContractFailedException;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 public class SimpleEssenceContent extends AbstractSubBoxContent {
 
@@ -56,11 +55,7 @@ public class SimpleEssenceContent extends AbstractSubBoxContent {
   }
 
   public String getPersonalPool() {
-    try {
-      return EssencePoolModelFetcher.fetch(hero).getPersonalPool();
-    } catch (ContractFailedException e) {
-      return null;
-    }
+    return EssencePoolModelFetcher.fetch(hero).getPersonalPool();
   }
 
   public String getPersonalPoolLabel() {
@@ -76,6 +71,6 @@ public class SimpleEssenceContent extends AbstractSubBoxContent {
   }
 
   public String getTotalString(String poolValue) {
-    return  poolValue + " " + getResources().getString("Sheet.Essence.Total") + " / ";
+    return poolValue + " " + getResources().getString("Sheet.Essence.Total") + " / ";
   }
 }

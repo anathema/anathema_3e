@@ -2,9 +2,8 @@ package net.sf.anathema.hero.template;
 
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.lib.exception.AnathemaException;
+import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.util.Identifier;
-import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -43,14 +42,10 @@ public class HeroModelTemplateCache implements ExtensibleDataSet {
   }
 
   private <T> T loadTemplate(ResourceFile file, TemplateLoader<T> loader) {
-    InputStream inputStream = null;
-    try {
-      inputStream = file.getURL().openStream();
+    try (InputStream inputStream = file.getURL().openStream()) {
       return loader.load(inputStream);
     } catch (IOException e) {
-      throw new AnathemaException(e);
-    } finally {
-      IOUtils.closeQuietly(inputStream);
+      throw new PersistenceException(e);
     }
   }
 }

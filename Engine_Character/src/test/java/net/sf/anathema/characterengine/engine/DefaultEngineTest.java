@@ -30,7 +30,7 @@ public class DefaultEngineTest {
     assertThat(quality, is(expected));
   }
 
-  @Test(expected = UnknownQualityTypeException.class)
+  @Test(expected = RuntimeException.class)
   public void throwsUnknownQualityType() throws Exception {
     Type type = new Type("unknownType");
     engine.createQuality(new QualityKey(type, name));

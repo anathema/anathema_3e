@@ -3,8 +3,6 @@ package net.sf.anathema.characterengine.engine;
 import net.sf.anathema.characterengine.persona.DefaultPersona;
 import net.sf.anathema.characterengine.persona.DefaultQualities;
 import net.sf.anathema.characterengine.persona.Persona;
-import net.sf.anathema.characterengine.quality.Name;
-import net.sf.anathema.characterengine.quality.NameClosure;
 import net.sf.anathema.characterengine.quality.Quality;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.Type;
@@ -42,18 +40,13 @@ public class DefaultEngine implements Engine {
     @Override
     public void execute(Type type) {
       if (!factoryMap.containsKey(type)) {
-        throw new UnknownQualityTypeException(type);
+        throw new RuntimeException("Unknown Quality Type: " + type);
       }
       factory = factoryMap.get(type);
     }
 
     public Quality create(QualityKey key) {
-      key.withNameDo(new NameClosure() {
-        @Override
-        public void execute(Name name) {
-          quality = factory.create(name);
-        }
-      });
+      key.withNameDo(name -> quality = factory.create(name));
       return quality;
     }
   }

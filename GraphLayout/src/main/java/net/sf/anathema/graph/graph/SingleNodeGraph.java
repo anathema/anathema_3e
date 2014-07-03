@@ -1,18 +1,18 @@
 package net.sf.anathema.graph.graph;
 
 import net.sf.anathema.graph.nodes.ISimpleNode;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 
 public class SingleNodeGraph implements IProperHierarchicalGraph, Cloneable {
 
   private final ISimpleNode node;
 
+  @SuppressWarnings("CloneDoesntDeclareCloneNotSupportedException")
   @Override
   public SingleNodeGraph clone() {
     try {
       return (SingleNodeGraph)super.clone();
     } catch (CloneNotSupportedException e) {
-      throw new UnreachableCodeReachedException(e);
+      throw new RuntimeException(e);
     }
   }
 

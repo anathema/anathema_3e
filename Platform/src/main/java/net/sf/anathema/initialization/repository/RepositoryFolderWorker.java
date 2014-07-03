@@ -1,7 +1,7 @@
 package net.sf.anathema.initialization.repository;
 
 import net.sf.anathema.framework.module.preferences.CanonicalPathResolver;
-import net.sf.anathema.framework.repository.RepositoryException;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 
@@ -13,9 +13,9 @@ public class RepositoryFolderWorker {
     try {
       create(folder);
       return folder;
-    } catch (RepositoryException e) {
+    } catch (PersistenceException e) {
       String message = format("Could not create {0}:", folder.getAbsolutePath());
-      throw new RepositoryException(message, e);
+      throw new PersistenceException(message, e);
     }
   }
 

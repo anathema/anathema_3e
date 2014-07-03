@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization.repository;
 
-import net.sf.anathema.framework.repository.RepositoryException;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,18 +15,18 @@ public class RepositoryFolderCreator {
     this.pathResolver = pathResolver;
   }
 
-  public File createRepositoryFolder() throws RepositoryException {
+  public File createRepositoryFolder() {
     File file = new File(pathResolver.resolve());
     if (!fileSystem.exists(file)) {
       try {
         fileSystem.createFolder(file);
       }
       catch (IOException e) {
-        throw new RepositoryException(e);
+        throw new PersistenceException(e);
       }
     }
     if (!fileSystem.canRead(file) || !fileSystem.canWrite(file)) {
-      throw new RepositoryException("Read/Write error on repository at " + file.getAbsolutePath());
+      throw new PersistenceException("Read/Write error on repository at " + file.getAbsolutePath());
     }
     return file;
   }

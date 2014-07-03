@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.access;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.framework.repository.RepositoryException;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,22 +22,22 @@ public class MultiFileReadAccess implements RepositoryReadAccess {
   }
 
   @Override
-  public InputStream openMainInputStream() throws RepositoryException {
+  public InputStream openMainInputStream() {
     try {
       return openInputStream(mainFileName);
     }
     catch (FileNotFoundException e) {
-      throw new RepositoryException(e);
+      throw new PersistenceException(e);
     }
   }
 
   @Override
-  public InputStream openSubInputStream(String streamID) throws RepositoryException {
+  public InputStream openSubInputStream(String streamID) {
     try {
       return openInputStream(streamID);
     }
     catch (FileNotFoundException e) {
-      throw new RepositoryException(e);
+      throw new PersistenceException(e);
     }
   }
 

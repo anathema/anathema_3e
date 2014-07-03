@@ -10,7 +10,7 @@ import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
-import net.sf.anathema.lib.exception.AnathemaException;
+import net.sf.anathema.lib.exception.PersistenceException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -44,7 +44,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   }
 
   @Override
-  public void registerFile(ResourceFile resource) throws Exception {
+  public void registerFile(ResourceFile resource) {
     resourceFiles.add(resource);
   }
 
@@ -65,7 +65,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
     try(InputStream inputStream = resource.getURL().openStream()) {
       return loader.load(inputStream);
     } catch (IOException e) {
-      throw new AnathemaException(e);
+      throw new PersistenceException(e);
     }
   }
 }

@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.apache.commons.io.IOUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -23,9 +22,7 @@ public class GenericTemplateLoader<T> implements TemplateLoader<T> {
 
   public T load(InputStream inputStream) {
     try {
-      ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-      IOUtils.copy(inputStream, byteStream);
-      String json = new String(byteStream.toByteArray());
+      String json = IOUtils.toString(inputStream);
       return gson.fromJson(json, aClass);
     } catch (IOException e) {
       throw new PersistenceException(e);

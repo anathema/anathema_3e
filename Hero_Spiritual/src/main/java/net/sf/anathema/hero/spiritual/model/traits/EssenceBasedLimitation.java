@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
+import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.exception.UnreachableCodeReachedException;
 
 public class EssenceBasedLimitation implements TraitLimitation {
 
@@ -29,12 +28,13 @@ public class EssenceBasedLimitation implements TraitLimitation {
     return SpiritualTraitModelFetcher.fetch(hero);
   }
 
+  @SuppressWarnings("CloneDoesntDeclareCloneNotSupportedException")
   @Override
   public EssenceBasedLimitation clone() {
     try {
       return (EssenceBasedLimitation) super.clone();
     } catch (CloneNotSupportedException e) {
-      throw new UnreachableCodeReachedException(e);
+      throw new RuntimeException(e);
     }
   }
 }

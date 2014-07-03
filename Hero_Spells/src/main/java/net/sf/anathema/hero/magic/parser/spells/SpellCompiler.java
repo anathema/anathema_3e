@@ -5,8 +5,8 @@ import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.magic.spells.Spell;
-import net.sf.anathema.hero.magic.spells.SpellException;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.SAXReader;
@@ -49,11 +49,11 @@ public class SpellCompiler implements IExtensibleDataSetCompiler {
   }
 
   @Override
-  public void registerFile(ResourceFile resource) throws Exception {
+  public void registerFile(ResourceFile resource) {
     try {
       spellFileList.add(reader.read(resource.getURL()));
     } catch (DocumentException e) {
-      throw new SpellException(resource.getURL().toExternalForm(), e);
+      throw new PersistenceException(resource.getURL().toExternalForm(), e);
     }
   }
 }
