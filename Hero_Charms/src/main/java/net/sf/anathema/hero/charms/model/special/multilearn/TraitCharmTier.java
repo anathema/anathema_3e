@@ -1,23 +1,24 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
 import com.google.common.collect.Lists;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 
 import java.util.List;
 
 public class TraitCharmTier implements CharmTier {
 
-  private final List<ValuedTraitType> requirements = Lists.newArrayList();
+  private final List<TraitPrerequisite> requirements = Lists.newArrayList();
 
-  public void addRequirement(ValuedTraitType requirement) {
+  public void addRequirement(TraitPrerequisite requirement) {
     requirements.add(requirement);
   }
 
   @SuppressWarnings("RedundantIfStatement")
   @Override
   public boolean isLearnable(LearnRangeContext context) {
-    for (ValuedTraitType requirement : requirements) {
+    for (TraitPrerequisite requirement : requirements) {
       if (!context.isMinimumSatisfied(requirement)) {
         return false;
       }
@@ -27,9 +28,9 @@ public class TraitCharmTier implements CharmTier {
 
   @Override
   public int getRequirement(TraitType type) {
-    for (ValuedTraitType requirement : requirements) {
-      if (type == requirement.getType()) {
-        return requirement.getCurrentValue();
+    for (TraitPrerequisite requirement : requirements) {
+      if (type.equals(new TraitTypeUtils().getTraitTypeFor(requirement))) {
+        return requirement.minimalValue;
       }
     }
     return 0;

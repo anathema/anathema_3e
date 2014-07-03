@@ -2,15 +2,17 @@ package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
+
+import static net.sf.anathema.lib.EnumUtilities.hasValue;
 
 public abstract class AbstractComboRules implements ComboRules {
 
   protected final boolean haveSamePrerequisite(Charm charm1, Charm charm2) {
-    TraitType primaryTraitType1 = charm1.getPrerequisites().getPrimaryTraitType();
-    TraitType primaryTraitType2 = charm2.getPrerequisites().getPrimaryTraitType();
+    RequiredTraitType primaryTraitType1 = charm1.getPrerequisites().getPrimaryTraitType();
+    RequiredTraitType primaryTraitType2 = charm2.getPrerequisites().getPrimaryTraitType();
     return primaryTraitType1.equals(primaryTraitType2);
   }
 
@@ -35,10 +37,10 @@ public abstract class AbstractComboRules implements ComboRules {
   }
 
   private boolean hasAbilityPrerequisite(Charm charm) {
-    return charm.getPrerequisites().getPrimaryTraitType() instanceof AbilityType;
+    return hasValue(AbilityType.class, charm.getPrerequisites().getPrimaryTraitType().type);
   }
 
   private boolean hasAttributePrerequisite(Charm charm) {
-    return charm.getPrerequisites().getPrimaryTraitType() instanceof AttributeType;
+    return hasValue(AttributeType.class, charm.getPrerequisites().getPrimaryTraitType().type);
   }
 }

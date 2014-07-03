@@ -24,21 +24,21 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
-public class DefaultCharm extends AbstractMagic implements Charm {
+public class CharmImpl extends AbstractMagic implements Charm {
 
   private List<Charm> children = new ArrayList<>();
-  private DefaultPrerequisiteList prerequisiteList;
+  private PrerequisiteListImpl prerequisiteList;
   private final CategoryReference category;
   private final TreeName tree;
   private CharmName name;
   private final CharmTemplate template;
 
-  public DefaultCharm(CategoryReference category, TreeName tree, CharmName name, CharmTemplate template) {
+  public CharmImpl(CategoryReference category, TreeName tree, CharmName name, CharmTemplate template) {
     this.category = category;
     this.tree = tree;
     this.name = name;
     this.template = template;
-    this.prerequisiteList = new DefaultPrerequisiteList(template);
+    this.prerequisiteList = new PrerequisiteListImpl(template);
     template.keywords.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, true)));
     template.internalTags.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, false)));
   }
@@ -90,7 +90,7 @@ public class DefaultCharm extends AbstractMagic implements Charm {
     return prerequisiteList;
   }
 
-  public void addChild(DefaultCharm charm) {
+  public void addChild(CharmImpl charm) {
     children.add(charm);
   }
 

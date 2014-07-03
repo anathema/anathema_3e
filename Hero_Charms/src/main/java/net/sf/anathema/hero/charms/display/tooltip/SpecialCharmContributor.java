@@ -1,18 +1,19 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.AbstractMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
-import net.sf.anathema.magic.Magic;
+import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.magic.Magic;
 
 public class SpecialCharmContributor implements MagicTooltipContributor {
   private Resources resources;
@@ -51,29 +52,29 @@ public class SpecialCharmContributor implements MagicTooltipContributor {
     CharmTier[] tiers = details.getTiers();
     CharmTier first = tiers[0], second = tiers[1], last = tiers[tiers.length - 1];
     for (CharmTier tier : tiers) {
-      if (tier == first) {
+      if (tier.equals(first)) {
         continue;
       }
-      if (tier == last && tier != second) {
+      if (tier.equals(last) && !tier.equals(second)) {
         builder.append(resources.getString("CharmTreeView.ToolTip.Repurchases.And"));
         builder.append(ConfigurableTooltip.Space);
       }
-      if (tier == second || tiers.length <= 3) {
+      if (tier.equals(second) || tiers.length <= 3) {
         builder.append(resources.getString("Essence"));
         builder.append(ConfigurableTooltip.Space);
       }
       builder.append(tier.getRequirement(OtherTraitType.Essence));
-
-      int traitRequirement = tier.getRequirement(charm.getPrerequisites().getPrimaryTraitType());
+      TraitType primaryTraitType =  new TraitTypeUtils().getPrimaryTraitType(charm);
+      int traitRequirement = tier.getRequirement(primaryTraitType);
       if (traitRequirement > 0) {
         builder.append("/");
-        if (tier == second || tiers.length <= 3) {
-          builder.append(resources.getString(charm.getPrerequisites().getPrimaryTraitType().getId()));
+        if (tier.equals(second) || tiers.length <= 3) {
+          builder.append(resources.getString(primaryTraitType.getId()));
           builder.append(ConfigurableTooltip.Space);
         }
         builder.append(traitRequirement);
       }
-      if (tier != last) {
+      if (!tier.equals(last)) {
         builder.append(ConfigurableTooltip.CommaSpace);
       }
     }
@@ -95,8 +96,6 @@ public class SpecialCharmContributor implements MagicTooltipContributor {
   }
 
   private String printStaticLimit(StaticMultiLearnableCharm details) {
-    StringBuilder builder = new StringBuilder();
-    builder.append(resources.getString("CharmTreeView.ToolTip.Repurchases.Static" + details.getAbsoluteLearnLimit()));
-    return builder.toString();
+    return resources.getString("CharmTreeView.ToolTip.Repurchases.Static" + details.getAbsoluteLearnLimit());
   }
 }

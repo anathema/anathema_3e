@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.magic.Magic;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
+import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.magic.Magic;
 
 import java.util.List;
 
@@ -23,13 +23,13 @@ public class CharmPrerequisitesContributor implements MagicTooltipContributor {
     }
   }
 
-  private void createPrerequisiteLines(ConfigurableTooltip tooltip, List<ValuedTraitType> prerequisites) {
-    for (ValuedTraitType prerequisite : prerequisites) {
-      if (prerequisite.getCurrentValue() == 0) {
+  private void createPrerequisiteLines(ConfigurableTooltip tooltip, List<TraitPrerequisite> prerequisites) {
+    for (TraitPrerequisite prerequisite : prerequisites) {
+      if (prerequisite.minimalValue == 0) {
         continue;
       }
-      String label = resources.getString("CharmTreeView.ToolTip.Minimum")+" "+ resources.getString(prerequisite.getType().getId());
-      String value = String.valueOf(prerequisite.getCurrentValue());
+      String label = resources.getString("CharmTreeView.ToolTip.Minimum")+" "+ resources.getString(prerequisite.type.type);
+      String value = String.valueOf(prerequisite.minimalValue);
       tooltip.appendLine(label, value);
     }
   }

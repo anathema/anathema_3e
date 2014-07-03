@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class CharmCacheBuilder {
 
-  private final Map<CharmName, DefaultCharm> charmList = new HashMap<>();
+  private final Map<CharmName, CharmImpl> charmList = new HashMap<>();
   private final Map<CharmName, CharmTemplate> templateList = new HashMap<>();
 
   public void addTemplate(CharmListTemplate charmList) {
@@ -32,7 +32,7 @@ public class CharmCacheBuilder {
     TreeName tree = new TreeName(listTemplate.tree);
     listTemplate.charms.forEach((name, charmTemplate) -> {
       CharmName charmName = new CharmName(name);
-      DefaultCharm charm = new DefaultCharm(category, tree, charmName, charmTemplate);
+      CharmImpl charm = new CharmImpl(category, tree, charmName, charmTemplate);
       charmList.put(charmName, charm);
       templateList.put(charmName, charmTemplate);
     });
@@ -40,9 +40,9 @@ public class CharmCacheBuilder {
 
   private void linkCharms() {
     templateList.forEach((name, template) -> {
-      DefaultCharm charm = charmList.get(name);
+      CharmImpl charm = charmList.get(name);
       template.prerequisiteCharms.stream().forEach(nameString -> {
-        DefaultCharm parent = charmList.get(new CharmName(nameString));
+        CharmImpl parent = charmList.get(new CharmName(nameString));
         parent.addChild(charm);
         charm.addCharmPrerequisite(new SimpleCharmPrerequisite(parent));
       });

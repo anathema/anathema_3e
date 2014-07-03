@@ -1,22 +1,23 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.Requirement;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.Tier;
 import net.sf.anathema.charm.template.special.TierRepurchase;
 import net.sf.anathema.charm.template.special.TraitRepurchase;
+import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
+import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.charm.template.special.Repurchase;
-import net.sf.anathema.charm.template.special.Tier;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +55,8 @@ public class RepurchaseCharmBuilder implements SpecialCharmBuilder {
   private CharmTier createTier(Tier dto) {
     TraitCharmTier traitCharmTier = new TraitCharmTier();
     for (Requirement requirement : dto.requirements) {
-      TraitType traitType = traitTypeFinder.getTrait(requirement.traitType);
-      traitCharmTier.addRequirement(new ValuedTraitType(traitType, requirement.traitValue));
+      RequiredTraitType traitType = new RequiredTraitType(requirement.traitType);
+      traitCharmTier.addRequirement(new TraitPrerequisite(traitType, requirement.traitValue));
     }
     return traitCharmTier;
   }
