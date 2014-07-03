@@ -3,7 +3,7 @@ package net.sf.anathema.hero.framework.persistence;
 import net.sf.anathema.framework.messaging.IMessaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.framework.ExaltedCharacter;
+import net.sf.anathema.hero.application.item.ExaltedCharacter;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.item.CharacterItem;
 import net.sf.anathema.hero.framework.item.HeroNameFetcher;

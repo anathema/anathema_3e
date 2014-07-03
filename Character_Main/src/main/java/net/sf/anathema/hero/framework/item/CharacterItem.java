@@ -6,7 +6,7 @@ public class CharacterItem implements Item {
   private final ItemData itemData;
   private final ItemRepositoryLocation repositoryLocation = new SimpleRepositoryLocation();
 
-  public CharacterItem(net.sf.anathema.hero.framework.Character character) {
+  public CharacterItem(net.sf.anathema.hero.application.item.Character character) {
     this.itemData = character;
   }
 

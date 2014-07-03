@@ -3,7 +3,7 @@ package net.sf.anathema.herotype.solar.display.charms;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmPresentationProperties;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.utilities.ForCharacterType;
+import net.sf.anathema.hero.model.type.ForCharacterType;
 import net.sf.anathema.herotype.solar.model.SolarType;
 
 @ForCharacterType("Solar")

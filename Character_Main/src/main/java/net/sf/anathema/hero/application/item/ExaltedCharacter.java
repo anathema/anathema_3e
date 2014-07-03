@@ -1,6 +1,8 @@
-package net.sf.anathema.hero.framework;
+package net.sf.anathema.hero.application.item;
 
 import net.sf.anathema.framework.repository.ChangeManagement;
+import net.sf.anathema.hero.framework.CharacterChangeManagement;
+import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.initialization.HeroModelInitializer;
 import net.sf.anathema.hero.model.DefaultHero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -10,7 +12,7 @@ import net.sf.anathema.lib.util.Identifier;
 
 import java.util.Iterator;
 
-public class ExaltedCharacter implements net.sf.anathema.hero.framework.Character {
+public class ExaltedCharacter implements net.sf.anathema.hero.application.item.Character {
 
   private final CharacterChangeManagement management = new CharacterChangeManagement(this);
   private final DefaultHero hero;

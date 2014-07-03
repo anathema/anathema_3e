@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.repositorytree;
+package net.sf.anathema.hero.application.repositorytree;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.item.IItemType;

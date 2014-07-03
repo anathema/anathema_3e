@@ -15,7 +15,7 @@ public class CharacterStackFxBridge implements CharacterStackBridge {
   }
 
   @Override
-  public void addViewForCharacter(CharacterIdentifier identifier, net.sf.anathema.hero.framework.Character character) {
+  public void addViewForCharacter(CharacterIdentifier identifier, net.sf.anathema.hero.application.item.Character character) {
     NodeHolder itemView = viewFactory.createView(character);
     stackView.addView(identifier, itemView);
   }
