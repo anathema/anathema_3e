@@ -6,7 +6,7 @@ import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.CharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 
 import java.util.HashMap;
 import java.util.Map;

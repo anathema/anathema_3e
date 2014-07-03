@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 
 import java.util.function.Consumer;
 import java.util.function.Predicate;

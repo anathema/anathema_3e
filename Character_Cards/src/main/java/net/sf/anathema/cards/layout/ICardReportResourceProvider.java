@@ -2,7 +2,7 @@ package net.sf.anathema.cards.layout;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.spells.data.CircleType;
 
 public interface ICardReportResourceProvider {

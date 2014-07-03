@@ -6,7 +6,7 @@ import net.sf.anathema.hero.charms.display.special.VisibilityPredicate;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

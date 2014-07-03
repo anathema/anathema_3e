@@ -19,7 +19,7 @@ import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescription;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.model.Hero;

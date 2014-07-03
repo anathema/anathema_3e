@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.CharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import org.junit.Before;
 import org.junit.Test;
 

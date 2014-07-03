@@ -1,7 +1,7 @@
 package net.sf.anathema.cascades.presenter;
 
 import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 
 public class GreedyCharmOptionCheck implements CharmOptionCheck {
   @Override

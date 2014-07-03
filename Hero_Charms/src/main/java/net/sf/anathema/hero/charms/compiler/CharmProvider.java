@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.compiler;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 
 import java.util.List;
 

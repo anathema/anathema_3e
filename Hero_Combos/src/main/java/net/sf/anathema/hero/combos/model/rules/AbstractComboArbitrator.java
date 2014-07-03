@@ -2,7 +2,7 @@ package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.model.ComboRules;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.charm.data.CharmTypeVisitor;
 

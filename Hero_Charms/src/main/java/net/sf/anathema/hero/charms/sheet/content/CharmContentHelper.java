@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;

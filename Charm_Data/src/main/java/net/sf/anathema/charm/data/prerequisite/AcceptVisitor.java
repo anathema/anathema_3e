@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.charm.prerequisite;
+package net.sf.anathema.charm.data.prerequisite;
 
 import java.util.function.Consumer;
 

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display.prerequisites;
 
-import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectGroupCharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteVisitor;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.DirectGroupCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
+import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 
-import static net.sf.anathema.hero.magic.charm.prerequisite.AcceptVisitor.acceptVisitor;
+import static net.sf.anathema.charm.data.prerequisite.AcceptVisitor.acceptVisitor;
 
 public class IsTreeRoot implements PrerequisiteVisitor {
 

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.display.view;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
 import net.sf.anathema.hero.charms.model.CharmMap;

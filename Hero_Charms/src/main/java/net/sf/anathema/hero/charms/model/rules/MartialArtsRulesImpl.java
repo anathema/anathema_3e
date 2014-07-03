@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model.rules;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.template.model.MartialArtsTemplate;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
+import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 
 public class MartialArtsRulesImpl implements MartialArtsRules {
 

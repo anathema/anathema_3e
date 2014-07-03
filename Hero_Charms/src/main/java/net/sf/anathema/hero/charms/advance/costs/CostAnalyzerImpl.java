@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.advance.costs;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
+import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.model.Hero;
 
 public class CostAnalyzerImpl implements CostAnalyzer {

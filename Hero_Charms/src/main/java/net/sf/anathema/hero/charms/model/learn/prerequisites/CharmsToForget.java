@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 
 import java.util.Set;
 
-import static net.sf.anathema.hero.magic.charm.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
+import static net.sf.anathema.charm.data.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
 
 public class CharmsToForget {
 

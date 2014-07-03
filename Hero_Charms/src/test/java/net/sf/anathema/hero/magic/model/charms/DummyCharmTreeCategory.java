@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.model.charms;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.options.CharmOptionCheck;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 
 public class DummyCharmTreeCategory {
 

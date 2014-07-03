@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
 import net.sf.anathema.charm.template.CharmTemplate;
-import net.sf.anathema.hero.magic.charm.PrerequisiteList;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
-import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
+import net.sf.anathema.charm.data.PrerequisiteList;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 
 import java.util.ArrayList;
 import java.util.List;

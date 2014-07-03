@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.magic.charm.prerequisite;
+package net.sf.anathema.charm.data.prerequisite;
 
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 
 public class SimpleCharmPrerequisite implements CharmPrerequisite {
 

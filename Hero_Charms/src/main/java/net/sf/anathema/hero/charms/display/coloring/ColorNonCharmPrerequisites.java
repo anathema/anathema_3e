@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
-import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectGroupCharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteVisitor;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.DirectGroupCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
+import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeId;
 

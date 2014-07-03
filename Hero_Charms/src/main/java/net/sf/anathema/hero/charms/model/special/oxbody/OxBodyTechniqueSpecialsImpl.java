@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model.special.oxbody;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;

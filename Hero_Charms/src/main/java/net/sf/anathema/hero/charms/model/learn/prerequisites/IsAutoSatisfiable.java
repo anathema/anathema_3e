@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 
 public class IsAutoSatisfiable implements PrerequisiteProcessor {
 

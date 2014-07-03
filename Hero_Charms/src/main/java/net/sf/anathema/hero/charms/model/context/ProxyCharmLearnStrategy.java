@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.context;
 
 import net.sf.anathema.hero.charms.model.BasicLearnCharmTree;
-import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
 
 public class ProxyCharmLearnStrategy implements ICharmLearnStrategy {
