@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 
-public interface IExtendedCharmLearnableArbitrator extends ICharmLearnArbitrator, ICharmLearnableArbitrator {
+public interface IExtendedCharmLearnableArbitrator extends CharmLearnArbitrator, CharmLearnableArbitrator {
 
   void addCharmLearnListener(ICharmLearnListener listener);
 

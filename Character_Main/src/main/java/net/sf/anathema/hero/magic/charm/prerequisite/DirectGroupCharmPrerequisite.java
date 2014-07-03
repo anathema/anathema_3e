@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
     return prerequisites;
   }
 
-  public Charm[] getLearnPrerequisites(ICharmLearnArbitrator learnArbitrator) {
+  public Charm[] getLearnPrerequisites(CharmLearnArbitrator learnArbitrator) {
     Set<Charm> prerequisiteCharms = new LinkedHashSet<>();
     List<Charm> charmsToLearn = selectCharmsToLearn(learnArbitrator);
     for (Charm learnCharm : charmsToLearn) {
@@ -63,7 +63,7 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
     return prerequisiteCharms.toArray(new Charm[prerequisiteCharms.size()]);
   }
 
-  private List<Charm> selectCharmsToLearn(ICharmLearnArbitrator learnArbitrator) {
+  private List<Charm> selectCharmsToLearn(CharmLearnArbitrator learnArbitrator) {
     List<Charm> charmsToLearn = new ArrayList<>();
     for (Charm charm : getDirectPredecessors()) {
       if (charmsToLearn.size() >= threshold) {

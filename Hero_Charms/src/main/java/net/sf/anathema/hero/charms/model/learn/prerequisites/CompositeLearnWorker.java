@@ -2,18 +2,18 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.ICharmLearnWorker;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnWorker;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class CompositeLearnWorker implements ICharmLearnWorker {
+public class CompositeLearnWorker implements CharmLearnWorker {
 
-  private final ICharmLearnArbitrator learnArbitrator;
+  private final CharmLearnArbitrator learnArbitrator;
   private final Set<Charm> forgottenCharm = new HashSet<>();
 
-  public CompositeLearnWorker(ICharmLearnArbitrator learnArbitrator) {
+  public CompositeLearnWorker(CharmLearnArbitrator learnArbitrator) {
     this.learnArbitrator = learnArbitrator;
   }
 

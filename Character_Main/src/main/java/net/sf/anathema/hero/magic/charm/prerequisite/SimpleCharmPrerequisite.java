@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 import java.util.HashSet;
@@ -29,7 +29,7 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
   }
 
   @Override
-  public Charm[] getLearnPrerequisites(ICharmLearnArbitrator arbitrator) {
+  public Charm[] getLearnPrerequisites(CharmLearnArbitrator arbitrator) {
     if (prerequisite == PREREQUISITE_NOT_SET) {
       throw new IllegalStateException(
               "The prerequisite Charm isn't linked yet. Please call ``link(Map)`` prior to using this object.");

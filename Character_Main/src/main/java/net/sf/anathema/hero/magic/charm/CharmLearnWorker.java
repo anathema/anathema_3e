@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.charm;
 
-public interface ICharmLearnWorker extends ICharmLearnArbitrator {
+public interface CharmLearnWorker extends CharmLearnArbitrator {
 
   void forget(Charm charm);
 }

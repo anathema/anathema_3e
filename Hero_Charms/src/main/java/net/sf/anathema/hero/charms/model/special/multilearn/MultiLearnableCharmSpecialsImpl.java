@@ -7,7 +7,7 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
@@ -31,11 +31,11 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
   private Charm charm;
   private IMultiLearnableCharm specialCharm;
   private CharmSpecialist specialist;
-  private ICharmLearnableArbitrator arbitrator;
+  private CharmLearnableArbitrator arbitrator;
   private Hero hero;
 
   public MultiLearnableCharmSpecialsImpl(Hero hero, CharmsModel config, Charm charm, IMultiLearnableCharm specialCharm,
-                                         ICharmLearnableArbitrator arbitrator) {
+                                         CharmLearnableArbitrator arbitrator) {
     this.hero = hero;
     this.specialist = new CharmSpecialistImpl(hero);
     this.config = config;

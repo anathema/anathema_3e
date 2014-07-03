@@ -2,22 +2,22 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 
 public class IsAutoSatisfiable implements PrerequisiteProcessor {
 
-  public static boolean isAutoSatisfiable(CharmPrerequisite prerequisite, ICharmLearnableArbitrator arbitrator) {
+  public static boolean isAutoSatisfiable(CharmPrerequisite prerequisite, CharmLearnableArbitrator arbitrator) {
     IsAutoSatisfiable satisfied = new IsAutoSatisfiable(arbitrator);
     prerequisite.process(satisfied);
     return satisfied.satisfiable;
   }
 
-  private final ICharmLearnableArbitrator arbitrator;
+  private final CharmLearnableArbitrator arbitrator;
   public boolean satisfiable = true;
 
-  public IsAutoSatisfiable(ICharmLearnableArbitrator learnArbitrator) {
+  public IsAutoSatisfiable(CharmLearnableArbitrator learnArbitrator) {
     this.arbitrator = learnArbitrator;
   }
 

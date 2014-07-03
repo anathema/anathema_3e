@@ -2,22 +2,22 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 
 public class IsSatisfied implements PrerequisiteProcessor {
 
-  public static boolean isSatisfied(CharmPrerequisite prerequisite, ICharmLearnArbitrator arbitrator) {
+  public static boolean isSatisfied(CharmPrerequisite prerequisite, CharmLearnArbitrator arbitrator) {
     IsSatisfied satisfied = new IsSatisfied(arbitrator);
     prerequisite.process(satisfied);
     return satisfied.satisfied;
   }
 
-  private ICharmLearnArbitrator arbitrator;
+  private CharmLearnArbitrator arbitrator;
   public boolean satisfied = true;
 
-  public IsSatisfied(ICharmLearnArbitrator learnArbitrator) {
+  public IsSatisfied(CharmLearnArbitrator learnArbitrator) {
     this.arbitrator = learnArbitrator;
   }
 

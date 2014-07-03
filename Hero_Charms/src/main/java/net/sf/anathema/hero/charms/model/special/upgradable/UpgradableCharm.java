@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model.special.upgradable;
 
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffects;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -39,7 +39,7 @@ public class UpgradableCharm extends MultipleEffectCharm implements IUpgradableC
   }
 
   @Override
-  public SubEffects buildSubEffects(CharmSpecialist specialist, ICharmLearnableArbitrator arbitrator, Charm charm) {
+  public SubEffects buildSubEffects(CharmSpecialist specialist, CharmLearnableArbitrator arbitrator, Charm charm) {
     UpgradableSubEffects subEffects = new UpgradableSubEffects();
     for (String id : effectIds) {
       Integer bpCost = bpCosts.get(id);
@@ -54,7 +54,7 @@ public class UpgradableCharm extends MultipleEffectCharm implements IUpgradableC
     return subEffects;
   }
 
-  private Condition buildLearnCondition(final ICharmLearnableArbitrator arbitrator, CharmSpecialist specialist, final Charm charm,
+  private Condition buildLearnCondition(final CharmLearnableArbitrator arbitrator, CharmSpecialist specialist, final Charm charm,
                                         final boolean bpUpgradeAllowed, final Integer essenceMin, final Integer traitMin, final TraitType trait) {
     return new UpgradeCondition(arbitrator, charm, bpUpgradeAllowed, specialist, essenceMin, traitMin, trait);
   }

@@ -37,5 +37,5 @@ public interface Charm extends Magic {
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
 
-  Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator);
+  Set<Charm> getPrerequisiteCharms(CharmLearnArbitrator learnArbitrator);
 }

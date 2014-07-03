@@ -9,8 +9,8 @@ import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
+import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.CharmParent;
-import net.sf.anathema.hero.magic.charm.ICharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
@@ -97,7 +97,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator) {
+  public Set<Charm> getPrerequisiteCharms(CharmLearnArbitrator learnArbitrator) {
     return parentCharms;
   }
 

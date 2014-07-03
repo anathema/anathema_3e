@@ -147,7 +147,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator) {
+  public Set<Charm> getPrerequisiteCharms(CharmLearnArbitrator learnArbitrator) {
     Set<Charm> prerequisiteCharms = new HashSet<>();
     for (DirectCharmPrerequisite prerequisite : getPrerequisitesOfType(DirectCharmPrerequisite.class)) {
       prerequisiteCharms.addAll(asList(prerequisite.getLearnPrerequisites(learnArbitrator)));

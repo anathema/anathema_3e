@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.charm;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 
-public interface ICharmLearnArbitrator {
+public interface CharmLearnArbitrator {
 
   boolean isLearned(Charm charm);
   

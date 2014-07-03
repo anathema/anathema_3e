@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnableCharmSpecialsImpl;
@@ -26,7 +26,7 @@ public class MultiLearnableCharmConfigurationTest {
   private CharmsModel config = new DummyCharmsModel();
   private Charm charm = new DummyCharm("id");
   private IMultiLearnableCharm specialCharm = new StaticMultiLearnableCharm(new CharmName("id"), 5);
-  private ICharmLearnableArbitrator arbitrator = new DummyLearnableArbitrator("id");
+  private CharmLearnableArbitrator arbitrator = new DummyLearnableArbitrator("id");
   private DummyHero hero = new DummyHero();
   private MultiLearnableCharmSpecialsImpl configuration;
   private ProxyTraitValueStrategy valueStrategy = new ProxyTraitValueStrategy(new CreationTraitValueStrategy());

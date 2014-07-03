@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.subeffects.ArraySubEffects;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
@@ -36,7 +36,7 @@ public class MultipleEffectCharmConfigurationTest {
 
   private IMultipleEffectCharm createCharm(SubEffectImpl effect) {
     IMultipleEffectCharm charm = mock(IMultipleEffectCharm.class);
-    when(charm.buildSubEffects(isA(CharmSpecialist.class), (ICharmLearnableArbitrator) isNull(), (Charm) isNull()))
+    when(charm.buildSubEffects(isA(CharmSpecialist.class), (CharmLearnableArbitrator) isNull(), (Charm) isNull()))
             .thenReturn(new ArraySubEffects(new SubEffect[]{effect}));
     return charm;
   }

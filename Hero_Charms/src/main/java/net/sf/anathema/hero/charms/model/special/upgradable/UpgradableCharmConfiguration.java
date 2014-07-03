@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.charms.model.special.upgradable;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecialsImpl;
 
 public class UpgradableCharmConfiguration extends MultipleEffectCharmSpecialsImpl implements IUpgradableCharmConfiguration {
 
   public UpgradableCharmConfiguration(CharmSpecialist specialist, Charm charm, IUpgradableCharm upgradableCharm,
-                                      ICharmLearnableArbitrator arbitrator) {
+                                      CharmLearnableArbitrator arbitrator) {
     super(specialist, charm, upgradableCharm, arbitrator);
   }
 

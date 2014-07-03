@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
+import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.lib.control.ChangeListener;
@@ -12,7 +12,7 @@ public class MultipleEffectCharmSpecialsImpl implements MultipleEffectCharmSpeci
   private final SubEffects subeffects;
   private final Announcer<ISpecialCharmLearnListener> control = Announcer.to(ISpecialCharmLearnListener.class);
 
-  public MultipleEffectCharmSpecialsImpl(CharmSpecialist specialist, Charm charm, IMultipleEffectCharm visited, ICharmLearnableArbitrator arbitrator) {
+  public MultipleEffectCharmSpecialsImpl(CharmSpecialist specialist, Charm charm, IMultipleEffectCharm visited, CharmLearnableArbitrator arbitrator) {
     this.charm = charm;
     this.subeffects = visited.buildSubEffects(specialist, arbitrator, charm);
     for (SubEffect subeffect : subeffects) {
