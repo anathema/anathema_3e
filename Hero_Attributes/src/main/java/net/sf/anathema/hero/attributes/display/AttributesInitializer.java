@@ -3,12 +3,12 @@ package net.sf.anathema.hero.attributes.display;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.dependencies.Weight;
+import net.sf.anathema.fx.hero.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.display.GroupedFavorableTraitConfigurationView;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.NaturalTraits;
 

@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.abilities.display;
 
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.fx.hero.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.framework.display.ColumnCount;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.display.FavorableTraitConfigurationPresenter;
-import net.sf.anathema.hero.traits.display.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 
 public class AbilitiesPresenter {

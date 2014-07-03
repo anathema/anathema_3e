@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits.display;
+package net.sf.anathema.fx.hero.traitview;
 
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 
