@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.display;
 
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.fx.hero.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
