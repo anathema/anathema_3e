@@ -1,0 +1,15 @@
+{
+  "category": "Solar",
+  "tree": "Craft",
+  "charms": {
+    "Flawless Handiwork Method": {
+      "cost": 6,
+      "type": "Supplemental",
+      "duration": "Instant",
+      "minimums": {
+        "Essence": 1,
+        "Craft": 1
+      }
+    }
+  }
+}
