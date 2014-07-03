@@ -20,8 +20,6 @@ public interface Charm extends Magic {
 
   Duration getDuration();
 
-  List<CharmPrerequisite> getCharmPrerequisites();
-
   void forEachChild(Consumer<Charm> consumer);
 
   PrerequisiteList getPrerequisites();

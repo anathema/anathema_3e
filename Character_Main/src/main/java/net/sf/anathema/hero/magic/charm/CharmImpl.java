@@ -83,7 +83,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
-    for (CharmPrerequisite prerequisite : getCharmPrerequisites()) {
+    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
       prerequisite.link(unlinkedCharms);
     }
     List<DirectCharmPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmPrerequisite.class);
@@ -93,11 +93,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
         ((CharmParent) charm).addChild(this);
       }
     }
-  }
-
-  @Override
-  public List<CharmPrerequisite> getCharmPrerequisites() {
-    return prerequisiteList.getCharmPrerequisites();
   }
 
   @Override

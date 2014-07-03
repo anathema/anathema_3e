@@ -301,7 +301,7 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    for (CharmPrerequisite prerequisite : charm.getCharmPrerequisites()) {
+    for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
       if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {
         return false;
       }
