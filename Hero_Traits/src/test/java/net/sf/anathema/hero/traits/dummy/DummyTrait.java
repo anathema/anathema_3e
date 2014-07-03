@@ -91,11 +91,6 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public int getInitialValue() {
-    return 0;
-  }
-
-  @Override
   public int getMaximalValue() {
     return 0;
   }

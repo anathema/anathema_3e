@@ -190,11 +190,6 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public int getInitialValue() {
-    return traitRules.getStartValue();
-  }
-
-  @Override
   public final void addCreationPointListener(IntValueChangedListener listener) {
     creationPointControl.addListener(listener);
   }

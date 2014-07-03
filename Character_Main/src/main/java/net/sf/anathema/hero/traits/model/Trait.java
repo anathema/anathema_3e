@@ -22,8 +22,6 @@ public interface Trait extends ValuedTraitType {
 
   ITraitFavorization getFavorization();
 
-  int getInitialValue();
-
   int getMaximalValue();
 
   void addCreationPointListener(IntValueChangedListener listener);
