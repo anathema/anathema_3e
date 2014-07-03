@@ -1,4 +1,4 @@
-package net.sf.anathema.charm.parser;
+package net.sf.anathema.hero.spells.parser;
 
 public interface ICharmXMLConstants {
 

@@ -1,4 +1,4 @@
-package net.sf.anathema.magic.spells;
+package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
