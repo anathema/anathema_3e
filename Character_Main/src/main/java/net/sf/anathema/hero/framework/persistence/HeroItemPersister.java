@@ -42,7 +42,7 @@ public class HeroItemPersister implements RepositoryItemPersister {
   public void save(RepositoryWriteAccess writeAccess, Item item) throws PersistenceException {
     Hero hero = (Hero) item.getItemData();
     String name = new HeroNameFetcher().getName(hero);
-    MessageToken token = messaging.addMessage(Information, "CharacterPersistence.SavingCharacter", name);
+    MessageToken token = messaging.addTemporaryMessage(Information, "CharacterPersistence.SavingCharacter", name);
     saveModels(writeAccess, hero);
     new HeroMainFilePersister().save(writeAccess, item);
     token.replaceMessage(Information, "CharacterPersistence.SavingCharacterDone", name);

@@ -11,7 +11,6 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.lib.util.Identifier;
 
-import static net.sf.anathema.lib.message.MessageDuration.Permanent;
 import static net.sf.anathema.lib.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -48,7 +47,7 @@ public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, Co
         Charm comboCharm = charms.getCharmById(new CharmName(charm.charm));
         model.addCharmToCombo(comboCharm, charm.isExperienceLearned);
       } catch (IllegalArgumentException e) {
-        messaging.addMessage(Error, Permanent, "CharmPersistence.NoCharmFound", charm.charm);
+        messaging.addPermanentMessage(Error, "CharmPersistence.NoCharmFound", charm.charm);
       }
     }
   }

@@ -17,6 +17,6 @@ public class NullToken implements MessageToken {
 
   @Override
   public void replaceMessage(MessageType type, String pattern, String... arguments) {
-    messaging.addMessage(type, pattern, arguments);
+    messaging.addTemporaryMessage(type, pattern, arguments);
   }
 }

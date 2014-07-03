@@ -10,6 +10,7 @@ import org.jmock.example.announcer.Announcer;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.sf.anathema.lib.message.MessageDuration.Permanent;
 import static net.sf.anathema.lib.message.MessageDuration.Temporary;
 
 public class CollectingMessaging implements Messaging, MessageContainer {
@@ -24,12 +25,16 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   }
 
   @Override
-  public MessageToken addMessage(MessageType messageType, String pattern, Object... arguments) {
-    return addMessage(messageType, Temporary, pattern, arguments);
+  public MessageToken addPermanentMessage(MessageType messageType, String pattern, Object... arguments) {
+    return addMessage(messageType, Permanent, pattern, arguments);
   }
 
   @Override
-  public MessageToken addMessage(MessageType messageType, MessageDuration duration, String pattern, Object... arguments) {
+  public MessageToken addTemporaryMessage(MessageType messageType, String pattern, Object... arguments) {
+    return addMessage(messageType, Temporary, pattern, arguments);
+  }
+
+  private MessageToken addMessage(MessageType messageType, MessageDuration duration, String pattern, Object... arguments) {
     String messageText = resources.getString(pattern, arguments);
     return addMessage(new Message(messageText, messageType, duration));
   }
