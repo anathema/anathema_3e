@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 
-public interface CharmPrerequisiteVisitor {
+public interface PrerequisiteProcessor {
 
   void requiresMagicAttributes(MagicAttribute attribute, int count);
 

@@ -19,8 +19,13 @@ public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisit
   }
 
   @Override
-  public void accept(CharmPrerequisiteVisitor visitor) {
-    visitor.requiresMagicAttributes(attribute, count);
+  public void process(PrerequisiteProcessor processor) {
+    processor.requiresMagicAttributes(attribute, count);
+  }
+
+  @Override
+  public void accept(PrerequisiteVisitor visitor) {
+    visitor.visit(this);
   }
 
   @Override

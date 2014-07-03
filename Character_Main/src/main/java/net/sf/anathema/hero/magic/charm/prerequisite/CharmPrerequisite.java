@@ -4,7 +4,9 @@ import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
 public interface CharmPrerequisite {
 
-  void accept(CharmPrerequisiteVisitor visitor);
+  void process(PrerequisiteProcessor processor);
+
+  void accept(PrerequisiteVisitor visitor);
 
   void link(UnlinkedCharmMap unlinkedCharms);
 }

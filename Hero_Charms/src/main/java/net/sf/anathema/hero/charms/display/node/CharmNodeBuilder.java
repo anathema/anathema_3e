@@ -4,13 +4,13 @@ import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
+import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 
 import java.util.Collection;
 import java.util.Map;
 
 import static net.sf.anathema.graph.nodes.NodeFactory.createChildlessNode;
-import static net.sf.anathema.hero.magic.charm.prerequisite.AcceptVisitor.acceptVisitor;
+import static net.sf.anathema.hero.magic.charm.prerequisite.ProcessProcessor.acceptVisitor;
 
 // todo (sandra) entstatifizieren
 public class CharmNodeBuilder {
@@ -21,7 +21,7 @@ public class CharmNodeBuilder {
       charmNodesById.put(charm.getName().text, node);
     }
     for (Charm charm : groupCharms) {
-      charm.forEachCharmPrerequisite(acceptVisitor(new CharmPrerequisiteVisitor() {
+      charm.forEachCharmPrerequisite(acceptVisitor(new PrerequisiteProcessor() {
         @Override
         public void requiresMagicAttributes(MagicAttribute attribute, int count) {
           String nodeIds = NodeIds.getNodeId(attribute, count);

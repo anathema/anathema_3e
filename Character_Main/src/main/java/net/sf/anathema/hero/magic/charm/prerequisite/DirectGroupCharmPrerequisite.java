@@ -25,8 +25,13 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
   }
 
   @Override
-  public void accept(CharmPrerequisiteVisitor visitor) {
-    visitor.requiresCharmFromSelection(prerequisites, threshold);
+  public void process(PrerequisiteProcessor processor) {
+    processor.requiresCharmFromSelection(prerequisites, threshold);
+  }
+
+  @Override
+  public void accept(PrerequisiteVisitor visitor) {
+    visitor.visit(this);
   }
 
   @Override

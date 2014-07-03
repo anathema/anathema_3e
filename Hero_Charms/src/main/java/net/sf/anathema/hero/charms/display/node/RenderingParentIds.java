@@ -2,18 +2,18 @@ package net.sf.anathema.hero.charms.display.node;
 
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
+import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeId;
 
-public class RenderingParentIds implements CharmPrerequisiteVisitor {
+public class RenderingParentIds implements PrerequisiteProcessor {
 
   public static List<String> collectNodeIdsOfRenderingParents(Charm charm) {
     RenderingParentIds renderingParents = new RenderingParentIds();
-    charm.forEachCharmPrerequisite(charmPrerequisite -> charmPrerequisite.accept(renderingParents));
+    charm.forEachCharmPrerequisite(charmPrerequisite -> charmPrerequisite.process(renderingParents));
     return renderingParents.nodeIds;
   }
 

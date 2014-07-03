@@ -4,13 +4,13 @@ import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.ICharmLearnableArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisiteVisitor;
+import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 
-public class IsAutoSatisfiable implements CharmPrerequisiteVisitor {
+public class IsAutoSatisfiable implements PrerequisiteProcessor {
 
   public static boolean isAutoSatisfiable(CharmPrerequisite prerequisite, ICharmLearnableArbitrator arbitrator) {
     IsAutoSatisfiable satisfied = new IsAutoSatisfiable(arbitrator);
-    prerequisite.accept(satisfied);
+    prerequisite.process(satisfied);
     return satisfied.satisfiable;
   }
 

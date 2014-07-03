@@ -23,7 +23,7 @@ public class AllSatisfied implements Consumer<CharmPrerequisite> {
       return;
     }
     IsSatisfied satisfied = new IsSatisfied(learnArbitrator);
-    prerequisite.accept(satisfied);
+    prerequisite.process(satisfied);
     isFulfilled = satisfied.satisfied;
   }
 }

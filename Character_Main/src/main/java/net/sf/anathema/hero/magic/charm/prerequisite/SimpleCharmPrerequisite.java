@@ -41,8 +41,13 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
   }
 
   @Override
-  public void accept(CharmPrerequisiteVisitor visitor) {
-    visitor.requiresCharm(prerequisite);
+  public void process(PrerequisiteProcessor processor) {
+    processor.requiresCharm(prerequisite);
+  }
+
+  @Override
+  public void accept(PrerequisiteVisitor visitor) {
+    visitor.visit(this);
   }
 
   @Override
