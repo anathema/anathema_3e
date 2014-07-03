@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser.charms.special.paintolerance;
 
-import net.sf.anathema.charm.parser.template.special.PainTolerance;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.PainTolerance;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
 import org.dom4j.Element;
 

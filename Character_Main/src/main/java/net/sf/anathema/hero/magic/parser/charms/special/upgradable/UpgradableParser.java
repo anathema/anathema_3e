@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.parser.charms.special.upgradable;
 
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.parser.template.special.Upgradable;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.Upgradable;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.charm.parser.util.ElementUtilities;
+import net.sf.anathema.magic.spells.ElementUtilities;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")

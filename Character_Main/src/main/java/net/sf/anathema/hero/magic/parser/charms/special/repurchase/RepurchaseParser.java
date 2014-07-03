@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.magic.parser.charms.special.repurchase;
 
-import net.sf.anathema.charm.parser.template.special.Requirement;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.parser.template.special.StaticRepurchase;
-import net.sf.anathema.charm.parser.template.special.TierRepurchase;
-import net.sf.anathema.charm.parser.template.special.TraitRepurchase;
+import net.sf.anathema.charm.template.special.Requirement;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.StaticRepurchase;
+import net.sf.anathema.charm.template.special.TierRepurchase;
+import net.sf.anathema.charm.template.special.TraitRepurchase;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.charm.parser.template.special.Repurchase;
-import net.sf.anathema.charm.parser.template.special.Tier;
+import net.sf.anathema.charm.template.special.Repurchase;
+import net.sf.anathema.charm.template.special.Tier;
 import net.sf.anathema.hero.traits.model.SystemConstants;
-import net.sf.anathema.charm.parser.util.ElementUtilities;
+import net.sf.anathema.magic.spells.ElementUtilities;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")

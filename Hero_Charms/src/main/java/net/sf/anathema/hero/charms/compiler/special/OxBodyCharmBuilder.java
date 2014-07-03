@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.parser.template.special.OxBodyPick;
-import net.sf.anathema.charm.parser.template.special.OxBodyTechnique;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.OxBodyPick;
+import net.sf.anathema.charm.template.special.OxBodyTechnique;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;

@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.old.cost.Cost;
-import net.sf.anathema.charm.old.cost.CostImpl;
-import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.charm.old.cost.HealthCost;
-import net.sf.anathema.charm.old.cost.HealthCostImpl;
+import net.sf.anathema.charm.data.cost.Cost;
+import net.sf.anathema.charm.data.cost.CostImpl;
+import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.data.cost.HealthCost;
+import net.sf.anathema.charm.data.cost.HealthCostImpl;
 import org.junit.Test;
 
-import static net.sf.anathema.charm.old.cost.HealthCostType.Aggravated;
-import static net.sf.anathema.charm.old.cost.HealthCostType.Bashing;
-import static net.sf.anathema.charm.old.cost.HealthCostType.Lethal;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Aggravated;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Bashing;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Lethal;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

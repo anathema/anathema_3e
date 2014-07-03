@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.parser.charms.special.traitcap;
 
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.parser.template.special.TraitCapModifier;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.TraitCapModifier;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
 import org.dom4j.Element;
 

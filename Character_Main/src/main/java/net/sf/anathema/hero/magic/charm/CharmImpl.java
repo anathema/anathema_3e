@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.charm;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.magic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;

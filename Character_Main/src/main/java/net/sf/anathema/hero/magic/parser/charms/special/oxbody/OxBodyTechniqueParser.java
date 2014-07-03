@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.parser.charms.special.oxbody;
 
-import net.sf.anathema.charm.parser.template.special.OxBodyPick;
-import net.sf.anathema.charm.parser.template.special.OxBodyTechnique;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.OxBodyPick;
+import net.sf.anathema.charm.template.special.OxBodyTechnique;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
 import org.dom4j.Element;
 

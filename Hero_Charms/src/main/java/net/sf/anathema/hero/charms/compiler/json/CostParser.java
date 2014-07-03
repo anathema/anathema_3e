@@ -1,22 +1,22 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.old.cost.Cost;
-import net.sf.anathema.charm.old.cost.CostImpl;
-import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.charm.old.cost.CostListImpl;
-import net.sf.anathema.charm.old.cost.HealthCost;
-import net.sf.anathema.charm.old.cost.HealthCostImpl;
-import net.sf.anathema.charm.old.cost.HealthCostType;
+import net.sf.anathema.charm.data.cost.Cost;
+import net.sf.anathema.charm.data.cost.CostImpl;
+import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.data.cost.CostListImpl;
+import net.sf.anathema.charm.data.cost.HealthCost;
+import net.sf.anathema.charm.data.cost.HealthCostImpl;
+import net.sf.anathema.charm.data.cost.HealthCostType;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static java.lang.Integer.parseInt;
-import static net.sf.anathema.charm.old.cost.CostImpl.NULL_COST;
-import static net.sf.anathema.charm.old.cost.HealthCostImpl.NULL_HEALTH_COST;
-import static net.sf.anathema.charm.old.cost.HealthCostType.Aggravated;
-import static net.sf.anathema.charm.old.cost.HealthCostType.Bashing;
-import static net.sf.anathema.charm.old.cost.HealthCostType.Lethal;
+import static net.sf.anathema.charm.data.cost.CostImpl.NULL_COST;
+import static net.sf.anathema.charm.data.cost.HealthCostImpl.NULL_HEALTH_COST;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Aggravated;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Bashing;
+import static net.sf.anathema.charm.data.cost.HealthCostType.Lethal;
 
 public class CostParser {
 

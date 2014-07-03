@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy.magic;
 
 import net.sf.anathema.charm.data.reference.SpellName;
-import net.sf.anathema.charm.old.cost.CostList;
+import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.lib.exception.NotYetImplementedException;

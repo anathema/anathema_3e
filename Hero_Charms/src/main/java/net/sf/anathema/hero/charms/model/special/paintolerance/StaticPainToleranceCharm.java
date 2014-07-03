@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model.special.paintolerance;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.parser.template.special.PainTolerance;
+import net.sf.anathema.charm.template.special.PainTolerance;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 

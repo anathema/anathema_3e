@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.parser.template.CharmTemplate;
+import net.sf.anathema.charm.template.CharmTemplate;
 import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.traits.model.TraitType;

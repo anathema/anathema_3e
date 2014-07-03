@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.parser.template.CharmListTemplate;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;

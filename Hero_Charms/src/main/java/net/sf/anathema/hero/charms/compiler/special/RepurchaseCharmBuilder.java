@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.parser.template.special.Requirement;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.parser.template.special.TierRepurchase;
-import net.sf.anathema.charm.parser.template.special.TraitRepurchase;
+import net.sf.anathema.charm.template.special.Requirement;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.TierRepurchase;
+import net.sf.anathema.charm.template.special.TraitRepurchase;
 import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -13,8 +13,8 @@ import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnable
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.charm.parser.template.special.Repurchase;
-import net.sf.anathema.charm.parser.template.special.Tier;
+import net.sf.anathema.charm.template.special.Repurchase;
+import net.sf.anathema.charm.template.special.Tier;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
 
