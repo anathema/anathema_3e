@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.charm.prerequisite;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
-public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisite {
+public class AttributeKnownCharmPrerequisite implements CharmPrerequisite{
 
   private final MagicAttribute attribute;
   private final int count;
@@ -11,11 +11,6 @@ public class AttributeKnownCharmPrerequisite implements IndirectCharmPrerequisit
   public AttributeKnownCharmPrerequisite(MagicAttribute attribute, int count) {
     this.attribute = attribute;
     this.count = count;
-  }
-
-  @Override
-  public String getStringLabel() {
-    return "Requirement." + attribute.getId() + "." + count;
   }
 
   @Override
