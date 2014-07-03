@@ -5,6 +5,8 @@ import net.sf.anathema.hero.magic.charm.prerequisite.DirectGroupCharmPrerequisit
 import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteVisitor;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 
+import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeId;
+
 public class ColorNonCharmPrerequisites implements PrerequisiteVisitor {
   private CharmColoring coloring;
 
@@ -14,7 +16,8 @@ public class ColorNonCharmPrerequisites implements PrerequisiteVisitor {
 
   @Override
   public void visit(AttributeKnownCharmPrerequisite prerequisite) {
-    coloring.colorNonCharmPrerequisite(prerequisite);
+    String nodeId = getNodeId(prerequisite);
+    coloring.colorNonCharmPrerequisite(nodeId, prerequisite);
   }
 
   @Override

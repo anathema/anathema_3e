@@ -8,7 +8,7 @@ public interface CharmColoring {
 
   void colorCharm(Charm charm);
 
-  void colorNonCharmPrerequisite(IndirectCharmPrerequisite prerequisite);
+  void colorNonCharmPrerequisite(String nodeId, IndirectCharmPrerequisite prerequisite);
 
   void operateOn(TreeView treeView);
 }
