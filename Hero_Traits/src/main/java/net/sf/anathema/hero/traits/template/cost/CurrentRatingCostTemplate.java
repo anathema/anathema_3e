@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.template.cost;
 
-import net.sf.anathema.hero.template.points.CurrentRatingCost;
-import net.sf.anathema.hero.template.points.MultiplyRatingCost;
+import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
+import net.sf.anathema.hero.traits.advance.MultiplyRatingCost;
 
 public class CurrentRatingCostTemplate {
 

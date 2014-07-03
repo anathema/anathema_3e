@@ -7,7 +7,7 @@ import net.sf.anathema.hero.framework.HeroTemplateHolder;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.ITemplateRegistry;
+import net.sf.anathema.hero.template.TemplateRegistry;
 import net.sf.anathema.lib.collection.MultiEntryMap;
 import net.sf.anathema.lib.control.ChangeListener;
 import org.jmock.example.announcer.Announcer;
@@ -32,7 +32,7 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
 
   private void initializeTypesAndTemplates() {
     CharacterTypes types = generics.getCharacterTypes();
-    ITemplateRegistry templateRegistry = generics.getTemplateRegistry();
+    TemplateRegistry templateRegistry = generics.getTemplateRegistry();
     for (CharacterType type : types) {
       HeroTemplate[] templates = templateRegistry.getAllSupportedTemplates(type);
       if (templates.length > 0) {

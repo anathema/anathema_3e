@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits;
+package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits;
+package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.dummy.DummyHero;

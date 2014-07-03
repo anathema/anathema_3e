@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.advance;
+package net.sf.anathema.hero.traits.advance;
 
-import net.sf.anathema.hero.template.points.MultiplyRatingCost;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

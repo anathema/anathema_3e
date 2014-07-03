@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.template.points;
+package net.sf.anathema.hero.traits.advance;
 
 import net.sf.anathema.lib.lang.ReflectionEqualsObject;
 

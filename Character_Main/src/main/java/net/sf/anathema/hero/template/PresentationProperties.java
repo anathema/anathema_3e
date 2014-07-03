@@ -1,8 +1,8 @@
-package net.sf.anathema.hero.template.presentation;
+package net.sf.anathema.hero.template;
 
 import net.sf.anathema.lib.file.RelativePath;
 
-public interface IPresentationProperties {
+public interface PresentationProperties {
 
   String getNewActionResource();
 

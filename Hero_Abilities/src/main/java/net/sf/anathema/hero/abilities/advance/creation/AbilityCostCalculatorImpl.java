@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.template.points.CurrentRatingCost;
+import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.Trait;

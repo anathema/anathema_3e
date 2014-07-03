@@ -10,14 +10,14 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TemplateRegistryTest {
+public class TemplateRegistryImplTest {
 
   private DummyMundaneCharacterType characterType = new DummyMundaneCharacterType();
-  private ITemplateRegistry registry;
+  private TemplateRegistry registry;
 
   @Before
   public void setUp() throws Exception {
-    this.registry = new TemplateRegistry();
+    this.registry = new TemplateRegistryImpl();
   }
 
   @Test
