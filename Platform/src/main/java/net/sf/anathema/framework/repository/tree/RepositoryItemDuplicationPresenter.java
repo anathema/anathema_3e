@@ -2,7 +2,7 @@ package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.interaction.Tool;
@@ -17,11 +17,11 @@ public class RepositoryItemDuplicationPresenter {
 
   private final RepositoryTreeModel model;
   private final IRepositoryTreeView view;
-  private final IMessaging messaging;
+  private final Messaging messaging;
   private final Environment environment;
 
   public RepositoryItemDuplicationPresenter(Environment environment, RepositoryTreeModel repositoryTreeModel,
-                                            IRepositoryTreeView treeView, IMessaging messaging) {
+                                            IRepositoryTreeView treeView, Messaging messaging) {
     this.environment = environment;
     this.model = repositoryTreeModel;
     this.view = treeView;

@@ -2,8 +2,9 @@ package net.sf.anathema.initialization;
 
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.messaging.IMessageContainer;
+import net.sf.anathema.framework.messaging.MessageContainer;
 import net.sf.anathema.framework.view.ApplicationView;
+import net.sf.anathema.framework.view.messaging.StatusBar;
 
 import java.util.Collection;
 
@@ -25,13 +26,14 @@ public class AnathemaPresenter {
   }
 
   private void initMessaging() {
-    IMessageContainer messageContainer = model.getMessageContainer();
+    StatusBar statusBar = view.getStatusBar();
+    MessageContainer messageContainer = model.getMessageContainer();
     messageContainer.addChangeListener(() -> showLatestMessage(messageContainer));
     showLatestMessage(messageContainer);
-    view.getStatusBar().whenAllMessagesAreRequested(() -> view.getStatusBar().showMessages(model.getMessageContainer().getAllMessages()));
+    statusBar.whenAllMessagesAreRequested(() -> statusBar.showMessages(messageContainer.getPermanentMessages()));
   }
 
-  private void showLatestMessage(IMessageContainer messageContainer) {
+  private void showLatestMessage(MessageContainer messageContainer) {
     view.getStatusBar().setLatestMessage(messageContainer.getLatestMessage());
   }
 
