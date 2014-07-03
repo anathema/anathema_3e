@@ -2,7 +2,7 @@ package net.sf.anathema.hero.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.messaging.NullMessaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -15,7 +15,7 @@ import java.io.OutputStream;
 
 public abstract class AbstractModelJsonPersister<P, M extends HeroModel> implements HeroModelPersister {
 
-  protected IMessaging messaging = new NullMessaging();
+  protected Messaging messaging = new NullMessaging();
   private final String persistenceId;
   private final Gson gson;
   private Class<P> ptoClass;
@@ -29,7 +29,7 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
   }
 
   @Override
-  public void setMessaging(IMessaging messaging) {
+  public void setMessaging(Messaging messaging) {
     this.messaging = messaging;
   }
 

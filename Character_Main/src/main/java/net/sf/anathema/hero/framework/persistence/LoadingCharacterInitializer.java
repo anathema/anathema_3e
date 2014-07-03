@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -10,10 +10,10 @@ import net.sf.anathema.lib.util.Identifier;
 public class LoadingCharacterInitializer implements CharacterInitializer{
   private final RepositoryReadAccess readAccess;
   private final HeroPersisterList persisterList;
-  private final IMessaging messaging;
+  private final Messaging messaging;
 
   public LoadingCharacterInitializer(RepositoryReadAccess readAccess, HeroPersisterList persisterList,
-                                     IMessaging messaging) {
+                                     Messaging messaging) {
     this.readAccess = readAccess;
     this.persisterList = persisterList;
     this.messaging = messaging;

@@ -1,15 +1,15 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.lib.message.MessageType;
 
 public class RepositoryMessagingPresenter {
 
   private final RepositoryTreeModel repositoryTreeModel;
-  private final IMessaging messaging;
+  private final Messaging messaging;
 
-  public RepositoryMessagingPresenter(RepositoryTreeModel repositoryTreeModel, IMessaging messaging) {
+  public RepositoryMessagingPresenter(RepositoryTreeModel repositoryTreeModel, Messaging messaging) {
     this.repositoryTreeModel = repositoryTreeModel;
     this.messaging = messaging;
   }

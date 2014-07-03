@@ -3,8 +3,8 @@ package net.sf.anathema.framework.model;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.extension.AnathemaExtension;
-import net.sf.anathema.framework.messaging.IMessageContainer;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.CollectingMessaging;
+import net.sf.anathema.framework.messaging.MessageContainer;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.FileSystemRepository;
 import net.sf.anathema.framework.repository.Repository;
@@ -17,11 +17,11 @@ public class ApplicationModel implements IApplicationModel {
 
   private final IRegistry<String, AnathemaExtension> extensionRegistry = new Registry<>();
   private final FileSystemRepository repository;
-  private final Messaging messaging;
+  private final CollectingMessaging messaging;
 
   public ApplicationModel(File repositoryFolder, Environment environment) {
     this.repository = new FileSystemRepository(repositoryFolder);
-    this.messaging = new Messaging(environment);
+    this.messaging = new CollectingMessaging(environment);
   }
 
   @Override
@@ -35,12 +35,12 @@ public class ApplicationModel implements IApplicationModel {
   }
 
   @Override
-  public IMessaging getMessaging() {
+  public Messaging getMessaging() {
     return messaging;
   }
 
   @Override
-  public IMessageContainer getMessageContainer() {
+  public MessageContainer getMessageContainer() {
     return messaging;
   }
 }

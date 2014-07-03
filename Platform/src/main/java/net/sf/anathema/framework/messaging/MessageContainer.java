@@ -5,7 +5,7 @@ import net.sf.anathema.lib.message.Message;
 
 import java.util.List;
 
-public interface IMessageContainer {
+public interface MessageContainer {
 
   void addChangeListener(ChangeListener listener);
 

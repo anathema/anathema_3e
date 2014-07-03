@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.initialization.ItemTypeCollection;
 import net.sf.anathema.interaction.Command;
 import org.controlsfx.dialog.Dialog;
@@ -36,7 +36,7 @@ public class RepositoryViewAction implements Command {
     RepositoryTreeModel repositoryTreeModel = new RepositoryTreeModel(model.getRepository(), itemTypeCollection);
     new RepositoryTreePresenter(environment, model,itemTypeCollection, repositoryTreeModel, treeView, "AnathemaCore.Tools.RepositoryView.TreeRoot")
             .initPresentation();
-    IMessaging messaging = model.getMessaging();
+    Messaging messaging = model.getMessaging();
     AmountMessaging fileCountMessaging = new AmountMessaging(messaging, environment);
     new RepositoryItemDeletionPresenter(environment, repositoryTreeModel, treeView, fileCountMessaging).initPresentation();
     new RepositoryItemExportPresenter(environment, uiEnvironment, repositoryTreeModel, treeView, fileCountMessaging).initPresentation();

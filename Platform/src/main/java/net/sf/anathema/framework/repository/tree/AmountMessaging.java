@@ -1,16 +1,16 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.messaging.IMessaging;
+import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.framework.environment.Resources;
 
 public class AmountMessaging {
 
-  private final IMessaging messaging;
+  private final Messaging messaging;
   private final String singleItem;
   private final String multiItem;
 
-  public AmountMessaging(IMessaging messaging, Resources resources) {
+  public AmountMessaging(Messaging messaging, Resources resources) {
     this.messaging = messaging;
     this.singleItem = resources.getString("AnathemaCore.Tools.RepositoryView.Item");
     this.multiItem = resources.getString("AnathemaCore.Tools.RepositoryView.Items");
