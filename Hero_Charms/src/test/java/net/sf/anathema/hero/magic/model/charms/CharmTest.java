@@ -19,7 +19,6 @@ import org.junit.Test;
 import static net.sf.anathema.hero.magic.charm.duration.SimpleDuration.getDuration;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
 import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
-import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
@@ -37,12 +36,11 @@ public class CharmTest {
 
   @Test
   public void doesNotOverwriteExistingParentCharms() throws Exception {
-    DummyCharm dummy = new DummyCharm("OtherDummy");
+    DummyCharm dummyParent = new DummyCharm("OtherDummy");
     CharmImpl out = new CharmImpl(anyTree, anyName, anyPrerequisites, anyCost, anyDuration, anyType, anySources);
-    out.addParentCharms(dummy);
-    CharmImpl charm = out;
+    out.addParentCharms(dummyParent);
     UnlinkedCharms unlinkedCharms = mock(UnlinkedCharms.class);
-    charm.extractParentCharms(unlinkedCharms);
+    out.extractParentCharms(unlinkedCharms);
     verifyZeroInteractions(unlinkedCharms);
   }
 
