@@ -1,37 +1,22 @@
 package net.sf.anathema.hero.spells;
 
 import com.google.common.collect.ImmutableList;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
-import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.ValueChangeChecker;
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
-import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.hero.magic.spells.Spell;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
+import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.magic.DummySpell;
-import net.sf.anathema.hero.magic.dummy.DummyCharmsModel;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitModel;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.hero.magic.basic.Magic;
+import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -43,41 +28,17 @@ import static org.junit.Assert.assertThat;
 
 public class CharmCostCalculatorTest {
 
-  private static void addAbilityAndEssence(TraitModel traitModel, DummyHero hero) {
-    traitModel.addTraits(createTrait(hero, OtherTraitType.Essence, new TraitTemplate()));
-    for (final AbilityType traitType : AbilityType.values()) {
-      traitModel.addTraits(createFavorableTrait(hero, traitType, new TraitTemplate()));
-    }
-  }
-
-  public static Trait createTrait(Hero hero, TraitType traitType, TraitTemplate traitTemplate) {
-    ValueChangeChecker checker = new FriendlyValueChangeChecker();
-    TraitRules rules = new TraitRulesImpl(traitType, traitTemplate, hero);
-    return new DefaultTrait(hero, rules, checker);
-  }
-
-  public static Trait createFavorableTrait(Hero hero, TraitType traitType, TraitTemplate traitTemplate) {
-    ValueChangeChecker checker = new FriendlyValueChangeChecker();
-    TraitRules rules = new TraitRulesImpl(traitType, traitTemplate, hero);
-    return new DefaultTrait(hero, rules, new CasteType[0], checker, new FriendlyIncrementChecker());
-  }
-
   private MagicCreationCostCalculator calculator;
   private DummySpellsModel spells = new DummySpellsModel();
-  private DummyCharmsModel charms = new DummyCharmsModel();
-  private TraitModel traitModel;
+  private CharmsModel charmModel = new CharmsModelImpl(new CharmsTemplate());
 
   @Before
   public void setUp() throws Exception {
-    CharmsModel charmModel = new CharmsModelImpl(new CharmsTemplate());
     spells.initializeMagicModel(charmModel);
     CharmHeroObjectMother objectMother = new CharmHeroObjectMother();
     CreationTraitValueStrategy valueStrategy = new CreationTraitValueStrategy();
     DummyHero hero = objectMother.createModelContextWithEssence2(valueStrategy);
-    traitModel = TraitModelFetcher.fetch(hero);
-    addAbilityAndEssence(traitModel, hero);
     hero.addModel(charmModel);
-    hero.addModel(charms);
     hero.addModel(spells);
     MagicPointsTemplate template = new MagicPointsTemplate();
     template.generalCreationPoints.freePicks = 3;
@@ -97,7 +58,7 @@ public class CharmCostCalculatorTest {
   }
 
   @Test
-  public void testOneSpellLearnedOccultUnfavored() {
+  public void calculatesCategoriesForUnfavoredSpell() {
     spells.addSpells(Collections.<Spell>singletonList(new DummySpell()));
     calculator.calculateMagicCosts();
     assertEquals(1, calculator.getGeneralCharmPicksSpent());
@@ -106,17 +67,13 @@ public class CharmCostCalculatorTest {
   }
 
   @Test
-  public void testOneSpellLearnedOccultFavored() {
-    setOccultFavored();
+  public void calculatesCategoriesForFavoredSpell() {
+    setSpellsFavored();
     spells.addSpells(Collections.<Spell>singletonList(new DummySpell()));
     calculator.calculateMagicCosts();
     assertEquals(0, calculator.getGeneralCharmPicksSpent());
     assertEquals(1, calculator.getFavoredCharmPicksSpent());
     assertEquals(0, calculator.getBonusPointCost());
-  }
-
-  private void setOccultFavored() {
-    traitModel.getTrait(AbilityType.Occult).getFavorization().setFavorableState(FavorableState.Favored);
   }
 
   @Test
@@ -155,12 +112,28 @@ public class CharmCostCalculatorTest {
 
   @Test
   public void testFavoredSpellsOverflowToGeneralAndBonus() {
-    setOccultFavored();
-    DummySpell dummySpell = new DummySpell();
-    spells.addSpells(ImmutableList.<Spell>of(dummySpell, dummySpell, dummySpell, dummySpell, dummySpell, dummySpell));
+    setSpellsFavored();
+    spells.addSpells(ImmutableList.<Spell>of(new DummySpell(), new DummySpell(), new DummySpell(), new DummySpell(),
+            new DummySpell(), new DummySpell()));
     calculator.calculateMagicCosts();
     assertEquals(3, calculator.getGeneralCharmPicksSpent());
     assertEquals(2, calculator.getFavoredCharmPicksSpent());
     assertEquals(4, calculator.getBonusPointCost());
+  }
+
+  private void setSpellsFavored() {
+    charmModel.addFavoredChecker(new FavorsSpells());
+  }
+
+  private static class FavorsSpells implements FavoredChecker {
+    @Override
+    public boolean supportsMagic(Magic magic) {
+      return magic instanceof Spell;
+    }
+
+    @Override
+    public boolean isFavored(Magic magic) {
+      return true;
+    }
   }
 }

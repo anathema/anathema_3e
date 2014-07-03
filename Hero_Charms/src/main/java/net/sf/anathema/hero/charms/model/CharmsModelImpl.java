@@ -13,6 +13,9 @@ import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
+import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.charms.model.favored.IsFavoredCharm;
+import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
@@ -40,8 +43,8 @@ import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.model.Hero;
@@ -60,7 +63,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
@@ -86,6 +88,7 @@ public class CharmsModelImpl implements CharmsModel {
   private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final List<MagicLearner> magicLearners = new ArrayList<>();
+  private final IsFavoredMagic isFavoredMagic = new IsFavoredMagic();
 
   public CharmsModelImpl(CharmsTemplate template) {
     this.charmsRules = new CharmsRulesImpl(template);
@@ -98,6 +101,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    isFavoredMagic.add(new IsFavoredCharm(hero));
     CharmSpecialistImpl specialist = new CharmSpecialistImpl(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.traits = TraitModelFetcher.fetch(hero);
@@ -368,6 +372,11 @@ public class CharmsModelImpl implements CharmsModel {
 
 
   @Override
+  public void addFavoredChecker(FavoredChecker favoredChecker) {
+    isFavoredMagic.add(favoredChecker);
+  }
+
+  @Override
   public void addPrintProvider(PrintMagicProvider provider) {
     printMagicProviders.add(provider);
   }
@@ -392,6 +401,11 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public boolean isAlienCharm(Charm charm) {
     return charmsRules.isAlienCharm(charm);
+  }
+
+  @Override
+  public boolean isFavoredMagic(Magic magic) {
+    return isFavoredMagic.isFavored(magic);
   }
 
   @Override

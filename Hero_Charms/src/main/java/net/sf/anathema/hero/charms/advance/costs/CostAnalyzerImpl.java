@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.advance.costs;
 
+import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities;
@@ -15,7 +16,7 @@ public class CostAnalyzerImpl implements CostAnalyzer {
 
   @Override
   public final boolean isMagicFavored(Magic magic) {
-    return magic.isFavored(hero);
+    return CharmsModelFetcher.fetch(hero).isFavoredMagic(magic);
   }
 
   @Override

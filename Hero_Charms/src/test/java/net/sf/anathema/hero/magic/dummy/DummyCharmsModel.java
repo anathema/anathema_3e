@@ -8,6 +8,8 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.PrintMagicProvider;
+import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
@@ -16,6 +18,7 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
@@ -32,6 +35,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   private Charm[] charms = new Charm[0];
 
   private LearningCharmTree[] groups;
+  private IsFavoredMagic favoredMagic = new IsFavoredMagic();
 
   @Override
   public void addLearnableListener(ChangeListener listener) {
@@ -105,6 +109,11 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
+  public boolean isFavoredMagic(Magic magic) {
+    return favoredMagic.isFavored(magic);
+  }
+
+  @Override
   public CharmSpecialsModel getCharmSpecialsModel(Charm charm) {
     return null;
   }
@@ -137,6 +146,11 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public ISpecialCharm[] getSpecialCharms() {
     return new ISpecialCharm[0];
+  }
+
+  @Override
+  public void addFavoredChecker(FavoredChecker favoredChecker) {
+    favoredMagic.add(favoredChecker);
   }
 
   @Override
