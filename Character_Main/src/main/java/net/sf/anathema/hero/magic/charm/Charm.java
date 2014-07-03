@@ -6,8 +6,6 @@ import net.sf.anathema.hero.magic.basic.Magic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -23,8 +21,6 @@ public interface Charm extends Magic {
   CharmType getCharmType();
 
   Duration getDuration();
-
-  TraitType getPrimaryTraitType();
 
   List<CharmPrerequisite> getCharmPrerequisites();
 

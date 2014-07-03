@@ -64,11 +64,11 @@ public class SpecialCharmContributor implements MagicTooltipContributor {
       }
       builder.append(tier.getRequirement(OtherTraitType.Essence));
 
-      int traitRequirement = tier.getRequirement(charm.getPrimaryTraitType());
+      int traitRequirement = tier.getRequirement(charm.getPrerequisites().getPrimaryTraitType());
       if (traitRequirement > 0) {
         builder.append("/");
         if (tier == second || tiers.length <= 3) {
-          builder.append(resources.getString(charm.getPrimaryTraitType().getId()));
+          builder.append(resources.getString(charm.getPrerequisites().getPrimaryTraitType().getId()));
           builder.append(ConfigurableTooltip.Space);
         }
         builder.append(traitRequirement);

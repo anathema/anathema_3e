@@ -146,7 +146,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
       return false;
     }
     TraitMap traitMap = TraitModelFetcher.fetch(hero);
-    ValuedTraitType trait = traitMap.getTrait(getPrimaryTraitType());
+    ValuedTraitType trait = traitMap.getTrait(getPrerequisites().getPrimaryTraitType());
     return trait.isCasteOrFavored();
   }
 

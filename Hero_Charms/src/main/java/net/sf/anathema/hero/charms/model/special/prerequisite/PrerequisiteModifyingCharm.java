@@ -18,7 +18,7 @@ public class PrerequisiteModifyingCharm implements IPrerequisiteModifyingCharm {
 
   @Override
   public int modifyRequiredValue(Charm charm, int currentlyRequiredValue) {
-    TraitType mainTrait = charm.getPrimaryTraitType();
+    TraitType mainTrait = charm.getPrerequisites().getPrimaryTraitType();
     return modifyRequiredValueIfIsApplicableToCandidate(mainTrait, currentlyRequiredValue);
   }
 

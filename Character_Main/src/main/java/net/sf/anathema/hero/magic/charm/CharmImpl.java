@@ -18,8 +18,6 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
@@ -146,7 +144,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   private boolean isPrimaryTraitFavored(Hero hero) {
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
-    Trait primaryTrait = traitModel.getTrait(getPrimaryTraitType());
+    Trait primaryTrait = traitModel.getTrait(getPrerequisites().getPrimaryTraitType());
     return primaryTrait.isCasteOrFavored();
   }
 
@@ -160,11 +158,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     String casteId = concept.getCaste().getType().getId();
     return favoredCasteIds.contains(casteId);
-  }
-
-  @Override
-  public TraitType getPrimaryTraitType() {
-    return getPrerequisites().getTraitPrerequisites().length == 0 ? OtherTraitType.Essence : getPrerequisites().getTraitPrerequisites()[0].getType();
   }
 
   private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
