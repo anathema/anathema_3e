@@ -3,12 +3,13 @@ package net.sf.anathema.hero.magic.charm;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
@@ -16,6 +17,8 @@ import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+
+import static net.sf.anathema.hero.magic.charm.prerequisite.ProcessProcessor.process;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
@@ -82,19 +85,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return temporaryCost;
   }
 
-  public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
-    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
-      prerequisite.link(unlinkedCharms);
-    }
-    List<DirectCharmPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmPrerequisite.class);
-    for (DirectCharmPrerequisite prerequisite : directPrerequisites) {
-      Charm[] charms = prerequisite.getDirectPredecessors();
-      for (Charm charm : charms) {
-        ((CharmParent) charm).addChild(this);
-      }
-    }
-  }
-
   @Override
   public void addChild(CharmImpl child) {
     children.add(child);
@@ -110,14 +100,29 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return prerequisiteList;
   }
 
-  private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
-    List<T> matches = new ArrayList<>();
-    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
-      if (clazz.isInstance(prerequisite)) {
-        matches.add((T) prerequisite);
+  public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
+    prerequisiteList.forEachCharmPrerequisite(prerequisite -> prerequisite.link(unlinkedCharms));
+    prerequisiteList.forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
+      @Override
+      public void requiresMagicAttributes(MagicAttribute attribute, int count) {
+
       }
+
+      @Override
+      public void requiresCharm(Charm prerequisite) {
+        ((CharmParent) prerequisite).addChild(CharmImpl.this);
+      }
+
+      @Override
+      public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+        for (Charm charm : prerequisites) {
+          ((CharmParent) charm).addChild(CharmImpl.this);
+        }
+      }
+    }));
+    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
+      prerequisite.link(unlinkedCharms);
     }
-    return matches;
   }
 
   public void addParentCharms(Charm... parent) {
