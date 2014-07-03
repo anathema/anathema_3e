@@ -6,9 +6,6 @@ import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
 import net.sf.anathema.lib.util.Identifier;
 
@@ -45,11 +42,6 @@ public class DummySpell implements Spell {
   @Override
   public CostList getTemporaryCost() {
     throw new NotYetImplementedException();
-  }
-
-  @Override
-  public boolean isFavored(Hero hero) {
-    return TraitModelFetcher.fetch(hero).getTrait(AbilityType.Occult).isCasteOrFavored();
   }
 
   @Override

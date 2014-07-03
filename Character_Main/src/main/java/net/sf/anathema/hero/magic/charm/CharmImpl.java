@@ -12,17 +12,10 @@ import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitModel;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-
-import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
@@ -120,26 +113,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public PrerequisiteList getPrerequisites() {
     return prerequisiteList;
-  }
-
-  @Override
-  public boolean isFavored(Hero hero) {
-    if (isFavoredMartialArts(hero)) {
-      return true;
-    }
-    return isPrimaryTraitFavored(hero);
-  }
-
-  private boolean isPrimaryTraitFavored(Hero hero) {
-    TraitModel traitModel = TraitModelFetcher.fetch(hero);
-    Trait primaryTrait = traitModel.getTrait(getPrerequisites().getPrimaryTraitType());
-    return primaryTrait.isCasteOrFavored();
-  }
-
-  private boolean isFavoredMartialArts(Hero hero) {
-    Trait martialArts = TraitModelFetcher.fetch(hero).getTrait(MartialArts);
-    boolean isMartialArts = hasAttribute(new SimpleIdentifier("MartialArts"));
-    return isMartialArts && martialArts.isCasteOrFavored();
   }
 
   private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {

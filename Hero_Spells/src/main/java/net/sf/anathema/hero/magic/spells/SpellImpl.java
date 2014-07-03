@@ -5,10 +5,6 @@ import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.charm.old.source.SourceList;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
 
 public class SpellImpl extends AbstractMagic implements Spell {
   private SpellName name;
@@ -53,11 +49,5 @@ public class SpellImpl extends AbstractMagic implements Spell {
   @Override
   public CostList getTemporaryCost() {
     return temporaryCost;
-  }
-
-  @Override
-  public boolean isFavored(Hero hero) {
-    TraitType traitType = SpellsModelFetcher.fetch(hero).getFavoringTraitType();
-    return TraitModelFetcher.fetch(hero).getTrait(traitType).isCasteOrFavored();
   }
 }

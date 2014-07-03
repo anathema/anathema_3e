@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.reference.MagicName;
 import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.util.Identifier;
 
 public interface Magic {
@@ -18,8 +17,6 @@ public interface Magic {
   SourceBook getPrimarySource();
 
   CostList getTemporaryCost();
-
-  boolean isFavored(Hero hero);
 
   boolean hasAttribute(Identifier attribute);
 

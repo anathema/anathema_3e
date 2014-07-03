@@ -16,9 +16,6 @@ import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
@@ -138,16 +135,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
   @Override
   public String getAttributeValue(Identifier attribute) {
     return null;
-  }
-
-  @Override
-  public boolean isFavored(Hero hero) {
-    if (prerequisites.length <= 0) {
-      return false;
-    }
-    TraitMap traitMap = TraitModelFetcher.fetch(hero);
-    ValuedTraitType trait = traitMap.getTrait(getPrerequisites().getPrimaryTraitType());
-    return trait.isCasteOrFavored();
   }
 
   @Override
