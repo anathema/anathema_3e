@@ -5,7 +5,6 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.hero.equipment.EquipmentModel;
-import net.sf.anathema.hero.equipment.model.MissingMaterialException;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
@@ -36,13 +35,7 @@ public class EquipmentModelPersister extends AbstractModelJsonPersister<Equipmen
     if (equipment.material != null) {
       magicalMaterial = MagicalMaterial.valueOf(equipment.material);
     }
-    IEquipmentItem item;
-    try {
-      item = model.addItem(templateId, magicalMaterial);
-    } catch (MissingMaterialException e) {
-      logger.warn("No material found for item " + title);
-      return;
-    }
+    IEquipmentItem item = model.addItem(templateId, magicalMaterial);
     item.setPersonalization(title, description);
     item.setUnprinted();
     for (EquipmentStatsPto statsPto : equipment.printStats) {

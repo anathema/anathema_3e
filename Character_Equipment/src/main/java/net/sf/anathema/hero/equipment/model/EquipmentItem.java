@@ -17,6 +17,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.lib.logging.Logger;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentItem implements IEquipmentItem {
 
+  private final static Logger logger = Logger.getLogger(EquipmentItem.class);
   private final Set<IEquipmentStats> printedStats = new HashSet<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final IEquipmentTemplate template;
@@ -40,10 +42,11 @@ public class EquipmentItem implements IEquipmentItem {
   private String customTitle = null;
   private String customDescription = null;
 
-  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) throws MissingMaterialException{
+  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) {
     this.modifiers = modifiers;
     if (template.getComposition() == Variable && material == null) {
-      throw new MissingMaterialException("Variable material items must be created with material.");
+      logger.warn("No material found for item " + template.getName() + ". Defaulting to Orichalcum.");
+      material = MagicalMaterial.Orichalcum;
     }
     this.template = template;
     this.material = material != null ? material : template.getMaterial();
