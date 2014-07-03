@@ -7,7 +7,6 @@ import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
@@ -22,7 +21,7 @@ import java.util.List;
 @ExtensibleDataSetCompiler
 public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
-  private static final String Charm_File_Recognition_Pattern = "(.+?)\\.charms";
+  private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
   private final TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(
     CharmListTemplate.class);
@@ -31,7 +30,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   private final ObjectFactory objectFactory;
 
   @SuppressWarnings("UnusedParameters")
-  public CharmCacheCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
+  public CharmCacheCompiler(ObjectFactory objectFactory) {
     this.objectFactory = objectFactory;
   }
 

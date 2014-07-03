@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.magic.parser.spells;
 
-import net.sf.anathema.hero.magic.spells.Spell;
-import net.sf.anathema.hero.magic.spells.SpellException;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
+import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.magic.spells.SpellException;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -17,14 +16,14 @@ import java.util.List;
 
 @ExtensibleDataSetCompiler
 public class SpellCompiler implements IExtensibleDataSetCompiler {
-  private static final String Spell_File_Recognition_Pattern = "Spells.*\\.xml";
+  private static final String Spell_File_Recognition_Pattern = "Spells.+\\.xml";
   private final List<Document> spellFileList = new ArrayList<>();
   private final SpellBuilder builder = new SpellBuilder();
   private final SAXReader reader = new SAXReader();
   private final SpellCache cache = new SpellCache();
 
   @SuppressWarnings("UnusedParameters")
-  public SpellCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
+  public SpellCompiler(ObjectFactory objectFactory) {
     //nothing to do
   }
 
