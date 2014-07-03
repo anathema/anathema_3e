@@ -10,6 +10,7 @@ import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;
+import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
+public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, PrerequisiteList {
 
   public static DummyCharm ForIdAndTree(String id, String tree) {
     DummyCharm charm = new DummyCharm(id);
@@ -95,7 +96,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public ValuedTraitType[] getPrerequisites() {
+  public ValuedTraitType[] getTraitPrerequisites() {
     return prerequisites;
   }
 
@@ -112,6 +113,11 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   @Override
   public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
     learnPrerequisites.forEach(consumer);
+  }
+
+  @Override
+  public PrerequisiteList getPrerequisites() {
+    return this;
   }
 
   @Override

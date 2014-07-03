@@ -17,7 +17,7 @@ public class CharmPrerequisitesContributor implements MagicTooltipContributor {
   public void buildStringForMagic(ConfigurableTooltip tooltip, Magic magic, Object details) {
     if (magic instanceof Charm) {
       Charm charm = (Charm) magic;
-      createPrerequisiteLines(tooltip, charm.getPrerequisites());
+      createPrerequisiteLines(tooltip, charm.getTraitPrerequisites());
       createPrerequisiteLines(tooltip, charm.getEssence());
     }
   }

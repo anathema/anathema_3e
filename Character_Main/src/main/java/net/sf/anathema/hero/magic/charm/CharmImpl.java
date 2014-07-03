@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
@@ -39,13 +38,10 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final CostList temporaryCost;
   private final List<CharmImpl> children = new ArrayList<>();
   private final Set<String> favoredCasteIds = new HashSet<>();
-
   private final CharmType charmType;
   private TreeReference treeReference;
   private CharmName name;
-  private final ValuedTraitType essencePrerequisite;
-  private final ValuedTraitType[] traitPrerequisites;
-  private final List<CharmPrerequisite> prerequisites = new ArrayList<>();
+  private PrerequisiteList prerequisiteList;
 
   public CharmImpl(TreeReference treeReference, CharmName name, CharmPrerequisiteList prerequisiteList,
                    CostList temporaryCost, Duration duration, CharmType charmType,
@@ -63,9 +59,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     this.duration = duration;
     this.charmType = charmType;
     this.sources = sources;
-    this.essencePrerequisite = prerequisiteList.getEssencePrerequisite();
-    this.traitPrerequisites = prerequisiteList.getTraitPrerequisites();
-    prerequisites.addAll(asList(prerequisiteList.getCharmPrerequisites()));
+    this.prerequisiteList = new PrerequisiteListImpl(prerequisiteList);
   }
 
   @Override
@@ -90,12 +84,12 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public ValuedTraitType getEssence() {
-    return essencePrerequisite;
+    return prerequisiteList.getEssence();
   }
 
   @Override
-  public ValuedTraitType[] getPrerequisites() {
-    return traitPrerequisites;
+  public ValuedTraitType[] getTraitPrerequisites() {
+    return prerequisiteList.getTraitPrerequisites();
   }
 
   @Override
@@ -114,7 +108,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   public void extractParentCharms(UnlinkedCharmMap unlinkedCharms) {
-    for (CharmPrerequisite prerequisite : prerequisites) {
+    for (CharmPrerequisite prerequisite : getCharmPrerequisites()) {
       prerequisite.link(unlinkedCharms);
     }
     List<DirectCharmPrerequisite> directPrerequisites = getPrerequisitesOfType(DirectCharmPrerequisite.class);
@@ -128,7 +122,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public List<CharmPrerequisite> getCharmPrerequisites() {
-    return prerequisites;
+    return prerequisiteList.getCharmPrerequisites();
   }
 
   @Override
@@ -143,7 +137,12 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
-    prerequisites.forEach(consumer);
+    prerequisiteList.forEachCharmPrerequisite(consumer);
+  }
+
+  @Override
+  public PrerequisiteList getPrerequisites() {
+    return prerequisiteList;
   }
 
   public void addFavoredCasteId(String casteId) {
@@ -181,12 +180,12 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public TraitType getPrimaryTraitType() {
-    return getPrerequisites().length == 0 ? OtherTraitType.Essence : getPrerequisites()[0].getType();
+    return getTraitPrerequisites().length == 0 ? OtherTraitType.Essence : getTraitPrerequisites()[0].getType();
   }
 
   private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
     List<T> matches = new ArrayList<>();
-    for (CharmPrerequisite prerequisite : prerequisites) {
+    for (CharmPrerequisite prerequisite : prerequisiteList.getCharmPrerequisites()) {
       if (clazz.isInstance(prerequisite)) {
         matches.add((T) prerequisite);
       }
@@ -196,7 +195,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   public void addParentCharms(Charm... parent) {
     for (Charm charm : parent) {
-      prerequisites.add(new SimpleCharmPrerequisite(charm));
+      prerequisiteList.getCharmPrerequisites().add(new SimpleCharmPrerequisite(charm));
     }
   }
 }

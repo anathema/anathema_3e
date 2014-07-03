@@ -41,6 +41,7 @@ import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.model.Hero;
@@ -59,6 +60,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
@@ -300,8 +302,9 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    return new CharmTraitRequirementChecker(getPrerequisiteModifyingCharms(), traits, this).areTraitMinimumsSatisfied(
-            charm);
+    CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
+            getPrerequisiteModifyingCharms(), traits, this);
+    return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
   @Override
