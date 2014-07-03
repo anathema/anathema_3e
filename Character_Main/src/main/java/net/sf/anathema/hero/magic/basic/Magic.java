@@ -14,8 +14,6 @@ public interface Magic {
 
   SourceBook[] getSources();
 
-  SourceBook getPrimarySource();
-
   CostList getTemporaryCost();
 
   boolean hasAttribute(Identifier attribute);

@@ -42,11 +42,6 @@ public class SpellImpl extends AbstractMagic implements Spell {
   }
 
   @Override
-  public SourceBook getPrimarySource() {
-    return source.getPrimarySource();
-  }
-
-  @Override
   public CostList getTemporaryCost() {
     return temporaryCost;
   }

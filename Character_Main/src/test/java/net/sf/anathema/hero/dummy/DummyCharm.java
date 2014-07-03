@@ -152,11 +152,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
   }
 
   @Override
-  public SourceBook getPrimarySource() {
-    return null;
-  }
-
-  @Override
   public CharmType getCharmType() {
     return charmType;
   }

@@ -26,17 +26,12 @@ public class DummySpell implements Spell {
 
   @Override
   public MagicAttribute[] getAttributes() {
-    return new MagicAttribute[0];  //To change body of implemented methods use File | Settings | File Templates.
+    return new MagicAttribute[0];
   }
 
   @Override
   public SourceBook[] getSources() {
     throw new NotYetImplementedException();
-  }
-  
-  @Override
-  public SourceBook getPrimarySource() {
-	throw new NotYetImplementedException();
   }
 
   @Override

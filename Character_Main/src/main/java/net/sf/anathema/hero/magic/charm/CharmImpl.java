@@ -70,11 +70,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public SourceBook getPrimarySource() {
-    return sources.length > 0 ? sources[0] : null;
-  }
-
-  @Override
   public CostList getTemporaryCost() {
     return temporaryCost;
   }
