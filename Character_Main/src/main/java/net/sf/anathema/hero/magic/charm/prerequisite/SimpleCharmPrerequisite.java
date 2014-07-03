@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.UnlinkedCharmMap;
 
-public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
+public class SimpleCharmPrerequisite implements CharmPrerequisite {
   private static final Charm PREREQUISITE_NOT_SET = null;
   private final CharmName prerequisiteId;
   private Charm prerequisite;
@@ -19,10 +19,6 @@ public class SimpleCharmPrerequisite implements DirectCharmPrerequisite {
     this.prerequisiteId = charm.getName();
   }
 
-  @Override
-  public Charm[] getDirectPredecessors() {
-    return new Charm[]{prerequisite};
-  }
   @Override
   public void process(PrerequisiteProcessor processor) {
     processor.requiresCharm(prerequisite);

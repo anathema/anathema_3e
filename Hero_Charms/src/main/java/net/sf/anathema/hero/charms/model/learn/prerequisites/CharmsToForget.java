@@ -2,9 +2,10 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
-import net.sf.anathema.hero.magic.charm.prerequisite.DirectCharmPrerequisite;
 
 import java.util.Set;
+
+import static net.sf.anathema.hero.magic.charm.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
 
 public class CharmsToForget {
 
@@ -30,7 +31,7 @@ public class CharmsToForget {
   }
 
   private boolean isCharmPrerequisiteListFulfilled(Charm charm) {
-    AllSatisfied allSatisfied = new AllSatisfied(worker, prerequisite -> prerequisite instanceof DirectCharmPrerequisite);
+    AllSatisfied allSatisfied = new AllSatisfied(worker, isConcreteCharmPrerequisite());
     charm.getPrerequisites().forEachCharmPrerequisite(allSatisfied);
     return allSatisfied.isFulfilled;
   }

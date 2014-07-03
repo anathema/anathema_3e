@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
+public class DirectGroupCharmPrerequisite implements CharmPrerequisite {
 
   private final int threshold;
   private final CharmName[] prerequisiteIds;
@@ -43,11 +43,6 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
       prerequisites.add(parentCharm);
     }
     this.prerequisites = prerequisites.toArray(new Charm[prerequisites.size()]);
-  }
-
-  @Override
-  public Charm[] getDirectPredecessors() {
-    return prerequisites;
   }
 
   @Override
