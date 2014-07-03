@@ -10,7 +10,7 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
+import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.lang.StringUtilities;
