@@ -3,9 +3,9 @@ package net.sf.anathema.hero.charms.model.special.upgradable;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
+import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.lib.data.Condition;
 
 public class UpgradeCondition implements Condition {

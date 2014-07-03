@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.charm.data.PrerequisiteList;
+import net.sf.anathema.charm.data.cost.CostList;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.template.CharmTemplate;
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.PrerequisiteList;
-import net.sf.anathema.charm.data.Duration;
-import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
-import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.data.AbstractMagic;
 import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;

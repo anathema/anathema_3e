@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.view.perspective;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.framework.environment.Resources;
 
 public class ToolPerspectiveToggle implements PerspectiveToggle {
 

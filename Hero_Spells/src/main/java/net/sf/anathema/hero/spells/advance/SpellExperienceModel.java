@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.spells.advance;
 
-import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
+import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class SpellExperienceModel extends AbstractIntegerValueModel {
   private final Hero hero;

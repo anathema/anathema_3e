@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.platform;
 
-import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.framework.item.RepositoryConfiguration;
 import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
+import net.sf.anathema.hero.framework.type.CharacterTypes;
 import org.apache.commons.io.FileUtils;
 import org.junit.Rule;
 import org.junit.Test;

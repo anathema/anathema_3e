@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.framework.item;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval;
 import net.sf.anathema.framework.repository.RepositoryIdData;
+import net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.lang.StringUtilities;
 

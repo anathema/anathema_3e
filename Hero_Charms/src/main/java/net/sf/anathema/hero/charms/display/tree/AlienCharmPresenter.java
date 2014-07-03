@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 
 public interface AlienCharmPresenter {

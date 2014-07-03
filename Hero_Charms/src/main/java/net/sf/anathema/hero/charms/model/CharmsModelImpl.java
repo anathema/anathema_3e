@@ -1,11 +1,13 @@
 package net.sf.anathema.hero.charms.model;
 
 import com.google.common.base.Functions;
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.CharmAttributeList;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.data.CharmAttributeList;
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -43,10 +45,6 @@ import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
-import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
@@ -55,6 +53,8 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -65,12 +65,12 @@ import java.util.List;
 import java.util.Map;
 
 import static java.text.MessageFormat.format;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isFormMagic;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 
 public class CharmsModelImpl implements CharmsModel {
 

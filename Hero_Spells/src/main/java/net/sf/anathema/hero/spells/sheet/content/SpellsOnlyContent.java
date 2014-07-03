@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
-import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.sheet.content.AbstractMagicContent;
+import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.mnemonic.MagicMnemonic;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.framework.environment.Resources;
 
 import java.util.ArrayList;
 import java.util.Collections;

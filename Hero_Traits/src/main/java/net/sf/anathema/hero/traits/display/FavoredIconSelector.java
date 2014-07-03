@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.template.presentation.IPresentationProperties;
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteUI;
+import net.sf.anathema.hero.framework.CharacterUI;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.template.presentation.IPresentationProperties;
+import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;

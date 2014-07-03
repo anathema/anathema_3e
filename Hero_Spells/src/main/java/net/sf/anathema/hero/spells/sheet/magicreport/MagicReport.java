@@ -5,6 +5,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
@@ -18,14 +19,13 @@ import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.reporting.ReportException;
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
+import net.sf.anathema.magic.data.Magic;
 
 import static java.text.MessageFormat.format;
 

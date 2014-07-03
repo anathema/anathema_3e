@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
-import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 

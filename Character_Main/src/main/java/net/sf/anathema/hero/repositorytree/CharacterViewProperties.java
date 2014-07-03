@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.repositorytree;
 
-import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
 import net.sf.anathema.framework.view.PrintNameFile;
+import net.sf.anathema.hero.framework.CharacterUI;
+import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.framework.environment.Resources;
 
 public class CharacterViewProperties implements IItemTypeViewProperties {
 

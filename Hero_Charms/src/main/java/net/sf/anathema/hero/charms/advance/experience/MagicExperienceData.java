@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
-import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.advance.costs.MagicCosts;
 import net.sf.anathema.hero.charms.advance.costs.MagicPointsStrategy;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import net.sf.anathema.magic.data.Magic;
 
 import java.util.HashMap;
 import java.util.Map;

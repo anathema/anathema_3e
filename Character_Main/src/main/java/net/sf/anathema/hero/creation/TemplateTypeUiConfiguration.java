@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
+import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 
 public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroTemplate> {

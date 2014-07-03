@@ -1,6 +1,5 @@
 package net.sf.anathema.fx.hero.creation;
 
-import javafx.application.Platform;
 import javafx.scene.image.ImageView;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Hotkey;

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.display.presenter;
 
-import net.sf.anathema.hero.framework.display.CharacterView;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.display.HeroModelGroup;
+import net.sf.anathema.hero.framework.display.CharacterView;
+import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;

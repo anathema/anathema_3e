@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spiritual.advance.experience;
 
-import net.sf.anathema.hero.traits.template.cost.CurrentRatingCostTemplate;
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.hero.template.points.CurrentRatingCost;
+import net.sf.anathema.hero.traits.template.cost.CurrentRatingCostTemplate;
 
 public class SpiritualExperienceData {
 

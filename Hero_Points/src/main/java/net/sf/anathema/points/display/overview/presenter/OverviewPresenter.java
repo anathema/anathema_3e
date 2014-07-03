@@ -2,13 +2,13 @@ package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.points.model.BonusPointManagement;
-import net.sf.anathema.points.model.ExperiencePointManagement;
-import net.sf.anathema.points.display.overview.view.CategorizedOverview;
-import net.sf.anathema.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.points.display.overview.view.CategorizedOverview;
+import net.sf.anathema.points.display.overview.view.OverviewContainer;
+import net.sf.anathema.points.model.BonusPointManagement;
+import net.sf.anathema.points.model.ExperiencePointManagement;
 
 public class OverviewPresenter {
 

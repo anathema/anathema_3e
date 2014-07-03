@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.CasteSelection;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 

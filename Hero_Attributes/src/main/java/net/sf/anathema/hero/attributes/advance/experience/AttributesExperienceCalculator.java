@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.attributes.advance.experience;
 
 import net.sf.anathema.hero.template.points.CurrentRatingCost;
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.advance.TraitRatingCostCalculator;
+import net.sf.anathema.hero.traits.model.Trait;
 
 public class AttributesExperienceCalculator {
 

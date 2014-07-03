@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.model.special.multilearn;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.traits.model.TraitMap;
 
 public class LearnRangeContext {
   private final TraitMap traitCollection;

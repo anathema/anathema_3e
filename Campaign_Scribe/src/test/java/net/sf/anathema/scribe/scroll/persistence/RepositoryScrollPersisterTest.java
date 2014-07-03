@@ -1,7 +1,7 @@
 package net.sf.anathema.scribe.scroll.persistence;
 
-import net.sf.anathema.framework.repository.RepositoryIdData;
 import net.sf.anathema.framework.repository.Repository;
+import net.sf.anathema.framework.repository.RepositoryIdData;
 import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.framework.repository.access.printname.RepositoryId;

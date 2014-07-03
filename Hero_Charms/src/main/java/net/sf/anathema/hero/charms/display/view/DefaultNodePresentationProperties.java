@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display.view;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.prerequisites.IsTreeRoot;
 import net.sf.anathema.hero.charms.model.CharmMap;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 

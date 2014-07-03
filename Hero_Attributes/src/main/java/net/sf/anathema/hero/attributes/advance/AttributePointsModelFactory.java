@@ -5,8 +5,8 @@ import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplateLoader;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.hero.template.TemplateFactory;
+import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class AttributePointsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {

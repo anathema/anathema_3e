@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.repository.tree;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.framework.environment.Resources;
 import org.apache.commons.io.IOUtils;
 
 import java.io.File;

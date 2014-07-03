@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
+import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.experience.ExperienceModel;
 
 import java.util.HashSet;
 import java.util.Set;

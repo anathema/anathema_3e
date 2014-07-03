@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.platform;
 
+import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
 import net.sf.anathema.hero.framework.persistence.HeroMainFileDto;
 import net.sf.anathema.hero.framework.persistence.HeroMainFilePersister;
-import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
+import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.framework.repository.IRepositoryFileResolver;
-import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
+import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -18,8 +18,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval.retrieveCharacterItemType;
 import static net.sf.anathema.hero.concept.CasteType.NULL_CASTE_TYPE;
+import static net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval.retrieveCharacterItemType;
 
 public class JsonCharacterReferenceScanner implements CharacterReferenceScanner {
 

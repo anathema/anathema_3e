@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.BasicLearnCharmTree;
 import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.charm.data.Charm;
 
 public interface LearningCharmTree extends CharmTree, BasicLearnCharmTree {
 

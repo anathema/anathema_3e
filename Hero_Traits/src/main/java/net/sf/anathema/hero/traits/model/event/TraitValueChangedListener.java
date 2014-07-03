@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model.event;
 
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitChangeFlavor;
 import net.sf.anathema.lib.control.IntValueChangedListener;
 

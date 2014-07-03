@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeAnnouncerImpl;
+import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.HashMap;

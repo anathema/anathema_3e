@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
-import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
-import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
@@ -12,11 +9,13 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
-import net.sf.anathema.hero.traits.model.rules.limitation.*;
+import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
+import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
+import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
+import net.sf.anathema.hero.traits.model.rules.limitation.LimitationFactory;
+import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.lib.util.Identifier;
-import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 
 import java.util.Collection;
 import java.util.Iterator;

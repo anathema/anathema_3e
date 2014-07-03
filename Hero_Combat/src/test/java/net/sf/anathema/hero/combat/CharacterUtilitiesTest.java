@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.combat;
 
-import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.trait.DummyTrait;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
+import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import org.junit.Assert;
 import org.junit.Test;
 

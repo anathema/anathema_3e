@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.dummy.trait;
 
 import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.NullTraitFavorization;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.control.IntValueChangedListener;
 

@@ -1,12 +1,12 @@
 package net.sf.anathema.points.model;
 
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.IValueModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
 
 public interface PointsModel extends HeroModel {
 

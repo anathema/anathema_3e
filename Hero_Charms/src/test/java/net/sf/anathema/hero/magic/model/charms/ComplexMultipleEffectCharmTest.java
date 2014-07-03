@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.subeffects.ComplexMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;

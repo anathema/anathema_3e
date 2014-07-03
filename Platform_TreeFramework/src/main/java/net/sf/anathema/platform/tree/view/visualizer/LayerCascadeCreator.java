@@ -9,7 +9,6 @@ import net.sf.anathema.platform.tree.document.components.VisualizableNode;
 import net.sf.anathema.platform.tree.document.visualizer.CreateElementForNode;
 import net.sf.anathema.platform.tree.document.visualizer.Fletcher;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
-import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 

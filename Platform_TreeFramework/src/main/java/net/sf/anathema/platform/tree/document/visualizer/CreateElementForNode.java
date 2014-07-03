@@ -1,6 +1,10 @@
 package net.sf.anathema.platform.tree.document.visualizer;
 
-import net.sf.anathema.platform.tree.document.components.*;
+import net.sf.anathema.platform.tree.document.components.HorizontalMetaNode;
+import net.sf.anathema.platform.tree.document.components.ILayer;
+import net.sf.anathema.platform.tree.document.components.IVisualizableNodeVisitor;
+import net.sf.anathema.platform.tree.document.components.VisualizableDummyNode;
+import net.sf.anathema.platform.tree.document.components.VisualizableNode;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
 
 public class CreateElementForNode implements IVisualizableNodeVisitor {

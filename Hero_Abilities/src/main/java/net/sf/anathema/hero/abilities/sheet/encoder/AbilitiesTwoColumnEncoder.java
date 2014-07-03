@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.abilities.sheet.encoder;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.abilities.sheet.content.AbilitiesContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.sheet.encoder.FavorableTraitContentEncoder;
-import net.sf.anathema.framework.environment.Resources;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.PADDING;
 

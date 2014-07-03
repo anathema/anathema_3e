@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmMap;
@@ -9,7 +10,6 @@ import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.NativeCharacterType;
 
@@ -18,8 +18,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import static net.sf.anathema.charm.data.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
-import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.getCategory;
+import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 
 public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOptions {
 

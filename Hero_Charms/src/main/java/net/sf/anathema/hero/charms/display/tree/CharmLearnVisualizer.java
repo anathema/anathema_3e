@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.display.coloring.CharmDye;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 
 import java.awt.Toolkit;
 

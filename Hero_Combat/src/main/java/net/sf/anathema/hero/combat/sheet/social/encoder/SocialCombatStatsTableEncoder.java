@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.combat.sheet.social.encoder;
 
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.combat.model.social.InvestigationSocialAttack;
 import net.sf.anathema.hero.combat.model.social.PerformanceSocialAttack;
 import net.sf.anathema.hero.combat.model.social.PresenceSocialAttack;
@@ -10,13 +10,13 @@ import net.sf.anathema.hero.combat.sheet.social.stats.ISocialCombatStats;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialCombatNameStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialRateStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialSpeedStatsGroup;
+import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.stats.AbstractFixedLineStatsTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.framework.environment.Resources;
 
 public class SocialCombatStatsTableEncoder extends AbstractFixedLineStatsTableEncoder<ISocialCombatStats> {
 

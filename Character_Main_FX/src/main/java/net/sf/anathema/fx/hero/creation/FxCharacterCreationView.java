@@ -1,11 +1,9 @@
 package net.sf.anathema.fx.hero.creation;
 
 import javafx.scene.control.ScrollPane;
-import javafx.stage.Window;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.framework.environment.fx.DialogFactory;
-import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.hero.creation.CharacterCreationView;
 import net.sf.anathema.hero.creation.ToggleButtonPanel;
 import net.sf.anathema.hero.template.HeroTemplate;
@@ -17,7 +15,6 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import static javafx.scene.control.ScrollPane.ScrollBarPolicy.AS_NEEDED;
 import static javafx.scene.control.ScrollPane.ScrollBarPolicy.NEVER;
-import static org.controlsfx.dialog.DialogStyle.NATIVE;
 
 public class FxCharacterCreationView implements CharacterCreationView {
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.framework.value.IntValueView;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.lib.control.IntValueChangedListener;
 
 public class TraitPresenter {

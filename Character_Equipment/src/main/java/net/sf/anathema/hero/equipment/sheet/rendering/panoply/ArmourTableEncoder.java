@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.equipment.sheet.rendering.panoply;
 
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.ArmourContent;
 import net.sf.anathema.hero.equipment.sheet.content.stats.armour.IArmourStatsGroup;
+import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.rendering.EquipmentTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;

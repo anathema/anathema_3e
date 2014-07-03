@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.testing;
 
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import static org.mockito.Mockito.mock;

@@ -7,7 +7,12 @@ import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.VisualizableNodeLeftSideComparator;
 import net.sf.anathema.platform.tree.document.util.BackwardsIterable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
 

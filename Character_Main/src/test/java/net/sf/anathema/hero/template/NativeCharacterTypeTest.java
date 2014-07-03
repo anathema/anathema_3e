@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
+import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
 import org.junit.Test;
 

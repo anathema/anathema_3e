@@ -3,13 +3,13 @@ package net.sf.anathema.hero.languages.display.view;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
 import net.sf.anathema.hero.languages.display.presenter.LanguagesView;
 import net.sf.anathema.hero.languages.display.presenter.ObjectSelectionViewWithTool;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.platform.fx.NodeHolder;
+import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;

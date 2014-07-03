@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.sheet.pdf.page.layout.landscape;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncoderRegistry;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.PageEncoder;
@@ -7,7 +8,6 @@ import net.sf.anathema.hero.sheet.pdf.page.layout.Sheet;
 import net.sf.anathema.hero.sheet.pdf.page.layout.SheetPage;
 import net.sf.anathema.hero.sheet.pdf.page.layout.field.LayoutField;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.framework.environment.Resources;
 
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.ARSENAL;
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.CHARMS_AND_SORCERY;

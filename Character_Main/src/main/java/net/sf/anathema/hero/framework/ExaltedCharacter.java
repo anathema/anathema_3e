@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.framework.repository.ChangeManagement;
 import net.sf.anathema.hero.initialization.HeroModelInitializer;
 import net.sf.anathema.hero.model.DefaultHero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.lib.util.Identifier;
 
-import java.lang.*;
 import java.util.Iterator;
 
 public class ExaltedCharacter implements net.sf.anathema.hero.framework.Character {

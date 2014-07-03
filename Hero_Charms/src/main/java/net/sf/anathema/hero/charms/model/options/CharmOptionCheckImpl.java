@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
+import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 
 public class CharmOptionCheckImpl implements CharmOptionCheck {
 

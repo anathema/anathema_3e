@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnWorker;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.HashSet;
 import java.util.Set;

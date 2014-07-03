@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.spells.parser.cost;
 
-import net.sf.anathema.hero.spells.parser.ICharmXMLConstants;
 import net.sf.anathema.charm.data.cost.Cost;
 import net.sf.anathema.charm.data.cost.CostImpl;
-import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.hero.spells.parser.ElementUtilities;
+import net.sf.anathema.hero.spells.parser.ICharmXMLConstants;
+import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 
 public class CostBuilder {

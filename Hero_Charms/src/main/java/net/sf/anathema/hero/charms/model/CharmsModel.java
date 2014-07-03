@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
@@ -9,13 +11,11 @@ import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.magic.data.Magic;
 
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.traits;
 
+import net.sf.anathema.hero.dummy.DummyHero;
+import net.sf.anathema.hero.dummy.trait.DummyTrait;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.model.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.TraitFavorization;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.dummy.DummyHero;
-import net.sf.anathema.hero.dummy.trait.DummyTrait;
 import org.junit.Before;
 import org.junit.Test;
 

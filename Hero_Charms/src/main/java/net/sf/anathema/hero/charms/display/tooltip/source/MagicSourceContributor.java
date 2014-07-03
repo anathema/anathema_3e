@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display.tooltip.source;
 
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.magic.data.source.SourceBook;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.MagicTooltipContributor;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.magic.data.source.SourceBook;
 
 public class MagicSourceContributor<M extends Magic> implements IMagicSourceStringBuilder<M>, MagicTooltipContributor {
 

@@ -6,10 +6,10 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescription;
 
 public class CharmCardData extends AbstractMagicCardData {

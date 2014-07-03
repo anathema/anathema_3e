@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.combat.model.social;
 
 import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 public class PresenceSocialAttack extends AbstractSocialAttack {
 

@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.hero.spells.data.CircleType;
-import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.spells.data.CircleType;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;
 import java.util.Arrays;

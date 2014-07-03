@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.sheet.pdf.page.layout;
 
 import com.itextpdf.text.DocumentException;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncoderRegistry;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncodingMetrics;
@@ -9,7 +10,6 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.GraphicsTemplate;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.layout.field.LayoutField;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.framework.environment.Resources;
 
 public class RegisteredEncoderList {
   private final Resources resources;

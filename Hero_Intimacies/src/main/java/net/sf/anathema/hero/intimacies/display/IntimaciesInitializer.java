@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.framework.environment.Environment;
+import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.hero.display.HeroModelGroup;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
+import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 
 @RegisteredInitializer(HeroModelGroup.SpiritualTraits)
 @Weight(weight = 300)

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.framework.display.ColumnCount;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
+import net.sf.anathema.hero.framework.display.ColumnCount;
 
 public interface GroupedFavorableTraitConfigurationView {
 

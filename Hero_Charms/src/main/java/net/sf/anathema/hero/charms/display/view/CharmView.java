@@ -2,7 +2,6 @@ package net.sf.anathema.hero.charms.display.view;
 
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 public interface CharmView extends SpecialCharmViewContainer {

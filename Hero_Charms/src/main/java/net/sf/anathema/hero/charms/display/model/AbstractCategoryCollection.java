@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.model;
 
-import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 
 import java.util.ArrayList;
 import java.util.List;

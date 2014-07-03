@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.charms.display.node;
 
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
-import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
-import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
+import net.sf.anathema.hero.charms.display.view.NodeIds;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.Collection;
 import java.util.Map;
 
-import static net.sf.anathema.graph.nodes.NodeFactory.createChildlessNode;
 import static net.sf.anathema.charm.data.prerequisite.ProcessProcessor.process;
+import static net.sf.anathema.graph.nodes.NodeFactory.createChildlessNode;
 
 // todo (sandra) entstatifizieren
 public class CharmNodeBuilder {

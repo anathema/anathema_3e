@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.attributes.advance.experience;
 
+import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
-import net.sf.anathema.hero.attributes.model.AttributeModel;
 
 public class AttributesExperienceModel extends AbstractIntegerValueModel {
 

@@ -1,18 +1,18 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.charm.data.cost.CostListImpl;
-import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.data.reference.TreeName;
-import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.PrerequisiteList;
+import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.charm.data.PrerequisiteList;
+import net.sf.anathema.charm.data.cost.CostListImpl;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
-import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;

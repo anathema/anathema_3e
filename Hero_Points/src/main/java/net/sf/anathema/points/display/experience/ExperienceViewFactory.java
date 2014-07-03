@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.experience;
 
-import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.framework.util.Produces;
+import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.platform.fx.Stylesheet;
 
 @Produces(ExperienceView.class)

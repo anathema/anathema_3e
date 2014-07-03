@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.traits.sheet.encoder;
 
 import com.itextpdf.text.pdf.PdfContentByte;
-import net.sf.anathema.hero.specialties.Specialty;
-import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
+import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.sheet.content.NamedGenericTraitReference;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceInternationalizer;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
-import net.sf.anathema.framework.environment.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

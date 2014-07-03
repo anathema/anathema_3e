@@ -1,14 +1,16 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
 import net.sf.anathema.hero.attributes.model.AttributeModel;
-import net.sf.anathema.points.model.BonusPointCalculator;
 import net.sf.anathema.hero.template.points.AttributeGroupPriority;
 import net.sf.anathema.hero.traits.model.TraitGroup;
+import net.sf.anathema.points.model.BonusPointCalculator;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.hero.template.points.AttributeGroupPriority.*;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Primary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Secondary;
+import static net.sf.anathema.hero.template.points.AttributeGroupPriority.Tertiary;
 
 public class AttributeCreationPointCalculator implements AttributeGroupPoints, BonusPointCalculator {
 

@@ -3,8 +3,8 @@ package net.sf.anathema.hero.spells.parser.cost;
 import net.sf.anathema.charm.data.cost.HealthCost;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
 import net.sf.anathema.charm.data.cost.HealthCostType;
-import net.sf.anathema.hero.spells.parser.ICharmXMLConstants;
 import net.sf.anathema.hero.spells.parser.ElementUtilities;
+import net.sf.anathema.hero.spells.parser.ICharmXMLConstants;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
 

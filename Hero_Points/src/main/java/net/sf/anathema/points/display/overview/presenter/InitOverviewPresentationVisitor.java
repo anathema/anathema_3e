@@ -1,9 +1,9 @@
 package net.sf.anathema.points.display.overview.presenter;
 
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.IOverviewModelVisitor;
 import net.sf.anathema.points.model.overview.IValueModel;

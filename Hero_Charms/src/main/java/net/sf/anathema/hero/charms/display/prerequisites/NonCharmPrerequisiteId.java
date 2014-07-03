@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.prerequisites;
 
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
-import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.hero.charms.display.view.NodeIds;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public class NonCharmPrerequisiteId implements PrerequisiteProcessor {
 

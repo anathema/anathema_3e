@@ -2,9 +2,9 @@ package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.IMessaging;
-import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.points.model.overview.SpendingModel;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.lib.message.MessageDuration.Permanent;

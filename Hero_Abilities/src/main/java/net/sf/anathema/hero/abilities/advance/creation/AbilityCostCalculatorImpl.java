@@ -1,12 +1,17 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.template.points.CurrentRatingCost;
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.FavorableTraitCost;
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.template.points.CurrentRatingCost;
+import net.sf.anathema.hero.traits.model.FavorableTraitCost;
+import net.sf.anathema.hero.traits.model.ITraitFavorization;
+import net.sf.anathema.hero.traits.model.Trait;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
 

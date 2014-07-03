@@ -13,13 +13,13 @@ import net.sf.anathema.lib.util.Identifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forArtifactWeapons;
+import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forMundaneWeapons;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Artifact;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Heavy;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Lethal;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Light;
 import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Medium;
-import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forArtifactWeapons;
-import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forMundaneWeapons;
 
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 

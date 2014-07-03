@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.combos;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.combos.model.ComboImpl;
 import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
-import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import org.junit.Test;

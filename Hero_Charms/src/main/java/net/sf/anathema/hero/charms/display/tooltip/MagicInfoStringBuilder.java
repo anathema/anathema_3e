@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
+import net.sf.anathema.charm.data.cost.Cost;
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.data.cost.HealthCost;
-import net.sf.anathema.magic.data.Magic;
-import net.sf.anathema.charm.data.cost.Cost;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.magic.data.Magic;
 
 public class MagicInfoStringBuilder implements IMagicInfoStringBuilder {
 

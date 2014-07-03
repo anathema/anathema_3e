@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.equipment;
 
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModel;
+import net.sf.anathema.hero.specialties.SpecialtiesModel;
 import net.sf.anathema.hero.template.TemplateFactory;
 
 @SuppressWarnings("UnusedDeclaration")

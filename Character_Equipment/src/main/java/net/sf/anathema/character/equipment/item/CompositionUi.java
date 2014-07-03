@@ -1,8 +1,8 @@
 package net.sf.anathema.character.equipment.item;
 
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 
 public class CompositionUi extends AbstractUIConfiguration<MaterialComposition> {
   private Resources resources;

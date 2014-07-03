@@ -1,7 +1,7 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.function.Predicate;
 

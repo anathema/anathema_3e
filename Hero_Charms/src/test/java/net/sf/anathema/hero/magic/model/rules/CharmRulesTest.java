@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.magic.model.rules;
 
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyCasteType;
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import org.junit.Test;
 
 import static net.sf.anathema.hero.magic.testing.CharmObjectMother.createMartialArtsCharm;

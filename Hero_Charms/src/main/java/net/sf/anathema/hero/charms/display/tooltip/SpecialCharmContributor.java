@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.AbstractMultiLearnableCharm;
@@ -8,7 +9,6 @@ import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLea
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
 import net.sf.anathema.framework.environment.Environment;
+import net.sf.anathema.hero.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
 
 import java.io.IOException;

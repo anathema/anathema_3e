@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.abilities.advance.experience;
 
-import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class AbilityExperienceModel extends AbstractIntegerValueModel {
 

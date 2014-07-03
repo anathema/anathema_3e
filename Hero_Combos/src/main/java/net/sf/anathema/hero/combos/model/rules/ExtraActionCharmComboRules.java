@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.CharmTypeVisitor;
 import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.CharmTypeVisitor;
 
 public class ExtraActionCharmComboRules extends AbstractComboRules {
 

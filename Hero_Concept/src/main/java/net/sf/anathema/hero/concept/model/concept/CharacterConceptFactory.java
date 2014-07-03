@@ -7,8 +7,8 @@ import net.sf.anathema.hero.concept.template.caste.CasteTemplateLoader;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.hero.template.TemplateFactory;
+import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class CharacterConceptFactory extends SimpleModelTreeEntry implements HeroModelFactory {

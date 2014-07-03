@@ -1,27 +1,27 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.DefaultMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.FavoredMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceCostCalculator;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceModel;
+import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 
 public class MagicPointsModel implements HeroModel {
 

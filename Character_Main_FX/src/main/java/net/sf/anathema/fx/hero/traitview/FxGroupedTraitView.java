@@ -1,8 +1,8 @@
 package net.sf.anathema.fx.hero.traitview;
 
-import net.sf.anathema.hero.traits.display.GroupedTraitView;
-import net.sf.anathema.hero.framework.display.ColumnCount;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
+import net.sf.anathema.hero.framework.display.ColumnCount;
+import net.sf.anathema.hero.traits.display.GroupedTraitView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxGroupedTraitView implements GroupedTraitView {

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -10,7 +11,6 @@ import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.magic.dummy.DummyLearnableArbitrator;
 import net.sf.anathema.hero.magic.dummy.DummyLearningCharmGroupContainer;
 import org.junit.Test;

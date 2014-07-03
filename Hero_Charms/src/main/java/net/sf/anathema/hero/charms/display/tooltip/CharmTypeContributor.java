@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.magic.data.Magic;
 
 public class CharmTypeContributor implements ICharmTypeStringBuilder, MagicTooltipContributor {
 

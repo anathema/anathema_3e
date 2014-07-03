@@ -4,7 +4,9 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 
-import static net.sf.anathema.character.equipment.creation.model.WeaponTag.*;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Heavy;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Light;
+import static net.sf.anathema.character.equipment.creation.model.WeaponTag.Medium;
 
 public class WeaponStatisticsTable {
 
