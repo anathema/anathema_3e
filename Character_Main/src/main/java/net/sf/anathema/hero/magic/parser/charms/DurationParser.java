@@ -1,14 +1,12 @@
 package net.sf.anathema.hero.magic.parser.charms;
 
-import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.charm.parser.ICharmXMLConstants;
+import net.sf.anathema.hero.magic.charm.CharmException;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.duration.QualifiedAmountDuration;
-import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
-import net.sf.anathema.hero.magic.charm.duration.UntilEventDuration;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
+
+import static net.sf.anathema.charm.parser.util.ElementUtilities.getRequiredAttrib;
 
 public class DurationParser {
 
@@ -18,16 +16,16 @@ public class DurationParser {
     }
     String durationString = durationElement.attributeValue(ICharmXMLConstants.ATTRIB_DURATION);
     if (durationString != null) {
-      return SimpleDuration.getDuration(durationString);
+      return new Duration(durationString);
     }
     String amount = durationElement.attributeValue(ICharmXMLConstants.ATTRIB_AMOUNT);
     if (amount != null) {
-      String unit = ElementUtilities.getRequiredAttrib(durationElement, ICharmXMLConstants.ATTRIB_UNIT);
-      return new QualifiedAmountDuration(amount, unit);
+      String unit = getRequiredAttrib(durationElement, ICharmXMLConstants.ATTRIB_UNIT);
+      return new Duration(amount + " " + unit);
     }
     String event = durationElement.attributeValue(ICharmXMLConstants.ATTRIB_EVENT);
     if (event != null) {
-      return new UntilEventDuration(event);
+      return new Duration("Until " + event);
     }
     throw new PersistenceException("No legal duration definition found");
   }

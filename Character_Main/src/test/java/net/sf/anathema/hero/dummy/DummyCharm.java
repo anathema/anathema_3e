@@ -4,15 +4,12 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostListImpl;
-import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
@@ -20,6 +17,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.source.SourceBook;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +62,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
   public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
     super("DummyCharmDefaultId");
     this.prerequisites = prerequisites;
-    this.duration = SimpleDuration.getDuration(duration);
+    this.duration = new Duration(duration);
     this.charmType = charmType;
   }
 

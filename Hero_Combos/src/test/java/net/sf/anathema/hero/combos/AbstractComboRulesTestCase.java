@@ -4,7 +4,7 @@ import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharmUtilities;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
+import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
@@ -16,7 +16,7 @@ public abstract class AbstractComboRulesTestCase {
 
     @Override
     protected boolean isCharmLegalByRules(Charm charm) {
-      return charm.getDuration() == SimpleDuration.INSTANT_DURATION;
+      return charm.getDuration().text.equals(Duration.INSTANT);
     }
   };
 
