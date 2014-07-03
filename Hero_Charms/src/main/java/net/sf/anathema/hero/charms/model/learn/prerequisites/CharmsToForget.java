@@ -31,7 +31,7 @@ public class CharmsToForget {
 
   private boolean isCharmPrerequisiteListFulfilled(Charm charm) {
     AllSatisfied allSatisfied = new AllSatisfied(worker, prerequisite -> prerequisite instanceof DirectCharmPrerequisite);
-    charm.forEachCharmPrerequisite(allSatisfied);
+    charm.getPrerequisites().forEachCharmPrerequisite(allSatisfied);
     return allSatisfied.isFulfilled;
   }
 }

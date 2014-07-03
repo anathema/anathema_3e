@@ -26,15 +26,9 @@ public interface Charm extends Magic {
 
   TraitType getPrimaryTraitType();
 
-  ValuedTraitType getEssence();
-
-  ValuedTraitType[] getTraitPrerequisites();
-
   List<CharmPrerequisite> getCharmPrerequisites();
 
   void forEachChild(Consumer<Charm> consumer);
-
-  void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
 
   PrerequisiteList getPrerequisites();
 }

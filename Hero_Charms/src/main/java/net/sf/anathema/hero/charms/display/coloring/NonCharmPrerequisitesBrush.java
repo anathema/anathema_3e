@@ -10,7 +10,7 @@ public class NonCharmPrerequisitesBrush implements CharmBrush {
   }
 
   public void color(Charm charm) {
-    charm.forEachCharmPrerequisite(prerequisite -> {
+    charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> {
       prerequisite.accept(new ColorNonCharmPrerequisites(coloring));
     });
   }

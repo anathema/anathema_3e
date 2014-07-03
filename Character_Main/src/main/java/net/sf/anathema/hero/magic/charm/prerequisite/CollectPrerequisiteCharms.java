@@ -15,7 +15,7 @@ public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
 
   public static Set<Charm> collectPrerequisiteCharms(Charm charm, CharmLearnArbitrator arbitrator) {
     CollectPrerequisiteCharms collectPrerequisiteCharms = new CollectPrerequisiteCharms(arbitrator);
-    charm.forEachCharmPrerequisite(process(collectPrerequisiteCharms));
+    charm.getPrerequisites().forEachCharmPrerequisite(process(collectPrerequisiteCharms));
     return collectPrerequisiteCharms.prerequisiteCharms;
   }
 

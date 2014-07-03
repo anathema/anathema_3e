@@ -12,7 +12,7 @@ public class IsTreeRoot implements PrerequisiteVisitor {
 
   public static boolean isTreeRoot(Charm charm) {
     IsTreeRoot visitor = new IsTreeRoot();
-    charm.forEachCharmPrerequisite(acceptVisitor(visitor));
+    charm.getPrerequisites().forEachCharmPrerequisite(acceptVisitor(visitor));
     return visitor.isRoot;
   }
 

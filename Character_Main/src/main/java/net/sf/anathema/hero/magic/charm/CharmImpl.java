@@ -19,7 +19,6 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
@@ -83,16 +82,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public ValuedTraitType getEssence() {
-    return prerequisiteList.getEssence();
-  }
-
-  @Override
-  public ValuedTraitType[] getTraitPrerequisites() {
-    return prerequisiteList.getTraitPrerequisites();
-  }
-
-  @Override
   public SourceBook[] getSources() {
     return sources.length > 0 ? sources : null;
   }
@@ -136,11 +125,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   }
 
   @Override
-  public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
-    prerequisiteList.forEachCharmPrerequisite(consumer);
-  }
-
-  @Override
   public PrerequisiteList getPrerequisites() {
     return prerequisiteList;
   }
@@ -180,7 +164,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
   @Override
   public TraitType getPrimaryTraitType() {
-    return getTraitPrerequisites().length == 0 ? OtherTraitType.Essence : getTraitPrerequisites()[0].getType();
+    return getPrerequisites().getTraitPrerequisites().length == 0 ? OtherTraitType.Essence : getPrerequisites().getTraitPrerequisites()[0].getType();
   }
 
   private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {

@@ -22,12 +22,12 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
   }
 
   public boolean areTraitMinimumsSatisfied(Charm charm) {
-    for (ValuedTraitType prerequisite : charm.getTraitPrerequisites()) {
+    for (ValuedTraitType prerequisite : charm.getPrerequisites().getTraitPrerequisites()) {
       if (!isMinimumSatisfied(charm, prerequisite)) {
         return false;
       }
     }
-    if (!isMinimumSatisfied(charm, charm.getEssence())) {
+    if (!isMinimumSatisfied(charm, charm.getPrerequisites().getEssence())) {
       return false;
     }
     return true;

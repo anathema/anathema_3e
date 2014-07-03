@@ -11,7 +11,7 @@ public class ConcreteCharmRenderingParents implements PrerequisiteProcessor {
 
   public static List<Charm> collectRenderingParents(Charm charm) {
     ConcreteCharmRenderingParents concreteCharmRenderingParents = new ConcreteCharmRenderingParents();
-    charm.forEachCharmPrerequisite(charmPrerequisite -> charmPrerequisite.process(concreteCharmRenderingParents));
+    charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> prerequisite.process(concreteCharmRenderingParents));
     return concreteCharmRenderingParents.renderingParents;
   }
 

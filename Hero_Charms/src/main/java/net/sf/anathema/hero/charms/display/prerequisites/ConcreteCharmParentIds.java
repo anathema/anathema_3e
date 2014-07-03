@@ -13,7 +13,7 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
 
   public static List<String> collectNodeIdsOfRenderingParents(Charm charm) {
     ConcreteCharmParentIds renderingParents = new ConcreteCharmParentIds();
-    charm.forEachCharmPrerequisite(charmPrerequisite -> charmPrerequisite.process(renderingParents));
+    charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> prerequisite.process(renderingParents));
     return renderingParents.nodeIds;
   }
 

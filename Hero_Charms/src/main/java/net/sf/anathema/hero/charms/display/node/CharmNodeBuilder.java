@@ -21,7 +21,7 @@ public class CharmNodeBuilder {
       charmNodesById.put(charm.getName().text, node);
     }
     for (Charm charm : groupCharms) {
-      charm.forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
+      charm.getPrerequisites().forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
         @Override
         public void requiresMagicAttributes(MagicAttribute attribute, int count) {
           String nodeIds = NodeIds.getNodeId(attribute, count);
