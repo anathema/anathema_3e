@@ -6,7 +6,6 @@ import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStat
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.InertBaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.ReactiveBaseMaterial;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
@@ -16,8 +15,8 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.logging.Logger;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -33,7 +32,6 @@ import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentItem implements IEquipmentItem {
 
-  private final static Logger logger = Logger.getLogger(EquipmentItem.class);
   private final Set<IEquipmentStats> printedStats = new HashSet<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final IEquipmentTemplate template;
@@ -45,7 +43,6 @@ public class EquipmentItem implements IEquipmentItem {
   public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) {
     this.modifiers = modifiers;
     if (template.getComposition() == Variable && material == null) {
-      logger.warn("No material found for item " + template.getName() + ". Defaulting to Orichalcum.");
       material = MagicalMaterial.Orichalcum;
     }
     this.template = template;
