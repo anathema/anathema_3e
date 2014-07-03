@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.parser.spells.source;
+package net.sf.anathema.hero.spells.parser.source;
 
 import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.magic.source.SourceBookImpl;

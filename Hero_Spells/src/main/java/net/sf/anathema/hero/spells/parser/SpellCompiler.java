@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.magic.parser.spells;
+package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Document;

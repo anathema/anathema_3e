@@ -10,7 +10,7 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.AbstractMagic;
 import net.sf.anathema.magic.attribute.MagicAttributeImpl;

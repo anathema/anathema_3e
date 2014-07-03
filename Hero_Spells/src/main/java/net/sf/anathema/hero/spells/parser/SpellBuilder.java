@@ -1,16 +1,16 @@
-package net.sf.anathema.hero.magic.parser.spells;
+package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.charm.data.reference.SpellName;
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.magic.source.SourceList;
 import net.sf.anathema.magic.source.SourceListImpl;
-import net.sf.anathema.hero.magic.parser.spells.cost.CostListBuilder;
-import net.sf.anathema.hero.magic.parser.spells.cost.ICostListBuilder;
-import net.sf.anathema.hero.magic.parser.spells.source.SourceBuilder;
-import net.sf.anathema.hero.magic.spells.CircleType;
-import net.sf.anathema.hero.magic.spells.Spell;
-import net.sf.anathema.hero.magic.spells.SpellImpl;
+import net.sf.anathema.hero.spells.parser.cost.CostListBuilder;
+import net.sf.anathema.hero.spells.parser.cost.ICostListBuilder;
+import net.sf.anathema.hero.spells.parser.source.SourceBuilder;
+import net.sf.anathema.hero.spells.data.CircleType;
+import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.SpellImpl;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Document;
 import org.dom4j.Element;

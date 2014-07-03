@@ -12,7 +12,7 @@ import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.attribute.MagicAttribute;

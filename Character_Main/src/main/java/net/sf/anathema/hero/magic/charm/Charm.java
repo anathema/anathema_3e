@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 
 import java.util.function.Consumer;
 

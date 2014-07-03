@@ -11,7 +11,7 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;

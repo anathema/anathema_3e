@@ -7,7 +7,7 @@ import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 
 import java.util.ArrayList;
 import java.util.List;

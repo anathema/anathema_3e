@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.framework.ui.IdentifierConfiguration;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.charms.display.magic.AbstractMagicLearnProperties;

@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.magic.parser.spells;
+package net.sf.anathema.hero.spells.parser;
 
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 
 public interface ISpellCache extends ExtensibleDataSet {

@@ -3,8 +3,8 @@ package net.sf.anathema.hero.combos.model.rules;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.magic.charm.type.CharmTypeVisitor;
+import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.charm.data.CharmTypeVisitor;
 
 public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
 

@@ -21,7 +21,7 @@ import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;

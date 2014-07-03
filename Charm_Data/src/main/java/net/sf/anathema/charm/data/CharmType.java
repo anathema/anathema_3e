@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.charm.type;
+package net.sf.anathema.charm.data;
 
 import net.sf.anathema.lib.util.Identifier;
 

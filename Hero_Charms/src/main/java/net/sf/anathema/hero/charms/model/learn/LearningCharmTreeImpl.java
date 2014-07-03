@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static net.sf.anathema.hero.magic.charm.prerequisite.CollectPrerequisiteCharms.collectPrerequisiteCharms;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
 
 public class LearningCharmTreeImpl implements LearningCharmTree {
 

@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.magic.parser.spells;
+package net.sf.anathema.hero.spells.parser;
 
-import net.sf.anathema.hero.magic.spells.Spell;
+import net.sf.anathema.hero.spells.data.Spell;
 
 import java.util.ArrayList;
 import java.util.List;

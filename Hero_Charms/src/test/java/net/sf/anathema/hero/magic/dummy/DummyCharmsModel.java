@@ -20,7 +20,7 @@ import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.lib.control.ChangeListener;

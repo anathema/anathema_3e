@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.charm.martial;
 
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

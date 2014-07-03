@@ -6,7 +6,7 @@ import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 

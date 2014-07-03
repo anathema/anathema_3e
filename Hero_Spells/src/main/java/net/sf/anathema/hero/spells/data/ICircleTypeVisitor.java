@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.spells;
+package net.sf.anathema.hero.spells.data;
 
 public interface ICircleTypeVisitor {
 

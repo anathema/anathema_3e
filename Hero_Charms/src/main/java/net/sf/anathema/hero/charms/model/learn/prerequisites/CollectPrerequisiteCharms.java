@@ -1,5 +1,6 @@
-package net.sf.anathema.hero.magic.charm.prerequisite;
+package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
+import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;

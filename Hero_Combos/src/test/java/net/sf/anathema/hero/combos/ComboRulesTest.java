@@ -3,7 +3,7 @@ package net.sf.anathema.hero.combos;
 import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

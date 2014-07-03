@@ -6,7 +6,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.Image;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.spells.CircleType;
+import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.icon.ImageLoadingException;
 import net.sf.anathema.lib.gui.icon.ImageProvider;

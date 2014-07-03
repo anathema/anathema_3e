@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.advance.costs;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.charms.template.advance.KeywordMagicTemplate;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsCategoryTemplate;
-import net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel;
+import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 
 import java.util.HashMap;
 import java.util.Map;

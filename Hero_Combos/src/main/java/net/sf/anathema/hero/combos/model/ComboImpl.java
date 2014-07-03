@@ -3,7 +3,7 @@ package net.sf.anathema.hero.combos.model;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.type.CharmType;
+import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;

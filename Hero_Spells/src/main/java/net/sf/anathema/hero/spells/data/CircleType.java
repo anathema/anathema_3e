@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.magic.spells;
+package net.sf.anathema.hero.spells.data;
 
 import net.sf.anathema.lib.util.Identifier;
 
