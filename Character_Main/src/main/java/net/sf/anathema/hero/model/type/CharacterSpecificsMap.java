@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.utilities;
+package net.sf.anathema.hero.model.type;
 
 import com.google.common.base.Functions;
 import net.sf.anathema.framework.environment.ObjectFactory;

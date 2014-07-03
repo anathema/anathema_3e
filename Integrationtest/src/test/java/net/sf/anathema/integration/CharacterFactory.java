@@ -3,7 +3,7 @@ package net.sf.anathema.integration;
 import net.sf.anathema.TestInitializer;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.fx.hero.perspective.CharacterSystemInitializer;
-import net.sf.anathema.hero.framework.Character;
+import net.sf.anathema.hero.application.item.Character;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.item.CharacterItem;

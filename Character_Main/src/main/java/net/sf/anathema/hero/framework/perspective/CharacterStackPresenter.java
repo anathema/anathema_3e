@@ -28,6 +28,6 @@ public class CharacterStackPresenter {
 
   public void addViewForCharacter(CharacterIdentifier identifier) {
     Item item = model.loadItem(identifier);
-    bridge.addViewForCharacter(identifier, (net.sf.anathema.hero.framework.Character) item.getItemData());
+    bridge.addViewForCharacter(identifier, (net.sf.anathema.hero.application.item.Character) item.getItemData());
   }
 }

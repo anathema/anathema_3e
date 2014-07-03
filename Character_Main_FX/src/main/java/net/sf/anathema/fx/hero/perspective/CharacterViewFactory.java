@@ -22,7 +22,7 @@ public class CharacterViewFactory {
     this.applicationModel = applicationModel;
   }
 
-  public NodeHolder createView(net.sf.anathema.hero.framework.Character hero) {
+  public NodeHolder createView(net.sf.anathema.hero.application.item.Character hero) {
     SubViewRegistry viewFactory = new SubViewMap(environment);
     Stylesheet[] stylesheets = createStylesheets(hero);
     TaskedCharacterView characterView = new TaskedCharacterView(viewFactory, stylesheets);

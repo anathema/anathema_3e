@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.type;
+package net.sf.anathema.hero.model.type;
 
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.dependencies.Weight;

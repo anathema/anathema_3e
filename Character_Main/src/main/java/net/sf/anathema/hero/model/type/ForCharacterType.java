@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.utilities;
+package net.sf.anathema.hero.model.type;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

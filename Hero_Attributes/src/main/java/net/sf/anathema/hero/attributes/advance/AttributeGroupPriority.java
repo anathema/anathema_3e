@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.template.points;
+package net.sf.anathema.hero.attributes.advance;
 
 import net.sf.anathema.lib.util.Identifier;
 
@@ -6,24 +6,24 @@ public enum AttributeGroupPriority implements Identifier {
 
   Primary {
     @Override
-    public void accept(IAttributeGroupPriorityVisitor visitor) {
+    public void accept(AttributeGroupPriorityVisitor visitor) {
       visitor.acceptPrimary();
     }
   },
   Secondary {
     @Override
-    public void accept(IAttributeGroupPriorityVisitor visitor) {
+    public void accept(AttributeGroupPriorityVisitor visitor) {
       visitor.acceptSecondary();
     }
   },
   Tertiary {
     @Override
-    public void accept(IAttributeGroupPriorityVisitor visitor) {
+    public void accept(AttributeGroupPriorityVisitor visitor) {
       visitor.acceptTertiary();
     }
   };
 
-  public abstract void accept(IAttributeGroupPriorityVisitor visitor);
+  public abstract void accept(AttributeGroupPriorityVisitor visitor);
 
   @Override
   public String getId() {

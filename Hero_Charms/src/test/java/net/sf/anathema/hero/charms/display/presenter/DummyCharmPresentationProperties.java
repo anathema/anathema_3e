@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.display.presenter;
 import net.sf.anathema.framework.environment.dependencies.DoNotInstantiateAutomatically;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.utilities.ForCharacterType;
+import net.sf.anathema.hero.model.type.ForCharacterType;
 
 @DoNotInstantiateAutomatically
 @ForCharacterType("Dummy")

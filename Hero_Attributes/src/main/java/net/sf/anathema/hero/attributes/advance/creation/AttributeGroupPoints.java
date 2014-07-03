@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
-import net.sf.anathema.hero.template.points.AttributeGroupPriority;
+import net.sf.anathema.hero.attributes.advance.AttributeGroupPriority;
 
 public interface AttributeGroupPoints {
 
