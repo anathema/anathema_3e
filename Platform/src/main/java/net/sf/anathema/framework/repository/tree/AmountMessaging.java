@@ -25,6 +25,6 @@ public class AmountMessaging {
     else {
       itemString = multiItem;
     }
-    messaging.addMessage(Information, messagePattern, amount, itemString);
+    messaging.addTemporaryMessage(Information, messagePattern, amount, itemString);
   }
 }

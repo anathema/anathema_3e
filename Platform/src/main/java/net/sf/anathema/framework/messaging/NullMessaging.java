@@ -1,17 +1,16 @@
 package net.sf.anathema.framework.messaging;
 
 import net.sf.anathema.lib.message.Message;
-import net.sf.anathema.lib.message.MessageDuration;
 import net.sf.anathema.lib.message.MessageType;
 
 public class NullMessaging implements Messaging {
   @Override
-  public MessageToken addMessage(MessageType messageType, MessageDuration duration, String pattern, Object... arguments) {
+  public MessageToken addPermanentMessage(MessageType messageType, String pattern, Object... arguments) {
     return new NullToken(this);
   }
 
   @Override
-  public MessageToken addMessage(MessageType messageType, String messagePattern, Object... arguments) {
+  public MessageToken addTemporaryMessage(MessageType messageType, String messagePattern, Object... arguments) {
     return new NullToken(this);
   }
 

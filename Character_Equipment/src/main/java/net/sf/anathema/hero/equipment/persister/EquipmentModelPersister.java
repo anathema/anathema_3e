@@ -11,7 +11,6 @@ import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.lib.util.Identifier;
 
-import static net.sf.anathema.lib.message.MessageDuration.Permanent;
 import static net.sf.anathema.lib.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -46,7 +45,7 @@ public class EquipmentModelPersister extends AbstractModelJsonPersister<Equipmen
 
   private void sendAMessageToThePlayerIfTheItemDefaultedItsMaterial(MagicalMaterial magicalMaterial, IEquipmentItem item) {
     if (item.getMaterial() != magicalMaterial) {
-      messaging.addMessage(Error, Permanent, "EquipmentPersistence.MaterialDefaulted", item.getTitle());
+      messaging.addPermanentMessage(Error, "EquipmentPersistence.MaterialDefaulted", item.getTitle());
     }
   }
 

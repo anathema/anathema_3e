@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static net.sf.anathema.lib.message.MessageDuration.Permanent;
 import static net.sf.anathema.lib.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -47,7 +46,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
     } catch (IllegalArgumentException e) {
-      messaging.addMessage(Error, Permanent, "CharmPersistence.NoCharmFound", charmPto.charm);
+      messaging.addPermanentMessage(Error, "CharmPersistence.NoCharmFound", charmPto.charm);
     }
   }
 
