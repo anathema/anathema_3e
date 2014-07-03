@@ -3,13 +3,22 @@
   "tree": "Craft",
   "charms": {
     "Flawless Handiwork Method": {
-      "cost": 6,
-      "type": "Supplemental",
-      "duration": "Instant",
+      "cost": "6m",
       "minimums": {
-        "Essence": 1,
-        "Craft": 1
-      }
+        "Craft": 1,
+        "Essence": 1
+      },
+      "type": "Supplemental",
+      "duration": "Instant"
+    },
+    "Triumph-Forging Eye": {
+      "type": "Permanent",
+      "minimums": {
+        "Craft": 2,
+        "Essence": 1
+      },
+      "duration": "Instant",
+      "prerequisiteCharms": ["Flawless Handiwork Method"]
     }
   }
 }

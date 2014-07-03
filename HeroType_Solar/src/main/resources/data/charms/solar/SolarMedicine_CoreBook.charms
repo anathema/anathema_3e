@@ -1,0 +1,54 @@
+{
+  "category": "Solar",
+  "tree": "Medicine",
+  "charms": {
+    "Ailment-Rectifying Method": {
+      "cost": "3m",
+      "minimums": {
+        "Medicine": 1,
+        "Essence": 1
+      },
+      "type": "Simple",
+      "duration": "Instant"
+    },
+    "Plague-Banishing Incitation": {
+      "cost": "2m,1wp",
+      "minimums": {
+        "Medicine": 3,
+        "Essence": 1
+      },
+      "type": "Reflexive",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Ailment-Rectifying Method"]
+    },
+    "Contagion-Curing Touch": {
+      "minimums": {
+        "Medicine": 4,
+        "Essence": 2
+      },
+      "type": "Permanent",
+      "duration": "Permanent",
+      "prerequisiteCharms": ["Plague-Banishing Incitation"]
+    },
+    "Wound-Mending Care Technique": {
+      "cost": "5m,1wp",
+      "minimums": {
+        "Medicine": 3,
+        "Essence": 1
+      },
+      "type": "Simple",
+      "duration": "Instant"
+    },
+    "Wound-Cleansing Meditation": {
+      "cost": "10m",
+      "minimums": {
+        "Medicine": 5,
+        "Essence": 1
+      },
+      "type": "Simple",
+      "duration": "Instant",
+      "prerequisiteCharms": ["Wound-Mending Care Technique"]
+    }
+
+  }
+}
