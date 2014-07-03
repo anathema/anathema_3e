@@ -25,6 +25,7 @@ repository.version
 *.mdsc
 *.srs
 *.not
+*.scroll
 
 # Runtime
 /Anathema/repository/*
