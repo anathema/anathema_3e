@@ -82,7 +82,6 @@ public class CharmParserImpl implements CharmParser {
       for (MagicAttribute attribute : magicAttributes) {
         charm.addMagicAttribute(attribute);
       }
-      loadSpecialLearning(charmElement, charm);
 
       SpecialCharmDto dto = specialCharmParser.readCharmDto(charmElement, id);
       if (dto.isSpecial()) {
@@ -122,22 +121,5 @@ public class CharmParserImpl implements CharmParser {
 
   private String getCharacterType(Element charmElement) throws CharmException {
     return charmElement.attributeValue(ATTRIB_EXALT);
-  }
-
-  private void loadSpecialLearning(Element charmElement, CharmImpl charm) {
-    for (MagicAttribute attribute : charm.getAttributes()) {
-      if (attribute.getId().startsWith(Charm.FAVORED_CASTE_PREFIX)) {
-        String casteId = attribute.getId().substring(Charm.FAVORED_CASTE_PREFIX.length());
-        charm.addFavoredCasteId(casteId);
-      }
-    }
-    Element learningElement = charmElement.element(ICharmXMLConstants.TAG_LEARNING);
-    if (learningElement == null) {
-      return;
-    }
-    for (Element favoredElement : ElementUtilities.elements(learningElement, ICharmXMLConstants.ATTRB_FAVORED)) {
-      String casteId = favoredElement.attributeValue(ICharmXMLConstants.TAG_CASTE);
-      charm.addFavoredCasteId(casteId);
-    }
   }
 }

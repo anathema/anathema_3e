@@ -5,8 +5,6 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
@@ -21,9 +19,7 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
@@ -34,7 +30,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   private final SourceBook[] sources;
   private final CostList temporaryCost;
   private final List<CharmImpl> children = new ArrayList<>();
-  private final Set<String> favoredCasteIds = new HashSet<>();
   private final CharmType charmType;
   private TreeReference treeReference;
   private CharmName name;
@@ -127,15 +122,8 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return prerequisiteList;
   }
 
-  public void addFavoredCasteId(String casteId) {
-    favoredCasteIds.add(casteId);
-  }
-
   @Override
   public boolean isFavored(Hero hero) {
-    if (isSpecialFavoredForCaste(hero)) {
-      return true;
-    }
     if (isFavoredMartialArts(hero)) {
       return true;
     }
@@ -152,12 +140,6 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     Trait martialArts = TraitModelFetcher.fetch(hero).getTrait(MartialArts);
     boolean isMartialArts = hasAttribute(new SimpleIdentifier("MartialArts"));
     return isMartialArts && martialArts.isCasteOrFavored();
-  }
-
-  private boolean isSpecialFavoredForCaste(Hero hero) {
-    HeroConcept concept = HeroConceptFetcher.fetch(hero);
-    String casteId = concept.getCaste().getType().getId();
-    return favoredCasteIds.contains(casteId);
   }
 
   private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {

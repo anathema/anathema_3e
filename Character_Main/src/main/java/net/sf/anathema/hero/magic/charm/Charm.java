@@ -12,8 +12,6 @@ import java.util.function.Consumer;
 
 public interface Charm extends Magic {
 
-  String FAVORED_CASTE_PREFIX = "FavoredCaste.";
-
   CharmName getName();
 
   TreeReference getTreeReference();
