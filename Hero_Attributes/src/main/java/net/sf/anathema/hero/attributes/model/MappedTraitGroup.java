@@ -1,5 +1,9 @@
-package net.sf.anathema.hero.traits.model;
+package net.sf.anathema.hero.attributes.model;
 
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitGroup;
+import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.lib.util.Identifier;
 

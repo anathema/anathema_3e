@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 public class EssenceBasedLimitation implements TraitLimitation {

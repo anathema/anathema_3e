@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.GenericTraitSorter;
-
 import java.util.List;
 
 public class ValueWeightGenericTraitSorter {

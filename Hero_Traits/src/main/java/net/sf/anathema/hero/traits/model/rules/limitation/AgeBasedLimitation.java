@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.model.rules.limitation;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.traits.model.TraitLimitation;
 
 public class AgeBasedLimitation implements TraitLimitation {
   private final int absoluteLimit;

@@ -1,5 +1,6 @@
-package net.sf.anathema.hero.traits.model.lists;
+package net.sf.anathema.hero.attributes.model;
 
+import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 
 public class AllAttributeTraitTypeList extends DefaultTraitTypeList {

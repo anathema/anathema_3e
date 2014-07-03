@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.traits;
+package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.compare.WeightedObject;
 import net.sf.anathema.lib.compare.WeightedObjectSorter;
 
