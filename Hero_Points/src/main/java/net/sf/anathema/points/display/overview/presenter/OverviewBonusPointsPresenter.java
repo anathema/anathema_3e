@@ -1,6 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.framework.messaging.MessageToken;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.framework.item.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
@@ -14,15 +15,15 @@ import static net.sf.anathema.lib.message.MessageType.NORMAL;
 import static net.sf.anathema.lib.message.MessageType.WARNING;
 
 class OverviewBonusPointsPresenter implements IOverviewSubPresenter {
+  private final MessageToken token;
   private Resources resources;
   private SpendingModel model;
-  private Messaging messaging;
   private Hero hero;
 
   public OverviewBonusPointsPresenter(Resources resources, SpendingModel model, Messaging messaging, Hero hero) {
     this.resources = resources;
     this.model = model;
-    this.messaging = messaging;
+    this.token = messaging.obtainInitialToken();
     this.hero = hero;
   }
 
@@ -40,6 +41,6 @@ class OverviewBonusPointsPresenter implements IOverviewSubPresenter {
       pattern = resources.getString("Overview.Creation.BonusPoints.Overspent");
       type = WARNING;
     }
-    messaging.addMessage(new Message(format(pattern, name, spending, allotment), type, Permanent));
+    token.replaceMessage(new Message(format(pattern, name, spending, allotment), type, Permanent));
   }
 }
