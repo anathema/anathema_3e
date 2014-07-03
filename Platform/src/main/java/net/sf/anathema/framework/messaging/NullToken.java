@@ -2,10 +2,10 @@ package net.sf.anathema.framework.messaging;
 
 import net.sf.anathema.lib.message.Message;
 
-public class SimpleToken implements MessageToken {
+public class NullToken implements MessageToken {
   private Messaging messaging;
 
-  public SimpleToken(Messaging messaging) {
+  public NullToken(Messaging messaging) {
     this.messaging = messaging;
   }
 

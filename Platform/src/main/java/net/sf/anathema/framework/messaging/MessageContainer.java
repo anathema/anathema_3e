@@ -3,7 +3,7 @@ package net.sf.anathema.framework.messaging;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.message.Message;
 
-import java.util.List;
+import java.util.Collection;
 
 public interface MessageContainer {
 
@@ -11,5 +11,5 @@ public interface MessageContainer {
 
   Message getLatestMessage();
 
-  List<Message> getAllMessages();
+  Collection<Message> getPermanentMessages();
 }

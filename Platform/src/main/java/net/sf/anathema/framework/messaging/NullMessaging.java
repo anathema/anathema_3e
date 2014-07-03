@@ -16,6 +16,6 @@ public class NullMessaging implements Messaging {
 
   @Override
   public MessageToken obtainInitialToken() {
-    return new SimpleToken(this);
+    return new NullToken(this);
   }
 }

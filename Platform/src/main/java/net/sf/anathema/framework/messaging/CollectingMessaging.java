@@ -9,6 +9,8 @@ import org.jmock.example.announcer.Announcer;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.sf.anathema.lib.message.MessageDuration.Temporary;
+
 public class CollectingMessaging implements Messaging, MessageContainer {
 
   private static final int MESSAGE_LIMIT = 100;
@@ -27,7 +29,7 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   }
 
   @Override
-  public synchronized void addMessage(Message message) {
+  public void addMessage(Message message) {
     messages.add(0, message);
     changeControl.announce().changeOccurred();
     if (messages.size() > MESSAGE_LIMIT) {
@@ -37,7 +39,7 @@ public class CollectingMessaging implements Messaging, MessageContainer {
 
   @Override
   public MessageToken obtainInitialToken() {
-    return new SimpleToken(this);
+    return new ReplacingToken();
   }
 
   @Override
@@ -54,7 +56,22 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   }
 
   @Override
-  public List<Message> getAllMessages() {
-    return messages;
+  public List<Message> getPermanentMessages() {
+    ArrayList<Message> permanentMessage = new ArrayList<>(messages);
+    permanentMessage.removeIf(message -> message.getDuration() == Temporary);
+    return permanentMessage;
+  }
+
+  private class ReplacingToken implements MessageToken {
+    private Message oldMessage;
+
+    @Override
+    public void replaceMessage(Message message) {
+      if (oldMessage != null) {
+        messages.remove(oldMessage);
+      }
+      addMessage(message);
+      this.oldMessage = message;
+    }
   }
 }
