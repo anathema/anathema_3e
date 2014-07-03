@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.favored;
 
+import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.magic.Magic;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.model.Hero;
@@ -33,7 +34,7 @@ public class IsFavoredCharm implements FavoredChecker {
   }
 
   private boolean isPrimaryTraitFavored(Charm charm) {
-    TraitType traitType = charm.getPrerequisites().getPrimaryTraitType();
+    TraitType traitType = new TraitTypeUtils().getPrimaryTraitType(charm);
     Trait primaryTrait = getTrait(traitType);
     return primaryTrait.isCasteOrFavored();
   }

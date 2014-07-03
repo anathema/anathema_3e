@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.magic.charm;
 
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 
 import java.util.List;
 import java.util.function.Consumer;
 
 public interface PrerequisiteList {
 
-  TraitType getPrimaryTraitType();
+  RequiredTraitType getPrimaryTraitType();
 
-  List<ValuedTraitType> getTraitPrerequisites();
+  List<TraitPrerequisite> getTraitPrerequisites();
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
 

@@ -2,7 +2,6 @@ package net.sf.anathema.hero.combos;
 
 import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
 import net.sf.anathema.hero.dummy.DummyCharm;
-import net.sf.anathema.hero.dummy.DummyCharmUtilities;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import org.junit.Test;
@@ -21,7 +20,7 @@ public class ComboRulesTest extends AbstractComboRulesTestCase {
 
   @Test
   public void testDurationComboLegal() throws Exception {
-    assertTrue(rules.isCharmComboLegal(new DummyCharm("Instant", CharmType.Reflexive, null)));
+    assertTrue(rules.isCharmComboLegal(new DummyCharm("Instant", CharmType.Reflexive)));
   }
 
   @Test
@@ -32,11 +31,11 @@ public class ComboRulesTest extends AbstractComboRulesTestCase {
         return false;
       }
     };
-    assertFalse(rules.isCharmComboLegal(new DummyCharm("Other", CharmType.Reflexive, null)));
+    assertFalse(rules.isCharmComboLegal(new DummyCharm("Other", CharmType.Reflexive)));
   }
   @Test
   public void testCharmComboSelf() throws Exception {
-    Charm charm1 = DummyCharmUtilities.createCharm(CharmType.Reflexive);
+    Charm charm1 = new DummyCharm("Instant", CharmType.Reflexive);
     assertFalse(rules.isComboLegal(charm1, charm1));
   }
 }

@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.traits.model;
 
+import net.sf.anathema.hero.magic.charm.Charm;
+import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
@@ -25,5 +28,14 @@ public class TraitTypeUtils {
       }
     }
     throw new IllegalArgumentException("No trait type with id: " + id);
+  }
+
+  public TraitType getTraitTypeFor(TraitPrerequisite prerequisite) {
+    return getTraitTypeById(prerequisite.type.type);
+  }
+
+  public TraitType getPrimaryTraitType(Charm charm) {
+    RequiredTraitType primaryTraitType = charm.getPrerequisites().getPrimaryTraitType();
+    return getTraitTypeById(primaryTraitType.type);
   }
 }

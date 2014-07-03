@@ -9,10 +9,10 @@ import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
+import net.sf.anathema.hero.magic.charm.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.attribute.MagicAttribute;
@@ -32,8 +32,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   private Duration duration;
-  private ValuedTraitType[] prerequisites;
-  private List<CharmPrerequisite> learnPrerequisites = new ArrayList<>();
+  public List<TraitPrerequisite> traitPrerequisites = new ArrayList<>();
+  public List<CharmPrerequisite> charmPrerequisites = new ArrayList<>();
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
   public TreeReference treeReference = new TreeReference(new CategoryReference("AnyCategory"), new TreeName("AnyTree"));
@@ -42,27 +42,23 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
     this(null);
   }
 
-  public DummyCharm(String id) {
-    this(id, new Charm[0]);
+  public DummyCharm(String id, Charm[] parents, TraitPrerequisite ... prerequisites) {
+    this(id, parents);
+    this.traitPrerequisites = Arrays.asList(prerequisites);
+  }
+
+  public DummyCharm(String duration, CharmType charmType, TraitPrerequisite ... prerequisites) {
+    this("DummyCharmDefaultId");
+    this.duration = new Duration(duration);
+    this.charmType = charmType;
+    this.traitPrerequisites = Arrays.asList(prerequisites);
   }
 
   public DummyCharm(String id, Charm... parents) {
-    this(id, parents, new ValuedTraitType[0]);
-  }
-
-  public DummyCharm(String id, Charm[] parents, ValuedTraitType[] prerequisites) {
     super(id);
     for (Charm charm : parents) {
-      learnPrerequisites.add(new SimpleCharmPrerequisite(charm));
+      charmPrerequisites.add(new SimpleCharmPrerequisite(charm));
     }
-    this.prerequisites = prerequisites;
-  }
-
-  public DummyCharm(String duration, CharmType charmType, ValuedTraitType[] prerequisites) {
-    super("DummyCharmDefaultId");
-    this.prerequisites = prerequisites;
-    this.duration = new Duration(duration);
-    this.charmType = charmType;
   }
 
   @Override
@@ -82,17 +78,17 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
 
   @Override
   public List<CharmPrerequisite> getCharmPrerequisites() {
-    return learnPrerequisites;
+    return charmPrerequisites;
   }
 
   @Override
-  public List<ValuedTraitType> getTraitPrerequisites() {
-    return Arrays.asList(prerequisites);
+  public List<TraitPrerequisite> getTraitPrerequisites() {
+    return traitPrerequisites;
   }
 
   @Override
-  public TraitType getPrimaryTraitType() {
-    return prerequisites[0].getType();
+  public RequiredTraitType getPrimaryTraitType() {
+    return traitPrerequisites.get(0).type;
   }
 
   @Override
@@ -102,7 +98,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
 
   @Override
   public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
-    learnPrerequisites.forEach(consumer);
+    charmPrerequisites.forEach(consumer);
   }
 
   @Override

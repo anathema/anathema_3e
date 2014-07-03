@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.combos;
 
-import net.sf.anathema.hero.dummy.DummyCharmUtilities;
+import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.combos.model.ComboRules;
@@ -16,15 +16,15 @@ public class ExtraActionCharmComboRulesTest extends AbstractComboRulesTestCase {
 
   @Test
   public void testCharmComboTwoExtraAction() throws Exception {
-    Charm charm1 = DummyCharmUtilities.createCharm(CharmType.ExtraAction);
-    Charm charm2 = DummyCharmUtilities.createCharm(CharmType.ExtraAction);
+    Charm charm1 = new DummyCharm("Instant", CharmType.ExtraAction);
+    Charm charm2 = new DummyCharm("Instant", CharmType.ExtraAction);
     assertFalse(rules.isComboLegal(charm1, charm2));
   }
 
   @Test
   public void testCharmComboExtraActionReflexive() throws Exception {
-    Charm charm1 = DummyCharmUtilities.createCharm(CharmType.ExtraAction);
-    Charm charm2 = DummyCharmUtilities.createCharm(CharmType.Reflexive);
+    Charm charm1 = new DummyCharm("Instant", CharmType.ExtraAction);
+    Charm charm2 = new DummyCharm("Instant", CharmType.Reflexive);
     assertTrue(rules.isComboLegal(charm1, charm2));
   }
 
