@@ -12,12 +12,12 @@ import net.sf.anathema.lib.util.Identifier;
 
 import java.util.Iterator;
 
-public class ExaltedCharacter implements net.sf.anathema.hero.application.item.Character {
+public class HeroItemImp implements HeroItem {
 
   private final CharacterChangeManagement management = new CharacterChangeManagement(this);
   private final DefaultHero hero;
 
-  public ExaltedCharacter(HeroTemplate template, HeroEnvironment environment) {
+  public HeroItemImp(HeroTemplate template, HeroEnvironment environment) {
     this.hero = new DefaultHero(template);
     addModels(environment);
     management.initListening();

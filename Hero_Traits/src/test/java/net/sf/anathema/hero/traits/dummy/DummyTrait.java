@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.dummy.trait;
+package net.sf.anathema.hero.traits.dummy;
 
 import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.NullTraitFavorization;

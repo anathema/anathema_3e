@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.specialities;
 
 import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.dummy.DummyCasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.specialties.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.specialties.model.SpecialtiesContainer;
+import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FavorableState;

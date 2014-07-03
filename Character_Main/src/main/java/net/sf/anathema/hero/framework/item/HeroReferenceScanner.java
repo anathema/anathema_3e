@@ -5,7 +5,7 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.lib.util.Identifier;
 
-public interface CharacterReferenceScanner {
+public interface HeroReferenceScanner {
   CharacterType getCharacterType(CharacterReference reference);
 
   Identifier getCasteType(CharacterReference reference);

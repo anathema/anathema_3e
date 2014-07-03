@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.dummy;
+package net.sf.anathema.hero.charms.dummy;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;

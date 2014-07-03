@@ -20,7 +20,7 @@ import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class JsonCharacterReferenceScannerTest {
+public class JsonHeroReferenceScannerTest {
 
   @Rule
   public TemporaryFolder folder = new TemporaryFolder();
@@ -34,7 +34,7 @@ public class JsonCharacterReferenceScannerTest {
     when(types.findById(anyString())).thenReturn(new DummyMundaneCharacterType());
     IRepositoryFileResolver resolver = prepareResolverToReturnFile(testFile);
     CharacterReference reference = new CharacterReference(new SimpleRepositoryId("x"), "y");
-    new JsonCharacterReferenceScanner(types, resolver).getCasteType(reference);
+    new JsonHeroReferenceScanner(types, resolver).getCasteType(reference);
     testFile.delete();
     assertThat(testFile.exists(), is(false));
   }

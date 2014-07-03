@@ -6,19 +6,19 @@ import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.creation.CharacterTypeUi;
 import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
+import net.sf.anathema.hero.framework.item.HeroReferenceScanner;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.util.Identifier;
 
-public class CharacterFileUi extends AbstractUIConfiguration<PrintNameFile> {
+public class HeroFileUi extends AbstractUIConfiguration<PrintNameFile> {
 
   private final Resources resources;
-  private final CharacterReferenceScanner scanner;
+  private final HeroReferenceScanner scanner;
 
-  public CharacterFileUi(Resources resources, CharacterReferenceScanner scanner) {
+  public HeroFileUi(Resources resources, HeroReferenceScanner scanner) {
     this.resources = resources;
     this.scanner = scanner;
   }

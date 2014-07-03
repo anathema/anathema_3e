@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.persistence;
 
 import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.hero.application.item.Character;
+import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyObjectFactory;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
@@ -25,8 +25,8 @@ public class HeroItemPersisterTest {
   public void createsFullyLoadedCharacter() throws Exception {
     HeroEnvironment generics = createEnvironment();
     HeroItemPersister persister = new HeroItemPersister(generics, messaging);
-    Character character = createNewCharacter(persister);
-    assertThat(character.isFullyLoaded(), is(true));
+    HeroItem heroItem = createNewCharacter(persister);
+    assertThat(heroItem.isFullyLoaded(), is(true));
   }
 
   private HeroEnvironment createEnvironment() {
@@ -37,8 +37,8 @@ public class HeroItemPersisterTest {
     return generics;
   }
 
-  private Character createNewCharacter(HeroItemPersister persister) throws PersistenceException {
+  private HeroItem createNewCharacter(HeroItemPersister persister) throws PersistenceException {
     Item item = persister.createNew(template);
-    return (Character) item.getItemData();
+    return (HeroItem) item.getItemData();
   }
 }

@@ -5,20 +5,20 @@ import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.item.CharacterReferenceScanner;
+import net.sf.anathema.hero.framework.item.HeroReferenceScanner;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 
-public class CharacterViewProperties implements IItemTypeViewProperties {
+public class HeroViewProperties implements IItemTypeViewProperties {
 
   private final RelativePath icon;
   private final IItemType type;
-  private final CharacterFileUi ui;
+  private final HeroFileUi ui;
 
-  public CharacterViewProperties(IItemType type, Resources resources, CharacterReferenceScanner scanner) {
+  public HeroViewProperties(IItemType type, Resources resources, HeroReferenceScanner scanner) {
     this.type = type;
     this.icon = new CharacterUI().getCharacterDescriptionTabIcon();
-    this.ui = new CharacterFileUi(resources, scanner);
+    this.ui = new HeroFileUi(resources, scanner);
   }
 
   @Override

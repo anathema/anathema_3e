@@ -5,9 +5,9 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
 import net.sf.anathema.hero.charms.display.coloring.ExternalPrerequisitesBrush;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
+import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
-import net.sf.anathema.hero.dummy.DummyCharm;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

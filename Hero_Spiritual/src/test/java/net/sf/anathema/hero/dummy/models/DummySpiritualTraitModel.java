@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.dummy.trait.DummyTrait;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
+import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
 import net.sf.anathema.hero.traits.model.rules.limitation.TraitLimitation;

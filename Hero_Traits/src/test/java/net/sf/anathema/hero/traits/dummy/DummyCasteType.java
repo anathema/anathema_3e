@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.dummy;
+package net.sf.anathema.hero.traits.dummy;
 
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.lib.util.SimpleIdentifier;
