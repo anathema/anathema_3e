@@ -11,57 +11,43 @@ import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static net.sf.anathema.hero.magic.charm.duration.SimpleDuration.getDuration;
+import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
+import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
 import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verifyZeroInteractions;
 
 public class CharmTest {
 
+  private CharmPrerequisiteList anyPrerequisites = new CharmPrerequisiteList(
+          new ValuedTraitType[]{new ValuedTraitType(Archery, 5)}, new ValuedTraitType(Essence, 3),
+          new CharmPrerequisite[0]);
+  private TreeReference anyTree = new TreeReference(new CategoryReference("anyCategory"), new TreeName("anyTree"));
+  private CharmName anyName = new CharmName("anyName");
+  private CostListImpl anyCost = new CostListImpl(null, null, null, null);
+  private SimpleDuration anyDuration = getDuration("Duration");
+  private CharmType anyType = CharmType.Simple;
+  private SourceBook[] anySources = new SourceBook[0];
+
   @Test
-  public void testParentCharmsNotOverwritten() throws Exception {
+  public void doesNotOverwriteExistingParentCharms() throws Exception {
     DummyCharm dummy = new DummyCharm("OtherDummy");
-    CharmImpl charm = createCharm(dummy);
+    CharmImpl out = new CharmImpl(anyTree, anyName, anyPrerequisites, anyCost, anyDuration, anyType, anySources);
+    out.addParentCharms(dummy);
+    CharmImpl charm = out;
     UnlinkedCharms unlinkedCharms = mock(UnlinkedCharms.class);
     charm.extractParentCharms(unlinkedCharms);
-    assertEquals(1, charm.getPrerequisitesOfType(SimpleCharmPrerequisite.class).size());
-    assertEquals(dummy, charm.getPrerequisitesOfType(SimpleCharmPrerequisite.class).toArray(new SimpleCharmPrerequisite[1])[0].getDirectPredecessors()[0]);
+    verifyZeroInteractions(unlinkedCharms);
   }
 
-  @Test
-  public void testCharmNoSource() throws Exception {
-    ValuedTraitType[] prerequisites = new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 5)};
-    ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
-    CharmPrerequisiteList prerequisiteList =
-            new CharmPrerequisiteList(prerequisites, essence, new CharmPrerequisite[0]);
-    try {
-      TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
-      new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
-               SimpleDuration.getDuration("Duration"),
-              CharmType.Simple, null);
-      fail();
-    } catch (NullPointerException e) {
-      // Nothing to do
-    }
-  }
-
-  private CharmImpl createCharm(DummyCharm parent) {
-    ValuedTraitType[] prerequisites = new ValuedTraitType[]{new net.sf.anathema.hero.traits.model.types.ValuedTraitType(AbilityType.Archery, 5)};
-    ValuedTraitType essence = new net.sf.anathema.hero.traits.model.types.ValuedTraitType(OtherTraitType.Essence, 3);
-    CharmPrerequisiteList prerequisiteList =
-            new CharmPrerequisiteList(prerequisites, essence, new CharmPrerequisite[0]);
-    TreeReference treeReference = new TreeReference(new CategoryReference("Category"), new TreeName("Tree"));
-    CharmImpl charmImpl =
-            new CharmImpl(treeReference, new CharmName("ATTRIBUTES"), prerequisiteList, new CostListImpl(null, null, null, null),
-                    SimpleDuration.getDuration("Duration"), CharmType.Simple, new SourceBook[0]);
-    charmImpl.addParentCharms(parent);
-    return charmImpl;
+  @Test(expected = NullPointerException.class)
+  public void doesNotCreateCharmWithoutSources() throws Exception {
+    new CharmImpl(anyTree, anyName, anyPrerequisites, anyCost, anyDuration, anyType, null);
   }
 }
