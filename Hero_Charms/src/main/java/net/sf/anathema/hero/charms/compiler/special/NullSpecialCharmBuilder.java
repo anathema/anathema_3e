@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
-import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.framework.environment.dependencies.DoNotInstantiateAutomatically;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 

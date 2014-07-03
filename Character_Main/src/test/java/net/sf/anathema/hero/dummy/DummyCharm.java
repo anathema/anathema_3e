@@ -1,13 +1,11 @@
 package net.sf.anathema.hero.dummy;
 
+import net.sf.anathema.charm.data.cost.CostListImpl;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.PrerequisiteList;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
@@ -24,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, PrerequisiteList {
+public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteList {
 
   public static DummyCharm ForIdAndTree(String id, String tree) {
     DummyCharm charm = new DummyCharm(id);
@@ -153,10 +151,5 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
   @Override
   public MagicAttribute[] getAttributes() {
     return attributes.toArray(new MagicAttribute[attributes.size()]);
-  }
-
-  @Override
-  public void addChild(CharmImpl child) {
-    //nothing to do
   }
 }

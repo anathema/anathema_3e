@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.parser.template.CharmListTemplate;
-import net.sf.anathema.charm.parser.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
@@ -11,7 +11,6 @@ import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.lib.exception.AnathemaException;
-import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -63,14 +62,10 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   }
 
   private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
-    InputStream inputStream = null;
-    try {
-      inputStream = resource.getURL().openStream();
+    try(InputStream inputStream = resource.getURL().openStream()) {
       return loader.load(inputStream);
     } catch (IOException e) {
       throw new AnathemaException(e);
-    } finally {
-      IOUtils.closeQuietly(inputStream);
     }
   }
 }
