@@ -18,15 +18,13 @@ public class RepositoryMessagingPresenter {
     repositoryTreeModel.addRepositoryTreeModelListener(new IRepositoryTreeModelListener() {
       @Override
       public void printNameFileAdded(PrintNameFile file) {
-        messaging.addMessage("AnathemaCore.Tools.RepositoryView.ItemAddedMessage",
-                MessageType.INFORMATION,
+        messaging.addMessage(MessageType.Information, "AnathemaCore.Tools.RepositoryView.ItemAddedMessage",
                 file.getPrintName());
       }
 
       @Override
       public void printNameFileRemoved(PrintNameFile file) {
-        messaging.addMessage("AnathemaCore.Tools.RepositoryView.ItemRemovedMessage",
-                MessageType.INFORMATION,
+        messaging.addMessage(MessageType.Information, "AnathemaCore.Tools.RepositoryView.ItemRemovedMessage",
                 file.getPrintName());
       }
     });

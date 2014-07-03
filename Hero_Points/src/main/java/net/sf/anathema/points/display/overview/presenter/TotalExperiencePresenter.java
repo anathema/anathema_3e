@@ -12,8 +12,8 @@ import net.sf.anathema.points.model.PointModelFetcher;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.lib.message.MessageDuration.Permanent;
-import static net.sf.anathema.lib.message.MessageType.NORMAL;
-import static net.sf.anathema.lib.message.MessageType.WARNING;
+import static net.sf.anathema.lib.message.MessageType.Normal;
+import static net.sf.anathema.lib.message.MessageType.Warning;
 
 public class TotalExperiencePresenter implements IOverviewSubPresenter {
   private final Hero hero;
@@ -37,10 +37,10 @@ public class TotalExperiencePresenter implements IOverviewSubPresenter {
     MessageType type;
     if (spending <= allotment) {
       pattern = resources.getString("Overview.Creation.ExperiencePoints.Spent");
-      type = NORMAL;
+      type = Normal;
     } else {
       pattern = resources.getString("Overview.Creation.ExperiencePoints.Overspent");
-      type = WARNING;
+      type = Warning;
     }
     token.replaceMessage(new Message(format(pattern, name, spending, allotment), type, Permanent));
   }

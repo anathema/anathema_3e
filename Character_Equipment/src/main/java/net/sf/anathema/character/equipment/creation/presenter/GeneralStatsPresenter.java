@@ -62,7 +62,7 @@ public class GeneralStatsPresenter {
   }
 
   public Message getDefaultMessage() {
-    return new Message(resources.getString("Equipment.Creation.Stats.DefaultMessage"), MessageType.NORMAL);
+    return new Message(resources.getString("Equipment.Creation.Stats.DefaultMessage"), MessageType.Normal);
   }
 
   public String getPageDescription() {

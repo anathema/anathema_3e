@@ -3,6 +3,7 @@ package net.sf.anathema.framework.messaging;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.lib.message.MessageDuration;
 import net.sf.anathema.lib.message.MessageType;
 import org.jmock.example.announcer.Announcer;
 
@@ -23,18 +24,24 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   }
 
   @Override
-  public void addMessage(String pattern, MessageType messageType, Object... arguments) {
-    String messageText = resources.getString(pattern, arguments);
-    addMessage(new Message(messageText, messageType));
+  public MessageToken addMessage(MessageType messageType, String pattern, Object... arguments) {
+    return addMessage(messageType, Temporary, pattern, arguments);
   }
 
   @Override
-  public void addMessage(Message message) {
+  public MessageToken addMessage(MessageType messageType, MessageDuration duration, String pattern, Object... arguments) {
+    String messageText = resources.getString(pattern, arguments);
+    return addMessage(new Message(messageText, messageType, duration));
+  }
+
+  @Override
+  public MessageToken addMessage(Message message) {
     messages.add(0, message);
     changeControl.announce().changeOccurred();
     if (messages.size() > MESSAGE_LIMIT) {
       messages.remove(messages.size() - 1);
     }
+    return new ReplacingToken(message);
   }
 
   @Override
@@ -50,7 +57,7 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   @Override
   public synchronized Message getLatestMessage() {
     if (messages.isEmpty()) {
-      return new Message("", MessageType.NORMAL);
+      return new Message("", MessageType.Normal);
     }
     return messages.get(0);
   }
@@ -65,13 +72,25 @@ public class CollectingMessaging implements Messaging, MessageContainer {
   private class ReplacingToken implements MessageToken {
     private Message oldMessage;
 
+    public ReplacingToken() {
+      this.oldMessage = null;
+    }
+
+    public ReplacingToken(Message message) {
+      this.oldMessage = message;
+    }
+
     @Override
     public void replaceMessage(Message message) {
-      if (oldMessage != null) {
-        messages.remove(oldMessage);
-      }
+      messages.remove(oldMessage);
       addMessage(message);
       this.oldMessage = message;
+    }
+
+    @Override
+    public void replaceMessage(MessageType type, String pattern, String... arguments) {
+      String messageText = resources.getString(pattern, arguments);
+      replaceMessage(new Message(messageText, type));
     }
   }
 }

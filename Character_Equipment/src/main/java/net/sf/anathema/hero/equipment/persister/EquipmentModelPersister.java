@@ -9,13 +9,10 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.lib.logging.Logger;
-import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.util.Identifier;
 
-import java.text.MessageFormat;
-
 import static net.sf.anathema.lib.message.MessageDuration.Permanent;
-import static net.sf.anathema.lib.message.MessageType.WARNING;
+import static net.sf.anathema.lib.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
 public class EquipmentModelPersister extends AbstractModelJsonPersister<EquipmentListPto, EquipmentModel> {
@@ -49,8 +46,7 @@ public class EquipmentModelPersister extends AbstractModelJsonPersister<Equipmen
 
   private void sendAMessageToThePlayerIfTheItemDefaultedItsMaterial(MagicalMaterial magicalMaterial, IEquipmentItem item) {
     if (item.getMaterial() != magicalMaterial) {
-      Message message = new Message(MessageFormat.format("Your {0} requires a Magical Material. It found none, so it defaulted to Orichalcum.", item.getTitle()), WARNING, Permanent);
-      messaging.addMessage(message);
+      messaging.addMessage(Error, Permanent, "EquipmentPersistence.MaterialDefaulted", item.getTitle());
     }
   }
 

@@ -48,7 +48,7 @@ public class RepositoryItemDuplicationPresenter {
             inputStream.close();
           }
           model.refreshItem(type, handler.getNewId());
-          messaging.addMessage("AnathemaCore.Tools.RepositoryView.DuplicateDoneMessage", MessageType.INFORMATION);
+          messaging.addMessage(MessageType.Information, "AnathemaCore.Tools.RepositoryView.DuplicateDoneMessage");
         }
       } catch (PersistenceException e) {
         environment.handle(e, environment.getString("AnathemaCore.Tools.RepositoryView.RepositoryError"));
