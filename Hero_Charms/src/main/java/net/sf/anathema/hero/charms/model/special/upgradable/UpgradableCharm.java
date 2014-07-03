@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model.special.upgradable;
 
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmLearnableArbitrator;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffects;
 import net.sf.anathema.hero.traits.model.TraitType;

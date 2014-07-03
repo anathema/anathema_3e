@@ -5,7 +5,7 @@ import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
 import net.sf.anathema.hero.dummy.DummyCharm;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
+import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.prerequisite.AttributeKnownCharmPrerequisite;
 import org.junit.Assert;
 import org.junit.Before;

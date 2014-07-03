@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.magic.charm.Charm;
-import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
