@@ -9,12 +9,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class ConfigurableTemplateLoader<T> implements TemplateLoader<T> {
+public class GenericTemplateLoader<T> implements TemplateLoader<T> {
 
   private final Gson gson;
   private final Class<T> aClass;
 
-  public ConfigurableTemplateLoader(Class<T> aClass) {
+  public GenericTemplateLoader(Class<T> aClass) {
     this.aClass = aClass;
     GsonBuilder gsonBuilder = new GsonBuilder();
     gson = gsonBuilder.create();

@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Collections.singletonList;
+
 public class CharmCacheImpl implements CharmCache {
 
   private MultiEntryMap<CategoryReference, Charm> charmsByCategory = new MultiEntryMap<>();
@@ -73,5 +75,10 @@ public class CharmCacheImpl implements CharmCache {
       specialCharmsByCategory.put(type, new ArrayList<>());
     }
     return specialCharmsByCategory.get(type);
+  }
+
+  public void addSpecial(ISpecialCharm specialCharm) {
+    Charm charm = getCharmById(specialCharm.getCharmName());
+    addSpecial(charm.getTreeReference().category, singletonList(specialCharm));
   }
 }

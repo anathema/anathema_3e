@@ -5,7 +5,6 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.parser.template.CharmListTemplate;
 import net.sf.anathema.charm.parser.template.CharmTemplate;
-import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 
@@ -17,11 +16,11 @@ public class CharmCacheBuilder {
   private final Map<CharmName, DefaultCharm> charmList = new HashMap<>();
   private final Map<CharmName, CharmTemplate> templateList = new HashMap<>();
 
-  public void addTemplate(CharmListTemplate listTemplate) {
-    addCharmSkeletons(listTemplate);
+  public void addTemplate(CharmListTemplate charmList) {
+    addCharmSkeletons(charmList);
   }
 
-  public CharmCache createCache() {
+  public CharmCacheImpl createCache() {
     linkCharms();
     CharmCacheImpl charmCache = new CharmCacheImpl();
     charmList.values().forEach(charmCache::addCharm);

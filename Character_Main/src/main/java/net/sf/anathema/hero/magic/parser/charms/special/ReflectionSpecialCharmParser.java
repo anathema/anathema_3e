@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.magic.parser.charms.special;
 
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import org.dom4j.Element;
 
@@ -15,8 +15,8 @@ public class ReflectionSpecialCharmParser {
     this.parsers.addAll(objectFactory.instantiateAllImplementers(SpecialCharmParser.class));
   }
 
-  public SpecialCharmDto readCharmDto(Element charmElement, String id) {
-    SpecialCharmDto overallDto = new SpecialCharmDto();
+  public SpecialCharmTemplate readCharmDto(Element charmElement, String id) {
+    SpecialCharmTemplate overallDto = new SpecialCharmTemplate();
     overallDto.charmId = id;
     findParser(charmElement).parse(charmElement, overallDto);
     return overallDto;

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.parser.template.special.OxBodyPick;
+import net.sf.anathema.charm.parser.template.special.OxBodyTechnique;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.hero.magic.parser.dto.special.OxBodyPickDto;
-import net.sf.anathema.hero.magic.parser.dto.special.OxBodyTechniqueDto;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 
@@ -28,18 +28,18 @@ public class OxBodyCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
     return createSpecialCharm(new CharmName(overallDto.charmId), overallDto.oxBodyTechnique);
   }
 
-  private ISpecialCharm createSpecialCharm(CharmName id, OxBodyTechniqueDto dto) {
+  private ISpecialCharm createSpecialCharm(CharmName id, OxBodyTechnique dto) {
     TraitType[] traitList = new TraitType[dto.traits.size()];
     for (int i = 0; i != traitList.length; i++) {
       traitList[i] = traitTypeFinder.getTrait(dto.traits.get(i));
     }
 
     LinkedHashMap<String, HealthLevelType[]> healthPicks = new LinkedHashMap<>();
-    for (OxBodyPickDto pickDto : dto.picks) {
+    for (OxBodyPick pickDto : dto.picks) {
       String name = pickDto.id;
       List<HealthLevelType> healthLevels = new ArrayList<>();
       Map<String, HealthLevelType> healthTypeByString = getHealthTypeMap();
@@ -63,7 +63,7 @@ public class OxBodyCharmBuilder implements SpecialCharmBuilder {
   }
 
   @Override
-  public boolean supports(SpecialCharmDto overallDto) {
+  public boolean supports(SpecialCharmTemplate overallDto) {
     return overallDto.oxBodyTechnique != null;
   }
 }

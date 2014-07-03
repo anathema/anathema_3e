@@ -2,7 +2,6 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
-import net.sf.anathema.hero.charms.compiler.dom.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmMap;

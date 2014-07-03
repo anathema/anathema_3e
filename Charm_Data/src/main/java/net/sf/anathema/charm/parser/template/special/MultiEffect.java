@@ -1,11 +1,11 @@
-package net.sf.anathema.hero.magic.parser.dto.special;
+package net.sf.anathema.charm.parser.template.special;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MultiEffectDto {
+public class MultiEffect {
   public List<String> effects = new ArrayList<>();
   public Map<String, String> prerequisiteEffectMap = new HashMap<>();
 }

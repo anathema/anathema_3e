@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 
 public interface SpecialCharmBuilder {
 
-  ISpecialCharm readCharm(SpecialCharmDto dto);
+  ISpecialCharm readCharm(SpecialCharmTemplate dto);
 
-  boolean supports(SpecialCharmDto dto);
+  boolean supports(SpecialCharmTemplate dto);
 }

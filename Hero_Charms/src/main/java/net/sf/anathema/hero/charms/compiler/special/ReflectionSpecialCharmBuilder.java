@@ -1,7 +1,9 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.hero.charms.compiler.special.NullSpecialCharmBuilder;
+import net.sf.anathema.hero.charms.compiler.special.SpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.framework.environment.ObjectFactory;
 
 import java.util.ArrayList;
@@ -15,11 +17,11 @@ public class ReflectionSpecialCharmBuilder {
     this.builders.addAll(objectFactory.instantiateAllImplementers(SpecialCharmBuilder.class));
   }
 
-  public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
     return findBuilder(overallDto).readCharm(overallDto);
   }
 
-  private SpecialCharmBuilder findBuilder(SpecialCharmDto dto) {
+  private SpecialCharmBuilder findBuilder(SpecialCharmTemplate dto) {
     for (SpecialCharmBuilder builder : builders) {
       if (builder.supports(dto)) {
         return builder;

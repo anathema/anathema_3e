@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.magic.parser.charms.special.repurchase;
 
+import net.sf.anathema.charm.parser.template.special.Requirement;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.StaticRepurchase;
+import net.sf.anathema.charm.parser.template.special.TierRepurchase;
+import net.sf.anathema.charm.parser.template.special.TraitRepurchase;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.RepurchaseDto;
-import net.sf.anathema.hero.magic.parser.dto.special.RequirementDto;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.StaticRepurchaseDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TierDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TierRepurchaseDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TraitRepurchaseDto;
+import net.sf.anathema.charm.parser.template.special.Repurchase;
+import net.sf.anathema.charm.parser.template.special.Tier;
 import net.sf.anathema.hero.traits.model.SystemConstants;
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
@@ -22,13 +22,13 @@ public class RepurchaseParser implements SpecialCharmParser {
   private static final String ATTRIB_LIMIT = "limit";
 
   @Override
-  public void parse(Element charmElement, SpecialCharmDto overallDto) {
+  public void parse(Element charmElement, SpecialCharmTemplate overallDto) {
     Element repurchasesElement = charmElement.element(TAG_REPURCHASES);
     overallDto.repurchase = createRepurchaseDto(repurchasesElement);
   }
 
-  private RepurchaseDto createRepurchaseDto(Element repurchasesElement) {
-    RepurchaseDto dto = new RepurchaseDto();
+  private Repurchase createRepurchaseDto(Element repurchasesElement) {
+    Repurchase dto = new Repurchase();
     parseTraitRepurchase(dto, repurchasesElement);
     if (dto.traitRepurchase != null) {
       return dto;
@@ -41,10 +41,10 @@ public class RepurchaseParser implements SpecialCharmParser {
     return dto;
   }
 
-  private void parseTraitRepurchase(RepurchaseDto dto, Element repurchasesElement) {
+  private void parseTraitRepurchase(Repurchase dto, Element repurchasesElement) {
     String limitingTraitString = repurchasesElement.attributeValue(ATTRIB_LIMITING_TRAIT);
     if (limitingTraitString != null) {
-      TraitRepurchaseDto traitRepurchase = new TraitRepurchaseDto();
+      TraitRepurchase traitRepurchase = new TraitRepurchase();
       traitRepurchase.limitingTrait = limitingTraitString;
       traitRepurchase.modifier = parseModifier(repurchasesElement);
       traitRepurchase.absoluteMax = parseAbsoluteMaximum(repurchasesElement, traitRepurchase.modifier);
@@ -52,38 +52,38 @@ public class RepurchaseParser implements SpecialCharmParser {
     }
   }
 
-  private void parseStaticRepurchase(RepurchaseDto dto, Element repurchasesElement) {
+  private void parseStaticRepurchase(Repurchase dto, Element repurchasesElement) {
     String limitString = repurchasesElement.attributeValue(ATTRIB_LIMIT);
     if (limitString != null) {
-      StaticRepurchaseDto staticRepurchase = new StaticRepurchaseDto();
+      StaticRepurchase staticRepurchase = new StaticRepurchase();
       staticRepurchase.limit = Integer.parseInt(limitString);
       dto.staticRepurchase = staticRepurchase;
     }
   }
 
-  private void parseTierRepurchaseDto(RepurchaseDto dto, Element repurchasesElement) {
-    TierRepurchaseDto repurchaseDto = new TierRepurchaseDto();
+  private void parseTierRepurchaseDto(Repurchase dto, Element repurchasesElement) {
+    TierRepurchase repurchaseDto = new TierRepurchase();
     String trait = repurchasesElement.attributeValue(ATTRIB_TRAIT);
     for (Element repurchaseElement : ElementUtilities.elements(repurchasesElement, TAG_REPURCHASE)) {
-      TierDto tierDto = parseTierDto(trait, repurchaseElement);
-      repurchaseDto.tiers.add(tierDto);
+      Tier tier = parseTierDto(trait, repurchaseElement);
+      repurchaseDto.tiers.add(tier);
     }
     dto.tierRepurchase = repurchaseDto;
   }
 
-  private TierDto parseTierDto(String traitString, Element repurchase) {
-    TierDto tierDto = new TierDto();
+  private Tier parseTierDto(String traitString, Element repurchase) {
+    Tier tier = new Tier();
     int essence = ElementUtilities.getRequiredIntAttrib(repurchase, ATTRIB_ESSENCE);
-    tierDto.requirements.add(createRequirementDto("Essence", essence));
+    tier.requirements.add(createRequirementDto("Essence", essence));
     if (traitString != null) {
       int traitValue = ElementUtilities.getRequiredIntAttrib(repurchase, ATTRIB_TRAIT);
-      tierDto.requirements.add(createRequirementDto(traitString, traitValue));
+      tier.requirements.add(createRequirementDto(traitString, traitValue));
     }
-    return tierDto;
+    return tier;
   }
 
-  private RequirementDto createRequirementDto(String traitType, int traitValue) {
-    RequirementDto dto = new RequirementDto();
+  private Requirement createRequirementDto(String traitType, int traitValue) {
+    Requirement dto = new Requirement();
     dto.traitType = traitType;
     dto.traitValue = traitValue;
     return dto;

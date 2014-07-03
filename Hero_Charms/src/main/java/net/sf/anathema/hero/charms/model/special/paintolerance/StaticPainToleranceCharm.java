@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model.special.paintolerance;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.magic.parser.dto.special.PainToleranceDto;
+import net.sf.anathema.charm.parser.template.special.PainTolerance;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
 
@@ -13,7 +13,7 @@ public class StaticPainToleranceCharm extends StaticMultiLearnableCharm implemen
 
   private final List<Integer> painToleranceLevels;
 
-  public StaticPainToleranceCharm(CharmName charmId, PainToleranceDto dto) {
+  public StaticPainToleranceCharm(CharmName charmId, PainTolerance dto) {
     super(charmId, dto.learnCount);
     Preconditions.checkArgument(dto.learnCount == dto.levels.size(), "Number of pain tolerance levels must equal learn count.");
     this.painToleranceLevels = new ArrayList<>(dto.levels);

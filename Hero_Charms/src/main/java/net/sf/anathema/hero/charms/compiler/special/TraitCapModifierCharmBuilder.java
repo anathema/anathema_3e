@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.TraitCapModifier;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TraitCapModifierDto;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.traitcap.TraitCapModifyingCharm;
 
@@ -13,13 +13,13 @@ public class TraitCapModifierCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
-    TraitCapModifierDto dto = overallDto.traitCapModifier;
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+    TraitCapModifier dto = overallDto.traitCapModifier;
     return new TraitCapModifyingCharm(new CharmName(overallDto.charmId), traitTypeFinder.getTrait(dto.trait), dto.modifier);
   }
 
   @Override
-  public boolean supports(SpecialCharmDto overallDto) {
+  public boolean supports(SpecialCharmTemplate overallDto) {
     return overallDto.traitCapModifier != null;
   }
 }

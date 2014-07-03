@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.parser.charms.special.traitcap;
 
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.TraitCapModifier;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TraitCapModifierDto;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -13,13 +13,13 @@ public class TraitCapModifierParser implements SpecialCharmParser {
   private static final String ATTRIB_TRAIT = "trait";
 
   @Override
-  public void parse(Element charmElement, SpecialCharmDto overallDto) {
+  public void parse(Element charmElement, SpecialCharmTemplate overallDto) {
     Element traitCapElement = charmElement.element(TAG_TRAIT_CAP_MODIFIER);
     overallDto.traitCapModifier = createCapModifierDto(traitCapElement, overallDto);
   }
 
-  private TraitCapModifierDto createCapModifierDto(Element element, SpecialCharmDto overallDto) {
-    TraitCapModifierDto dto = new TraitCapModifierDto();
+  private TraitCapModifier createCapModifierDto(Element element, SpecialCharmTemplate overallDto) {
+    TraitCapModifier dto = new TraitCapModifier();
     dto.trait = readTraitString(overallDto.charmId, element);
     dto.modifier = Integer.parseInt(element.attributeValue(ATTRIB_MODIFIER));
     return dto;

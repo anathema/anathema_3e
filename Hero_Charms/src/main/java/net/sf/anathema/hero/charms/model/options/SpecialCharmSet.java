@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.compiler.dom;
+package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 

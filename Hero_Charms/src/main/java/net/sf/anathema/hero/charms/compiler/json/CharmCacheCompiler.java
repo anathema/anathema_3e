@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
 import net.sf.anathema.charm.parser.template.CharmListTemplate;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
-import net.sf.anathema.hero.template.ConfigurableTemplateLoader;
+import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.lib.exception.AnathemaException;
@@ -22,14 +24,18 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = "(.+?)\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  private final TemplateLoader<CharmListTemplate> charmsLoader = new ConfigurableTemplateLoader<>(CharmListTemplate.class);
+  private final TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(
+    CharmListTemplate.class);
+  private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(
+    SpecialCharmListTemplate.class);
+  private final ObjectFactory objectFactory;
 
   @SuppressWarnings("UnusedParameters")
   public CharmCacheCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
-    // nothing to do
+    this.objectFactory = objectFactory;
   }
 
-    @Override
+  @Override
   public String getName() {
     return "Charms";
   }
@@ -46,20 +52,22 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
-    CharmCacheBuilder factory = new CharmCacheBuilder();
+    CharmCacheBuilder charmsBuilder = new CharmCacheBuilder();
+    SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
     resourceFiles.stream().forEach(resourceFile -> {
-      CharmListTemplate template = loadTemplate(resourceFile);
-      factory.addTemplate(template);
+      charmsBuilder.addTemplate(loadTemplate(resourceFile, charmsLoader));
+      specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader));
     });
-    return factory.createCache();
-    //return null;
+    CharmCacheImpl charmCache = charmsBuilder.createCache();
+    specialBuilder.addToCache(charmCache);
+    return charmCache;
   }
 
-  private CharmListTemplate loadTemplate(ResourceFile resource) {
+  private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
     InputStream inputStream = null;
     try {
       inputStream = resource.getURL().openStream();
-      return charmsLoader.load(inputStream);
+      return loader.load(inputStream);
     } catch (IOException e) {
       throw new AnathemaException(e);
     } finally {

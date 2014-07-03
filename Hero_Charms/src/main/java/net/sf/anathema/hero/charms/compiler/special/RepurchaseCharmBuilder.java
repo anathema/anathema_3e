@@ -1,6 +1,10 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.parser.template.special.Requirement;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.TierRepurchase;
+import net.sf.anathema.charm.parser.template.special.TraitRepurchase;
 import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -9,12 +13,8 @@ import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnable
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.hero.magic.parser.dto.special.RepurchaseDto;
-import net.sf.anathema.hero.magic.parser.dto.special.RequirementDto;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TierDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TierRepurchaseDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TraitRepurchaseDto;
+import net.sf.anathema.charm.parser.template.special.Repurchase;
+import net.sf.anathema.charm.parser.template.special.Tier;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.ValuedTraitType;
 
@@ -27,40 +27,40 @@ public class RepurchaseCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmDto overallDto) {
-    RepurchaseDto repurchaseDto = overallDto.repurchase;
-    if (repurchaseDto.isEssenceRepurchase) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+    Repurchase repurchase = overallDto.repurchase;
+    if (repurchase.isEssenceRepurchase) {
       return new EssenceFixedMultiLearnableCharm(new CharmName(overallDto.charmId));
     }
     CharmName charmName = new CharmName(overallDto.charmId);
-    if (repurchaseDto.traitRepurchase != null) {
-      return createTraitMultiLearnable(charmName, repurchaseDto.traitRepurchase);
+    if (repurchase.traitRepurchase != null) {
+      return createTraitMultiLearnable(charmName, repurchase.traitRepurchase);
     }
-    if (repurchaseDto.staticRepurchase != null) {
-      return new StaticMultiLearnableCharm(charmName, repurchaseDto.staticRepurchase.limit);
+    if (repurchase.staticRepurchase != null) {
+      return new StaticMultiLearnableCharm(charmName, repurchase.staticRepurchase.limit);
     }
-    return createTierMultiLearnable(charmName, repurchaseDto);
+    return createTierMultiLearnable(charmName, repurchase);
   }
 
-  private ISpecialCharm createTierMultiLearnable(CharmName id, RepurchaseDto repurchaseDto) {
-    TierRepurchaseDto dto = repurchaseDto.tierRepurchase;
+  private ISpecialCharm createTierMultiLearnable(CharmName id, Repurchase repurchase) {
+    TierRepurchase dto = repurchase.tierRepurchase;
     List<CharmTier> tiers = new ArrayList<>();
-    for (TierDto tierDto : dto.tiers) {
-      tiers.add(createTier(tierDto));
+    for (Tier tier : dto.tiers) {
+      tiers.add(createTier(tier));
     }
     return new TieredMultiLearnableCharm(id, tiers.toArray(new CharmTier[tiers.size()]));
   }
 
-  private CharmTier createTier(TierDto dto) {
+  private CharmTier createTier(Tier dto) {
     TraitCharmTier traitCharmTier = new TraitCharmTier();
-    for (RequirementDto requirement : dto.requirements) {
+    for (Requirement requirement : dto.requirements) {
       TraitType traitType = traitTypeFinder.getTrait(requirement.traitType);
       traitCharmTier.addRequirement(new ValuedTraitType(traitType, requirement.traitValue));
     }
     return traitCharmTier;
   }
 
-  private ISpecialCharm createTraitMultiLearnable(CharmName id, TraitRepurchaseDto dto) {
+  private ISpecialCharm createTraitMultiLearnable(CharmName id, TraitRepurchase dto) {
     TraitType trait = traitTypeFinder.getTrait(dto.limitingTrait);
     int modifier = dto.modifier;
     int absoluteMax = dto.absoluteMax;
@@ -68,7 +68,7 @@ public class RepurchaseCharmBuilder implements SpecialCharmBuilder {
   }
 
   @Override
-  public boolean supports(SpecialCharmDto overallDto) {
+  public boolean supports(SpecialCharmTemplate overallDto) {
     return overallDto.repurchase != null;
   }
 }

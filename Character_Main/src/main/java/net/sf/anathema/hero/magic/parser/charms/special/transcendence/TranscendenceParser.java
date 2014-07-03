@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.parser.charms.special.transcendence;
 
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.Transcendence;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.TranscendenceDto;
 import org.dom4j.Element;
 
 @SuppressWarnings("UnusedDeclaration")
@@ -11,13 +11,13 @@ public class TranscendenceParser implements SpecialCharmParser {
   private static final String TAG_TRANSCENDENCE = "transcendence";
 
   @Override
-  public void parse(Element charmElement, SpecialCharmDto overallDto) {
+  public void parse(Element charmElement, SpecialCharmTemplate overallDto) {
     Element transcendenceElement = charmElement.element(TAG_TRANSCENDENCE);
     overallDto.transcendence = createTranscendenceDto(transcendenceElement, overallDto);
   }
 
-  private TranscendenceDto createTranscendenceDto(Element transcendenceElement, SpecialCharmDto overallDto) {
-    TranscendenceDto dto = new TranscendenceDto();
+  private Transcendence createTranscendenceDto(Element transcendenceElement, SpecialCharmTemplate overallDto) {
+    Transcendence dto = new Transcendence();
     dto.trait = getGenericTraitType(overallDto.charmId);
     dto.modifier = Integer.parseInt(transcendenceElement.attributeValue(ATTRIB_MODIFIER));
     return dto;

@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
 import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.magic.source.SourceBook;
@@ -20,7 +21,6 @@ import net.sf.anathema.hero.magic.parser.charms.prerequisite.ICharmPrerequisiteB
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.ITraitPrerequisitesBuilder;
 import net.sf.anathema.hero.magic.parser.charms.prerequisite.PrerequisiteListBuilder;
 import net.sf.anathema.hero.magic.parser.charms.special.ReflectionSpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.exception.PersistenceException;
 import org.dom4j.Element;
@@ -57,7 +57,7 @@ public class CharmParserImpl implements CharmParser {
   }
 
   @Override
-  public CharmImpl buildCharm(Element charmElement, List<SpecialCharmDto> specialCharms) throws PersistenceException {
+  public CharmImpl buildCharm(Element charmElement, List<SpecialCharmTemplate> specialCharms) throws PersistenceException {
     String id = idBuilder.build(charmElement);
     try {
       String characterType = getCharacterType(charmElement);
@@ -81,7 +81,7 @@ public class CharmParserImpl implements CharmParser {
         charm.addMagicAttribute(attribute);
       }
 
-      SpecialCharmDto dto = specialCharmParser.readCharmDto(charmElement, id);
+      SpecialCharmTemplate dto = specialCharmParser.readCharmDto(charmElement, id);
       if (dto.isSpecial()) {
         specialCharms.add(dto);
       }

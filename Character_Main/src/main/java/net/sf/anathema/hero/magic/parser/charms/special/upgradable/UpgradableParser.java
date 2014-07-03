@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.parser.charms.special.upgradable;
 
+import net.sf.anathema.charm.parser.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.parser.template.special.Upgradable;
 import net.sf.anathema.hero.magic.parser.charms.special.SpecialCharmParser;
-import net.sf.anathema.hero.magic.parser.dto.special.SpecialCharmDto;
-import net.sf.anathema.hero.magic.parser.dto.special.UpgradableDto;
 import net.sf.anathema.charm.parser.util.ElementUtilities;
 import org.dom4j.Element;
 
@@ -17,13 +17,13 @@ public class UpgradableParser implements SpecialCharmParser {
   private static final String ATTRIB_TRAIT_VALUE = "traitValue";
 
   @Override
-  public void parse(Element charmElement, SpecialCharmDto overallDto) {
+  public void parse(Element charmElement, SpecialCharmTemplate overallDto) {
     Element transcendenceElement = charmElement.element(TAG_UPGRADABLE);
     overallDto.upgradable = createUpgradableDto(transcendenceElement, overallDto);
   }
 
-  private UpgradableDto createUpgradableDto(Element upgradableElement, SpecialCharmDto overallDto) {
-    UpgradableDto dto = new UpgradableDto();
+  private Upgradable createUpgradableDto(Element upgradableElement, SpecialCharmTemplate overallDto) {
+    Upgradable dto = new Upgradable();
     dto.requiresBase = ElementUtilities.getBooleanAttribute(upgradableElement, ATTRIB_REQUIRES_BASE, true);
     for (Object upgradeObj : upgradableElement.elements(TAG_UPGRADE)) {
       Element upgrade = (Element) upgradeObj;
