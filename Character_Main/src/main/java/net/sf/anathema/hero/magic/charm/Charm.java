@@ -40,6 +40,4 @@ public interface Charm extends Magic {
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
 
   Set<Charm> getPrerequisiteCharms(ICharmLearnArbitrator learnArbitrator);
-
-  <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz);
 }

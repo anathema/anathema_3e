@@ -105,18 +105,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   public List<CharmPrerequisite> getCharmPrerequisites() {
   	return learnPrerequisites;
   }
-  
-
-  @Override
-  public <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
-	  List<T> matches = new ArrayList<>();
-	  for (CharmPrerequisite prerequisite : learnPrerequisites) {
-		  if (clazz.isInstance(prerequisite)) {
-			  matches.add((T) prerequisite);
-		  }
-	  }
-	  return matches;
-  }
 
   @Override
   public ValuedTraitType[] getPrerequisites() {

@@ -199,9 +199,7 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
     return getPrerequisites().length == 0 ? OtherTraitType.Essence : getPrerequisites()[0].getType();
   }
 
-  @SuppressWarnings("unchecked")
-  @Override
-  public <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
+  private <T extends CharmPrerequisite> List<T> getPrerequisitesOfType(Class<T> clazz) {
     List<T> matches = new ArrayList<>();
     for (CharmPrerequisite prerequisite : prerequisites) {
       if (clazz.isInstance(prerequisite)) {
