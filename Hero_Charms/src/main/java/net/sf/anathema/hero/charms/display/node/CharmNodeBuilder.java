@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import static net.sf.anathema.graph.nodes.NodeFactory.createChildlessNode;
-import static net.sf.anathema.hero.magic.charm.prerequisite.ProcessProcessor.acceptVisitor;
+import static net.sf.anathema.hero.magic.charm.prerequisite.ProcessProcessor.process;
 
 // todo (sandra) entstatifizieren
 public class CharmNodeBuilder {
@@ -21,7 +21,7 @@ public class CharmNodeBuilder {
       charmNodesById.put(charm.getName().text, node);
     }
     for (Charm charm : groupCharms) {
-      charm.forEachCharmPrerequisite(acceptVisitor(new PrerequisiteProcessor() {
+      charm.forEachCharmPrerequisite(process(new PrerequisiteProcessor() {
         @Override
         public void requiresMagicAttributes(MagicAttribute attribute, int count) {
           String nodeIds = NodeIds.getNodeId(attribute, count);
@@ -36,9 +36,9 @@ public class CharmNodeBuilder {
 
         @Override
         public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
-           for(Charm prerequisite : prerequisites) {
-             handleDirectParent(groupCharms, charmNodesById, prerequisite);
-           }
+          for (Charm prerequisite : prerequisites) {
+            handleDirectParent(groupCharms, charmNodesById, prerequisite);
+          }
         }
       }));
     }

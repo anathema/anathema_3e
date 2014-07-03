@@ -9,7 +9,6 @@ import net.sf.anathema.charm.old.cost.CostListImpl;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.charm.Charm;
 import net.sf.anathema.hero.magic.charm.CharmImpl;
-import net.sf.anathema.hero.magic.charm.CharmLearnArbitrator;
 import net.sf.anathema.hero.magic.charm.CharmParent;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
 import net.sf.anathema.hero.magic.charm.duration.SimpleDuration;
@@ -25,10 +24,7 @@ import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
@@ -42,7 +38,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   private Duration duration;
   private ValuedTraitType[] prerequisites;
   private List<CharmPrerequisite> learnPrerequisites = new ArrayList<>();
-  private Set<Charm> parentCharms;
   public List<MagicAttribute> attributes = new ArrayList<>();
   private CharmType charmType;
   public TreeReference treeReference = new TreeReference(new CategoryReference("AnyCategory"), new TreeName("AnyTree"));
@@ -61,10 +56,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
 
   public DummyCharm(String id, Charm[] parents, ValuedTraitType[] prerequisites) {
     super(id);
-    this.parentCharms = new LinkedHashSet<>();
-    Collections.addAll(parentCharms, parents);
     for (Charm charm : parents) {
-    	learnPrerequisites.add(new SimpleCharmPrerequisite(charm));
+      learnPrerequisites.add(new SimpleCharmPrerequisite(charm));
     }
     this.prerequisites = prerequisites;
   }
@@ -97,13 +90,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent {
   }
 
   @Override
-  public Set<Charm> getPrerequisiteCharms(CharmLearnArbitrator learnArbitrator) {
-    return parentCharms;
-  }
-
-  @Override
   public List<CharmPrerequisite> getCharmPrerequisites() {
-  	return learnPrerequisites;
+    return learnPrerequisites;
   }
 
   @Override

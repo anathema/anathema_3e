@@ -61,12 +61,12 @@ import java.util.List;
 import java.util.Map;
 
 import static java.text.MessageFormat.format;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isFormMagic;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.isMartialArts;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 
 public class CharmsModelImpl implements CharmsModel {
 
@@ -328,18 +328,6 @@ public class CharmsModelImpl implements CharmsModel {
       this.prerequisiteModifyingCharms = new PrerequisiteModifyingCharms(options.getSpecialCharms());
     }
     return prerequisiteModifyingCharms;
-  }
-
-  private boolean isLearnableWithoutPrerequisites(Charm charm) {
-    if (!isLearnable(charm)) {
-      return false;
-    }
-    for (Charm parentCharm : charm.getPrerequisiteCharms(this)) {
-      if (!isLearned(parentCharm)) {
-        return false;
-      }
-    }
-    return true;
   }
 
   @Override

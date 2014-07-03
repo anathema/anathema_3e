@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static net.sf.anathema.hero.magic.charm.prerequisite.CollectPrerequisiteCharms.collectPrerequisiteCharms;
+
 public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private final Set<Charm> charmsLearnedOnCreation = new HashSet<>();
@@ -108,7 +110,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   }
 
   private void learnParents(Charm charm, boolean experienced) {
-    for (Charm parent : charm.getPrerequisiteCharms(learnArbitrator)) {
+    for (Charm parent : collectPrerequisiteCharms(charm, learnArbitrator)) {
       LearningCharmTree parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
       if (!parentGroup.isLearned(parent)) {
         parentGroup.learnCharm(parent, experienced);

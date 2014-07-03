@@ -10,7 +10,6 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.List;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public interface Charm extends Magic {
@@ -36,6 +35,4 @@ public interface Charm extends Magic {
   void forEachChild(Consumer<Charm> consumer);
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
-
-  Set<Charm> getPrerequisiteCharms(CharmLearnArbitrator learnArbitrator);
 }

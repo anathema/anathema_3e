@@ -12,6 +12,8 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+import static net.sf.anathema.hero.magic.charm.prerequisite.CollectPrerequisiteCharms.collectPrerequisiteCharms;
+
 public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
 
   private final int threshold;
@@ -57,7 +59,7 @@ public class DirectGroupCharmPrerequisite implements DirectCharmPrerequisite {
     Set<Charm> prerequisiteCharms = new LinkedHashSet<>();
     List<Charm> charmsToLearn = selectCharmsToLearn(learnArbitrator);
     for (Charm learnCharm : charmsToLearn) {
-      prerequisiteCharms.addAll(learnCharm.getPrerequisiteCharms(learnArbitrator));
+      prerequisiteCharms.addAll(collectPrerequisiteCharms(learnCharm, learnArbitrator));
       prerequisiteCharms.add(learnCharm);
     }
     return prerequisiteCharms.toArray(new Charm[prerequisiteCharms.size()]);

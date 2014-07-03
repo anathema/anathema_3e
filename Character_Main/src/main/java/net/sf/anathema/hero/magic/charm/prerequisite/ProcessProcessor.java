@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 public class ProcessProcessor implements Consumer<CharmPrerequisite> {
 
-  public static ProcessProcessor acceptVisitor(PrerequisiteProcessor visitor) {
+  public static ProcessProcessor process(PrerequisiteProcessor visitor) {
     return new ProcessProcessor(visitor);
   }
 
