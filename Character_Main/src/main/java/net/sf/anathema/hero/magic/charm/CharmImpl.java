@@ -3,22 +3,16 @@ package net.sf.anathema.hero.magic.charm;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
 import net.sf.anathema.charm.old.source.SourceBook;
 import net.sf.anathema.hero.magic.basic.AbstractMagic;
 import net.sf.anathema.hero.magic.charm.duration.Duration;
-import net.sf.anathema.hero.magic.charm.prerequisite.CharmPrerequisite;
-import net.sf.anathema.hero.magic.charm.prerequisite.PrerequisiteProcessor;
-import net.sf.anathema.hero.magic.charm.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.hero.magic.charm.type.CharmType;
 import net.sf.anathema.hero.magic.parser.charms.CharmPrerequisiteList;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
-
-import static net.sf.anathema.hero.magic.charm.prerequisite.ProcessProcessor.process;
 
 public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
 
@@ -98,11 +92,5 @@ public class CharmImpl extends AbstractMagic implements Charm, CharmParent {
   @Override
   public PrerequisiteList getPrerequisites() {
     return prerequisiteList;
-  }
-
-  public void addParentCharms(Charm... parent) {
-    for (Charm charm : parent) {
-      prerequisiteList.getCharmPrerequisites().add(new SimpleCharmPrerequisite(charm));
-    }
   }
 }
