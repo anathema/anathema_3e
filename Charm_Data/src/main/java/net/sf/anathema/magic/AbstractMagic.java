@@ -1,7 +1,7 @@
 package net.sf.anathema.magic;
 
-import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.magic.attribute.MagicAttribute;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +20,7 @@ public abstract class AbstractMagic implements Magic {
 
   @Override
   public boolean hasAttribute(Identifier attribute) {
-    return magicAttributes.contains(attribute);
-  }
-
-  @Override
-  public String getAttributeValue(Identifier attribute) {
-    int index = magicAttributes.indexOf(attribute);
-    if (index < 0) {
-      return null;
-    }
-    return magicAttributes.get(index).getValue();
+    return magicAttributes.stream().anyMatch(identifier -> identifier.getId().equals(attribute.getId()));
   }
 
   @Override

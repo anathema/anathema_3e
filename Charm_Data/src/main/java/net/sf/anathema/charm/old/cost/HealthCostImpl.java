@@ -17,18 +17,4 @@ public class HealthCostImpl extends CostImpl implements HealthCost {
   public HealthCostType getType() {
     return type;
   }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (!(obj instanceof HealthCostImpl)) {
-      return false;
-    }
-    HealthCostImpl other = (HealthCostImpl) obj;
-    return super.equals(other) && other.type == this.type;
-  }
-
-  @Override
-  public int hashCode() {
-    return super.hashCode() + type.hashCode();
-  }
 }

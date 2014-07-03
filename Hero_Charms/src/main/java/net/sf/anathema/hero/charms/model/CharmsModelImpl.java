@@ -129,7 +129,6 @@ public class CharmsModelImpl implements CharmsModel {
     if (poolModel == null) {
       return;
     }
-    poolModel.addOverdrivePool(new CharmOverdrivePool(this, experience));
   }
 
   @Override

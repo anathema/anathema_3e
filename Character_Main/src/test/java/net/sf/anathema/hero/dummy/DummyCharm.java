@@ -132,11 +132,6 @@ public class DummyCharm extends SimpleIdentifier implements Charm, CharmParent, 
   }
 
   @Override
-  public String getAttributeValue(Identifier attribute) {
-    return null;
-  }
-
-  @Override
   public String toString() {
     return getId();
   }

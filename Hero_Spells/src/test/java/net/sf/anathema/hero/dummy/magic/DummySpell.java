@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.dummy.magic;
 
 import net.sf.anathema.charm.data.reference.SpellName;
-import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.charm.old.cost.CostList;
-import net.sf.anathema.magic.source.SourceBook;
 import net.sf.anathema.hero.magic.spells.CircleType;
 import net.sf.anathema.hero.magic.spells.Spell;
 import net.sf.anathema.lib.exception.NotYetImplementedException;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.magic.attribute.MagicAttribute;
+import net.sf.anathema.magic.source.SourceBook;
 
 public class DummySpell implements Spell {
 
@@ -42,11 +42,6 @@ public class DummySpell implements Spell {
   @Override
   public boolean hasAttribute(Identifier attribute) {
     return false;
-  }
-
-  @Override
-  public String getAttributeValue(Identifier attribute) {
-    return null;
   }
 
   @Override

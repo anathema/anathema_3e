@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.compiler;
+package net.sf.anathema.hero.charms.compiler.dom;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.framework.environment.ObjectFactory;
@@ -26,7 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @ExtensibleDataSetCompiler
-public class CharmCompiler implements IExtensibleDataSetCompiler {
+public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   private static final String Charm_File_Recognition_Pattern = "Charms.*\\.xml";
   //matches stuff like data/charms/solar/Charms_Solar_SecondEdition_Occult.xml
   //the pattern is data/charms/REST_OF_PATH/Charms_TYPE_EDITION_ANYTHING.xml
@@ -37,7 +37,7 @@ public class CharmCompiler implements IExtensibleDataSetCompiler {
   private final UnlinkedCharms charmCollection = new UnlinkedCharms();
   private final ReflectionSpecialCharmBuilder specialCharmBuilder;
 
-  public CharmCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
+  public CharmCacheCompiler(ObjectFactory objectFactory, IExtensibleDataSetProvider provider) {
     this.specialCharmBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
     ReflectionSpecialCharmParser specialCharmParser = new ReflectionSpecialCharmParser(objectFactory);
     CharacterTypes characterTypes = provider.getDataSet(CharacterTypes.class);

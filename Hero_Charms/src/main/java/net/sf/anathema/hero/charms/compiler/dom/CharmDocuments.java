@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.compiler;
+package net.sf.anathema.hero.charms.compiler.dom;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import org.dom4j.Document;

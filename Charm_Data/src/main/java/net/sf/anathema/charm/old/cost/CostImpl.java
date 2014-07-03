@@ -1,6 +1,8 @@
 package net.sf.anathema.charm.old.cost;
 
-public class CostImpl implements Cost {
+import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+
+public class CostImpl extends ReflectionEqualsObject implements Cost {
 
   public static final Cost NULL_COST = new CostImpl("0", "", false);
   private final String text;
@@ -29,16 +31,9 @@ public class CostImpl implements Cost {
   }
 
   @Override
-  public boolean equals(Object obj) {
-    if (!(obj instanceof CostImpl)) {
-      return false;
-    }
-    CostImpl other = (CostImpl) obj;
-    return other.costString.equals(this.costString) && other.text.equals(this.text) && other.permanent == this.permanent;
-  }
-
-  @Override
-  public int hashCode() {
-    return text.hashCode() + 37 * costString.hashCode();
+  public String toString() {
+    String textRepresentation = text == null ? "" : " " + text;
+    String durationRepresentation = permanent ? " permanent" : " temporary";
+    return costString + textRepresentation + durationRepresentation;
   }
 }
