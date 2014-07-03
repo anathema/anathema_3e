@@ -12,6 +12,7 @@ import net.sf.anathema.framework.view.ApplicationFrame;
 import net.sf.anathema.framework.view.ViewFactory;
 import net.sf.anathema.framework.view.menu.MainMenuBar;
 import net.sf.anathema.framework.view.messaging.StatusBar;
+import net.sf.anathema.framework.view.status.PopInStatusBar;
 import net.sf.anathema.platform.tool.ImageContainer;
 import net.sf.anathema.platform.tool.LoadImage;
 import org.controlsfx.control.NotificationPane;
