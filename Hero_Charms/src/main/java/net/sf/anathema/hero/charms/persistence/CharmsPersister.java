@@ -7,7 +7,6 @@ import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
@@ -15,6 +14,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.sf.anathema.lib.message.MessageDuration.Permanent;
+import static net.sf.anathema.lib.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
 public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, CharmsModel> {
@@ -45,7 +47,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
     } catch (IllegalArgumentException e) {
-      messaging.addMessage("CharmPersistence.NoCharmFound", MessageType.WARNING, charmPto.charm);
+      messaging.addMessage(Error, Permanent, "CharmPersistence.NoCharmFound", charmPto.charm);
     }
   }
 
@@ -88,12 +90,8 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
   private List<Charm> getSortedCharmList(CharmsModel model) {
     List<Charm> charms = new ArrayList<>();
     for (LearningCharmTree group : model.getAllGroups()) {
-      for (Charm charm : group.getCreationLearnedCharms()) {
-        charms.add(charm);
-      }
-      for (Charm charm : group.getExperienceLearnedCharms()) {
-        charms.add(charm);
-      }
+      Collections.addAll(charms, group.getCreationLearnedCharms());
+      Collections.addAll(charms, group.getExperienceLearnedCharms());
     }
     Collections.sort(charms, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     return charms;

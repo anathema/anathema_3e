@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.framework.persistence;
 
+import net.sf.anathema.framework.messaging.MessageToken;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
@@ -15,9 +16,10 @@ import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+
+import static net.sf.anathema.lib.message.MessageType.Information;
 
 public class HeroItemPersister implements RepositoryItemPersister {
 
@@ -40,10 +42,10 @@ public class HeroItemPersister implements RepositoryItemPersister {
   public void save(RepositoryWriteAccess writeAccess, Item item) throws PersistenceException {
     Hero hero = (Hero) item.getItemData();
     String name = new HeroNameFetcher().getName(hero);
-    messaging.addMessage("CharacterPersistence.SavingCharacter", MessageType.INFORMATION, name);
+    MessageToken token = messaging.addMessage(Information, "CharacterPersistence.SavingCharacter", name);
     saveModels(writeAccess, hero);
     new HeroMainFilePersister().save(writeAccess, item);
-    messaging.addMessage("CharacterPersistence.SavingCharacterDone", MessageType.INFORMATION, name);
+    token.replaceMessage(Information, "CharacterPersistence.SavingCharacterDone", name);
   }
 
   @Override

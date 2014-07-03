@@ -12,14 +12,14 @@ public class MessageTypeImagePaths {
 
   public RelativePath getIconPath(MessageType type) {
     switch (type) {
-      case ERROR:
+      case Error:
         return errorPath;
-      case WARNING:
+      case Warning:
         return warningPath;
-      case QUESTION:
+      case Question:
         return questionPath;
-      case NORMAL:
-      case INFORMATION:
+      case Normal:
+      case Information:
       default:
         return infoPath;
     }

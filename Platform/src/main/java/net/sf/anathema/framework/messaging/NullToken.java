@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.messaging;
 
 import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.lib.message.MessageType;
 
 public class NullToken implements MessageToken {
   private Messaging messaging;
@@ -12,5 +13,10 @@ public class NullToken implements MessageToken {
   @Override
   public void replaceMessage(Message message) {
     messaging.addMessage(message);
+  }
+
+  @Override
+  public void replaceMessage(MessageType type, String pattern, String... arguments) {
+    messaging.addMessage(type, pattern, arguments);
   }
 }

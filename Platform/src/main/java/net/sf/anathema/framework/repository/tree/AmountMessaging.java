@@ -2,7 +2,8 @@ package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.lib.message.MessageType;
+
+import static net.sf.anathema.lib.message.MessageType.Information;
 
 public class AmountMessaging {
 
@@ -24,6 +25,6 @@ public class AmountMessaging {
     else {
       itemString = multiItem;
     }
-    messaging.addMessage(messagePattern, MessageType.INFORMATION, amount, itemString);
+    messaging.addMessage(Information, messagePattern, amount, itemString);
   }
 }
