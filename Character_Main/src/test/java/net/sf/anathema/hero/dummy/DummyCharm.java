@@ -19,6 +19,7 @@ import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.magic.source.SourceBook;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -80,18 +81,13 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   @Override
-  public ValuedTraitType getEssence() {
-    return null;
-  }
-
-  @Override
   public List<CharmPrerequisite> getCharmPrerequisites() {
     return learnPrerequisites;
   }
 
   @Override
-  public ValuedTraitType[] getTraitPrerequisites() {
-    return prerequisites;
+  public List<ValuedTraitType> getTraitPrerequisites() {
+    return Arrays.asList(prerequisites);
   }
 
   @Override

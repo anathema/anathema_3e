@@ -6,6 +6,8 @@ import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.framework.environment.Resources;
 
+import java.util.List;
+
 public class CharmPrerequisitesContributor implements MagicTooltipContributor {
   private final Resources resources;
 
@@ -18,11 +20,10 @@ public class CharmPrerequisitesContributor implements MagicTooltipContributor {
     if (magic instanceof Charm) {
       Charm charm = (Charm) magic;
       createPrerequisiteLines(tooltip, charm.getPrerequisites().getTraitPrerequisites());
-      createPrerequisiteLines(tooltip, charm.getPrerequisites().getEssence());
     }
   }
 
-  private void createPrerequisiteLines(ConfigurableTooltip tooltip, ValuedTraitType... prerequisites) {
+  private void createPrerequisiteLines(ConfigurableTooltip tooltip, List<ValuedTraitType> prerequisites) {
     for (ValuedTraitType prerequisite : prerequisites) {
       if (prerequisite.getCurrentValue() == 0) {
         continue;
