@@ -8,7 +8,7 @@ import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.magic.Magic;
 
-import static net.sf.anathema.charm.old.CharmAttributeList.FORM_ATTRIBUTE;
+import static net.sf.anathema.charm.data.CharmAttributeList.FORM_ATTRIBUTE;
 
 public class MartialArtsUtilities {
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static net.sf.anathema.charm.old.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
+import static net.sf.anathema.charm.data.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 import static net.sf.anathema.hero.magic.charm.martial.MartialArtsUtilities.getCategory;
 

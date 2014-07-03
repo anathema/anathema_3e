@@ -4,7 +4,7 @@ import com.google.common.base.Functions;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.charm.old.CharmAttributeList;
+import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.magic.attribute.MagicAttribute;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
