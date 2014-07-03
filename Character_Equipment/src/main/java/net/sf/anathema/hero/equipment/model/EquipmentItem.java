@@ -6,7 +6,6 @@ import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStat
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.InertBaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.ReactiveBaseMaterial;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
@@ -16,6 +15,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.lib.control.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
@@ -40,10 +40,10 @@ public class EquipmentItem implements IEquipmentItem {
   private String customTitle = null;
   private String customDescription = null;
 
-  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) throws MissingMaterialException{
+  public EquipmentItem(IEquipmentTemplate template, MagicalMaterial material, ItemAttunementEvaluator provider, ModifierFactory modifiers) {
     this.modifiers = modifiers;
     if (template.getComposition() == Variable && material == null) {
-      throw new MissingMaterialException("Variable material items must be created with material.");
+      material = MagicalMaterial.Orichalcum;
     }
     this.template = template;
     this.material = material != null ? material : template.getMaterial();
