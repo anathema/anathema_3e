@@ -74,6 +74,11 @@ public class CollectingMessaging implements Messaging, MessageContainer {
     return permanentMessage;
   }
 
+  @Override
+  public boolean hasMessages() {
+    return !messages.isEmpty();
+  }
+
   private class ReplacingToken implements MessageToken {
     private Message oldMessage;
 

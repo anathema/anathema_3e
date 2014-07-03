@@ -34,7 +34,9 @@ public class AnathemaPresenter {
   }
 
   private void showLatestMessage(MessageContainer messageContainer) {
-    view.getStatusBar().setLatestMessage(messageContainer.getLatestMessage());
+    if (messageContainer.hasMessages()) {
+      view.getStatusBar().setLatestMessage(messageContainer.getLatestMessage());
+    }
   }
 
   private void runBootJobs() throws InitializationException {
