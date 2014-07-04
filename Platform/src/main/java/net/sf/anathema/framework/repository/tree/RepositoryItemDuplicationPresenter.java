@@ -43,9 +43,9 @@ public class RepositoryItemDuplicationPresenter {
           String mainFilePath = model.getMainFilePath(type, id);
           RepositoryImportHandler handler = new RepositoryImportHandler(model, type, id);
           for (File file : readAccess.getFiles()) {
-            InputStream inputStream = readAccess.openInputStream(file);
-            handler.importStream(mainFilePath, inputStream, file.getPath());
-            inputStream.close();
+            try (InputStream inputStream = readAccess.openInputStream(file)) {
+              handler.importStream(mainFilePath, inputStream, file.getPath());
+            }
           }
           model.refreshItem(type, handler.getNewId());
           messaging.addTemporaryMessage(MessageType.Information, "AnathemaCore.Tools.RepositoryView.DuplicateDoneMessage");

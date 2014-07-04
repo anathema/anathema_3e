@@ -1,10 +1,9 @@
 package net.sf.anathema.framework.presenter.action.menu.help.updatecheck;
 
-import org.apache.commons.io.IOUtils;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Properties;
 
 public class PropertiesSaver {
@@ -20,12 +19,8 @@ public class PropertiesSaver {
   }
 
   private void saveConfigurationTo(File file, Properties properties) throws IOException {
-    FileOutputStream stream = null;
-    try {
-      stream = new FileOutputStream(file);
+    try (OutputStream stream = new FileOutputStream(file)) {
       properties.store(stream, "");
-    } finally {
-      IOUtils.closeQuietly(stream);
     }
   }
 }

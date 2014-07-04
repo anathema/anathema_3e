@@ -31,23 +31,23 @@ public class RepositoryImportHandler {
   }
 
   private void writeMainFileWithLegalId(InputStream inputStream) throws IOException {
-    InputStream modifiedInput = new ImportIdReplacer(oldId, newId).createStreamWithLegalId(inputStream);
-    writeMainFile(modifiedInput);
+    try (InputStream modifiedInput = new ImportIdReplacer(oldId, newId).createStreamWithLegalId(inputStream)) {
+      writeMainFile(modifiedInput);
+    }
   }
 
   private void writeMainFile(InputStream modifiedInput) throws IOException {
-    OutputStream outputStream = access.createMainOutputStream();
-    importStreamToRepository(modifiedInput, outputStream);
-    outputStream.close();
-    modifiedInput.close();
+    try (OutputStream outputStream = access.createMainOutputStream()) {
+      importStreamToRepository(modifiedInput, outputStream);
+    }
   }
 
   private void writeSubFile(InputStream inputStream, String entryName) throws IOException {
     String unextendedFileName = entryName.substring(entryName.lastIndexOf(File.separator) + 1,
             entryName.lastIndexOf("."));
-    OutputStream outputStream = access.createSubOutputStream(unextendedFileName);
-    importStreamToRepository(inputStream, outputStream);
-    outputStream.close();
+    try (OutputStream outputStream = access.createSubOutputStream(unextendedFileName)) {
+      importStreamToRepository(inputStream, outputStream);
+    }
   }
 
   private void importStreamToRepository(InputStream importStream, OutputStream repositoryStream) throws IOException {

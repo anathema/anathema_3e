@@ -52,7 +52,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   public ExtensibleDataSet build() {
     CharmCacheBuilder charmsBuilder = new CharmCacheBuilder();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
-    resourceFiles.stream().forEach(resourceFile -> {
+    resourceFiles.forEach(resourceFile -> {
       charmsBuilder.addTemplate(loadTemplate(resourceFile, charmsLoader));
       specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader));
     });
