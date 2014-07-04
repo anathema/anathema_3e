@@ -47,7 +47,7 @@ public class DescriptionPresenter {
 
   private void initNameLineView(TextualPresentation presentation) {
     initLineView("CharacterDescription.Label.Name", description.getName(), presentation);
-    Collection<NameEditAction> actions = environment.instantiateOrdered(RegisteredNameEditAction.class, (Resources) environment);
+    Collection<NameEditAction> actions = environment.getObjectFactory().instantiateOrdered(RegisteredNameEditAction.class, (Resources) environment);
     for (NameEditAction action : actions) {
       addEditTool(action);
     }

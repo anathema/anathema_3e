@@ -9,7 +9,7 @@ import net.sf.anathema.hero.application.persistence.HeroItemPersister;
 import net.sf.anathema.hero.application.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterPersistenceModel;
-import net.sf.anathema.hero.display.fx.perspective.CharacterSystemInitializer;
+import net.sf.anathema.hero.display.fx.perspective.HeroSystemInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
@@ -29,7 +29,7 @@ public class CharacterFactory {
   public void startAnathema() {
     TestInitializer initializer = TestInitializer.Create();
     this.model = initializer.initialize();
-    new CharacterSystemInitializer(model,initializer.getEnvironment()).initializeCharacterSystem();
+    new HeroSystemInitializer(model,initializer.getEnvironment()).initializeCharacterSystem();
     heroEnvironment = HeroEnvironmentExtractor.getGenerics(model);
     this.heroTypes = heroEnvironment.getHeroTypes();
   }

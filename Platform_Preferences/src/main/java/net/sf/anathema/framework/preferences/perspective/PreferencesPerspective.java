@@ -22,11 +22,11 @@ public class PreferencesPerspective implements Perspective {
 
   @Override
   public void initContent(Container container, ApplicationModel applicationModel, Environment environment, UiEnvironment uiEnvironment) {
-    PreferencesSystemView view = new PreferencesSystemView(environment);
+    PreferencesSystemView view = new PreferencesSystemView(environment.getObjectFactory());
     container.setContent(view.perspectivePane.getNode());
-    PreferencesModel model = new CollectingPreferencesModel(environment);
+    PreferencesModel model = new CollectingPreferencesModel(environment.getObjectFactory());
     PreferencesPersister persister = new PropertiesPreferencesPersister();
-    PreferencesPresenter presenter = new PreferencesPresenter(environment, view.preferencesNavigation, model, persister, environment);
+    PreferencesPresenter presenter = new PreferencesPresenter(environment, view.preferencesNavigation, model, persister, environment.getObjectFactory());
     presenter.initialize();
   }
 }

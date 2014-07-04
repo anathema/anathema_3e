@@ -4,7 +4,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 
 public interface HeroEnvironmentExtension {
 
-  String ID = "CharacterGenericsExtension";
+  String ID = "HeroEnvironmentExtension";
 
   HeroEnvironment getEnvironment();
 }

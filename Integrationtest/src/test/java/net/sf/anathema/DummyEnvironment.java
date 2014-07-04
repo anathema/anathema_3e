@@ -1,6 +1,5 @@
 package net.sf.anathema;
 
-import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.DefaultAnathemaReflections;
@@ -8,8 +7,6 @@ import net.sf.anathema.platform.dependencies.ReflectionObjectFactory;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.exception.ConsoleExceptionHandler;
 
-import java.lang.annotation.Annotation;
-import java.util.Collection;
 import java.util.Set;
 
 public class DummyEnvironment implements Environment {
@@ -43,22 +40,12 @@ public class DummyEnvironment implements Environment {
   }
 
   @Override
-  public <T> Collection<T> instantiateOrdered(Class<? extends Annotation> annotation, Object... parameter) throws InitializationException {
-    return factory.instantiateOrdered(annotation, parameter);
-  }
-
-  @Override
-  public <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation, Object... parameter) throws InitializationException {
-    return factory.instantiateAll(annotation, parameter);
-  }
-
-  @Override
-  public <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter) {
-    return factory.instantiateAllImplementers(interfaceClass, parameter);
-  }
-
-  @Override
   public Set<ResourceFile> getResourcesMatching(String namePattern) {
     return finder.getResourcesMatching(namePattern);
+  }
+
+  @Override
+  public ObjectFactory getObjectFactory() {
+    return factory;
   }
 }

@@ -28,7 +28,7 @@ public class CharacterSystemPerspective implements Perspective {
 
   @Override
   public void initContent(Container container, ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
-    new CharacterSystemInitializer(model, environment).initializeCharacterSystem();
+    new HeroSystemInitializer(model, environment).initializeCharacterSystem();
     CharacterSystemModel systemModel = new CharacterSystemModel(model);
     CharacterSystemView view = new CharacterSystemView(uiEnvironment);
     container.setContent(view.getNode());

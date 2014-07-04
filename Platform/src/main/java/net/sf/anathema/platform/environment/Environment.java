@@ -6,6 +6,8 @@ import net.sf.anathema.library.preferences.Preferences;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.library.resources.Resources;
 
-public interface Environment extends Resources, ExceptionHandler, Preferences, ResourceFileLoader, ObjectFactory {
+public interface Environment extends Resources, ExceptionHandler, Preferences, ResourceFileLoader {
+
+  ObjectFactory getObjectFactory();
   //nothing to do
 }

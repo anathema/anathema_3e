@@ -24,7 +24,7 @@ public class RepositoryBackup {
   public void backupRepository() {
     try {
       Repository repository = model.getRepository();
-      ItemTypeCollection itemTypeCollection = new ItemTypeCollection(environment);
+      ItemTypeCollection itemTypeCollection = new ItemTypeCollection(environment.getObjectFactory());
       CleanupExportModel exportModel = new CleanupExportModel(itemTypeCollection, repository);
       if (exportModel.getPrintNameFilesInSelection().length == 0) {
         return;

@@ -30,7 +30,7 @@ public class TextReport extends AbstractPdfReport {
   public void performPrint(Hero hero, Document document, PdfWriter writer) throws ReportException {
     try {
       MultiColumnTextReport report = new MultiColumnTextReport(document, writer);
-      Collection<HeroTextEncoderFactory> encoderFactories = environment.instantiateOrdered(RegisteredTextEncoderFactory.class);
+      Collection<HeroTextEncoderFactory> encoderFactories = environment.getObjectFactory().instantiateOrdered(RegisteredTextEncoderFactory.class);
       for (HeroTextEncoderFactory factory : encoderFactories) {
         report.startSimulation();
         factory.create(utils, environment).createParagraphs(report, hero);

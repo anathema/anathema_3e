@@ -28,7 +28,7 @@ public class PortraitSimpleMortalSheetReport extends AbstractPdfReport {
   public PortraitSimpleMortalSheetReport(Environment environment, PageSizePreference pageSizePreference) {
     this.resources = environment;
     this.pageSizePreference = pageSizePreference;
-    this.reportingModuleObject = new HeroReportingRegistries(environment, resources);
+    this.reportingModuleObject = new HeroReportingRegistries(environment.getObjectFactory(), resources);
   }
 
   @Override

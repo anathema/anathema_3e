@@ -76,7 +76,7 @@ public class RepositoryTreePresenter {
   }
 
   private ItemTypePropertiesMap registerItemTypePresentations(ItemTypeCollection itemTypeCollection) {
-    Collection<ItemTypePresentationFactory> presentationFactories = environment.instantiateAllImplementers(ItemTypePresentationFactory.class);
+    Collection<ItemTypePresentationFactory> presentationFactories = environment.getObjectFactory().instantiateAllImplementers(ItemTypePresentationFactory.class);
     ItemTypePropertiesMap map = new ItemTypePropertiesMap();
     for (ItemTypePresentationFactory factory : presentationFactories) {
       IItemTypeViewProperties properties = factory.createItemTypeCreationProperties(model, environment);

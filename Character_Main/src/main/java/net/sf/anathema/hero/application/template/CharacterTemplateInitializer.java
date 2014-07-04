@@ -21,7 +21,7 @@ public class CharacterTemplateInitializer {
     this.environment = environment;
   }
 
-  public void addCharacterTemplates() {
+  public void addHeroSplats() {
     CharacterTemplateResources resourceFiles = environment.getDataSet(CharacterTemplateResources.class);
     for (ResourceFile templateResource : resourceFiles) {
       registerTemplateFromFile(templateResource);

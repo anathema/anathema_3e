@@ -8,19 +8,20 @@ import net.sf.anathema.hero.environment.template.TemplateRegistry;
 import net.sf.anathema.hero.environment.template.TemplateRegistryImpl;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.io.DataFileProvider;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 public class HeroEnvironmentImpl implements HeroEnvironment {
 
   private final TemplateRegistry templateRegistry = new TemplateRegistryImpl();
-  private final DataFileProvider dataFileProvider;
   private final ExtensibleDataSetProvider dataSetProvider;
-  private final ObjectFactory objectFactory;
   private final HeroTypes heroTypes;
+  private ApplicationModel model;
+  private Environment environment;
 
-  public HeroEnvironmentImpl(DataFileProvider dataFileProvider, ObjectFactory objectFactory,
-                             ExtensibleDataSetProvider dataSetProvider) {
-    this.objectFactory = objectFactory;
-    this.dataFileProvider = dataFileProvider;
+  public HeroEnvironmentImpl(ApplicationModel model, Environment environment, ExtensibleDataSetProvider dataSetProvider) {
+    this.model = model;
+    this.environment = environment;
     this.dataSetProvider = dataSetProvider;
     this.heroTypes = dataSetProvider.getDataSet(HeroTypes.class);
   }
@@ -32,7 +33,7 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
 
   @Override
   public ObjectFactory getObjectFactory() {
-    return objectFactory;
+    return environment.getObjectFactory();
   }
 
   @Override
@@ -42,7 +43,7 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
 
   @Override
   public DataFileProvider getDataFileProvider() {
-    return dataFileProvider;
+    return model.getRepository();
   }
 
   @Override

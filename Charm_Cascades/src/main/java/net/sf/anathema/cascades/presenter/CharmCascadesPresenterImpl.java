@@ -26,7 +26,7 @@ public class CharmCascadesPresenterImpl {
     this.identifierMap = identifierMap;
     this.cache = heroEnvironment.getDataSet(CharmCache.class);
     this.cascadePresenter = new CascadePresenter(environment, cache, magicDescriptionProvider);
-    this.objectFactory = environment;
+    this.objectFactory = environment.getObjectFactory();
     this.heroTypes = heroEnvironment.getHeroTypes();
   }
 

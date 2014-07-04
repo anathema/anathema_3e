@@ -20,7 +20,7 @@ public abstract class Initializer {
     configureExceptionHandling(environment);
     showVersion(environment);
     ApplicationModel anathemaModel = initModel(environment);
-    ApplicationFrameView view = initView(environment, anathemaModel, environment);
+    ApplicationFrameView view = initView(environment, anathemaModel, environment.getObjectFactory());
     initPresentation(environment, anathemaModel, view);
     return new InitializedModelAndView(view, anathemaModel);
   }

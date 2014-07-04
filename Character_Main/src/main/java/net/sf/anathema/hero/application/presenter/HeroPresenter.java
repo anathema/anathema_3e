@@ -21,7 +21,7 @@ public class HeroPresenter {
   private final Environment environment;
 
   public HeroPresenter(Hero hero, HeroView view, Environment environment, ApplicationModel model) {
-    this.initializerList = new InitializerList(environment, model);
+    this.initializerList = new InitializerList(environment.getObjectFactory(), model);
     this.hero = hero;
     this.heroView = view;
     this.environment = environment;

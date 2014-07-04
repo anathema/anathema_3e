@@ -23,7 +23,7 @@ public class CharacterViewFactory {
   }
 
   public NodeHolder createView(HeroItemData hero) {
-    SubViewRegistry viewFactory = new SubViewMap(environment);
+    SubViewRegistry viewFactory = new SubViewMap(environment.getObjectFactory());
     Stylesheet[] stylesheets = createStylesheets(hero);
     TaskedHeroView characterView = new TaskedHeroView(viewFactory, stylesheets);
     new HeroPresenter(hero, characterView, environment, applicationModel).initPresentation();

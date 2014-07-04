@@ -39,7 +39,7 @@ public class CharmInitializer implements HeroModelInitializer {
     MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(applicationModel, environment);
     CharmDisplayModel model = new CharmDisplayModel(hero, provider);
     CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
-    CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment);
+    CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment.getObjectFactory());
     TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(characterType);
     String header = environment.getString("CardView.CharmConfiguration.CharmSelection.Title");
     CharmView charmView = sectionView.addView(header, CharmView.class);

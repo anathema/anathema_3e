@@ -40,7 +40,7 @@ public class RepositoryViewAction implements Command {
 
   private Node createContent() {
     RepositoryTreeView treeView = new RepositoryTreeView();
-    ItemTypeCollection itemTypeCollection = new ItemTypeCollection(environment);
+    ItemTypeCollection itemTypeCollection = new ItemTypeCollection(environment.getObjectFactory());
     RepositoryTreeModel repositoryTreeModel = new RepositoryTreeModel(model.getRepository(), itemTypeCollection);
     new RepositoryTreePresenter(environment, model,itemTypeCollection, repositoryTreeModel, treeView, "AnathemaCore.Tools.RepositoryView.TreeRoot")
             .initPresentation();

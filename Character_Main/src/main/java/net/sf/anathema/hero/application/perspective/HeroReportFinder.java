@@ -20,7 +20,7 @@ public class HeroReportFinder implements DefaultReportFinder {
   private final List<Report> reports = new ArrayList<>();
 
   public HeroReportFinder(ApplicationModel model, Environment environment) {
-    Collection<ReportFactory> factories = environment.instantiateOrdered(RegisteredReportFactory.class);
+    Collection<ReportFactory> factories = environment.getObjectFactory().instantiateOrdered(RegisteredReportFactory.class);
     for (ReportFactory factory : factories) {
       Collections.addAll(reports, factory.createReport(environment, model));
     }

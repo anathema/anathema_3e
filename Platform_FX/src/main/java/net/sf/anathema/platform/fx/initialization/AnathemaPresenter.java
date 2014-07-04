@@ -43,7 +43,7 @@ public class AnathemaPresenter {
   }
 
   private void runBootJobs() throws InitializationException {
-    Collection<BootJob> jobs = environment.instantiateOrdered(RegisteredBootJob.class);
+    Collection<BootJob> jobs = environment.getObjectFactory().instantiateOrdered(RegisteredBootJob.class);
     for (BootJob bootJob : jobs) {
       bootJob.run(environment, model);
     }

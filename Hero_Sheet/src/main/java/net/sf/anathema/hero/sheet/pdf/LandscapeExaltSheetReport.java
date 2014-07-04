@@ -32,7 +32,7 @@ public class LandscapeExaltSheetReport extends AbstractPdfReport {
   public LandscapeExaltSheetReport(Environment environment, PageSizePreference pageSizePreference) {
     this.resources = environment;
     this.pageSizePreference = pageSizePreference;
-    this.reportingModuleObject = new HeroReportingRegistries(environment, resources);
+    this.reportingModuleObject = new HeroReportingRegistries(environment.getObjectFactory(), resources);
   }
 
   @Override

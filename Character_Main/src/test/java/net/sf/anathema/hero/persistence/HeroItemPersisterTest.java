@@ -10,8 +10,10 @@ import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterSplat;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.messaging.Messaging;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -32,7 +34,9 @@ public class HeroItemPersisterTest {
   private HeroEnvironment createEnvironment() {
     ExtensibleDataSetProvider dataSetProvider = mock(ExtensibleDataSetProvider.class);
     final DummyObjectFactory objectFactory = new DummyObjectFactory();
-    HeroEnvironment generics = new HeroEnvironmentImpl(null, objectFactory, dataSetProvider);
+    Environment applicationEnvironment = Mockito.mock(Environment.class);
+    Mockito.when(applicationEnvironment.getObjectFactory()).thenReturn(objectFactory);
+    HeroEnvironment generics = new HeroEnvironmentImpl(null, applicationEnvironment, dataSetProvider);
     generics.getTemplateRegistry().register(template);
     return generics;
   }

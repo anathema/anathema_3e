@@ -18,7 +18,7 @@ public class ApplicationEnvironmentTest {
   public void forwardsImplementorInstantiationsToObjectFactory() {
     DummyInterface expectation = new AnnotatedDummy();
     factory.add(DummyInterface.class, expectation);
-    Collection<DummyInterface> actualResult = environment.instantiateAllImplementers(DummyInterface.class);
+    Collection<DummyInterface> actualResult = environment.getObjectFactory().instantiateAllImplementers(DummyInterface.class);
     assertThat(actualResult, hasItem(expectation));
   }
 }

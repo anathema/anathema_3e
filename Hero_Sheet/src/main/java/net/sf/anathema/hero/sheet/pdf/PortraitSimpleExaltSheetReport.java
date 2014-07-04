@@ -34,7 +34,7 @@ public class PortraitSimpleExaltSheetReport extends AbstractPdfReport {
   public PortraitSimpleExaltSheetReport(Environment environment, PageSizePreference pageSizePreference) {
     this.resources = environment;
     this.pageSizePreference = pageSizePreference;
-    this.moduleObject = new HeroReportingRegistries(environment, resources);
+    this.moduleObject = new HeroReportingRegistries(environment.getObjectFactory(), resources);
   }
 
   @Override

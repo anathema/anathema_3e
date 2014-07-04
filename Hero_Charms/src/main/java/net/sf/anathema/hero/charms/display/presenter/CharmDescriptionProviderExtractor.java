@@ -21,7 +21,7 @@ public class CharmDescriptionProviderExtractor {
   }
 
   private static Collection<MagicDescriptionProviderFactory> findFactories(Environment environment) {
-    return environment.instantiateAll(RegisteredMagicDescriptionProviderFactory.class);
+    return environment.getObjectFactory().instantiateAll(RegisteredMagicDescriptionProviderFactory.class);
   }
 
 }

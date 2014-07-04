@@ -1,15 +1,12 @@
 package net.sf.anathema.platform.environment;
 
 import net.sf.anathema.library.exception.ExceptionHandler;
-import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.preferences.Preferences;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.library.resources.Resources;
 
-import java.lang.annotation.Annotation;
-import java.util.Collection;
 import java.util.Set;
 
 public class ApplicationEnvironment implements Environment {
@@ -54,24 +51,12 @@ public class ApplicationEnvironment implements Environment {
   }
 
   @Override
-  public <T> Collection<T> instantiateOrdered(Class<? extends Annotation> annotation,
-                                              Object... parameter) throws InitializationException {
-    return objectFactory.instantiateOrdered(annotation, parameter);
-  }
-
-  @Override
-  public <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation,
-                                          Object... parameter) throws InitializationException {
-    return objectFactory.instantiateAll(annotation, parameter);
-  }
-
-  @Override
-  public <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter) {
-    return objectFactory.instantiateAllImplementers(interfaceClass, parameter);
-  }
-
-  @Override
   public Set<ResourceFile> getResourcesMatching(String namePattern) {
     return loader.getResourcesMatching(namePattern);
+  }
+
+  @Override
+  public ObjectFactory getObjectFactory() {
+    return objectFactory;
   }
 }
