@@ -17,7 +17,7 @@ import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-import net.sf.anathema.library.number.IntegerRange;
+import net.sf.anathema.library.number.Range;
 import org.jmock.example.announcer.Announcer;
 
 public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials {
@@ -104,7 +104,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     if (trait.getCurrentValue() == 0) {
       return;
     }
-    IntegerRange range = getRange();
+    Range range = getRange();
     if (trait.getCurrentValue() < range.getLowerBound()) {
       setCurrentLearnCount(range.getLowerBound());
     }
@@ -113,10 +113,10 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     }
   }
 
-  private IntegerRange getRange() {
+  private Range getRange() {
     int minValue = specialCharm.getMinimumLearnCount(createLearnRangeContext());
     int maxValue = specialCharm.getMaximumLearnCount(createLearnRangeContext());
-    return new IntegerRange(minValue, maxValue);
+    return Range.bounded(minValue, maxValue);
   }
 
   private LearnRangeContext createLearnRangeContext() {
