@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.display;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.util.ReflectionFactoryMap;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 public class SubViewMap implements SubViewRegistry {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.data;
 
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceFile;
 
 public interface IExtensibleDataSetCompiler {
   String getName();

@@ -5,7 +5,7 @@ import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.view.BooleanValueView;
 import net.sf.anathema.platform.fx.Stylesheet;
 
 @Produces(CharmView.class)

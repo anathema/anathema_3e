@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.character.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.lib.control.CollectionListener;
+import net.sf.anathema.library.event.CollectionListener;
 
 import java.util.Collection;
 

@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.framework.IIntegerDescription;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
+import net.sf.anathema.library.view.IIntegerView;
 import net.sf.anathema.platform.fx.FxTextView;
 import org.tbee.javafx.scene.layout.MigPane;
 

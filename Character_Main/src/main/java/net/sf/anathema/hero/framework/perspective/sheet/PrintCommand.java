@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
 import net.sf.anathema.framework.desktop.DesktopEnvironment;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.interaction.Command;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

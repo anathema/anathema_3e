@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.sheet.preferences;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredPreferencePresenter
 public class SheetPreferencePresenter implements PreferencePresenter {

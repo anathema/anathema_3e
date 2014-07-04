@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.model.change;
 
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 public class UnspecifiedChangeListener implements ChangeListener {
 

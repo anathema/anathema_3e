@@ -1,8 +1,8 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.model.BooleanValueModel;
+import net.sf.anathema.library.view.BooleanValueView;
 
 public class BooleanValuePresentation {
 

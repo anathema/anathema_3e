@@ -1,15 +1,15 @@
 package net.sf.anathema.framework.repository.preferences;
 
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.nio.file.Path;
 

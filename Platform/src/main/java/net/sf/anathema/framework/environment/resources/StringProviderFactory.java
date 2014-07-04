@@ -1,9 +1,10 @@
 package net.sf.anathema.framework.environment.resources;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.environment.dependencies.ExternalResourceFile;
 import net.sf.anathema.lib.io.Filenames;
 import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.environment.dependencies.ExternalResourceFile;
 
 import java.io.IOException;
 import java.util.Locale;

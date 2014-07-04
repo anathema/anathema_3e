@@ -1,7 +1,5 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.hero.display.HeroModelGroup;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
@@ -12,6 +10,8 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.herotype.solar.model.SolarType;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredInitializer(HeroModelGroup.SpiritualTraits)
 @Weight(weight = 200)

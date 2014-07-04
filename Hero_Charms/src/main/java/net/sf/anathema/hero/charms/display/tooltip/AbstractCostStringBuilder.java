@@ -2,8 +2,8 @@ package net.sf.anathema.hero.charms.display.tooltip;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.charm.data.cost.Cost;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.lib.lang.StringUtilities.EMPTY_STRING;
 

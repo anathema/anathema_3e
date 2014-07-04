@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.CharacterItemModel;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.resources.Resources;
 
 public class CharacterButtonPresenter {
 

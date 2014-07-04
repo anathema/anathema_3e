@@ -2,6 +2,7 @@ package net.sf.anathema.framework.environment;
 
 import net.sf.anathema.framework.environment.dependencies.AnnotatedDummy;
 import net.sf.anathema.framework.environment.dependencies.DummyInterface;
+import net.sf.anathema.platform.environment.ApplicationEnvironment;
 import org.junit.Test;
 
 import java.util.Collection;

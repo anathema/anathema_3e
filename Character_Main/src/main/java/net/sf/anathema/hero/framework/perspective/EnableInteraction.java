@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 public class EnableInteraction implements ChangeListener {
   private Tool interaction;

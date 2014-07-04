@@ -1,9 +1,9 @@
 package net.sf.anathema.initialization.reflections;
 
 import com.google.common.collect.Sets;
-import net.sf.anathema.framework.environment.ResourceLoader;
-import net.sf.anathema.framework.environment.dependencies.AggregatedResourceLoader;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.platform.environment.dependencies.AggregatedResourceLoader;
 import org.junit.Test;
 
 import java.util.Set;

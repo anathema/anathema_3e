@@ -1,12 +1,12 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.collection.MultiEntryMap;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.gui.file.Extension;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.collection.MultiEntryMap;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.IOException;
 import java.io.InputStream;

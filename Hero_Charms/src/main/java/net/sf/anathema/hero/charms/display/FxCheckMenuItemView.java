@@ -4,8 +4,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
-import net.sf.anathema.lib.control.IBooleanValueChangedListener;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.event.IBooleanValueChangedListener;
+import net.sf.anathema.library.view.BooleanValueView;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
 
 public class FxCheckMenuItemView implements BooleanValueView, FxSpecialContent {

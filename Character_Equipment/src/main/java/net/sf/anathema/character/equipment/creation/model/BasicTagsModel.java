@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.creation.model;
 
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.model.BooleanValueModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;

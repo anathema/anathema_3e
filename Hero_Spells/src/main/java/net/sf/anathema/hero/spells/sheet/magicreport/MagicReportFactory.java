@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.spells.sheet.magicreport;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.hero.framework.reporting.IReportFactory;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.initialization.RegisteredReportFactory;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredReportFactory
 @Weight(weight = 30)

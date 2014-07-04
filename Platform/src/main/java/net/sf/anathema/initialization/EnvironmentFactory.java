@@ -1,20 +1,20 @@
 package net.sf.anathema.initialization;
 
 import net.sf.anathema.framework.configuration.PreferencesBasedRepositoryLocation;
-import net.sf.anathema.framework.environment.ApplicationEnvironment;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ExceptionHandler;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.Preferences;
-import net.sf.anathema.framework.environment.ResourceLoader;
-import net.sf.anathema.framework.environment.dependencies.AggregatedResourceLoader;
-import net.sf.anathema.framework.environment.dependencies.DefaultAnathemaReflections;
-import net.sf.anathema.framework.environment.dependencies.ReflectionObjectFactory;
 import net.sf.anathema.framework.environment.preferences.PropertyPreferences;
 import net.sf.anathema.framework.environment.resources.LocaleResources;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.initialization.repository.CustomDataResourceLoader;
 import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.preferences.Preferences;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.platform.environment.ApplicationEnvironment;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.environment.ExceptionHandler;
+import net.sf.anathema.platform.environment.dependencies.AggregatedResourceLoader;
+import net.sf.anathema.platform.environment.dependencies.DefaultAnathemaReflections;
+import net.sf.anathema.platform.environment.dependencies.ReflectionObjectFactory;
 
 import java.util.Set;
 

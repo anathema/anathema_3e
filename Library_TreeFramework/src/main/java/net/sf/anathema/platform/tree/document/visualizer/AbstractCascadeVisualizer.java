@@ -2,7 +2,7 @@ package net.sf.anathema.platform.tree.document.visualizer;
 
 import net.sf.anathema.graph.graph.LayeredGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
-import net.sf.anathema.lib.collection.MultiEntryMap;
+import net.sf.anathema.library.collection.MultiEntryMap;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.Layer;

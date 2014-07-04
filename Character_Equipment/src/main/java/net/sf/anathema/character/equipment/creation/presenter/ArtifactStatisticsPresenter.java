@@ -1,9 +1,9 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.ArtifactStatisticsProperties;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.BooleanValueView;
 
 public class ArtifactStatisticsPresenter {
   private final IArtifactStatisticsModel artifactModel;

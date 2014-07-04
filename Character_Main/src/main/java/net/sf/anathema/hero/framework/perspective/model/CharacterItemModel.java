@@ -6,8 +6,8 @@ import net.sf.anathema.hero.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.framework.perspective.DescriptiveFeatures;
 import net.sf.anathema.hero.framework.perspective.LoadedDescriptiveFeatures;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 import org.jmock.example.announcer.Announcer;
 
 public class CharacterItemModel {

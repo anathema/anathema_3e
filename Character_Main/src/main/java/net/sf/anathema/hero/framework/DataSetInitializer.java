@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.framework;
 
 import net.sf.anathema.ProxySplashscreen;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.ResourceLoader;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
-import net.sf.anathema.initialization.InitializationException;
 import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceLoader;
 
 import java.util.Collection;
 import java.util.Set;

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.display.tree;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.coloring.CharacterColoringStrategy;
 import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
 import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
@@ -17,6 +16,7 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CharacterCharmTreePresenter {

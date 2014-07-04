@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.model.change;
 
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public class AnnounceChangeValueListener implements ObjectValueListener<String> {
   private final ChangeAnnouncer announcer;

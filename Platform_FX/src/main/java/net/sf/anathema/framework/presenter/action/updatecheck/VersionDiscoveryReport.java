@@ -2,9 +2,9 @@ package net.sf.anathema.framework.presenter.action.updatecheck;
 
 import de.idos.updates.Version;
 import de.idos.updates.store.ProgressReportAdapter;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateChangelog;
 import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState;
+import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState.CheckFailed;
 import static net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState.Checking;

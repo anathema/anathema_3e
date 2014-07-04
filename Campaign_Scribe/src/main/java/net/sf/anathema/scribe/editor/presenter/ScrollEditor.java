@@ -1,6 +1,6 @@
 package net.sf.anathema.scribe.editor.presenter;
 
-import net.sf.anathema.platform.markdown.WikiText;
+import net.sf.anathema.library.markdown.WikiText;
 
 public interface ScrollEditor {
 

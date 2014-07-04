@@ -1,8 +1,8 @@
 package net.sf.anathema.magic.description.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.description.display.MagicDetailModel;
 import net.sf.anathema.magic.description.display.MagicDetailPresenter;
 import net.sf.anathema.magic.description.model.MagicDescriptionEditDetailModel;

@@ -6,7 +6,6 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.sheet.anima.content.AnimaTableRangeProvider;
 import net.sf.anathema.hero.concept.sheet.anima.content.AnimaTableStealthProvider;
 import net.sf.anathema.hero.concept.sheet.anima.content.AnimaUtils;
@@ -19,6 +18,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.AbstractTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.library.resources.Resources;
 
 public class AnimaTableEncoder extends AbstractTableEncoder<ReportSession> {
 

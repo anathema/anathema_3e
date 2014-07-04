@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.framework.display.SubViewMap;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
 import net.sf.anathema.hero.framework.library.util.CssSkinner;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.Stylesheet;
 

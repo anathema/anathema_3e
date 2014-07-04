@@ -2,9 +2,9 @@ package net.sf.anathema.initialization.repository;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import net.sf.anathema.framework.environment.ResourceLoader;
-import net.sf.anathema.framework.environment.dependencies.ExternalResourceFile;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.platform.environment.dependencies.ExternalResourceFile;
 
 import java.io.File;
 import java.util.Collection;

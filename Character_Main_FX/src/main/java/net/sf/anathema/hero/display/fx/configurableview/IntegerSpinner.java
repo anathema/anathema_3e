@@ -4,8 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
 import jfxtras.scene.control.ListSpinnerIntegerList;
-import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
+import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.view.IIntegerView;
 
 public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
 

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.combat.sheet.social.stats;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public class DeceptionStatsGroup extends AbstractSocialCombatsValueStatsGroup {
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class RangedIntValueModel implements IIntValueModel {

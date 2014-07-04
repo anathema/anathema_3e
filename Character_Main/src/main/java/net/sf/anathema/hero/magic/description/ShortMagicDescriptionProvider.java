@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.description;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 
 import java.text.MessageFormat;

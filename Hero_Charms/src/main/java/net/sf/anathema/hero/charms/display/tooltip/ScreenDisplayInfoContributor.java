@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 
 public class ScreenDisplayInfoContributor extends MagicInfoStringBuilder implements MagicTooltipContributor {

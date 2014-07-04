@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.view.BooleanValueView;
 import net.sf.anathema.platform.tree.display.SpecialCharmContainer;
 
 import java.util.ArrayList;

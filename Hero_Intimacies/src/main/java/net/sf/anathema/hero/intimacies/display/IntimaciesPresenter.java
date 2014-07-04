@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
@@ -10,8 +9,9 @@ import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.HashMap;
 import java.util.Map;

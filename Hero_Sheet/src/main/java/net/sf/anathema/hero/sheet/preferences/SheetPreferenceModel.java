@@ -7,7 +7,7 @@ import net.sf.anathema.framework.preferences.persistence.PreferencePto;
 import net.sf.anathema.framework.preferences.persistence.PreferenceValue;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
 import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 @RegisteredPreferenceModel

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.resources.Resources;
 
 import java.io.IOException;
 import java.nio.file.Files;

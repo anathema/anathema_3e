@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.EquipmentNameStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.armour.HardnessStatsGroup;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.armour.SoakArmourStats
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
+import net.sf.anathema.library.resources.Resources;
 
 public class ArmourContent extends AbstractEquipmentContent<IArmourStats> {
 

@@ -4,7 +4,7 @@ import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.graph.ProperHierarchicalGraph;
 import net.sf.anathema.graph.graph.SingleNodeGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
-import net.sf.anathema.lib.collection.MultiEntryMap;
+import net.sf.anathema.library.collection.MultiEntryMap;
 
 import java.util.ArrayList;
 import java.util.Arrays;

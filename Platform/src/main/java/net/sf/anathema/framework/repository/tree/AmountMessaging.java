@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.messaging.Messaging;
+import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.lib.message.MessageType.Information;
 

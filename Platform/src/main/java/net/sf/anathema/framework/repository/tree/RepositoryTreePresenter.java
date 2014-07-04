@@ -1,7 +1,6 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.module.ItemTypePresentationFactory;
 import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
@@ -9,6 +8,7 @@ import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.initialization.ForItemType;
 import net.sf.anathema.initialization.ItemTypeCollection;
 import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.ArrayList;
 import java.util.Collection;

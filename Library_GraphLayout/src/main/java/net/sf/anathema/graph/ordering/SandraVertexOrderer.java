@@ -5,7 +5,7 @@ import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.WeightedNode;
 import net.sf.anathema.graph.util.BarycenterCalculator;
 import net.sf.anathema.graph.util.IncidentMatrixUtilities;
-import net.sf.anathema.lib.collection.MultiEntryMap;
+import net.sf.anathema.library.collection.MultiEntryMap;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;

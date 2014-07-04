@@ -3,11 +3,11 @@ package net.sf.anathema.hero.sheet.text;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfWriter;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
 

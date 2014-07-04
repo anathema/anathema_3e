@@ -2,10 +2,10 @@ package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.library.resources.Resources;
 
 public class OverwhelmingStatGroup extends AbstractValueEquipmentStatsGroup<IWeaponStats> implements IEquipmentStatsGroup<IWeaponStats> {
 

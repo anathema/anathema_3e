@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.AbstractMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
@@ -13,6 +12,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 
 public class SpecialCharmContributor implements MagicTooltipContributor {

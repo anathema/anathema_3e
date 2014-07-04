@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.sheet.pdf.content;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public abstract class AbstractSubContent implements SubContent {
 

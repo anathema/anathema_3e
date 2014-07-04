@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.configurableview;
 
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 
 public interface IIntegerSpinner {
   void setValue(int newValue);

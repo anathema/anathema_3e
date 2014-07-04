@@ -3,10 +3,10 @@ package net.sf.anathema.hero.intimacies.display;
 import javafx.scene.Node;
 import net.sf.anathema.hero.display.fx.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public class FxIntimacyEntryView implements IntimacyEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();

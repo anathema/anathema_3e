@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.value;
 
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 
 public interface IntValueView {
 

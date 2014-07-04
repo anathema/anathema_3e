@@ -2,9 +2,10 @@ package net.sf.anathema.initialization;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.module.ItemTypeConfiguration;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

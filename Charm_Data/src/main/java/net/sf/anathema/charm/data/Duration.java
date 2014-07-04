@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public class Duration {
 

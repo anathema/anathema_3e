@@ -6,6 +6,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 import java.util.stream.Stream;

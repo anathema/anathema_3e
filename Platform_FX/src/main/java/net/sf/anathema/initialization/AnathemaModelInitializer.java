@@ -3,12 +3,13 @@ package net.sf.anathema.initialization;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.configuration.PreferencesBasedRepositoryLocation;
 import net.sf.anathema.framework.configuration.RepositoryPreference;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.initialization.repository.IOFileSystemAbstraction;
 import net.sf.anathema.initialization.repository.RepositoryFolderCreator;
 import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
 import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.File;
 

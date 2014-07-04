@@ -1,8 +1,6 @@
 package net.sf.anathema.hero.charms.display;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
@@ -19,6 +17,8 @@ import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;

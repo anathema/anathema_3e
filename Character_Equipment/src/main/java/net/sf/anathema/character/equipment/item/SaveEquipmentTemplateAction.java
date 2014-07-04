@@ -4,15 +4,15 @@ import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManageme
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.repository.tree.VetorFactory;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Hotkey;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.resources.Resources;
 
 public class SaveEquipmentTemplateAction {
   private final Resources resources;

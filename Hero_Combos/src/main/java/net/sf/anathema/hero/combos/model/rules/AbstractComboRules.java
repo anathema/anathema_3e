@@ -6,7 +6,7 @@ import net.sf.anathema.hero.combos.model.ComboRules;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 
-import static net.sf.anathema.lib.EnumUtilities.hasValue;
+import static net.sf.anathema.library.collection.EnumUtilities.hasValue;
 
 public abstract class AbstractComboRules implements ComboRules {
 

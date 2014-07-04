@@ -6,7 +6,7 @@ import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.TemplateRegistry;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import org.junit.Test;
 import org.mockito.Mockito;
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.environment.exception;
 
-import net.sf.anathema.framework.environment.ExceptionHandler;
+import net.sf.anathema.platform.environment.ExceptionHandler;
 
 public class ConsoleExceptionHandler implements ExceptionHandler {
   @Override

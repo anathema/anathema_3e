@@ -13,7 +13,7 @@ import javafx.scene.control.ToggleGroup;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
 import net.sf.anathema.platform.fx.PerspectivePane;
 import org.jmock.example.announcer.Announcer;

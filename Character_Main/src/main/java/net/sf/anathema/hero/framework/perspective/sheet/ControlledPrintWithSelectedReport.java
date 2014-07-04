@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
@@ -8,6 +7,7 @@ import net.sf.anathema.lib.gui.file.Extension;
 import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.platform.environment.Environment;
 
 import static net.sf.anathema.hero.framework.perspective.sheet.PrintCommand.PDF_EXTENSION;
 

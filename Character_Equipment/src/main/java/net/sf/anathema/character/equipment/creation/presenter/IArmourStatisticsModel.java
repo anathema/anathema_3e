@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.model.BooleanValueModel;
 
 public interface IArmourStatisticsModel extends IEquipmentStatisticsModel {
 

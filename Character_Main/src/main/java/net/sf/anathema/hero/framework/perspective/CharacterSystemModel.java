@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.item.Item;
@@ -24,9 +23,10 @@ import net.sf.anathema.hero.framework.perspective.sheet.QuickPrintCommand;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.platform.JsonHeroReferenceScanner;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.platform.environment.Environment;
 import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;

@@ -6,11 +6,11 @@ import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.providers.ICardDataProvider;
 import net.sf.anathema.cards.layout.ICardLayout;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.spells.sheet.magicreport.CharmFetcher;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Collections;

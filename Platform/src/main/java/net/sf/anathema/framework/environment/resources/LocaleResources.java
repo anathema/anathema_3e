@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.environment.resources;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.Locale;
 

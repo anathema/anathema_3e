@@ -6,8 +6,8 @@ import net.sf.anathema.hero.concept.ConceptChange;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
-import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class DefaultTrait implements Trait {

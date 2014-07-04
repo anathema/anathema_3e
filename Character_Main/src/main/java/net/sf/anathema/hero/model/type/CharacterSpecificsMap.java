@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.model.type;
 
 import com.google.common.base.Functions;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.Collection;
 import java.util.HashMap;

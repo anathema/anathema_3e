@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.sheet.pdf.content;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.util.ReflectionFactoryMap;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.Resources;
 
 public class ReportContentRegistry {
 

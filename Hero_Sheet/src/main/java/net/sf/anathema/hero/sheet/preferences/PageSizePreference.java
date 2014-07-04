@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.sheet.preferences;
 
-import net.sf.anathema.framework.environment.Preferences;
 import net.sf.anathema.framework.preferences.persistence.PreferenceValue;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
+import net.sf.anathema.library.preferences.Preferences;
 
 public class PageSizePreference {
 

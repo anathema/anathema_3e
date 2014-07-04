@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.equipment.sheet.rendering.panoply;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.ArmourContent;
 import net.sf.anathema.hero.equipment.sheet.rendering.arsenal.PreferredWeaponryHeight;
 import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.GlobalEncoderFactory;
+import net.sf.anathema.library.resources.Resources;
 
 @SuppressWarnings("UnusedDeclaration")
 public class PanoplyEncoderFactory extends GlobalEncoderFactory {

@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.coloring.CharmDye;
 import net.sf.anathema.hero.charms.display.model.CategoryCollection;
@@ -20,6 +19,7 @@ import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.points.display.overview.presenter.SelectObjectConfiguration;
 

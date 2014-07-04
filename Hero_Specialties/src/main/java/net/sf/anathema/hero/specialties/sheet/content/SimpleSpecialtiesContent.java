@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.specialties.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

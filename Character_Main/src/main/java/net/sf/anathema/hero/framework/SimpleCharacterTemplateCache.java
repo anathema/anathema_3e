@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceFile;
 
 import java.util.ArrayList;
 import java.util.Iterator;

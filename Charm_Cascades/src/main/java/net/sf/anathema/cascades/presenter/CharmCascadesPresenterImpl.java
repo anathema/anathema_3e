@@ -1,7 +1,5 @@
 package net.sf.anathema.cascades.presenter;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
@@ -10,6 +8,8 @@ import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.platform.environment.Environment;
 
 public class CharmCascadesPresenterImpl {
   private final CascadePresenter cascadePresenter;

@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
@@ -15,6 +14,7 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Collection;

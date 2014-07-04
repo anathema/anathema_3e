@@ -11,7 +11,6 @@ import net.sf.anathema.character.equipment.item.model.gson.GsonEquipmentDatabase
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.equipment.model.CharacterStatsModifiers;
 import net.sf.anathema.hero.equipment.model.EquipmentCollection;
 import net.sf.anathema.hero.equipment.model.EquipmentDirectAccess;
@@ -37,9 +36,11 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.CollectionListener;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.CollectionListener;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;
