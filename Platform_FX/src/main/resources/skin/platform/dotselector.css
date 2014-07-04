@@ -2,7 +2,7 @@
 Clients need to define the ".filled" class.*/
 
 .dots {
-    -fx-skin: "net.sf.anathema.platform.fx.dot.DotSelectionSpinnerSkin";
+    -fx-skin: "net.sf.anathema.library.fx.dot.DotSelectionSpinnerSkin";
 }
 
 .empty {
