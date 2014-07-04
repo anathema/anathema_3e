@@ -1,1 +1,254 @@
-{"charms": {"Revolving Bow Discipline": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Simple", "cost": "6m, 1wp", "prerequisiteCharms": ["Arrow Storm Technique"]}, "Force Without Fire": {"duration": "Instant", "minimums": {"Archery": 4, "Essence": 1}, "type": "Supplemental", "cost": "3m", "prerequisiteCharms": ["Sight Without Eyes"]}, "Wise Arrow": {"duration": "Instant", "minimums": {"Archery": 2, "Essence": 1}, "type": "Supplemental", "cost": "1m", "prerequisiteCharms": []}, "There Is No Wind": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Sight Without Eyes"]}, "Seven Omens Shot": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Simple", "cost": "3m, 1wp", "prerequisiteCharms": ["Accuracy Without Distance"]}, "Arrow Storm Technique": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Simple", "cost": "5m, 1wp", "prerequisiteCharms": ["Trance of Unhesitating Speed"]}, "Dazzling Flare Attack": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Fiery Arrow Attack"]}, "Sight Without Eyes": {"duration": "One tick", "minimums": {"Archery": 3, "Essence": 1}, "type": "Reflexive", "cost": "1m", "prerequisiteCharms": ["Wise Arrow"]}, "Fiery Arrow Attack": {"duration": "Instant", "minimums": {"Archery": 4, "Essence": 1}, "type": "Supplemental", "cost": "2m", "prerequisiteCharms": ["Phantom Arrow Technique"]}, "Phantom Arrow Technique": {"duration": "Instant", "minimums": {"Archery": 3, "Essence": 1}, "type": "Reflexive", "cost": "1m", "prerequisiteCharms": []}, "Solar Spike": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Simple", "cost": "5m, 1wp", "prerequisiteCharms": ["Dazzling Flare Attack"]}, "Accuracy Without Distance": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Reflexive", "cost": "1m, 1wp", "prerequisiteCharms": ["Force Without Fire"]}, "Trance of Unhesitating Speed": {"duration": "Instant", "minimums": {"Archery": 3, "Essence": 1}, "type": "Simple", "cost": "4m, 1wp", "prerequisiteCharms": ["Wise Arrow"]}, "Thread the Needle": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Supplemental", "cost": "2m, 1wp", "prerequisiteCharms": ["Accuracy Without Distance"]}, "Hunter\u2019s Swift Answer": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Reflexive", "cost": "5m, 1wp", "prerequisiteCharms": ["Flashing Vengeance Draw"]}, "Flashing Vengeance Draw": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 2}, "type": "Supplemental", "cost": "3m", "prerequisiteCharms": ["Trance of Unhesitating Speed"]}, "Searing Sunfire Interdiction": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Reflexive", "cost": "4m, 1wp", "prerequisiteCharms": ["Dazzling Flare Attack"]}, "Finishing Snipe": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Reflexive", "cost": "7m", "prerequisiteCharms": ["Hunter\u2019s Swift Answer"]}, "Rain of Feathered Death": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Simple", "cost": "3m per duplicate, 1wp", "prerequisiteCharms": ["Phantom Arrow Technique"]}, "Heart-Eating Incineration": {"duration": "Instant", "minimums": {"Archery": 5, "Essence": 3}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Solar Spike"]}, "Immaculate Golden Bow": {"duration": "One scene", "minimums": {"Archery": 4, "Essence": 2}, "type": "Simple", "cost": "5m, 1wp", "prerequisiteCharms": ["Phantom Arrow Technique"]}}, "category": "Solar", "tree": "Archery"}
+{
+    "category": "Solar", 
+    "charms": {
+        "Accuracy Without Distance": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Force Without Fire"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Arrow Storm Technique": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Trance of Unhesitating Speed"
+            ], 
+            "type": "Simple"
+        }, 
+        "Dazzling Flare Attack": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Fiery Arrow Attack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Fiery Arrow Attack": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Phantom Arrow Technique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Finishing Snipe": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Hunter\u2019s Swift Answer"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Flashing Vengeance Draw": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Trance of Unhesitating Speed"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Force Without Fire": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Sight Without Eyes"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Heart-Eating Incineration": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar Spike"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Hunter\u2019s Swift Answer": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Flashing Vengeance Draw"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Immaculate Golden Bow": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Archery": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Phantom Arrow Technique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Phantom Arrow Technique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Rain of Feathered Death": {
+            "cost": "3m per duplicate, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Phantom Arrow Technique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Revolving Bow Discipline": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Arrow Storm Technique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Searing Sunfire Interdiction": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Dazzling Flare Attack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Seven Omens Shot": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Accuracy Without Distance"
+            ], 
+            "type": "Simple"
+        }, 
+        "Sight Without Eyes": {
+            "cost": "1m", 
+            "duration": "One tick", 
+            "minimums": {
+                "Archery": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Wise Arrow"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar Spike": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Dazzling Flare Attack"
+            ], 
+            "type": "Simple"
+        }, 
+        "There Is No Wind": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Sight Without Eyes"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Thread the Needle": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Accuracy Without Distance"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Trance of Unhesitating Speed": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Wise Arrow"
+            ], 
+            "type": "Simple"
+        }, 
+        "Wise Arrow": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }
+    }, 
+    "tree": "Archery"
+}
