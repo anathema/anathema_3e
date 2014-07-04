@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.abilities.sheet.content;
+package net.sf.anathema.hero.specialties.sheet.content;
 
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.specialties.ISubTraitContainer;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 public class SpecialtiesContentCandidate {

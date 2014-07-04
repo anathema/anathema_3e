@@ -1,12 +1,12 @@
-package net.sf.anathema.hero.traits.sheet.encoder;
+package net.sf.anathema.hero.specialties.sheet.encoder;
 
 import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.Specialty;
+import net.sf.anathema.hero.specialties.sheet.content.NamedSpecialtyReference;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.sheet.content.NamedSpecialtyReference;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
@@ -16,11 +16,11 @@ import java.util.List;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.SUBSECTION_FONT_SIZE;
 
-public abstract class AbstractNamedTraitEncoder {
+public abstract class AbstractAdditionalTraitLineEncoder {
   private final Resources resources;
   private final PdfTraitEncoder traitEncoder;
 
-  public AbstractNamedTraitEncoder(Resources resources, PdfTraitEncoder traitEncoder) {
+  public AbstractAdditionalTraitLineEncoder(Resources resources, PdfTraitEncoder traitEncoder) {
     this.resources = resources;
     this.traitEncoder = traitEncoder;
   }

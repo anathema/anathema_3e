@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.character.model;
 
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.Specialty;
 
 public interface IEquipmentStatsOption {
 

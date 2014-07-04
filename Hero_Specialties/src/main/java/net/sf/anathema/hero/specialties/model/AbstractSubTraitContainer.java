@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.specialties;
+package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Preconditions;
 import net.sf.anathema.lib.control.IntValueChangedListener;

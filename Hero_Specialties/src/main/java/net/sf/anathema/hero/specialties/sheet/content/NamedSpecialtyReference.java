@@ -1,7 +1,8 @@
-package net.sf.anathema.hero.traits.sheet.content;
+package net.sf.anathema.hero.specialties.sheet.content;
 
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
 
 public class NamedSpecialtyReference implements ValuedTraitReference {
 

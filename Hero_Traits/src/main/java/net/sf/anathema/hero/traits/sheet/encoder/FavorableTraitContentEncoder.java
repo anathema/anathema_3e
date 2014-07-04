@@ -19,15 +19,15 @@ import java.util.List;
 
 public class FavorableTraitContentEncoder<C extends FavorableTraitContent> extends AbstractContentEncoder<C> {
 
-  private final List<INamedTraitEncoder> namedTraitEncoders = new ArrayList<>();
+  private final List<AdditionalTraitLineEncoder> additionalEncoders = new ArrayList<>();
   private final PdfTraitEncoder traitEncoder = PdfTraitEncoder.createSmallTraitEncoder();
 
   public FavorableTraitContentEncoder(Class<C> contentClass) {
     super(contentClass);
   }
 
-  public final void addNamedTraitEncoder(INamedTraitEncoder encoder) {
-    namedTraitEncoders.add(encoder);
+  public final void addAdditionalEncoder(AdditionalTraitLineEncoder encoder) {
+    additionalEncoders.add(encoder);
   }
 
   public PdfTraitEncoder getTraitEncoder() {
@@ -45,7 +45,7 @@ public class FavorableTraitContentEncoder<C extends FavorableTraitContent> exten
     }
     float yPosition = encodeTraitGroups(graphics, content, position, width);
     float height = yPosition - bottom;
-    for (INamedTraitEncoder encoder : namedTraitEncoders) {
+    for (AdditionalTraitLineEncoder encoder : additionalEncoders) {
       yPosition -= IVoidStateFormatConstants.LINE_HEIGHT;
       yPosition -= encoder.encode(graphics, reportSession, new Position(position.x, yPosition), width, height);
       height -= IVoidStateFormatConstants.LINE_HEIGHT;
