@@ -59,8 +59,8 @@ public class RGBColor {
     return new RGBColor(brighterRed, brighterGreen, brighterBlue, alpha);
   }
 
-  private int brighten(int newRed) {
-    return Math.min((int) (newRed / FACTOR), 255);
+  private int brighten(int channel) {
+    return Math.min((int) (channel / FACTOR), 255);
   }
 
   private boolean isBlack() {
