@@ -24,7 +24,6 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-import net.sf.anathema.library.event.IntValueChangedListener;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -121,12 +120,7 @@ public class FavorableTraitTest {
     valueStrategy.setStrategy(new ExperiencedTraitValueStrategy());
     trait.setCurrentValue(3);
     final int[] holder = new int[1];
-    trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        holder[0] = newValue;
-      }
-    });
+    trait.addCurrentValueListener(newValue -> holder[0] = newValue);
     trait.setCurrentValue(0);
     assertEquals(2, holder[0]);
   }

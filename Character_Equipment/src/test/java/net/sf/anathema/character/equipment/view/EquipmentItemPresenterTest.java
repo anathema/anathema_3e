@@ -11,11 +11,12 @@ import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectPresenter
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Collections;
 
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
@@ -74,7 +75,7 @@ public class EquipmentItemPresenterTest {
   private void initPresentation(IEquipmentItem model, EquipmentObjectView view) {
     EquipmentHeroEvaluator dataProvider = mock(EquipmentHeroEvaluator.class);
     EquipmentOptionsProvider optionProvider = mock(EquipmentOptionsProvider.class);
-    when(dataProvider.getSpecialties(isA(TraitType.class))).thenReturn(new Specialty[0]);
+    when(dataProvider.getSpecialties(isA(TraitType.class))).thenReturn(Collections.emptyList());
     new EquipmentObjectPresenter(equipmentStringBuilder, dataProvider, optionProvider, new LocaleResources()).initPresentation(model, view);
   }
 }

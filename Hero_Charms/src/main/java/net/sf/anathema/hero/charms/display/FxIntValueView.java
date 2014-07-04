@@ -4,7 +4,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -23,12 +23,12 @@ public class FxIntValueView implements FxSpecialContent, IntValueView {
   }
 
   @Override
-  public void addIntValueChangedListener(IntValueChangedListener listener) {
+  public void addIntValueChangedListener(IntegerChangedListener listener) {
     view.addIntValueChangedListener(listener);
   }
 
   @Override
-  public void removeIntValueChangedListener(IntValueChangedListener listener) {
+  public void removeIntValueChangedListener(IntegerChangedListener listener) {
     view.removeIntValueChangedListener(listener);
   }
 

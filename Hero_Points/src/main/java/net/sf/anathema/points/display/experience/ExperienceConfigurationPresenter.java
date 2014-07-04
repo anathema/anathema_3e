@@ -1,13 +1,10 @@
 package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.library.interaction.model.Command;
-import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
-import net.sf.anathema.points.model.xp.ExperiencePointsListener;
-import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 
 public class ExperienceConfigurationPresenter {
 
@@ -23,65 +20,33 @@ public class ExperienceConfigurationPresenter {
   }
 
   public void initPresentation() {
-    experienceView.addSelectionListener(new ExperienceSelectionListener() {
-      @Override
-      public void selectionChanged(ExperiencePointEntry entry) {
-        experiencePoints.selectForChange(entry);
-      }
-    });
+    experienceView.addSelectionListener(experiencePoints::selectForChange);
     configureAddTool();
     configureRemoveTool();
-    experiencePoints.addExperiencePointConfigurationListener(new ExperiencePointsListener() {
-      @Override
-      public void entriesAddedRemovedOrChanged() {
-        refreshEntriesInView();
-      }
-    });
-    experiencePoints.addEntrySelectionListener(new ExperienceSelectionListener() {
-      @Override
-      public void selectionChanged(ExperiencePointEntry entry) {
-        updateSelectionInView(entry);
-      }
-    });
+    experiencePoints.addExperiencePointConfigurationListener(this::refreshEntriesInView);
+    experiencePoints.addEntrySelectionListener(this::updateSelectionInView);
     experienceView.initGui(new DefaultExperienceProperties(resources));
     refreshEntriesInView();
-    experienceView.addUpdateListener(new ExperienceUpdateListener() {
-      public void update(int points, String description) {
-        experiencePoints.updateCurrentSelection(description, points);
-      }
-    });
+    experienceView.addUpdateListener((points, description) -> experiencePoints.updateCurrentSelection(description, points));
     updateTotal();
   }
 
   private void configureAddTool() {
     Tool tool = experienceView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
-    tool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        experiencePoints.addEntry();
-      }
-    });
+    tool.setCommand(experiencePoints::addEntry);
   }
 
 
   private void configureRemoveTool() {
     final Tool tool = experienceView.addTool();
     tool.setIcon(new BasicUi().getRemoveIconPath());
-    tool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        experiencePoints.removeEntry();
-      }
-    });
-    experiencePoints.addEntrySelectionListener(new ExperienceSelectionListener() {
-      @Override
-      public void selectionChanged(ExperiencePointEntry entry) {
-        if (entry != null) {
-          tool.enable();
-        } else {
-          tool.disable();
-        }
+    tool.setCommand(experiencePoints::removeEntry);
+    experiencePoints.addEntrySelectionListener(entry -> {
+      if (entry != null) {
+        tool.enable();
+      } else {
+        tool.disable();
       }
     });
   }

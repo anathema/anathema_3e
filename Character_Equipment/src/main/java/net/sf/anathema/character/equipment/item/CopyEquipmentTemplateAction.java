@@ -2,10 +2,10 @@ package net.sf.anathema.character.equipment.item;
 
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Command;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.interaction.Command;
+import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 public class CopyEquipmentTemplateAction {
@@ -28,7 +28,7 @@ public class CopyEquipmentTemplateAction {
     model.getTemplateEditModel().getDescription().getName().addTextChangedListener(new EnableToolOnChange(copyTool, model));
   }
 
-  private static class EnableToolOnChange implements ObjectValueListener<String> {
+  private static class EnableToolOnChange implements ObjectChangedListener<String> {
     private final Tool copyTool;
     private IEquipmentDatabaseManagement model;
 
@@ -63,17 +63,14 @@ public class CopyEquipmentTemplateAction {
     @Override
     public void execute() {
       DiscardChangesVetor vetor = new DiscardChangesVetor(model, view, resources);
-      vetor.requestPermissionFor(new Command() {
-        @Override
-        public void execute() {
-          String salt;
-          for (salt = new String(); model.getDatabase().loadTemplate(model.getTemplateEditModel().createTemplate().getName() + salt) != null; salt += " copy")
-            ;
-          model.getTemplateEditModel().copyNewTemplate(salt);
-          model.getDatabase().saveTemplate(model.getTemplateEditModel().createTemplate());
-          editModel.clearStatsSelection();
-          copyTool.disable();
-        }
+      vetor.requestPermissionFor(() -> {
+        String salt;
+        for (salt = new String(); model.getDatabase().loadTemplate(model.getTemplateEditModel().createTemplate().getName() + salt) != null; salt += " copy")
+          ;
+        model.getTemplateEditModel().copyNewTemplate(salt);
+        model.getDatabase().saveTemplate(model.getTemplateEditModel().createTemplate());
+        editModel.clearStatsSelection();
+        copyTool.disable();
       });
     }
   }

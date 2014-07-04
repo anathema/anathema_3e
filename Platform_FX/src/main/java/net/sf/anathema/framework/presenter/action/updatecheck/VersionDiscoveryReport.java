@@ -56,15 +56,15 @@ public class VersionDiscoveryReport extends ProgressReportAdapter {
 
   @Override
   public void versionLookupFailed() {
-    showErrorState("Help.UpdateCheck.GeneralException");
+    showErrorState();
   }
 
   @Override
   public void versionLookupFailed(Exception e) {
-    showErrorState("Help.UpdateCheck.IOException");
+    showErrorState();
   }
 
-  private void showErrorState(String key) {
+  private void showErrorState() {
     view.showLatestVersion("?.?.?");
     model.setState(CheckFailed);
   }

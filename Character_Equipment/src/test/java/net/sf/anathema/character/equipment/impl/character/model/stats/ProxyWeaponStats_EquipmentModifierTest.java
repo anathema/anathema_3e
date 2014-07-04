@@ -9,6 +9,8 @@ import net.sf.anathema.library.identifier.Identifier;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
@@ -28,7 +30,7 @@ public class ProxyWeaponStats_EquipmentModifierTest {
 
   @Before
   public void setUpWeapon() throws Exception {
-    when(original.getTags()).thenReturn(new Identifier[]{});
+    when(original.getTags()).thenReturn(Collections.emptyList());
   }
 
   @Test

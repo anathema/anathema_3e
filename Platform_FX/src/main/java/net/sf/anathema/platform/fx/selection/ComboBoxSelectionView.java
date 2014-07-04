@@ -6,9 +6,9 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.lang.StringUtilities;
-import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.platform.fx.ConfigurableListCellFactory;
 import net.sf.anathema.platform.fx.FxObjectSelectionView;
 import org.jmock.example.announcer.Announcer;
@@ -24,7 +24,7 @@ public class ComboBoxSelectionView<V> implements FxObjectSelectionView<V> {
   private ComboBox<V> comboBox;
   private Label label;
   private MigPane pane;
-  private final Announcer<ObjectValueListener> announcer = Announcer.to(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> announcer = Announcer.to(ObjectChangedListener.class);
 
   @SuppressWarnings("unchecked")
   public ComboBoxSelectionView(final String description, final AgnosticUIConfiguration<V> ui) {
@@ -52,12 +52,12 @@ public class ComboBoxSelectionView<V> implements FxObjectSelectionView<V> {
   }
 
   @Override
-  public void addObjectSelectionChangedListener(final ObjectValueListener<V> listener) {
+  public void addObjectSelectionChangedListener(final ObjectChangedListener<V> listener) {
     announcer.addListener(listener);
   }
 
   @Override
-  public void removeObjectSelectionChangedListener(ObjectValueListener<V> listener) {
+  public void removeObjectSelectionChangedListener(ObjectChangedListener<V> listener) {
     announcer.removeListener(listener);
   }
 

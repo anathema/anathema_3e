@@ -2,9 +2,9 @@ package net.sf.anathema.character.equipment.item;
 
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 public class RemoveEquipmentTemplateAction {
@@ -35,7 +35,7 @@ public class RemoveEquipmentTemplateAction {
     }
   }
 
-  private class EnableWhenItemSelected implements ObjectValueListener<String> {
+  private class EnableWhenItemSelected implements ObjectChangedListener<String> {
     private final Tool removeTool;
 
     public EnableWhenItemSelected(Tool removeTool) {

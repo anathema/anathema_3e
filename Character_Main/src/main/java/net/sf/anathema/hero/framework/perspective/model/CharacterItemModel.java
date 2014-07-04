@@ -7,7 +7,6 @@ import net.sf.anathema.hero.framework.perspective.DescriptiveFeatures;
 import net.sf.anathema.hero.framework.perspective.LoadedDescriptiveFeatures;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
 import org.jmock.example.announcer.Announcer;
 
 public class CharacterItemModel {
@@ -38,12 +37,7 @@ public class CharacterItemModel {
     this.descriptiveFeatures = new LoadedDescriptiveFeatures(identifier, item);
     Hero hero = (Hero) item.getItemData();
     HeroConceptFetcher.fetch(hero).getCaste().addChangeListener(new AnnouncingChangeListener());
-    HeroDescriptionFetcher.fetch(hero).getName().addTextChangedListener(new ObjectValueListener<String>() {
-      @Override
-      public void valueChanged(String newValue) {
-        featuresChangeAnnouncer.announce().changeOccurred();
-      }
-    });
+    HeroDescriptionFetcher.fetch(hero).getName().addTextChangedListener(newValue -> featuresChangeAnnouncer.announce().changeOccurred());
     item.getItemData().getChangeManagement().addDirtyListener(new AnnouncingChangeListener());
   }
 

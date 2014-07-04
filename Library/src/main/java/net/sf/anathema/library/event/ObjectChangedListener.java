@@ -1,6 +1,6 @@
 package net.sf.anathema.library.event;
 
-public interface ObjectValueListener<T> {
+public interface ObjectChangedListener<T> {
 
   void valueChanged(T newValue);
 }

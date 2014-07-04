@@ -22,18 +22,8 @@ public class SheetPreferencePresenter implements PreferencePresenter {
     final ObjectSelectionView<PageSize> pageSizeView = view.addObjectSelectionView(
             resources.getString("Preferences.Sheet.PageSize"), new PageSizeUi(resources));
     pageSizeView.setObjects(model.getAvailableChoices());
-    pageSizeView.addObjectSelectionChangedListener(new ObjectValueListener<PageSize>() {
-      @Override
-      public void valueChanged(PageSize newValue) {
-        model.requestChangeTo(newValue);
-      }
-    });
-    model.onChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        showCurrentChoiceInView(pageSizeView);
-      }
-    });
+    pageSizeView.addObjectSelectionChangedListener(model::requestChangeTo);
+    model.onChange(() -> showCurrentChoiceInView(pageSizeView));
     showCurrentChoiceInView(pageSizeView);
   }
 

@@ -7,7 +7,6 @@ import javafx.scene.control.TextField;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtyCreationView;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.library.event.ObjectValueListener;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
@@ -33,18 +32,13 @@ public class FxSpecialtyCreationView implements SpecialtyCreationView {
   }
 
   @Override
-  public void addSelectionChangedListener(final ObjectValueListener<TraitType> listener) {
+  public void addSelectionChangedListener(final ObjectChangedListener<TraitType> listener) {
     box.addObjectSelectionChangedListener(listener);
   }
 
   @Override
-  public void addEditChangedListener(final ObjectValueListener<String> listener) {
-    field.textProperty().addListener(new ChangeListener<String>() {
-      @Override
-      public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
-        listener.valueChanged(s2);
-      }
-    });
+  public void addEditChangedListener(final ObjectChangedListener<String> listener) {
+    field.textProperty().addListener((observableValue, s, s2) -> listener.valueChanged(s2));
   }
 
   @Override

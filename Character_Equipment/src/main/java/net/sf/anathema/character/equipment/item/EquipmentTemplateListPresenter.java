@@ -3,15 +3,14 @@ package net.sf.anathema.character.equipment.item;
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.Arrays;
 
 public class EquipmentTemplateListPresenter {
 
-  private final class EquipmentTemplateLoadListener implements ObjectValueListener<String> {
+  private final class EquipmentTemplateLoadListener implements ObjectChangedListener<String> {
     @Override
     public void valueChanged(String newValue) {
       if (newValue == null) {
@@ -39,12 +38,7 @@ public class EquipmentTemplateListPresenter {
   }
 
   public void initPresentation() {
-    model.getDatabase().addAvailableTemplateChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        updateAvailableTemplates();
-      }
-    });
+    model.getDatabase().addAvailableTemplateChangeListener(this::updateAvailableTemplates);
     updateAvailableTemplates();
     view.getTemplateListView().addSelectionVetor(new DiscardChangesVetor(model, view, resources));
     view.getTemplateListView().addObjectSelectionChangedListener(new EquipmentTemplateLoadListener());

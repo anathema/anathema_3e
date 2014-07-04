@@ -4,11 +4,11 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
-import net.sf.anathema.library.event.IBooleanValueChangedListener;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.event.BooleanChangedListener;
+import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
 
-public class FxCheckMenuItemView implements BooleanValueView, FxSpecialContent {
+public class FxCheckMenuItemView implements BooleanView, FxSpecialContent {
   private final CheckMenuItem menuItem;
 
   public FxCheckMenuItemView(String label) {
@@ -26,7 +26,7 @@ public class FxCheckMenuItemView implements BooleanValueView, FxSpecialContent {
   }
 
   @Override
-  public void addChangeListener(final IBooleanValueChangedListener listener) {
+  public void addChangeListener(final BooleanChangedListener listener) {
     menuItem.selectedProperty().addListener(new ChangeListener<Boolean>() {
       @Override
       public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean newValue) {

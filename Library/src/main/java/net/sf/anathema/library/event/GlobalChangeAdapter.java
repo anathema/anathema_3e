@@ -1,6 +1,6 @@
 package net.sf.anathema.library.event;
 
-public class GlobalChangeAdapter<T> implements ObjectValueListener<T>, IntValueChangedListener, IBooleanValueChangedListener {
+public class GlobalChangeAdapter<T> implements ObjectChangedListener<T>, IntegerChangedListener, BooleanChangedListener {
 
   private final ChangeListener listener;
 

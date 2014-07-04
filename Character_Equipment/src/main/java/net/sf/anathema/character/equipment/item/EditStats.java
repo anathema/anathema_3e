@@ -27,12 +27,7 @@ public class EditStats {
     tool.setIcon(new BasicUi().getEditIconPath());
     tool.setTooltip(resources.getString("Equipment.Creation.Stats.EditActionTooltip"));
     tool.setCommand(new EditStatsCommand(statsEditor, editModel, resources, view));
-    editModel.whenSelectedStatsChanges(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        updateEnabled(tool);
-      }
-    });
+    editModel.whenSelectedStatsChanges(() -> updateEnabled(tool));
     updateEnabled(tool);
   }
 

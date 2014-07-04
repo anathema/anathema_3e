@@ -32,28 +32,15 @@ public class NameGeneratorPresenter {
   private void initGenerationPresentation() {
     String label = resources.getString("Namegenerator.GenerateButton.Label");
     view.addGenerationAction(label,
-            new Command() {
-              @Override
-              public void execute() {
-                String[] generatedNames = model.generateNames(50);
-                view.setResult(Joiner.on("\n").join(generatedNames));
-              }
+            () -> {
+              String[] generatedNames = model.generateNames(50);
+              view.setResult(Joiner.on("\n").join(generatedNames));
             });
   }
 
   private void initSelectedGeneratorTypePresentation() {
-    view.addGeneratorTypeChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        model.setGeneratorType((Identifier) view.getSelectedGeneratorType());
-      }
-    });
-    model.addGeneratorTypeChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        view.setSelectedGeneratorType(model.getSelectedGeneratorType());
-      }
-    });
+    view.addGeneratorTypeChangeListener(() -> model.setGeneratorType((Identifier) view.getSelectedGeneratorType()));
+    model.addGeneratorTypeChangeListener(() -> view.setSelectedGeneratorType(model.getSelectedGeneratorType()));
     view.setSelectedGeneratorType(model.getSelectedGeneratorType());
   }
 }

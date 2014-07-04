@@ -7,6 +7,8 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
+import java.util.Collection;
+
 public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFactory<IArmourStats> {
 
   private String createItemName(IEquipmentItem item, IEquipmentStats stats) {
@@ -48,7 +50,7 @@ public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFa
       }
 
       @Override
-      public Identifier[] getTags() {
+      public Collection<Identifier> getTags() {
         return stats.getTags();
       }
 

@@ -2,9 +2,9 @@ package net.sf.anathema.hero.languages.display.view;
 
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.languages.display.presenter.ObjectSelectionViewWithTool;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
@@ -29,12 +29,12 @@ public class FxSelectionViewWithTool<V> implements ObjectSelectionViewWithTool<V
   }
 
   @Override
-  public void addObjectSelectionChangedListener(ObjectValueListener<V> listener) {
+  public void addObjectSelectionChangedListener(ObjectChangedListener<V> listener) {
     comboBox.addObjectSelectionChangedListener(listener);
   }
 
   @Override
-  public void removeObjectSelectionChangedListener(ObjectValueListener<V> listener) {
+  public void removeObjectSelectionChangedListener(ObjectChangedListener<V> listener) {
     comboBox.removeObjectSelectionChangedListener(listener);
   }
 

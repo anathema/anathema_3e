@@ -38,17 +38,12 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
     }
     TraitMap traitMap = TraitModelFetcher.fetch(hero);
     EssencePoolConfiguration essencePoolConfiguration = new EssencePoolConfiguration(template);
-    poolStrategy = new EssencePoolStrategyImpl(hero, essencePoolConfiguration, traitMap, overdrivePool);
+    poolStrategy = new EssencePoolStrategyImpl(hero, essencePoolConfiguration, traitMap);
   }
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
     // nothing to do
-  }
-
-  @Override
-  public void addOverdrivePool(OverdrivePool pool) {
-    overdrivePool.addOverdrivePool(pool);
   }
 
   @Override
@@ -81,11 +76,6 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
   @Override
   public int getPeripheralPoolValue() {
     return poolStrategy.getFullPeripheralPool();
-  }
-
-  @Override
-  public int getOverdrivePoolValue() {
-    return poolStrategy.getOverdrivePool();
   }
 
   @Override

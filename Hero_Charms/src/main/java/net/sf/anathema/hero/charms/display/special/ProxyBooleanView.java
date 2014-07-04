@@ -1,22 +1,22 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.library.event.IBooleanValueChangedListener;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.event.BooleanChangedListener;
+import net.sf.anathema.library.view.BooleanView;
 import org.jmock.example.announcer.Announcer;
 
-public class ProxyBooleanValueView implements BooleanValueView {
+public class ProxyBooleanView implements BooleanView {
   private final String label;
-  private final Announcer<IBooleanValueChangedListener> listeners = new Announcer<>(IBooleanValueChangedListener.class);
-  private BooleanValueView actualView;
+  private final Announcer<BooleanChangedListener> listeners = new Announcer<>(BooleanChangedListener.class);
+  private BooleanView actualView;
   private boolean selected = false;
 
-  public ProxyBooleanValueView(String label) {
+  public ProxyBooleanView(String label) {
     this.label = label;
   }
 
-  public void setActualView(BooleanValueView actualView) {
+  public void setActualView(BooleanView actualView) {
     this.actualView = actualView;
-    actualView.addChangeListener(new IBooleanValueChangedListener() {
+    actualView.addChangeListener(new BooleanChangedListener() {
       @Override
       public void valueChanged(boolean newValue) {
         listeners.announce().valueChanged(newValue);
@@ -38,7 +38,7 @@ public class ProxyBooleanValueView implements BooleanValueView {
   }
 
   @Override
-  public void addChangeListener(IBooleanValueChangedListener listener) {
+  public void addChangeListener(BooleanChangedListener listener) {
     if (actualView != null) {
       actualView.addChangeListener(listener);
       return;

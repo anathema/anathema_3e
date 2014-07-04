@@ -30,13 +30,10 @@ public class NewInteractionPresenter {
   public void initPresentation() {
     initializeAppearance();
     initializeCommand();
-    model.whenNewCharacterIsAdded(new NewCharacterListener() {
-      @Override
-      public void added(CharacterItemModel character) {
-        new CharacterButtonPresenter(environment, selector, character, view).initPresentation();
-        view.selectButton(character.getDescriptiveFeatures().getIdentifier());
-        selector.selected(character.getDescriptiveFeatures().getIdentifier());
-      }
+    model.whenNewCharacterIsAdded(character -> {
+      new CharacterButtonPresenter(environment, selector, character, view).initPresentation();
+      view.selectButton(character.getDescriptiveFeatures().getIdentifier());
+      selector.selected(character.getDescriptiveFeatures().getIdentifier());
     });
   }
 

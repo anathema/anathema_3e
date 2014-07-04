@@ -11,16 +11,14 @@ import org.jmock.example.announcer.Announcer;
 public class EssencePoolStrategyImpl implements EssencePoolStrategy {
 
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
-  private OverdrivePool overdrivePool;
   private Hero hero;
   private EssencePoolConfiguration configuration;
   private final TraitMap traitMap;
 
-  public EssencePoolStrategyImpl(Hero hero, EssencePoolConfiguration configuration, TraitMap traitMap, OverdrivePool overdrivePool) {
+  public EssencePoolStrategyImpl(Hero hero, EssencePoolConfiguration configuration, TraitMap traitMap) {
     this.hero = hero;
     this.configuration = configuration;
     this.traitMap = traitMap;
-    this.overdrivePool = overdrivePool;
     hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
       @Override
       public void changeOccurred(ChangeFlavor flavor) {
@@ -74,16 +72,6 @@ public class EssencePoolStrategyImpl implements EssencePoolStrategy {
   public int getStandardPeripheralPool() {
     int peripheral = getUnmodifiedPeripheralPool();
     return Math.max(0, peripheral - getAttunementExpenditures());
-  }
-
-  @Override
-  public int getOverdrivePool() {
-    return overdrivePool.getPool();
-  }
-
-  @Override
-  public IdentifiedInteger[] getComplexPools() {
-    return new IdentifiedInteger[0];
   }
 
   @Override

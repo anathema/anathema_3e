@@ -50,28 +50,6 @@ public class ArmourStatsticsModel extends EquipmentStatisticsModel implements IA
   }
 
   @Override
-  public IIntValueModel getHardnessModel(HealthType healthType) {
-    final IIntValueModel[] model = new IIntValueModel[1];
-    healthType.accept(new IHealthTypeVisitor() {
-      @Override
-      public void visitAggravated(HealthType aggrevated) {
-        model[0] = getLethalHardnessModel();
-      }
-
-      @Override
-      public void visitBashing(HealthType bashing) {
-        model[0] = getBashingHardnessModel();
-      }
-
-      @Override
-      public void visitLethal(HealthType lethal) {
-        model[0] = getLethalHardnessModel();
-      }
-    });
-    return model[0];
-  }
-
-  @Override
   public IIntValueModel getSoakModel(HealthType healthType) {
     final IIntValueModel[] model = new IIntValueModel[1];
     healthType.accept(new IHealthTypeVisitor() {

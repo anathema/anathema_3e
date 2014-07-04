@@ -6,10 +6,10 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.AnnounceChangeValueListener;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.text.ITextualDescription;
-import net.sf.anathema.library.text.SimpleTextualDescription;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public class HeroDescriptionImpl implements HeroDescription, HeroModel {
 
@@ -102,7 +102,7 @@ public class HeroDescriptionImpl implements HeroDescription, HeroModel {
   }
 
   @Override
-  public void addOverallChangeListener(ObjectValueListener<String> listener) {
+  public void addOverallChangeListener(ObjectChangedListener<String> listener) {
     for (ITextualDescription description : getAllDescriptions()) {
       description.addTextChangedListener(listener);
     }

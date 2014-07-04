@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Consumer;
 
 public class MultiEntryMap<K, V> {
 
@@ -58,9 +57,5 @@ public class MultiEntryMap<K, V> {
 
   public Set<K> keySet() {
     return Collections.unmodifiableSet(map.keySet());
-  }
-
-  public void forEachKey(Consumer<K> consumer) {
-    keySet().stream().forEach(consumer);
   }
 }

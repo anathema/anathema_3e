@@ -4,7 +4,6 @@ import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.PointModelFetcher;
 
@@ -21,12 +20,7 @@ public class ExperiencePointPresenter {
   public void initPresentation(final SectionView section) {
     final ExperienceModel experienceModel = ExperienceModelFetcher.fetch(hero);
     initExperiencePointPresentation(experienceModel.isExperienced(), section);
-    experienceModel.addStateChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        initExperiencePointPresentation(experienceModel.isExperienced(), section);
-      }
-    });
+    experienceModel.addStateChangeListener(() -> initExperiencePointPresentation(experienceModel.isExperienced(), section));
   }
 
   private void initExperiencePointPresentation(boolean experienced, SectionView section) {

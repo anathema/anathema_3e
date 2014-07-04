@@ -1,6 +1,6 @@
 package net.sf.anathema.library.model;
 
-import net.sf.anathema.library.event.IBooleanValueChangedListener;
+import net.sf.anathema.library.event.BooleanChangedListener;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class BooleanValueModelTest {
 
   @Test
   public void notifiesListenersOfChange() throws Exception {
-    IBooleanValueChangedListener listener = mock(IBooleanValueChangedListener.class);
+    BooleanChangedListener listener = mock(BooleanChangedListener.class);
     model.addChangeListener(listener);
     model.setValue(true);
     verify(listener).valueChanged(true);

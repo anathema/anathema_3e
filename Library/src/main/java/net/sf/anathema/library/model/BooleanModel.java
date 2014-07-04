@@ -1,7 +1,11 @@
 package net.sf.anathema.library.model;
 
-public class BooleanModel extends AbstractChangeableModel implements IModifiableBooleanModel {
+import net.sf.anathema.library.event.ChangeListener;
+import org.jmock.example.announcer.Announcer;
 
+public class BooleanModel implements IModifiableBooleanModel, IChangeableModel {
+
+  private final Announcer<ChangeListener> listeners = Announcer.to(ChangeListener.class);
   private boolean value;
 
   public BooleanModel() {
@@ -18,12 +22,22 @@ public class BooleanModel extends AbstractChangeableModel implements IModifiable
   }
 
   @Override
+  public void addChangeListener(ChangeListener listener) {
+    listeners.addListener(listener);
+  }
+
+  @Override
+  public void removeChangeListener(ChangeListener listener) {
+    listeners.removeListener(listener);
+  }
+
+  @Override
   public void setValue(boolean selected) {
     if (this.value == selected) {
       return;
     }
     this.value = selected;
-    fireChangeEvent();
+    listeners.announce().changeOccurred();
   }
 
   @Override

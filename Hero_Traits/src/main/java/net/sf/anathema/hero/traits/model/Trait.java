@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
 public interface Trait extends ValuedTraitType {
 
@@ -24,11 +24,11 @@ public interface Trait extends ValuedTraitType {
 
   int getMaximalValue();
 
-  void addCreationPointListener(IntValueChangedListener listener);
+  void addCreationPointListener(IntegerChangedListener listener);
 
-  void removeCreationPointListener(IntValueChangedListener listener);
+  void removeCreationPointListener(IntegerChangedListener listener);
 
-  void addCurrentValueListener(IntValueChangedListener listener);
+  void addCurrentValueListener(IntegerChangedListener listener);
 
   int getModifiedMaximalValue();
 

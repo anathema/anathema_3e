@@ -21,10 +21,6 @@ public interface EssencePoolStrategy {
 
   int getUnmodifiedPeripheralPool();
 
-  int getOverdrivePool();
-
-  IdentifiedInteger[] getComplexPools();
-
   int getAttunementExpenditures();
 
   void addPoolChangeListener(ChangeListener listener);

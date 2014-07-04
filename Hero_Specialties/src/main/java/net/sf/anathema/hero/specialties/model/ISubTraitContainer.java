@@ -1,8 +1,10 @@
 package net.sf.anathema.hero.specialties.model;
 
+import java.util.Collection;
+
 public interface ISubTraitContainer {
 
-  Specialty[] getSubTraits();
+  Collection<Specialty> getSubTraits();
 
   Specialty addSubTrait(String subName);
 

@@ -59,7 +59,7 @@ public class LandscapeExaltSheetReport extends AbstractPdfReport {
   private List<PageEncoder> collectPageEncoders(PageSize pageSize, ReportSession session) {
     List<PageEncoder> encoderList = new ArrayList<>();
     encoderList.add(new FirstPageEncoder());
-    encoderList.add(new SecondPageEncoder(getEncoderRegistry(), resources));
+    encoderList.add(new SecondPageEncoder());
     Collections.addAll(encoderList, findAdditionalPages(pageSize, session));
     return encoderList;
   }

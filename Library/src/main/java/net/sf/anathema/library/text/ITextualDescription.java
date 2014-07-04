@@ -1,6 +1,6 @@
 package net.sf.anathema.library.text;
 
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public interface ITextualDescription {
 
@@ -10,10 +10,10 @@ public interface ITextualDescription {
 
   void setText(String text);
 
-  void addTextChangedListener(ObjectValueListener<String> listener);
+  void addTextChangedListener(ObjectChangedListener<String> listener);
 
   @SuppressWarnings("UnusedDeclaration")
-  void removeTextChangeListener(ObjectValueListener<String> listener);
+  void removeTextChangeListener(ObjectChangedListener<String> listener);
 
   String getText();
 

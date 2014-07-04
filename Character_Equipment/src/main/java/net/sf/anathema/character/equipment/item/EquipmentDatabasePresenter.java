@@ -1,5 +1,6 @@
 package net.sf.anathema.character.equipment.item;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.character.equipment.item.view.EquipmentDatabaseView;
@@ -7,18 +8,23 @@ import net.sf.anathema.character.equipment.item.view.EquipmentDescriptionPanel;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
+import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.library.text.ITextView;
-import net.sf.anathema.library.text.TextualPresentation;
-import net.sf.anathema.library.view.ObjectSelectionView;
 
-import static net.sf.anathema.library.lang.ArrayUtilities.transform;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class EquipmentDatabasePresenter {
   private final Resources resources;
   private final EquipmentDatabaseView view;
   private final IEquipmentDatabaseManagement model;
-  private final String[] defaultCostBackgrounds = {"Artifact", "Manse", "Resources"};
+  private final List<String> defaultCostBackgrounds = Lists.newArrayList("Artifact", "Manse", "Resources");
   private final StatsEditModel editModel;
 
   public EquipmentDatabasePresenter(Resources resources, IEquipmentDatabaseManagement model,
@@ -58,7 +64,7 @@ public class EquipmentDatabasePresenter {
     compositionView.setObjects(MaterialComposition.values());
     final ObjectSelectionView<MagicalMaterial> materialView = descriptionPanel.addMaterialView(getColonString("Equipment.Creation.Basics.Material"), new MaterialUi(resources));
     materialView.setObjects(MagicalMaterial.values());
-    String[] backgrounds = transform(defaultCostBackgrounds, String.class, background -> resources.getString("Equipment.Cost.Type." + background));
+    Collection<String> backgrounds = getBackgroundStrings();
     final CostSelectionView costView = descriptionPanel.addCostView(getColonString("Equipment.Creation.Basics.Cost"));
     costView.setSelectableBackgrounds(backgrounds);
     compositionView.addObjectSelectionChangedListener(newValue -> model.getTemplateEditModel().setMaterialComposition(newValue));
@@ -79,5 +85,10 @@ public class EquipmentDatabasePresenter {
       }
     });
     model.getTemplateEditModel().addCostChangeListener(() -> costView.setValue(model.getTemplateEditModel().getCost()));
+  }
+
+  private Collection<String> getBackgroundStrings() {
+    Stream<String> backgrounds = defaultCostBackgrounds.stream();
+    return backgrounds.map(background -> resources.getString("Equipment.Cost.Type." + background)).collect(toList());
   }
 }

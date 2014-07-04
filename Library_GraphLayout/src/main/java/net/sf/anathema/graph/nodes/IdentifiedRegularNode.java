@@ -1,7 +1,7 @@
 package net.sf.anathema.graph.nodes;
 
-import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.library.lang.ArrayUtilities;
+import net.sf.anathema.lib.util.SimpleIdentifier;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,7 +20,7 @@ public class IdentifiedRegularNode extends SimpleIdentifier implements IIdentifi
 
     @Override
     public int compare(ISimpleNode o1, ISimpleNode o2) {
-      return ArrayUtilities.indexOf(orderedNodes, o1) - ArrayUtilities.indexOf(orderedNodes, o2);
+      return indexOf(orderedNodes, o1) - indexOf(orderedNodes, o2);
     }
   }
 
@@ -114,5 +114,13 @@ public class IdentifiedRegularNode extends SimpleIdentifier implements IIdentifi
   @Override
   public String toString() {
     return getId() + " (Layer:" + getLayer() + ")";
+  }
+
+  private static <R> int indexOf(R[] array, R value) {
+    int index = ArrayUtils.indexOf(array, value);
+    if (index != ArrayUtils.INDEX_NOT_FOUND) {
+      return index;
+    }
+    throw new IllegalArgumentException("Value not contained in array: " + value);
   }
 }

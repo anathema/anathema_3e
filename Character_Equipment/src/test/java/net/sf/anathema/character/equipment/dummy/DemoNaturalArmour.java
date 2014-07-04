@@ -2,7 +2,7 @@ package net.sf.anathema.character.equipment.dummy;
 
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.lib.util.Identifier;
 
 public class DemoNaturalArmour extends AbstractCombatStats implements IArmourStats {
 

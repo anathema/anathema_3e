@@ -1,11 +1,11 @@
 package net.sf.anathema.library.model;
 
-import net.sf.anathema.library.event.IBooleanValueChangedListener;
+import net.sf.anathema.library.event.BooleanChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class BooleanValueModel {
 
-  private final Announcer<IBooleanValueChangedListener> control = Announcer.to(IBooleanValueChangedListener.class);
+  private final Announcer<BooleanChangedListener> control = Announcer.to(BooleanChangedListener.class);
   private boolean value;
 
   public BooleanValueModel(boolean value) {
@@ -16,7 +16,7 @@ public class BooleanValueModel {
     return value;
   }
 
-  public void addChangeListener(IBooleanValueChangedListener listener) {
+  public void addChangeListener(BooleanChangedListener listener) {
     control.addListener(listener);
   }
 

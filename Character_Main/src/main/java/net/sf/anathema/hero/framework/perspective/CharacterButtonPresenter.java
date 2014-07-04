@@ -26,12 +26,7 @@ public class CharacterButtonPresenter {
   }
 
   private void initDescriptiveFeatureListening() {
-    character.whenFeaturesChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        view.updateButton(extractButtonDto());
-      }
-    });
+    character.whenFeaturesChange(() -> view.updateButton(extractButtonDto()));
   }
 
   private CharacterButtonDto extractButtonDto() {

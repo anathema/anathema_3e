@@ -67,15 +67,10 @@ public class UpdatePresenter {
   private void prepareForInstallation(UpdateView view, Updater updater) {
     Tool tool = view.addTool();
     tool.setText("Install update");
-    tool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        runInThread(() -> {
-          view.disableUpdate();
-          updater.updateToLatestVersion();
-        });
-      }
-    });
+    tool.setCommand(() -> runInThread(() -> {
+      view.disableUpdate();
+      updater.updateToLatestVersion();
+    }));
   }
 
   private void runUpdateCheck(Updater updater) {

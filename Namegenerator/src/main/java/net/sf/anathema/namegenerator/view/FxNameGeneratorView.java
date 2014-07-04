@@ -83,12 +83,7 @@ public class FxNameGeneratorView implements NameGeneratorView {
   public void addGenerationAction(final String label, final Command command) {
     Button button = new Button();
     button.setText(label);
-    button.setOnAction(new EventHandler<javafx.event.ActionEvent>() {
-      @Override
-      public void handle(javafx.event.ActionEvent actionEvent) {
-        command.execute();
-      }
-    });
+    button.setOnAction(actionEvent -> command.execute());
     navigation.add(button, new CC().grow().pushX());
   }
 }

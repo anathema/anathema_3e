@@ -8,6 +8,8 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 
+import java.util.Collection;
+
 public class SpecialtiesCollectionImpl {
 
   private final Hero hero;
@@ -16,7 +18,7 @@ public class SpecialtiesCollectionImpl {
     this.hero = hero;
   }
 
-  public Specialty[] getSpecialties(TraitType traitType) {
+  public Collection<Specialty> getSpecialties(TraitType traitType) {
     SpecialtiesModel specialtyConfiguration = SpecialtiesModelFetcher.fetch(hero);
     return specialtyConfiguration.getSpecialtiesContainer(traitType).getSubTraits();
   }

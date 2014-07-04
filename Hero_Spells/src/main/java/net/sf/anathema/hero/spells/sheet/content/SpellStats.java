@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.hero.charms.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
@@ -9,6 +10,10 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import static net.sf.anathema.library.lang.ArrayUtilities.transform;
 
 public class SpellStats extends AbstractMagicStats<Spell> {
@@ -38,17 +43,18 @@ public class SpellStats extends AbstractMagicStats<Spell> {
     return stringBuilder.createShortSourceString(getMagic());
   }
 
-  protected String[] getDetailKeys() {
+  protected Collection<String> getDetailKeys() {
     String target = getMagic().getTarget();
     if (target != null) {
-      return new String[]{"Spells.Target." + target};
+      return Lists.newArrayList("Spells.Target." + target);
     }
-    return new String[0];
+    return new ArrayList<>();
   }
 
   @Override
-  public String[] getDetailStrings(final Resources resources) {
-    return transform(getDetailKeys(), String.class, resources::getString);
+  public Collection<String> getDetailStrings(final Resources resources) {
+    Stream<String> keys = getDetailKeys().stream();
+    return keys.map(resources::getString).collect(Collectors.toList());
   }
 
   @Override

@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository.preferences;
 
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangeListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 
@@ -13,7 +13,7 @@ public interface RepositoryPreferenceView {
 
   void selectNewRepository(String prompt);
 
-  void whenRepositoryChangeIsRequested(ObjectValueListener<Path> objectValueListener);
+  void whenRepositoryChangeIsRequested(ObjectChangedListener<Path> objectChangedListener);
 
   void showInExplorer(Path repositoryPath);
 

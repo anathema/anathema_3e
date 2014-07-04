@@ -157,8 +157,7 @@ public class EquipmentObjectPresenter {
   }
 
   private void addSpecialtiesForWeaponStats(StatsView baseView, IWeaponStats weaponStats) {
-    Specialty[] specialties = dataProvider.getSpecialties(weaponStats.getTraitType());
-    for (Specialty specialty : specialties) {
+    for (Specialty specialty : dataProvider.getSpecialties(weaponStats.getTraitType())) {
       String label = MessageFormat.format(resources.getString("Equipment.Specialty"), specialty.getName());
       StatsView statsView = baseView.addOptionFlag(label);
       IEquipmentStatsOption specialtyOption = new EquipmentSpecialtyOption(specialty, weaponStats.getTraitType());

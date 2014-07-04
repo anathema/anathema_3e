@@ -59,8 +59,8 @@ public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> 
     if (weapon == null) {
       table.addCell(createEmptyNameCell(font));
     } else {
-      Identifier[] tags = weapon.getTags();
-      List<String> values = Stream.of(tags).filter(printedTags::contains).map(input -> resources.getString("Weapons.Tags." + input.getId() + ".Short")).collect(toList());
+      Stream<Identifier> tags = weapon.getTags().stream();
+      List<String> values = tags.filter(printedTags::contains).map(input -> resources.getString("Weapons.Tags." + input.getId() + ".Short")).collect(toList());
       String valueString = values.isEmpty() ? " " : Joiner.on(",").join(values);
       table.addCell(createFilledContentCell(font, valueString));
     }

@@ -1,10 +1,11 @@
 package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractSubTraitContainer implements ISubTraitContainer {
@@ -12,12 +13,7 @@ public abstract class AbstractSubTraitContainer implements ISubTraitContainer {
   private final List<Specialty> unremovableSubTraits = new ArrayList<>();
   private final List<Specialty> subtraits = new ArrayList<>();
   private final Announcer<ISpecialtyListener> subTraitListeners = Announcer.to(ISpecialtyListener.class);
-  private final IntValueChangedListener subTraitCreationPointListener = new IntValueChangedListener() {
-    @Override
-    public void valueChanged(int newValue) {
-      fireSubTraitValueChangedEvent();
-    }
-  };
+  private final IntegerChangedListener subTraitCreationPointListener = newValue -> fireSubTraitValueChangedEvent();
 
   @Override
   public boolean isRemovable(Specialty subTrait) {
@@ -91,8 +87,8 @@ public abstract class AbstractSubTraitContainer implements ISubTraitContainer {
   }
 
   @Override
-  public final Specialty[] getSubTraits() {
-    return subtraits.toArray(new Specialty[subtraits.size()]);
+  public final Collection<Specialty> getSubTraits() {
+    return new ArrayList<>(subtraits);
   }
 
   protected abstract Specialty createSubTrait(String name);

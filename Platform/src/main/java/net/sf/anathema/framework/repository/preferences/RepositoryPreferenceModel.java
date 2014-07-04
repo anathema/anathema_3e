@@ -57,11 +57,6 @@ public class RepositoryPreferenceModel implements PreferenceModel {
 
   @Override
   public void whenDirtied(Command command) {
-    whenLocationChanges(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        command.execute();
-      }
-    });
+    whenLocationChanges(command::execute);
   }
 }

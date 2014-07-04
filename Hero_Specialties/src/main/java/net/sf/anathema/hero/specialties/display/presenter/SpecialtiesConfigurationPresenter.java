@@ -4,8 +4,6 @@ import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeFlavor;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.specialties.model.ISpecialtyListener;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
@@ -13,13 +11,11 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.interaction.Command;
+import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.library.collection.IdentityMapping;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Command;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
-import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.Arrays;
@@ -70,44 +66,23 @@ public class SpecialtiesConfigurationPresenter {
     AgnosticUIConfiguration<TraitType> configuration = new TraitTypeUiConfiguration(i18ner);
     final SpecialtyCreationView creationView = configurationView.addSpecialtyCreationView(configuration, addIcon);
     setObjects(creationView);
-    creationView.addSelectionChangedListener(new ObjectValueListener<TraitType>() {
-      @Override
-      public void valueChanged(TraitType newValue) {
-        specialtyManagement.setCurrentTrait(newValue);
-      }
+    creationView.addSelectionChangedListener(specialtyManagement::setCurrentTrait);
+    creationView.addEditChangedListener(specialtyManagement::setCurrentSpecialtyName);
+    creationView.whenAddButtonIsClicked(() -> {
+      specialtyManagement.commitSelection();
+      resetAndSyncView(creationView);
     });
-    creationView.addEditChangedListener(new ObjectValueListener<String>() {
-      @Override
-      public void valueChanged(String newSpecialtyName) {
-        specialtyManagement.setCurrentSpecialtyName(newSpecialtyName);
-      }
-    });
-    creationView.whenAddButtonIsClicked(new Command() {
-      @Override
-      public void execute() {
-        specialtyManagement.commitSelection();
-        resetAndSyncView(creationView);
-      }
-    });
-    specialtyManagement.addSelectionChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        creationView.setButtonEnabled(specialtyManagement.isEntryComplete());
-      }
-    });
+    specialtyManagement.addSelectionChangeListener(() -> creationView.setButtonEnabled(specialtyManagement.isEntryComplete()));
     for (TraitType reference : getAllTraits()) {
       for (Specialty specialty : getSpecialtyContainer(reference).getSubTraits()) {
         addSpecialtyView(specialty);
       }
     }
-    hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
-          updateSpecialtyViewButtons();
-        }
-        setObjects(creationView);
+    hero.getChangeAnnouncer().addListener(flavor -> {
+      if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
+        updateSpecialtyViewButtons();
       }
+      setObjects(creationView);
     });
     resetAndSyncView(creationView);
     updateSpecialtyViewButtons();
@@ -176,12 +151,7 @@ public class SpecialtiesConfigurationPresenter {
     new TraitPresenter(specialty, specialtyView.getIntValueView()).initPresentation();
     Tool deleteTool = specialtyView.addToolBehind();
     deleteTool.setIcon(deleteIcon);
-    deleteTool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        getSpecialtyContainer(type).removeSubTrait(specialty);
-      }
-    });
+    deleteTool.setCommand(() -> getSpecialtyContainer(type).removeSubTrait(specialty));
     viewsBySpecialty.put(specialty, specialtyView);
     deleteToolsBySpecialty.put(specialty, deleteTool);
   }

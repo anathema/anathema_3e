@@ -44,11 +44,6 @@ public class CharacterChangeManagement implements ChangeManagement {
   }
 
   public void initListening() {
-    hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        setDirty();
-      }
-    });
+    hero.getChangeAnnouncer().addListener(flavor -> setDirty());
   }
 }

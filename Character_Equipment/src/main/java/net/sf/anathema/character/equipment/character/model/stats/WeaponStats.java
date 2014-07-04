@@ -11,6 +11,7 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static net.sf.anathema.character.equipment.character.model.stats.WeaponStatisticsTable.forArtifactWeapons;
@@ -44,8 +45,7 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
   public HealthType getDamageType() {
     if (hasTag(Lethal)) {
       return HealthType.Lethal;
-    }
-    else {
+    } else {
       return HealthType.Bashing;
     }
   }
@@ -56,8 +56,8 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
   }
 
   @Override
-  public Identifier[] getTags() {
-    return tags.toArray(new IWeaponTag[tags.size()]);
+  public Collection<Identifier> getTags() {
+    return new ArrayList<>(tags);
   }
 
   protected final boolean hasTag(WeaponTag tag) {

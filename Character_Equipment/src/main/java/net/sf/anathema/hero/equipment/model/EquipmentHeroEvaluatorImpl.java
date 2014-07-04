@@ -12,6 +12,8 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 
+import java.util.Collection;
+
 import static net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType.FullyAttuned;
 import static net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType.Unattuned;
 import static net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType.UnharmoniouslyAttuned;
@@ -27,7 +29,7 @@ public class EquipmentHeroEvaluatorImpl implements EquipmentHeroEvaluator {
   }
 
   @Override
-  public Specialty[] getSpecialties(TraitType trait) {
+  public Collection<Specialty> getSpecialties(TraitType trait) {
     return new SpecialtiesCollectionImpl(hero).getSpecialties(trait);
   }
 

@@ -178,10 +178,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
     return MartialArtsLevel.Mortal;
   }
 
-  public void setGroups(LearningCharmTree... groups) {
-    this.groups = groups;
-  }
-
   @Override
   public Identifier getId() {
     return ID;

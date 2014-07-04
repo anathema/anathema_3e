@@ -2,6 +2,8 @@ package net.sf.anathema.hero.equipment.sheet.content.stats.weapon;
 
 import net.sf.anathema.library.identifier.Identifier;
 
+import java.util.Collection;
+
 public interface IArmourStats extends IEquipmentStats {
 
   Integer getMobilityPenalty();
@@ -10,5 +12,5 @@ public interface IArmourStats extends IEquipmentStats {
 
   Integer getSoak();
 
-  Identifier[] getTags();
+  Collection<Identifier> getTags();
 }

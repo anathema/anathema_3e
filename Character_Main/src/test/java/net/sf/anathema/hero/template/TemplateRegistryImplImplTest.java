@@ -2,15 +2,16 @@ package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
-import org.apache.commons.lang3.ArrayUtils;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Collection;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class TemplateRegistryImplImplTest {
+public class TemplateRegistryImplTest {
 
   private DummyMundaneCharacterType characterType = new DummyMundaneCharacterType();
   private TemplateRegistry registry;
@@ -33,8 +34,8 @@ public class TemplateRegistryImplImplTest {
     HeroTemplate otherTemplate = new SimpleDummyCharacterTemplate(characterType, "Second");
     registry.register(defaultTemplate);
     registry.register(otherTemplate);
-    HeroTemplate[] allSupportedTemplates = registry.getAllSupportedTemplates(characterType);
-    assertTrue(ArrayUtils.contains(allSupportedTemplates, defaultTemplate));
-    assertTrue(ArrayUtils.contains(allSupportedTemplates, otherTemplate));
+    Collection<HeroTemplate> allSupportedTemplates = registry.getAllSupportedTemplates(characterType);
+    assertTrue(allSupportedTemplates.contains(defaultTemplate));
+    assertTrue(allSupportedTemplates.contains(otherTemplate));
   }
 }

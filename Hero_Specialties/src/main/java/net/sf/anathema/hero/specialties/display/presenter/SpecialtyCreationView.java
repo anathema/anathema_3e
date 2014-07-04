@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public interface SpecialtyCreationView {
 
-  void addSelectionChangedListener(ObjectValueListener<TraitType> name);
+  void addSelectionChangedListener(ObjectChangedListener<TraitType> name);
 
-  void addEditChangedListener(ObjectValueListener<String> name);
+  void addEditChangedListener(ObjectChangedListener<String> name);
 
   void whenAddButtonIsClicked(Command command);
 

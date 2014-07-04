@@ -1,8 +1,7 @@
 package net.sf.anathema.scribe.perspective.presenter;
 
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.library.interaction.model.Command;
-import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.scribe.editor.presenter.ScrollPresenter;
 import net.sf.anathema.scribe.perspective.model.ScribeModel;
@@ -25,12 +24,7 @@ public class ScribePresenter {
     initializeScrollPresentation();
     Tool tool = view.scribeNavigation.addTool();
     tool.setIcon(new BasicUi().getNewIconPathForTaskbar());
-    tool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        model.scrollModel.startNewScroll();
-      }
-    });
+    tool.setCommand(model.scrollModel::startNewScroll);
   }
 
   private void initializeScrollPresentation() {

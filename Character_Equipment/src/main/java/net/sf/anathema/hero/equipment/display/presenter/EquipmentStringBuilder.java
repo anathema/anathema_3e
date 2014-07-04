@@ -12,7 +12,7 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class EquipmentStringBuilder implements IEquipmentStringBuilder {
@@ -44,9 +44,9 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     return createtNewStatsStart(keyPart) + signum + value;
   }
 
-  private String getTagsString(Identifier[] tags) {
+  private String getTagsString(Collection<Identifier> tags) {
     List<String> ids = new ArrayList<>();
-    Arrays.asList(tags).forEach(tag -> ids.add(tag.getId()));
+    tags.forEach(tag -> ids.add(tag.getId()));
     return Joiner.on(", ").join(ids);
   }
 

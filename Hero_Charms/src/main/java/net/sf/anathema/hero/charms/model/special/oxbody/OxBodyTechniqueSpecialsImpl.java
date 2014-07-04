@@ -10,7 +10,6 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.library.event.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -28,26 +27,18 @@ public class OxBodyTechniqueSpecialsImpl implements OxBodyTechniqueSpecials {
   public OxBodyTechniqueSpecialsImpl(final Hero hero, Charm oxBodyTechnique, final TraitType[] relevantTraits,
                                      final OxBodyTechniqueArbitrator arbitrator, IOxBodyTechniqueCharm properties) {
     this.oxBodyTechnique = oxBodyTechnique;
-    incrementChecker = new IncrementChecker() {
-      @Override
-      public boolean isValidIncrement(int increment) {
-        int minTrait = Integer.MAX_VALUE;
-        for (TraitType type : relevantTraits) {
-          TraitModel traits = TraitModelFetcher.fetch(hero);
-          Trait trait = traits.getTrait(type);
-          minTrait = Math.min(minTrait, trait.getCurrentValue());
-        }
-        return increment < 0 || (arbitrator.isIncrementAllowed(increment) && getCurrentLearnCount() + increment <= minTrait);
+    incrementChecker = increment -> {
+      int minTrait = Integer.MAX_VALUE;
+      for (TraitType type : relevantTraits) {
+        TraitModel traits = TraitModelFetcher.fetch(hero);
+        Trait trait = traits.getTrait(type);
+        minTrait = Math.min(minTrait, trait.getCurrentValue());
       }
+      return increment < 0 || (arbitrator.isIncrementAllowed(increment) && getCurrentLearnCount() + increment <= minTrait);
     };
     categories = createOxBodyCategories(hero, properties);
     for (OxBodyCategory category : categories) {
-      category.addCurrentValueListener(new IntValueChangedListener() {
-        @Override
-        public void valueChanged(int newValue) {
-          fireLearnCountChanged(getCurrentLearnCount());
-        }
-      });
+      category.addCurrentValueListener(newValue -> fireLearnCountChanged(getCurrentLearnCount()));
     }
     this.healthLevelProvider = new OxBodyTechniqueHealthLevelProvider(categories);
   }

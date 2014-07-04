@@ -3,6 +3,7 @@ package net.sf.anathema.hero.languages.model;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.library.removableentry.AbstractRemovableEntryModel;
@@ -12,23 +13,22 @@ import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.library.lang.StringUtilities;
-import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> implements LanguagesModel {
 
   private static final int barbarianLanguagesPerPoint = 4;
-  private final Identifier[] languages =
-          new Identifier[]{new SimpleIdentifier("HighRealm"), new SimpleIdentifier("LowRealm"), new SimpleIdentifier("OldRealm"),
-                  new SimpleIdentifier("Riverspeak"), new SimpleIdentifier("Skytongue"), new SimpleIdentifier("Flametongue"),
-                  new SimpleIdentifier("Seatongue"), new SimpleIdentifier("Foresttongue"), new SimpleIdentifier("GuildCant"),
-                  new SimpleIdentifier("ClawSpeak"), new SimpleIdentifier("HighHolySpeech"), new SimpleIdentifier("Pelagial")};
+  private final List<Identifier> languages = Lists.newArrayList(
+          new SimpleIdentifier("HighRealm"), new SimpleIdentifier("LowRealm"), new SimpleIdentifier("OldRealm"),
+          new SimpleIdentifier("Riverspeak"), new SimpleIdentifier("Skytongue"), new SimpleIdentifier("Flametongue"),
+          new SimpleIdentifier("Seatongue"), new SimpleIdentifier("Foresttongue"), new SimpleIdentifier("GuildCant"),
+          new SimpleIdentifier("ClawSpeak"), new SimpleIdentifier("HighHolySpeech"), new SimpleIdentifier("Pelagial"));
 
   private Identifier selection;
   private int languagePointsAllowed;
@@ -67,7 +67,7 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   @Override
   public Identifier[] getPredefinedLanguages() {
-    return languages;
+    return languages.toArray(new Identifier[languages.size()]);
   }
 
   @Override
@@ -85,7 +85,7 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   @Override
   public boolean isPredefinedLanguage(Object object) {
-    return ArrayUtils.contains(languages, object);
+    return languages.contains(object);
   }
 
   @Override
@@ -111,7 +111,7 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   @Override
   public Identifier getPredefinedLanguageById(final String id) {
-    return Iterables.find(Arrays.asList(languages), definedLanuage -> Objects.equal(id, definedLanuage.getId()), null);
+    return languages.stream().filter(definedLanuage -> Objects.equal(id, definedLanuage.getId())).findFirst().orElse(null);
   }
 
   @Override

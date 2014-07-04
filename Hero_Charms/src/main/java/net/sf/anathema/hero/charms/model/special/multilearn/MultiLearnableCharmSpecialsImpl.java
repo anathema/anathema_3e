@@ -9,8 +9,6 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeFlavor;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -19,8 +17,7 @@ import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-import net.sf.anathema.library.event.IntValueChangedListener;
-import net.sf.anathema.library.number.IntegerRange;
+import net.sf.anathema.library.Range;
 import org.jmock.example.announcer.Announcer;
 
 public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials {
@@ -44,18 +41,10 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     this.arbitrator = arbitrator;
     TraitTemplate template = TraitTemplateFactory.createStaticLimitedTemplate(0, specialCharm.getAbsoluteLearnLimit());
     this.trait = new LimitedTrait(hero, new DefaultTraitType(charm.getName().text), template, new MultiLearnableIncrementChecker());
-    this.trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        fireLearnCountChanged(newValue);
-      }
-    });
-    hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        if (flavor instanceof TraitChangeFlavor) {
-          validateLearnCount();
-        }
+    this.trait.addCurrentValueListener(this::fireLearnCountChanged);
+    hero.getChangeAnnouncer().addListener(flavor -> {
+      if (flavor instanceof TraitChangeFlavor) {
+        validateLearnCount();
       }
     });
   }
@@ -115,7 +104,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     if (trait.getCurrentValue() == 0) {
       return;
     }
-    IntegerRange range = getRange();
+    Range range = getRange();
     if (trait.getCurrentValue() < range.getLowerBound()) {
       setCurrentLearnCount(range.getLowerBound());
     }
@@ -124,10 +113,10 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     }
   }
 
-  private IntegerRange getRange() {
+  private Range getRange() {
     int minValue = specialCharm.getMinimumLearnCount(createLearnRangeContext());
     int maxValue = specialCharm.getMaximumLearnCount(createLearnRangeContext());
-    return new IntegerRange(minValue, maxValue);
+    return new Range(minValue, maxValue);
   }
 
   private LearnRangeContext createLearnRangeContext() {

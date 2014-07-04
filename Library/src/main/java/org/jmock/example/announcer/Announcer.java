@@ -16,13 +16,11 @@ public class Announcer<T> {
 	public Announcer(Class<? extends T> listenerType) {
 		proxy = listenerType.cast(Proxy.newProxyInstance(
 			listenerType.getClassLoader(), 
-			new Class<?>[]{listenerType}, 
-			new InvocationHandler() {
-				public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-					announce(method, args);
-					return null;
-				}
-			}));
+			new Class<?>[]{listenerType},
+                (proxy1, method, args) -> {
+                    announce(method, args);
+                    return null;
+                }));
 	}
 	
 	public void addListener(T listener) {

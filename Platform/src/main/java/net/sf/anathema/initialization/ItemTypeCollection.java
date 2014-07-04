@@ -30,12 +30,7 @@ public class ItemTypeCollection implements Iterable<IItemType> {
   }
 
   public Collection<IItemType> getAllTypes() {
-    return Collections2.transform(itemTypeConfigurations, new Function<ItemTypeConfiguration, IItemType>() {
-      @Override
-      public IItemType apply(ItemTypeConfiguration input) {
-        return input.getItemType();
-      }
-    });
+    return Collections2.transform(itemTypeConfigurations, ItemTypeConfiguration::getItemType);
   }
 
   @Override

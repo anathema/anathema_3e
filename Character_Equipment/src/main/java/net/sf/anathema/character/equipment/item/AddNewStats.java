@@ -3,14 +3,12 @@ package net.sf.anathema.character.equipment.item;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatsFactory;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.interaction.model.Command;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AddNewStats {
   protected final Resources resources;
@@ -29,27 +27,14 @@ public class AddNewStats {
     newTool.setTooltip(resources.getString(newStatsConfiguration.getTooltipKey()));
     newTool.setIcon(newStatsConfiguration.getIconPath());
     newTool.setOverlay(new RelativePath("icons/ButtonPlus16.png"));
-    newTool.setCommand(new Command() {
-      @Override
-      public void execute() {
-        List<String> definedNames = new ArrayList<>();
-        for (IEquipmentStats stats : editModel.getStats()) {
-          definedNames.add(stats.getName().getId());
-        }
-        String nameProposal = resources.getString(newStatsConfiguration.getNameKey());
-        String[] nameArray = definedNames.toArray(new String[definedNames.size()]);
-        IEquipmentStats equipmentStats = statsFactory.createNewStats(nameArray, nameProposal,
-                newStatsConfiguration.getType());
-        editModel.addStatistics(equipmentStats);
-      }
+    newTool.setCommand(() -> {
+      List<String> definedNames = editModel.getStats().stream().map(stats -> stats.getName().getId()).collect(Collectors.toList());
+      String nameProposal = resources.getString(newStatsConfiguration.getNameKey());
+      IEquipmentStats equipmentStats = statsFactory.createNewStats(definedNames, nameProposal, newStatsConfiguration.getType());
+      editModel.addStatistics(equipmentStats);
     });
     controlAvailability(newStatsConfiguration, newTool);
-    editModel.addCompositionChangeListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        controlAvailability(newStatsConfiguration, newTool);
-      }
-    });
+    editModel.addCompositionChangeListener(() -> controlAvailability(newStatsConfiguration, newTool));
   }
 
   private void controlAvailability(NewStatsConfiguration newStatsConfiguration, Tool newTool) {
