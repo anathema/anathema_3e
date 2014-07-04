@@ -1,5 +1,0 @@
-dependencies {
-  compile project(':Platform')
-  compile project(':GraphLayout')
-  testCompile testDependencies
-}
