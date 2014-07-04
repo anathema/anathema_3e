@@ -5,7 +5,7 @@ import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.List;
 
 public class CharmStats extends AbstractCharmStats {
@@ -18,16 +18,16 @@ public class CharmStats extends AbstractCharmStats {
   }
 
   @Override
-  protected String[] getDetailKeys() {
-    String[] detailKeys = super.getDetailKeys();
+  protected Collection<String> getDetailKeys() {
+    Collection<String> detailKeys = super.getDetailKeys();
     List<String> details = new ArrayList<>();
-    Collections.addAll(details, detailKeys);
+    details.addAll(detailKeys);
     if (content.isSubEffectCharm(getMagic())) {
       for (String subeffectId : content.getLearnedEffects(getMagic())) {
         details.add(getMagic().getName().text + ".Subeffects." + subeffectId);
       }
     }
-    return details.toArray(new String[details.size()]);
+    return details;
   }
 
   @Override

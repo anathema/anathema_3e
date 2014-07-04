@@ -8,6 +8,8 @@ import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractTextStatsGroup;
 
+import java.util.Collection;
+
 public class MagicDetailsStatsGroup extends AbstractTextStatsGroup<IMagicStats> {
 
   private final Resources resources;
@@ -21,7 +23,7 @@ public class MagicDetailsStatsGroup extends AbstractTextStatsGroup<IMagicStats> 
     if (stats == null) {
       table.addCell(createTextCell(font, null));
     } else {
-      String[] details = stats.getDetailStrings(resources);
+      Collection<String> details = stats.getDetailStrings(resources);
       String detailText = Joiner.on(", ").join(details);
       if (Strings.isNullOrEmpty(detailText)) {
         detailText = "-";

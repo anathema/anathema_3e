@@ -10,9 +10,10 @@ import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 
@@ -42,7 +43,7 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
     return stringBuilder.createShortSourceString(getMagic());
   }
 
-  protected String[] getDetailKeys() {
+  protected Collection<String> getDetailKeys() {
     List<String> details = new ArrayList<>();
     for (MagicAttribute attribute : getMagic().getAttributes()) {
       String attributeId = attribute.getId();
@@ -50,14 +51,16 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
         details.add("Keyword." + attributeId);
       }
     }
-    return details.toArray(new String[details.size()]);
+    return details;
   }
 
   @Override
-  public String[] getDetailStrings(final Resources resources) {
-    return transform(getDetailKeys(), String.class, resources::getString);
+  public Collection<String> getDetailStrings(final Resources resources) {
+    Stream<String> keys = getDetailKeys().stream();
+    return keys.map(resources::getString).collect(Collectors.toList());
   }
 
+  @SuppressWarnings("NullableProblems")
   @Override
   public int compareTo(IMagicStats stats) {
     if (stats instanceof AbstractCharmStats) {

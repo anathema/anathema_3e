@@ -4,16 +4,11 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
 public class ArrayUtilities {
-
-  public static <T> T getFirst(T[] array, Predicate<T> predicate) {
-    return Stream.of(array).filter(predicate).findFirst().orElse(null);
-  }
 
   @SuppressWarnings("unchecked")
   public static <T> T[] concat(Class<T> clazz, T[] array1, T... array2) {
