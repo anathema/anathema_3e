@@ -29,10 +29,11 @@ public class FavorablePickIncrementChecker implements MappableTypeIncrementCheck
     
 	int count = 0;
     for (Trait trait : getAllTraits()) {
-      if (trait.getFavorization().getFavorableState().equals(state)) {
+      if (trait.getFavorization().getFavorableState().countsAs(state)) {
         count++;
       }
     }
+    
     return count + increment <= limit;
   }
 

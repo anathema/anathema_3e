@@ -59,7 +59,7 @@ public class FavorableTraitConfigurationPresenter {
   private void updateButtons() {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = traitViewsByTrait.get(trait);
-      boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced() || trait.getFavorization().isCaste();
+      boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();// || trait.getFavorization().isCaste();
       boolean favored = trait.getFavorization().isCasteOrFavored();
       setButtonState(view, favored, !disabled);
     }
@@ -91,7 +91,7 @@ public class FavorableTraitConfigurationPresenter {
     final ToggleTool casteTool = traitView.addToggleInFront();
     casteTool.setCommand(() -> {
       ITraitFavorization favorization = favorableTrait.getFavorization();
-      favorization.setFavored(!favorization.isFavored());
+      favorization.advanceFavorableState();
     });
     favorableTrait.getFavorization().addFavorableStateChangedListener(state -> updateView(casteTool, state));
     updateView(casteTool, favorableTrait.getFavorization().getFavorableState());
@@ -100,7 +100,7 @@ public class FavorableTraitConfigurationPresenter {
 
   private void updateView(final ToggleTool view, FavorableState state) {
     boolean select = state == Favored || state == Caste;
-    boolean enable = state == Favored || state == Default;
+    boolean enable = true; // state == Favored || state == Default;
     setButtonState(view, select, enable);
     GenericPresentationTemplate properties = new GenericPresentationTemplate(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);

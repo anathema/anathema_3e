@@ -11,6 +11,11 @@ public class NullTraitFavorization implements ITraitFavorization {
   public FavorableState getFavorableState() {
     return FavorableState.Default;
   }
+  
+  @Override
+  public void clearCaste() {
+    // nothing to do
+  }
 
   @Override
   public boolean isCaste() {
@@ -29,6 +34,11 @@ public class NullTraitFavorization implements ITraitFavorization {
 
   @Override
   public void setFavorableState(FavorableState state) {
+    // nothing to do
+  }
+  
+  @Override
+  public void advanceFavorableState() {
     // nothing to do
   }
 

@@ -12,7 +12,7 @@ public class MonoTypeIncrementChecker<T> implements MappableTypeIncrementChecker
 
 	@Override
 	public boolean isValidIncrement(T type, int increment) {
-		if (this.type.equals(type)) {
+		if (this.type == null || type.equals(this.type)) {
 			return checker.isValidIncrement(increment);
 		}
 		return false;

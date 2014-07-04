@@ -30,7 +30,6 @@ public class DefaultTrait implements Trait {
     this.traitFavorization = new TraitFavorization(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
     hero.getChangeAnnouncer().addListener(new UpdateFavoredStateOnCasteChange());
-    traitFavorization.updateFavorableStateToCaste();
   }
 
   public DefaultTrait(Hero hero, TraitRules traitRules, ValueChangeChecker checker) {
@@ -226,6 +225,7 @@ public class DefaultTrait implements Trait {
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
       if (flavor == ConceptChange.FLAVOR_CASTE) {
+    	traitFavorization.clearCaste();
         traitFavorization.updateFavorableStateToCaste();
       }
     }
