@@ -3,7 +3,7 @@ package net.sf.anathema.framework.repository.tree;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.File;
 import java.io.IOException;
@@ -34,7 +34,7 @@ public class FileExporter {
           ZipEntry entry = createZipEntry(file, printNameFile);
           try (InputStream inputStream = access.openInputStream(file)) {
             zipOutputStream.putNextEntry(entry);
-            IOUtils.copy(inputStream, zipOutputStream);
+            InputOutput.copy(inputStream, zipOutputStream);
             zipOutputStream.closeEntry();
           }
         }

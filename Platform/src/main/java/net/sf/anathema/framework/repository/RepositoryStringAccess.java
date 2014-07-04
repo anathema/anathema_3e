@@ -2,7 +2,7 @@ package net.sf.anathema.framework.repository;
 
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +27,7 @@ public class RepositoryStringAccess {
 
   public String read(String id) {
     try (InputStream stream = repository.openReadAccess(itemType, id).openMainInputStream()) {
-      return IOUtils.toString(stream);
+      return InputOutput.toString(stream);
     } catch (IOException e) {
       throw new PersistenceException(e);
     }

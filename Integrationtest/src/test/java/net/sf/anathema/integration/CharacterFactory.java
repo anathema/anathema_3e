@@ -15,8 +15,8 @@ import net.sf.anathema.hero.framework.perspective.model.CharacterPersistenceMode
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
+import net.sf.anathema.lib.io.InputOutput;
 import net.sf.anathema.lib.util.SimpleIdentifier;
-import org.apache.commons.io.FileUtils;
 
 import java.io.File;
 
@@ -66,7 +66,7 @@ public class CharacterFactory {
   public void tearDownRepository() throws Throwable{
     File repositoryDirectory = new File(model.getRepository().getRepositoryPath());
       if (repositoryDirectory.exists()) {
-        FileUtils.deleteDirectory(repositoryDirectory);
+        InputOutput.deleteDirectory(repositoryDirectory);
       }
    }
 }

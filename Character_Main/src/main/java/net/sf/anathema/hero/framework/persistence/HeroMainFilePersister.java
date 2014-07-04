@@ -9,10 +9,11 @@ import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.lib.exception.PersistenceException;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class HeroMainFilePersister {
   private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -24,7 +25,7 @@ public class HeroMainFilePersister {
 
   public HeroMainFileDto load(InputStream inputStream) {
     try {
-      String jsonString = IOUtils.toString(inputStream);
+      String jsonString = InputOutput.toString(inputStream);
       return gson.fromJson(jsonString, HeroMainFileDto.class);
     } catch (IOException e) {
       throw new PersistenceException(e);
@@ -38,8 +39,8 @@ public class HeroMainFilePersister {
 
   private void saveDtoAsJson(RepositoryWriteAccess writeAccess, HeroMainFileDto mainFileDto) {
     String mainFileJson = gson.toJson(mainFileDto);
-    try {
-      IOUtils.write(mainFileJson, writeAccess.createMainOutputStream());
+    try (OutputStream outputStream = writeAccess.createMainOutputStream()) {
+      InputOutput.write(mainFileJson, outputStream);
     } catch (IOException e) {
       throw new PersistenceException(e);
     }

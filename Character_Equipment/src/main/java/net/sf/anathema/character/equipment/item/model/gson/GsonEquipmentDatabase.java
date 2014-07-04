@@ -8,7 +8,7 @@ import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.repository.Repository;
 import net.sf.anathema.lib.control.ChangeListener;
-import org.apache.commons.io.FilenameUtils;
+import net.sf.anathema.lib.io.Filenames;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;
@@ -35,7 +35,7 @@ public class GsonEquipmentDatabase implements IEquipmentDatabase {
   public String[] getAllAvailableTemplateIds() {
     List<String> ids = Lists.newArrayList();
     for (Path file : access.listAllFiles()) {
-      String id = FilenameUtils.getBaseName(file.getFileName().toString());
+      String id = Filenames.getBaseName(file.getFileName().toString());
       ids.add(loadExistingTemplate(id).getName());
     }
     return ids.toArray(new String[ids.size()]);

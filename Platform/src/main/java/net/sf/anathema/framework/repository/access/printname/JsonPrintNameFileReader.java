@@ -3,7 +3,7 @@ package net.sf.anathema.framework.repository.access.printname;
 import com.google.gson.Gson;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.view.PrintNameFile;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,7 +17,7 @@ public class JsonPrintNameFileReader implements PrintNameFileReader {
   @Override
   public PrintNameFile readPrintName(File file, IItemType itemType) throws IOException {
     try (InputStream stream = new FileInputStream(file)) {
-      String content = IOUtils.toString(stream);
+      String content = InputOutput.toString(stream);
       ItemReference itemReference = gson.fromJson(content, ItemReference.class);
       return new PrintNameFile(file, itemReference.printName, itemReference.repositoryId, itemType);
     }

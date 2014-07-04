@@ -5,11 +5,10 @@ import com.google.gson.GsonBuilder;
 import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.lib.io.InputOutput;
 import net.sf.anathema.scribe.scroll.persistence.Scroll;
 import net.sf.anathema.scribe.scroll.persistence.ScrollDto;
-import org.apache.commons.io.IOUtils;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -43,10 +42,8 @@ public class ScrollGson {
 
   public Scroll load(InputStream inputStream) {
     try {
-    ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-    IOUtils.copy(inputStream, byteStream);
-    String json = new String(byteStream.toByteArray());
-    return fromJson(json);
+      String json = InputOutput.toString(inputStream);
+      return fromJson(json);
     } catch (IOException e) {
       throw  new PersistenceException(e);
     }
