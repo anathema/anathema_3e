@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
-import net.sf.anathema.hero.framework.display.labelledvalue.NullValueView;
+import net.sf.anathema.hero.framework.display.labelledvalue.NullStyledValueView;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -10,6 +9,7 @@ import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.IntValueView;
+import net.sf.anathema.library.view.StyledValueView;
 
 public class EssenceConfigurationPresenter implements Presenter {
 
@@ -33,9 +33,9 @@ public class EssenceConfigurationPresenter implements Presenter {
     if (essencePool.isEssenceUser()) {
       String key = "EssencePool.Name.Personal";
       String personalPool = essencePool.getPersonalPool();
-      final IValueView<String> personalView = addPool(key, personalPool);
-      final IValueView<String> peripheralView = createPeripheralPoolView();
-      final IValueView<String> attunementView = addPool("EssencePool.Name.Attunement", essencePool.getAttunedPool());
+      final StyledValueView<String> personalView = addPool(key, personalPool);
+      final StyledValueView<String> peripheralView = createPeripheralPoolView();
+      final StyledValueView<String> attunementView = addPool("EssencePool.Name.Attunement", essencePool.getAttunedPool());
       essencePool.addPoolChangeListener(() -> {
         personalView.setValue(essencePool.getPersonalPool());
         listenToPeripheralChanges(peripheralView);
@@ -45,21 +45,21 @@ public class EssenceConfigurationPresenter implements Presenter {
     new TraitPresenter(essenceTrait, essenceView).initPresentation();
   }
 
-  private void listenToPeripheralChanges(IValueView<String> peripheralView) {
+  private void listenToPeripheralChanges(StyledValueView<String> peripheralView) {
     if (essencePool.hasPeripheralPool()) {
       peripheralView.setValue(essencePool.getPeripheralPool());
     }
   }
 
-  private IValueView<String> createPeripheralPoolView() {
+  private StyledValueView<String> createPeripheralPoolView() {
     if (essencePool.hasPeripheralPool()) {
       return addPool("EssencePool.Name.Peripheral", essencePool.getPeripheralPool());
     }
-    return new NullValueView<>();
+    return new NullStyledValueView<>();
   }
 
-  private IValueView<String> addPool(String labelKey, String pool) {
-    IValueView<String> valueView = view.addPoolView(resources.getString(labelKey));
+  private StyledValueView<String> addPool(String labelKey, String pool) {
+    StyledValueView<String> valueView = view.addPoolView(resources.getString(labelKey));
     valueView.setValue(pool);
     return valueView;
   }

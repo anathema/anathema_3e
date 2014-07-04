@@ -7,12 +7,12 @@ import net.sf.anathema.cards.data.providers.LegendCardDataProvider;
 import net.sf.anathema.cards.data.providers.SpellCardDataProvider;
 import net.sf.anathema.cards.layout.DemocritusCardLayout;
 import net.sf.anathema.cards.layout.ICardLayout;
+import net.sf.anathema.hero.environment.report.RegisteredReportFactory;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.environment.report.ReportFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
-import net.sf.anathema.platform.report.RegisteredReportFactory;
 
 import java.util.ArrayList;
 import java.util.List;

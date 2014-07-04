@@ -2,10 +2,10 @@ package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
+import net.sf.anathema.library.view.StyledValueView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
@@ -27,14 +27,14 @@ public class FxOverviewCategory implements OverviewCategory {
   }
 
   @Override
-  public IValueView<Integer> addIntegerValueView(String labelText, int maxValueLength) {
+  public StyledValueView<Integer> addIntegerValueView(String labelText, int maxValueLength) {
     FxIntegerOverview view = new FxIntegerOverview(labelText);
     view.addTo(panel);
     return view;
   }
 
   @Override
-  public IValueView<String> addStringValueView(String labelText) {
+  public StyledValueView<String> addStringValueView(String labelText) {
     FxStringOverview view = new FxStringOverview(labelText);
     view.addTo(panel);
     return view;

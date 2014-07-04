@@ -2,12 +2,12 @@ package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.library.presenter.FontStyle;
 import net.sf.anathema.library.presenter.RGBColor;
+import net.sf.anathema.library.view.StyledValueView;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class FxStringOverview implements IValueView<String> {
+public class FxStringOverview implements StyledValueView<String> {
   private final Label titleLabel = new Label();
   private final Label valueLabel = new Label();
   private final FontStyler styler = new FontStyler(titleLabel, valueLabel);

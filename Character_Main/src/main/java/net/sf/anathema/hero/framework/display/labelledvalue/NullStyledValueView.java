@@ -2,8 +2,9 @@ package net.sf.anathema.hero.framework.display.labelledvalue;
 
 import net.sf.anathema.library.presenter.FontStyle;
 import net.sf.anathema.library.presenter.RGBColor;
+import net.sf.anathema.library.view.StyledValueView;
 
-public class NullValueView<E> implements IValueView<E>{
+public class NullStyledValueView<E> implements StyledValueView<E> {
   @Override
   public void setValue(E value) {
     //nothing to do

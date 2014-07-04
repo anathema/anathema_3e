@@ -3,10 +3,10 @@ package net.sf.anathema.hero.spiritual.display;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.view.IntValueView;
+import net.sf.anathema.library.view.StyledValueView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
@@ -37,7 +37,7 @@ public class FxSpiritualTraitsView implements SpiritualTraitsView, NodeHolder {
   }
 
   @Override
-  public IValueView<String> addPoolView(String labelText) {
+  public StyledValueView<String> addPoolView(String labelText) {
     return essenceView.addPoolView(labelText);
   }
 

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
@@ -13,6 +12,7 @@ import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.RemovableEntryView;
+import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.HashMap;
@@ -39,9 +39,9 @@ public class LanguagesPresenter {
 
   private void initPointPresentation() {
     OverviewCategory overview = view.addOverview(resources.getString("Linguistics.Overview.Border"));
-    final IValueView<Integer> familyView = overview.addIntegerValueView(
+    final StyledValueView<Integer> familyView = overview.addIntegerValueView(
             resources.getString("Linguistics.Overview.Families"), 1);
-    final IValueView<Integer> barbarianView = overview.addIntegerValueView(
+    final StyledValueView<Integer> barbarianView = overview.addIntegerValueView(
             resources.getString("Linguistics.Overview.Barbarian"), 2);
     final LabelledAllotmentView totalView = overview.addAlotmentView(
             resources.getString("Linguistics.Overview.Total"), 2);
@@ -66,9 +66,9 @@ public class LanguagesPresenter {
   }
 
   private void updateOverview(
-          IValueView<Integer> familyView,
+          StyledValueView<Integer> familyView,
           LabelledAllotmentView totalView,
-          IValueView<Integer> barbarianView) {
+          StyledValueView<Integer> barbarianView) {
     familyView.setValue(model.getPredefinedLanguageCount());
     barbarianView.setValue(model.getBarbarianLanguageCount());
     int pointsSpent = model.getLanguagePointsSpent();

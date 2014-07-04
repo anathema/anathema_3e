@@ -2,7 +2,7 @@ package net.sf.anathema.hero.languages.display.view;
 
 import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.hero.languages.display.presenter.LanguagesView;
-import net.sf.anathema.platform.initialization.Produces;
+import net.sf.anathema.library.autocollect.Produces;
 
 @Produces(LanguagesView.class)
 public class LanguagesViewFactory implements SubViewFactory {

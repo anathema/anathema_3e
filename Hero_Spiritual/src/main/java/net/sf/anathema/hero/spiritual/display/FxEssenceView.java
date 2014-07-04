@@ -2,8 +2,8 @@ package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.library.view.IntValueView;
+import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.points.display.overview.view.FxStringOverview;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -16,7 +16,7 @@ public class FxEssenceView {
     return panel;
   }
 
-  public IValueView<String> addPoolView(String labelText) {
+  public StyledValueView<String> addPoolView(String labelText) {
     FxStringOverview poolView = new FxStringOverview(labelText);
     poolView.addTo(panel);
     return poolView;

@@ -131,7 +131,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void printCurrentItemQuickly(Environment environment) {
-    CharacterReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder(environment);
     new QuickPrintCommand(environment, reportFinder, getCurrentCharacter()).execute();
   }
 
@@ -167,7 +167,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void registerAllReportsOn(ReportRegister register, Environment environment) {
-    CharacterReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder(environment);
     for (Report report : reportFinder.getAllReports(getCurrentCharacter())) {
       register.register(report);
     }
@@ -232,7 +232,7 @@ public class CharacterSystemModel implements ItemSystemModel {
     item.getItemData().getChangeManagement().setClean();
   }
 
-  private CharacterReportFinder createReportFinder(Environment environment) {
-    return new CharacterReportFinder(model, environment);
+  private HeroReportFinder createReportFinder(Environment environment) {
+    return new HeroReportFinder(model, environment);
   }
 }

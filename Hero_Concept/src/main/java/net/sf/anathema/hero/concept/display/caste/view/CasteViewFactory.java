@@ -2,8 +2,8 @@ package net.sf.anathema.hero.concept.display.caste.view;
 
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
+import net.sf.anathema.library.autocollect.Produces;
 import net.sf.anathema.library.fx.Stylesheet;
-import net.sf.anathema.platform.initialization.Produces;
 
 @Produces(CasteView.class)
 public class CasteViewFactory implements SubViewFactory {

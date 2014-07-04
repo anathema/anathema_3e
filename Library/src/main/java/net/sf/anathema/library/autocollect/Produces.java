@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.initialization;
+package net.sf.anathema.library.autocollect;
 
 
 import java.lang.annotation.ElementType;

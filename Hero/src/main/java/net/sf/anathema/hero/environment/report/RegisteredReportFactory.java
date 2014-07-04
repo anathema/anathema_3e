@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.report;
+package net.sf.anathema.hero.environment.report;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

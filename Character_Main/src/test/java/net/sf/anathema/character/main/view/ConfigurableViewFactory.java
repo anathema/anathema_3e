@@ -1,8 +1,8 @@
 package net.sf.anathema.character.main.view;
 
 import net.sf.anathema.hero.framework.display.SubViewFactory;
+import net.sf.anathema.library.autocollect.Produces;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
-import net.sf.anathema.platform.initialization.Produces;
 
 @DoNotInstantiateAutomatically
 @Produces(DummyView.class)

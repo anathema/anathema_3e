@@ -2,8 +2,8 @@ package net.sf.anathema.hero.languages.sheet.content;
 
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentFactory;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.library.autocollect.Produces;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.initialization.Produces;
 
 @Produces(LanguagesContent.class)
 public class LanguagesContentFactory implements ReportContentFactory<LanguagesContent> {
