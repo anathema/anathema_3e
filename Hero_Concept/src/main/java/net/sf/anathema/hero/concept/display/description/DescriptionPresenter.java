@@ -5,11 +5,11 @@ import net.sf.anathema.hero.description.HeroDescription;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.framework.IIntegerDescription;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.ITextualDescription;
+import net.sf.anathema.library.text.TextualPresentation;
 import net.sf.anathema.library.view.IntegerView;
 import net.sf.anathema.platform.environment.Environment;
 

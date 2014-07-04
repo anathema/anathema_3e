@@ -13,10 +13,10 @@ import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.lib.lang.StringUtilities;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.lang.StringUtilities;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.List;

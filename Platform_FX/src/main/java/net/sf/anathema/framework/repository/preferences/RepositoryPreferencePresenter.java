@@ -3,6 +3,7 @@ package net.sf.anathema.framework.repository.preferences;
 import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
+import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.environment.Environment;

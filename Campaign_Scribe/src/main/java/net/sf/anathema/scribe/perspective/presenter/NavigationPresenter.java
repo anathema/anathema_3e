@@ -1,6 +1,5 @@
 package net.sf.anathema.scribe.perspective.presenter;
 
-import net.sf.anathema.interaction.Command;
 import net.sf.anathema.library.markdown.HtmlText;
 import net.sf.anathema.library.markdown.WikiText;
 import net.sf.anathema.scribe.editor.model.ScrollChangedListener;

@@ -15,8 +15,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static net.sf.anathema.library.lang.ArrayUtilities.transform;
-
 public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 
   public AbstractCharmStats(Charm magic) {

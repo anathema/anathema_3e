@@ -17,6 +17,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.lang.StringUtilities;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -30,7 +31,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
-import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentItem implements IEquipmentItem {
 
@@ -74,7 +74,7 @@ public class EquipmentItem implements IEquipmentItem {
   }
 
   private String getNewValue(String input, String baseValue) {
-    if (isNullOrTrimmedEmpty(input) || input.equals(baseValue)) {
+    if (StringUtilities.isNullOrTrimmedEmpty(input) || input.equals(baseValue)) {
       return null;
     } else {
       return input;

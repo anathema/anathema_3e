@@ -4,8 +4,8 @@ import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.text.ITextView;
 import org.jmock.example.announcer.Announcer;
 
 

@@ -6,6 +6,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.framework.desktop.DesktopEnvironment;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.fx.FxTextView;

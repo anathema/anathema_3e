@@ -2,12 +2,6 @@ package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
-import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;

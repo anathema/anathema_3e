@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.description;
 
 import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.text.ITextualDescription;
 

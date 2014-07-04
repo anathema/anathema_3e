@@ -8,14 +8,13 @@ import net.sf.anathema.character.equipment.item.view.EquipmentDescriptionPanel;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;

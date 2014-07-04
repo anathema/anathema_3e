@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.display.presenter.SpellView;
 import net.sf.anathema.hero.spells.display.presenter.SpellViewProperties;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
@@ -21,7 +21,7 @@ import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxSpellView implements SpellView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());
-  private final Announcer<ObjectValueListener> circleControl = Announcer.to(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> circleControl = Announcer.to(ObjectChangedListener.class);
   private ComboBoxSelectionView<Identifier> selectionView;
 
   @Override
@@ -30,7 +30,7 @@ public class FxSpellView implements SpellView, NodeHolder {
             properties.getCircleSelectionRenderer());
     selectionView.setObjects(circles);
     content.add(selectionView.getNode(), new CC().wrap());
-    selectionView.addObjectSelectionChangedListener(new ObjectValueListener<Identifier>() {
+    selectionView.addObjectSelectionChangedListener(new ObjectChangedListener<Identifier>() {
       @SuppressWarnings("unchecked")
       @Override
       public void valueChanged(Identifier newValue) {
@@ -52,7 +52,7 @@ public class FxSpellView implements SpellView, NodeHolder {
   }
 
   @Override
-  public void addCircleSelectionListener(ObjectValueListener<CircleType> listener) {
+  public void addCircleSelectionListener(ObjectChangedListener<CircleType> listener) {
     circleControl.addListener(listener);
   }
 
