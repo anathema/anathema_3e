@@ -2,7 +2,7 @@ package net.sf.anathema.hero.display.fx.configurableview;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
+import net.sf.anathema.hero.display.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
@@ -54,7 +54,7 @@ public class FxConfigurableView implements ConfigurableCharacterView, NodeHolder
 
   @Override
   public IntValueView addDotSelector(String label, int maxValue) {
-    FxTraitView view = FxTraitView.AsSingleNode(label, maxValue);
+    FxDotView view = FxDotView.AsSingleNode(label, maxValue);
     view.addTo(pane);
     return view;
   }

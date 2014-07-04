@@ -3,7 +3,7 @@ package net.sf.anathema.hero.attributes.display;
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
-import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
+import net.sf.anathema.hero.display.fx.dot.GroupedFavorableDotConfigurationView;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
@@ -24,8 +24,8 @@ public class AttributesInitializer implements HeroModelInitializer {
   @Override
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
     String attributeHeader = environment.getString("CardView.AttributeConfiguration.Title");
-    GroupedFavorableTraitConfigurationView attributeView =
-            sectionView.addView(attributeHeader, GroupedFavorableTraitConfigurationView.class);
+    GroupedFavorableDotConfigurationView attributeView =
+            sectionView.addView(attributeHeader, GroupedFavorableDotConfigurationView.class);
     new AttributesPresenter(hero, environment, attributeView).initPresentation();
   }
 

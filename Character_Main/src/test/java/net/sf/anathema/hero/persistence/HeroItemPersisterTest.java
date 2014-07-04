@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.persistence;
 
+import net.sf.anathema.hero.application.HeroEnvironmentImpl;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.persistence.HeroItemPersister;
@@ -8,7 +9,6 @@ import net.sf.anathema.hero.dummy.DummyObjectFactory;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterSplat;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
-import net.sf.anathema.hero.framework.HeroEnvironmentImpl;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.platform.messaging.Messaging;
 import org.junit.Test;

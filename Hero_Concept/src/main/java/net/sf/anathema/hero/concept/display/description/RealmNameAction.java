@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.description;
 
+import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.concept.display.caste.presenter.NameGeneratorCommand;
-import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;

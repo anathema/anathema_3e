@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
-import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
+import net.sf.anathema.hero.display.fx.dot.FxDotView;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.points.display.overview.view.FxStringOverview;
@@ -23,7 +23,7 @@ public class FxEssenceView {
   }
 
   public IntValueView addEssenceView(String labelText, int maxValue) {
-    FxTraitView essenceView = FxTraitView.WithDefaultLayout(labelText, maxValue);
+    FxDotView essenceView = FxDotView.WithDefaultLayout(labelText, maxValue);
     essenceView.addTo(panel);
     return essenceView;
   }

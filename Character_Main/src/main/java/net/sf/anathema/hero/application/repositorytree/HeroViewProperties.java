@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.repositorytree;
 
+import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
-import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;

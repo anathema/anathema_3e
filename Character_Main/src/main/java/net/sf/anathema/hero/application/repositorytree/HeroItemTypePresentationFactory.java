@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.application.repositorytree;
 
+import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.perspective.JsonHeroReferenceScanner;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.item.ForItemType;

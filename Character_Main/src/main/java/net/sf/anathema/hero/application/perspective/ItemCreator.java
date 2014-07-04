@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.application.perspective;
 
+import net.sf.anathema.hero.application.IItemCreator;
+import net.sf.anathema.hero.application.ItemReceiver;
 import net.sf.anathema.hero.application.creation.IItemOperator;
 import net.sf.anathema.hero.application.item.Item;
-import net.sf.anathema.hero.framework.display.IItemCreator;
-import net.sf.anathema.hero.framework.display.ItemReceiver;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.exception.PersistenceException;
 

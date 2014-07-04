@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.traits.display;
 
 import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
-import net.sf.anathema.hero.display.ExtensibleTraitView;
-import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
+import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
+import net.sf.anathema.hero.display.fx.dot.GroupedFavorableDotConfigurationView;
 import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
 import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -26,14 +26,14 @@ import static net.sf.anathema.hero.traits.model.FavorableState.Favored;
 
 public class FavorableTraitConfigurationPresenter {
 
-  private final GroupedFavorableTraitConfigurationView view;
+  private final GroupedFavorableDotConfigurationView view;
   private final IdentityMapping<Trait, ToggleTool> traitViewsByTrait = new IdentityMapping<>();
   private final Resources resources;
   private final IdentifiedTraitTypeList[] traitTypeGroups;
   private final TraitMap traitConfiguration;
   private Hero hero;
 
-  public FavorableTraitConfigurationPresenter(IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableTraitConfigurationView view,
+  public FavorableTraitConfigurationPresenter(IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
                                               Resources resources) {
     this.hero = hero;
     this.traitTypeGroups = traitTypeGroups;
@@ -76,18 +76,18 @@ public class FavorableTraitConfigurationPresenter {
   }
 
   private void addTraitView(Trait favorableTrait) {
-    ExtensibleTraitView traitView = createTraitView(favorableTrait);
+    ExtensibleDotView traitView = createTraitView(favorableTrait);
     addCasteAndFavoredToggle(favorableTrait, traitView);
   }
 
-  private ExtensibleTraitView createTraitView(Trait favorableTrait) {
+  private ExtensibleDotView createTraitView(Trait favorableTrait) {
     String traitName = resources.getString(favorableTrait.getType().getId());
-    ExtensibleTraitView traitView = view.addExtensibleTraitView(traitName, favorableTrait.getMaximalValue());
+    ExtensibleDotView traitView = view.addExtensibleTraitView(traitName, favorableTrait.getMaximalValue());
     new TraitPresenter(favorableTrait, traitView.getIntValueView()).initPresentation();
     return traitView;
   }
 
-  private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleTraitView traitView) {
+  private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
     final ToggleTool casteTool = traitView.addToggleInFront();
     casteTool.setCommand(() -> {
       ITraitFavorization favorization = favorableTrait.getFavorization();

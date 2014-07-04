@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.application.perspective;
 
 import com.google.common.base.Function;
+import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.RelativePath;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.hero.display.ExtensibleTraitView;
+import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
 import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISpecialtyListener;
@@ -22,7 +22,7 @@ import java.util.Comparator;
 
 public class SpecialtiesConfigurationPresenter {
 
-  private final IdentityMapping<Specialty, ExtensibleTraitView> viewsBySpecialty = new IdentityMapping<>();
+  private final IdentityMapping<Specialty, ExtensibleDotView> viewsBySpecialty = new IdentityMapping<>();
   private final IdentityMapping<Specialty, Tool> deleteToolsBySpecialty = new IdentityMapping<>();
   private final TraitTypeInternationalizer i18ner;
   private final Comparator<TraitType> comparator;
@@ -35,7 +35,7 @@ public class SpecialtiesConfigurationPresenter {
 
     @Override
     public void subTraitRemoved(Specialty specialty) {
-      ExtensibleTraitView view = viewsBySpecialty.get(specialty);
+      ExtensibleDotView view = viewsBySpecialty.get(specialty);
       viewsBySpecialty.remove(specialty);
       view.remove();
     }
@@ -145,7 +145,7 @@ public class SpecialtiesConfigurationPresenter {
     String traitName = i18ner.getScreenName(type);
     String specialtyName = specialty.getName();
     RelativePath deleteIcon = new BasicUi().getRemoveIconPath();
-    final ExtensibleTraitView specialtyView = configurationView.addSpecialtyView(traitName, specialtyName, deleteIcon,
+    final ExtensibleDotView specialtyView = configurationView.addSpecialtyView(traitName, specialtyName, deleteIcon,
             specialty.getCurrentValue(), specialty.getMaximalValue());
     new TraitPresenter(specialty, specialtyView.getIntValueView()).initPresentation();
     Tool deleteTool = specialtyView.addToolBehind();

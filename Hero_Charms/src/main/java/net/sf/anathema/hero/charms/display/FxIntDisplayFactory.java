@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
+import net.sf.anathema.hero.display.fx.dot.FxDotView;
 import net.sf.anathema.platform.tree.display.ContentFactory;
 
 public class FxIntDisplayFactory implements ContentFactory {
@@ -9,7 +9,7 @@ public class FxIntDisplayFactory implements ContentFactory {
     String label = (String) parameters[0];
     int value = (Integer) parameters[1];
     int maxValue = (Integer) parameters[2];
-    FxTraitView view = FxTraitView.WithDefaultLayout(label, maxValue);
+    FxDotView view = FxDotView.WithDefaultLayout(label, maxValue);
     return (T) new FxIntValueView(view);
   }
 }

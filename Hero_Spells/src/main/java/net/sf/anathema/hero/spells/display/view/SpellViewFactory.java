@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.display.view;
 
-import net.sf.anathema.hero.framework.display.SubViewFactory;
+import net.sf.anathema.hero.application.SubViewFactory;
 import net.sf.anathema.hero.spells.display.presenter.SpellView;
 import net.sf.anathema.library.autocollect.Produces;
 import net.sf.anathema.library.fx.Stylesheet;

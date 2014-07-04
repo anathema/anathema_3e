@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.traits.display;
 
+import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.application.template.PresentationProperties;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteUI;
 import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.traits.model.FavorableState;

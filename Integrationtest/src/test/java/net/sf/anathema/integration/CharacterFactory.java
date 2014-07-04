@@ -1,6 +1,7 @@
 package net.sf.anathema.integration;
 
 import net.sf.anathema.TestInitializer;
+import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
@@ -12,7 +13,6 @@ import net.sf.anathema.hero.display.fx.perspective.CharacterSystemInitializer;
 import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
-import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.io.InputOutput;

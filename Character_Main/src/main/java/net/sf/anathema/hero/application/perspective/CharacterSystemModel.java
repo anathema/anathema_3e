@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.application.perspective;
 
+import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
+import net.sf.anathema.hero.application.ItemReceiver;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.item.Item;
@@ -17,8 +19,6 @@ import net.sf.anathema.hero.application.report.QuickPrintCommand;
 import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.Report;
-import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
-import net.sf.anathema.hero.framework.display.ItemReceiver;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.PersistenceException;

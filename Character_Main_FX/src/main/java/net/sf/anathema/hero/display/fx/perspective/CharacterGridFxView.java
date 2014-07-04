@@ -10,7 +10,7 @@ import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.CharacterGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.display.fx.creation.FxCharacterTemplateCreator;
+import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 import org.tbee.javafx.scene.layout.MigPane;
@@ -52,7 +52,7 @@ public class CharacterGridFxView implements CharacterGridView {
 
   @Override
   public CharacterTemplateCreator createNewCharacter() {
-    return new FxCharacterTemplateCreator(dialogFactory);
+    return new FxHeroSplatCreator(dialogFactory);
   }
 
   private CharacterGridButton createGridButton(CharacterButtonDto dto,

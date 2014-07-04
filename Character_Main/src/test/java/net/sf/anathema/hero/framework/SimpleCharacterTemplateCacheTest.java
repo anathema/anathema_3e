@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.framework;
 
 import com.google.common.collect.Iterables;
+import net.sf.anathema.hero.application.SimpleCharacterTemplateCache;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

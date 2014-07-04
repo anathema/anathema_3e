@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.template;
 
+import net.sf.anathema.hero.application.CharacterTemplateResources;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.framework.CharacterTemplateResources;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.HeroSplatImpl;
 import net.sf.anathema.hero.individual.template.HeroTemplate;

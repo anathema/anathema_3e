@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display;
 
+import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
@@ -11,7 +12,6 @@ import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.view.SectionView;
