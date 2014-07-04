@@ -12,7 +12,13 @@ public class NullCasteCollection implements CasteCollection {
 
   @Override
   public CasteType[] getAllCasteTypes(SplatType template) {
-    return new CasteType[0];
+	  return new CasteType[0];
+  }
+
+
+  @Override
+  public CasteType[] getWithFavoredTrait(String id) {
+	  return new CasteType[0];
   }
 
   @Override

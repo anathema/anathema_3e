@@ -1,3 +1,9 @@
 {
-  "castes": [Dawn, Zenith, Twilight, Night, Eclipse]
+  "castes": [
+  	{ "id":"Dawn", "traits": [ Archery, Awareness, Dodge, MartialArts, Melee, Resistance, Thrown, War ] },
+  	{ "id":"Zenith", "traits": [ Athletics, Integrity, Performance, Lore, Presence, Resistance, Survival, War ] },
+  	{ "id":"Twilight", "traits": [ Bureaucracy, Craft, Integrity, Investigation, Linguistics, Lore, Medicine, Occult ] },
+  	{ "id":"Night", "traits": [ Athletics, Awareness, Dodge, Investigation, Larceny, Ride, Stealth, Socialize ] },
+  	{ "id":"Eclipse", "traits": [ Bureaucracy, Larceny, Linguistics, Occult, Presence, Ride, Sail, Socialize ] }
+  ]
 }

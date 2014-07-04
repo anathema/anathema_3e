@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.concept.model.concept;
 
+import net.sf.anathema.hero.concept.template.caste.CasteListTemplate;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
 import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
 import net.sf.anathema.hero.elsewhere.concept.CasteType;
@@ -11,9 +12,9 @@ import java.util.List;
 public class ConfigurableCasteCollection implements CasteCollection {
   private final List<CasteType> allTypes = new ArrayList<>();
 
-  public ConfigurableCasteCollection(CasteTemplate template) {
-    for (String caste : template.castes) {
-      allTypes.add(new ConfigurableCasteType(caste));
+  public ConfigurableCasteCollection(CasteListTemplate template) {
+    for (CasteTemplate caste : template.castes) {
+      allTypes.add(new ConfigurableCasteType(caste.id, caste.traits.toArray(new String[0])));
     }
   }
 
@@ -40,6 +41,20 @@ public class ConfigurableCasteCollection implements CasteCollection {
       }
     }
     return false;
+  }
+  
+  @Override
+  public CasteType[] getWithFavoredTrait(String id) {
+	  List<CasteType> castes = new ArrayList<>();
+	  for (CasteType caste : getAllCasteTypes(null)) {
+		  for (String favoredTrait : caste.getCasteTraitIds()) {
+			  if (favoredTrait.equals(id)) {
+				  castes.add(caste);
+				  break;
+			  }
+		  }
+	  }
+	  return castes.toArray(new CasteType[0]);
   }
 
   @Override

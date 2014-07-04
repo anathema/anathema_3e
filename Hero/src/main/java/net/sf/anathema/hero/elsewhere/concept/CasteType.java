@@ -9,5 +9,12 @@ public interface CasteType extends Identifier {
     public String getId() {
       return null;
     }
+
+	@Override
+	public String[] getCasteTraitIds() {
+		return new String[0];
+	}
   };
+  
+  String[] getCasteTraitIds();
 }

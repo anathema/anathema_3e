@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.concept.model.concept;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
-import net.sf.anathema.hero.concept.template.caste.CasteTemplateLoader;
+import net.sf.anathema.hero.concept.template.caste.CasteListTemplate;
+import net.sf.anathema.hero.concept.template.caste.CasteListTemplateLoader;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
@@ -21,7 +21,7 @@ public class CharacterConceptFactory extends SimpleModelTreeEntry implements Her
   @Override
   public DefaultHeroConcept create(TemplateFactory templateFactory, String templateId) {
     Preconditions.checkNotNull(templateId, "The Character Concept requires a configured template.");
-    CasteTemplate template = CasteTemplateLoader.loadTemplate(templateFactory, templateId);
+    CasteListTemplate template = CasteListTemplateLoader.loadTemplate(templateFactory, templateId);
     DefaultCasteModel casteModel = new DefaultCasteModel(new DefaultCasteSelection(), new ConfigurableCasteCollection(template));
     return new DefaultHeroConcept(casteModel);
   }
