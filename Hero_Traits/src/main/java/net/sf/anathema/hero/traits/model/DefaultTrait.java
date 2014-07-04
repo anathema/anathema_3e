@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
 import com.google.common.base.Preconditions;
+
 import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.elsewhere.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -8,6 +9,7 @@ import net.sf.anathema.library.change.ChangeFlavor;
 import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.number.Range;
+
 import org.jmock.example.announcer.Announcer;
 
 public class DefaultTrait implements Trait {
@@ -23,7 +25,7 @@ public class DefaultTrait implements Trait {
   private final TraitValueStrategy valueStrategy;
 
   public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                      IncrementChecker favoredIncrementChecker) {
+		  	MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
     this.traitFavorization = new TraitFavorization(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());

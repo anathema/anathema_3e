@@ -1,10 +1,6 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
-import net.sf.anathema.hero.traits.model.FavorableTraitCost;
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.Trait;
+import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
+import net.sf.anathema.hero.traits.model.FavorableTraitCost;
+import net.sf.anathema.hero.traits.model.ITraitFavorization;
+import net.sf.anathema.hero.traits.model.Trait;
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
@@ -21,6 +21,8 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private final Map<Trait, FavorableTraitCost[]> costsByTrait = new HashMap<>();
   private final Trait[] traits;
   private int favoredPicksSpent = 0;
+  private int castePicksSpent = 0;
+  private int supernalPicksSpent = 0;
   private int favoredDotSum = 0;
   private int generalDotSum = 0;
 
@@ -37,7 +39,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   public void recalculate() {
     clear();
-    countFavoredTraits();
+    countTraitFavorizationPicks();
     Set<Trait> sortedTraits = sortTraitsByStatus();
     for (Trait trait : sortedTraits) {
       int costFactor = getCostFactor(trait);
@@ -53,17 +55,30 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void clear() {
     favoredPicksSpent = 0;
+    castePicksSpent = 0;
+    supernalPicksSpent = 0;
     favoredDotSum = 0;
     generalDotSum = 0;
     costsByTrait.clear();
   }
 
-  private void countFavoredTraits() {
-    for (Trait trait : traits) {
-      if (trait.getFavorization().isFavored()) {
-        increaseFavoredPicksSpent();
-      }
-    }
+  private void countTraitFavorizationPicks() {
+	  for (Trait trait : traits) {
+		  switch (trait.getFavorization().getFavorableState()) {
+		  case Favored:
+			  increaseFavoredPicksSpent();
+			  break;
+		  case Caste:
+			  increaseCastePicksSpent();
+			  break;
+		  case Supernal:
+			  increaseCastePicksSpent();
+			  increaseSupernalPicksSpent();
+			  break;
+		default:
+			break;
+		  }
+	  }
   }
 
   public int getBonusPointCost() {
@@ -91,6 +106,14 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   public int getFavoredPicksSpent() {
     return favoredPicksSpent;
+  }
+
+  public int getCastePicksSpent() {
+	  return castePicksSpent;
+  }
+
+  public int getSupernalPicksSpent() {
+	  return supernalPicksSpent;
   }
 
   public int getFreePointsSpent(boolean favored) {
@@ -177,6 +200,14 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void increaseFavoredPicksSpent() {
     favoredPicksSpent++;
+  }
+
+  private void increaseCastePicksSpent() {
+	castePicksSpent++;
+  }
+  
+  private void increaseSupernalPicksSpent() {
+	supernalPicksSpent++;
   }
 
   private void increaseGeneralDotSum(int generalDotsSpent) {

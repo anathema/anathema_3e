@@ -4,7 +4,7 @@ import net.sf.anathema.library.identifier.Identifier;
 
 public enum FavorableState implements Identifier {
 
-  Default, Favored, Caste;
+  Default, Favored, Caste, Supernal;
 
   @Override
   public String getId() {

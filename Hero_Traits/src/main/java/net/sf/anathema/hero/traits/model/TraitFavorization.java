@@ -9,13 +9,18 @@ public class TraitFavorization implements ITraitFavorization {
 
   private FavorableState state;
   private final Announcer<IFavorableStateChangedListener> favorableStateControl = Announcer.to(IFavorableStateChangedListener.class);
-  private final IncrementChecker favoredIncrementChecker;
+  private final MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker;
   private final Trait trait;
   private final CasteType[] castes;
   private final boolean isRequiredFavored;
   private final Hero hero;
-
+  
   public TraitFavorization(Hero hero, CasteType[] castes, IncrementChecker favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
+	  this(hero, castes, new MonoTypeIncrementChecker<FavorableState>(favoredIncrementChecker, FavorableState.Favored),
+			  trait, isRequiredFavored);
+  }
+
+  public TraitFavorization(Hero hero, CasteType[] castes, MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
     this.hero = hero;
     this.castes = castes;
     this.favoredIncrementChecker = favoredIncrementChecker;
@@ -29,13 +34,7 @@ public class TraitFavorization implements ITraitFavorization {
     if (state == FavorableState.Caste && isRequiredFavored) {
       throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
     }
-    if (this.state == state && state != FavorableState.Caste) {
-      return;
-    }
-    if (this.state == FavorableState.Caste && state == FavorableState.Favored) {
-      return;
-    }
-    if (state == FavorableState.Favored && !favoredIncrementChecker.isValidIncrement(1)) {
+    if (this.state == state && !favoredIncrementChecker.isValidIncrement(state, 1)) {
       return;
     }
     if (isRequiredFavored && state == FavorableState.Default) {

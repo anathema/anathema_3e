@@ -7,4 +7,8 @@ public interface AbilityCostCalculator extends BonusPointCalculator {
   int getFreePointsSpent(boolean favored);
 
   int getFavoredPicksSpent();
+  
+  int getCastePicksSpent();
+  
+  int getSupernalPicksSpent();
 }
