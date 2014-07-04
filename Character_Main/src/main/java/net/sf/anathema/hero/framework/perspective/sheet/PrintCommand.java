@@ -6,7 +6,6 @@ import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.framework.reporting.ReportException;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.interaction.Command;
-import org.apache.commons.io.IOUtils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,12 +55,8 @@ public class PrintCommand implements Command {
   }
 
   private void performPrint(Report selectedReport, Path selectedFile, Hero hero) throws IOException, ReportException {
-    OutputStream stream = null;
-    try {
-      stream = Files.newOutputStream(selectedFile);
+    try (OutputStream stream = Files.newOutputStream(selectedFile)) {
       selectedReport.print(hero, stream);
-    } finally {
-      IOUtils.closeQuietly(stream);
     }
   }
 

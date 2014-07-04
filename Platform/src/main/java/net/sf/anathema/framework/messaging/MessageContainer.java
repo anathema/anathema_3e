@@ -12,4 +12,6 @@ public interface MessageContainer {
   Message getLatestMessage();
 
   Collection<Message> getPermanentMessages();
+
+  boolean hasMessages();
 }

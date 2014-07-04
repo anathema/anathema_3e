@@ -7,11 +7,12 @@ import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
+import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.scribe.scroll.ScrollItemType;
 import net.sf.anathema.scribe.scroll.gson.ScrollGson;
 import net.sf.anathema.scribe.scroll.gson.ScrollReferenceBuilder;
-import org.apache.commons.io.IOUtils;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Collection;
@@ -29,12 +30,10 @@ public class RepositoryScrollPersister implements ScrollPersister {
 
   @Override
   public void saveScroll(Scroll scroll) {
-    OutputStream outputStream = null;
-    try {
-      outputStream = createOutputStreamFor(scroll);
-      scrollGson.save(scroll, outputStream);
-    } finally {
-      IOUtils.closeQuietly(outputStream);
+    try (OutputStream stream = createOutputStreamFor(scroll)){
+      scrollGson.save(scroll, stream);
+    } catch (IOException e) {
+      throw new PersistenceException(e);
     }
   }
 
@@ -47,13 +46,11 @@ public class RepositoryScrollPersister implements ScrollPersister {
   @Override
   public Scroll loadScroll(RepositoryId id) {
     RepositoryReadAccess readAccess = model.openReadAccess(ScrollItemType.ITEM_TYPE, id.getStringRepresentation());
-    InputStream inputStream = null;
-    try {
-      inputStream = readAccess.openMainInputStream();
+    try (InputStream inputStream =  readAccess.openMainInputStream()){
       return scrollGson.load(inputStream);
-    } finally {
-      IOUtils.closeQuietly(inputStream);
-    }
+    } catch (IOException e) {
+      throw new PersistenceException(e);
+    } 
   }
 
   @Override

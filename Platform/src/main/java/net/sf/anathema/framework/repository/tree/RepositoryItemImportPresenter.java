@@ -50,26 +50,26 @@ public class RepositoryItemImportPresenter {
         if (loadFile == null) {
           return;
         }
-        ZipFile importZipFile = new ZipFile(loadFile.toFile());
-        MultiEntryMap<String, ZipEntry> entriesByItem = groupEntriesByItems(importZipFile);
-        for (String comment : entriesByItem.keySet()) {
-          String[] splitComment = comment.split("#", 3);
-          if (!splitComment[0].equals(environment.getString("Anathema.Version.Numeric"))) {
-            continue;
+        try (ZipFile importZipFile = new ZipFile(loadFile.toFile())) {
+          MultiEntryMap<String, ZipEntry> entriesByItem = groupEntriesByItems(importZipFile);
+          for (String comment : entriesByItem.keySet()) {
+            String[] splitComment = comment.split("#", 3);
+            if (!splitComment[0].equals(environment.getString("Anathema.Version.Numeric"))) {
+              continue;
+            }
+            IItemType type = model.getItemTypeForId(splitComment[1]);
+            String id = splitComment[2];
+            String mainFilePath = creator.createZipPath(model.getMainFilePath(type, id));
+            RepositoryImportHandler handler = new RepositoryImportHandler(model, type, id);
+            for (ZipEntry entry : entriesByItem.get(comment)) {
+              try (InputStream inputStream = importZipFile.getInputStream(entry)) {
+                handler.importStream(mainFilePath, inputStream, entry.getName());
+              }
+            }
+            model.refreshItem(type, handler.getNewId());
           }
-          IItemType type = model.getItemTypeForId(splitComment[1]);
-          String id = splitComment[2];
-          String mainFilePath = creator.createZipPath(model.getMainFilePath(type, id));
-          RepositoryImportHandler handler = new RepositoryImportHandler(model, type, id);
-          for (ZipEntry entry : entriesByItem.get(comment)) {
-            InputStream inputStream = importZipFile.getInputStream(entry);
-            handler.importStream(mainFilePath, inputStream, entry.getName());
-            inputStream.close();
-          }
-          model.refreshItem(type, handler.getNewId());
+          messaging.addMessage("AnathemaCore.Tools.RepositoryView.ImportDoneMessage", entriesByItem.keySet().size());
         }
-        importZipFile.close();
-        messaging.addMessage("AnathemaCore.Tools.RepositoryView.ImportDoneMessage", entriesByItem.keySet().size());
       } catch (ZipException e) {
         environment.handle(e, environment.getString("AnathemaCore.Tools.RepositoryView.NoZipFileError"));
       } catch (IOException e) {

@@ -15,10 +15,10 @@ public class UrlLoader {
   }
 
   public String readAll() throws IOException {
-    URL url = new URL(urlString);
-    InputStream input = url.openStream();
-    String response = IOUtils.toString(input);
-    input.close();
+    String response;
+    try (InputStream input = new URL(urlString).openStream()) {
+      response = IOUtils.toString(input);
+    }
     return response;
   }
 }
