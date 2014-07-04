@@ -72,12 +72,7 @@ public class DescriptionPresenter {
   private void addInteger(MultiComponentLine componentLine, String label, final IIntegerDescription integerDescription) {
     String title = environment.getString(label);
     IIntegerView view = componentLine.addIntegerView(title, integerDescription);
-    view.addChangeListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        integerDescription.setValue(newValue);
-      }
-    });
+    view.addChangeListener(integerDescription::setValue);
   }
 
   private void addField(MultiComponentLine componentLine, String label, ITextualDescription description, TextualPresentation presentation) {

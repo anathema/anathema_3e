@@ -20,8 +20,6 @@ public interface IArmourStatisticsModel extends IEquipmentStatisticsModel {
 
   IIntValueModel getSoakModel(HealthType healthType);
 
-  IIntValueModel getHardnessModel(HealthType healthType);
-
   IIntValueModel getAggravatedSoakModel();
   
   BooleanValueModel getSoakLinkModel();

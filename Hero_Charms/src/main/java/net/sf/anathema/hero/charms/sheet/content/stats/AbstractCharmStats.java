@@ -34,7 +34,7 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 
   @Override
   public String getDurationString(Resources resources) {
-    return getMagic().getDuration().getText(resources);
+    return getMagic().getDuration().getText();
   }
 
   @Override

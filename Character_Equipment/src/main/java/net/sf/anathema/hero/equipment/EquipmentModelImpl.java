@@ -40,7 +40,6 @@ import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.CollectionListener;
 import net.sf.anathema.library.initialization.ObjectFactory;
-import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;

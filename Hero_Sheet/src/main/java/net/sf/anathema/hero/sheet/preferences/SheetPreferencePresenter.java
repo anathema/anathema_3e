@@ -6,8 +6,6 @@ import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 
@@ -22,18 +20,8 @@ public class SheetPreferencePresenter implements PreferencePresenter {
     final ObjectSelectionView<PageSize> pageSizeView = view.addObjectSelectionView(
             resources.getString("Preferences.Sheet.PageSize"), new PageSizeUi(resources));
     pageSizeView.setObjects(model.getAvailableChoices());
-    pageSizeView.addObjectSelectionChangedListener(new ObjectValueListener<PageSize>() {
-      @Override
-      public void valueChanged(PageSize newValue) {
-        model.requestChangeTo(newValue);
-      }
-    });
-    model.onChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        showCurrentChoiceInView(pageSizeView);
-      }
-    });
+    pageSizeView.addObjectSelectionChangedListener(model::requestChangeTo);
+    model.onChange(() -> showCurrentChoiceInView(pageSizeView));
     showCurrentChoiceInView(pageSizeView);
   }
 

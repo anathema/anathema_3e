@@ -9,8 +9,6 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeFlavor;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -20,7 +18,6 @@ import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 import net.sf.anathema.library.Range;
-import net.sf.anathema.library.event.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials {
@@ -44,18 +41,10 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     this.arbitrator = arbitrator;
     TraitTemplate template = TraitTemplateFactory.createStaticLimitedTemplate(0, specialCharm.getAbsoluteLearnLimit());
     this.trait = new LimitedTrait(hero, new DefaultTraitType(charm.getName().text), template, new MultiLearnableIncrementChecker());
-    this.trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        fireLearnCountChanged(newValue);
-      }
-    });
-    hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        if (flavor instanceof TraitChangeFlavor) {
-          validateLearnCount();
-        }
+    this.trait.addCurrentValueListener(this::fireLearnCountChanged);
+    hero.getChangeAnnouncer().addListener(flavor -> {
+      if (flavor instanceof TraitChangeFlavor) {
+        validateLearnCount();
       }
     });
   }

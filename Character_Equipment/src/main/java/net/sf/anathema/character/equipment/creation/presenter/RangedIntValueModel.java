@@ -10,10 +10,6 @@ public class RangedIntValueModel implements IIntValueModel {
   private final Announcer<IntValueChangedListener> valueControl = Announcer.to(IntValueChangedListener.class);
   private int value;
 
-  public RangedIntValueModel(int initialValue) {
-    this(new Range(Integer.MIN_VALUE, Integer.MAX_VALUE), initialValue);
-  }
-
   public RangedIntValueModel(Range range, int initialValue) {
     this.value = initialValue;
     this.range = range;

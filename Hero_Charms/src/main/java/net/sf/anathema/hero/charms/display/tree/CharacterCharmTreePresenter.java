@@ -26,16 +26,14 @@ public class CharacterCharmTreePresenter {
   private final Resources resources;
   private CharmDisplayModel model;
   private TreePresentationProperties presentationProperties;
-  private CharmDisplayPropertiesMap displayPropertiesMap;
 
   public CharacterCharmTreePresenter(Resources resources, CharmView view, CharmDisplayModel model,
                                      TreePresentationProperties presentationProperties,
-                                     CharmDisplayPropertiesMap displayPropertiesMap, CharmMap charmMap,
+                                     CharmMap charmMap,
                                      MagicDescriptionProvider magicDescriptionProvider) {
     this.resources = resources;
     this.model = model;
     this.presentationProperties = presentationProperties;
-    this.displayPropertiesMap = displayPropertiesMap;
     this.cascadePresenter = new CascadePresenter(resources, charmMap, magicDescriptionProvider);
     this.view = view;
   }

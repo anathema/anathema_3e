@@ -27,13 +27,10 @@ public class PerspectiveSelectionBar {
   }
 
   private Command createCommand(final Perspective perspective, FxToggleTool tool) {
-      return new Command() {
-      @Override
-      public void execute() {
+      return () -> {
         perspectiveStack.show(perspective);
         tool.select();
-      }
-    };
+      };
   }
 
   public Node getContent() {

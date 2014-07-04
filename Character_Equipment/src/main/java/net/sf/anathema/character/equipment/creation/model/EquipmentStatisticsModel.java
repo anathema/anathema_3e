@@ -13,12 +13,7 @@ public class EquipmentStatisticsModel implements IEquipmentStatisticsModel {
   private final Announcer<ChangeListener> announcer = Announcer.to(ChangeListener.class);
 
   public EquipmentStatisticsModel() {
-    name.addTextChangedListener(new ObjectValueListener<String>() {
-      @Override
-      public void valueChanged(String text) {
-        EquipmentStatisticsModel.this.announceValidationChange();
-      }
-    });
+    name.addTextChangedListener(text -> EquipmentStatisticsModel.this.announceValidationChange());
   }
 
   @Override

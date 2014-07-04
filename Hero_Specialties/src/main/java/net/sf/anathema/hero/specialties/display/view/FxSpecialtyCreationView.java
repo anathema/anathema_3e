@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.specialties.display.view;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import net.miginfocom.layout.CC;
@@ -39,12 +37,7 @@ public class FxSpecialtyCreationView implements SpecialtyCreationView {
 
   @Override
   public void addEditChangedListener(final ObjectValueListener<String> listener) {
-    field.textProperty().addListener(new ChangeListener<String>() {
-      @Override
-      public void changed(ObservableValue<? extends String> observableValue, String s, String s2) {
-        listener.valueChanged(s2);
-      }
-    });
+    field.textProperty().addListener((observableValue, s, s2) -> listener.valueChanged(s2));
   }
 
   @Override

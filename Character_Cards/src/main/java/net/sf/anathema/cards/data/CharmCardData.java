@@ -59,7 +59,7 @@ public class CharmCardData extends AbstractMagicCardData {
   }
 
   private Phrase getCharmDuration(Charm charm) {
-    String duration = charm.getDuration().getText(getResources());
+    String duration = charm.getDuration().getText();
     return new Phrase(duration, getResourceProvider().getNormalFont());
   }
 

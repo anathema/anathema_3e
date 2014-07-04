@@ -10,5 +10,6 @@ public interface ITextView {
 
   void setText(String text);
 
+  @SuppressWarnings("UnusedDeclaration")
   void removeAllListeners();
 }

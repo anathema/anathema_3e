@@ -1,7 +1,5 @@
 package net.sf.anathema.magic.description.presenter;
 
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.description.display.MagicDetailModel;
 import net.sf.anathema.magic.description.display.MagicDetailPresenter;
@@ -25,19 +23,8 @@ public class MagicDescriptionEditPresenter implements MagicDetailPresenter {
 
   @Override
   public void initPresentation() {
-    model.addDescriptionChangedListener(new ChangeListener() {
-
-      @Override
-      public void changeOccurred() {
-        view.setDescription(model.getCurrentDescription());
-      }
-    });
-    view.addDescriptionChangeListener(new ObjectValueListener<String>() {
-      @Override
-      public void valueChanged(String newValue) {
-        model.updateCurrentDescription(newValue);
-      }
-    });
+    model.addDescriptionChangedListener(() -> view.setDescription(model.getCurrentDescription()));
+    view.addDescriptionChangeListener(model::updateCurrentDescription);
   }
 
   @Override

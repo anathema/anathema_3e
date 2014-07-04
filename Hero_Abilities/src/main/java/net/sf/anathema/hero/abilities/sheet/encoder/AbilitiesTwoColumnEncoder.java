@@ -11,11 +11,8 @@ import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.PADD
 
 public class AbilitiesTwoColumnEncoder extends FavorableTraitContentEncoder<AbilitiesContent> {
 
-  private Resources resources;
-
   public AbilitiesTwoColumnEncoder(Resources resources) {
     super(AbilitiesContent.class);
-    this.resources = resources;
   }
 
   @Override

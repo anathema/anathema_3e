@@ -8,8 +8,6 @@ public interface EssencePoolModel {
 
   Identifier ID = new SimpleIdentifier("EssencePool");
 
-  void addOverdrivePool(OverdrivePool pool);
-
   String getPersonalPool();
 
   int getPersonalPoolValue();
@@ -17,8 +15,6 @@ public interface EssencePoolModel {
   String getPeripheralPool();
 
   int getPeripheralPoolValue();
-
-  int getOverdrivePoolValue();
 
   String getAttunedPool();
 

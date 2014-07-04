@@ -53,12 +53,9 @@ public class FxTraitView implements IntValueView {
   }
 
   private void initListening() {
-    spinner.addListener(new ChangeListener<Integer>() {
-      @Override
-      public void changed(ObservableValue<? extends Integer> observableValue, Integer oldValue, Integer newValue) {
-        spinner.setValueSilently(oldValue);
-        valueChangeAnnouncer.announce().valueChanged(newValue);
-      }
+    spinner.addListener((observableValue, oldValue, newValue) -> {
+      spinner.setValueSilently(oldValue);
+      valueChangeAnnouncer.announce().valueChanged(newValue);
     });
   }
 }

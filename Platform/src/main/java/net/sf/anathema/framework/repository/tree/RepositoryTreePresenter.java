@@ -7,7 +7,6 @@ import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.initialization.ForItemType;
 import net.sf.anathema.initialization.ItemTypeCollection;
-import net.sf.anathema.lib.util.Closure;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.util.ArrayList;
@@ -51,14 +50,11 @@ public class RepositoryTreePresenter {
   public void initPresentation() {
     AgnosticTree tree = treeView.addAgnosticTree();
     setUiConfiguration(tree);
-    tree.whenSelectionChangesDo(new Closure<Object[]>() {
-      @Override
-      public void execute(Object[] value) {
-        if (value.length == 0) {
-          repositoryModel.setSelectedObject(new Object[0]);
-        } else {
-          repositoryModel.setSelectedObject(value);
-        }
+    tree.whenSelectionChangesDo(value -> {
+      if (value.length == 0) {
+        repositoryModel.setSelectedObject(new Object[0]);
+      } else {
+        repositoryModel.setSelectedObject(value);
       }
     });
     AgnosticTreeNode root = tree.createRootNode(environment.getString(rootKey) + " ["

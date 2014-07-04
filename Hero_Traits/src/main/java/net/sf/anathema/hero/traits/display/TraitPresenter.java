@@ -21,20 +21,10 @@ public class TraitPresenter {
   }
 
   private void initModelValueListening() {
-    trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        view.setValue(newValue);
-      }
-    });
+    trait.addCurrentValueListener(view::setValue);
   }
 
   private void initViewValueListening() {
-    view.addIntValueChangedListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        trait.setCurrentValue(newValue);
-      }
-    });
+    view.addIntValueChangedListener(trait::setCurrentValue);
   }
 }

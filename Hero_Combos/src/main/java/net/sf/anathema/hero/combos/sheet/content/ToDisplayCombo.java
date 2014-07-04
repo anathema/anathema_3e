@@ -3,7 +3,6 @@ package net.sf.anathema.hero.combos.sheet.content;
 import com.google.common.base.Function;
 import com.google.common.base.Joiner;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.library.resources.Resources;

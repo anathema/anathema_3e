@@ -13,7 +13,7 @@ public class SolarVirtueFlawPresenter extends VirtueFlawPresenter {
   private final ConfigurableCharacterView view;
   private final DescriptiveLimitBreakModel model;
 
-  public SolarVirtueFlawPresenter(Hero hero, Resources resources, ConfigurableCharacterView view, DescriptiveLimitBreakModel model) {
+  public SolarVirtueFlawPresenter(Resources resources, ConfigurableCharacterView view, DescriptiveLimitBreakModel model) {
     super(resources, view, model);
     this.view = view;
     this.model = model;

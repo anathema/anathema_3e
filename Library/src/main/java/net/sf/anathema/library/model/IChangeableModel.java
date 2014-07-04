@@ -6,5 +6,6 @@ public interface IChangeableModel {
 
   void addChangeListener(ChangeListener listener);
 
+  @SuppressWarnings("UnusedDeclaration")
   void removeChangeListener(ChangeListener listener);
 }

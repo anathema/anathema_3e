@@ -55,11 +55,6 @@ public class SheetPreferenceModel implements PreferenceModel {
 
   @Override
   public void whenDirtied(Command command) {
-    onChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        command.execute();
-      }
-    });
+    onChange(command::execute);
   }
 }

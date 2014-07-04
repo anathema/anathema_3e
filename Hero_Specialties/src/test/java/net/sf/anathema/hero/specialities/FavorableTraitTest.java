@@ -121,12 +121,7 @@ public class FavorableTraitTest {
     valueStrategy.setStrategy(new ExperiencedTraitValueStrategy());
     trait.setCurrentValue(3);
     final int[] holder = new int[1];
-    trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        holder[0] = newValue;
-      }
-    });
+    trait.addCurrentValueListener(newValue -> holder[0] = newValue);
     trait.setCurrentValue(0);
     assertEquals(2, holder[0]);
   }

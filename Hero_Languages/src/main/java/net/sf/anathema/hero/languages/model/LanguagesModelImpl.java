@@ -17,7 +17,6 @@ import net.sf.anathema.lib.lang.StringUtilities;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.library.event.ChangeListener;
-import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.List;
