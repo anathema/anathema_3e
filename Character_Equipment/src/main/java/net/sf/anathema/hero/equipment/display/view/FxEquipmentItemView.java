@@ -8,7 +8,7 @@ import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
-import net.sf.anathema.platform.fx.FxTextView;
+import net.sf.anathema.library.fx.text.FxTextView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxEquipmentItemView implements EquipmentObjectView {

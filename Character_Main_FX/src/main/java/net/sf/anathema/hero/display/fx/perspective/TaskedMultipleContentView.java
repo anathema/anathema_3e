@@ -5,15 +5,15 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.framework.view.util.FxStack;
 import net.sf.anathema.hero.display.ContentProperties;
 import net.sf.anathema.hero.display.MultipleContentView;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
+import net.sf.anathema.library.fx.view.FxStack;
+import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.StyledTitledPane;
-import net.sf.anathema.platform.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class TaskedMultipleContentView implements MultipleContentView {

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.display.fx.creation;
 
-import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.hero.creation.CharacterCreationPageProperties;
 import net.sf.anathema.hero.creation.CharacterCreationPresenter;
 import net.sf.anathema.hero.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.creation.ICharacterItemCreationModel;
 import net.sf.anathema.hero.creation.IItemOperator;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.fx.environment.DialogFactory;
 
 public class FxCharacterTemplateCreator implements CharacterTemplateCreator {
   private Environment environment;

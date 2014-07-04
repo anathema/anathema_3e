@@ -1,7 +1,7 @@
 package net.sf.anathema.scribe.perspective.view;
 
 import net.sf.anathema.library.interaction.AcceleratorMap;
-import net.sf.anathema.platform.fx.PerspectivePane;
+import net.sf.anathema.platform.fx.perspective.PerspectivePane;
 import net.sf.anathema.scribe.editor.view.FxScrollView;
 
 public class ScribeView {

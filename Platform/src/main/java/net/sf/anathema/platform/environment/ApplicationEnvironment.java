@@ -5,7 +5,7 @@ import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.preferences.Preferences;
 import net.sf.anathema.library.resources.ResourceFile;
-import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.library.resources.Resources;
 
 import java.lang.annotation.Annotation;
@@ -15,11 +15,11 @@ import java.util.Set;
 public class ApplicationEnvironment implements Environment {
   private final Resources resources;
   private final ExceptionHandler handler;
-  private final ResourceLoader loader;
+  private final ResourceFileLoader loader;
   private final ObjectFactory objectFactory;
   private final Preferences preferences;
 
-  public ApplicationEnvironment(Resources resources, ExceptionHandler handler, ResourceLoader loader,
+  public ApplicationEnvironment(Resources resources, ExceptionHandler handler, ResourceFileLoader loader,
                                 ObjectFactory objectFactory, Preferences preferences) {
     this.resources = resources;
     this.handler = handler;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.framework.view.util.FxStack;
+import net.sf.anathema.library.fx.view.FxStack;
 import net.sf.anathema.library.identifier.Identifier;
 
 public class SwitchToView {

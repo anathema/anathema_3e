@@ -9,9 +9,9 @@ import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.display.presenter.SpellView;
 import net.sf.anathema.hero.spells.display.presenter.SpellViewProperties;
 import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

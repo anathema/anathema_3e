@@ -7,10 +7,10 @@ import javafx.scene.control.SelectionMode;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
 import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
-import net.sf.anathema.platform.fx.ConfigurableListCellFactory;
-import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.List;

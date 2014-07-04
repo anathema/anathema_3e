@@ -6,10 +6,10 @@ import net.sf.anathema.hero.framework.display.SubViewMap;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
 import net.sf.anathema.hero.framework.library.util.CssSkinner;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.Stylesheet;
 
 import java.util.ArrayList;
 import java.util.List;

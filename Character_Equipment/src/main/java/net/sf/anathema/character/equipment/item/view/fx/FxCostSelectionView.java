@@ -8,9 +8,9 @@ import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.event.SelectionIntValueChangedListener;
-import net.sf.anathema.platform.fx.FxObjectSelectionView;
-import net.sf.anathema.platform.fx.dot.DotSelectionSpinner;
-import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
+import net.sf.anathema.library.fx.dot.DotSelectionSpinner;
+import net.sf.anathema.library.fx.selection.FxObjectSelectionView;
+import net.sf.anathema.library.fx.selection.SelectionViewFactory;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

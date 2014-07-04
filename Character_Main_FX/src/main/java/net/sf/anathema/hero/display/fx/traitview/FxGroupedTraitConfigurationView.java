@@ -3,7 +3,7 @@ package net.sf.anathema.hero.display.fx.traitview;
 import javafx.scene.Node;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.framework.display.ColumnCount;
-import net.sf.anathema.platform.fx.NodeHolder;
+import net.sf.anathema.library.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxGroupedTraitConfigurationView implements GroupedFavorableTraitConfigurationView, NodeHolder {

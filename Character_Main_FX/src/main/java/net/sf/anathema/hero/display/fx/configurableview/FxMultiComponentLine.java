@@ -4,9 +4,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Label;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.framework.IIntegerDescription;
+import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.IntegerView;
-import net.sf.anathema.platform.fx.FxTextView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxMultiComponentLine implements MultiComponentLine {

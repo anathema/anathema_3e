@@ -5,12 +5,12 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.text.FxTextView;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.IntValueView;
-import net.sf.anathema.platform.fx.FxTextView;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.ArrayList;

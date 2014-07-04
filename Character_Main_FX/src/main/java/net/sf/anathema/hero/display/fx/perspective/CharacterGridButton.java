@@ -14,7 +14,7 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.framework.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.framework.perspective.Selector;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.platform.fx.ResourceLoader;
+import net.sf.anathema.library.resources.ResourceLoader;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.io.InputStream;

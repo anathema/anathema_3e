@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.display.fx.creation;
 
 import javafx.scene.image.ImageView;
+import net.sf.anathema.library.fx.tool.ImageContainer;
+import net.sf.anathema.library.fx.tool.LoadImage;
+import net.sf.anathema.library.fx.tool.SetImage;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Hotkey;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
-import net.sf.anathema.platform.tool.ImageContainer;
-import net.sf.anathema.platform.tool.LoadImage;
-import net.sf.anathema.platform.tool.SetImage;
 import org.controlsfx.control.action.Action;
 
 public class ControlsFxTool implements Tool {

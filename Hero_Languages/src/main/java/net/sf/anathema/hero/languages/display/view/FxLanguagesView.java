@@ -5,10 +5,11 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.languages.display.presenter.LanguagesView;
 import net.sf.anathema.hero.languages.display.presenter.ObjectSelectionViewWithTool;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.view.FxRemovableStringView;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.view.RemovableEntryView;
-import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
 import org.tbee.javafx.scene.layout.MigPane;
 

@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.platform.fx.NodeHolder;
+import net.sf.anathema.library.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxPreferencesView implements PreferencesView {

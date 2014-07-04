@@ -5,7 +5,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.platform.fx.StyledTitledPane;
+import net.sf.anathema.library.fx.view.StyledTitledPane;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

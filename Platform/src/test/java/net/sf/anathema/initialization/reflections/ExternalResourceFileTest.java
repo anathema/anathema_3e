@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization.reflections;
 
-import net.sf.anathema.platform.environment.dependencies.ExternalResourceFile;
+import net.sf.anathema.platform.dependencies.ExternalResourceFile;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;

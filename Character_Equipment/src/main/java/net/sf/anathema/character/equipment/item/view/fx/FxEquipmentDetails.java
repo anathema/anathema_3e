@@ -8,12 +8,12 @@ import net.sf.anathema.character.equipment.creation.view.fx.FxEditStatsDialog;
 import net.sf.anathema.character.equipment.item.view.EquipmentDescriptionPanel;
 import net.sf.anathema.character.equipment.item.view.EquipmentDetails;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
-import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
+import net.sf.anathema.library.fx.selection.SelectionViewFactory;
+import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
-import net.sf.anathema.platform.fx.StyledTitledPane;
-import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
+import net.sf.anathema.platform.fx.environment.DialogFactory;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxEquipmentDetails implements EquipmentDetails {

@@ -8,12 +8,12 @@ import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.character.equipment.item.view.EquipmentDescriptionPanel;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
+import net.sf.anathema.library.fx.selection.FxObjectSelectionView;
+import net.sf.anathema.library.fx.selection.SelectionViewFactory;
+import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
-import net.sf.anathema.platform.fx.FxObjectSelectionView;
-import net.sf.anathema.platform.fx.FxTextView;
-import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxEquipmentDescriptionPanel implements EquipmentDescriptionPanel {

@@ -10,13 +10,13 @@ import net.sf.anathema.hero.equipment.display.presenter.EquipmentItemRenderer;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentView;
 import net.sf.anathema.hero.equipment.display.presenter.MagicalMaterialView;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.selection.ListSelectionView;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
-import net.sf.anathema.platform.fx.ListSelectionView;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

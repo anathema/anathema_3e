@@ -5,14 +5,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.hero.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.display.fx.creation.FxCharacterTemplateCreator;
 import net.sf.anathema.hero.framework.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.framework.perspective.CharacterGridView;
 import net.sf.anathema.hero.framework.perspective.Selector;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.platform.fx.Stylesheet;
+import net.sf.anathema.library.fx.Stylesheet;
+import net.sf.anathema.platform.fx.environment.DialogFactory;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.HashMap;

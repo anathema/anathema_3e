@@ -4,7 +4,7 @@ import net.sf.anathema.library.io.Filenames;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.environment.dependencies.ExternalResourceFile;
+import net.sf.anathema.platform.dependencies.ExternalResourceFile;
 
 import java.io.IOException;
 import java.util.Locale;

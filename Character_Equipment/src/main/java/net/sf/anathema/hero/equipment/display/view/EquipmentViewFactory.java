@@ -2,7 +2,7 @@ package net.sf.anathema.hero.equipment.display.view;
 
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
-import net.sf.anathema.platform.fx.Stylesheet;
+import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.initialization.Produces;
 
 @Produces(EquipmentView.class)

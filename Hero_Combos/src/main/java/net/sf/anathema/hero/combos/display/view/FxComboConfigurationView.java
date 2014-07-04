@@ -8,10 +8,10 @@ import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.combos.display.presenter.ComboConfigurationView;
 import net.sf.anathema.hero.combos.display.presenter.ComboContainer;
 import net.sf.anathema.hero.combos.display.presenter.ComboViewProperties;
+import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
+import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.text.ITextView;
-import net.sf.anathema.platform.fx.FxTextView;
-import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

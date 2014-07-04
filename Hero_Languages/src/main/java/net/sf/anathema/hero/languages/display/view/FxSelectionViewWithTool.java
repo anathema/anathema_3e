@@ -3,10 +3,10 @@ package net.sf.anathema.hero.languages.display.view;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.languages.display.presenter.ObjectSelectionViewWithTool;
 import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
-import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;

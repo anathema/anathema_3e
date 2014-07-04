@@ -7,7 +7,7 @@ import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
-import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler;
 
 import java.util.Collection;
@@ -16,11 +16,11 @@ import java.util.Set;
 public class DataSetInitializer {
 
   private static final Logger logger = Logger.getLogger(DataSetInitializer.class);
-  private final ResourceLoader resourceLoader;
+  private final ResourceFileLoader resourceLoader;
   private final ObjectFactory objectFactory;
 
-  public DataSetInitializer(ResourceLoader resourceLoader, ObjectFactory objectFactory) {
-    this.resourceLoader = resourceLoader;
+  public DataSetInitializer(ResourceFileLoader resourceFileLoader, ObjectFactory objectFactory) {
+    this.resourceLoader = resourceFileLoader;
     this.objectFactory = objectFactory;
   }
 

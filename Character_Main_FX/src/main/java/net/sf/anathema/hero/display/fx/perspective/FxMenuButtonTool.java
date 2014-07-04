@@ -2,13 +2,13 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.ImageView;
-import net.sf.anathema.framework.view.menu.FxMenuTool;
+import net.sf.anathema.library.fx.tool.AdjustSize;
+import net.sf.anathema.library.fx.tool.FxBaseTool;
+import net.sf.anathema.library.fx.tool.ImageClosure;
+import net.sf.anathema.library.fx.tool.SetImage;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.MenuTool;
-import net.sf.anathema.platform.tool.AdjustSize;
-import net.sf.anathema.platform.tool.FxBaseTool;
-import net.sf.anathema.platform.tool.ImageClosure;
-import net.sf.anathema.platform.tool.SetImage;
+import net.sf.anathema.platform.fx.menu.FxMenuTool;
 
 
 public class FxMenuButtonTool extends FxBaseTool implements MenuTool {

@@ -3,9 +3,9 @@ package net.sf.anathema.hero.charms.display;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
+import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.library.view.IntValueView;
-import net.sf.anathema.platform.fx.Stylesheet;
 import net.sf.anathema.platform.initialization.Produces;
 
 @Produces(CharmView.class)

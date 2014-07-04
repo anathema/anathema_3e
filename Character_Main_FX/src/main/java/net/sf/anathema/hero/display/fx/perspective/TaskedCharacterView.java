@@ -7,8 +7,8 @@ import net.sf.anathema.hero.display.CharacterViewSection;
 import net.sf.anathema.hero.framework.display.CharacterView;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.Stylesheet;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

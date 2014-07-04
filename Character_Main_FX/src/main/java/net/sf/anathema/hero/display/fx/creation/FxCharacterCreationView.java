@@ -3,13 +3,13 @@ package net.sf.anathema.hero.display.fx.creation;
 import javafx.scene.control.ScrollPane;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.hero.creation.CharacterCreationView;
 import net.sf.anathema.hero.creation.ToggleButtonPanel;
 import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.library.fx.selection.ListSelectionView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
-import net.sf.anathema.platform.fx.ListSelectionView;
+import net.sf.anathema.platform.fx.environment.DialogFactory;
 import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
 
