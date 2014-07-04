@@ -25,7 +25,8 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.ArrayUtils;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.concat;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class AbstractHealthAndMovementTableEncoder implements ITableEncoder<ReportSession> {
   public static final int HEALTH_RECT_SIZE = 6;
@@ -218,10 +219,12 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   }
 
   private float[] createColumnWidth() {
-    Float[] movementAndLevelColumns = concat(Float.class, getMovementColumns(), HEALTH_LEVEL_COLUMNS);
+    ArrayList<Float> widths = new ArrayList<>();
     Float[] healthColumns = TableEncodingUtilities.createStandardColumnWidths(HEALTH_COLUMN_COUNT, 0.4f);
-    Float[] objectArray = concat(Float.class, movementAndLevelColumns, healthColumns);
-    return ArrayUtils.toPrimitive(objectArray);
+    Collections.addAll(widths, getMovementColumns());
+    Collections.addAll(widths, HEALTH_LEVEL_COLUMNS);
+    Collections.addAll(widths, healthColumns);    
+    return ArrayUtils.toPrimitive(widths.toArray(new Float[widths.size()]));
   }
 
   protected final Resources getResources() {

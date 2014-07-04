@@ -14,6 +14,9 @@ import net.sf.anathema.hero.sheet.pdf.encoder.table.AbstractTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import org.apache.commons.lang3.ArrayUtils;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public abstract class AbstractStatsTableEncoder<T extends IStats, C> extends AbstractTableEncoder<C> {
 
   private final boolean suppressHeaderLine;
@@ -70,14 +73,14 @@ public abstract class AbstractStatsTableEncoder<T extends IStats, C> extends Abs
   }
 
   protected final float[] calculateColumnWidths(IStatsGroup<T>[] groups) {
-    Float[] columnWidths = new Float[0];
+    ArrayList<Float> columnWidths = new ArrayList<>();
     for (IStatsGroup<T> group : groups) {
-      if (columnWidths.length != 0) {
-        columnWidths = net.sf.anathema.lib.lang.ArrayUtilities.concat(Float.class, columnWidths, new Float(0.2));
+      if (!columnWidths.isEmpty()) {
+        columnWidths.add(new Float(0.2));
       }
-      columnWidths = net.sf.anathema.lib.lang.ArrayUtilities.concat(Float.class, columnWidths, group.getColumnWeights());
+      Collections.addAll(columnWidths, group.getColumnWeights());
     }
-    return ArrayUtils.toPrimitive(columnWidths);
+    return ArrayUtils.toPrimitive(columnWidths.toArray(new Float[columnWidths.size()]));
   }
 
   protected PdfPCell createSpaceCell(SheetGraphics graphics) {
@@ -92,7 +95,7 @@ public abstract class AbstractStatsTableEncoder<T extends IStats, C> extends Abs
     cell.setColspan(useSpaceCell ? columnSpan + 1 : columnSpan);
     cell.setPaddingLeft(0);
     cell.setPaddingRight(0);
-    cell.setVerticalAlignment( PdfPCell.ALIGN_BOTTOM );
+    cell.setVerticalAlignment(PdfPCell.ALIGN_BOTTOM);
     return cell;
   }
 
