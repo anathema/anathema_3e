@@ -56,7 +56,7 @@ public abstract class AbstractSingleVisualizableNode extends AbstractVisualizabl
 
   @Override
   public boolean isOfSameLeafGroup(IVisualizableNode node) {
-    final boolean[] result = new boolean[1];
+    boolean[] result = new boolean[1];
     node.accept(new IVisualizableNodeVisitor() {
 
       @Override
