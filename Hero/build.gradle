@@ -1,9 +1,9 @@
 dependencies {
 //  Insert your dependencies here like this:
-    compile project(':Charm_Data')
+    compile project(':Magic_Data')
     compile project(':Library')
     compile project(':Library_TreeFramework')
     testCompile testDependencies //includes JUnit etc.
-    testCompile project(path: ':Charm_Data', configuration: 'tests')
+    testCompile project(path: ':Magic_Data', configuration: 'tests')
     testCompile project(path: ':Library', configuration: 'tests')
 }

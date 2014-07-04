@@ -1,5 +1,5 @@
 dependencies {
-    compile project(':Charm_Data')
+    compile project(':Magic_Data')
     compile project(':Engine_Exalted')
     compile project(':Hero')
     compile project(':Library')
