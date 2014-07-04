@@ -5,8 +5,8 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.application.HeroSplatHolder;
 import net.sf.anathema.hero.application.creation.ICharacterItemCreationModel;
-import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
@@ -33,7 +33,7 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
   }
 
   private void initializeTypesAndTemplates() {
-    CharacterTypes types = generics.getCharacterTypes();
+    HeroTypes types = generics.getHeroTypes();
     TemplateRegistry templateRegistry = generics.getTemplateRegistry();
     for (CharacterType type : types) {
       Collection<HeroSplat> templates = templateRegistry.getAllSupportedTemplates(type);

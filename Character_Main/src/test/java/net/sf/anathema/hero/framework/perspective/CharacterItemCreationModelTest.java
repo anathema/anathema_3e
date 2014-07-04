@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.hero.application.perspective.CharacterItemCreationModel;
-import net.sf.anathema.hero.dummy.DummyCharacterTypes;
+import net.sf.anathema.hero.dummy.DummyHeroTypes;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterSplat;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -27,9 +27,9 @@ public class CharacterItemCreationModelTest {
 
   private HeroEnvironment createGenericsWithCharacterType(CharacterType characterType) {
     HeroEnvironment generics = Mockito.mock(HeroEnvironment.class);
-    DummyCharacterTypes characterTypes = new DummyCharacterTypes();
+    DummyHeroTypes characterTypes = new DummyHeroTypes();
     characterTypes.add(characterType);
-    Mockito.when(generics.getCharacterTypes()).thenReturn(characterTypes);
+    Mockito.when(generics.getHeroTypes()).thenReturn(characterTypes);
     TemplateRegistry registry = Mockito.mock(TemplateRegistry.class);
     SimpleDummyCharacterSplat characterTemplate = new SimpleDummyCharacterSplat(characterType, null);
     Mockito.when(registry.getAllSupportedTemplates(characterType)).thenReturn(singletonList(characterTemplate));

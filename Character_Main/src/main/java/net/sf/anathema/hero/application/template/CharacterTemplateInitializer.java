@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.template;
 
 import net.sf.anathema.hero.application.CharacterTemplateResources;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.HeroSplatImpl;
 import net.sf.anathema.hero.individual.template.HeroTemplate;
@@ -30,7 +31,7 @@ public class CharacterTemplateInitializer {
   private void registerTemplateFromFile(ResourceFile templateResource) {
     try (InputStream stream = templateResource.getURL().openStream()) {
       HeroTemplate heroTemplate = loader.load(stream);
-      HeroSplat template = new HeroSplatImpl(heroTemplate, environment.getCharacterTypes());
+      HeroSplat template = new HeroSplatImpl(heroTemplate, environment.getHeroTypes());
       environment.getTemplateRegistry().register(template);
     } catch (IOException e) {
       throw new PersistenceException(e);

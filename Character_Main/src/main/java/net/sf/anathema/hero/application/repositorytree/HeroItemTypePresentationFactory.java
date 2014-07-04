@@ -21,7 +21,7 @@ public class HeroItemTypePresentationFactory implements ItemTypePresentationFact
   public IItemTypeViewProperties createItemTypeCreationProperties(ApplicationModel anathemaModel, Resources resources) {
     HeroEnvironment generics = HeroEnvironmentExtractor.getGenerics(anathemaModel);
     IRepositoryFileResolver fileResolver = anathemaModel.getRepository().getRepositoryFileResolver();
-    HeroReferenceScanner scanner = new JsonHeroReferenceScanner(generics.getCharacterTypes(), fileResolver);
+    HeroReferenceScanner scanner = new JsonHeroReferenceScanner(generics.getHeroTypes(), fileResolver);
     return new HeroViewProperties(retrieveCharacterItemType(), resources, scanner);
   }
 }

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.application;
 
+import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.platform.initialization.ReflectionFactoryMap;
 

@@ -1,8 +1,8 @@
-package net.sf.anathema.hero.environment;
+package net.sf.anathema.hero.environment.herotype;
 
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 
-public interface CharacterTypes extends Iterable<CharacterType>, ExtensibleDataSet {
+public interface HeroTypes extends Iterable<CharacterType>, ExtensibleDataSet {
   CharacterType findById(String id);
 }

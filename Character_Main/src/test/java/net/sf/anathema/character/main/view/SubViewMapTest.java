@@ -1,8 +1,8 @@
 package net.sf.anathema.character.main.view;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.application.SubViewFactory;
 import net.sf.anathema.hero.application.SubViewMap;
+import net.sf.anathema.hero.individual.view.SubViewFactory;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

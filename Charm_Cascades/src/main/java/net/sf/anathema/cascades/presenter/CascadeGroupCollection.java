@@ -7,7 +7,7 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
-import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
@@ -15,14 +15,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class CascadeGroupCollection implements CharmTreeCollection {
-  private final CharacterTypes characterTypes;
+  private final HeroTypes heroTypes;
   private CharmProvider charmProvider;
   private CharmTreeMap treeIdentifierMap;
 
-  public CascadeGroupCollection(CharmProvider charmProvider, CharacterTypes characterTypes, CharmTreeMap treeIdentifierMap) {
+  public CascadeGroupCollection(CharmProvider charmProvider, HeroTypes heroTypes, CharmTreeMap treeIdentifierMap) {
     this.charmProvider = charmProvider;
     this.treeIdentifierMap = treeIdentifierMap;
-    this.characterTypes = characterTypes;
+    this.heroTypes = heroTypes;
   }
 
   @Override
@@ -39,7 +39,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   private void initCharacterTypeCharms(List<CharmTree> allCharmGroups) {
-    for (CharacterType type : characterTypes) {
+    for (CharacterType type : heroTypes) {
        if (charmProvider.getCharms(MartialArtsUtilities.getCategory(type)).length > 0) {
         registerTypeCharms(allCharmGroups, type);
       }

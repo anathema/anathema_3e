@@ -4,7 +4,7 @@ import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.persistence.HeroMainFileDto;
 import net.sf.anathema.hero.application.persistence.HeroMainFilePersister;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
-import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.SplatType;
@@ -26,10 +26,10 @@ public class JsonHeroReferenceScanner implements HeroReferenceScanner {
   private final Map<CharacterReference, SplatType> typesByFile = new HashMap<>();
   private final Map<CharacterReference, Identifier> castesByFile = new HashMap<>();
   private final IRepositoryFileResolver resolver;
-  private final CharacterTypes characterTypes;
+  private final HeroTypes heroTypes;
 
-  public JsonHeroReferenceScanner(CharacterTypes characterTypes, IRepositoryFileResolver repositoryFileResolver) {
-    this.characterTypes = characterTypes;
+  public JsonHeroReferenceScanner(HeroTypes heroTypes, IRepositoryFileResolver repositoryFileResolver) {
+    this.heroTypes = heroTypes;
     this.resolver = repositoryFileResolver;
   }
 
@@ -37,7 +37,7 @@ public class JsonHeroReferenceScanner implements HeroReferenceScanner {
     File scanFile = resolver.getMainFile(retrieveCharacterItemType().getRepositoryConfiguration(), reference.repositoryId.getStringRepresentation());
     try (FileInputStream stream = new FileInputStream(scanFile)) {
       HeroMainFileDto mainFileDto = new HeroMainFilePersister().load(stream);
-      CharacterType characterType = characterTypes.findById(mainFileDto.characterType.characterType);
+      CharacterType characterType = heroTypes.findById(mainFileDto.characterType.characterType);
       SimpleIdentifier subType = new SimpleIdentifier(mainFileDto.characterType.subType);
       typesByFile.put(reference, new SplatTypeImpl(characterType, subType));
       castesByFile.put(reference, NULL_CASTE_TYPE);

@@ -1,6 +1,6 @@
 package net.sf.anathema.character.main.view;
 
-import net.sf.anathema.hero.application.SubViewFactory;
+import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.autocollect.Produces;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 

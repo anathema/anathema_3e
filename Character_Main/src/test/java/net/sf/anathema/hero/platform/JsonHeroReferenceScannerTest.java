@@ -3,7 +3,7 @@ package net.sf.anathema.hero.platform;
 import net.sf.anathema.hero.application.perspective.JsonHeroReferenceScanner;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
-import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.item.RepositoryConfiguration;
 import net.sf.anathema.platform.repository.IRepositoryFileResolver;
@@ -31,7 +31,7 @@ public class JsonHeroReferenceScannerTest {
   public void closesFileAfterScanning() throws Exception {
     File testFile = folder.newFile();
     InputOutput.writeStringToFile(testFile, "{repositoryId: x, printName: y}");
-    CharacterTypes types = mock(CharacterTypes.class);
+    HeroTypes types = mock(HeroTypes.class);
     when(types.findById(anyString())).thenReturn(new DummyMundaneCharacterType());
     IRepositoryFileResolver resolver = prepareResolverToReturnFile(testFile);
     CharacterReference reference = new CharacterReference(new SimpleRepositoryId("x"), "y");

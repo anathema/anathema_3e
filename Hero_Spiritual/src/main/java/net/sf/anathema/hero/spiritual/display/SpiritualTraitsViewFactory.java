@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.hero.application.SubViewFactory;
+import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.autocollect.Produces;
 
 @Produces(SpiritualTraitsView.class)

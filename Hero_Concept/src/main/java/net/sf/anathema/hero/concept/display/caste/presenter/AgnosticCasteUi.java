@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.hero.application.template.PresentationProperties;
 import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.display.overview.presenter.SelectObjectConfiguration;

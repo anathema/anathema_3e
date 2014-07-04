@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.application.type;
 
-import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ExtensibleCharacterTypes implements CharacterTypes{
+public class ExtensibleHeroTypes implements HeroTypes {
 
   private final List<CharacterType> types = new ArrayList<>();
 

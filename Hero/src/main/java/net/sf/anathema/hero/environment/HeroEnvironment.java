@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.environment;
 
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -15,5 +16,5 @@ public interface HeroEnvironment {
 
   ObjectFactory getObjectFactory();
 
-  CharacterTypes getCharacterTypes();
+  HeroTypes getHeroTypes();
 }

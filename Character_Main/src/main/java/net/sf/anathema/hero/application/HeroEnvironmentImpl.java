@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application;
 
-import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;
@@ -15,14 +15,14 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
   private final DataFileProvider dataFileProvider;
   private final ExtensibleDataSetProvider dataSetProvider;
   private final ObjectFactory objectFactory;
-  private final CharacterTypes characterTypes;
+  private final HeroTypes heroTypes;
 
   public HeroEnvironmentImpl(DataFileProvider dataFileProvider, ObjectFactory objectFactory,
                              ExtensibleDataSetProvider dataSetProvider) {
     this.objectFactory = objectFactory;
     this.dataFileProvider = dataFileProvider;
     this.dataSetProvider = dataSetProvider;
-    this.characterTypes = dataSetProvider.getDataSet(CharacterTypes.class);
+    this.heroTypes = dataSetProvider.getDataSet(HeroTypes.class);
   }
 
   @Override
@@ -36,8 +36,8 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
   }
 
   @Override
-  public CharacterTypes getCharacterTypes() {
-    return characterTypes;
+  public HeroTypes getHeroTypes() {
+    return heroTypes;
   }
 
   @Override

@@ -10,8 +10,8 @@ import net.sf.anathema.hero.application.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterPersistenceModel;
 import net.sf.anathema.hero.display.fx.perspective.CharacterSystemInitializer;
-import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -22,7 +22,7 @@ import java.io.File;
 
 public class CharacterFactory {
 
-  private CharacterTypes characterTypes;
+  private HeroTypes heroTypes;
   private ApplicationModel model;
   private HeroEnvironment heroEnvironment;
 
@@ -31,7 +31,7 @@ public class CharacterFactory {
     this.model = initializer.initialize();
     new CharacterSystemInitializer(model,initializer.getEnvironment()).initializeCharacterSystem();
     heroEnvironment = HeroEnvironmentExtractor.getGenerics(model);
-    this.characterTypes = heroEnvironment.getCharacterTypes();
+    this.heroTypes = heroEnvironment.getHeroTypes();
   }
 
   public HeroItemData createCharacter(String type, String subtype) {
@@ -50,7 +50,7 @@ public class CharacterFactory {
 
   private HeroSplat loadTemplateForType(String type, String subtype) {
     HeroEnvironment generics = getCharacterGenerics();
-    return generics.getTemplateRegistry().getTemplate(new SplatTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
+    return generics.getTemplateRegistry().getTemplate(new SplatTypeImpl(heroTypes.findById(type), new SimpleIdentifier(subtype)));
   }
 
   private HeroItemData createCharacter(HeroSplat template) {

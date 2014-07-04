@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -10,12 +10,12 @@ import org.mockito.Mockito;
 
 public class DummyHeroEnvironment implements HeroEnvironment {
 
-  public DummyCharacterTypes characterTypes = new DummyCharacterTypes();
+  public DummyHeroTypes characterTypes = new DummyHeroTypes();
   public DataFileProvider mockFileProvider = Mockito.mock(DataFileProvider.class);
   public ObjectFactory mockObjectFactory = Mockito.mock(ObjectFactory.class);
 
   @Override
-  public CharacterTypes getCharacterTypes() {
+  public HeroTypes getHeroTypes() {
     return characterTypes;
   }
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.languages.display.view;
 
-import net.sf.anathema.hero.application.SubViewFactory;
+import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.hero.languages.display.presenter.LanguagesView;
 import net.sf.anathema.library.autocollect.Produces;
 

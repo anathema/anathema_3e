@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.template;
+package net.sf.anathema.hero.environment.herotype;
 
 import net.sf.anathema.library.resources.RelativePath;
 

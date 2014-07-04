@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.type;
 
-import net.sf.anathema.hero.application.template.GenericTemplateLoader;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -17,7 +17,7 @@ import java.io.InputStream;
 public class HeroTypeCompiler implements ExtensibleDataSetCompiler {
 
   private static final String TEMPLATE_FILE_RECOGNITION_PATTERN = ".+?\\.charactertype";
-  private final ExtensibleCharacterTypes types = new ExtensibleCharacterTypes();
+  private final ExtensibleHeroTypes types = new ExtensibleHeroTypes();
   private final GenericTemplateLoader<SimpleCharacterType> loader = new GenericTemplateLoader<>(SimpleCharacterType.class);
 
   @SuppressWarnings("UnusedParameters")

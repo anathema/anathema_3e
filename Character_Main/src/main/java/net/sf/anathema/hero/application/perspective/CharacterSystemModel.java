@@ -75,7 +75,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   private HeroReferenceScanner createFileScanner() {
     HeroEnvironment generics = getHeroEnvironment();
     IRepositoryFileResolver repositoryFileResolver = model.getRepository().getRepositoryFileResolver();
-    return new JsonHeroReferenceScanner(generics.getCharacterTypes(), repositoryFileResolver);
+    return new JsonHeroReferenceScanner(generics.getHeroTypes(), repositoryFileResolver);
   }
 
   private HeroEnvironment getHeroEnvironment() {

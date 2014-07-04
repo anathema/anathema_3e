@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.Collections;
 import java.util.Iterator;
 
-public class DummyCharacterTypes implements CharacterTypes {
+public class DummyHeroTypes implements HeroTypes {
   private CharacterType type;
 
   @Override

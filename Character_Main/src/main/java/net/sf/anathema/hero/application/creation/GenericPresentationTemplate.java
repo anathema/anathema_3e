@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.creation;
 
-import net.sf.anathema.hero.application.template.PresentationProperties;
+import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.resources.RelativePath;
