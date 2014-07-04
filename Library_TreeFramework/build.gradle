@@ -1,0 +1,4 @@
+dependencies {
+  compile project(':Library_GraphLayout')
+  testCompile testDependencies
+}

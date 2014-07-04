@@ -1,11 +1,15 @@
 dependencies {
-    compile project(':Platform')
-    compile project(':Platform_TreeFramework')
     compile project(':Charm_Data')
-    compile project(':GraphLayout')
     compile project(':Engine_Exalted')
     compile project(':Hero')
+    compile project(':Library')
+    compile project(':Library_FX')
+    compile project(':Library_GraphLayout')
+    compile project(':Library_TreeFramework')
+    compile project(':Platform')
     testCompile testDependencies
-    testCompile project(path: ':Platform', configuration: 'tests')
+    testCompile project(path: ':Library', configuration: 'tests')
+    testCompile project(path: ':Library_FX', configuration: 'tests')
     testCompile project(path: ':Hero', configuration: 'tests')
+    testCompile project(path: ':Platform', configuration: 'tests')
 }
