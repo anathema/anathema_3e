@@ -21,7 +21,7 @@ public class AbilitiesWithCraftEncoderFactory extends GlobalEncoderFactory {
     FavorableTraitContentEncoder<AbilitiesContent> encoder = new FavorableTraitContentEncoder<>(AbilitiesContent.class);
     PdfTraitEncoder traitEncoder = encoder.getTraitEncoder();
     // todo bring back crafts ???
-    //encoder.addNamedTraitEncoder(new SpecialtiesEncoder(resources, traitEncoder, 9));
+    //encoder.addAdditionalEncoder(new SpecialtiesEncoder(resources, traitEncoder, 9));
     return encoder;
   }
 }

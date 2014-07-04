@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.specialties.ISubTraitContainer;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.advance.TraitCalculationUtilities;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import javafx.scene.Node;
-import net.sf.anathema.fx.hero.configurableview.FxConfigurableSingleLineView;
+import net.sf.anathema.hero.display.fx.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
