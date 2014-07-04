@@ -7,7 +7,7 @@ import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
 import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.CircleModel;

@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.application.creation.models;
 
 import net.sf.anathema.hero.application.creation.DefaultHero;
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
 import net.sf.anathema.hero.application.template.DefaultTemplateFactory;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 

@@ -2,11 +2,11 @@ package net.sf.anathema.hero.charms.persistence;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

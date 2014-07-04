@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.persistence;
+package net.sf.anathema.hero.individual.persistence;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;

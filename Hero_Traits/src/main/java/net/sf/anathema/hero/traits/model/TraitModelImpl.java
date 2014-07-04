@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.experience.model.ExperienceChange;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;

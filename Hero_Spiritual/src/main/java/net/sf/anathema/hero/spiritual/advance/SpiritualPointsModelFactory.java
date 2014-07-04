@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spiritual.advance;
 
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
-import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
+import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplateLoader;

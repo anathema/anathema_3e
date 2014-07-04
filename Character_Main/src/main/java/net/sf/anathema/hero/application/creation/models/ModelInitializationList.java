@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.creation.models;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
+import net.sf.anathema.hero.individual.model.ModelTreeEntry;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.logging.Logger;

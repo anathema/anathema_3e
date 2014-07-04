@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.persistence;
+package net.sf.anathema.hero.individual.persistence;
 
 import java.io.OutputStream;
 

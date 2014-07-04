@@ -1,6 +1,6 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.legality.LegalityColorProvider;

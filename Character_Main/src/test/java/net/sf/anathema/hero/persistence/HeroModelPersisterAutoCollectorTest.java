@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.persistence;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.application.persistence.HeroModelPersister;
 import net.sf.anathema.hero.application.persistence.HeroModelPersisterAutoCollector;
+import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
 import org.junit.Test;
 
 import java.util.Collection;

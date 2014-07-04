@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.persistence;
+package net.sf.anathema.hero.individual.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

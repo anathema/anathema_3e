@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 

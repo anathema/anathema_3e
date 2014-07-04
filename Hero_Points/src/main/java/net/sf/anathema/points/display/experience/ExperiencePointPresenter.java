@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.experience;
 
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.resources.Resources;

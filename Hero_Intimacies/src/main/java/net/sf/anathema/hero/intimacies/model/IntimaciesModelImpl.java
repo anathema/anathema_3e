@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.intimacies.model;
 
 import com.google.common.base.Strings;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.change.FlavoredChangeListener;

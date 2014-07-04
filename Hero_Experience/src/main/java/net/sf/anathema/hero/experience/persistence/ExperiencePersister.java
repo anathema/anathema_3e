@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.experience.persistence;
 
-import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")

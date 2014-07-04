@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.Condition;

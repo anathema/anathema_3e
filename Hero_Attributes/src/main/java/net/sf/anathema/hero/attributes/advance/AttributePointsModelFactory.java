@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.attributes.advance;
 
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
-import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplateLoader;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
+import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")

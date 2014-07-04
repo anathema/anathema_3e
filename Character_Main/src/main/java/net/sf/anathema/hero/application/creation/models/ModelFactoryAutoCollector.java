@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.creation.models;
 
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.Collection;

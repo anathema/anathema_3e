@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special;
 
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.traits.model.TraitModel;
 

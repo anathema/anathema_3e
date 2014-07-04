@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.elsewhere.experience;
+package net.sf.anathema.hero.experience.model;
 
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.event.ChangeListener;

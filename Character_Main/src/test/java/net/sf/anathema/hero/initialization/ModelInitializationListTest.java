@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.initialization;
 
 import net.sf.anathema.hero.application.creation.models.ModelInitializationList;
-import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
+import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

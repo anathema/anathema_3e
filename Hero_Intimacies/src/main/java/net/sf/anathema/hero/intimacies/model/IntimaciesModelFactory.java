@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.intimacies.model;
 
-import net.sf.anathema.hero.application.creation.HeroModelFactory;
-import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.experience.model.ExperienceModel;
+import net.sf.anathema.hero.individual.model.HeroModelFactory;
+import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.points.model.PointsModel;

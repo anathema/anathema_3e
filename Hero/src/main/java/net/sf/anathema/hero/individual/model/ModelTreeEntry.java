@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.creation.models;
+package net.sf.anathema.hero.individual.model;
 
 import net.sf.anathema.library.identifier.Identifier;
 

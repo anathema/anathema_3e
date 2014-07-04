@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.persistence;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;

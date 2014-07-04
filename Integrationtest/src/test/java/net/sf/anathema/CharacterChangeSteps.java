@@ -8,7 +8,7 @@ import cucumber.api.java.en.When;
 import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
 import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;

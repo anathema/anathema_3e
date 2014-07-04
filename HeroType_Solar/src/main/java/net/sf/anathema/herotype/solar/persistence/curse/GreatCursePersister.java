@@ -1,7 +1,7 @@
 package net.sf.anathema.herotype.solar.persistence.curse;
 
-import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;

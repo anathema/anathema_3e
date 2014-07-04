@@ -8,6 +8,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.exception.PersistenceException;
