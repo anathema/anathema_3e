@@ -198,8 +198,6 @@ Anathema includes software developed by
 -the slf4j project (http://www.slf4j.org)
 -1T3XT BVBA (http://www.itextpdf.com)
 -the GSON project (http://code.google.com/p/google-gson/)
--the Jaxen project (http://jaxen.codehaus.org/)
--the DOM4J Project (http://www.dom4j.org).
 -Google, Inc.
 -Nat Pryce (http://nat.truemesh.com/archives/000710.html)
 -MiG InfoCom AB (http://www.miglayout.com)
@@ -215,12 +213,10 @@ https://github.com/anathema/anathema/tree/master/Development_Documentation/Licen
 
 Apache License 2.0
 =========================
-Xalan
 Apache Commons
 Common-IO
 GSON
 Guava
-XML-Commons/XML-APIs
 
 GNU LGPL v2.1
 =========================
@@ -238,6 +234,4 @@ iText is published under the GNU Affero General Public License 3.0.
 MiG Layout is published under the GNU GPL v3.
 Reflections is published under the WTFPL.
 SLF4J is published under the MIT License.
-jaxen is published under the Jaxen License.
-dom4j is published under a BSD-style License
 Nat Pryce's "Announcer" class is published under an unrestricted license.

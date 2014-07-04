@@ -22,10 +22,8 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  private final TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(
-    CharmListTemplate.class);
-  private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(
-    SpecialCharmListTemplate.class);
+  private final TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class);
+  private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class);
   private final ObjectFactory objectFactory;
 
   @SuppressWarnings("UnusedParameters")
@@ -62,7 +60,7 @@ public class CharmCacheCompiler implements IExtensibleDataSetCompiler {
   }
 
   private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
-    try(InputStream inputStream = resource.getURL().openStream()) {
+    try (InputStream inputStream = resource.getURL().openStream()) {
       return loader.load(inputStream);
     } catch (IOException e) {
       throw new PersistenceException(e);

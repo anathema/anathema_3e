@@ -1,0 +1,22 @@
+{
+    spells:{
+        Terrestrial.ImpenetrableFrostBarrier: {
+            circle:Terrestrial,
+            cost:20m,
+            target:Area1015feet,
+            source:[SecondEdition,p253]
+        },
+        Celestial.IncomparableBodyArsenal:{
+            circle:Celestial,
+            cost:30m,
+            target:Caster,
+            source:[SecondEdition,p255]
+        },
+        Solar.RuneSingularHate:{
+            circle:Solar,
+            cost:10m,
+            target:Person,
+            source:[WhiteTreatise,p95]
+        }
+    }
+}

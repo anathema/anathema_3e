@@ -18,7 +18,7 @@ import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.hero.spells.parser.ISpellCache;
+import net.sf.anathema.hero.spells.parser.SpellCache;
 import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -71,7 +71,7 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   private void initializeSpellsByCircle(HeroEnvironment environment) {
-    for (Spell spell : environment.getDataSet(ISpellCache.class).getSpells()) {
+    for (Spell spell : environment.getDataSet(SpellCache.class).getSpells()) {
       spellsByCircle.put(spell.getCircleType(), spell);
     }
   }
