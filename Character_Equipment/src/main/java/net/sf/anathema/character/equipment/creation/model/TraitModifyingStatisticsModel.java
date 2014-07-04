@@ -3,24 +3,24 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
-import net.sf.anathema.library.number.IntegerRange;
+import net.sf.anathema.library.number.Range;
 
 public class TraitModifyingStatisticsModel extends EquipmentStatisticsModel implements ITraitModifyingStatisticsModel {
-  private final IIntValueModel DDVModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel PDVModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MDDVModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MPDVModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MeleeSpeedModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MeleeAccuracyModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MeleeDamageModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel MeleeRateModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel RangedSpeedModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, 0), 0);
-  private final IIntValueModel RangedAccuracyModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel RangedDamageModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel RangedRateModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel JoinBattleModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel JoinDebateModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
-  private final IIntValueModel JoinWarModel = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);
+  private final IIntValueModel DDVModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel PDVModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MDDVModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MPDVModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MeleeSpeedModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MeleeAccuracyModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MeleeDamageModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel MeleeRateModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel RangedSpeedModel = new RangedIntValueModel(Range.boundedFromAbove(0), 0);
+  private final IIntValueModel RangedAccuracyModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel RangedDamageModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel RangedRateModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel JoinBattleModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel JoinDebateModel = new RangedIntValueModel(Range.unbounded(), 0);
+  private final IIntValueModel JoinWarModel = new RangedIntValueModel(Range.unbounded(), 0);
 
   @Override
   public IIntValueModel getDDVModel() {

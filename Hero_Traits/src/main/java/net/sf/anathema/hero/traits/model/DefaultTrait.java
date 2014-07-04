@@ -7,7 +7,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.change.ChangeFlavor;
 import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.IntegerChangedListener;
-import net.sf.anathema.library.number.IntegerRange;
+import net.sf.anathema.library.number.Range;
 import org.jmock.example.announcer.Announcer;
 
 public class DefaultTrait implements Trait {
@@ -155,7 +155,7 @@ public class DefaultTrait implements Trait {
 
   @Override
   public void setModifiedCreationRange(int lowerBound, int upperBound) {
-    traitRules.setModifiedCreationRange(new IntegerRange(lowerBound, upperBound));
+    traitRules.setModifiedCreationRange(Range.bounded(lowerBound, upperBound));
     resetCreationValue();
   }
 

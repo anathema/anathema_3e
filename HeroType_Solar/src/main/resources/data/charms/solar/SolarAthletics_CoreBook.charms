@@ -1,1 +1,389 @@
-{"charms": {"Godspeed Steps": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Reflexive", "cost": "4m, 1wp", "prerequisiteCharms": ["Arete-Driven Marathon Stride", "Racing Hare Method"]}, "Onrush Burst Method": {"duration": "Permanent", "minimums": {"Athletics": 3, "Essence": 2}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Lightning Speed"]}, "Soaring Crane Leap": {"duration": "Instant", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Monkey Leap Technique"]}, "Unbound Eagle Approach": {"duration": "Permanent", "minimums": {"Athletics": 4, "Essence": 2}, "type": "Permanent", "cost": "\u2014(2m)", "prerequisiteCharms": ["Soaring Crane Leap"]}, "Leaping Tiger Attack": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 2}, "type": "Supplemental", "cost": "4m, 1wp", "prerequisiteCharms": ["Graceful Crane Stance", "Lightning Speed"]}, "Living Wind Approach": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 5}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["One Extra Step"]}, "Graceful Crane Stance": {"duration": "One scene", "minimums": {"Athletics": 1, "Essence": 1}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": []}, "Increasing Strength Exercise": {"duration": "One scene", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Simple", "cost": "3m or 3i per dot", "prerequisiteCharms": []}, "Racing Hare Method": {"duration": "One hour", "minimums": {"Athletics": 4, "Essence": 2}, "type": "Reflexive", "cost": "5m, 1wp", "prerequisiteCharms": ["Lightning Speed"]}, "Thunder\u2019s Might": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 2}, "type": "Reflexive", "cost": "5m", "prerequisiteCharms": ["Increasing Strength Exercise"]}, "Triumph-Forged God-Body": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Arete-Driven Marathon Stride", "Flashing Marlin Method", "Ten Ox Meditation", "Unbound Eagle Approach"]}, "Monkey Leap Technique": {"duration": "Instant", "minimums": {"Athletics": 2, "Essence": 1}, "type": "Supplemental", "cost": "2m", "prerequisiteCharms": []}, "Aegis of Unstoppable Force": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 4}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Legion Aurochs Method"]}, "Nine Aeons Thew": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 5}, "type": "Supplemental", "cost": "1m, 1wp", "prerequisiteCharms": ["Aegis of Unstoppable Force"]}, "Eagle-Wing Style": {"duration": "Indefinite", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Reflexive", "cost": "5m, 1wp", "prerequisiteCharms": ["Mountain-Crossing Leap Technique"]}, "Winning Stride Discipline": {"duration": "Permanent", "minimums": {"Athletics": 4, "Essence": 1}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Lightning Speed"]}, "Mountain-Crossing Leap Technique": {"duration": "Until she stops leaping", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Simple", "cost": "7m, 1wp", "prerequisiteCharms": ["Unbound Eagle Approach"]}, "Foe-Vaulting Method": {"duration": "Instant", "minimums": {"Athletics": 2, "Essence": 1}, "type": "Reflexive", "cost": "3i", "prerequisiteCharms": ["Graceful Crane Stance", "Monkey Leap Technique"]}, "Thunderbolt Attack Prana": {"duration": "Instant", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Supplemental", "cost": "4m, 1wp", "prerequisiteCharms": ["Increasing Strength Exercise", "Monkey Leap Technique"]}, "Demon-Wasting Rush": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Supplemental", "cost": "5m, 1wp", "prerequisiteCharms": ["Racing Hare Method"]}, "Hurricane Spirit Speed": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Supplemental", "cost": "1i per success", "prerequisiteCharms": ["Arete-Driven Marathon Stride"]}, "Ten Ox Meditation": {"duration": "One feat", "minimums": {"Athletics": 5, "Essence": 1}, "type": "Supplemental", "cost": "2m, 3 successes per dot", "prerequisiteCharms": ["Increasing Strength Exercise"]}, "Flashing Marlin Method": {"duration": "Permanent", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Permanent", "cost": "--", "prerequisiteCharms": []}, "Lightning Speed": {"duration": "Instant", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Supplemental", "cost": "3m", "prerequisiteCharms": []}, "Legion Aurochs Method": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Power Suffusing Form Technique"]}, "Power Suffusing Form Technique": {"duration": "Instant", "minimums": {"Athletics": 5, "Essence": 3}, "type": "Supplemental", "cost": "4m", "prerequisiteCharms": ["Thunder\u2019s Might"]}, "Armor-Eating Strike": {"duration": "Instant", "minimums": {"Athletics": 3, "Essence": 2}, "type": "Supplemental", "cost": "1m", "prerequisiteCharms": ["Increasing Strength Exercise"]}, "Feather Foot Style": {"duration": "Until the Exalt stops running", "minimums": {"Athletics": 3, "Essence": 1}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Graceful Crane Stance", "Lightning Speed"]}, "One Extra Step": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 4}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Godspeed Steps"]}, "Arete-Driven Marathon Stride": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 2}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Winning Stride Discipline"]}, "Bonfire Anima Wings": {"duration": "Permanent", "minimums": {"Athletics": 5, "Essence": 4}, "type": "Permanent", "cost": "--", "prerequisiteCharms": ["Eagle-Wing Style", "Onrush Burst Method"]}, "Spider Foot Style": {"duration": "(Essence +1) turns", "minimums": {"Athletics": 4, "Essence": 1}, "type": "Reflexive", "cost": "3m", "prerequisiteCharms": ["Feather Foot Style"]}}, "category": "Solar", "tree": "Athletics"}
+{
+    "category": "Solar", 
+    "charms": {
+        "Aegis of Unstoppable Force": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Legion Aurochs Method"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Arete-Driven Marathon Stride": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Winning Stride Discipline"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Armor-Eating Strike": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Increasing Strength Exercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Bonfire Anima Wings": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Eagle-Wing Style", 
+                "Onrush Burst Method"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Demon-Wasting Rush": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Racing Hare Method"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Eagle-Wing Style": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Mountain-Crossing Leap Technique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Feather Foot Style": {
+            "cost": "3m", 
+            "duration": "Until the Exalt stops running", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Graceful Crane Stance", 
+                "Lightning Speed"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Flashing Marlin Method": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Foe-Vaulting Method": {
+            "cost": "3i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Graceful Crane Stance", 
+                "Monkey Leap Technique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Godspeed Steps": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Arete-Driven Marathon Stride", 
+                "Racing Hare Method"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Graceful Crane Stance": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Athletics": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Hurricane Spirit Speed": {
+            "cost": "1i per success", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Arete-Driven Marathon Stride"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Increasing Strength Exercise": {
+            "cost": "3m or 3i per dot", 
+            "duration": "One scene", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Leaping Tiger Attack": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Graceful Crane Stance", 
+                "Lightning Speed"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Legion Aurochs Method": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Power Suffusing Form Technique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Lightning Speed": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Living Wind Approach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "One Extra Step"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Monkey Leap Technique": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Mountain-Crossing Leap Technique": {
+            "cost": "7m, 1wp", 
+            "duration": "Until she stops leaping", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Unbound Eagle Approach"
+            ], 
+            "type": "Simple"
+        }, 
+        "Nine Aeons Thew": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Aegis of Unstoppable Force"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "One Extra Step": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Godspeed Steps"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Onrush Burst Method": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Lightning Speed"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Power Suffusing Form Technique": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Thunder\u2019s Might"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Racing Hare Method": {
+            "cost": "5m, 1wp", 
+            "duration": "One hour", 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Lightning Speed"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Soaring Crane Leap": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Monkey Leap Technique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Spider Foot Style": {
+            "cost": "3m", 
+            "duration": "(Essence +1) turns", 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Feather Foot Style"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Ten Ox Meditation": {
+            "cost": "2m, 3 successes per dot", 
+            "duration": "One feat", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Increasing Strength Exercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Thunderbolt Attack Prana": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Increasing Strength Exercise", 
+                "Monkey Leap Technique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Thunder\u2019s Might": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Increasing Strength Exercise"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Triumph-Forged God-Body": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Arete-Driven Marathon Stride", 
+                "Flashing Marlin Method", 
+                "Ten Ox Meditation", 
+                "Unbound Eagle Approach"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Unbound Eagle Approach": {
+            "cost": "\u2014(2m)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Soaring Crane Leap"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Winning Stride Discipline": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Lightning Speed"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Athletics"
+}

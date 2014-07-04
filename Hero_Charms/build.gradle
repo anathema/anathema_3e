@@ -12,6 +12,7 @@ dependencies {
     compile project(':Hero_Traits')
     compile project(':Magic_Description')
     testCompile testDependencies
+    testCompile project(path: ':Library', configuration: 'tests')
     testCompile project(path: ':Platform', configuration: 'tests')
     testCompile project(path: ':Character_Main', configuration: 'tests')
     testCompile project(path: ':Hero_Concept', configuration: 'tests')
