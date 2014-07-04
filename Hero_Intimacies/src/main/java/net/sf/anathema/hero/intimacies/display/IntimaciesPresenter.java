@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.hero.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.model.RemovableEntryListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.RemovableEntryView;

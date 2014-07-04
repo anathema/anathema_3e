@@ -3,7 +3,7 @@ package net.sf.anathema.hero.concept.sheet.anima.encoder;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Phrase;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;

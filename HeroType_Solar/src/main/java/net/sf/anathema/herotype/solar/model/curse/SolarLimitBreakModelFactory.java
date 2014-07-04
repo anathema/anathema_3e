@@ -1,8 +1,8 @@
 package net.sf.anathema.herotype.solar.model.curse;
 
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
-import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
-import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

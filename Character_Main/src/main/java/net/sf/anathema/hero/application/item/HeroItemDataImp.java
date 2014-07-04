@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.application.item;
 
+import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.models.HeroModelInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.CharacterChangeManagement;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.hero.initialization.HeroModelInitializer;
-import net.sf.anathema.hero.model.DefaultHero;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.platform.repository.ChangeManagement;
 

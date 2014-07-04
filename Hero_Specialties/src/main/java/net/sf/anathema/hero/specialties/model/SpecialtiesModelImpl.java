@@ -2,13 +2,13 @@ package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import org.jmock.example.announcer.Announcer;

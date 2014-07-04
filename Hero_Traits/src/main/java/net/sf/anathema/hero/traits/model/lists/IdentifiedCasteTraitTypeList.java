@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model.lists;
 
-import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.collection.MultiEntryMap;
 import net.sf.anathema.library.identifier.Identifier;

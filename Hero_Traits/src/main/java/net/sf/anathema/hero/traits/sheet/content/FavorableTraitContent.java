@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.sheet.content;
 
-import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.traits.model.TraitListModel;
 import net.sf.anathema.hero.traits.model.TraitMap;

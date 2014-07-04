@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.abilities.persistence;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.persistence.TraitListPto;

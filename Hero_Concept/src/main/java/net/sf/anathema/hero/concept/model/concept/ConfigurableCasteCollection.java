@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.concept.CasteCollection;
-import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
+import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 
 import java.util.ArrayList;

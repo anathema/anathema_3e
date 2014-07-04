@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.display.fx.creation;
 
-import net.sf.anathema.hero.creation.CharacterCreationPageProperties;
-import net.sf.anathema.hero.creation.CharacterCreationPresenter;
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
-import net.sf.anathema.hero.creation.ICharacterItemCreationModel;
-import net.sf.anathema.hero.creation.IItemOperator;
+import net.sf.anathema.hero.application.creation.CharacterCreationPageProperties;
+import net.sf.anathema.hero.application.creation.CharacterCreationPresenter;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.creation.ICharacterItemCreationModel;
+import net.sf.anathema.hero.application.creation.IItemOperator;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 

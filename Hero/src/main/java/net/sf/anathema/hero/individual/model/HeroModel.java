@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.individual.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 public interface HeroModel {

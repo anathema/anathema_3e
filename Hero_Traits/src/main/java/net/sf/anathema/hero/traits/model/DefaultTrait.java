@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.traits.model;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.ConceptChange;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.model.change.ChangeFlavor;
-import net.sf.anathema.hero.individual.model.change.FlavoredChangeListener;
+import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.number.IntegerRange;
 import org.jmock.example.announcer.Announcer;

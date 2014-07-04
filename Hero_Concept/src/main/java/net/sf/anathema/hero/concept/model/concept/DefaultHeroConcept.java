@@ -1,21 +1,21 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.concept.CasteCollection;
-import net.sf.anathema.hero.concept.CasteSelection;
-import net.sf.anathema.hero.concept.ConceptChange;
-import net.sf.anathema.hero.concept.HeroConcept;
+import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
+import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
+import net.sf.anathema.hero.elsewhere.concept.ConceptChange;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.framework.IIntegerDescription;
-import net.sf.anathema.hero.framework.IntegerDescription;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.AnnounceChangeListener;
+import net.sf.anathema.library.change.AnnounceChangeListener;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.model.IntegerModel;
+import net.sf.anathema.library.model.IntegerModelImpl;
 
 public class DefaultHeroConcept implements HeroConcept, HeroModel {
 
-  private final IIntegerDescription age = new IntegerDescription(0);
+  private final IntegerModel age = new IntegerModelImpl(0);
   private DefaultCasteModel casteModel;
 
   public DefaultHeroConcept(DefaultCasteModel casteModel) {
@@ -48,7 +48,7 @@ public class DefaultHeroConcept implements HeroConcept, HeroModel {
   }
 
   @Override
-  public IIntegerDescription getAge() {
+  public IntegerModel getAge() {
     return age;
   }
 }

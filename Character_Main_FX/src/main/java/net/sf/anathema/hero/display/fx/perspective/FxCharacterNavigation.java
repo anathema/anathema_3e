@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.framework.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.framework.perspective.CharacterGridView;
 import net.sf.anathema.hero.framework.perspective.Selector;

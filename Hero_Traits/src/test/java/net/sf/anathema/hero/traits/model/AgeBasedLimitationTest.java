@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.dummy.DummyHero;
-import net.sf.anathema.hero.framework.IntegerDescription;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.traits.model.rules.limitation.AgeBasedLimitation;
+import net.sf.anathema.library.model.IntegerModelImpl;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -45,7 +45,7 @@ public class AgeBasedLimitationTest {
   private void assertThatMaximumForAgeIs(int age, int value) {
     HeroConcept concept = mock(HeroConcept.class);
     when(concept.getId()).thenReturn(HeroConcept.ID);
-    when(concept.getAge()).thenReturn(new IntegerDescription(age));
+    when(concept.getAge()).thenReturn(new IntegerModelImpl(age));
     hero.addModel(concept);
     assertThat(limitation.getCurrentMaximum(hero, false), is(value));
   }

@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static net.sf.anathema.hero.application.item.HeroItemTypeRetrieval.retrieveCharacterItemType;
-import static net.sf.anathema.hero.concept.CasteType.NULL_CASTE_TYPE;
+import static net.sf.anathema.hero.elsewhere.concept.CasteType.NULL_CASTE_TYPE;
 
 public class JsonHeroReferenceScanner implements HeroReferenceScanner {
 

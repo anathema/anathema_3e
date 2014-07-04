@@ -9,9 +9,9 @@ import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExt
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;

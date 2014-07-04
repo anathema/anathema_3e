@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
+import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
+import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.display.HeroModelGroup;
-import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
-import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.languages.model.LanguagesModel;

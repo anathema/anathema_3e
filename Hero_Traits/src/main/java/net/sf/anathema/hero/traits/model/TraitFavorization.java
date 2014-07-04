@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import org.jmock.example.announcer.Announcer;
 

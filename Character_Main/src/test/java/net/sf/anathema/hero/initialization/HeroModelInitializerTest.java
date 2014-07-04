@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.initialization;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
+import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.HeroModelInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.hero.model.DefaultHero;
-import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Test;
 

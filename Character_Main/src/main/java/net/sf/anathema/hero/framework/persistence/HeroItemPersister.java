@@ -2,15 +2,15 @@ package net.sf.anathema.hero.framework.persistence;
 
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemDataImp;
+import net.sf.anathema.hero.application.item.HeroNameFetcher;
 import net.sf.anathema.hero.application.item.Item;
-import net.sf.anathema.hero.description.HeroNameFetcher;
+import net.sf.anathema.hero.application.persistence.HeroModelPersister;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

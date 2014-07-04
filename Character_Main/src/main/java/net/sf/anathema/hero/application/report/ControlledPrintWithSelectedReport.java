@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.report;
 
-import net.sf.anathema.hero.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.io.FileChooserConfiguration;

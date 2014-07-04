@@ -3,7 +3,7 @@ package net.sf.anathema.hero.display.fx.creation;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
-import net.sf.anathema.hero.creation.ToggleButtonPanel;
+import net.sf.anathema.hero.application.creation.ToggleButtonPanel;
 import net.sf.anathema.library.fx.tool.FxToggleTool;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import org.tbee.javafx.scene.layout.MigPane;

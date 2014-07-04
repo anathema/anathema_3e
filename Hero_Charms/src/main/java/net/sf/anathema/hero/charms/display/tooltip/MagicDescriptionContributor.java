@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.magic.description.model.MagicDescription;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
 public class MagicDescriptionContributor implements MagicTooltipContributor {
   private MagicDescriptionProvider magicDescriptionProvider;

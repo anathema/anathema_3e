@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.hero.experience.ExperienceChange;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.messaging.Messaging;

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.attributes.display;
 
+import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
+import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
-import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
-import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.initialization.Weight;

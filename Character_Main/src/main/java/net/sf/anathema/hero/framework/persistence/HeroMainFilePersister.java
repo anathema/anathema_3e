@@ -2,8 +2,8 @@ package net.sf.anathema.hero.framework.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.sf.anathema.hero.application.item.HeroNameFetcher;
 import net.sf.anathema.hero.application.item.Item;
-import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.exception.PersistenceException;

@@ -2,10 +2,10 @@ package net.sf.anathema.hero.framework.persistence;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
+import net.sf.anathema.hero.application.persistence.HeroModelPersister;
+import net.sf.anathema.hero.application.persistence.HeroModelPersisterAutoCollector;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.persistence.HeroModelPersister;
-import net.sf.anathema.hero.persistence.HeroModelPersisterAutoCollector;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.initialization.ObjectFactory;
 

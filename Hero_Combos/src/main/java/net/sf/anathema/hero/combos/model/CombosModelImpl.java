@@ -10,7 +10,7 @@ import net.sf.anathema.hero.combos.display.presenter.CombosModel;
 import net.sf.anathema.hero.combos.model.rules.SecondEditionComboArbitrator;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import org.jmock.example.announcer.Announcer;

@@ -3,7 +3,7 @@ package net.sf.anathema.hero.framework.perspective;
 import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.sf.anathema.hero.creation.ICharacterItemCreationModel;
+import net.sf.anathema.hero.application.creation.ICharacterItemCreationModel;
 import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;

@@ -5,7 +5,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.display.fx.creation.FxCharacterTemplateCreator;
 import net.sf.anathema.hero.framework.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.framework.perspective.CharacterGridView;

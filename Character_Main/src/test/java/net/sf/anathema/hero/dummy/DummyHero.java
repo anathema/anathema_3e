@@ -3,9 +3,9 @@ package net.sf.anathema.hero.dummy;
 import net.sf.anathema.hero.dummy.template.DummyHeroSplat;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.hero.model.change.ChangeAnnouncerImpl;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.ChangeAnnouncerImpl;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.HashMap;

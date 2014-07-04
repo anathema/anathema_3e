@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.repositorytree;
 
+import net.sf.anathema.hero.application.creation.CharacterTypeUi;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.creation.CharacterTypeUi;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.individual.splat.CharacterType;

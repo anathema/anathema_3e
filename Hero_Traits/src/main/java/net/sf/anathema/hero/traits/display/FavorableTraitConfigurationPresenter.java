@@ -2,8 +2,8 @@ package net.sf.anathema.hero.traits.display;
 
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
-import net.sf.anathema.hero.experience.ExperienceChange;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.FavorableState;

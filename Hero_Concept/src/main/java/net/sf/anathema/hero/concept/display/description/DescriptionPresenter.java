@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.description.HeroDescription;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
-import net.sf.anathema.hero.framework.IIntegerDescription;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.elsewhere.description.HeroDescription;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.model.IntegerModel;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.ITextualDescription;
@@ -68,7 +68,7 @@ public class DescriptionPresenter {
     addInteger(sexAndAge, "Label.Age", heroConcept.getAge());
   }
 
-  private void addInteger(MultiComponentLine componentLine, String label, final IIntegerDescription integerDescription) {
+  private void addInteger(MultiComponentLine componentLine, String label, final IntegerModel integerDescription) {
     String title = environment.getString(label);
     IntegerView view = componentLine.addIntegerView(title, integerDescription);
     view.addChangeListener(integerDescription::setValue);

@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
+import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 

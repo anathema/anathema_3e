@@ -7,8 +7,8 @@ import net.sf.anathema.hero.charms.display.tree.CascadePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.environment.CharacterTypes;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.environment.Environment;
 
 public class CharmCascadesPresenterImpl {

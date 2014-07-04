@@ -2,12 +2,12 @@ package net.sf.anathema.hero.health.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

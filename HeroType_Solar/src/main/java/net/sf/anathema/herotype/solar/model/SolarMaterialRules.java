@@ -1,8 +1,8 @@
 package net.sf.anathema.herotype.solar.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
+import net.sf.anathema.hero.application.type.ForCharacterType;
 import net.sf.anathema.hero.equipment.model.SimpleMaterialRules;
-import net.sf.anathema.hero.model.type.ForCharacterType;
 
 @ForCharacterType("Solar")
 public class SolarMaterialRules extends SimpleMaterialRules {

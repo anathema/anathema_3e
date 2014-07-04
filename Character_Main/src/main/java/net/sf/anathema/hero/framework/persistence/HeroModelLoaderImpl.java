@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.hero.persistence.HeroModelLoader;
+import net.sf.anathema.hero.application.persistence.HeroModelLoader;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
 
 import java.io.InputStream;

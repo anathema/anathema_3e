@@ -20,7 +20,7 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;

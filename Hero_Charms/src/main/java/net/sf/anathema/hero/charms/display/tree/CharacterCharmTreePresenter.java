@@ -5,7 +5,6 @@ import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
 import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
 import net.sf.anathema.hero.charms.display.model.CharacterGroupCollection;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
-import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.special.AgnosticSpecialCharmViewBuilder;
 import net.sf.anathema.hero.charms.display.special.CharacterSpecialCharmPresenter;
 import net.sf.anathema.hero.charms.display.special.CommonSpecialCharmList;
@@ -15,8 +14,8 @@ import net.sf.anathema.hero.charms.display.view.DefaultFunctionalNodeProperties;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CharacterCharmTreePresenter {

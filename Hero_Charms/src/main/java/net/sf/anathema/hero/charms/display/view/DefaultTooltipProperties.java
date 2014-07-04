@@ -7,9 +7,9 @@ import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.NullSpecialCharm;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.display.ToolTipProperties;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.toCharmName;

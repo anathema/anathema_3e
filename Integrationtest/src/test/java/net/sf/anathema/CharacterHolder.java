@@ -4,8 +4,8 @@ import com.google.inject.Singleton;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 

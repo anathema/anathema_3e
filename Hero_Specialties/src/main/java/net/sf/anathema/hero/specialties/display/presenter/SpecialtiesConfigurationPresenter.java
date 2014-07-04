@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
 import net.sf.anathema.hero.display.ExtensibleTraitView;
-import net.sf.anathema.hero.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISpecialtyListener;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;

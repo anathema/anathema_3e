@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
+import net.sf.anathema.hero.application.type.ForCharacterType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
-import net.sf.anathema.hero.model.type.ForCharacterType;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
 import static net.sf.anathema.hero.equipment.model.ReflectionMaterialRulesTest.ID_TEST_TYPE;
