@@ -6,13 +6,13 @@ import net.sf.anathema.character.equipment.character.IEquipmentStringBuilder;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DummyEquipmentItem;
-import net.sf.anathema.framework.environment.resources.LocaleResources;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectPresenter;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.platform.resources.LocaleResources;
 import org.junit.Assert;
 import org.junit.Test;
 

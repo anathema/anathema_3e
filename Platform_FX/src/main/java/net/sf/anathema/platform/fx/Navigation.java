@@ -12,7 +12,7 @@ import net.sf.anathema.platform.tool.FxButtonTool;
 import net.sf.anathema.platform.tool.FxToggleTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class Navigation {
 

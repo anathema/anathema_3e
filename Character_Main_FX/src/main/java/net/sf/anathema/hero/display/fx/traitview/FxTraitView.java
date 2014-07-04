@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.fx.traitview;
 
 import javafx.scene.control.Label;
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.library.event.IntegerChangedListener;
+import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.platform.fx.dot.DotSelectionSpinner;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;

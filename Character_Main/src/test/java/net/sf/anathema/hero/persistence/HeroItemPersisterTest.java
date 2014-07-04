@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.persistence;
 
-import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
@@ -11,6 +10,7 @@ import net.sf.anathema.hero.framework.HeroEnvironmentImpl;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.platform.messaging.Messaging;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

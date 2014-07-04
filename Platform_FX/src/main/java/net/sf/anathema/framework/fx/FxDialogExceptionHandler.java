@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.fx;
 
 import javafx.stage.Window;
+import net.sf.anathema.library.exception.ExceptionHandler;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.environment.ExceptionHandler;
 import org.controlsfx.dialog.Dialogs;
 
 import static org.controlsfx.dialog.DialogStyle.NATIVE;

@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.Coordinate;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.number.Coordinate;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.draw.AgnosticPolygon;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.display.shape.Polygon;

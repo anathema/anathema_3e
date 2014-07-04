@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.display.coloring;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
-import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
@@ -19,6 +18,7 @@ import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
@@ -26,10 +26,10 @@ import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 @RegisteredInitializer(Magic)
 @Weight(weight = 0)
 public class CharmInitializer implements HeroModelInitializer {
-  private final IApplicationModel applicationModel;
+  private final ApplicationModel applicationModel;
   private final HeroEnvironment heroEnvironment;
 
-  public CharmInitializer(IApplicationModel applicationModel) {
+  public CharmInitializer(ApplicationModel applicationModel) {
     this.applicationModel = applicationModel;
     this.heroEnvironment = HeroEnvironmentExtractor.getGenerics(applicationModel);
   }

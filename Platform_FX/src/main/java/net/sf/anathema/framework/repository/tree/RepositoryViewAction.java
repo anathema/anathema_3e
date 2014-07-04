@@ -1,20 +1,28 @@
 package net.sf.anathema.framework.repository.tree;
 
 import javafx.scene.Node;
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.initialization.ItemTypeCollection;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.ItemTypeCollection;
+import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.platform.repositorytree.AmountMessaging;
+import net.sf.anathema.platform.repositorytree.RepositoryItemDeletionPresenter;
+import net.sf.anathema.platform.repositorytree.RepositoryItemDuplicationPresenter;
+import net.sf.anathema.platform.repositorytree.RepositoryItemExportPresenter;
+import net.sf.anathema.platform.repositorytree.RepositoryItemImportPresenter;
+import net.sf.anathema.platform.repositorytree.RepositoryMessagingPresenter;
+import net.sf.anathema.platform.repositorytree.RepositoryTreeModel;
+import net.sf.anathema.platform.repositorytree.RepositoryTreePresenter;
 import org.controlsfx.dialog.Dialog;
 
 public class RepositoryViewAction implements Command {
-  private final IApplicationModel model;
+  private final ApplicationModel model;
   private final Environment environment;
   private final UiEnvironment uiEnvironment;
 
-  public RepositoryViewAction(IApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
+  public RepositoryViewAction(ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
     this.model = model;
     this.environment = environment;
     this.uiEnvironment = uiEnvironment;

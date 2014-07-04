@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.framework.repository.access.printname.RepositoryId;
+import net.sf.anathema.platform.repository.printname.RepositoryId;
 
 public class CharacterReference {
 

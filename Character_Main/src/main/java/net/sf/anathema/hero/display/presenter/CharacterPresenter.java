@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.display.presenter;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.display.HeroModelGroup;
 import net.sf.anathema.hero.framework.display.CharacterView;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 import static net.sf.anathema.hero.display.HeroModelGroup.Miscellaneous;
@@ -20,7 +20,7 @@ public class CharacterPresenter {
   private final CharacterView characterView;
   private final Environment environment;
 
-  public CharacterPresenter(Hero hero, CharacterView view, Environment environment, IApplicationModel model) {
+  public CharacterPresenter(Hero hero, CharacterView view, Environment environment, ApplicationModel model) {
     this.initializerList = new InitializerList(environment, model);
     this.hero = hero;
     this.characterView = view;

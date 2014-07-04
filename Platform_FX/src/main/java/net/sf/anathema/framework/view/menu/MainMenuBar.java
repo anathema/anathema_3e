@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.view.menu;
 
-import net.sf.anathema.framework.view.MenuBar;
+import net.sf.anathema.platform.menu.IMenu;
+import net.sf.anathema.platform.menu.MenuBar;
 
 public class MainMenuBar implements MenuBar {
 

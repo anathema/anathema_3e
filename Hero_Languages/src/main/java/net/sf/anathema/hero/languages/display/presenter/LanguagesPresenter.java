@@ -1,18 +1,19 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.lib.control.legality.LegalityColorProvider;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.legality.LegalityColorProvider;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.RemovableEntryView;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.HashMap;
 import java.util.Map;

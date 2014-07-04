@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.preferences.perspective;
 
-import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.platform.fx.PerspectivePane;
+import net.sf.anathema.platform.preferences.PreferenceView;
 
 import java.util.ArrayList;
 import java.util.Collection;

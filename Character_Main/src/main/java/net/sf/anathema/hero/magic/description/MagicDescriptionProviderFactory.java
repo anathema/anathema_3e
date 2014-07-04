@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.magic.description;
 
-import net.sf.anathema.framework.IApplicationModel;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 public interface MagicDescriptionProviderFactory {
 
-  MagicDescriptionProvider create(IApplicationModel anathemaModel);
+  MagicDescriptionProvider create(ApplicationModel anathemaModel);
 }

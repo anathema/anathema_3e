@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.framework.ui.Width;
+import net.sf.anathema.library.number.Width;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.Polygon;
 import org.junit.Test;
 import org.mockito.InOrder;

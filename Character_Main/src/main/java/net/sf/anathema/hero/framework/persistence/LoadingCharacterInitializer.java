@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
 
 public class LoadingCharacterInitializer implements CharacterInitializer{
   private final RepositoryReadAccess readAccess;

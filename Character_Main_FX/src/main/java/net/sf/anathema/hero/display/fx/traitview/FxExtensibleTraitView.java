@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.display.fx.traitview;
 
 import net.miginfocom.layout.CC;
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.platform.fx.FxComponent;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import net.sf.anathema.platform.tool.FxToggleTool;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxExtensibleTraitView implements ExtensibleTraitView {
   private final MigPane front = new MigPane(fillWithoutInsets());

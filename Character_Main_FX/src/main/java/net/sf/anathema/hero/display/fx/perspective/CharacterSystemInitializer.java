@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.platform.CharacterGenericsExtension;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 public class CharacterSystemInitializer {
-  private final IApplicationModel model;
+  private final ApplicationModel model;
   private final Environment environment;
 
-  public CharacterSystemInitializer(IApplicationModel model, Environment environment) {
+  public CharacterSystemInitializer(ApplicationModel model, Environment environment) {
     this.model = model;
     this.environment = environment;
   }
@@ -16,6 +16,6 @@ public class CharacterSystemInitializer {
   public void initializeCharacterSystem() {
       CharacterGenericsExtension extension = new CharacterGenericsExtension();
       extension.initialize(model.getRepository(), environment, environment);
-      model.getExtensionPointRegistry().register(CharacterGenericsExtension.ID, extension);
+      model.getExtensionRegistry().register(CharacterGenericsExtension.ID, extension);
   }
 }

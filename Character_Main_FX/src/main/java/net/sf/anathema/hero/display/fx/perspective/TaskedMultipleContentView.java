@@ -8,7 +8,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.framework.view.util.FxStack;
 import net.sf.anathema.hero.display.ContentProperties;
 import net.sf.anathema.hero.display.MultipleContentView;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.platform.fx.NodeHolder;

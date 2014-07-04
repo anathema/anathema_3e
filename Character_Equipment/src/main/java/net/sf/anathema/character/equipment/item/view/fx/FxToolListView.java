@@ -15,7 +15,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.List;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxToolListView<T> implements ToolListView<T> {
 

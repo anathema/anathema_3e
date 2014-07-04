@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.display.fx.traitview;
 
-import net.sf.anathema.framework.util.Produces;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
+import net.sf.anathema.platform.initialization.Produces;
 
 @Produces(GroupedFavorableTraitConfigurationView.class)
 public class GroupedFavorableTraitViewFactory implements SubViewFactory {

@@ -3,6 +3,7 @@ package net.sf.anathema.framework.view.menu;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.platform.menu.IMenu;
 
 import static javafx.scene.input.KeyCombination.SHORTCUT_DOWN;
 

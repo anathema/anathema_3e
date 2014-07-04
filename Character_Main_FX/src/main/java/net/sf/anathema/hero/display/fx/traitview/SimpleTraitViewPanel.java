@@ -2,7 +2,7 @@ package net.sf.anathema.hero.display.fx.traitview;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class SimpleTraitViewPanel implements TraitViewPanel {

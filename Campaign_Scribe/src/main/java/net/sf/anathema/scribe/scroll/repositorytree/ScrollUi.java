@@ -1,9 +1,9 @@
 package net.sf.anathema.scribe.scroll.repositorytree;
 
-import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
+import net.sf.anathema.platform.repository.PrintNameFile;
 
 public class ScrollUi implements AgnosticUIConfiguration<PrintNameFile> {
 

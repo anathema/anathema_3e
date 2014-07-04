@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.TransformedShape;
 

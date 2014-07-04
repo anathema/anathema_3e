@@ -8,13 +8,13 @@ import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.combos.display.presenter.ComboConfigurationView;
 import net.sf.anathema.hero.combos.display.presenter.ComboContainer;
 import net.sf.anathema.hero.combos.display.presenter.ComboViewProperties;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxComboConfigurationView implements ComboConfigurationView, NodeHolder {
   private final MigPane editPane = new MigPane(fillWithoutInsets());

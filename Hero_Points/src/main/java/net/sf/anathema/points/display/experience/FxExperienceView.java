@@ -10,7 +10,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.tool.FxButtonTool;

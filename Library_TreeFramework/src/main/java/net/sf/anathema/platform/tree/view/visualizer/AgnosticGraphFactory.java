@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.view.visualizer;
 
-import net.sf.anathema.framework.ui.Area;
+import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import net.sf.anathema.platform.tree.document.visualizer.TreeDimensionCalculator;

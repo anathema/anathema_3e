@@ -3,7 +3,7 @@ package net.sf.anathema.platform.fx.tooltip;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.platform.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 

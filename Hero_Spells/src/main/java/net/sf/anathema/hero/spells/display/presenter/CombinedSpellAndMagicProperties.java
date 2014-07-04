@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.framework.ui.IdentifierConfiguration;
 import net.sf.anathema.hero.charms.display.magic.AbstractMagicLearnProperties;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
@@ -8,6 +7,7 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.presenter.IdentifierConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;

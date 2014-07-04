@@ -2,12 +2,12 @@ package net.sf.anathema.framework.presenter.action.updatecheck;
 
 import de.idos.updates.Version;
 import de.idos.updates.store.ProgressReportAdapter;
-import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateChangelog;
-import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.updatecheck.UpdateChangelog;
+import net.sf.anathema.platform.updatecheck.UpdateState;
 
-import static net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState.CheckFailed;
-import static net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState.Checking;
+import static net.sf.anathema.platform.updatecheck.UpdateState.CheckFailed;
+import static net.sf.anathema.platform.updatecheck.UpdateState.Checking;
 
 public class VersionDiscoveryReport extends ProgressReportAdapter {
   private Resources resources;

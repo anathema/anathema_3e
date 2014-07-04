@@ -3,8 +3,8 @@ package net.sf.anathema.hero.equipment.display.view;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.model.BooleanModel;
 import org.tbee.javafx.scene.layout.MigPane;
 

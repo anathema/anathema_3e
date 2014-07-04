@@ -4,7 +4,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.geometry.Point2D;
 import javafx.scene.control.ToggleButton;
-import net.sf.anathema.framework.ui.Coordinate;
+import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.platform.tree.display.SpecialControl;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.transform.AgnosticTransform;

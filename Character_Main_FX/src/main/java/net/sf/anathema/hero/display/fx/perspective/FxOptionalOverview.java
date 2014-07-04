@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
-import net.sf.anathema.framework.view.util.OptionalView;
+import net.sf.anathema.library.view.OptionalView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxOptionalOverview implements OptionalView {

@@ -1,8 +1,8 @@
 package net.sf.anathema.initialization.reflections;
 
-import net.sf.anathema.initialization.repository.CustomDataResourceLoader;
-import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
 import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.repository.CustomDataResourceLoader;
+import net.sf.anathema.platform.repository.RepositoryLocationResolver;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

@@ -2,17 +2,17 @@ package net.sf.anathema;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
-import net.sf.anathema.framework.environment.exception.ExceptionHandling;
-import net.sf.anathema.framework.environment.exception.ExtensibleExceptionHandler;
 import net.sf.anathema.framework.environment.fx.FxUiEnvironment;
 import net.sf.anathema.framework.repository.tree.FxFileChooser;
-import net.sf.anathema.framework.view.ApplicationFrame;
-import net.sf.anathema.initialization.EnvironmentFactory;
 import net.sf.anathema.initialization.GuiInitializer;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.exception.ExceptionHandling;
+import net.sf.anathema.platform.exception.ExtensibleExceptionHandler;
+import net.sf.anathema.platform.frame.ApplicationFrame;
 import net.sf.anathema.platform.fx.FxAcceleratorMap;
+import net.sf.anathema.platform.initialization.EnvironmentFactory;
 
 public class Anathema extends Application {
 

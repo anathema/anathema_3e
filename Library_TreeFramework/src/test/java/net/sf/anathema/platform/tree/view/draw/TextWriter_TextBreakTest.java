@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.Area;
-import net.sf.anathema.framework.ui.Coordinate;
+import net.sf.anathema.library.number.Area;
+import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.Polygon;
 import org.junit.Before;

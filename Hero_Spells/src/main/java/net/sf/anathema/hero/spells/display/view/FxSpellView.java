@@ -17,7 +17,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxSpellView implements SpellView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());

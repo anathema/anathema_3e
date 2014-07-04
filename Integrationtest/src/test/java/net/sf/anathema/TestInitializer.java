@@ -1,13 +1,13 @@
 package net.sf.anathema;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.initialization.ApplicationFrameView;
 import net.sf.anathema.initialization.InitializedModelAndView;
 import net.sf.anathema.initialization.Initializer;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationFrameView;
+import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.view.NullMainView;
 
 
@@ -24,7 +24,7 @@ public class TestInitializer extends Initializer {
     this.environment = environment;
   }
 
-  public IApplicationModel initialize() {
+  public ApplicationModel initialize() {
     InitializedModelAndView dao = initializeModelViewAndPresentation();
     return dao.model;
   }
@@ -40,7 +40,7 @@ public class TestInitializer extends Initializer {
   }
 
   @Override
-  protected ApplicationFrameView initView(Environment environment, IApplicationModel anathemaModel,
+  protected ApplicationFrameView initView(Environment environment, ApplicationModel anathemaModel,
                                           ObjectFactory objectFactory) {
     return new NullMainView();
   }

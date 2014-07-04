@@ -7,6 +7,8 @@ import javafx.scene.control.TreeView;
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.platform.fx.ConfigurableTreeCellFactory;
+import net.sf.anathema.platform.repositorytree.AgnosticTree;
+import net.sf.anathema.platform.repositorytree.AgnosticTreeNode;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

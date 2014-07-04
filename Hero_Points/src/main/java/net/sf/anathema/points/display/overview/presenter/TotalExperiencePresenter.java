@@ -1,12 +1,12 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.framework.messaging.MessageToken;
-import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageType;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.messaging.MessageToken;
+import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 

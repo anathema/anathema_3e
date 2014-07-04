@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.framework.display.SubViewMap;
@@ -8,6 +7,7 @@ import net.sf.anathema.hero.framework.display.SubViewRegistry;
 import net.sf.anathema.hero.framework.library.util.CssSkinner;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.Stylesheet;
 
@@ -16,9 +16,9 @@ import java.util.List;
 
 public class CharacterViewFactory {
   private final Environment environment;
-  private final IApplicationModel applicationModel;
+  private final ApplicationModel applicationModel;
 
-  public CharacterViewFactory(Environment environment, IApplicationModel applicationModel) {
+  public CharacterViewFactory(Environment environment, ApplicationModel applicationModel) {
     this.environment = environment;
     this.applicationModel = applicationModel;
   }

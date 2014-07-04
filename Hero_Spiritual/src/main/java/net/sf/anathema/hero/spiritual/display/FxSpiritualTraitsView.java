@@ -2,15 +2,15 @@ package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.StyledTitledPane;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxSpiritualTraitsView implements SpiritualTraitsView, NodeHolder {
 

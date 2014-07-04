@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.Area;
+import net.sf.anathema.library.number.Area;
 
 public class LineSuggestion {
 

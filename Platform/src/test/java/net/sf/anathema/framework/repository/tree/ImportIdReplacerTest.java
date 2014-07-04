@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.repositorytree.ImportIdReplacer;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;

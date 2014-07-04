@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.display.labelledvalue;
 
-import net.sf.anathema.framework.ui.FontStyle;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.FontStyle;
+import net.sf.anathema.library.presenter.RGBColor;
 
 public interface IStyleableView {
 

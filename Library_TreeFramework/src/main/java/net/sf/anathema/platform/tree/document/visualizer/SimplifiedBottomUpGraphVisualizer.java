@@ -1,8 +1,8 @@
 package net.sf.anathema.platform.tree.document.visualizer;
 
-import net.sf.anathema.framework.ui.Area;
 import net.sf.anathema.graph.graph.LayeredGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
+import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.util.BackwardsIterable;
 

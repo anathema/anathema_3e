@@ -2,13 +2,14 @@ package net.sf.anathema.framework.view.perspective;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.view.ViewFactory;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;
@@ -20,7 +21,7 @@ public class PerspectivePaneFactory implements ViewFactory {
   private final Resources resources;
   private final ObjectFactory objectFactory;
 
-  public PerspectivePaneFactory(IApplicationModel model, Environment environment, ObjectFactory objectFactory, UiEnvironment uiEnvironment) {
+  public PerspectivePaneFactory(ApplicationModel model, Environment environment, ObjectFactory objectFactory, UiEnvironment uiEnvironment) {
     this.resources = environment;
     this.objectFactory = objectFactory;
     this.perspectiveStack = new PerspectiveStack(model, environment, uiEnvironment);

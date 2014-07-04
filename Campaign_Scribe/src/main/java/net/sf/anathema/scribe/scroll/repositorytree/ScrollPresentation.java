@@ -1,9 +1,9 @@
 package net.sf.anathema.scribe.scroll.repositorytree;
 
-import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
-import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.platform.item.IItemTypeViewProperties;
+import net.sf.anathema.platform.repository.PrintNameFile;
 
 public class ScrollPresentation implements IItemTypeViewProperties {
   private final ScrollUi ui;

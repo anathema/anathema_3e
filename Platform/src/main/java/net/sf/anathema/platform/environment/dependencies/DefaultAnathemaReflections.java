@@ -1,9 +1,9 @@
 package net.sf.anathema.platform.environment.dependencies;
 
 import com.google.common.base.Function;
-import net.sf.anathema.framework.environment.resources.InternalResourceFile;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceLoader;
+import net.sf.anathema.platform.resources.InternalResourceFile;
 import org.reflections.Reflections;
 import org.reflections.util.ConfigurationBuilder;
 

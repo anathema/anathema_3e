@@ -5,7 +5,6 @@ import de.idos.updates.UpdateSystem;
 import de.idos.updates.Updater;
 import de.idos.updates.Version;
 import de.idos.updates.configuration.ConfiguredUpdateSystem;
-import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 
@@ -82,7 +81,7 @@ public class UpdatePresenter {
   }
 
   private Version getCurrentVersion() {
-    net.sf.anathema.framework.Version version = new net.sf.anathema.framework.Version(resources);
+    net.sf.anathema.platform.Version version = new net.sf.anathema.platform.Version(resources);
     return new NumericVersion(version.getMajorVersion(), version.getMinorVersion(), version.getRevision());
   }
 

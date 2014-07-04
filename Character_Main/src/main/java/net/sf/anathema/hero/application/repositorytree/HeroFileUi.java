@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.application.repositorytree;
 
-import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
-import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.creation.CharacterTypeUi;
@@ -12,6 +10,8 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.repository.PrintNameFile;
+import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 
 public class HeroFileUi extends AbstractUIConfiguration<PrintNameFile> {
 

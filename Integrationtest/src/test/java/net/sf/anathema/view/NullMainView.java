@@ -1,9 +1,9 @@
 package net.sf.anathema.view;
 
-import net.sf.anathema.framework.view.ApplicationFrame;
-import net.sf.anathema.framework.view.MenuBar;
-import net.sf.anathema.framework.view.messaging.StatusBar;
-import net.sf.anathema.initialization.ApplicationFrameView;
+import net.sf.anathema.platform.frame.ApplicationFrame;
+import net.sf.anathema.platform.frame.ApplicationFrameView;
+import net.sf.anathema.platform.menu.MenuBar;
+import net.sf.anathema.platform.messaging.StatusBar;
 
 public class NullMainView implements ApplicationFrameView {
 

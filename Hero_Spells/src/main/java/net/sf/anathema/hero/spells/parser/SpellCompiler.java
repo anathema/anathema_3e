@@ -5,10 +5,10 @@ import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
-import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler;
 
 import java.io.IOException;
 import java.io.InputStream;

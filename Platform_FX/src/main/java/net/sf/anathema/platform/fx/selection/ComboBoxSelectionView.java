@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class ComboBoxSelectionView<V> implements FxObjectSelectionView<V> {
   private ComboBox<V> comboBox;

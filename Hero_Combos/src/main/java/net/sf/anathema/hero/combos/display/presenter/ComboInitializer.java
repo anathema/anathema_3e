@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.combos.display.presenter;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
@@ -11,6 +10,7 @@ import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 
@@ -18,9 +18,9 @@ import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 @Weight(weight = 100)
 public class ComboInitializer implements HeroModelInitializer {
 
-  private IApplicationModel model;
+  private ApplicationModel model;
 
-  public ComboInitializer(IApplicationModel model) {
+  public ComboInitializer(ApplicationModel model) {
     this.model = model;
   }
 

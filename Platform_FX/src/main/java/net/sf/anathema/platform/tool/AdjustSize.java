@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tool;
 
 import javafx.scene.control.ButtonBase;
-import net.sf.anathema.framework.ui.Area;
+import net.sf.anathema.library.number.Area;
 
 public class AdjustSize implements ImageClosure {
   private final ButtonBase button;

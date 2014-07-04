@@ -11,7 +11,7 @@ import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class TaskedCharacterView implements CharacterView, NodeHolder {
 

@@ -1,13 +1,13 @@
 package net.sf.anathema.framework.presenter.action.about;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.fx.DialogFactory;
-import net.sf.anathema.framework.module.MenuEntry;
 import net.sf.anathema.framework.module.RegisteredMenuEntry;
-import net.sf.anathema.framework.view.MenuBar;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.menu.MenuBar;
+import net.sf.anathema.platform.menu.MenuEntry;
 
 @RegisteredMenuEntry
 @Weight(weight = 40)
@@ -17,7 +17,7 @@ public class AboutMenuEntry implements MenuEntry {
   private final DialogFactory dialogFactory;
 
   @SuppressWarnings("UnusedParameters")
-  public AboutMenuEntry(Environment environment, DialogFactory dialogFactory, IApplicationModel model) {
+  public AboutMenuEntry(Environment environment, DialogFactory dialogFactory, ApplicationModel model) {
     this.environment = environment;
     this.dialogFactory = dialogFactory;
   }

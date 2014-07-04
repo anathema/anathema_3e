@@ -1,6 +1,5 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.hero.display.HeroModelGroup;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
@@ -12,13 +11,14 @@ import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModelImpl;
 
 @RegisteredInitializer(HeroModelGroup.SpiritualTraits)
 @Weight(weight = 200)
 public class SolarVirtueFlawInitializer implements HeroModelInitializer {
 
   @SuppressWarnings("UnusedParameters")
-  public SolarVirtueFlawInitializer(ApplicationModel model) {
+  public SolarVirtueFlawInitializer(ApplicationModelImpl model) {
     //nothing to do
   }
 

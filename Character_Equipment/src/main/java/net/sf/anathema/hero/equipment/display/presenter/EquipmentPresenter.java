@@ -7,7 +7,6 @@ import net.sf.anathema.character.equipment.creation.presenter.stats.properties.E
 import net.sf.anathema.character.equipment.item.EquipmentTemplateNameComparator;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.library.event.CollectionListener;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -15,6 +14,7 @@ import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.ArrayList;
 import java.util.Arrays;

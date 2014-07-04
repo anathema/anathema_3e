@@ -5,7 +5,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
@@ -23,6 +22,7 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.ArrayList;
 import java.util.Arrays;

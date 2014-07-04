@@ -5,8 +5,8 @@ import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.template.TemplateRegistry;
 import net.sf.anathema.hero.template.TemplateRegistryImpl;
-import net.sf.anathema.initialization.repository.DataFileProvider;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.platform.repository.DataFileProvider;
 
 public class HeroEnvironmentImpl implements HeroEnvironment {
 

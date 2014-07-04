@@ -1,21 +1,23 @@
 package net.sf.anathema.initialization;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.messaging.MessageContainer;
-import net.sf.anathema.framework.view.ApplicationView;
-import net.sf.anathema.framework.view.messaging.StatusBar;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.frame.ApplicationView;
+import net.sf.anathema.platform.initialization.BootJob;
+import net.sf.anathema.platform.initialization.RegisteredBootJob;
+import net.sf.anathema.platform.messaging.MessageContainer;
+import net.sf.anathema.platform.messaging.StatusBar;
 
 import java.util.Collection;
 
 public class AnathemaPresenter {
 
-  private final IApplicationModel model;
+  private final ApplicationModel model;
   private final ApplicationView view;
   private final Environment environment;
 
-  public AnathemaPresenter(IApplicationModel model, ApplicationView view, Environment environment) {
+  public AnathemaPresenter(ApplicationModel model, ApplicationView view, Environment environment) {
     this.model = model;
     this.view = view;
     this.environment = environment;
@@ -41,8 +43,8 @@ public class AnathemaPresenter {
   }
 
   private void runBootJobs() throws InitializationException {
-    Collection<IBootJob> jobs = environment.instantiateOrdered(BootJob.class);
-    for (IBootJob bootJob : jobs) {
+    Collection<BootJob> jobs = environment.instantiateOrdered(RegisteredBootJob.class);
+    for (BootJob bootJob : jobs) {
       bootJob.run(environment, model);
     }
   }

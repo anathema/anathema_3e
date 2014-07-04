@@ -2,7 +2,7 @@ package net.sf.anathema.platform.tree.fx;
 
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Transform;
-import net.sf.anathema.framework.ui.Coordinate;
+import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.Circle;
 import net.sf.anathema.platform.tree.display.shape.Polygon;

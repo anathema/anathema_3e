@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.display;
 
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 import net.sf.anathema.platform.tree.view.interaction.LeftClickPanner;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;

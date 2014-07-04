@@ -1,8 +1,8 @@
 package net.sf.anathema.character.equipment.item.model.gson;
 
-import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.framework.repository.RepositoryStringAccess;
+import net.sf.anathema.platform.item.IItemType;
+import net.sf.anathema.platform.repository.Repository;
+import net.sf.anathema.platform.repository.RepositoryStringAccess;
 
 import java.nio.file.Path;
 import java.util.Collection;

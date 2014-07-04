@@ -3,15 +3,15 @@ package net.sf.anathema.hero.intimacies.display;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.hero.languages.display.view.FxRemovableStringView;
 import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.library.view.RemovableEntryView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxIntimaciesView implements IntimaciesView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());

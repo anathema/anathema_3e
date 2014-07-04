@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.display;
 
-import net.sf.anathema.framework.ui.Coordinate;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.number.Coordinate;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.library.tooltip.StatefulTooltip;
 import net.sf.anathema.platform.tree.display.transform.AgnosticTransform;
 import net.sf.anathema.platform.tree.display.transform.Scale;

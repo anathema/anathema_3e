@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.itemtype;
 
-import net.sf.anathema.framework.item.IItemType;
+import net.sf.anathema.platform.item.IItemType;
 
 public class CharacterItemTypeRetrieval {
 

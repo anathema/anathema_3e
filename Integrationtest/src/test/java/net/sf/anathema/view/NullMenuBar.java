@@ -1,7 +1,7 @@
 package net.sf.anathema.view;
 
-import net.sf.anathema.framework.view.MenuBar;
-import net.sf.anathema.framework.view.menu.IMenu;
+import net.sf.anathema.platform.menu.IMenu;
+import net.sf.anathema.platform.menu.MenuBar;
 
 public class NullMenuBar implements MenuBar {
   @Override

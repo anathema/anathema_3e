@@ -2,9 +2,9 @@ package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler;
 
 @ExtensibleDataSetCompiler
 public class HeroModelTemplateCompiler implements IExtensibleDataSetCompiler {

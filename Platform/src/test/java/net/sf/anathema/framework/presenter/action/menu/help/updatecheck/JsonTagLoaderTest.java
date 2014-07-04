@@ -1,5 +1,7 @@
 package net.sf.anathema.framework.presenter.action.menu.help.updatecheck;
 
+import net.sf.anathema.platform.updatecheck.JsonTagLoader;
+import net.sf.anathema.platform.updatecheck.Tag;
 import org.junit.Test;
 
 import java.util.List;

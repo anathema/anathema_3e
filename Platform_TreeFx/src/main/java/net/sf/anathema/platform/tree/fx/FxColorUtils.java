@@ -2,7 +2,7 @@ package net.sf.anathema.platform.tree.fx;
 
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.RGBColor;
 
 public class FxColorUtils {
 

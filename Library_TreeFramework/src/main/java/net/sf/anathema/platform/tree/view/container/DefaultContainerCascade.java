@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.view.container;
 
 import com.google.common.collect.Lists;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;

@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.MessageToken;
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemDataImp;
 import net.sf.anathema.hero.application.item.Item;
@@ -18,6 +14,10 @@ import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.platform.messaging.MessageToken;
+import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
+import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
 
 import static net.sf.anathema.library.message.MessageType.Information;
 

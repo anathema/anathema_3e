@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.abilities.display;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.NaturalTraits;
 
@@ -16,7 +16,7 @@ import static net.sf.anathema.hero.display.HeroModelGroup.NaturalTraits;
 @Weight(weight = 100)
 public class AbilitiesInitializer implements HeroModelInitializer {
   @SuppressWarnings("UnusedParameters")
-  public AbilitiesInitializer(IApplicationModel applicationModel) {
+  public AbilitiesInitializer(ApplicationModel applicationModel) {
     //nothing to do
   }
 

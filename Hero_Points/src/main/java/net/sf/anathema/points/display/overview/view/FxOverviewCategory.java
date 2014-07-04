@@ -8,7 +8,7 @@ import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.platform.fx.StyledTitledPane;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxOverviewCategory implements OverviewCategory {
   private final MigPane panel = new MigPane(withoutInsets().wrapAfter(4));

@@ -1,12 +1,13 @@
 package net.sf.anathema.framework.repository.preferences;
 
-import net.sf.anathema.framework.preferences.elements.PreferenceModel;
-import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
-import net.sf.anathema.framework.preferences.elements.PreferenceView;
-import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.preferences.PreferenceModel;
+import net.sf.anathema.platform.preferences.PreferencePresenter;
+import net.sf.anathema.platform.preferences.PreferenceView;
+import net.sf.anathema.platform.preferences.RegisteredPreferencePresenter;
+import net.sf.anathema.platform.repository.RepositoryPreferenceModel;
 
 @RegisteredPreferencePresenter
 public class RepositoryPreferencePresenter implements PreferencePresenter {

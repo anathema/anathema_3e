@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.persistence;
 
-import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.platform.messaging.Messaging;
 
 public interface HeroModelPersister {
 

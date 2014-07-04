@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
 import net.sf.anathema.hero.model.Hero;
@@ -16,6 +15,7 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.Arrays;
 import java.util.Comparator;

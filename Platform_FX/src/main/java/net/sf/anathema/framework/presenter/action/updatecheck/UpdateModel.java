@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.action.updatecheck;
 
-import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.UpdateState;
+import net.sf.anathema.platform.updatecheck.UpdateState;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.function.Consumer;

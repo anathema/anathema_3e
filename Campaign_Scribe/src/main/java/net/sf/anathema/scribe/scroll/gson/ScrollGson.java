@@ -2,10 +2,10 @@ package net.sf.anathema.scribe.scroll.gson;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.framework.repository.access.printname.RepositoryId;
-import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.repository.printname.RepositoryId;
+import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 import net.sf.anathema.scribe.scroll.persistence.Scroll;
 import net.sf.anathema.scribe.scroll.persistence.ScrollDto;
 

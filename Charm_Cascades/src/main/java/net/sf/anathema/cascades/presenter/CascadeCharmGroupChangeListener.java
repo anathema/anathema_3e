@@ -1,11 +1,11 @@
 package net.sf.anathema.cascades.presenter;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CascadeCharmGroupChangeListener extends AbstractCharmGroupChangeListener {

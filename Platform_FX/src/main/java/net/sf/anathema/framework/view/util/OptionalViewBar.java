@@ -3,7 +3,8 @@ package net.sf.anathema.framework.view.util;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
+import net.sf.anathema.library.view.OptionalView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.ArrayList;

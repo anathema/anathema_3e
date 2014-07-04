@@ -1,11 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.view.perspective.Container;
 import net.sf.anathema.framework.view.perspective.Perspective;
-import net.sf.anathema.framework.view.perspective.PerspectiveAutoCollector;
-import net.sf.anathema.framework.view.perspective.PerspectiveToggle;
 import net.sf.anathema.hero.framework.perspective.CharacterGridPresenter;
 import net.sf.anathema.hero.framework.perspective.CharacterStackBridge;
 import net.sf.anathema.hero.framework.perspective.CharacterStackPresenter;
@@ -15,6 +12,9 @@ import net.sf.anathema.hero.framework.perspective.ShowOnSelect;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
+import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
 @PerspectiveAutoCollector
 @Weight(weight = 1)
@@ -27,7 +27,7 @@ public class CharacterSystemPerspective implements Perspective {
   }
 
   @Override
-  public void initContent(Container container, IApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
+  public void initContent(Container container, ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
     new CharacterSystemInitializer(model, environment).initializeCharacterSystem();
     CharacterSystemModel systemModel = new CharacterSystemModel(model);
     CharacterSystemView view = new CharacterSystemView(uiEnvironment);

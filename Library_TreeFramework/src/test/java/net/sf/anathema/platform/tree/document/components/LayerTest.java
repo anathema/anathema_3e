@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.document.components;
 
-import net.sf.anathema.framework.ui.Area;
+import net.sf.anathema.library.number.Area;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

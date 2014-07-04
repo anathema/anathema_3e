@@ -13,7 +13,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.List;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxMagicLearnView implements MagicLearnView {
   private final ListView availableMagicList = new ListView();

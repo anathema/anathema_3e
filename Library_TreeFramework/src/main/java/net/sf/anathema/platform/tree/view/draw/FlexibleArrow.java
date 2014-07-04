@@ -1,9 +1,9 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.Coordinate;
-import net.sf.anathema.framework.ui.Coordinates;
-import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.framework.ui.Width;
+import net.sf.anathema.library.number.Coordinate;
+import net.sf.anathema.library.number.Coordinates;
+import net.sf.anathema.library.number.Width;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.Circle;
 import net.sf.anathema.platform.tree.display.shape.TransformedShape;

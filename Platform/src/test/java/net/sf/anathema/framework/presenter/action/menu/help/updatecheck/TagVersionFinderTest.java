@@ -1,6 +1,8 @@
 package net.sf.anathema.framework.presenter.action.menu.help.updatecheck;
 
-import net.sf.anathema.framework.Version;
+import net.sf.anathema.platform.Version;
+import net.sf.anathema.platform.updatecheck.Tag;
+import net.sf.anathema.platform.updatecheck.TagVersionFinder;
 import org.junit.Test;
 
 import java.util.List;

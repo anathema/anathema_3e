@@ -3,10 +3,10 @@ package net.sf.anathema.hero.display.fx.perspective;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.framework.view.util.OptionalView;
 import net.sf.anathema.hero.display.CharacterPane;
 import net.sf.anathema.hero.display.MultipleContentView;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
+import net.sf.anathema.library.view.OptionalView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class TaskedCharacterPane implements CharacterPane {

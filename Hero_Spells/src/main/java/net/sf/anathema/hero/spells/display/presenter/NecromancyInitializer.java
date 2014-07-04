@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
@@ -10,6 +9,7 @@ import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 
@@ -17,9 +17,9 @@ import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
 @Weight(weight = 300)
 public class NecromancyInitializer implements HeroModelInitializer {
 
-  private IApplicationModel applicationModel;
+  private ApplicationModel applicationModel;
 
-  public NecromancyInitializer(IApplicationModel applicationModel) {
+  public NecromancyInitializer(ApplicationModel applicationModel) {
     this.applicationModel = applicationModel;
   }
 

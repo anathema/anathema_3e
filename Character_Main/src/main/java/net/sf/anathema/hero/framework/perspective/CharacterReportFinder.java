@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.framework.perspective.sheet.AllReportFinder;
 import net.sf.anathema.hero.framework.perspective.sheet.DefaultReportFinder;
 import net.sf.anathema.hero.framework.reporting.IReportFactory;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.initialization.RegisteredReportFactory;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.report.RegisteredReportFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +20,7 @@ public class CharacterReportFinder implements DefaultReportFinder, AllReportFind
   private final Resources resources;
   private final List<Report> reports = new ArrayList<>();
 
-  public CharacterReportFinder(IApplicationModel model, Environment environment) {
+  public CharacterReportFinder(ApplicationModel model, Environment environment) {
     Collection<IReportFactory> factories = environment.instantiateOrdered(RegisteredReportFactory.class);
     for (IReportFactory factory : factories) {
       Collections.addAll(reports, factory.createReport(environment, model));

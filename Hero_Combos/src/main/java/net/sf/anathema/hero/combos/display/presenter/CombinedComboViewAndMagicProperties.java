@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.combos.display.presenter;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.charms.display.magic.AbstractMagicLearnProperties;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
@@ -10,6 +9,7 @@ import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.List;
 

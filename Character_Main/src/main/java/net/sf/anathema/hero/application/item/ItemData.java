@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.item;
 
-import net.sf.anathema.framework.repository.ChangeManagement;
+import net.sf.anathema.platform.repository.ChangeManagement;
 
 public interface ItemData {
 

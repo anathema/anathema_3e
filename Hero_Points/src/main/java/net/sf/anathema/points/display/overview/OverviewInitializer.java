@@ -1,13 +1,13 @@
 package net.sf.anathema.points.display.overview;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.points.display.overview.presenter.OverviewPresenter;
 import net.sf.anathema.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.points.model.BonusPointManagement;
@@ -19,10 +19,10 @@ import static net.sf.anathema.hero.display.HeroModelGroup.Miscellaneous;
 
 @RegisteredInitializer(Miscellaneous)
 public class OverviewInitializer implements HeroModelInitializer {
-  private IApplicationModel applicationModel;
+  private ApplicationModel applicationModel;
 
   @SuppressWarnings("UnusedParameters")
-  public OverviewInitializer(IApplicationModel applicationModel) {
+  public OverviewInitializer(ApplicationModel applicationModel) {
     this.applicationModel = applicationModel;
   }
 

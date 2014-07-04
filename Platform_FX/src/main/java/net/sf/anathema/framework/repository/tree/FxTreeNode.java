@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
 import javafx.scene.control.TreeItem;
+import net.sf.anathema.platform.repositorytree.AgnosticTreeNode;
 
 import java.util.ArrayList;
 import java.util.List;

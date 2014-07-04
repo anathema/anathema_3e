@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tool;
 
 import javafx.scene.image.ImageView;
-import net.sf.anathema.framework.ui.Area;
+import net.sf.anathema.library.number.Area;
 
 public class NullImageContainer implements ImageContainer {
 

@@ -1,13 +1,5 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.framework.repository.RepositoryIdData;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
-import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.hero.application.item.HeroRepositoryData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.item.ItemRepositoryLocation;
@@ -16,6 +8,14 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.IItemType;
+import net.sf.anathema.platform.repository.Repository;
+import net.sf.anathema.platform.repository.RepositoryIdData;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
+import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
+import net.sf.anathema.platform.repository.printname.ReferenceAccess;
+import net.sf.anathema.platform.repository.printname.ReferenceBuilder;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -24,10 +24,10 @@ import static net.sf.anathema.hero.application.itemtype.CharacterItemTypeRetriev
 
 public class CharacterPersistenceModel {
 
-  private IApplicationModel model;
+  private ApplicationModel model;
   private HeroEnvironment heroEnvironment;
 
-  public CharacterPersistenceModel(IApplicationModel model, HeroEnvironment environment) {
+  public CharacterPersistenceModel(ApplicationModel model, HeroEnvironment environment) {
     this.model = model;
     this.heroEnvironment = environment;
   }

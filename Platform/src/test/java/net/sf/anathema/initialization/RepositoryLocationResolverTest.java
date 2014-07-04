@@ -1,7 +1,7 @@
 package net.sf.anathema.initialization;
 
-import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
 import net.sf.anathema.platform.environment.DummyInitializationPreferences;
+import net.sf.anathema.platform.repository.RepositoryLocationResolver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

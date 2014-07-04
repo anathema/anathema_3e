@@ -3,6 +3,7 @@ package net.sf.anathema.framework.view.perspective;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
 public class ToolPerspectiveToggle implements PerspectiveToggle {
 

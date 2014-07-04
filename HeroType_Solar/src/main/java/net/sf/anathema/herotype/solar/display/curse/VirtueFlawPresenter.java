@@ -1,6 +1,5 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -10,6 +9,7 @@ import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.library.view.IntValueView;
 
 public class VirtueFlawPresenter implements Presenter {
 

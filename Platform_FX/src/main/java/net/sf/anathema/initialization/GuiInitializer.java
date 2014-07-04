@@ -3,20 +3,21 @@ package net.sf.anathema.initialization;
 import javafx.stage.Stage;
 import net.sf.anathema.ISplashscreen;
 import net.sf.anathema.ProxySplashscreen;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.Version;
-import net.sf.anathema.framework.environment.exception.ExtensibleExceptionHandler;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.fx.FxDialogExceptionHandler;
 import net.sf.anathema.framework.module.AnathemaCoreMenu;
-import net.sf.anathema.framework.presenter.AnathemaViewProperties;
-import net.sf.anathema.framework.view.ApplicationView;
 import net.sf.anathema.framework.view.perspective.PerspectivePaneFactory;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.Version;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.exception.ExtensibleExceptionHandler;
+import net.sf.anathema.platform.frame.AnathemaViewProperties;
+import net.sf.anathema.platform.frame.ApplicationFrameView;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.frame.ApplicationView;
 
 public class GuiInitializer extends Initializer {
 
@@ -32,7 +33,7 @@ public class GuiInitializer extends Initializer {
   }
 
   @Override
-  protected void initPresentation(Environment environment, IApplicationModel model, ApplicationView view) {
+  protected void initPresentation(Environment environment, ApplicationModel model, ApplicationView view) {
     super.initPresentation(environment, model, view);
     new AnathemaCoreMenu().add(environment, uiEnvironment, model, view.getMenuBar());
   }
@@ -47,7 +48,7 @@ public class GuiInitializer extends Initializer {
   }
 
   @Override
-  protected ApplicationFrameView initView(Environment environment, IApplicationModel anathemaModel, ObjectFactory objectFactory) {
+  protected ApplicationFrameView initView(Environment environment, ApplicationModel anathemaModel, ObjectFactory objectFactory) {
     displayMessage("Building View...");
     AnathemaViewProperties viewProperties = new AnathemaViewProperties(environment);
     PerspectivePaneFactory factory = new PerspectivePaneFactory(anathemaModel, environment, objectFactory, uiEnvironment);

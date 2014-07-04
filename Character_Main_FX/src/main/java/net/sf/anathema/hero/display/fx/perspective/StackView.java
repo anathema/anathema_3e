@@ -3,7 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective;
 import javafx.scene.Node;
 import net.sf.anathema.framework.view.util.FxStack;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 

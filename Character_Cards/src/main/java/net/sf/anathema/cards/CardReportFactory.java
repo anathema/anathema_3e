@@ -7,12 +7,12 @@ import net.sf.anathema.cards.data.providers.LegendCardDataProvider;
 import net.sf.anathema.cards.data.providers.SpellCardDataProvider;
 import net.sf.anathema.cards.layout.DemocritusCardLayout;
 import net.sf.anathema.cards.layout.ICardLayout;
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.framework.reporting.IReportFactory;
 import net.sf.anathema.hero.framework.reporting.Report;
-import net.sf.anathema.initialization.RegisteredReportFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.report.RegisteredReportFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
 @Weight(weight = 40)
 public class CardReportFactory implements IReportFactory {
   @Override
-  public Report[] createReport(Environment environment, IApplicationModel model) {
+  public Report[] createReport(Environment environment, ApplicationModel model) {
     List<ICardDataProvider> dataProviders = new ArrayList<>();
     dataProviders.add(new CharmCardDataProvider(model, environment));
     dataProviders.add(new SpellCardDataProvider(model, environment));

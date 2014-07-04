@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.platform;
 
-import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.framework.persistence.HeroMainFileDto;
 import net.sf.anathema.hero.framework.persistence.HeroMainFilePersister;
@@ -11,6 +10,7 @@ import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 
 import java.io.File;
 import java.io.FileInputStream;

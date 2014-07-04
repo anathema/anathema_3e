@@ -10,7 +10,7 @@ import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCasteView implements CasteView, NodeHolder {
   private MigPane node = new MigPane(withoutInsets().wrapAfter(2));

@@ -1,6 +1,6 @@
 package net.sf.anathema.scribe.perspective.model;
 
-import net.sf.anathema.framework.IApplicationModel;
+import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.scribe.editor.model.ScrollModel;
 import net.sf.anathema.scribe.scroll.persistence.Clock;
 import net.sf.anathema.scribe.scroll.persistence.RepositoryScrollPersister;
@@ -14,7 +14,7 @@ public class ScribeModel {
   public final ScrollPersister scrollPersister;
   public final ScrollModel scrollModel;
 
-  public ScribeModel(IApplicationModel applicationModel) {
+  public ScribeModel(ApplicationModel applicationModel) {
     Clock clock = new SystemClock();
     this.scrollPersister =  new RepositoryScrollPersister(applicationModel.getRepository(), clock);
     this.scrollModel = new ScrollModel(scrollPersister);

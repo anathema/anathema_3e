@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.creation.CharacterTemplateCreator;
@@ -27,6 +25,8 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;
@@ -48,14 +48,14 @@ public class CharacterSystemModel implements ItemSystemModel {
   private Announcer<ChangeListener> becomesCleanAnnouncer = Announcer.to(ChangeListener.class);
   private ChangeListener dirtyListener = this::notifyDirtyListeners;
   private final CharacterPersistenceModel persistenceModel;
-  private IApplicationModel model;
+  private ApplicationModel model;
   private int newCharacterCount = 0;
 
-  public CharacterSystemModel(IApplicationModel model) {
+  public CharacterSystemModel(ApplicationModel model) {
     this(new CharacterPersistenceModel(model, HeroEnvironmentExtractor.getGenerics(model)), model);
   }
 
-  public CharacterSystemModel(CharacterPersistenceModel persistenceModel, IApplicationModel model) {
+  public CharacterSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
     this.persistenceModel = persistenceModel;
     this.model = model;
   }

@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.display.transform;
 
-import net.sf.anathema.framework.ui.Coordinate;
+import net.sf.anathema.library.number.Coordinate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

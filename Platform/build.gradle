@@ -6,7 +6,7 @@ dependencies {
     compile 'com.itextpdf:itextpdf:5.5.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'de.idos.updates:updates-core:1.2.0'
-    compile 'com.miglayout:miglayout-core:5.0-SNAPSHOT'
+     compile 'com.miglayout:miglayout-core:5.0-SNAPSHOT'
     compile project(':Library')
     testCompile testDependencies
 }

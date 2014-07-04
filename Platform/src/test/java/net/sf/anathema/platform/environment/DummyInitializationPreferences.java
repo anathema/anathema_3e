@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.environment;
 
-import net.sf.anathema.framework.configuration.RepositoryPreference;
-import net.sf.anathema.framework.repository.preferences.RepositoryPreferenceModel;
+import net.sf.anathema.platform.repository.RepositoryPreference;
+import net.sf.anathema.platform.repository.RepositoryPreferenceModel;
 
 public class DummyInitializationPreferences implements RepositoryPreference {
 

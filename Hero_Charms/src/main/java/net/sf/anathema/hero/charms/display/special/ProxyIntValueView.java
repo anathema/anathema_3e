@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.library.event.IntegerChangedListener;
+import net.sf.anathema.library.view.IntValueView;
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyIntValueView implements IntValueView {

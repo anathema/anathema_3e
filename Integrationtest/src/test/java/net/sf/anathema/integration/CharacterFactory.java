@@ -1,7 +1,6 @@
 package net.sf.anathema.integration;
 
 import net.sf.anathema.TestInitializer;
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
@@ -17,13 +16,14 @@ import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import java.io.File;
 
 public class CharacterFactory {
 
   private CharacterTypes characterTypes;
-  private IApplicationModel model;
+  private ApplicationModel model;
   private HeroEnvironment heroEnvironment;
 
   public void startAnathema() {

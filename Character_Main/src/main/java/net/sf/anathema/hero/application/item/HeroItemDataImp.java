@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.application.item;
 
-import net.sf.anathema.framework.repository.ChangeManagement;
 import net.sf.anathema.hero.framework.CharacterChangeManagement;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.initialization.HeroModelInitializer;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.platform.repository.ChangeManagement;
 
 import java.util.Iterator;
 

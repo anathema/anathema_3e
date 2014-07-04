@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.display.HeroModelGroup.Outline;
 
@@ -17,7 +17,7 @@ import static net.sf.anathema.hero.display.HeroModelGroup.Outline;
 public class CasteInitializer implements HeroModelInitializer {
 
   @SuppressWarnings("UnusedParameters")
-  public CasteInitializer(IApplicationModel applicationModel) {
+  public CasteInitializer(ApplicationModel applicationModel) {
     //nothing to do
   }
 

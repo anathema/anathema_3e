@@ -1,10 +1,10 @@
 package net.sf.anathema.platform.tree.view.draw;
 
-import net.sf.anathema.framework.ui.Area;
-import net.sf.anathema.framework.ui.Coordinate;
-import net.sf.anathema.framework.ui.FontStyle;
-import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.framework.ui.Rectangle;
+import net.sf.anathema.library.number.Area;
+import net.sf.anathema.library.number.Coordinate;
+import net.sf.anathema.library.number.Rectangle;
+import net.sf.anathema.library.presenter.FontStyle;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.Polygon;
 import org.junit.Before;

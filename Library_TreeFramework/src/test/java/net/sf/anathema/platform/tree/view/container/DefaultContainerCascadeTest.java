@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.tree.view.container;
 
-import net.sf.anathema.framework.ui.Coordinate;
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.number.Coordinate;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.view.draw.FilledPolygon;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
@@ -11,7 +11,7 @@ import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Matchers;
 
-import static net.sf.anathema.framework.ui.RGBColor.Black;
+import static net.sf.anathema.library.presenter.RGBColor.Black;
 import static net.sf.anathema.platform.tree.view.draw.PolygonMother.squareAtOriginWithLength2;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

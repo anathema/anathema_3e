@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.hero.display.HeroModelGroup;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
@@ -10,13 +9,14 @@ import net.sf.anathema.hero.languages.model.LanguagesModelFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModelImpl;
 
 @RegisteredInitializer(HeroModelGroup.NaturalTraits)
 @Weight(weight = 400)
 public class LanguagesInitializer implements HeroModelInitializer {
 
   @SuppressWarnings("UnusedParameters")
-  public LanguagesInitializer(ApplicationModel model) {
+  public LanguagesInitializer(ApplicationModelImpl model) {
     //nothing to do
   }
 
