@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.sheet.pdf.content.stats;
+package net.sf.anathema.hero.traits.sheet.content;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
@@ -7,6 +7,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.library.IStats;
+import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
 

@@ -4,6 +4,8 @@ dependencies {
     compile project(':Charm_Data')
     compile project(':GraphLayout')
     compile project(':Engine_Exalted')
+    compile project(':Hero')
     testCompile testDependencies
     testCompile project(path: ':Platform', configuration: 'tests')
+    testCompile project(path: ':Hero', configuration: 'tests')
 }

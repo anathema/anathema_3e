@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.framework.item;
+package net.sf.anathema.hero.application.item;
 
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.type.CharacterType;
