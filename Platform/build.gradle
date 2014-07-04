@@ -8,6 +8,7 @@ dependencies {
     compile 'de.idos.updates:updates-core:1.2.0'
     compile project(':Library')
     testCompile testDependencies
+    testCompile project(path: ':Library', configuration: 'tests')
 }
 
 task writeVersionProperties << {
