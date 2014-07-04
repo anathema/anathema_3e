@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.environment.dependencies;
 
 import net.sf.anathema.framework.environment.resources.ResourceFile;
-import org.apache.commons.io.FilenameUtils;
+import net.sf.anathema.lib.io.Filenames;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -25,7 +25,7 @@ public class ExternalResourceFile implements ResourceFile {
 
   @Override
   public String getFileName() {
-    return FilenameUtils.separatorsToUnix(file.getAbsolutePath());
+    return Filenames.separatorsToUnix(file.getAbsolutePath());
   }
 
   @Override

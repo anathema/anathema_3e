@@ -3,7 +3,7 @@ package net.sf.anathema.framework.presenter.action.updatecheck;
 import de.idos.updates.UpdateSystem;
 import de.idos.updates.store.ProgressReportAdapter;
 import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.PropertiesSaver;
-import org.apache.commons.io.FilenameUtils;
+import net.sf.anathema.lib.io.Filenames;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +21,7 @@ public class ConfigureAnathema extends ProgressReportAdapter {
     try {
       File folderForVersionToRun = updateSystem.getFolderForVersionToRun();
       Properties properties = new Properties();
-      properties.setProperty("library.folder", FilenameUtils.separatorsToUnix(folderForVersionToRun.getAbsolutePath()));
+      properties.setProperty("library.folder", Filenames.separatorsToUnix(folderForVersionToRun.getAbsolutePath()));
       new PropertiesSaver("anathema.properties").save(properties);
     } catch (IOException e) {
       //handle exception

@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.access.printname;
 
 import net.sf.anathema.framework.item.IItemType;
-import org.apache.commons.io.FileUtils;
+import net.sf.anathema.lib.io.InputOutput;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -21,7 +21,7 @@ public class JsonPrintNameFileReaderTest {
   @Test
   public void closesFileAfterReading() throws Exception {
     File testFile = folder.newFile();
-    FileUtils.writeStringToFile(testFile, "{repositoryId: x, printName: y}");
+    InputOutput.writeStringToFile(testFile, "{repositoryId: x, printName: y}");
     IItemType itemType = mock(IItemType.class);
     new JsonPrintNameFileReader().readPrintName(testFile, itemType);
     testFile.delete();

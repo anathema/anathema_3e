@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository.tree;
 
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,7 +16,7 @@ public class ImportIdReplacer {
   }
 
   public InputStream createStreamWithLegalId(InputStream inputStream) throws IOException {
-    String string = IOUtils.toString(inputStream);
+    String string = InputOutput.toString(inputStream);
     string = string.replaceFirst("\"repositoryId\": \"" + oldId + "\"",
             "\"repositoryId\": \"" + newId + "\"");
     return new ByteArrayInputStream(string.getBytes());

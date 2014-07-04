@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization.repository;
 
-import org.apache.commons.io.FileUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +9,7 @@ public class IOFileSystemAbstraction implements IFileSystemAbstraction {
 
   @Override
   public void createFolder(File folder) throws IOException {
-    FileUtils.forceMkdir(folder);
+    InputOutput.forceMkdir(folder);
   }
 
   @Override

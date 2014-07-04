@@ -1,7 +1,5 @@
 package net.sf.anathema.lib.io;
 
-import com.google.common.base.Preconditions;
-import com.google.common.base.Predicate;
 import net.sf.anathema.lib.logging.Logger;
 
 import java.io.IOException;
@@ -35,38 +33,6 @@ public class PathUtils {
     } catch (IOException | DirectoryIteratorException x) {
       logger.error("Could not read files.", x);
       return Collections.emptyList();
-    }
-  }
-
-  public static Collection<Path> listAll(Path directory) {
-    try (DirectoryStream<Path> stream = Files.newDirectoryStream(directory)) {
-      List<Path> items = new ArrayList<>();
-      for (Path path : stream) {
-        items.add(path);
-      }
-      return items;
-    } catch (IOException | DirectoryIteratorException x) {
-      logger.error("Could not read files.", x);
-      return Collections.emptyList();
-    }
-  }
-
-  public static int getRecursiveFileCount(Path folder, Predicate<Path> predicate) {
-    Preconditions.checkArgument(Files.isDirectory(folder), "Must be an existing folder.");
-    int count = 0;
-    try (DirectoryStream<Path> path = Files.newDirectoryStream(folder)) {
-      for (Path childPath : path) {
-        if (predicate.apply(childPath)) {
-          count++;
-        }
-        if (Files.isDirectory(childPath)) {
-          count += getRecursiveFileCount(childPath, predicate);
-        }
-      }
-      return count;
-    } catch (IOException x) {
-      logger.warn("Could not determine number of files in " + folder.toString(), x);
-      return 0;
     }
   }
 }

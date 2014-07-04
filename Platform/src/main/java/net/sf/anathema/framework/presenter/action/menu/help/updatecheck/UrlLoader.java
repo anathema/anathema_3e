@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.action.menu.help.updatecheck;
 
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +17,7 @@ public class UrlLoader {
   public String readAll() throws IOException {
     String response;
     try (InputStream input = new URL(urlString).openStream()) {
-      response = IOUtils.toString(input);
+      response = InputOutput.toString(input);
     }
     return response;
   }

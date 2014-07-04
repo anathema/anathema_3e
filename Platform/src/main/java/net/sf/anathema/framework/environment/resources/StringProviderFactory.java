@@ -2,8 +2,8 @@ package net.sf.anathema.framework.environment.resources;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.environment.dependencies.ExternalResourceFile;
+import net.sf.anathema.lib.io.Filenames;
 import net.sf.anathema.lib.logging.Logger;
-import org.apache.commons.io.FilenameUtils;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -28,7 +28,7 @@ public class StringProviderFactory {
 
   private Resources createExternalProvider(ResourceFile resource) {
     try {
-      String fileBase = FilenameUtils.removeExtension(resource.getFileName());
+      String fileBase = Filenames.removeExtension(resource.getFileName());
       return new FileStringProvider(fileBase, locale);
     } catch (IOException e) {
       logger.warn("Could not load properties from file system.", e);

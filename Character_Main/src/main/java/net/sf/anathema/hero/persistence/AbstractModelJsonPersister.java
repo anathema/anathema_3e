@@ -7,7 +7,7 @@ import net.sf.anathema.framework.messaging.NullMessaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.lib.exception.PersistenceException;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,7 +55,7 @@ public abstract class AbstractModelJsonPersister<P, M extends HeroModel> impleme
   }
 
   private P readFromJson(InputStream inputStream) throws IOException {
-    String json = IOUtils.toString(inputStream);
+    String json = InputOutput.toString(inputStream);
     return gson.fromJson(json, ptoClass);
   }
 

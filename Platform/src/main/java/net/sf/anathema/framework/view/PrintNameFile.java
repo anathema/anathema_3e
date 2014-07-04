@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.view;
 
 import net.sf.anathema.framework.item.IItemType;
-import org.apache.commons.io.FileUtils;
+import net.sf.anathema.lib.io.InputOutput;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,7 +53,7 @@ public class PrintNameFile {
 
   public void delete() throws IOException {
     if (file.exists()) {
-      FileUtils.forceDelete(file);
+      InputOutput.forceDelete(file);
     }
   }
 }

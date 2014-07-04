@@ -6,7 +6,7 @@ import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import org.apache.commons.io.FileUtils;
+import net.sf.anathema.lib.io.InputOutput;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
@@ -29,7 +29,7 @@ public class JsonHeroReferenceScannerTest {
   @Test
   public void closesFileAfterScanning() throws Exception {
     File testFile = folder.newFile();
-    FileUtils.writeStringToFile(testFile, "{repositoryId: x, printName: y}");
+    InputOutput.writeStringToFile(testFile, "{repositoryId: x, printName: y}");
     CharacterTypes types = mock(CharacterTypes.class);
     when(types.findById(anyString())).thenReturn(new DummyMundaneCharacterType());
     IRepositoryFileResolver resolver = prepareResolverToReturnFile(testFile);
