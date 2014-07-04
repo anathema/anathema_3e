@@ -2,58 +2,25 @@ package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.data.reference.SpellName;
-import net.sf.anathema.hero.spells.data.CircleType;
+import net.sf.anathema.hero.charms.compiler.json.CostParser;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.SpellImpl;
-import net.sf.anathema.hero.spells.parser.cost.CostListBuilder;
-import net.sf.anathema.hero.spells.parser.cost.ICostListBuilder;
-import net.sf.anathema.hero.spells.parser.source.SourceBuilder;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.magic.data.source.SourceBook;
-import net.sf.anathema.magic.data.source.SourceList;
+import net.sf.anathema.magic.data.source.SourceBookImpl;
 import net.sf.anathema.magic.data.source.SourceListImpl;
-import org.dom4j.Document;
-import org.dom4j.Element;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SpellBuilder {
-  private final ICostListBuilder costListBuilder = new CostListBuilder();
-  private final SourceBuilder sourceBuilder = new SourceBuilder();
 
-  public Spell[] buildSpells(Document spellDocument) throws PersistenceException {
-    Element spellListElement = spellDocument.getRootElement();
-    List<Spell> spellList = new ArrayList<>();
-    for (Object spellObject : spellListElement.elements("spell")) {
-      Element spellElement = (Element) spellObject;
-      buildSpell(spellElement, spellList);
-    }
-    return spellList.toArray(new Spell[spellList.size()]);
-  }
-
-  private void buildSpell(Element spellElement, List<Spell> spellList) throws PersistenceException {
-    String id = spellElement.attributeValue("id");
-    String circleId = spellElement.attributeValue("circle");
-    CostList temporaryCost = costListBuilder.buildCostList(spellElement.element("cost"));
-    Element targetElement = spellElement.element("target");
-    String target = null;
-    if (targetElement != null) {
-      target = targetElement.attributeValue("target");
-    }
-    SourceList sourceList = buildSource(spellElement);
-    if (sourceList.isEmpty()) {
-      return;
-    }
-    spellList.add(new SpellImpl(new SpellName(id), CircleType.valueOf(circleId), temporaryCost, sourceList, target));
-  }
-
-  private SourceList buildSource(Element spellElement) {
-    SourceBook[] sources = sourceBuilder.buildSourceList(spellElement);
-    SourceListImpl sourceList = new SourceListImpl();
-    for (SourceBook source : sources) {
-      sourceList.addSource(source);
-    }
-    return sourceList;
+  public List<Spell> buildSpells(SpellListTemplate listTemplate) {
+    List<Spell> spells = new ArrayList<>();
+    listTemplate.spells.forEach((name, template) -> {
+      CostList costList = new CostParser().parse(template.cost);
+      SourceListImpl sourceList = new SourceListImpl();
+      template.source.forEach(source -> sourceList.addSource(new SourceBookImpl(source)));
+      spells.add(new SpellImpl(new SpellName(name), template.circle, costList, sourceList, template.target));
+    });
+    return spells;
   }
 }
