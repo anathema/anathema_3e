@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.display.special;
 
 import net.sf.anathema.framework.value.IntValueView;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyIntValueView implements IntValueView {
   private final String labelText;
   private int maxValue;
-  private final Announcer<IntValueChangedListener> valueListeners = new Announcer<>(IntValueChangedListener.class);
+  private final Announcer<IntegerChangedListener> valueListeners = new Announcer<>(IntegerChangedListener.class);
   private int value;
   private IntValueView actualView;
 
@@ -19,7 +19,7 @@ public class ProxyIntValueView implements IntValueView {
 
   public void setActualView(IntValueView actualView) {
     this.actualView = actualView;
-    actualView.addIntValueChangedListener(new IntValueChangedListener() {
+    actualView.addIntValueChangedListener(new IntegerChangedListener() {
       @Override
       public void valueChanged(int newValue) {
         valueListeners.announce().valueChanged(newValue);
@@ -41,7 +41,7 @@ public class ProxyIntValueView implements IntValueView {
   }
 
   @Override
-  public void addIntValueChangedListener(IntValueChangedListener listener) {
+  public void addIntValueChangedListener(IntegerChangedListener listener) {
     if (actualView != null) {
       actualView.addIntValueChangedListener(listener);
       return;
@@ -50,7 +50,7 @@ public class ProxyIntValueView implements IntValueView {
   }
 
   @Override
-  public void removeIntValueChangedListener(IntValueChangedListener listener) {
+  public void removeIntValueChangedListener(IntegerChangedListener listener) {
     if (actualView != null) {
       actualView.removeIntValueChangedListener(listener);
       return;

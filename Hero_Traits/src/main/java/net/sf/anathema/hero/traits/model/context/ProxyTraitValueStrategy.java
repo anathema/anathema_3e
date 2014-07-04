@@ -2,7 +2,7 @@ package net.sf.anathema.hero.traits.model.context;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyTraitValueStrategy implements TraitValueStrategy {
@@ -29,7 +29,7 @@ public class ProxyTraitValueStrategy implements TraitValueStrategy {
   }
 
   @Override
-  public void notifyOnCreationValueChange(int value, Announcer<IntValueChangedListener> currentValueControl) {
+  public void notifyOnCreationValueChange(int value, Announcer<IntegerChangedListener> currentValueControl) {
     strategy.notifyOnCreationValueChange(value, currentValueControl);
   }
 
@@ -38,7 +38,7 @@ public class ProxyTraitValueStrategy implements TraitValueStrategy {
   }
 
   @Override
-  public void notifyOnLearnedValueChange(int value, Announcer<IntValueChangedListener> currentValueControl) {
+  public void notifyOnLearnedValueChange(int value, Announcer<IntegerChangedListener> currentValueControl) {
     strategy.notifyOnLearnedValueChange(value, currentValueControl);
   }
 

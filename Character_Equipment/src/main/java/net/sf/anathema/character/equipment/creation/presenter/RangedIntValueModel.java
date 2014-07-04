@@ -1,13 +1,13 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.library.Range;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class RangedIntValueModel implements IIntValueModel {
 
   private final Range range;
-  private final Announcer<IntValueChangedListener> valueControl = Announcer.to(IntValueChangedListener.class);
+  private final Announcer<IntegerChangedListener> valueControl = Announcer.to(IntegerChangedListener.class);
   private int value;
 
   public RangedIntValueModel(Range range, int initialValue) {
@@ -16,7 +16,7 @@ public class RangedIntValueModel implements IIntValueModel {
   }
 
   @Override
-  public final void addIntValueChangeListener(IntValueChangedListener changeListener) {
+  public final void addIntValueChangeListener(IntegerChangedListener changeListener) {
     valueControl.addListener(changeListener);
   }
 

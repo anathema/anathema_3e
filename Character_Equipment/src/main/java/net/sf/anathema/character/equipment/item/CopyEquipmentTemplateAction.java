@@ -5,7 +5,7 @@ import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 public class CopyEquipmentTemplateAction {
@@ -28,7 +28,7 @@ public class CopyEquipmentTemplateAction {
     model.getTemplateEditModel().getDescription().getName().addTextChangedListener(new EnableToolOnChange(copyTool, model));
   }
 
-  private static class EnableToolOnChange implements ObjectValueListener<String> {
+  private static class EnableToolOnChange implements ObjectChangedListener<String> {
     private final Tool copyTool;
     private IEquipmentDatabaseManagement model;
 

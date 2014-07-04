@@ -3,7 +3,7 @@ package net.sf.anathema.hero.description;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public interface HeroDescription extends HeroModel {
 
@@ -31,5 +31,5 @@ public interface HeroDescription extends HeroModel {
 
   ITextualDescription getConcept();
 
-  void addOverallChangeListener(ObjectValueListener<String> listener);
+  void addOverallChangeListener(ObjectChangedListener<String> listener);
 }

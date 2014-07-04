@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.configurableview;
 
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
 public interface IIntegerSpinner {
   void setValue(int newValue);
@@ -9,7 +9,7 @@ public interface IIntegerSpinner {
   
   void setMaximum(Integer maximum);
 
-  void addChangeListener(IntValueChangedListener listener);
+  void addChangeListener(IntegerChangedListener listener);
 
   void setEnabled(boolean enabled);
 }

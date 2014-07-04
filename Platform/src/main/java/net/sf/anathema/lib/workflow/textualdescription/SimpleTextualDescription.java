@@ -2,12 +2,12 @@ package net.sf.anathema.lib.workflow.textualdescription;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class SimpleTextualDescription implements ITextualDescription {
 
-  private final Announcer<ObjectValueListener> control = Announcer.to(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> control = Announcer.to(ObjectChangedListener.class);
   private String text = "";
   private boolean dirty = true;
 
@@ -44,12 +44,12 @@ public class SimpleTextualDescription implements ITextualDescription {
   }
 
   @Override
-  public void addTextChangedListener(ObjectValueListener<String> listener) {
+  public void addTextChangedListener(ObjectChangedListener<String> listener) {
     control.addListener(listener);
   }
 
   @Override
-  public void removeTextChangeListener(ObjectValueListener<String> listener) {
+  public void removeTextChangeListener(ObjectChangedListener<String> listener) {
     control.removeListener(listener);
   }
 

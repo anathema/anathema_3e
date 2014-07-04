@@ -9,7 +9,6 @@ import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
-import net.sf.anathema.library.event.IntValueChangedListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.IIntegerView;
 import net.sf.anathema.platform.environment.Environment;

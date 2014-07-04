@@ -2,7 +2,7 @@ package net.sf.anathema.magic.description.swing;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 import javax.swing.JComponent;
 import javax.swing.JTextField;
@@ -36,7 +36,7 @@ public class TextView implements SwingTextView {
   }
 
   @Override
-  public final void addTextChangedListener(final ObjectValueListener<String> listener) {
+  public final void addTextChangedListener(final ObjectChangedListener<String> listener) {
     textComponent.getDocument().addDocumentListener(new AbstractDocumentListener() {
       @Override
       protected void updateText(DocumentEvent e) {

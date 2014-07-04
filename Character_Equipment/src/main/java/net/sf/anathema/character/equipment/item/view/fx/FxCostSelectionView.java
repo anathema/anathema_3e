@@ -7,7 +7,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.lib.gui.selection.ISelectionIntValueChangedListener;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.platform.fx.FxObjectSelectionView;
 import net.sf.anathema.platform.fx.dot.DotSelectionSpinner;
 import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
@@ -68,7 +68,7 @@ public class FxCostSelectionView implements CostSelectionView {
   }
 
   @SuppressWarnings("unchecked")
-  private class CostTypeChangeListener implements ObjectValueListener<String> {
+  private class CostTypeChangeListener implements ObjectChangedListener<String> {
     @Override
     public void valueChanged(String newValue) {
       announcer.announce().valueChanged(newValue, spinner.getValue());

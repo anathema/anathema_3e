@@ -8,7 +8,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
@@ -31,12 +31,12 @@ public class FxSpecialtyCreationView implements SpecialtyCreationView {
   }
 
   @Override
-  public void addSelectionChangedListener(final ObjectValueListener<TraitType> listener) {
+  public void addSelectionChangedListener(final ObjectChangedListener<TraitType> listener) {
     box.addObjectSelectionChangedListener(listener);
   }
 
   @Override
-  public void addEditChangedListener(final ObjectValueListener<String> listener) {
+  public void addEditChangedListener(final ObjectChangedListener<String> listener) {
     field.textProperty().addListener((observableValue, s, s2) -> listener.valueChanged(s2));
   }
 

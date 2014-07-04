@@ -6,7 +6,7 @@ import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public class FxIntimacyEntryView implements IntimacyEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
@@ -17,7 +17,7 @@ public class FxIntimacyEntryView implements IntimacyEntryView {
   }
 
   @Override
-  public void addTextChangeListener(ObjectValueListener<String> listener) {
+  public void addTextChangeListener(ObjectChangedListener<String> listener) {
     textView.addTextChangedListener(listener);
   }
 

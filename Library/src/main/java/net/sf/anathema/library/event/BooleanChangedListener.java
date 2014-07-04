@@ -1,6 +1,6 @@
 package net.sf.anathema.library.event;
 
-public interface IBooleanValueChangedListener {
+public interface BooleanChangedListener {
 
   void valueChanged(boolean newValue);
 }

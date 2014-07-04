@@ -2,7 +2,7 @@ package net.sf.anathema.hero.traits.model.context;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class CreationTraitValueStrategy implements TraitValueStrategy {
@@ -23,12 +23,12 @@ public class CreationTraitValueStrategy implements TraitValueStrategy {
   }
 
   @Override
-  public void notifyOnCreationValueChange(int value, Announcer<IntValueChangedListener> creationValueControl) {
+  public void notifyOnCreationValueChange(int value, Announcer<IntegerChangedListener> creationValueControl) {
     creationValueControl.announce().valueChanged(value);
   }
 
   @Override
-  public void notifyOnLearnedValueChange(int value, Announcer<IntValueChangedListener> currentValueControl) {
+  public void notifyOnLearnedValueChange(int value, Announcer<IntegerChangedListener> currentValueControl) {
     // throw new IllegalStateException("No changes on learn value should occur in character creation.");
   }
 

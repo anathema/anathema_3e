@@ -4,7 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
 import jfxtras.scene.control.ListSpinnerIntegerList;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.view.IIntegerView;
 
 public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
@@ -25,7 +25,7 @@ public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
   }
 
   @Override
-  public void addChangeListener(final IntValueChangedListener listener) {
+  public void addChangeListener(final IntegerChangedListener listener) {
     spinner.valueProperty().addListener((observableValue, integer, newValue) -> listener.valueChanged(newValue));
   }
 

@@ -11,7 +11,7 @@ import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.list.veto.Vetor;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 public class SaveEquipmentTemplateAction {
@@ -53,7 +53,7 @@ public class SaveEquipmentTemplateAction {
   }
 
 
-  private class UpdateOnChange implements ObjectValueListener<String>, ChangeListener {
+  private class UpdateOnChange implements ObjectChangedListener<String>, ChangeListener {
     private Tool saveTool;
 
     public UpdateOnChange(Tool saveTool) {

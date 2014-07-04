@@ -9,7 +9,7 @@ import javafx.scene.control.SelectionMode;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.list.veto.Vetor;
 import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.Collection;
 public class ListSelectionView<T> implements VetoableObjectSelectionView<T> {
 
   private final ListView<T> view = new ListView<>();
-  private final Announcer<ObjectValueListener> announcer = new Announcer<>(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> announcer = new Announcer<>(ObjectChangedListener.class);
 
   @SuppressWarnings("unchecked")
   public ListSelectionView() {
@@ -57,12 +57,12 @@ public class ListSelectionView<T> implements VetoableObjectSelectionView<T> {
   }
 
   @Override
-  public void addObjectSelectionChangedListener(ObjectValueListener<T> listener) {
+  public void addObjectSelectionChangedListener(ObjectChangedListener<T> listener) {
     announcer.addListener(listener);
   }
 
   @Override
-  public void removeObjectSelectionChangedListener(ObjectValueListener<T> listener) {
+  public void removeObjectSelectionChangedListener(ObjectChangedListener<T> listener) {
     announcer.removeListener(listener);
   }
 

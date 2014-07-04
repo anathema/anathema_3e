@@ -1,10 +1,10 @@
 package net.sf.anathema.lib.workflow.textualdescription;
 
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
 public interface ITextView {
 
-  void addTextChangedListener(ObjectValueListener<String> listener);
+  void addTextChangedListener(ObjectChangedListener<String> listener);
 
   void setEnabled(boolean enabled);
 

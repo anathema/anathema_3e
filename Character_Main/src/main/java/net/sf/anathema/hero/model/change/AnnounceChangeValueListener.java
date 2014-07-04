@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.model.change;
 
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 
-public class AnnounceChangeValueListener implements ObjectValueListener<String> {
+public class AnnounceChangeValueListener implements ObjectChangedListener<String> {
   private final ChangeAnnouncer announcer;
   private final ChangeFlavor flavor;
 

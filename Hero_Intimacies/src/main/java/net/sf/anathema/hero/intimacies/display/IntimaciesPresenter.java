@@ -10,7 +10,7 @@ import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.HashMap;
@@ -140,7 +140,7 @@ public class IntimaciesPresenter {
     return tool;
   }
 
-  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectValueListener<T> listener, T initial) {
+  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial) {
     ObjectSelectionView<T> selection = selectionView.addSelection();
     selection.setObjects(objects);
     selection.setSelectedObject(initial);

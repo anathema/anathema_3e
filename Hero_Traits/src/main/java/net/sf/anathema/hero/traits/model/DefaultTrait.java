@@ -7,7 +7,7 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
 import net.sf.anathema.library.Range;
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 public class DefaultTrait implements Trait {
@@ -18,8 +18,8 @@ public class DefaultTrait implements Trait {
   private final ValueChangeChecker checker;
   private ITraitFavorization traitFavorization;
   private final TraitRules traitRules;
-  private final Announcer<IntValueChangedListener> creationPointControl = Announcer.to(IntValueChangedListener.class);
-  private final Announcer<IntValueChangedListener> currentValueControl = Announcer.to(IntValueChangedListener.class);
+  private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
+  private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
   public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
@@ -190,17 +190,17 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public final void addCreationPointListener(IntValueChangedListener listener) {
+  public final void addCreationPointListener(IntegerChangedListener listener) {
     creationPointControl.addListener(listener);
   }
 
   @Override
-  public final void removeCreationPointListener(IntValueChangedListener listener) {
+  public final void removeCreationPointListener(IntegerChangedListener listener) {
     creationPointControl.removeListener(listener);
   }
 
   @Override
-  public final void addCurrentValueListener(IntValueChangedListener listener) {
+  public final void addCurrentValueListener(IntegerChangedListener listener) {
     currentValueControl.addListener(listener);
   }
 

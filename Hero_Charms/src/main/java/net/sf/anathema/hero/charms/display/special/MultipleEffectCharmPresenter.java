@@ -2,8 +2,6 @@ package net.sf.anathema.hero.charms.display.special;
 
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.IBooleanValueChangedListener;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.BooleanValueView;
 

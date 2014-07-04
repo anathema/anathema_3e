@@ -1,7 +1,7 @@
 package net.sf.anathema.library.view;
 
-import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
 public interface IIntegerView {
-  void addChangeListener(IntValueChangedListener intValueChangedListener);
+  void addChangeListener(IntegerChangedListener integerChangedListener);
 }

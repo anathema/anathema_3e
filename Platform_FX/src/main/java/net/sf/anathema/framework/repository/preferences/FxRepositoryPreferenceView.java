@@ -8,7 +8,7 @@ import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.platform.tool.FxButtonTool;
@@ -23,7 +23,7 @@ import java.nio.file.Path;
 public class FxRepositoryPreferenceView implements PreferenceView, NodeHolder, RepositoryPreferenceView {
 
   private final MigPane pane = new MigPane(LayoutUtils.fillWithoutInsets());
-  private final Announcer<ObjectValueListener> announcer = Announcer.to(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> announcer = Announcer.to(ObjectChangedListener.class);
 
   @Override
   public ITextView addRepositoryDisplay(String label) {
@@ -56,8 +56,8 @@ public class FxRepositoryPreferenceView implements PreferenceView, NodeHolder, R
   }
 
   @Override
-  public void whenRepositoryChangeIsRequested(ObjectValueListener<Path> objectValueListener) {
-    announcer.addListener(objectValueListener);
+  public void whenRepositoryChangeIsRequested(ObjectChangedListener<Path> objectChangedListener) {
+    announcer.addListener(objectChangedListener);
   }
 
   @Override
