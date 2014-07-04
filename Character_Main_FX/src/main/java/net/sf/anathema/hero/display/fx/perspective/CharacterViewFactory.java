@@ -2,7 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.hero.application.item.HeroItem;
+import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.framework.display.SubViewMap;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
@@ -23,7 +23,7 @@ public class CharacterViewFactory {
     this.applicationModel = applicationModel;
   }
 
-  public NodeHolder createView(HeroItem hero) {
+  public NodeHolder createView(HeroItemData hero) {
     SubViewRegistry viewFactory = new SubViewMap(environment);
     Stylesheet[] stylesheets = createStylesheets(hero);
     TaskedCharacterView characterView = new TaskedCharacterView(viewFactory, stylesheets);

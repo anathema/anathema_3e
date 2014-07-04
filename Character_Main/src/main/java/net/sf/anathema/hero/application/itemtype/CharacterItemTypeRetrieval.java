@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.framework.itemtype;
+package net.sf.anathema.hero.application.itemtype;
 
 import net.sf.anathema.framework.item.IItemType;
 

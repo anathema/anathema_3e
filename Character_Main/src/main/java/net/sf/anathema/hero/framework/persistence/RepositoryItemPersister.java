@@ -2,7 +2,7 @@ package net.sf.anathema.hero.framework.persistence;
 
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.framework.item.Item;
+import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.template.HeroTemplate;
 
 public interface RepositoryItemPersister {

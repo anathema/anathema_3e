@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.framework.item;
+package net.sf.anathema.hero.application.item;
 
 import com.google.common.base.Preconditions;
 

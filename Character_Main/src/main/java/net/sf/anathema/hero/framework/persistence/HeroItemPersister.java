@@ -4,11 +4,11 @@ import net.sf.anathema.framework.messaging.MessageToken;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.application.item.HeroItemImp;
+import net.sf.anathema.hero.application.item.HeroItem;
+import net.sf.anathema.hero.application.item.HeroItemDataImp;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.framework.item.CharacterItem;
-import net.sf.anathema.hero.framework.item.HeroNameFetcher;
-import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
@@ -76,13 +76,13 @@ public class HeroItemPersister implements RepositoryItemPersister {
   }
 
   private Item createCharacterInItem(HeroTemplate template, CharacterInitializer initializer) {
-    HeroItemImp character = new HeroItemImp(template, generics);
+    HeroItemDataImp character = new HeroItemDataImp(template, generics);
     initializer.initialize(character);
     return initItem(character);
   }
 
-  private Item initItem(HeroItemImp character) {
+  private Item initItem(HeroItemDataImp character) {
     character.markReadyForWork();
-    return new CharacterItem(character);
+    return new HeroItem(character);
   }
 }
