@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.lib.gui.Presenter;
+import net.sf.anathema.library.presenter.Presenter;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

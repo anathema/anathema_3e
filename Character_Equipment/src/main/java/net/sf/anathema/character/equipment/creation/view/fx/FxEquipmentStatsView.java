@@ -5,13 +5,13 @@ import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.character.equipment.creation.presenter.EquipmentStatsView;
-import net.sf.anathema.fx.hero.configurableview.IIntegerSpinner;
-import net.sf.anathema.fx.hero.configurableview.IntegerSpinner;
-import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.platform.fx.FxTextView;
-import net.sf.anathema.platform.tool.FxCheckToggleTool;
+import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
+import net.sf.anathema.hero.display.fx.configurableview.IntegerSpinner;
+import net.sf.anathema.library.fx.text.FxTextView;
+import net.sf.anathema.library.fx.tool.FxCheckToggleTool;
+import net.sf.anathema.library.interaction.model.ToggleTool;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.view.BooleanView;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxEquipmentStatsView implements EquipmentStatsView {
@@ -33,7 +33,7 @@ public class FxEquipmentStatsView implements EquipmentStatsView {
     return tool;
   }
 
-  public BooleanValueView addBooleanSelector(String label) {
+  public BooleanView addBooleanSelector(String label) {
     FxBooleanView booleanView = new FxBooleanView();
     panel.add(new Label(label));
     panel.add(booleanView.getNode(), new CC().growX().pushX());

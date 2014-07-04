@@ -4,11 +4,11 @@ import com.google.common.collect.Lists;
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabase;
 import net.sf.anathema.character.equipment.module.EquipmentItemType;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.lib.control.ChangeListener;
-import org.apache.commons.io.FilenameUtils;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.io.Filenames;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.IItemType;
+import net.sf.anathema.platform.repository.Repository;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;
@@ -17,7 +17,7 @@ import java.util.List;
 public class GsonEquipmentDatabase implements IEquipmentDatabase {
   public static final String DATABASE_FOLDER = "equipment";
 
-  public static GsonEquipmentDatabase CreateFrom(IApplicationModel anathemaModel) {
+  public static GsonEquipmentDatabase CreateFrom(ApplicationModel anathemaModel) {
     Repository repository = anathemaModel.getRepository();
     IItemType itemType = new EquipmentItemType().getItemType();
     return new GsonEquipmentDatabase(new EquipmentRepositoryAccess(repository, itemType));
@@ -35,7 +35,7 @@ public class GsonEquipmentDatabase implements IEquipmentDatabase {
   public String[] getAllAvailableTemplateIds() {
     List<String> ids = Lists.newArrayList();
     for (Path file : access.listAllFiles()) {
-      String id = FilenameUtils.getBaseName(file.getFileName().toString());
+      String id = Filenames.getBaseName(file.getFileName().toString());
       ids.add(loadExistingTemplate(id).getName());
     }
     return ids.toArray(new String[ids.size()]);

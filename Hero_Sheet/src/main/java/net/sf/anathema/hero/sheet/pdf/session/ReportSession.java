@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.sheet.pdf.session;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentFactory;
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentRegistry;
 import net.sf.anathema.hero.sheet.pdf.content.SubContent;

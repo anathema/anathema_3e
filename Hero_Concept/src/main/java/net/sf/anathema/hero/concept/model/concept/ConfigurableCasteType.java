@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 
 public class ConfigurableCasteType implements CasteType {
 

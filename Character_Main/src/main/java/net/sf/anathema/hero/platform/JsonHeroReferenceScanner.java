@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.platform;
 
-import net.sf.anathema.framework.repository.IRepositoryFileResolver;
-import net.sf.anathema.hero.framework.item.HeroReferenceScanner;
+import net.sf.anathema.hero.application.item.HeroReferenceScanner;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.framework.persistence.HeroMainFileDto;
 import net.sf.anathema.hero.framework.persistence.HeroMainFilePersister;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.SplatType;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.hero.concept.CasteType.NULL_CASTE_TYPE;
-import static net.sf.anathema.hero.framework.itemtype.CharacterItemTypeRetrieval.retrieveCharacterItemType;
+import static net.sf.anathema.hero.application.item.HeroItemTypeRetrieval.retrieveCharacterItemType;
+import static net.sf.anathema.hero.elsewhere.concept.CasteType.NULL_CASTE_TYPE;
 
 public class JsonHeroReferenceScanner implements HeroReferenceScanner {
 
-  private final Map<CharacterReference, TemplateType> typesByFile = new HashMap<>();
+  private final Map<CharacterReference, SplatType> typesByFile = new HashMap<>();
   private final Map<CharacterReference, Identifier> castesByFile = new HashMap<>();
   private final IRepositoryFileResolver resolver;
   private final CharacterTypes characterTypes;
@@ -39,22 +39,22 @@ public class JsonHeroReferenceScanner implements HeroReferenceScanner {
       HeroMainFileDto mainFileDto = new HeroMainFilePersister().load(stream);
       CharacterType characterType = characterTypes.findById(mainFileDto.characterType.characterType);
       SimpleIdentifier subType = new SimpleIdentifier(mainFileDto.characterType.subType);
-      typesByFile.put(reference, new TemplateTypeImpl(characterType, subType));
+      typesByFile.put(reference, new SplatTypeImpl(characterType, subType));
       castesByFile.put(reference, NULL_CASTE_TYPE);
     }
   }
 
   @Override
   public CharacterType getCharacterType(CharacterReference reference) {
-    TemplateType templateType = getTemplateType(reference);
-    if (templateType == null) {
+    SplatType splatType = getTemplateType(reference);
+    if (splatType == null) {
       return null;
     }
-    return templateType.getCharacterType();
+    return splatType.getCharacterType();
   }
 
   @Override
-  public TemplateType getTemplateType(CharacterReference reference) {
+  public SplatType getTemplateType(CharacterReference reference) {
     if (typesByFile.containsKey(reference)) {
       return typesByFile.get(reference);
     }

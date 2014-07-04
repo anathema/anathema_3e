@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 public interface IntimacyEntryView {
 
-  void addTextChangeListener(ObjectValueListener<String> listener);
+  void addTextChangeListener(ObjectChangedListener<String> listener);
 
   Tool addTool();
 

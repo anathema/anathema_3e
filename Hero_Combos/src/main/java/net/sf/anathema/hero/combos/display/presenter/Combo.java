@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.combos.display.presenter;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.text.ITextualDescription;
 
 public interface Combo extends Cloneable {
 

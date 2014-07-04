@@ -1,30 +1,31 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import com.google.common.collect.Lists;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-
-import static net.sf.anathema.lib.lang.ArrayUtilities.getFirst;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class ArraySubEffects implements SubEffects {
-  private final SubEffect[] subeffects;
+  private final List<SubEffect> subeffects = new ArrayList<>();
 
   public ArraySubEffects(SubEffect[] subeffects) {
-    this.subeffects = subeffects;
+    Collections.addAll(this.subeffects, subeffects);
   }
 
   @Override
   public SubEffect[] getEffects() {
-    return subeffects;
+    return subeffects.toArray(new SubEffect[subeffects.size()]);
   }
 
   @Override
   public SubEffect getById(final String id) {
-    return getFirst(subeffects, input -> input.getId().equals(id));
+    Stream<SubEffect> effects = subeffects.stream();
+    return effects.filter(input -> input.getId().equals(id)).findFirst().orElse(null);
   }
 
   @Override
   public Iterator<SubEffect> iterator() {
-    return Lists.newArrayList(subeffects).iterator();
+    return subeffects.iterator();
   }
 }

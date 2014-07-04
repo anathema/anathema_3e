@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.framework.value.IntValueView;
+import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.platform.tree.display.CategorizedSpecialNodeView;
 import net.sf.anathema.platform.tree.display.SpecialCharmContainer;
 

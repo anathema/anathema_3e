@@ -7,8 +7,8 @@ import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueArbitrato
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecials;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecialsImpl;
-import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.model.DefaultTrait;

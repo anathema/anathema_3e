@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.type.CharacterSpecificsMap;
+import net.sf.anathema.hero.application.type.CharacterSpecificsMap;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CharmDisplayPropertiesMap {

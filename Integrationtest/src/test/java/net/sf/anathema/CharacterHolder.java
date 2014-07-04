@@ -1,35 +1,35 @@
 package net.sf.anathema;
 
 import com.google.inject.Singleton;
-import net.sf.anathema.hero.application.item.HeroItem;
+import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 
 @Singleton
 public class CharacterHolder {
-  private HeroItem heroItem;
+  private HeroItemData heroItemData;
 
-  public void setCharacter(HeroItem heroItem) {
-    this.heroItem = heroItem;
+  public void setCharacter(HeroItemData heroItemData) {
+    this.heroItemData = heroItemData;
   }
 
   public CharmsModel getCharms() {
-    return CharmsModelFetcher.fetch(heroItem);
+    return CharmsModelFetcher.fetch(heroItemData);
   }
 
   public HeroConcept getCharacterConcept() {
-    return HeroConceptFetcher.fetch(heroItem);
+    return HeroConceptFetcher.fetch(heroItemData);
   }
 
   public TraitMap getTraitConfiguration() {
-    return TraitModelFetcher.fetch(heroItem);
+    return TraitModelFetcher.fetch(heroItemData);
   }
 
-  public HeroItem getHero() {
-    return heroItem;
+  public HeroItemData getHero() {
+    return heroItemData;
   }
 }

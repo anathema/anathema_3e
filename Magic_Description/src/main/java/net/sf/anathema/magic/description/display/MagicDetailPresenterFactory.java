@@ -1,9 +1,9 @@
 package net.sf.anathema.magic.description.display;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 public interface MagicDetailPresenterFactory {
 
-  MagicDetailPresenter create(IApplicationModel anathemaModel, Resources resources);
+  MagicDetailPresenter create(ApplicationModel anathemaModel, Resources resources);
 }

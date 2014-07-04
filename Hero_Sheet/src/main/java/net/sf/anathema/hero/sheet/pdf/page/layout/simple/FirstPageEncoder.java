@@ -15,8 +15,8 @@ public class FirstPageEncoder implements PageEncoder {
 
   private static final float ANIMA_HEIGHT = 128;
   private static final int ATTRIBUTE_HEIGHT = 128;
+  private static final int COMBAT_HEIGHT = 118;
   private static final int FIRST_ROW_HEIGHT = 51;
-  private static final int VIRTUE_HEIGHT = 72;
   private static final int SOCIAL_COMBAT_HEIGHT = 115;
   private static final int WILLPOWER_HEIGHT = 43;
   private static final int ARMOUR_HEIGHT = 68;
@@ -32,18 +32,24 @@ public class FirstPageEncoder implements PageEncoder {
     SheetPage page = sheet.startPortraitPage(graphics, session, FIRST_PAGE_CONTENT_HEIGHT);
     LayoutField personalInfo = page.place(PERSONAL_INFO).atStartOf(page).withHeight(FIRST_ROW_HEIGHT).andColumnSpan(2).now();
     LayoutField essence = page.place(ESSENCE_SIMPLE).rightOf(personalInfo).withSameHeight().now();
+
     LayoutField attributes = page.place(ATTRIBUTES).below(personalInfo).withHeight(ATTRIBUTE_HEIGHT).now();
-    page.place(ABILITIES_WITH_SPECIALTIES).below(attributes).fillToBottomOfPage().now();
-    LayoutField anima = page.place(ANIMA, NOTES).below(essence).withHeight(ANIMA_HEIGHT).now();
-    LayoutField social = page.place(SOCIAL_COMBAT).below(anima).withHeight(SOCIAL_COMBAT_HEIGHT).now();
-    LayoutField virtues = page.place(VIRTUES).rightOf(attributes).withHeight(VIRTUE_HEIGHT).now();
-    LayoutField greatCurse = page.place(GREAT_CURSE, MUTATIONS).below(virtues).alignBottomTo(anima).now();
-    LayoutField willpower = page.place(WILLPOWER_SIMPLE).below(greatCurse).withHeight(WILLPOWER_HEIGHT).now();
-    LayoutField intimacies = page.place(INTIMACIES_SIMPLE, NOTES).below(willpower).alignBottomTo(social).now();
-    LayoutField arsenal = page.place(ARSENAL).below(intimacies).withPreferredHeight().andColumnSpan(2).now();
-    LayoutField panoply = page.place(PANOPLY).below(arsenal).withHeight(ARMOUR_HEIGHT).andColumnSpan(2).now();
-    LayoutField health = page.place(HEALTH_AND_MOVEMENT).below(panoply).withHeight(HEALTH_HEIGHT).andColumnSpan(2).now();
-    page.place(COMBAT).below(health).fillToBottomOfPage().andColumnSpan(2).now();
+    LayoutField social = page.place(SOCIAL_COMBAT).rightOf(attributes).withHeight(SOCIAL_COMBAT_HEIGHT).now();
+
+    LayoutField willpower = page.place(WILLPOWER_SIMPLE).below(essence).withHeight(WILLPOWER_HEIGHT).now();
+    LayoutField greatCurse = page.place(GREAT_CURSE, MUTATIONS).below(willpower).alignBottomTo(social).now();
+    LayoutField anima = page.place(ANIMA, NOTES).below(greatCurse).withHeight(ANIMA_HEIGHT).now();
+
+    LayoutField intimacies = page.place(INTIMACIES_SIMPLE, NOTES).below(social).alignBottomTo(anima).now();
+
+    LayoutField combat = page.place(COMBAT).below(intimacies).withHeight(COMBAT_HEIGHT).andColumnSpan(2).now();
+    LayoutField health = page.place(HEALTH_AND_MOVEMENT).below(combat).withHeight(HEALTH_HEIGHT).andColumnSpan(2).now();
+    LayoutField panoply = page.place(PANOPLY).below(health).withHeight(ARMOUR_HEIGHT).andColumnSpan(2).now();
+    page.place(ARSENAL).below(panoply).fillToBottomOfPage().andColumnSpan(2).now();
+
+    LayoutField abilities = page.place(ABILITIES_WITH_CRAFTS).below(attributes).alignBottomTo(health).now();
+    page.place(SPECIALTIES_SIMPLE).below(abilities).fillToBottomOfPage().now();
+
     new CopyrightEncoder(configuration, FIRST_PAGE_CONTENT_HEIGHT).encodeCopyright(graphics);
   }
 }

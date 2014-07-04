@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.sheet.preferences;
 
-import net.sf.anathema.framework.preferences.elements.PreferenceModel;
-import net.sf.anathema.framework.preferences.elements.RegisteredPreferenceModel;
-import net.sf.anathema.framework.preferences.persistence.PreferenceKey;
-import net.sf.anathema.framework.preferences.persistence.PreferencePto;
-import net.sf.anathema.framework.preferences.persistence.PreferenceValue;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.platform.preferences.PreferenceKey;
+import net.sf.anathema.platform.preferences.PreferenceModel;
+import net.sf.anathema.platform.preferences.PreferencePto;
+import net.sf.anathema.platform.preferences.PreferenceValue;
+import net.sf.anathema.platform.preferences.RegisteredPreferenceModel;
 import org.jmock.example.announcer.Announcer;
 
 @RegisteredPreferenceModel
@@ -55,11 +55,6 @@ public class SheetPreferenceModel implements PreferenceModel {
 
   @Override
   public void whenDirtied(Command command) {
-    onChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        command.execute();
-      }
-    });
+    onChange(command::execute);
   }
 }

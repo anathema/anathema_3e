@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.gui.icon;
 
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 import java.awt.Image;
 import java.io.IOException;

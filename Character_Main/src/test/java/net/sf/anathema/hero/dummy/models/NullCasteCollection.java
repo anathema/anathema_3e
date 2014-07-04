@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.concept.CasteCollection;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.individual.splat.SplatType;
 
 public class NullCasteCollection implements CasteCollection {
   @Override
@@ -11,7 +11,7 @@ public class NullCasteCollection implements CasteCollection {
   }
 
   @Override
-  public CasteType[] getAllCasteTypes(TemplateType template) {
+  public CasteType[] getAllCasteTypes(SplatType template) {
     return new CasteType[0];
   }
 

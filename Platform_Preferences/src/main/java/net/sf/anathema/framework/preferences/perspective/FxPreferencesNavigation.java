@@ -1,11 +1,11 @@
 package net.sf.anathema.framework.preferences.perspective;
 
 import javafx.scene.control.Button;
-import net.sf.anathema.framework.preferences.elements.PreferenceView;
-import net.sf.anathema.initialization.InitializationException;
-import net.sf.anathema.interaction.AcceleratorMap;
-import net.sf.anathema.platform.fx.Navigation;
-import net.sf.anathema.platform.fx.NodeHolder;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.interaction.AcceleratorMap;
+import net.sf.anathema.platform.fx.navigation.Navigation;
+import net.sf.anathema.platform.preferences.PreferenceView;
 
 import java.util.ArrayList;
 

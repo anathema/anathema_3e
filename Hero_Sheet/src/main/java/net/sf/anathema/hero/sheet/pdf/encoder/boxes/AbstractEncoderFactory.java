@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public abstract class AbstractEncoderFactory extends SimpleIdentifier implements EncoderFactory {
 

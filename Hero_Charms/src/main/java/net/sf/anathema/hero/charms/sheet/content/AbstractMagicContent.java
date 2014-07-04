@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.sheet.content.mnemonic.MagicMnemonic;
 import net.sf.anathema.hero.charms.sheet.content.stats.MagicCostStatsGroup;
 import net.sf.anathema.hero.charms.sheet.content.stats.MagicDetailsStatsGroup;
@@ -11,6 +10,7 @@ import net.sf.anathema.hero.charms.sheet.content.stats.MagicTypeStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 

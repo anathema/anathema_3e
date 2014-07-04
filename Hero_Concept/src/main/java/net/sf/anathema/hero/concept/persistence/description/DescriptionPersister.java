@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.concept.persistence.description;
 
-import net.sf.anathema.hero.description.HeroDescription;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class DescriptionPersister extends AbstractModelJsonPersister<DescriptionPto, HeroDescription> {

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.magic;
 
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 
 import java.util.List;
 

@@ -2,17 +2,18 @@ package net.sf.anathema.hero.framework.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.framework.item.HeroNameFetcher;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.lib.exception.PersistenceException;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.hero.application.item.HeroNameFetcher;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.SplatType;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
+import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 
 public class HeroMainFilePersister {
   private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -24,7 +25,7 @@ public class HeroMainFilePersister {
 
   public HeroMainFileDto load(InputStream inputStream) {
     try {
-      String jsonString = IOUtils.toString(inputStream);
+      String jsonString = InputOutput.toString(inputStream);
       return gson.fromJson(jsonString, HeroMainFileDto.class);
     } catch (IOException e) {
       throw new PersistenceException(e);
@@ -38,8 +39,8 @@ public class HeroMainFilePersister {
 
   private void saveDtoAsJson(RepositoryWriteAccess writeAccess, HeroMainFileDto mainFileDto) {
     String mainFileJson = gson.toJson(mainFileDto);
-    try {
-      IOUtils.write(mainFileJson, writeAccess.createMainOutputStream());
+    try (OutputStream outputStream = writeAccess.createMainOutputStream()) {
+      InputOutput.write(mainFileJson, outputStream);
     } catch (IOException e) {
       throw new PersistenceException(e);
     }
@@ -47,16 +48,16 @@ public class HeroMainFilePersister {
 
   private HeroMainFileDto convertHeroToDto(Item item) {
     Hero hero = (Hero) item.getItemData();
-    TemplateType templateType = hero.getTemplate().getTemplateType();
-    return createDtoToSave(item, hero, templateType);
+    SplatType splatType = hero.getSplat().getTemplateType();
+    return createDtoToSave(item, hero, splatType);
   }
 
-  private HeroMainFileDto createDtoToSave(Item item, Hero hero, TemplateType templateType) {
+  private HeroMainFileDto createDtoToSave(Item item, Hero hero, SplatType splatType) {
     HeroMainFileDto mainFileDto = new HeroMainFileDto();
     mainFileDto.printName = new HeroNameFetcher().getName(hero);
     mainFileDto.repositoryId = item.getRepositoryLocation().getId();
-    mainFileDto.characterType.characterType = templateType.getCharacterType().getId();
-    mainFileDto.characterType.subType = templateType.getSubType().getId();
+    mainFileDto.characterType.characterType = splatType.getCharacterType().getId();
+    mainFileDto.characterType.subType = splatType.getSubType().getId();
     return mainFileDto;
   }
 }

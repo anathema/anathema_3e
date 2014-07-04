@@ -7,24 +7,24 @@ import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.experience.ExperienceChange;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.hero.spells.parser.ISpellCache;
+import net.sf.anathema.hero.spells.parser.SpellCache;
 import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.UnspecifiedChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import org.jmock.example.announcer.Announcer;
 
@@ -71,7 +71,7 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   private void initializeSpellsByCircle(HeroEnvironment environment) {
-    for (Spell spell : environment.getDataSet(ISpellCache.class).getSpells()) {
+    for (Spell spell : environment.getDataSet(SpellCache.class).getSpells()) {
       spellsByCircle.put(spell.getCircleType(), spell);
     }
   }

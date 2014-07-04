@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.data.Condition;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.model.Condition;
 import org.jmock.example.announcer.Announcer;
 
 public class SubEffectImpl extends SimpleIdentifier implements SubEffect {

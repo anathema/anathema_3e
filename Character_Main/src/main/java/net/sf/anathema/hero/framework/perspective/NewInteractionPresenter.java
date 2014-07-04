@@ -1,14 +1,12 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.framework.perspective.model.CharacterItemModel;
 import net.sf.anathema.hero.framework.perspective.model.ItemSelectionModel;
-import net.sf.anathema.hero.framework.perspective.model.NewCharacterListener;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 public class NewInteractionPresenter {
 
@@ -30,13 +28,10 @@ public class NewInteractionPresenter {
   public void initPresentation() {
     initializeAppearance();
     initializeCommand();
-    model.whenNewCharacterIsAdded(new NewCharacterListener() {
-      @Override
-      public void added(CharacterItemModel character) {
-        new CharacterButtonPresenter(environment, selector, character, view).initPresentation();
-        view.selectButton(character.getDescriptiveFeatures().getIdentifier());
-        selector.selected(character.getDescriptiveFeatures().getIdentifier());
-      }
+    model.whenNewCharacterIsAdded(character -> {
+      new CharacterButtonPresenter(environment, selector, character, view).initPresentation();
+      view.selectButton(character.getDescriptiveFeatures().getIdentifier());
+      selector.selected(character.getDescriptiveFeatures().getIdentifier());
     });
   }
 

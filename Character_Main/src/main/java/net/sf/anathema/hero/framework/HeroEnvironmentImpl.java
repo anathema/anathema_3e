@@ -1,23 +1,24 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.TemplateRegistry;
-import net.sf.anathema.hero.template.TemplateRegistryImpl;
-import net.sf.anathema.initialization.repository.DataFileProvider;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
+import net.sf.anathema.hero.environment.template.TemplateRegistry;
+import net.sf.anathema.hero.environment.template.TemplateRegistryImpl;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.io.DataFileProvider;
 
 public class HeroEnvironmentImpl implements HeroEnvironment {
 
   private final TemplateRegistry templateRegistry = new TemplateRegistryImpl();
   private final DataFileProvider dataFileProvider;
-  private final IExtensibleDataSetProvider dataSetProvider;
+  private final ExtensibleDataSetProvider dataSetProvider;
   private final ObjectFactory objectFactory;
   private final CharacterTypes characterTypes;
 
   public HeroEnvironmentImpl(DataFileProvider dataFileProvider, ObjectFactory objectFactory,
-                             IExtensibleDataSetProvider dataSetProvider) {
+                             ExtensibleDataSetProvider dataSetProvider) {
     this.objectFactory = objectFactory;
     this.dataFileProvider = dataFileProvider;
     this.dataSetProvider = dataSetProvider;

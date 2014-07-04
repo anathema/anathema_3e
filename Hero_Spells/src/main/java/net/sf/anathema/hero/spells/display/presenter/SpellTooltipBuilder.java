@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.MagicDescriptionContributor;
 import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
 public class SpellTooltipBuilder {
 

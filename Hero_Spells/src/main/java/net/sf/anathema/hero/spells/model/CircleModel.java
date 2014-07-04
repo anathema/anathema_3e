@@ -2,14 +2,14 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.spells.data.CircleType;
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.Collection;
 
 public class CircleModel {
 
-  private final Announcer<ObjectValueListener> announcer = Announcer.to(ObjectValueListener.class);
+  private final Announcer<ObjectChangedListener> announcer = Announcer.to(ObjectChangedListener.class);
   private final Collection<CircleType> circles;
   private CircleType selectedCircle;
 
@@ -32,7 +32,7 @@ public class CircleModel {
     return selectedCircle;
   }
 
-  public void addSelectionListener(ObjectValueListener<CircleType> objectValueListener) {
-    announcer.addListener(objectValueListener);
+  public void addSelectionListener(ObjectChangedListener<CircleType> objectChangedListener) {
+    announcer.addListener(objectChangedListener);
   }
 }

@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.application.creation.models.ModelFactoryMap;
+import net.sf.anathema.hero.application.creation.models.ModelTreeEntry;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;

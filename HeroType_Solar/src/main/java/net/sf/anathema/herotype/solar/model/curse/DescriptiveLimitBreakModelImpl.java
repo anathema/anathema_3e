@@ -1,12 +1,12 @@
 package net.sf.anathema.herotype.solar.model.curse;
 
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.GlobalChangeAdapter;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.UnspecifiedChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.GlobalChangeAdapter;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class DescriptiveLimitBreakModelImpl extends AbstractLimitBreakModel implements DescriptiveLimitBreakModel {
 

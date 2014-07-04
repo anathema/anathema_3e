@@ -3,16 +3,16 @@ package net.sf.anathema.hero.equipment.display.presenter;
 import com.google.common.base.Joiner;
 import net.sf.anathema.character.equipment.character.IEquipmentStringBuilder;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class EquipmentStringBuilder implements IEquipmentStringBuilder {
@@ -44,9 +44,9 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     return createtNewStatsStart(keyPart) + signum + value;
   }
 
-  private String getTagsString(Identifier[] tags) {
+  private String getTagsString(Collection<Identifier> tags) {
     List<String> ids = new ArrayList<>();
-    Arrays.asList(tags).forEach(tag -> ids.add(tag.getId()));
+    tags.forEach(tag -> ids.add(tag.getId()));
     return Joiner.on(", ").join(ids);
   }
 

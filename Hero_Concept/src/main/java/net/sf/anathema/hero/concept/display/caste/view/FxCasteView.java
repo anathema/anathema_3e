@@ -2,15 +2,15 @@ package net.sf.anathema.hero.concept.display.caste.view;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteView;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.view.ObjectSelectionView;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCasteView implements CasteView, NodeHolder {
   private MigPane node = new MigPane(withoutInsets().wrapAfter(2));

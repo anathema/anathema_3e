@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.ChangeAnnouncerImpl;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.dummy.template.DummyHeroSplat;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.ChangeAnnouncerImpl;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -16,7 +16,7 @@ public class DummyHero implements Hero {
 
   private final ChangeAnnouncer changeAnnouncer = new ChangeAnnouncerImpl();
 
-  public final DummyHeroTemplate template = new DummyHeroTemplate();
+  public final DummyHeroSplat template = new DummyHeroSplat();
   public final Map<Identifier, HeroModel> modelsById = new HashMap<>();
 
 
@@ -25,7 +25,7 @@ public class DummyHero implements Hero {
   }
 
   @Override
-  public HeroTemplate getTemplate() {
+  public HeroSplat getSplat() {
     return template;
   }
 

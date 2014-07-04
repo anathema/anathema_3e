@@ -2,8 +2,8 @@ package net.sf.anathema.hero.equipment.model.natural;
 
 import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class Grapple extends WeaponStats {
 

@@ -1,5 +1,5 @@
 dependencies {
-    compile project(':Platform_TreeFx')
+    compile project(':Library_TreeFx')
     compile project(':Character_Main')
     compile project(':Hero')
     compile project(':Hero_Abilities')

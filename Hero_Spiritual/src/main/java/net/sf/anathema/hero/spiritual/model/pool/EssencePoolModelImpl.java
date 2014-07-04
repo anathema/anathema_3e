@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,17 +38,12 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
     }
     TraitMap traitMap = TraitModelFetcher.fetch(hero);
     EssencePoolConfiguration essencePoolConfiguration = new EssencePoolConfiguration(template);
-    poolStrategy = new EssencePoolStrategyImpl(hero, essencePoolConfiguration, traitMap, overdrivePool);
+    poolStrategy = new EssencePoolStrategyImpl(hero, essencePoolConfiguration, traitMap);
   }
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
     // nothing to do
-  }
-
-  @Override
-  public void addOverdrivePool(OverdrivePool pool) {
-    overdrivePool.addOverdrivePool(pool);
   }
 
   @Override
@@ -84,11 +79,6 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
   }
 
   @Override
-  public int getOverdrivePoolValue() {
-    return poolStrategy.getOverdrivePool();
-  }
-
-  @Override
   public String getAttunedPool() {
     return "" + poolStrategy.getAttunementExpenditures();
   }
@@ -104,7 +94,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
   @Override
   public boolean isEssenceUser() {
-    return hero.getTemplate().getTemplateType().getCharacterType().isEssenceUser();
+    return hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
   }
 
   @Override

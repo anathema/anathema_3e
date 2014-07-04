@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.concept.CasteSelection;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.library.event.ChangeListener;
 
 public class NullCasteSelection implements CasteSelection{
   @Override

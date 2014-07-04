@@ -6,11 +6,11 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.charms.display.special.BooleanSelectionSpecialNodeView;
 import net.sf.anathema.hero.charms.display.special.CategorizedSpecialView;
 import net.sf.anathema.hero.charms.display.special.ToggleButtonSpecialNodeView;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.platform.fx.NodeHolder;
-import net.sf.anathema.platform.fx.StyledTitledPane;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
+import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
+import net.sf.anathema.library.fx.view.StyledTitledPane;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.tree.display.AgnosticPolygonPanel;
 import net.sf.anathema.platform.tree.display.AgnosticTreeView;
 import net.sf.anathema.platform.tree.display.CategorizedSpecialNodeView;
@@ -20,8 +20,8 @@ import net.sf.anathema.platform.tree.fx.FxPolygonPanel;
 import net.sf.anathema.platform.tree.view.MouseBorderClosure;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCharmView implements CharmView, NodeHolder {
   private final MigPane selectionPanel = new MigPane(withoutInsets().wrapAfter(4));

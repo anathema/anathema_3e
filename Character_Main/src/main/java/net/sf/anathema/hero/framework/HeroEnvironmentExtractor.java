@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.extension.AnathemaExtension;
-import net.sf.anathema.lib.registry.IRegistry;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.library.initialization.Registry;
+import net.sf.anathema.platform.frame.AnathemaExtension;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 public class HeroEnvironmentExtractor {
 
-  public static HeroEnvironment getGenerics(IApplicationModel model) {
-    IRegistry<String, AnathemaExtension> registry = model.getExtensionPointRegistry();
+  public static HeroEnvironment getGenerics(ApplicationModel model) {
+    Registry<String, AnathemaExtension> registry = model.getExtensionRegistry();
     HeroEnvironmentExtension genericsExtension = (HeroEnvironmentExtension) registry.get(HeroEnvironmentExtension.ID);
     return genericsExtension.getEnvironment();
   }

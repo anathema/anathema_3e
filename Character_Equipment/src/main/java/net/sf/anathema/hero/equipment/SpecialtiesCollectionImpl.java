@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.equipment;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.specialties.ISpecialtyListener;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.specialties.model.ISpecialtyListener;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+
+import java.util.Collection;
 
 public class SpecialtiesCollectionImpl {
 
@@ -16,7 +18,7 @@ public class SpecialtiesCollectionImpl {
     this.hero = hero;
   }
 
-  public Specialty[] getSpecialties(TraitType traitType) {
+  public Collection<Specialty> getSpecialties(TraitType traitType) {
     SpecialtiesModel specialtyConfiguration = SpecialtiesModelFetcher.fetch(hero);
     return specialtyConfiguration.getSpecialtiesContainer(traitType).getSubTraits();
   }

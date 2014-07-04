@@ -5,15 +5,15 @@ import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.platform.fx.ConfigurableListCellFactory;
-import net.sf.anathema.platform.tool.FxButtonTool;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
+import net.sf.anathema.library.interaction.model.Tool;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.List;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxMagicLearnView implements MagicLearnView {
   private final ListView availableMagicList = new ListView();

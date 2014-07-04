@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.traits.model.TraitListModel;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public interface AbilitiesModel extends TraitListModel {
 

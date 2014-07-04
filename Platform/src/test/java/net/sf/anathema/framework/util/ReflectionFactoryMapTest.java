@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.util;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.platform.initialization.ReflectionFactoryMap;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

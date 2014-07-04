@@ -40,19 +40,17 @@ import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModify
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.PrintCharmsProvider;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
-import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import org.jmock.example.announcer.Announcer;
@@ -112,7 +110,6 @@ public class CharmsModelImpl implements CharmsModel {
     initializeCharmTrees();
     initSpecialCharmConfigurations();
     learnCompulsiveCharms();
-    addOverdrivePools(hero);
     addPrintProvider(new PrintCharmsProvider(hero));
     addLearnProvider(new CharmLearner(this));
   }
@@ -121,13 +118,6 @@ public class CharmsModelImpl implements CharmsModel {
     for (CharmTreeCategory category : options) {
       LearningCharmTree[] learningCharmTrees = createTrees(category.getAllCharmTrees());
       learnTreesByCategory.put(category.getReference(), learningCharmTrees);
-    }
-  }
-
-  private void addOverdrivePools(Hero hero) {
-    EssencePoolModel poolModel = EssencePoolModelFetcher.fetch(hero);
-    if (poolModel == null) {
-      return;
     }
   }
 

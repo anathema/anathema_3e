@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ExtensibleDataManager implements IExtensibleDataSetProvider {
+public class ExtensibleDataManager implements ExtensibleDataSetProvider {
   private List<ExtensibleDataSet> dataSets = new ArrayList<>();
 
   public void addDataSet(ExtensibleDataSet data) {

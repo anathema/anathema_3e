@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.fx.hero.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
-import net.sf.anathema.hero.experience.ExperienceChange;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -15,8 +14,9 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.collection.IdentityMapping;
+import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.interaction.model.ToggleTool;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 
@@ -102,7 +102,7 @@ public class FavorableTraitConfigurationPresenter {
     boolean select = state == Favored || state == Caste;
     boolean enable = state == Favored || state == Default;
     setButtonState(view, select, enable);
-    GenericPresentationTemplate properties = new GenericPresentationTemplate(hero.getTemplate());
+    GenericPresentationTemplate properties = new GenericPresentationTemplate(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);
   }
 

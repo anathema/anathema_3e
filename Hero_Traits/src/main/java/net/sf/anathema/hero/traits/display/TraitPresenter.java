@@ -1,8 +1,7 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.view.IntValueView;
 
 public class TraitPresenter {
 
@@ -21,20 +20,10 @@ public class TraitPresenter {
   }
 
   private void initModelValueListening() {
-    trait.addCurrentValueListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        view.setValue(newValue);
-      }
-    });
+    trait.addCurrentValueListener(view::setValue);
   }
 
   private void initViewValueListening() {
-    view.addIntValueChangedListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        trait.setCurrentValue(newValue);
-      }
-    });
+    view.addIntValueChangedListener(trait::setCurrentValue);
   }
 }

@@ -6,23 +6,25 @@ import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.character.equipment.item.view.CostSelectionView;
 import net.sf.anathema.equipment.core.ItemCost;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.gui.selection.ISelectionIntValueChangedListener;
-import net.sf.anathema.platform.fx.FxObjectSelectionView;
-import net.sf.anathema.platform.fx.dot.DotSelectionSpinner;
-import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
+import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.event.SelectionIntValueChangedListener;
+import net.sf.anathema.library.fx.dot.DotSelectionSpinner;
+import net.sf.anathema.library.fx.selection.FxObjectSelectionView;
+import net.sf.anathema.library.fx.selection.SelectionViewFactory;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
+import java.util.Collection;
+
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCostSelectionView implements CostSelectionView {
 
   private FxObjectSelectionView<String> selection;
   private final DotSelectionSpinner spinner = new DotSelectionSpinner(0, 5);
   private final MigPane pane = new MigPane(withoutInsets());
-  private final Announcer<ISelectionIntValueChangedListener> announcer = new Announcer<>(
-          ISelectionIntValueChangedListener.class);
+  private final Announcer<SelectionIntValueChangedListener> announcer = new Announcer<>(
+    SelectionIntValueChangedListener.class);
   private final CostTypeChangeListener typeChangeListener = new CostTypeChangeListener();
 
   public FxCostSelectionView(final String text, SelectionViewFactory viewFactory) {
@@ -52,12 +54,12 @@ public class FxCostSelectionView implements CostSelectionView {
   }
 
   @Override
-  public void addSelectionChangedListener(final ISelectionIntValueChangedListener<String> listener) {
+  public void addSelectionChangedListener(final SelectionIntValueChangedListener<String> listener) {
     announcer.addListener(listener);
   }
 
   @Override
-  public void setSelectableBackgrounds(final String[] backgrounds) {
+  public void setSelectableBackgrounds(Collection<String> backgrounds) {
     selection.setObjects(backgrounds);
   }
 
@@ -66,7 +68,7 @@ public class FxCostSelectionView implements CostSelectionView {
   }
 
   @SuppressWarnings("unchecked")
-  private class CostTypeChangeListener implements ObjectValueListener<String> {
+  private class CostTypeChangeListener implements ObjectChangedListener<String> {
     @Override
     public void valueChanged(String newValue) {
       announcer.announce().valueChanged(newValue, spinner.getValue());

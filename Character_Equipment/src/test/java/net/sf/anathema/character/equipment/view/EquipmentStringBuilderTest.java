@@ -7,7 +7,7 @@ import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.dummy.DummyResources;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Before;
 import org.junit.Test;
 

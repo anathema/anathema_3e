@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
-import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.dummy.template.DummyHeroSplat;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -17,7 +17,7 @@ public class NativeCharacterTypeTest {
   public void returnsNativeTypeFromTemplate() throws Exception {
     CharacterType expectedType = new DummyMundaneCharacterType();
     Hero hero = mock(Hero.class);
-    when(hero.getTemplate()).thenReturn(new DummyHeroTemplate());
+    when(hero.getSplat()).thenReturn(new DummyHeroSplat());
     CharacterType type = NativeCharacterType.get(hero);
     assertThat(type, is(expectedType));
 

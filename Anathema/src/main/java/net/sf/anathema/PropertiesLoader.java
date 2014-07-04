@@ -36,9 +36,10 @@ public class PropertiesLoader {
   }
 
   private void fillPropertiesFromClassPath(Properties properties) throws IOException {
-    InputStream result = getStreamFromClassPath(propertiesName);
+    InputStream result = getClass().getClassLoader().getResourceAsStream(propertiesName);
     if (result != null) {
-      fillPropertiesFromStream(properties, result);
+      properties.load(result);
+      result.close();
     }
   }
 
@@ -46,19 +47,8 @@ public class PropertiesLoader {
     Path propertiesFile = Paths.get(propertiesName);
     if (Files.exists(propertiesFile)) {
       try (InputStream stream = Files.newInputStream(propertiesFile)) {
-        fillPropertiesFromStream(properties, stream);
+        properties.load(stream);
       }
     }
-  }
-
-  private void fillPropertiesFromStream(Properties properties, InputStream result) throws IOException {
-    properties.load(result);
-    result.close();
-  }
-
-  private InputStream getStreamFromClassPath(String path) {
-    InputStream result;
-    result = getClass().getClassLoader().getResourceAsStream(path);
-    return result;
   }
 }

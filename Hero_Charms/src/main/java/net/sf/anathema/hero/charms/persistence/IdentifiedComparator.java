@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.persistence;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Comparator;
 

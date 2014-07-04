@@ -55,7 +55,7 @@ public class AttributeSteps {
 
   @When("^she spends all her Attribute Freebies$")
   public void she_spends_all_attribute_freebies() {
-    String type = character.getHero().getTemplate().getTemplateType().getCharacterType().getId();
+    String type = character.getHero().getSplat().getTemplateType().getCharacterType().getId();
     new AttributeFreebiesMap().spendAllFreebies(type, attributes);
   }
 

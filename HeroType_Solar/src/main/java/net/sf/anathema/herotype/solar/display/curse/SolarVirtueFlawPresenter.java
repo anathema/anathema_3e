@@ -1,19 +1,18 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.TextualPresentation;
 
 public class SolarVirtueFlawPresenter extends VirtueFlawPresenter {
 
   private final ConfigurableCharacterView view;
   private final DescriptiveLimitBreakModel model;
 
-  public SolarVirtueFlawPresenter(Hero hero, Resources resources, ConfigurableCharacterView view, DescriptiveLimitBreakModel model) {
+  public SolarVirtueFlawPresenter(Resources resources, ConfigurableCharacterView view, DescriptiveLimitBreakModel model) {
     super(resources, view, model);
     this.view = view;
     this.model = model;

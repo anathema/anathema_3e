@@ -1,6 +1,9 @@
 package net.sf.anathema.framework.environment.dependencies;
 
 import com.google.common.collect.Iterables;
+import net.sf.anathema.platform.dependencies.AnnotationFinder;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
+import net.sf.anathema.platform.dependencies.ReflectionObjectFactory;
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;

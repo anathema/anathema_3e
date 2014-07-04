@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.intimacies.display;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.experience.ExperienceChange;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
-import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.model.RemovableEntryListener;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
+import net.sf.anathema.library.view.RemovableEntryView;
+import net.sf.anathema.library.view.StyledValueView;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,11 +46,11 @@ public class IntimaciesPresenter {
 
   private void initOverviewView() {
     final OverviewCategory creationOverview = view.addOverview(resources.getString("Intimacies.Overview.BorderLabel"));
-    final IValueView<Integer> totalIntimaciesView = creationOverview.addIntegerValueView(
+    final StyledValueView<Integer> totalIntimaciesView = creationOverview.addIntegerValueView(
             resources.getString("Intimacies.Overview.Maximum"), 2);
     final OverviewCategory experienceOverview = view.addOverview(
             resources.getString("Intimacies.Overview.BorderLabel"));
-    final IValueView<Integer> experienceMaximumView = experienceOverview.addIntegerValueView(
+    final StyledValueView<Integer> experienceMaximumView = experienceOverview.addIntegerValueView(
             resources.getString("Intimacies.Overview.Maximum"), 2);
     model.addModelChangeListener(() -> recalculateOverview(totalIntimaciesView, experienceMaximumView));
     model.addModelChangeListener(new RemovableEntryListener<Intimacy>() {
@@ -87,8 +87,8 @@ public class IntimaciesPresenter {
     }
   }
 
-  private void recalculateOverview(IValueView<Integer> totalIntimaciesView,
-                                   IValueView<Integer> experienceMaximumView) {
+  private void recalculateOverview(StyledValueView<Integer> totalIntimaciesView,
+                                   StyledValueView<Integer> experienceMaximumView) {
     totalIntimaciesView.setValue(model.getEntries().size());
     experienceMaximumView.setValue(model.getEntries().size());
   }
@@ -140,7 +140,7 @@ public class IntimaciesPresenter {
     return tool;
   }
 
-  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectValueListener<T> listener, T initial) {
+  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial) {
     ObjectSelectionView<T> selection = selectionView.addSelection();
     selection.setObjects(objects);
     selection.setSelectedObject(initial);

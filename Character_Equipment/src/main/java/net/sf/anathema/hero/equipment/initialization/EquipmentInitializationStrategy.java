@@ -3,8 +3,8 @@ package net.sf.anathema.hero.equipment.initialization;
 import net.sf.anathema.character.equipment.item.model.gson.EquipmentGson;
 import net.sf.anathema.character.equipment.item.model.gson.GsonEquipmentDatabase;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.initialization.initialitems.RepositoryItemInitializationStrategy;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.RepositoryItemInitializationStrategy;
 
 public class EquipmentInitializationStrategy implements RepositoryItemInitializationStrategy {
   private final static String EQUIPMENT_REGEX = "^.*\\.item$";
@@ -12,7 +12,7 @@ public class EquipmentInitializationStrategy implements RepositoryItemInitializa
   private final EquipmentGson gson = new EquipmentGson();
   private final GsonEquipmentDatabase database;
 
-  public EquipmentInitializationStrategy(IApplicationModel anathemaModel) {
+  public EquipmentInitializationStrategy(ApplicationModel anathemaModel) {
     database = GsonEquipmentDatabase.CreateFrom(anathemaModel);
   }
 

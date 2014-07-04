@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 
 public class MagicPointsModelFetcher {
 

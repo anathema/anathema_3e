@@ -1,6 +1,7 @@
 package net.sf.anathema.lib.compare;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.sort.I18nedIdentificateSorter;
 import org.junit.Test;
 
 import java.util.Collections;

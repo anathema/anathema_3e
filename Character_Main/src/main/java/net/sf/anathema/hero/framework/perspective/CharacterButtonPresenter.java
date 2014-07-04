@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.CharacterItemModel;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.resources.Resources;
 
 public class CharacterButtonPresenter {
 
@@ -26,12 +26,7 @@ public class CharacterButtonPresenter {
   }
 
   private void initDescriptiveFeatureListening() {
-    character.whenFeaturesChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        view.updateButton(extractButtonDto());
-      }
-    });
+    character.whenFeaturesChange(() -> view.updateButton(extractButtonDto()));
   }
 
   private CharacterButtonDto extractButtonDto() {

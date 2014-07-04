@@ -2,10 +2,13 @@ package net.sf.anathema.framework.preferences.persistence;
 
 import de.idos.updates.configuration.ConfigurationFailedException;
 import de.idos.updates.configuration.PropertiesLoader;
-import net.sf.anathema.framework.environment.preferences.PropertyPreferences;
 import net.sf.anathema.framework.preferences.perspective.PreferencesPersister;
-import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.PropertiesSaver;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.logging.Logger;
+import net.sf.anathema.platform.preferences.PreferenceKey;
+import net.sf.anathema.platform.preferences.PreferencePto;
+import net.sf.anathema.platform.preferences.PreferenceValue;
+import net.sf.anathema.platform.preferences.PropertyPreferences;
+import net.sf.anathema.platform.updatecheck.PropertiesSaver;
 
 import java.io.IOException;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 
 public interface CharacterGridView {

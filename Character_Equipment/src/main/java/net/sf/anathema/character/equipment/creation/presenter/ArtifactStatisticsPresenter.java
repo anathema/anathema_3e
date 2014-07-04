@@ -1,9 +1,9 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.ArtifactStatisticsProperties;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.fx.hero.configurableview.IIntegerSpinner;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.BooleanView;
 
 public class ArtifactStatisticsPresenter {
   private final IArtifactStatisticsModel artifactModel;
@@ -20,8 +20,8 @@ public class ArtifactStatisticsPresenter {
   public void initPresentation() {
     addSpinner(properties.getAttuneCostLabel(), artifactModel.getAttuneCostModel());
 
-    BooleanValueView foreignAttuneBox = view.addBooleanSelector(properties.getForeignAttuneLabel());
-    BooleanValueView requireAttuneBox = view.addBooleanSelector(properties.getRequireAttuneLabel());
+    BooleanView foreignAttuneBox = view.addBooleanSelector(properties.getForeignAttuneLabel());
+    BooleanView requireAttuneBox = view.addBooleanSelector(properties.getRequireAttuneLabel());
     
     BooleanValuePresentation booleanValuePresentation = new BooleanValuePresentation();
 

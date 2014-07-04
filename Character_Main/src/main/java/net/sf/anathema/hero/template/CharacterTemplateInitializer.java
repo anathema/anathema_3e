@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.CharacterTemplateResources;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +28,7 @@ public class CharacterTemplateInitializer {
   private void registerTemplateFromFile(ResourceFile templateResource) {
     try (InputStream stream = templateResource.getURL().openStream()) {
       ParsedHeroTemplate parsedHeroTemplate = loader.load(stream);
-      HeroTemplate template = new HeroTemplateImpl(parsedHeroTemplate, environment.getCharacterTypes());
+      HeroSplat template = new HeroSplatImpl(parsedHeroTemplate, environment.getCharacterTypes());
       environment.getTemplateRegistry().register(template);
     } catch (IOException e) {
       throw new PersistenceException(e);

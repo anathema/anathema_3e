@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.library.model.Condition;
 
 public class DummyCondition implements Condition {
 

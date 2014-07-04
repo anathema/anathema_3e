@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
-import net.sf.anathema.lib.gui.file.Extension;
-import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.hero.application.report.ControlledFileChooser;
+import net.sf.anathema.library.io.FileChooserConfiguration;
+import net.sf.anathema.library.io.FileExtension;
+import net.sf.anathema.library.io.SingleFileChooser;
 import org.junit.Test;
 
 import java.nio.file.Path;
@@ -15,7 +16,7 @@ import static org.mockito.Mockito.when;
 
 public class ControlledFileChooserTest {
 
-  private final FileChooserConfiguration configuration = new FileChooserConfiguration(new Extension("description", "filter"), "name");
+  private final FileChooserConfiguration configuration = new FileChooserConfiguration(new FileExtension("description", "filter"), "name");
 
   @Test
   public void findsFileViaRegisteredFileChooser() throws Exception {

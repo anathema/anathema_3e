@@ -1,8 +1,8 @@
 package net.sf.anathema.view;
 
-import net.sf.anathema.framework.view.messaging.StatusBar;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.message.Message;
+import net.sf.anathema.platform.messaging.StatusBar;
 
 import java.util.Collection;
 

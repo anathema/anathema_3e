@@ -2,8 +2,8 @@ package net.sf.anathema.scribe.scroll.persistence;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Collections2;
-import net.sf.anathema.framework.repository.access.printname.RepositoryId;
-import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
+import net.sf.anathema.platform.repository.printname.RepositoryId;
+import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 
 import java.util.Collection;
 import java.util.HashMap;

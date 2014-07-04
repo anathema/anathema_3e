@@ -6,16 +6,16 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.util.Closure;
-import net.sf.anathema.platform.fx.ConfigurableListCellFactory;
-import net.sf.anathema.platform.tool.FxButtonTool;
+import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.List;
 
-import static net.sf.anathema.lib.gui.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxToolListView<T> implements ToolListView<T> {
 

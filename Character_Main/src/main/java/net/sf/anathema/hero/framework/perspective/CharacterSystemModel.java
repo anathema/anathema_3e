@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.repository.IRepositoryFileResolver;
-import net.sf.anathema.hero.creation.CharacterTemplateCreator;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.item.HeroReferenceScanner;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.application.report.ControlledPrintWithSelectedReport;
+import net.sf.anathema.hero.application.report.QuickPrintCommand;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.display.ItemReceiver;
-import net.sf.anathema.hero.framework.item.HeroReferenceScanner;
-import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
@@ -19,14 +19,14 @@ import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.perspective.model.ItemSystemModel;
 import net.sf.anathema.hero.framework.perspective.model.NewCharacterListener;
 import net.sf.anathema.hero.framework.perspective.model.ReportRegister;
-import net.sf.anathema.hero.framework.perspective.sheet.ControlledPrintWithSelectedReport;
-import net.sf.anathema.hero.framework.perspective.sheet.QuickPrintCommand;
-import net.sf.anathema.hero.framework.reporting.Report;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.platform.JsonHeroReferenceScanner;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.SingleFileChooser;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;
@@ -48,14 +48,14 @@ public class CharacterSystemModel implements ItemSystemModel {
   private Announcer<ChangeListener> becomesCleanAnnouncer = Announcer.to(ChangeListener.class);
   private ChangeListener dirtyListener = this::notifyDirtyListeners;
   private final CharacterPersistenceModel persistenceModel;
-  private IApplicationModel model;
+  private ApplicationModel model;
   private int newCharacterCount = 0;
 
-  public CharacterSystemModel(IApplicationModel model) {
+  public CharacterSystemModel(ApplicationModel model) {
     this(new CharacterPersistenceModel(model, HeroEnvironmentExtractor.getGenerics(model)), model);
   }
 
-  public CharacterSystemModel(CharacterPersistenceModel persistenceModel, IApplicationModel model) {
+  public CharacterSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
     this.persistenceModel = persistenceModel;
     this.model = model;
   }
@@ -131,7 +131,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void printCurrentItemQuickly(Environment environment) {
-    CharacterReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder(environment);
     new QuickPrintCommand(environment, reportFinder, getCurrentCharacter()).execute();
   }
 
@@ -167,7 +167,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void registerAllReportsOn(ReportRegister register, Environment environment) {
-    CharacterReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder(environment);
     for (Report report : reportFinder.getAllReports(getCurrentCharacter())) {
       register.register(report);
     }
@@ -232,7 +232,7 @@ public class CharacterSystemModel implements ItemSystemModel {
     item.getItemData().getChangeManagement().setClean();
   }
 
-  private CharacterReportFinder createReportFinder(Environment environment) {
-    return new CharacterReportFinder(model, environment);
+  private HeroReportFinder createReportFinder(Environment environment) {
+    return new HeroReportFinder(model, environment);
   }
 }

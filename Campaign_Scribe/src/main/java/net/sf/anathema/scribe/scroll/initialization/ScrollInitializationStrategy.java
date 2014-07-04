@@ -1,7 +1,7 @@
 package net.sf.anathema.scribe.scroll.initialization;
 
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.initialization.initialitems.RepositoryItemInitializationStrategy;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.RepositoryItemInitializationStrategy;
 import net.sf.anathema.scribe.scroll.gson.ScrollGson;
 import net.sf.anathema.scribe.scroll.persistence.RepositoryScrollPersister;
 import net.sf.anathema.scribe.scroll.persistence.Scroll;
@@ -13,7 +13,7 @@ public class ScrollInitializationStrategy implements RepositoryItemInitializatio
   private final ScrollGson gson = new ScrollGson();
   private final RepositoryScrollPersister persister;
 
-  public ScrollInitializationStrategy(IApplicationModel anathemaModel) {
+  public ScrollInitializationStrategy(ApplicationModel anathemaModel) {
     persister = new RepositoryScrollPersister(anathemaModel.getRepository(), new SystemClock());
   }
 

@@ -5,11 +5,11 @@ import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.cost.CostImpl;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.magic.description.MagicDescription;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.magic.description.model.MagicDescription;
 
 public abstract class AbstractMagicCardData implements ICardData {
 

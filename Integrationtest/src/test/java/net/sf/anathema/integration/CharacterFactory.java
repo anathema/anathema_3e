@@ -1,29 +1,29 @@
 package net.sf.anathema.integration;
 
 import net.sf.anathema.TestInitializer;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.fx.hero.perspective.CharacterSystemInitializer;
 import net.sf.anathema.hero.application.item.HeroItem;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.application.item.HeroItemData;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.display.fx.perspective.CharacterSystemInitializer;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
-import net.sf.anathema.hero.framework.item.CharacterItem;
-import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.CharacterPersistenceModel;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.util.SimpleIdentifier;
-import org.apache.commons.io.FileUtils;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import java.io.File;
 
 public class CharacterFactory {
 
   private CharacterTypes characterTypes;
-  private IApplicationModel model;
+  private ApplicationModel model;
   private HeroEnvironment heroEnvironment;
 
   public void startAnathema() {
@@ -34,29 +34,29 @@ public class CharacterFactory {
     this.characterTypes = heroEnvironment.getCharacterTypes();
   }
 
-  public HeroItem createCharacter(String type, String subtype) {
-    HeroTemplate characterTemplate = loadTemplateForType(type, subtype);
+  public HeroItemData createCharacter(String type, String subtype) {
+    HeroSplat characterTemplate = loadTemplateForType(type, subtype);
     return createCharacter(characterTemplate);
   }
 
-  public HeroItem saveAndReload(HeroItem heroItem) throws  Exception{
+  public HeroItemData saveAndReload(HeroItemData heroItemData) throws  Exception{
     CharacterPersistenceModel persistenceModel = new CharacterPersistenceModel(model, heroEnvironment);
-    CharacterItem characterItem = new CharacterItem(heroItem);
-    persistenceModel.save(characterItem);
-    String repositoryId = characterItem.getRepositoryLocation().getId();
+    HeroItem heroItem = new HeroItem(heroItemData);
+    persistenceModel.save(heroItem);
+    String repositoryId = heroItem.getRepositoryLocation().getId();
     Item loadItem = persistenceModel.loadItem(new CharacterIdentifier(repositoryId));
-    return (HeroItem) loadItem.getItemData();
+    return (HeroItemData) loadItem.getItemData();
   }
 
-  private HeroTemplate loadTemplateForType(String type, String subtype) {
+  private HeroSplat loadTemplateForType(String type, String subtype) {
     HeroEnvironment generics = getCharacterGenerics();
-    return generics.getTemplateRegistry().getTemplate(new TemplateTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
+    return generics.getTemplateRegistry().getTemplate(new SplatTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
   }
 
-  private HeroItem createCharacter(HeroTemplate template) {
+  private HeroItemData createCharacter(HeroSplat template) {
     RepositoryItemPersister itemPersister = new HeroItemPersister(getCharacterGenerics(), model.getMessaging());
     Item item = itemPersister.createNew(template);
-    return (HeroItem) item.getItemData();
+    return (HeroItemData) item.getItemData();
   }
 
   private HeroEnvironment getCharacterGenerics() {
@@ -66,7 +66,7 @@ public class CharacterFactory {
   public void tearDownRepository() throws Throwable{
     File repositoryDirectory = new File(model.getRepository().getRepositoryPath());
       if (repositoryDirectory.exists()) {
-        FileUtils.deleteDirectory(repositoryDirectory);
+        InputOutput.deleteDirectory(repositoryDirectory);
       }
    }
 }

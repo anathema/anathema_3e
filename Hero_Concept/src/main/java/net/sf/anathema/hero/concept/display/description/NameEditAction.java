@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.text.ITextualDescription;
 
 public interface NameEditAction {
   void configure(Tool tool, ITextualDescription description);

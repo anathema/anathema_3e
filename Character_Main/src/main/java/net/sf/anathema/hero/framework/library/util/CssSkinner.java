@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.library.util;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
 import java.util.List;

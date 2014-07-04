@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.model.rules;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 
 import java.util.List;
 import java.util.function.Consumer;

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.specialties.display.view;
 
-import net.sf.anathema.framework.util.Produces;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtiesConfigurationView;
+import net.sf.anathema.library.autocollect.Produces;
 
 @Produces(SpecialtiesConfigurationView.class)
 public class SpecialtiesViewFactory implements SubViewFactory {

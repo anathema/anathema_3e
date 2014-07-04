@@ -2,7 +2,9 @@ package net.sf.anathema.hero.equipment.sheet.content.stats.weapon;
 
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.Collection;
 
 public interface IWeaponStats extends IEquipmentStats {
 
@@ -12,7 +14,7 @@ public interface IWeaponStats extends IEquipmentStats {
 
   HealthType getDamageType();
 
-  Identifier[] getTags();
+  Collection<Identifier> getTags();
 
   TraitType getTraitType();
 

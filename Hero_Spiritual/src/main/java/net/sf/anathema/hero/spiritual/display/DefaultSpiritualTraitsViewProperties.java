@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public class DefaultSpiritualTraitsViewProperties implements SpiritualTraitsViewProperties {
   private Resources resources;

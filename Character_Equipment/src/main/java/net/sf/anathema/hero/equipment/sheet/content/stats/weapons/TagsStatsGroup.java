@@ -9,11 +9,11 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -59,8 +59,8 @@ public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> 
     if (weapon == null) {
       table.addCell(createEmptyNameCell(font));
     } else {
-      Identifier[] tags = weapon.getTags();
-      List<String> values = Stream.of(tags).filter(printedTags::contains).map(input -> resources.getString("Weapons.Tags." + input.getId() + ".Short")).collect(toList());
+      Stream<Identifier> tags = weapon.getTags().stream();
+      List<String> values = tags.filter(printedTags::contains).map(input -> resources.getString("Weapons.Tags." + input.getId() + ".Short")).collect(toList());
       String valueString = values.isEmpty() ? " " : Joiner.on(",").join(values);
       table.addCell(createFilledContentCell(font, valueString));
     }

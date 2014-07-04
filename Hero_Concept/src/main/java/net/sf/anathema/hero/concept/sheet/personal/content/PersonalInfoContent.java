@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.concept.sheet.personal.content;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.description.HeroDescription;
-import net.sf.anathema.hero.description.HeroDescriptionFetcher;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -67,7 +67,7 @@ public class PersonalInfoContent extends AbstractSubContent implements SubBoxCon
   }
 
   private CharacterType getCharacterType() {
-    return hero.getTemplate().getTemplateType().getCharacterType();
+    return hero.getSplat().getTemplateType().getCharacterType();
   }
 
   private String getCasteContent() {

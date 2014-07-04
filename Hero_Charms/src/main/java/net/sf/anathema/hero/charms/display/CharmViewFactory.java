@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.framework.util.Produces;
-import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
-import net.sf.anathema.platform.fx.Stylesheet;
+import net.sf.anathema.library.autocollect.Produces;
+import net.sf.anathema.library.fx.Stylesheet;
+import net.sf.anathema.library.view.BooleanView;
+import net.sf.anathema.library.view.IntValueView;
 
 @Produces(CharmView.class)
 public class CharmViewFactory implements SubViewFactory {
@@ -16,7 +16,7 @@ public class CharmViewFactory implements SubViewFactory {
   public <T> T create() {
     FxCharmView fxView = new FxCharmView();
     fxView.registerSpecialType(IntValueView.class, new FxIntDisplayFactory());
-    fxView.registerSpecialType(BooleanValueView.class, new FxBooleanDisplayFactory());
+    fxView.registerSpecialType(BooleanView.class, new FxBooleanDisplayFactory());
     new Stylesheet("skin/platform/tooltip.css").applyToParent(fxView.getNode());
     return (T) fxView;
   }

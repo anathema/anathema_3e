@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.specialties.persistence;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.hero.specialties.ISubTraitContainer;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
 import net.sf.anathema.hero.traits.persistence.TraitPto;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesPersister extends AbstractModelJsonPersister<SpecialtiesPto, SpecialtiesModel> {

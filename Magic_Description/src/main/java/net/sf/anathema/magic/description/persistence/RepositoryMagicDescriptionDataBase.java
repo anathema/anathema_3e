@@ -2,15 +2,15 @@ package net.sf.anathema.magic.description.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.framework.repository.RepositoryStringAccess;
 import net.sf.anathema.magic.description.module.MagicDescriptionItemType;
+import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.item.IItemType;
+import net.sf.anathema.platform.repository.Repository;
+import net.sf.anathema.platform.repository.RepositoryStringAccess;
 
 public class RepositoryMagicDescriptionDataBase implements MagicDescriptionDataBase {
 
-  public static RepositoryMagicDescriptionDataBase CreateFrom(IApplicationModel anathemaModel) {
+  public static RepositoryMagicDescriptionDataBase CreateFrom(ApplicationModel anathemaModel) {
     Repository repository = anathemaModel.getRepository();
     IItemType itemType = new MagicDescriptionItemType().getItemType();
     return new RepositoryMagicDescriptionDataBase(repository, itemType);

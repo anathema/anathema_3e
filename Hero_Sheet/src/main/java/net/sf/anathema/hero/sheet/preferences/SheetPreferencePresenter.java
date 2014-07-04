@@ -1,15 +1,13 @@
 package net.sf.anathema.hero.sheet.preferences;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.preferences.elements.PreferenceModel;
-import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
-import net.sf.anathema.framework.preferences.elements.PreferenceView;
-import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.preferences.PreferenceModel;
+import net.sf.anathema.platform.preferences.PreferencePresenter;
+import net.sf.anathema.platform.preferences.PreferenceView;
+import net.sf.anathema.platform.preferences.RegisteredPreferencePresenter;
 
 @RegisteredPreferencePresenter
 public class SheetPreferencePresenter implements PreferencePresenter {
@@ -22,18 +20,8 @@ public class SheetPreferencePresenter implements PreferencePresenter {
     final ObjectSelectionView<PageSize> pageSizeView = view.addObjectSelectionView(
             resources.getString("Preferences.Sheet.PageSize"), new PageSizeUi(resources));
     pageSizeView.setObjects(model.getAvailableChoices());
-    pageSizeView.addObjectSelectionChangedListener(new ObjectValueListener<PageSize>() {
-      @Override
-      public void valueChanged(PageSize newValue) {
-        model.requestChangeTo(newValue);
-      }
-    });
-    model.onChange(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        showCurrentChoiceInView(pageSizeView);
-      }
-    });
+    pageSizeView.addObjectSelectionChangedListener(model::requestChangeTo);
+    model.onChange(() -> showCurrentChoiceInView(pageSizeView));
     showCurrentChoiceInView(pageSizeView);
   }
 

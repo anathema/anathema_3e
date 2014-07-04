@@ -6,6 +6,8 @@ import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisti
 import net.sf.anathema.equipment.core.MaterialComposition;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 
+import java.util.Collection;
+
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Artifact;
 
 public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
@@ -19,7 +21,7 @@ public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
   }
 
   @Override
-  public IEquipmentStats createNewStats(String[] definedNames, String nameProposal, EquipmentStatisticsType type) {
+  public IEquipmentStats createNewStats(Collection<String> definedNames, String nameProposal, EquipmentStatisticsType type) {
     IEquipmentStatisticsCreationModel model = new EquipmentStatisticsCreationModel();
     model.setForbiddenNames(definedNames);
     model.setEquipmentType(type);

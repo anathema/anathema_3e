@@ -1,25 +1,25 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.messaging.MessageToken;
-import net.sf.anathema.framework.messaging.Messaging;
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.application.item.HeroItemImp;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.framework.item.CharacterItem;
-import net.sf.anathema.hero.framework.item.HeroNameFetcher;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.persistence.HeroModelPersister;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.application.item.HeroItem;
+import net.sf.anathema.hero.application.item.HeroItemDataImp;
+import net.sf.anathema.hero.application.item.HeroNameFetcher;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.application.persistence.HeroModelPersister;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.SplatTypeImpl;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.platform.messaging.MessageToken;
+import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
+import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
 
-import static net.sf.anathema.lib.message.MessageType.Information;
+import static net.sf.anathema.library.message.MessageType.Information;
 
 public class HeroItemPersister implements RepositoryItemPersister {
 
@@ -34,7 +34,7 @@ public class HeroItemPersister implements RepositoryItemPersister {
   }
 
   @Override
-  public Item createNew(HeroTemplate template) throws PersistenceException {
+  public Item createNew(HeroSplat template) throws PersistenceException {
     return createCharacterInItem(template, new NewCharacterInitializer());
   }
 
@@ -51,17 +51,17 @@ public class HeroItemPersister implements RepositoryItemPersister {
   @Override
   public Item load(RepositoryReadAccess readAccess) throws PersistenceException {
     HeroMainFileDto mainFileDto = new HeroMainFilePersister().load(readAccess);
-    HeroTemplate template = loadHeroTemplate(mainFileDto);
+    HeroSplat template = loadHeroTemplate(mainFileDto);
     CharacterInitializer initializer = new LoadingCharacterInitializer(readAccess, persisterList, messaging);
     Item item = createCharacterInItem(template, initializer);
     item.getRepositoryLocation().setId(mainFileDto.repositoryId);
     return item;
   }
 
-  private HeroTemplate loadHeroTemplate(HeroMainFileDto mainFileDto) {
+  private HeroSplat loadHeroTemplate(HeroMainFileDto mainFileDto) {
     CharacterType characterType = generics.getCharacterTypes().findById(mainFileDto.characterType.characterType);
     Identifier subtype = new SimpleIdentifier(mainFileDto.characterType.subType);
-    TemplateTypeImpl templateType = new TemplateTypeImpl(characterType, subtype);
+    SplatTypeImpl templateType = new SplatTypeImpl(characterType, subtype);
     return generics.getTemplateRegistry().getTemplate(templateType);
   }
 
@@ -75,14 +75,14 @@ public class HeroItemPersister implements RepositoryItemPersister {
     }
   }
 
-  private Item createCharacterInItem(HeroTemplate template, CharacterInitializer initializer) {
-    HeroItemImp character = new HeroItemImp(template, generics);
+  private Item createCharacterInItem(HeroSplat template, CharacterInitializer initializer) {
+    HeroItemDataImp character = new HeroItemDataImp(template, generics);
     initializer.initialize(character);
     return initItem(character);
   }
 
-  private Item initItem(HeroItemImp character) {
+  private Item initItem(HeroItemDataImp character) {
     character.markReadyForWork();
-    return new CharacterItem(character);
+    return new HeroItem(character);
   }
 }

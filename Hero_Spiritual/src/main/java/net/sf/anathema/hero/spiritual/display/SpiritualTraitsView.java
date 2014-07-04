@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.framework.value.IntValueView;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
+import net.sf.anathema.library.view.IntValueView;
+import net.sf.anathema.library.view.StyledValueView;
 
 public interface SpiritualTraitsView {
 
@@ -11,5 +11,5 @@ public interface SpiritualTraitsView {
 
   IntValueView addEssenceView(String labelText, int maxValue);
 
-  IValueView<String> addPoolView(String labelText);
+  StyledValueView<String> addPoolView(String labelText);
 }

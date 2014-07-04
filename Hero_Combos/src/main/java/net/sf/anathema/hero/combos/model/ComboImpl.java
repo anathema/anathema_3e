@@ -4,9 +4,9 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.text.ITextualDescription;
+import net.sf.anathema.library.text.SimpleTextualDescription;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

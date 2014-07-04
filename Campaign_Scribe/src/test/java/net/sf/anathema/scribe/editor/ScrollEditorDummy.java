@@ -1,6 +1,6 @@
 package net.sf.anathema.scribe.editor;
 
-import net.sf.anathema.platform.markdown.WikiText;
+import net.sf.anathema.library.markdown.WikiText;
 import net.sf.anathema.scribe.editor.presenter.ScrollEditor;
 import net.sf.anathema.scribe.editor.presenter.TextTypedListener;
 import org.jmock.example.announcer.Announcer;

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.List;

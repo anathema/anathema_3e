@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.framework.perspective;
 
+import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.framework.display.IItemCreator;
-import net.sf.anathema.hero.framework.item.Item;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.exception.PersistenceException;
 
 public class NewItemCreator implements IItemCreator {
 
@@ -15,7 +15,7 @@ public class NewItemCreator implements IItemCreator {
   }
 
   @Override
-  public Item createItem(HeroTemplate template) throws PersistenceException {
+  public Item createItem(HeroSplat template) throws PersistenceException {
     Item item = persister.createNew(template);
     item.getItemData().getChangeManagement().setClean();
     return item;

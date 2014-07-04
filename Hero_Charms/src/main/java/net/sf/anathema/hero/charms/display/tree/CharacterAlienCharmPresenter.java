@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.display.model.CharacterCategoryCollection;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 import java.util.List;
 

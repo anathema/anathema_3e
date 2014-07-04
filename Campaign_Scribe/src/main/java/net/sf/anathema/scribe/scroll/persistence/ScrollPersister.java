@@ -1,6 +1,6 @@
 package net.sf.anathema.scribe.scroll.persistence;
 
-import net.sf.anathema.framework.repository.access.printname.RepositoryId;
+import net.sf.anathema.platform.repository.printname.RepositoryId;
 
 import java.util.Collection;
 

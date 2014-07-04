@@ -4,7 +4,7 @@ import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.NullTraitFavorization;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
 public class DummyTrait implements Trait {
 
@@ -76,12 +76,12 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public void addCreationPointListener(IntValueChangedListener listener) {
+  public void addCreationPointListener(IntegerChangedListener listener) {
     //not yet implemented
   }
 
   @Override
-  public void addCurrentValueListener(IntValueChangedListener listener) {
+  public void addCurrentValueListener(IntegerChangedListener listener) {
     //not yet implemented
   }
 
@@ -96,7 +96,7 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public void removeCreationPointListener(IntValueChangedListener listener) {
+  public void removeCreationPointListener(IntegerChangedListener listener) {
     //not yet implemented
   }
 

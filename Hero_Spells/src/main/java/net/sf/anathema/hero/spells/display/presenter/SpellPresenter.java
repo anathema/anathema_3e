@@ -1,20 +1,20 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
 import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
 import java.util.ArrayList;
 import java.util.Collection;

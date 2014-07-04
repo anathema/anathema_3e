@@ -3,8 +3,11 @@ package net.sf.anathema.hero.equipment.model.natural;
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+
+import java.util.Collection;
+import java.util.Collections;
 
 public class DefaultNaturalSoak extends AbstractCombatStats implements IArmourStats, NaturalSoak {
 
@@ -30,8 +33,8 @@ public class DefaultNaturalSoak extends AbstractCombatStats implements IArmourSt
   }
 
   @Override
-  public Identifier[] getTags() {
-    return new Identifier[0];
+  public Collection<Identifier> getTags() {
+    return Collections.emptyList();
   }
 
   @Override

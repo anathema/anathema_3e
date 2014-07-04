@@ -2,7 +2,7 @@ package net.sf.anathema.hero.specialties.display.presenter;
 
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 
 public class TraitTypeUiConfiguration extends AbstractUIConfiguration<TraitType> {
   private TraitTypeInternationalizer i18ner;

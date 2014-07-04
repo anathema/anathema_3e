@@ -1,14 +1,14 @@
 package net.sf.anathema.framework.preferences.perspective;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.preferences.elements.PreferenceModel;
-import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
-import net.sf.anathema.framework.preferences.elements.PreferenceView;
-import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
-import net.sf.anathema.framework.preferences.persistence.PreferencePto;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.preferences.PreferenceModel;
+import net.sf.anathema.platform.preferences.PreferencePresenter;
+import net.sf.anathema.platform.preferences.PreferencePto;
+import net.sf.anathema.platform.preferences.PreferenceView;
+import net.sf.anathema.platform.preferences.RegisteredPreferencePresenter;
 
 import java.util.Collection;
 

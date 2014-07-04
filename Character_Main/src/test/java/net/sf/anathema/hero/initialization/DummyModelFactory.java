@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.framework.environment.dependencies.DoNotInstantiateAutomatically;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
 import java.util.ArrayList;
 

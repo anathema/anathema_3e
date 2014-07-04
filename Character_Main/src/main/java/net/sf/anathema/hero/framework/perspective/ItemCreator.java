@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.hero.creation.IItemOperator;
+import net.sf.anathema.hero.application.creation.IItemOperator;
+import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.framework.display.IItemCreator;
 import net.sf.anathema.hero.framework.display.ItemReceiver;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.exception.PersistenceException;
 
 public class ItemCreator implements IItemOperator {
 
@@ -18,7 +18,7 @@ public class ItemCreator implements IItemOperator {
   }
 
   @Override
-  public void operate(HeroTemplate template) throws PersistenceException {
+  public void operate(HeroSplat template) throws PersistenceException {
     Item item = creator.createItem(template);
     try {
       receiver.addItem(item);

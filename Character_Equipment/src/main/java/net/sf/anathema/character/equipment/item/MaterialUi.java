@@ -1,8 +1,8 @@
 package net.sf.anathema.character.equipment.item;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.resources.Resources;
 
 public class MaterialUi extends AbstractUIConfiguration<MagicalMaterial> {
   private Resources resources;

@@ -1,8 +1,8 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
-import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.points.template.PointsTemplate;
 import net.sf.anathema.points.template.PointsTemplateLoader;
 

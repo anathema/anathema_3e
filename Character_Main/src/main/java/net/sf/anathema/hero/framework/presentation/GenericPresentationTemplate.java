@@ -1,20 +1,20 @@
 package net.sf.anathema.hero.framework.presentation;
 
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.hero.template.PresentationProperties;
-import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class GenericPresentationTemplate implements PresentationProperties {
 
-  private final TemplateType templateType;
+  private final SplatType splatType;
 
-  public GenericPresentationTemplate(HeroTemplate heroTemplate) {
-    this(heroTemplate.getTemplateType());
+  public GenericPresentationTemplate(HeroSplat heroSplat) {
+    this(heroSplat.getTemplateType());
   }
  
-  public GenericPresentationTemplate(TemplateType templateType) {
-    this.templateType = templateType;
+  public GenericPresentationTemplate(SplatType splatType) {
+    this.splatType = splatType;
   }
 
   @Override
@@ -38,10 +38,10 @@ public class GenericPresentationTemplate implements PresentationProperties {
   }
 
   private String getCharacterTypeId() {
-    return templateType.getCharacterType().getId();
+    return splatType.getCharacterType().getId();
   }
 
   private String getSubTypeId() {
-    return templateType.getSubType().getId();
+    return splatType.getSubType().getId();
   }
 }

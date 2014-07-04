@@ -1,8 +1,8 @@
 package net.sf.anathema.herotype.solar.model.curse;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.text.ITextualDescription;
+import net.sf.anathema.library.text.SimpleTextualDescription;
 
 public class DescriptiveLimitBreakImpl extends LimitBreakImpl implements DescriptiveLimitBreak {
 

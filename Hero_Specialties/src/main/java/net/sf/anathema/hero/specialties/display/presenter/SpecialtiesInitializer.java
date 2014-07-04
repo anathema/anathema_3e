@@ -1,22 +1,22 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.dependencies.Weight;
-import net.sf.anathema.framework.model.ApplicationModel;
+import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
+import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.display.HeroModelGroup;
-import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
-import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.specialties.SpecialtiesModel;
-import net.sf.anathema.hero.specialties.SpecialtiesModelFetcher;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModelImpl;
 
 @RegisteredInitializer(HeroModelGroup.NaturalTraits)
 @Weight(weight = 300)
 public class SpecialtiesInitializer implements HeroModelInitializer {
 
   @SuppressWarnings("UnusedParameters")
-  public SpecialtiesInitializer(ApplicationModel model) {
+  public SpecialtiesInitializer(ApplicationModelImpl model) {
     //nothing to do
   }
 

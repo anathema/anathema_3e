@@ -11,7 +11,7 @@ import net.sf.anathema.character.equipment.item.model.gson.GsonEquipmentDatabase
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.framework.environment.ObjectFactory;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.equipment.model.CharacterStatsModifiers;
 import net.sf.anathema.hero.equipment.model.EquipmentCollection;
 import net.sf.anathema.hero.equipment.model.EquipmentDirectAccess;
@@ -24,23 +24,22 @@ import net.sf.anathema.hero.equipment.model.natural.NaturalWeaponTemplate;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelFetcher;
-import net.sf.anathema.hero.specialties.Specialty;
+import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.CollectionListener;
-import net.sf.anathema.lib.util.Identifier;
-import org.apache.commons.lang3.ArrayUtils;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.change.UnspecifiedChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.CollectionListener;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.initialization.ObjectFactory;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;
@@ -75,7 +74,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     MaterialRules materialRules = createMagicalMaterialRules(environment);
     this.naturalArmor = determineNaturalArmor(hero);
     this.dataProvider = new EquipmentHeroEvaluatorImpl(hero, materialRules);
-    this.characterType = hero.getTemplate().getTemplateType().getCharacterType();
+    this.characterType = hero.getSplat().getTemplateType().getCharacterType();
     this.defaultMaterial = evaluateDefaultMaterial(materialRules);
     createNaturalWeapons();
     new SpecialtiesCollectionImpl(hero).addSpecialtyListChangeListener(new SpecialtyPrintRemover(dataProvider));
@@ -379,8 +378,8 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
 
     private boolean characterStillHasCorrespondingSpecialty(IEquipmentStatsOption option) {
       AbilityType trait = AbilityType.valueOf(option.getType());
-      Specialty[] specialties = dataProvider.getSpecialties(trait);
-      return ArrayUtils.contains(specialties, option.getUnderlyingTrait());
+      Collection<Specialty> specialties = dataProvider.getSpecialties(trait);
+      return specialties.contains(option.getUnderlyingTrait());
     }
   }
 

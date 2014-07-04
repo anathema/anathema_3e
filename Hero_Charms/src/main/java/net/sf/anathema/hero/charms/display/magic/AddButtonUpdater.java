@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.magic;
 
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Tool;
 
 public class AddButtonUpdater implements ButtonUpdater{
   private final MagicLearnProperties properties;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

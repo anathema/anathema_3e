@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.traits.model.event;
 
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
-public class TraitValueChangedListener implements IntValueChangedListener {
+public class TraitValueChangedListener implements IntegerChangedListener {
   private final ChangeAnnouncer changeAnnouncer;
   private final Trait trait;
 

@@ -1,7 +1,0 @@
-dependencies {
-    compile project(':Platform')
-    compile project(':Platform_TreeFramework')
-    testCompile testDependencies //includes JUnit etc.
-    testCompile testDependencies
-    testCompile project(path: ':Platform', configuration: 'tests')
-}

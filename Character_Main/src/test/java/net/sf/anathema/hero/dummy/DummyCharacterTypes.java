@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.Collections;
 import java.util.Iterator;

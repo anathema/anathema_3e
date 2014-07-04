@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.concept.CasteSelection;
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 public class CastePresenter {
 
@@ -25,10 +25,10 @@ public class CastePresenter {
   }
 
   public void initPresentation() {
-    HeroTemplate template = hero.getTemplate();
+    HeroSplat template = hero.getSplat();
     GenericPresentationTemplate presentationTemplate = new GenericPresentationTemplate(template);
     String casteLabelResourceKey = presentationTemplate.getCasteLabelResource();
-    CasteType[] casteTypes = HeroConceptFetcher.fetch(hero).getCasteCollection().getAllCasteTypes(hero.getTemplate().getTemplateType());
+    CasteType[] casteTypes = HeroConceptFetcher.fetch(hero).getCasteCollection().getAllCasteTypes(hero.getSplat().getTemplateType());
     AgnosticUIConfiguration<CasteType> casteUi = new AgnosticCasteUi(resources, presentationTemplate);
     final ObjectSelectionView<CasteType> casteView = view.addObjectSelectionView(resources.getString(casteLabelResourceKey), casteUi);
     casteView.setObjects(casteTypes);

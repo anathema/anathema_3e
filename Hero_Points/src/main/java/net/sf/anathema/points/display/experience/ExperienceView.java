@@ -1,6 +1,6 @@
 package net.sf.anathema.points.display.experience;
 
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 

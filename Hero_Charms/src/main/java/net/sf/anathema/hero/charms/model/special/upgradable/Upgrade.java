@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.special.upgradable;
 
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectImpl;
-import net.sf.anathema.hero.experience.ExperienceModel;
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModel;
+import net.sf.anathema.library.model.Condition;
 
 public class Upgrade extends SubEffectImpl {
   private int bpCost;

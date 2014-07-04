@@ -3,11 +3,11 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
-import net.sf.anathema.lib.data.Range;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.model.BooleanValueModel;
+import net.sf.anathema.library.number.IntegerRange;
 
 public class ArtifactStatisticsModel extends EquipmentStatisticsModel implements IArtifactStatisticsModel {
-  private final IIntValueModel attuneCostModel = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel attuneCostModel = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
   private final BooleanValueModel allowForeignModel = new BooleanValueModel(true);
   private final BooleanValueModel requireAttuneModel = new BooleanValueModel(false);
 

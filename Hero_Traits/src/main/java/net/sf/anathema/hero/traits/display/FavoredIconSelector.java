@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteUI;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.template.PresentationProperties;
 import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class FavoredIconSelector {
   private final Tool tool;
@@ -33,7 +33,7 @@ public class FavoredIconSelector {
       return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
     }
     if (state == FavorableState.Favored) {
-      CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
+      CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
       return new CharacterUI().getMediumBallPath(characterType);
     }
     return AgnosticUIConfiguration.NO_ICON;

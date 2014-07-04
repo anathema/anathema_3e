@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
 import com.google.gson.Gson;
-import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
-import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.hero.framework.persistence.HeroMainFileDto;
+import net.sf.anathema.platform.repository.printname.ReferenceBuilder;
+import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 
 public class CharacterReferenceBuilder implements ReferenceBuilder<CharacterReference> {
   @Override

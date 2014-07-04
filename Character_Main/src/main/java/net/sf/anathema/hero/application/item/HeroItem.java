@@ -1,8 +1,22 @@
 package net.sf.anathema.hero.application.item;
 
-import net.sf.anathema.hero.framework.item.ItemData;
-import net.sf.anathema.hero.model.Hero;
+public class HeroItem implements Item {
 
-public interface HeroItem extends ItemData, Hero {
+  public static final String DEFAULT_PRINT_NAME = "Unnamed";
+  private final ItemData itemData;
+  private final ItemRepositoryLocation repositoryLocation = new SimpleRepositoryLocation();
 
+  public HeroItem(HeroItemData heroItemData) {
+    this.itemData = heroItemData;
+  }
+
+  @Override
+  public ItemData getItemData() {
+    return itemData;
+  }
+
+  @Override
+  public ItemRepositoryLocation getRepositoryLocation() {
+    return repositoryLocation;
+  }
 }

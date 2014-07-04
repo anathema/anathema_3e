@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model.event;
 
-import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.library.change.ChangeFlavor;
 
 public class TraitChangeFlavor extends ChangeFlavor {
 

@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.initialization;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.DefaultHero;
-import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.ConfiguredModel;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.HeroModelInitializer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.splat.ConfiguredModel;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class HeroModelInitializerTest {
   private final List<HeroModelFactory> availableModels = new ArrayList<>();
   private final ConfigurableDummyObjectFactory objectFactory = new ConfigurableDummyObjectFactory();
   private final HeroEnvironment context = createGenerics();
-  private final HeroTemplate template = createTemplate();
+  private final HeroSplat template = createTemplate();
   private final HeroModelInitializer initializer = new HeroModelInitializer(context, template);
 
   @Test
@@ -81,8 +82,8 @@ public class HeroModelInitializerTest {
     return new DummyModelFactory(new SimpleIdentifier(idOfModel));
   }
 
-  private HeroTemplate createTemplate() {
-    HeroTemplate template = mock(HeroTemplate.class);
+  private HeroSplat createTemplate() {
+    HeroSplat template = mock(HeroSplat.class);
     when(template.getModels()).thenReturn(configuredModels);
     return template;
   }

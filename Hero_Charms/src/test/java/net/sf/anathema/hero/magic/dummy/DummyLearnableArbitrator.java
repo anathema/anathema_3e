@@ -4,19 +4,22 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
-import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class DummyLearnableArbitrator implements IExtendedCharmLearnableArbitrator {
 
-  private final String[] learnableCharmIds;
+  private final List<String> learnableCharmIds = new ArrayList<>();
 
   public DummyLearnableArbitrator(String... learnableCharmIds) {
-    this.learnableCharmIds = learnableCharmIds;
+    Collections.addAll(this.learnableCharmIds, learnableCharmIds);
   }
 
   @Override
   public boolean isLearnable(Charm charm) {
-    return ArrayUtils.contains(learnableCharmIds, charm.getName().text);
+    return learnableCharmIds.contains(charm.getName().text);
   }
   
   @Override

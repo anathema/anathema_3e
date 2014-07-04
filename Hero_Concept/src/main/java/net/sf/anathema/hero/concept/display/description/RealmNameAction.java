@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.hero.concept.display.caste.presenter.NameGeneratorCommand;
 import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextualDescription;
 import net.sf.anathema.namegenerator.domain.realm.RealmNameGenerator;
 
 @Weight(weight = 1)

@@ -1,9 +1,9 @@
 package net.sf.anathema.character.db;
 
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.hero.application.type.ForCharacterType;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmPresentationProperties;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.type.ForCharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.library.presenter.RGBColor;
 
 @ForCharacterType("Dragon-Blooded")
 public class DbCharmPresentationProperties extends AbstractCharmPresentationProperties {

@@ -1,9 +1,9 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.IOverviewModelVisitor;
 import net.sf.anathema.points.model.overview.IValueModel;
@@ -24,14 +24,14 @@ public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
   @Override
   public void visitStringValueModel(IValueModel<String> visitedModel) {
     OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
-    IValueView<String> casteView = overviewCategory.addStringValueView(getString(visitedModel.getId()));
+    StyledValueView<String> casteView = overviewCategory.addStringValueView(getString(visitedModel.getId()));
     updater.add(new StringSubPresenter(visitedModel, casteView, resources));
   }
 
   @Override
   public void visitIntegerValueModel(IValueModel<Integer> visitedModel) {
     OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
-    IValueView<Integer> valueView = overviewCategory.addIntegerValueView(getLabelString(visitedModel), 2);
+    StyledValueView<Integer> valueView = overviewCategory.addIntegerValueView(getLabelString(visitedModel), 2);
     updater.add(new ValueSubPresenter(visitedModel, valueView));
   }
 

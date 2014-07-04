@@ -4,15 +4,15 @@ import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManageme
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.repository.tree.VetorFactory;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Hotkey;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Hotkey;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.Vetor;
+import net.sf.anathema.platform.repositorytree.VetorFactory;
 
 public class SaveEquipmentTemplateAction {
   private final Resources resources;
@@ -53,7 +53,7 @@ public class SaveEquipmentTemplateAction {
   }
 
 
-  private class UpdateOnChange implements ObjectValueListener<String>, ChangeListener {
+  private class UpdateOnChange implements ObjectChangedListener<String>, ChangeListener {
     private Tool saveTool;
 
     public UpdateOnChange(Tool saveTool) {

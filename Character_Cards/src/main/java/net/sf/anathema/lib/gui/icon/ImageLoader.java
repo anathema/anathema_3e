@@ -1,15 +1,13 @@
 package net.sf.anathema.lib.gui.icon;
 
-import net.sf.anathema.lib.exception.PersistenceException;
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -24,10 +22,8 @@ public class ImageLoader {
   }
 
   private static Image readImage(InputStream inputStream) throws IOException {
-    BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
-    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-    IOUtils.copy(bufferedInputStream, byteArrayOutputStream);
-    return Toolkit.getDefaultToolkit().createImage(byteArrayOutputStream.toByteArray());
+    byte[] imagedata = InputOutput.toByteArray(inputStream);
+    return Toolkit.getDefaultToolkit().createImage(imagedata);
   }
 
   private static Image createMemoryImage(Image image) {

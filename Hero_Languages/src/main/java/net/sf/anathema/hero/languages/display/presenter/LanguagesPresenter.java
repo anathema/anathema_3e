@@ -1,18 +1,19 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
-import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.legality.LegalityColorProvider;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.legality.LegalityColorProvider;
+import net.sf.anathema.library.model.RemovableEntryListener;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.RemovableEntryView;
+import net.sf.anathema.library.view.StyledValueView;
+import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,9 +39,9 @@ public class LanguagesPresenter {
 
   private void initPointPresentation() {
     OverviewCategory overview = view.addOverview(resources.getString("Linguistics.Overview.Border"));
-    final IValueView<Integer> familyView = overview.addIntegerValueView(
+    final StyledValueView<Integer> familyView = overview.addIntegerValueView(
             resources.getString("Linguistics.Overview.Families"), 1);
-    final IValueView<Integer> barbarianView = overview.addIntegerValueView(
+    final StyledValueView<Integer> barbarianView = overview.addIntegerValueView(
             resources.getString("Linguistics.Overview.Barbarian"), 2);
     final LabelledAllotmentView totalView = overview.addAlotmentView(
             resources.getString("Linguistics.Overview.Total"), 2);
@@ -65,9 +66,9 @@ public class LanguagesPresenter {
   }
 
   private void updateOverview(
-          IValueView<Integer> familyView,
+          StyledValueView<Integer> familyView,
           LabelledAllotmentView totalView,
-          IValueView<Integer> barbarianView) {
+          StyledValueView<Integer> barbarianView) {
     familyView.setValue(model.getPredefinedLanguageCount());
     barbarianView.setValue(model.getBarbarianLanguageCount());
     int pointsSpent = model.getLanguagePointsSpent();

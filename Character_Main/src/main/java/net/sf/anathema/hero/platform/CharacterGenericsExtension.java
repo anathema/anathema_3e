@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.platform;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.ResourceLoader;
-import net.sf.anathema.framework.extension.AnathemaExtension;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.DataSetInitializer;
-import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtension;
 import net.sf.anathema.hero.framework.HeroEnvironmentImpl;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.template.CharacterTemplateInitializer;
-import net.sf.anathema.initialization.repository.DataFileProvider;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.io.DataFileProvider;
+import net.sf.anathema.library.resources.ResourceFileLoader;
+import net.sf.anathema.platform.frame.AnathemaExtension;
 
 public class CharacterGenericsExtension implements HeroEnvironmentExtension, AnathemaExtension {
 
@@ -20,8 +20,8 @@ public class CharacterGenericsExtension implements HeroEnvironmentExtension, Ana
     return environment;
   }
 
-  public void initialize(DataFileProvider dataFileProvider, ObjectFactory objectFactory, ResourceLoader loader) {
-    IExtensibleDataSetProvider dataSetProvider = new DataSetInitializer(loader, objectFactory).initializeExtensibleResources();
+  public void initialize(DataFileProvider dataFileProvider, ObjectFactory objectFactory, ResourceFileLoader loader) {
+    ExtensibleDataSetProvider dataSetProvider = new DataSetInitializer(loader, objectFactory).initializeExtensibleResources();
     this.environment = new HeroEnvironmentImpl(dataFileProvider, objectFactory, dataSetProvider);
     new CharacterTemplateInitializer(environment).addCharacterTemplates();
   }

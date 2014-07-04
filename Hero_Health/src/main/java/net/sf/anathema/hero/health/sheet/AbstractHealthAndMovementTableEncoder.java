@@ -11,10 +11,9 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
@@ -23,9 +22,11 @@ import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.ArrayUtils;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.concat;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class AbstractHealthAndMovementTableEncoder implements ITableEncoder<ReportSession> {
   public static final int HEALTH_RECT_SIZE = 6;
@@ -218,10 +219,12 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   }
 
   private float[] createColumnWidth() {
-    Float[] movementAndLevelColumns = concat(Float.class, getMovementColumns(), HEALTH_LEVEL_COLUMNS);
+    ArrayList<Float> widths = new ArrayList<>();
     Float[] healthColumns = TableEncodingUtilities.createStandardColumnWidths(HEALTH_COLUMN_COUNT, 0.4f);
-    Float[] objectArray = concat(Float.class, movementAndLevelColumns, healthColumns);
-    return ArrayUtils.toPrimitive(objectArray);
+    Collections.addAll(widths, getMovementColumns());
+    Collections.addAll(widths, HEALTH_LEVEL_COLUMNS);
+    Collections.addAll(widths, healthColumns);    
+    return ArrayUtils.toPrimitive(widths.toArray(new Float[widths.size()]));
   }
 
   protected final Resources getResources() {

@@ -8,9 +8,9 @@ import javafx.scene.image.ImageView;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentItemRenderer;
 import net.sf.anathema.hero.equipment.display.presenter.RelativePathWithDisabling;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.gui.layout.LayoutUtils;
-import net.sf.anathema.platform.fx.UITableCell;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.fx.cell.UITableCell;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class EquipmentCell extends ListCell<IEquipmentItem> {

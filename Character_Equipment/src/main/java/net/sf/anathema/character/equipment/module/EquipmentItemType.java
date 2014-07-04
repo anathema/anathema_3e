@@ -1,15 +1,16 @@
 package net.sf.anathema.character.equipment.module;
 
-import net.sf.anathema.framework.environment.dependencies.Weight;
-import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.framework.item.RepositoryConfiguration;
-import net.sf.anathema.framework.repository.ItemType;
-import net.sf.anathema.framework.repository.SingleFileConfiguration;
-import net.sf.anathema.initialization.RegisteredItemTypeConfiguration;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.item.IItemType;
+import net.sf.anathema.platform.item.ItemType;
+import net.sf.anathema.platform.item.ItemTypeConfiguration;
+import net.sf.anathema.platform.item.RegisteredItemTypeConfiguration;
+import net.sf.anathema.platform.item.RepositoryConfiguration;
+import net.sf.anathema.platform.repository.SingleFileConfiguration;
 
 @RegisteredItemTypeConfiguration
 @Weight(weight=40)
-public class EquipmentItemType implements net.sf.anathema.framework.module.ItemTypeConfiguration {
+public class EquipmentItemType implements ItemTypeConfiguration {
 
   private static final String EQUIPMENT_DATABASE_ITEM_TYPE_ID = "EquipmentDatabase";
   private static final RepositoryConfiguration REPOSITORY_CONFIGURATION = new SingleFileConfiguration(".item", "equipment/");

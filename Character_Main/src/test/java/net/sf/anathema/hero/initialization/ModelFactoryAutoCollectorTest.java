@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.initialization;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.model.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.ModelFactoryAutoCollector;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 

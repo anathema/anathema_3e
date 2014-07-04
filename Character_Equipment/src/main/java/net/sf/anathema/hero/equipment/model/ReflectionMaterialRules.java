@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.framework.environment.ObjectFactory;
+import net.sf.anathema.hero.application.type.CharacterSpecificsMap;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.type.CharacterSpecificsMap;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 public class ReflectionMaterialRules implements MaterialRules {
   private final CharacterSpecificsMap<CharacterTypeMaterialRules> map;

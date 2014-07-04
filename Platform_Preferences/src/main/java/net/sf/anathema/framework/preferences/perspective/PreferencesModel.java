@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.preferences.perspective;
 
-import net.sf.anathema.framework.preferences.elements.PreferenceModel;
-import net.sf.anathema.framework.preferences.persistence.PreferencePto;
+import net.sf.anathema.platform.preferences.PreferenceModel;
+import net.sf.anathema.platform.preferences.PreferencePto;
 
 public interface PreferencesModel {
   PreferencePto serialize();

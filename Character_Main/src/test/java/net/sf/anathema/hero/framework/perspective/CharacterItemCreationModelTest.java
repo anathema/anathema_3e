@@ -2,14 +2,15 @@ package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.hero.dummy.DummyCharacterTypes;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
-import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateRegistry;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterSplat;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.TemplateRegistry;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.library.event.ChangeListener;
 import org.junit.Test;
 import org.mockito.Mockito;
+
+import static java.util.Collections.singletonList;
 
 public class CharacterItemCreationModelTest {
 
@@ -29,9 +30,8 @@ public class CharacterItemCreationModelTest {
     characterTypes.add(characterType);
     Mockito.when(generics.getCharacterTypes()).thenReturn(characterTypes);
     TemplateRegistry registry = Mockito.mock(TemplateRegistry.class);
-    SimpleDummyCharacterTemplate characterTemplate = new SimpleDummyCharacterTemplate(characterType, null);
-    Mockito.when(registry.getAllSupportedTemplates(characterType)).thenReturn(
-            new HeroTemplate[]{characterTemplate});
+    SimpleDummyCharacterSplat characterTemplate = new SimpleDummyCharacterSplat(characterType, null);
+    Mockito.when(registry.getAllSupportedTemplates(characterType)).thenReturn(singletonList(characterTemplate));
     Mockito.when(generics.getTemplateRegistry()).thenReturn(registry);
     return generics;
   }

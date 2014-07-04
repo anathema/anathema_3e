@@ -1,0 +1,21 @@
+{
+  spells:{      
+    Shadowlands.HungryCreepingShadow:{
+        circle: Shadowlands,
+        cost: 15m,
+        target: Creature,
+        source:["Black Treatise,p15"]
+    },
+    Labyrinth.OnyxCountermagic: {
+        circle: Labyrinth,
+        cost: 20m,
+        target: CasterOnyxCountermagicSpell,
+        source: [BlackTreatise,p43]
+    },
+    Void.DimmingOfTheLight: {
+              circle: Void,
+              cost:80m,
+              source:[SecondEdition,p117]
+    }
+  }
+}

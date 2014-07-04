@@ -1,11 +1,11 @@
 package net.sf.anathema.herotype.solar.persistence.curse;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.application.persistence.AbstractModelJsonPersister;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPto, LimitBreakModel> {

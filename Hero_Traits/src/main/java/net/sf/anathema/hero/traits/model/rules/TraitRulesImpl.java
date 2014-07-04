@@ -1,19 +1,19 @@
 package net.sf.anathema.hero.traits.model.rules;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.number.IntegerRange;
 
 public class TraitRulesImpl implements TraitRules {
   private int capModifier = 0;
   private final TraitTemplate template;
   private final TraitType traitType;
-  private Range modifiedCreationRange;
+  private IntegerRange modifiedCreationRange;
   private Hero hero;
 
   public TraitRulesImpl(TraitType traitType, TraitTemplate template, Hero hero) {
@@ -73,30 +73,30 @@ public class TraitRulesImpl implements TraitRules {
   }
 
   @Override
-  public void setModifiedCreationRange(Range range) {
+  public void setModifiedCreationRange(IntegerRange range) {
     this.modifiedCreationRange = range;
   }
 
   @Override
   public int getExperiencedValue(int creationValue, int demandedValue) {
-    Range range;
+    IntegerRange range;
     int maximumValue = getCurrentMaximumValue(true);
     if (isReducible()) {
-      range = new Range(getAbsoluteMinimumValue(), maximumValue);
+      range = new IntegerRange(getAbsoluteMinimumValue(), maximumValue);
     } else {
       boolean isImmutable = template.modificationType == ModificationType.Immutable;
-      range = new Range(Math.max(Math.min(creationValue, maximumValue), getAbsoluteMinimumValue()), isImmutable ? creationValue : maximumValue);
+      range = new IntegerRange(Math.max(Math.min(creationValue, maximumValue), getAbsoluteMinimumValue()), isImmutable ? creationValue : maximumValue);
     }
     return getCorrectedValue(demandedValue, range);
    }
 
   @Override
   public int getCreationValue(int demandedValue) {
-    Range currentCreationPointRange = new Range(getAbsoluteMinimumValue(), getCreationMaximumValue());
+    IntegerRange currentCreationPointRange = new IntegerRange(getAbsoluteMinimumValue(), getCreationMaximumValue());
     return getCorrectedValue(demandedValue, currentCreationPointRange);
   }
 
-  private int getCorrectedValue(int value, Range allowedRange) {
+  private int getCorrectedValue(int value, IntegerRange allowedRange) {
     if (allowedRange.contains(value)) {
       return value;
     }

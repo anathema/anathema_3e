@@ -1,9 +1,9 @@
 package net.sf.anathema.character.equipment.item.view.fx;
 
 import net.sf.anathema.character.equipment.item.view.AgnosticEquipmentDatabaseView;
-import net.sf.anathema.framework.environment.fx.UiEnvironment;
-import net.sf.anathema.platform.fx.PerspectivePane;
-import net.sf.anathema.platform.fx.selection.ComboBoxSelectionFactory;
+import net.sf.anathema.library.fx.selection.ComboBoxSelectionFactory;
+import net.sf.anathema.platform.fx.environment.UiEnvironment;
+import net.sf.anathema.platform.fx.perspective.PerspectivePane;
 
 public class FxEquipmentDatabaseView {
 

@@ -3,10 +3,9 @@ package net.sf.anathema.hero.concept.sheet.anima.encoder;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Phrase;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.HorizontalLineEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
@@ -16,6 +15,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.library.resources.Resources;
 
 public class GenericAnimaEncoder implements ContentEncoder {
 
@@ -45,7 +45,7 @@ public class GenericAnimaEncoder implements ContentEncoder {
     Phrase phrase = new Phrase("", graphics.createFont(fontSize));
     // Add standard powers for character type
     Chunk symbolChunk = graphics.createSymbolChunk();
-    CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
+    CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
     ListUtils.addBulletedListText(resources, symbolChunk, "Sheet.AnimaPower." + characterType.getId(), phrase, false);
     String casteResourceKey = "Sheet.AnimaPower." + HeroConceptFetcher.fetch(hero).getCaste().getType().getId() + ".SecondEdition";
     if (resources.supportsKey(casteResourceKey)) {

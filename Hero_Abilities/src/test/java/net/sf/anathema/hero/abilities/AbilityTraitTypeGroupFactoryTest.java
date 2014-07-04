@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.abilities;
 
 import net.sf.anathema.hero.abilities.model.AbilityTypeGroupFactory;
-import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.ConfigurableCasteCollection;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
 import net.sf.anathema.hero.dummy.models.NullCasteCollection;
+import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import org.junit.Test;

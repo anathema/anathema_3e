@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 
 public interface IIntValueModel {
 
@@ -12,5 +12,5 @@ public interface IIntValueModel {
 
   int getValue();
 
-  void addIntValueChangeListener(IntValueChangedListener changeListener);
+  void addIntValueChangeListener(IntegerChangedListener changeListener);
 }

@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization;
 
-import net.sf.anathema.initialization.repository.LeadingPropertyResolver;
+import net.sf.anathema.platform.repository.LeadingPropertyResolver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,6 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.fx.hero.configurableview.IIntegerSpinner;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
 
 public class IntValuePresentation {
 
@@ -9,17 +8,7 @@ public class IntValuePresentation {
     integerSpinner.setValue(intValueModel.getValue());
     integerSpinner.setMinimum(intValueModel.getMinimum());
     integerSpinner.setMaximum(intValueModel.getMaximum());
-    intValueModel.addIntValueChangeListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        integerSpinner.setValue(newValue);
-      }
-    });
-    integerSpinner.addChangeListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        intValueModel.setValue(newValue);
-      }
-    });
+    intValueModel.addIntValueChangeListener(integerSpinner::setValue);
+    integerSpinner.addChangeListener(intValueModel::setValue);
   }
 }

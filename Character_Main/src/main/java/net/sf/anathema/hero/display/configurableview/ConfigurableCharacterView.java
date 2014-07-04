@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.configurableview;
 
-import net.sf.anathema.framework.value.IntValueView;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.view.IntValueView;
 
 public interface ConfigurableCharacterView {
 

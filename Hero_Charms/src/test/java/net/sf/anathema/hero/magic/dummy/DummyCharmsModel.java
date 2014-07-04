@@ -18,12 +18,12 @@ import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.exception.NotYetImplementedException;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.exception.NotYetImplementedException;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
@@ -176,10 +176,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public MartialArtsLevel getStandardMartialArtsLevel() {
     return MartialArtsLevel.Mortal;
-  }
-
-  public void setGroups(LearningCharmTree... groups) {
-    this.groups = groups;
   }
 
   @Override

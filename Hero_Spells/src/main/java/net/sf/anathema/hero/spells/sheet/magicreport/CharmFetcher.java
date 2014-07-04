@@ -3,8 +3,8 @@ package net.sf.anathema.hero.spells.sheet.magicreport;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.individual.model.Hero;
 
 public class CharmFetcher {
   

@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
-import org.apache.commons.io.IOUtils;
+import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.platform.repositorytree.ImportIdReplacer;
 import org.junit.Test;
 
 import java.io.ByteArrayInputStream;
@@ -15,7 +16,7 @@ public class ImportIdReplacerTest {
   public void replacesRepositoryId() throws Exception {
     InputStream stream = new ByteArrayInputStream("{\"repositoryId\": \"old\"}".getBytes());
     InputStream newStream = new ImportIdReplacer("old", "new").createStreamWithLegalId(stream);
-    String replacementString = IOUtils.toString(newStream);
+    String replacementString = InputOutput.toString(newStream);
     assertThat(replacementString, containsString("\"repositoryId\": \"new\""));
   }
 }

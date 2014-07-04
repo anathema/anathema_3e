@@ -2,7 +2,6 @@ package net.sf.anathema.hero.equipment.sheet.content;
 
 import net.sf.anathema.character.equipment.character.EquipmentHeroEvaluator;
 import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.equipment.sheet.content.stats.EquipmentNameStatsGroup;
@@ -13,10 +12,11 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.DamageWeaponSt
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.DefenceWeaponStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.OverwhelmingStatGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.TagsStatsGroup;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.library.resources.Resources;
 
 public class WeaponContent extends AbstractEquipmentContent<IWeaponStats> implements SubBoxContent {
 

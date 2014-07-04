@@ -1,9 +1,9 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.change.ChangeAnnouncer;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.creation.BonusPointManagementImpl;
 import net.sf.anathema.points.model.creation.PointsCreationData;
 import net.sf.anathema.points.model.overview.IOverviewModel;

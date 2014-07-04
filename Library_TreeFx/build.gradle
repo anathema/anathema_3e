@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':Library_FX')
+    compile project(':Library_TreeFramework')
+    testCompile testDependencies //includes JUnit etc.
+}

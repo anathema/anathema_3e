@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.lib.collection.MultiEntryMap;
+import net.sf.anathema.library.collection.MultiEntryMap;
 
 import java.util.ArrayList;
 import java.util.HashMap;

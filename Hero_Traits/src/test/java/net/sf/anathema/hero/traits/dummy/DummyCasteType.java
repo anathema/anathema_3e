@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.dummy;
 
-import net.sf.anathema.hero.concept.CasteType;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class DummyCasteType extends SimpleIdentifier implements CasteType {
 

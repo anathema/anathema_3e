@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.sheet.pdf.content.stats;
 
-import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
-import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.SimpleModelTreeEntry;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 
 @SuppressWarnings("UnusedDeclaration")
 public class StatsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {

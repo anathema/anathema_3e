@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.advance;
 
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
 
 public class SpellExperienceCostCalculator {

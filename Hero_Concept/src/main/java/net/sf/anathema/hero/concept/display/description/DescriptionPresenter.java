@@ -1,18 +1,17 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.description.HeroDescription;
 import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
-import net.sf.anathema.hero.framework.IIntegerDescription;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
-import net.sf.anathema.magic.description.swing.widgets.IIntegerView;
+import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.model.IntegerModel;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.ITextualDescription;
+import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.library.view.IntegerView;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
 
@@ -69,15 +68,10 @@ public class DescriptionPresenter {
     addInteger(sexAndAge, "Label.Age", heroConcept.getAge());
   }
 
-  private void addInteger(MultiComponentLine componentLine, String label, final IIntegerDescription integerDescription) {
+  private void addInteger(MultiComponentLine componentLine, String label, final IntegerModel integerDescription) {
     String title = environment.getString(label);
-    IIntegerView view = componentLine.addIntegerView(title, integerDescription);
-    view.addChangeListener(new IntValueChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        integerDescription.setValue(newValue);
-      }
-    });
+    IntegerView view = componentLine.addIntegerView(title, integerDescription);
+    view.addChangeListener(integerDescription::setValue);
   }
 
   private void addField(MultiComponentLine componentLine, String label, ITextualDescription description, TextualPresentation presentation) {

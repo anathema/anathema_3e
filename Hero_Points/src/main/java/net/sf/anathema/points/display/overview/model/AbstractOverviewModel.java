@@ -1,6 +1,6 @@
 package net.sf.anathema.points.display.overview.model;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 
 public abstract class AbstractOverviewModel extends SimpleIdentifier implements IOverviewModel {

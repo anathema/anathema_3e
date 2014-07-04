@@ -1,8 +1,10 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.library.IStats;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.resources.Resources;
+
+import java.util.Collection;
 
 public interface IMagicStats extends IStats, Comparable<IMagicStats> {
 
@@ -19,7 +21,7 @@ public interface IMagicStats extends IStats, Comparable<IMagicStats> {
 
   String getSourceString(Resources resources);
 
-  String[] getDetailStrings(Resources resources);
+  Collection<String> getDetailStrings(Resources resources);
 
   String getNameString(Resources resources);
 }

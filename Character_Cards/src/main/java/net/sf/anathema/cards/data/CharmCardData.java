@@ -7,10 +7,10 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
-import net.sf.anathema.hero.magic.description.MagicDescription;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.magic.description.model.MagicDescription;
 
 public class CharmCardData extends AbstractMagicCardData {
   private Charm charm;
@@ -59,7 +59,7 @@ public class CharmCardData extends AbstractMagicCardData {
   }
 
   private Phrase getCharmDuration(Charm charm) {
-    String duration = charm.getDuration().getText(getResources());
+    String duration = charm.getDuration().getText();
     return new Phrase(duration, getResourceProvider().getNormalFont());
   }
 

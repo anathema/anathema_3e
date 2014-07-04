@@ -1,10 +1,8 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.framework.repository.ChangeManagement;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeFlavor;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.platform.repository.ChangeManagement;
 import org.jmock.example.announcer.Announcer;
 
 public class CharacterChangeManagement implements ChangeManagement {
@@ -44,11 +42,6 @@ public class CharacterChangeManagement implements ChangeManagement {
   }
 
   public void initListening() {
-    hero.getChangeAnnouncer().addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        setDirty();
-      }
-    });
+    hero.getChangeAnnouncer().addListener(flavor -> setDirty());
   }
 }

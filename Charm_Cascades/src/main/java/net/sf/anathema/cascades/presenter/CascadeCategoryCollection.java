@@ -4,8 +4,8 @@ import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.display.model.CategoryCollection;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

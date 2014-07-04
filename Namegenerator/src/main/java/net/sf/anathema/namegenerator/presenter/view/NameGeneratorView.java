@@ -1,8 +1,8 @@
 package net.sf.anathema.namegenerator.presenter.view;
 
 import javafx.scene.Node;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.interaction.model.Command;
 
 public interface NameGeneratorView {
 

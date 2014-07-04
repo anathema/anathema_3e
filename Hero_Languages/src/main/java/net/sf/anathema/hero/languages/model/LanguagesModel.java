@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.languages.model;
 
-import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryModel;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.model.RemovableEntryModel;
 
 public interface LanguagesModel extends RemovableEntryModel<Identifier>, HeroModel {
 

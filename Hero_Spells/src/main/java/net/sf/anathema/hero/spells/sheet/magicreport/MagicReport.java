@@ -6,8 +6,6 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
@@ -17,25 +15,27 @@ import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
-import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.reporting.ReportException;
-import net.sf.anathema.hero.magic.description.MagicDescription;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.environment.report.ReportException;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.magic.description.model.MagicDescription;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static java.text.MessageFormat.format;
 
 public class MagicReport extends AbstractPdfReport {
 
   private final Environment environment;
-  private final IApplicationModel model;
+  private final ApplicationModel model;
   private final MagicPartFactory partFactory;
 
-  public MagicReport(Environment environment, IApplicationModel model) {
+  public MagicReport(Environment environment, ApplicationModel model) {
     this.environment = environment;
     this.model = model;
     partFactory = new MagicPartFactory(new PdfReportUtils());

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective;
 
-import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 
 public class SelectInteraction implements ChangeListener {
   private ToggleTool interaction;

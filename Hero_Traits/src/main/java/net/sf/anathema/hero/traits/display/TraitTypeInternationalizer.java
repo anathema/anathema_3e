@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.library.resources.Resources;
 
 public class TraitTypeInternationalizer {
 

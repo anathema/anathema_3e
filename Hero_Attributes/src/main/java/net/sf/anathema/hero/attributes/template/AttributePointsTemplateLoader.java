@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.attributes.template;
 
+import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
-import net.sf.anathema.hero.template.TemplateFactory;
-import net.sf.anathema.hero.template.TemplateLoader;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class AttributePointsTemplateLoader {
 

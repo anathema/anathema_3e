@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.framework.persistence;
 
-import net.sf.anathema.framework.repository.access.RepositoryReadAccess;
-import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
-import net.sf.anathema.hero.framework.item.Item;
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
+import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
 
 public interface RepositoryItemPersister {
 
@@ -11,5 +11,5 @@ public interface RepositoryItemPersister {
 
   Item load(RepositoryReadAccess readAccess);
 
-  Item createNew(HeroTemplate template);
+  Item createNew(HeroSplat template);
 }

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
 import net.sf.anathema.character.equipment.item.model.NullClosure;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 
 public class ProxyClosure<S> implements Closure<S> {
   private Closure<S> delegate = new NullClosure<>();

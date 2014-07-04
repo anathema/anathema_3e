@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.character.equipment.item.model.gson.EquipmentAccess;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.PathUtils;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.PathUtils;
 
 import java.io.IOException;
 import java.nio.file.Files;

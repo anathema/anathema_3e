@@ -8,9 +8,10 @@ import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingSta
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
 import net.sf.anathema.character.equipment.creation.presenter.TagsModel;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
-import net.sf.anathema.lib.control.ChangeListener;
-import org.apache.commons.lang3.ArrayUtils;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
+
+import java.util.Collection;
 
 public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCreationModel {
 
@@ -22,7 +23,7 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
   private final ITraitModifyingStatisticsModel traitModifyingStatisticsModel = new TraitModifyingStatisticsModel();
   private final Announcer<ChangeListener> equipmentTypeChangeControl = Announcer.to(ChangeListener.class);
   private EquipmentStatisticsType statisticsType;
-  private String[] existingNames;
+  private Collection<String> existingNames;
 
   @Override
   public void setEquipmentType(EquipmentStatisticsType statisticsType) {
@@ -70,11 +71,11 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
 
   @Override
   public boolean isNameUnique(String name) {
-    return !ArrayUtils.contains(existingNames, name);
+    return !existingNames.contains(name);
   }
 
   @Override
-  public void setForbiddenNames(String[] definedNames) {
+  public void setForbiddenNames(Collection<String> definedNames) {
     this.existingNames = definedNames;
   }
 }

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.framework.ui.RGBColor;
+import net.sf.anathema.library.presenter.RGBColor;
 
 public abstract class AbstractCharmPresentationProperties implements CharmPresentationProperties {
 

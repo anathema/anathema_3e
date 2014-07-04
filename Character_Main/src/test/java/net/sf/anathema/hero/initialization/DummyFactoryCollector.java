@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.hero.model.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.HeroModelFactory;
+import net.sf.anathema.hero.application.creation.models.ModelFactoryCollector;
 
 import java.util.ArrayList;
 import java.util.Collection;

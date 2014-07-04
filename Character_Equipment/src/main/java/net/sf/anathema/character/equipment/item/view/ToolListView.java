@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.item.view;
 
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.interaction.model.Tool;
 
 import java.util.List;
 

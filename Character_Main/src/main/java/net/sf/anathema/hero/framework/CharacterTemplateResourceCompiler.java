@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.ResourceFile;
 
-@ExtensibleDataSetCompiler
-public class CharacterTemplateResourceCompiler implements IExtensibleDataSetCompiler {
+@net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
+public class CharacterTemplateResourceCompiler implements ExtensibleDataSetCompiler {
 
   private static final String CHARACTER_FILE_RECOGNITION_PATTERN = ".+?\\.splat";
 

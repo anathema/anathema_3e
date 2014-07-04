@@ -2,7 +2,7 @@ package net.sf.anathema.character.equipment.creation.model;
 
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTagsModel;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.model.BooleanValueModel;
 
 import java.util.List;
 

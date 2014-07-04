@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.hero.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.description.HeroDescriptionFetcher;
-import net.sf.anathema.hero.framework.item.Item;
+import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.framework.perspective.DescriptiveFeatures;
 import net.sf.anathema.hero.framework.perspective.LoadedDescriptiveFeatures;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 public class CharacterItemModel {
@@ -38,12 +37,7 @@ public class CharacterItemModel {
     this.descriptiveFeatures = new LoadedDescriptiveFeatures(identifier, item);
     Hero hero = (Hero) item.getItemData();
     HeroConceptFetcher.fetch(hero).getCaste().addChangeListener(new AnnouncingChangeListener());
-    HeroDescriptionFetcher.fetch(hero).getName().addTextChangedListener(new ObjectValueListener<String>() {
-      @Override
-      public void valueChanged(String newValue) {
-        featuresChangeAnnouncer.announce().changeOccurred();
-      }
-    });
+    HeroDescriptionFetcher.fetch(hero).getName().addTextChangedListener(newValue -> featuresChangeAnnouncer.announce().changeOccurred());
     item.getItemData().getChangeManagement().addDirtyListener(new AnnouncingChangeListener());
   }
 
