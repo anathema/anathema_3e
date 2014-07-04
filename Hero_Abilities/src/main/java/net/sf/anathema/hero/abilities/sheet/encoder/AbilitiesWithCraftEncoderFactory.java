@@ -10,17 +10,18 @@ import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.encoder.FavorableTraitContentEncoder;
 
 @SuppressWarnings("UnusedDeclaration")
-public class AbilitiesWithCraftAndSpecialtiesEncoderFactory extends GlobalEncoderFactory {
+public class AbilitiesWithCraftEncoderFactory extends GlobalEncoderFactory {
 
-  public AbilitiesWithCraftAndSpecialtiesEncoderFactory() {
-    super(EncoderIds.ABILITIES_WITH_SPECIALTIES);
+  public AbilitiesWithCraftEncoderFactory() {
+    super(EncoderIds.ABILITIES_WITH_CRAFTS);
   }
 
   @Override
   public ContentEncoder create(Resources resources, BasicContent content) {
     FavorableTraitContentEncoder<AbilitiesContent> encoder = new FavorableTraitContentEncoder<>(AbilitiesContent.class);
     PdfTraitEncoder traitEncoder = encoder.getTraitEncoder();
-    encoder.addNamedTraitEncoder(new SpecialtiesEncoder(resources, traitEncoder, 9));
+    // todo bring back crafts ???
+    //encoder.addNamedTraitEncoder(new SpecialtiesEncoder(resources, traitEncoder, 9));
     return encoder;
   }
 }

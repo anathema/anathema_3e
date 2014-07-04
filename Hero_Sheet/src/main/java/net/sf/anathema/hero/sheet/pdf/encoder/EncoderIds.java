@@ -3,7 +3,7 @@ package net.sf.anathema.hero.sheet.pdf.encoder;
 @SuppressWarnings({"HardCodedStringLiteral", "DuplicateStringLiteralInspection"})
 public interface EncoderIds {
 
-  String ABILITIES_WITH_SPECIALTIES = "AbilitiesWithCraftsAndSpecialties";
+  String ABILITIES_WITH_CRAFTS = "AbilitiesWithCraftsAndSpecialties";
   String ABILITIES_WITH_SPECIALS_TWO_COLUMN = "AbilitiesWithSpecialtiesTwoColumn";
   String ANIMA = "Anima";
   String ARSENAL = "Arsenal";
@@ -28,10 +28,11 @@ public interface EncoderIds {
   String PANOPLY = "Panoply";
   String PERSONAL_INFO = "PersonalInfo";
   String POSSESSIONS = "Possessions";
-  String SPECIALTIES = "Specialties";
   String SOCIAL_COMBAT = "SocialCombat";
   String WILLPOWER_DOTS = "WillpowerDots";
   String WILLPOWER_SIMPLE = "WillpowerSimple";
   String WILLPOWER_EXTENDED = "WillpowerExtended";
   String VIRTUES = "Virtues";
+  String SPECIALTIES_EXTENDED = "SpecialtiesExtended";
+  String SPECIALTIES_SIMPLE = "SpecialtiesSimple";
 }
