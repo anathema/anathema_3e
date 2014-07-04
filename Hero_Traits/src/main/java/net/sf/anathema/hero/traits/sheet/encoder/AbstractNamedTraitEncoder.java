@@ -6,9 +6,9 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.specialties.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.sheet.content.NamedGenericTraitReference;
+import net.sf.anathema.hero.traits.sheet.content.NamedSpecialtyReference;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
-import net.sf.anathema.hero.traits.sheet.content.TraitReferenceInternationalizer;
+import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public abstract class AbstractNamedTraitEncoder {
     if (title != null) {
       height = drawSubsectionHeader(graphics, title, position, width);
     }
-    TraitReferenceInternationalizer internationalizer = new TraitReferenceInternationalizer(getResources());
+    TraitReferenceI18n internationalizer = new TraitReferenceI18n(getResources());
     for (int index = 0; index < lineCount && index < traits.length; index++) {
       ValuedTraitReference trait = traits[index];
       String name = internationalizer.getSheetName(trait);
@@ -75,7 +75,7 @@ public abstract class AbstractNamedTraitEncoder {
   protected final ValuedTraitReference[] getTraitReferences(Specialty[] traits, TraitType type) {
     List<ValuedTraitReference> references = new ArrayList<>();
     for (Specialty trait : traits) {
-      references.add(new NamedGenericTraitReference(trait, type));
+      references.add(new NamedSpecialtyReference(trait, type));
     }
     return references.toArray(new ValuedTraitReference[references.size()]);
   }

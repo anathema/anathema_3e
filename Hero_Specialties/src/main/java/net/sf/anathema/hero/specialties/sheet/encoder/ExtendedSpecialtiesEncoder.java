@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.abilities.sheet.encoder;
+package net.sf.anathema.hero.specialties.sheet.encoder;
 
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;

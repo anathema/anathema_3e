@@ -3,12 +3,12 @@ package net.sf.anathema.hero.traits.sheet.content;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 
-public class TraitReferenceInternationalizer {
+public class TraitReferenceI18n {
 
   private static final String SHEET_MESSAGE = "SubtraitSheetMessage";
   private final Resources resources;
 
-  public TraitReferenceInternationalizer(Resources resources) {
+  public TraitReferenceI18n(Resources resources) {
     this.resources = resources;
   }
 
