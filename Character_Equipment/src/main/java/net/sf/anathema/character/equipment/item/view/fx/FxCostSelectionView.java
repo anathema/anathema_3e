@@ -14,6 +14,8 @@ import net.sf.anathema.platform.fx.selection.SelectionViewFactory;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.Collection;
+
 import static net.sf.anathema.lib.gui.layout.LayoutUtils.withoutInsets;
 
 public class FxCostSelectionView implements CostSelectionView {
@@ -57,7 +59,7 @@ public class FxCostSelectionView implements CostSelectionView {
   }
 
   @Override
-  public void setSelectableBackgrounds(final String[] backgrounds) {
+  public void setSelectableBackgrounds(Collection<String> backgrounds) {
     selection.setObjects(backgrounds);
   }
 

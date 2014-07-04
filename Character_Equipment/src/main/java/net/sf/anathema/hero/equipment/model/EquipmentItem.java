@@ -20,14 +20,16 @@ import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
 import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentItem implements IEquipmentItem {
@@ -99,10 +101,11 @@ public class EquipmentItem implements IEquipmentItem {
 
   @Override
   public IEquipmentStats[] getStats() {
-    return transform(getViews(), IEquipmentStats.class, new MaterialWrapper());
+    Stream<IEquipmentStats> views = getViews().stream();
+    return views.map(new MaterialWrapper()).collect(Collectors.toList()).toArray(new IEquipmentStats[0]);
   }
 
-  private IEquipmentStats[] getViews() {
+  private Collection<IEquipmentStats> getViews() {
     List<IEquipmentStats> views = new ArrayList<>();
     for (IEquipmentStats stats : template.getStatsList()) {
       if (stats instanceof IWeaponStats) {
@@ -113,7 +116,7 @@ public class EquipmentItem implements IEquipmentItem {
         views.add(stats);
       }
     }
-    return views.toArray(new IEquipmentStats[views.size()]);
+    return views;
   }
 
   @Override

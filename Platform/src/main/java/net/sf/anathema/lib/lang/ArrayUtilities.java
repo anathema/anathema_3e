@@ -24,13 +24,4 @@ public class ArrayUtilities {
     T[] concatenated = (T[]) Array.newInstance(clazz, list.size());
     return list.toArray(concatenated);
   }
-
-  @SuppressWarnings("unchecked")
-  public static <I, O> O[] transform(
-          I[] array,
-          Class<? super O> clazz,
-          Function<I, O> transformer) {
-    O[] transformed = (O[]) Array.newInstance(clazz, array.length);
-    return Stream.of(array).map(transformer).collect(toList()).toArray(transformed);
-  }
 }
