@@ -8,8 +8,8 @@ import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;

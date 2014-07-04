@@ -3,8 +3,8 @@ package net.sf.anathema.character.equipment.item.model.gson;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.io.IOException;
 

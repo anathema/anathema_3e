@@ -1,7 +1,7 @@
 package net.sf.anathema.charm.data;
 
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public interface CharmAttributeList {
 

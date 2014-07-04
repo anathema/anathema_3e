@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 public class NullAlienCharmPresenter implements AlienCharmPresenter {
   @Override

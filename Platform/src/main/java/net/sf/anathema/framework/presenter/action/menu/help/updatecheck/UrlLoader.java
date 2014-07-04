@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.action.menu.help.updatecheck;
 
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;

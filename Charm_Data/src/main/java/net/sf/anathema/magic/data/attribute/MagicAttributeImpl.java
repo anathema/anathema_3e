@@ -1,6 +1,6 @@
 package net.sf.anathema.magic.data.attribute;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class MagicAttributeImpl extends SimpleIdentifier implements MagicAttribute {
 

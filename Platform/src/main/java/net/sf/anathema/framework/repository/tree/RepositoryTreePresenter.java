@@ -7,7 +7,7 @@ import net.sf.anathema.framework.presenter.view.IItemTypeViewProperties;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.initialization.ForItemType;
 import net.sf.anathema.initialization.ItemTypeCollection;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.util.ArrayList;

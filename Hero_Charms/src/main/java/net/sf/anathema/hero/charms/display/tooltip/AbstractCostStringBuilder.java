@@ -2,10 +2,10 @@ package net.sf.anathema.hero.charms.display.tooltip;
 
 import com.google.common.base.Strings;
 import net.sf.anathema.charm.data.cost.Cost;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
-import static net.sf.anathema.lib.lang.StringUtilities.EMPTY_STRING;
+import static net.sf.anathema.library.lang.StringUtilities.EMPTY_STRING;
 
 public abstract class AbstractCostStringBuilder<T extends Cost> implements ICostStringBuilder<T> {
 

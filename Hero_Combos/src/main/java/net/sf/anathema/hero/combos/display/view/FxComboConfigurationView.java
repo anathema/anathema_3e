@@ -9,7 +9,7 @@ import net.sf.anathema.hero.combos.display.presenter.ComboConfigurationView;
 import net.sf.anathema.hero.combos.display.presenter.ComboContainer;
 import net.sf.anathema.hero.combos.display.presenter.ComboViewProperties;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;

@@ -9,12 +9,12 @@ import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.equipment.EquipmentModel;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
 import net.sf.anathema.library.event.CollectionListener;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
+import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ import java.util.List;
 import static net.sf.anathema.equipment.core.MaterialComposition.Fixed;
 import static net.sf.anathema.equipment.core.MaterialComposition.None;
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
-import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
+import static net.sf.anathema.library.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentPresenter {
 

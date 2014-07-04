@@ -5,7 +5,7 @@ import net.sf.anathema.framework.repository.RepositoryIdData;
 import net.sf.anathema.hero.application.itemtype.CharacterItemTypeRetrieval;
 import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 
 public class HeroRepositoryData implements RepositoryIdData {
 

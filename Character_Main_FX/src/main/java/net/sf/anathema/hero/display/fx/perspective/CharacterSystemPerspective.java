@@ -12,8 +12,8 @@ import net.sf.anathema.hero.framework.perspective.CharacterStackPresenter;
 import net.sf.anathema.hero.framework.perspective.CharacterSystemModel;
 import net.sf.anathema.hero.framework.perspective.InteractionPresenter;
 import net.sf.anathema.hero.framework.perspective.ShowOnSelect;
-import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
 
 @PerspectiveAutoCollector

@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization.repository;
 
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.File;
 import java.io.IOException;

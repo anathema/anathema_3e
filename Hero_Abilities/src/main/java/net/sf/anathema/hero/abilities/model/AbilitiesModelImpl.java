@@ -23,7 +23,7 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;

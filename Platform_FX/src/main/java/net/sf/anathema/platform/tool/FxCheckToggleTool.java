@@ -2,8 +2,8 @@ package net.sf.anathema.platform.tool;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.ToggleTool;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 
 public class FxCheckToggleTool extends FxBaseTool implements ToggleTool {
 

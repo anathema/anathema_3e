@@ -8,8 +8,8 @@ import javafx.scene.image.ImageView;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.framework.view.messaging.MessageTypeImagePaths;
 import net.sf.anathema.framework.view.messaging.StatusBar;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.message.Message;
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.PopOver;
 import org.controlsfx.control.action.AbstractAction;
@@ -18,7 +18,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 import java.util.Collection;
 
 import static javafx.util.Duration.millis;
-import static net.sf.anathema.lib.message.MessageDuration.Temporary;
+import static net.sf.anathema.library.message.MessageDuration.Temporary;
 import static org.controlsfx.control.PopOver.ArrowLocation.BOTTOM_LEFT;
 
 public class PopInStatusBar implements StatusBar {

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.attributes.sheet.content;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package net.sf.anathema.framework.repository.access.printname;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.repository.IRepositoryFileResolver;
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.logging.Logger;
 
 import java.io.File;
 import java.io.IOException;

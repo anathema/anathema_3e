@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffects;
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.library.model.Condition;
 
 public class PrerequisiteLearnCondition implements Condition {
   private final SubEffects allEffects;

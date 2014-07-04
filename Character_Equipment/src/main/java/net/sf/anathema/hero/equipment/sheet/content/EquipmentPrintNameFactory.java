@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.sheet.content;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

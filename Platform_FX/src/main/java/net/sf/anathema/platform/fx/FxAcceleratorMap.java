@@ -3,9 +3,9 @@ package net.sf.anathema.platform.fx;
 import javafx.collections.ObservableMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
-import net.sf.anathema.interaction.AcceleratorMap;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Hotkey;
+import net.sf.anathema.library.interaction.AcceleratorMap;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Hotkey;
 
 import static javafx.scene.input.KeyCodeCombinationBuilder.create;
 import static javafx.scene.input.KeyCombination.ModifierValue.ANY;

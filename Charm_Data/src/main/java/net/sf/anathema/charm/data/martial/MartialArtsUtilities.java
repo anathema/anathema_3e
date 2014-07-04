@@ -2,8 +2,8 @@ package net.sf.anathema.charm.data.martial;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.magic.data.Magic;
 
 import static net.sf.anathema.charm.data.CharmAttributeList.FORM_ATTRIBUTE;

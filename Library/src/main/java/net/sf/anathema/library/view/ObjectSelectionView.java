@@ -1,0 +1,24 @@
+package net.sf.anathema.library.view;
+
+import net.sf.anathema.library.event.ObjectValueListener;
+
+import java.util.Collection;
+
+public interface ObjectSelectionView<V> {
+
+  void setSelectedObject(V object);
+
+  void addObjectSelectionChangedListener(ObjectValueListener<V> listener);
+
+  void removeObjectSelectionChangedListener(ObjectValueListener<V> listener);
+
+  void setObjects(V[] objects);
+
+  void setObjects(Collection<V> objects);
+
+  V getSelectedObject();
+
+  void setEnabled(boolean enabled);
+
+  void clearSelection();
+}

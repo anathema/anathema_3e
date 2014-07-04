@@ -4,7 +4,7 @@ import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class IntimaciesPersister extends AbstractModelJsonPersister<IntimaciesPto, IntimaciesModel> {

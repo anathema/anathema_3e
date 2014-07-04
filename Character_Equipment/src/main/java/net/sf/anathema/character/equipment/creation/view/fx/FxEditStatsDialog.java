@@ -6,7 +6,7 @@ import net.sf.anathema.character.equipment.creation.presenter.EquipmentStatsView
 import net.sf.anathema.character.equipment.display.StaticOperationResult;
 import net.sf.anathema.character.equipment.display.userdialog.OperationResultHandler;
 import net.sf.anathema.framework.environment.fx.DialogFactory;
-import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.library.message.Message;
 import org.controlsfx.control.action.AbstractAction;
 import org.controlsfx.dialog.Dialog;
 

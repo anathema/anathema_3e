@@ -1,8 +1,8 @@
 package net.sf.anathema.points.display.experience;
 
 import net.sf.anathema.framework.presenter.resources.BasicUi;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperiencePoints;

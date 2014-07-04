@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 public interface CharacterCreationView {
 

@@ -4,8 +4,8 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFactory<IArmourStats> {
 

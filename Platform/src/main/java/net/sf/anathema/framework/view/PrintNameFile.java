@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.view;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.File;
 import java.io.IOException;

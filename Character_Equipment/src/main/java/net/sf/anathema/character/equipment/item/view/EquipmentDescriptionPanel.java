@@ -2,9 +2,9 @@ package net.sf.anathema.character.equipment.item.view;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 public interface EquipmentDescriptionPanel {
 

@@ -9,8 +9,8 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

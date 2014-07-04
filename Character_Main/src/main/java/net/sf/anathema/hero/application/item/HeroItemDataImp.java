@@ -8,7 +8,7 @@ import net.sf.anathema.hero.model.DefaultHero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Iterator;
 

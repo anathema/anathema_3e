@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.item;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public interface IItemType extends Identifier {
 

@@ -2,8 +2,8 @@ package net.sf.anathema.hero.template;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;

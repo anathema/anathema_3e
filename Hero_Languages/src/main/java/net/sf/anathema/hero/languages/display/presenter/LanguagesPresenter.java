@@ -6,12 +6,12 @@ import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentVie
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.control.legality.LegalityColorProvider;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.HashMap;

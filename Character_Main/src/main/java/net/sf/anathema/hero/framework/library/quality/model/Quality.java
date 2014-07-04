@@ -4,7 +4,7 @@ import net.sf.anathema.hero.framework.library.quality.presenter.IQuality;
 import net.sf.anathema.hero.framework.library.quality.presenter.IQualityPredicate;
 import net.sf.anathema.hero.framework.library.quality.presenter.IQualitySelection;
 import net.sf.anathema.hero.framework.library.quality.presenter.IQualityType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;

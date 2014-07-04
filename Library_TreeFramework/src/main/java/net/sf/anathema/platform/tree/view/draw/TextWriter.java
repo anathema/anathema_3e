@@ -5,7 +5,7 @@ import net.sf.anathema.framework.ui.Coordinate;
 import net.sf.anathema.framework.ui.FontStyle;
 import net.sf.anathema.framework.ui.RGBColor;
 import net.sf.anathema.framework.ui.Rectangle;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 
 import java.util.ArrayList;

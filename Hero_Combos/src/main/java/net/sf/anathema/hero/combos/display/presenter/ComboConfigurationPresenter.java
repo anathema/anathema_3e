@@ -21,13 +21,13 @@ import net.sf.anathema.hero.concept.ConceptChange;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeFlavor;
 import net.sf.anathema.hero.model.change.FlavoredChangeListener;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.TextualPresentation;
 
 import java.util.ArrayList;
 import java.util.Arrays;

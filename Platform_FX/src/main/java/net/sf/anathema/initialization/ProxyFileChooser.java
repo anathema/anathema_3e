@@ -1,8 +1,8 @@
 package net.sf.anathema.initialization;
 
-import net.sf.anathema.lib.gui.file.Extension;
-import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.io.FileChooserConfiguration;
+import net.sf.anathema.library.io.FileExtension;
+import net.sf.anathema.library.io.SingleFileChooser;
 
 import java.nio.file.Path;
 
@@ -20,7 +20,7 @@ public class ProxyFileChooser implements SingleFileChooser {
   }
 
   @Override
-  public Path selectLoadFile(Extension extension) {
+  public Path selectLoadFile(FileExtension extension) {
     return delegate.selectLoadFile(extension);
   }
 }

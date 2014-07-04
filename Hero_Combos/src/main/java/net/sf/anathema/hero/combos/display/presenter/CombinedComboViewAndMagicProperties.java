@@ -7,8 +7,8 @@ import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilder;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
 import net.sf.anathema.hero.framework.CharacterUI;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;

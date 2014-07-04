@@ -3,8 +3,8 @@ package net.sf.anathema.hero.concept.template.caste;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.hero.template.TemplateLoader;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class CasteTemplateLoader {
 

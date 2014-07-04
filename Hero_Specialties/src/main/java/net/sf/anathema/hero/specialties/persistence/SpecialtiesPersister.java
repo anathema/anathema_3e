@@ -8,7 +8,7 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
 import net.sf.anathema.hero.traits.persistence.TraitPto;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesPersister extends AbstractModelJsonPersister<SpecialtiesPto, SpecialtiesModel> {

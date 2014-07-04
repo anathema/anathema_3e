@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.advance;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 import java.io.Serializable;
 

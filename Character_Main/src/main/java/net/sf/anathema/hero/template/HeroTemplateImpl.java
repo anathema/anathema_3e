@@ -2,7 +2,7 @@ package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.List;

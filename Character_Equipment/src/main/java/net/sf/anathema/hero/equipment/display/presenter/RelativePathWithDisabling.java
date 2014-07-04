@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class RelativePathWithDisabling {
 

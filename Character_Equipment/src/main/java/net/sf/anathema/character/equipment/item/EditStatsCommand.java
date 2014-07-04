@@ -4,8 +4,8 @@ import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisti
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
 import net.sf.anathema.character.equipment.item.model.StatsToModel;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

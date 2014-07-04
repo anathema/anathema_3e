@@ -14,8 +14,8 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;

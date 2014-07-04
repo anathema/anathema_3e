@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.display.view;
 import javafx.scene.Node;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.hero.equipment.display.presenter.MagicalMaterialView;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;
 
 public class FxMaterialView implements MagicalMaterialView {

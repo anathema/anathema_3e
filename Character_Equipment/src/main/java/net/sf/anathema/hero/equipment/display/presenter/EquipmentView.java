@@ -2,10 +2,10 @@ package net.sf.anathema.hero.equipment.display.presenter;
 
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.view.ObjectSelectionView;
+import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 public interface EquipmentView {
 

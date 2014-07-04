@@ -2,7 +2,7 @@ package net.sf.anathema.platform.fx.tooltip;
 
 import javafx.scene.Node;
 import javafx.scene.control.Tooltip;
-import net.sf.anathema.lib.gui.StatefulTooltip;
+import net.sf.anathema.library.tooltip.StatefulTooltip;
 
 public class StatefulFxTooltip implements StatefulTooltip {
 

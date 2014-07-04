@@ -12,9 +12,9 @@ import net.sf.anathema.framework.module.AnathemaCoreMenu;
 import net.sf.anathema.framework.presenter.AnathemaViewProperties;
 import net.sf.anathema.framework.view.ApplicationView;
 import net.sf.anathema.framework.view.perspective.PerspectivePaneFactory;
-import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 

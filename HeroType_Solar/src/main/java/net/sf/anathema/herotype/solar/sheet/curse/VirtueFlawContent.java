@@ -6,7 +6,7 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.resources.Resources;
 
 public class VirtueFlawContent extends AbstractSubBoxContent {

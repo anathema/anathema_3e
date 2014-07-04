@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.type;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public interface CharacterType extends Identifier {
 

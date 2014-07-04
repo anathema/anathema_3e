@@ -2,7 +2,7 @@ package net.sf.anathema.framework.view.status;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class LabelWithGraphicAndText implements WithGraphicAndText{
   private final ImageView imageView = new ImageView();

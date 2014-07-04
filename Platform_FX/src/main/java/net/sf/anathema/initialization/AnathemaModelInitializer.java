@@ -7,7 +7,7 @@ import net.sf.anathema.framework.model.ApplicationModel;
 import net.sf.anathema.initialization.repository.IOFileSystemAbstraction;
 import net.sf.anathema.initialization.repository.RepositoryFolderCreator;
 import net.sf.anathema.initialization.repository.RepositoryLocationResolver;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.platform.environment.Environment;
 

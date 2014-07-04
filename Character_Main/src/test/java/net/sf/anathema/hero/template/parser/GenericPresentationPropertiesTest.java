@@ -4,7 +4,7 @@ import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.DummyHeroTemplate;
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Assert;
 import org.junit.Test;
 

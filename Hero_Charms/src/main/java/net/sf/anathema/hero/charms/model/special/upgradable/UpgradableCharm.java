@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffects;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.library.model.Condition;
 
 import java.util.Map;
 

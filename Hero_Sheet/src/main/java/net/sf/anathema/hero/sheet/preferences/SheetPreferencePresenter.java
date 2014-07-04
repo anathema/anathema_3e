@@ -5,10 +5,10 @@ import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.ObjectValueListener;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredPreferencePresenter

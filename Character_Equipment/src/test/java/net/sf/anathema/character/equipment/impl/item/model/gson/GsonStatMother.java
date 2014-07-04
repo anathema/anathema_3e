@@ -4,7 +4,7 @@ import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class GsonStatMother {
 

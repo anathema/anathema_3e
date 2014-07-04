@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.resources;
 
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class BasicUi {
 

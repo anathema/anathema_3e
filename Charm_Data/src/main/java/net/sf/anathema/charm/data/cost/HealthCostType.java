@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data.cost;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum HealthCostType implements Identifier {
   Bashing, Lethal, Aggravated;

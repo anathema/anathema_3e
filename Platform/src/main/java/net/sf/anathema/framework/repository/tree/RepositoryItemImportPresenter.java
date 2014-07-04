@@ -1,11 +1,11 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.gui.file.Extension;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
 import net.sf.anathema.library.collection.MultiEntryMap;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.io.FileExtension;
+import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class RepositoryItemImportPresenter {
     tool.setCommand(() -> {
       try {
         String description = environment.getString("Filetype.zip");
-        Path loadFile = fileChooser.selectLoadFile(new Extension(description, "*.zip"));
+        Path loadFile = fileChooser.selectLoadFile(new FileExtension(description, "*.zip"));
         if (loadFile == null) {
           return;
         }

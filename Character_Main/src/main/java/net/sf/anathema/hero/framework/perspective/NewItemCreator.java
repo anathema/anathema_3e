@@ -4,7 +4,7 @@ import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.framework.display.IItemCreator;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 public class NewItemCreator implements IItemCreator {
 

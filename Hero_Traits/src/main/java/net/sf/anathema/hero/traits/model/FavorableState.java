@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum FavorableState implements Identifier {
 

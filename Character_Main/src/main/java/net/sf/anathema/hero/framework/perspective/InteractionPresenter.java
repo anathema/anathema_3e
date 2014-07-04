@@ -2,10 +2,10 @@ package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.ItemSelectionModel;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.interaction.view.InteractionView;
+import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.view.InteractionView;
 
 public class InteractionPresenter {
 

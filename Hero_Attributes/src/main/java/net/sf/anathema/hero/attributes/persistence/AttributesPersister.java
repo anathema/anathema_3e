@@ -8,7 +8,7 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.persistence.TraitListPto;
 import net.sf.anathema.hero.traits.persistence.TraitMapPersister;
 import net.sf.anathema.hero.traits.persistence.TraitTypeMap;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class AttributesPersister extends AbstractModelJsonPersister<TraitListPto, AttributeModel> {

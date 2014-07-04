@@ -1,6 +1,6 @@
 package net.sf.anathema.namegenerator.domain.realm;
 
-import net.sf.anathema.lib.util.RandomUtilities;
+import net.sf.anathema.library.RandomUtilities;
 import net.sf.anathema.namegenerator.domain.syllable.IWordFactory;
 import net.sf.anathema.namegenerator.domain.syllable.SimpleWordFactory;
 

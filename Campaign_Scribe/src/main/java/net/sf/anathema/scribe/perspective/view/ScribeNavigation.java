@@ -1,8 +1,8 @@
 package net.sf.anathema.scribe.perspective.view;
 
 import javafx.scene.control.Button;
-import net.sf.anathema.interaction.AcceleratorMap;
-import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.interaction.AcceleratorMap;
+import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.fx.Navigation;
 import net.sf.anathema.platform.tool.Execute;
 import net.sf.anathema.scribe.scroll.persistence.ScrollReference;

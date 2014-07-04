@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum CharmType implements Identifier {
   Simple() {

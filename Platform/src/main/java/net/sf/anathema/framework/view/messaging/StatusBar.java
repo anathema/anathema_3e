@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.view.messaging;
 
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.message.Message;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.message.Message;
 
 import java.util.Collection;
 

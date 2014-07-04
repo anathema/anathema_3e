@@ -15,11 +15,11 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
-import static net.sf.anathema.lib.message.MessageType.Information;
+import static net.sf.anathema.library.message.MessageType.Information;
 
 public class HeroItemPersister implements RepositoryItemPersister {
 

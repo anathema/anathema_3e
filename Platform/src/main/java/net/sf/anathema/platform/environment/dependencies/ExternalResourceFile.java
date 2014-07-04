@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.environment.dependencies;
 
-import net.sf.anathema.lib.io.Filenames;
+import net.sf.anathema.library.io.Filenames;
 import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.File;

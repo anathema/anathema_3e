@@ -12,7 +12,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Transform;
 import net.sf.anathema.framework.ui.Coordinate;
 import net.sf.anathema.framework.ui.RGBColor;
-import net.sf.anathema.lib.gui.StatefulTooltip;
+import net.sf.anathema.library.tooltip.StatefulTooltip;
 import net.sf.anathema.platform.fx.tooltip.StatefulFxTooltip;
 import net.sf.anathema.platform.tree.display.DisplayPolygonPanel;
 import net.sf.anathema.platform.tree.display.transform.AgnosticTransform;

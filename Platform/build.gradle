@@ -6,8 +6,6 @@ dependencies {
     compile 'com.itextpdf:itextpdf:5.5.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'de.idos.updates:updates-core:1.2.0'
-    compile 'commons-io:commons-io:2.4'
-    compile 'ch.qos.logback:logback-classic:1.1.2'
     compile 'com.miglayout:miglayout-core:5.0-SNAPSHOT'
     compile project(':Library')
     testCompile testDependencies

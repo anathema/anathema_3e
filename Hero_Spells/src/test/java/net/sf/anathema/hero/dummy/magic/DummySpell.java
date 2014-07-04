@@ -4,8 +4,8 @@ import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.data.reference.SpellName;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.lib.exception.NotYetImplementedException;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.exception.NotYetImplementedException;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.source.SourceBook;
 

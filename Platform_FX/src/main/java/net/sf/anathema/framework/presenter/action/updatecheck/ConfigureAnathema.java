@@ -3,7 +3,7 @@ package net.sf.anathema.framework.presenter.action.updatecheck;
 import de.idos.updates.UpdateSystem;
 import de.idos.updates.store.ProgressReportAdapter;
 import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.PropertiesSaver;
-import net.sf.anathema.lib.io.Filenames;
+import net.sf.anathema.library.io.Filenames;
 
 import java.io.File;
 import java.io.IOException;

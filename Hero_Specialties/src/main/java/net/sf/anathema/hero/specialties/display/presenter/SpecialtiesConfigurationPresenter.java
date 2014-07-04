@@ -13,13 +13,13 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.Arrays;

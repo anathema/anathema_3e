@@ -8,9 +8,9 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.PresentationProperties;
 import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class FavoredIconSelector {
   private final Tool tool;

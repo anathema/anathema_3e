@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.magic;
 
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Tool;
 
 import java.util.List;
 

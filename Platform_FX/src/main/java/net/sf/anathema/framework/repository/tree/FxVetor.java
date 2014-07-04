@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.view.Vetor;
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.Dialogs;
 

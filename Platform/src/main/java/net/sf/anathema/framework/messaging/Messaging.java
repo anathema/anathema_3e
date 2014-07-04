@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.messaging;
 
-import net.sf.anathema.lib.message.Message;
-import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.library.message.Message;
+import net.sf.anathema.library.message.MessageType;
 
 public interface Messaging {
 

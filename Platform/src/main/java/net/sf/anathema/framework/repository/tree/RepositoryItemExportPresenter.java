@@ -1,10 +1,10 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.file.Extension;
-import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.io.FileChooserConfiguration;
+import net.sf.anathema.library.io.FileExtension;
+import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class RepositoryItemExportPresenter {
     tool.setCommand(() -> {
       try {
         String description = environment.getString("Filetype.all");
-        Path saveFile = fileChooser.selectSaveFile(new FileChooserConfiguration(new Extension(description, "*.*"), "Export.zip"));
+        Path saveFile = fileChooser.selectSaveFile(new FileChooserConfiguration(new FileExtension(description, "*.*"), "Export.zip"));
         if (saveFile == null) {
           return;
         }

@@ -1,7 +1,7 @@
 package net.sf.anathema.namegenerator.domain.realm;
 
-import net.sf.anathema.lib.lang.StringUtilities;
-import net.sf.anathema.lib.util.RandomUtilities;
+import net.sf.anathema.library.RandomUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.namegenerator.domain.general.INameTokenFactory;
 import net.sf.anathema.namegenerator.domain.general.RandomChoosingTokenFactory;
 import net.sf.anathema.namegenerator.domain.syllable.ISyllableFactory;

@@ -5,18 +5,18 @@ import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.health.model.IHealthTypeVisitor;
-import net.sf.anathema.library.Range;
 import net.sf.anathema.library.model.BooleanValueModel;
+import net.sf.anathema.library.number.IntegerRange;
 
 public class ArmourStatsticsModel extends EquipmentStatisticsModel implements IArmourStatisticsModel {
 
-  private final IIntValueModel bashingHardness = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel bashingSoak = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel fatigue = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel lethalHardness = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel lethalSoak = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel aggravatedSoak = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-  private final IIntValueModel mobilityPenalty = new RangedIntValueModel(new Range(Integer.MIN_VALUE, 0), 0);
+  private final IIntValueModel bashingHardness = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel bashingSoak = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel fatigue = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel lethalHardness = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel lethalSoak = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel aggravatedSoak = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+  private final IIntValueModel mobilityPenalty = new RangedIntValueModel(new IntegerRange(Integer.MIN_VALUE, 0), 0);
   private final BooleanValueModel soakLinkModel = new BooleanValueModel(true);
 
   @Override

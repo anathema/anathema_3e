@@ -6,7 +6,7 @@ import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class LoadedDescriptiveFeatures implements DescriptiveFeatures {
 

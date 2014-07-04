@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.interaction.model.Command;
 
 public interface RemovableEntryView {
 

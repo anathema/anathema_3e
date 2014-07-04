@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.action.exit;
 
-import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.interaction.model.Command;
 
 public class AnathemaExitAction implements Command {
 

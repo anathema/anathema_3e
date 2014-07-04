@@ -16,8 +16,8 @@ import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
 import org.tbee.javafx.scene.layout.MigPane;
 

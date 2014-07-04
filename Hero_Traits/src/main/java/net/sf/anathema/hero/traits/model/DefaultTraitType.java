@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class DefaultTraitType extends SimpleIdentifier implements TraitType {
 

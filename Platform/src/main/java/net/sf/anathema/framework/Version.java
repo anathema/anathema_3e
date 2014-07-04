@@ -1,6 +1,6 @@
 package net.sf.anathema.framework;
 
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
 
 public class Version implements Comparable<Version> {

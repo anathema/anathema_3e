@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.display.fx.creation;
 
 import javafx.event.ActionEvent;
-import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.interaction.model.Command;
 import org.controlsfx.control.action.AbstractAction;
 
 public class ConfigurableControlsFxAction extends AbstractAction {

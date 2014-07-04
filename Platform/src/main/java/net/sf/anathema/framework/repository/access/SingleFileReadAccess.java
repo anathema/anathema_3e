@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository.access;
 
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 import java.io.File;
 import java.io.FileInputStream;

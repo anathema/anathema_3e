@@ -25,7 +25,7 @@ import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.List;
 

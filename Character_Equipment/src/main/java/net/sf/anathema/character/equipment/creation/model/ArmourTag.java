@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.creation.model;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum ArmourTag implements Identifier {
   Light, Medium, Heavy, Artifact;

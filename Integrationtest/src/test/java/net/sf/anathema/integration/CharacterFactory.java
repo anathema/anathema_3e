@@ -15,8 +15,8 @@ import net.sf.anathema.hero.framework.perspective.model.CharacterPersistenceMode
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.io.InputOutput;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.File;
 

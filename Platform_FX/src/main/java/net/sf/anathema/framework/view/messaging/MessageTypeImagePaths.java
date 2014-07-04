@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.view.messaging;
 
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.library.message.MessageType;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class MessageTypeImagePaths {
 

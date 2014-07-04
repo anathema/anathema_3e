@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.IOException;

@@ -2,7 +2,7 @@ package net.sf.anathema.framework.repository;
 
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.item.RepositoryConfiguration;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class ItemType implements IItemType, Identifier {
 

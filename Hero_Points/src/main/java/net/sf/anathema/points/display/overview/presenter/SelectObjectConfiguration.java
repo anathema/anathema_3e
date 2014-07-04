@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 public class SelectObjectConfiguration<T> extends AbstractUIConfiguration<T> {

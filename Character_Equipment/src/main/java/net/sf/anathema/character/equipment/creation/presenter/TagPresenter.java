@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TagProperties;
-import net.sf.anathema.interaction.ToggleTool;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.model.BooleanValueModel;
 
 public class TagPresenter<TAG> {

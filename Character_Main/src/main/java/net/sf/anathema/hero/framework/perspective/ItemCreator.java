@@ -5,7 +5,7 @@ import net.sf.anathema.hero.creation.IItemOperator;
 import net.sf.anathema.hero.framework.display.IItemCreator;
 import net.sf.anathema.hero.framework.display.ItemReceiver;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 public class ItemCreator implements IItemOperator {
 

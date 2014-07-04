@@ -27,8 +27,8 @@ import java.util.Set;
 import java.util.function.Function;
 
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
-import static net.sf.anathema.lib.lang.StringUtilities.isNullOrTrimmedEmpty;
+import static net.sf.anathema.library.lang.ArrayUtilities.transform;
+import static net.sf.anathema.library.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentItem implements IEquipmentItem {
 

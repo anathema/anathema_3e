@@ -23,8 +23,8 @@ import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import org.jmock.example.announcer.Announcer;
 

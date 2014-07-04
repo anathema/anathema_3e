@@ -9,9 +9,9 @@ import net.sf.anathema.hero.display.fx.traitview.SimpleTraitViewPanel;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtiesConfigurationView;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtyCreationView;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 

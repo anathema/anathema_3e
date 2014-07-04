@@ -6,7 +6,7 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.hero.persistence.HeroModelPersisterAutoCollector;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;

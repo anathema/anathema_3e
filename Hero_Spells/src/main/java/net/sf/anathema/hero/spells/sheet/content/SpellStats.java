@@ -9,7 +9,7 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import static net.sf.anathema.library.lang.ArrayUtilities.transform;
 
 public class SpellStats extends AbstractMagicStats<Spell> {
 

@@ -2,8 +2,8 @@ package net.sf.anathema.initialization.bootjob;
 
 import net.sf.anathema.framework.Version;
 import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.lib.io.PathUtils;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.io.PathUtils;
+import net.sf.anathema.library.logging.Logger;
 
 import java.io.IOException;
 import java.nio.file.Files;

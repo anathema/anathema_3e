@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.view.status;
 
 import javafx.scene.image.ImageView;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.tool.ImageContainer;
 import net.sf.anathema.platform.tool.LoadImage;
 import org.controlsfx.control.NotificationPane;

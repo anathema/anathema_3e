@@ -2,13 +2,13 @@ package net.sf.anathema.framework.environment.fx;
 
 import javafx.stage.Stage;
 import net.sf.anathema.initialization.ProxyFileChooser;
-import net.sf.anathema.interaction.AcceleratorMap;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Hotkey;
-import net.sf.anathema.interaction.ProxyAcceleratorMap;
-import net.sf.anathema.lib.gui.file.Extension;
-import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.interaction.AcceleratorMap;
+import net.sf.anathema.library.interaction.ProxyAcceleratorMap;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Hotkey;
+import net.sf.anathema.library.io.FileChooserConfiguration;
+import net.sf.anathema.library.io.FileExtension;
+import net.sf.anathema.library.io.SingleFileChooser;
 import org.controlsfx.dialog.Dialog;
 
 import java.nio.file.Path;
@@ -32,7 +32,7 @@ public class FxUiEnvironment implements UiEnvironment {
   }
 
   @Override
-  public Path selectLoadFile(Extension extension) {
+  public Path selectLoadFile(FileExtension extension) {
     return chooser.selectLoadFile(extension);
   }
 

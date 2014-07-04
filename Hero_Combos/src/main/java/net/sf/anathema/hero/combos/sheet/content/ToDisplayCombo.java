@@ -6,7 +6,7 @@ import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.library.resources.Resources;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import static net.sf.anathema.library.lang.ArrayUtilities.transform;
 
 public class ToDisplayCombo implements Function<Combo, DisplayCombo> {
 

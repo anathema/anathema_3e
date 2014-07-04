@@ -6,7 +6,7 @@ import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;

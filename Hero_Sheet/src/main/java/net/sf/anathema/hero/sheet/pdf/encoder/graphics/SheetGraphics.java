@@ -11,7 +11,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Box;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Dot;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Line;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Square;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.FONT_SIZE;

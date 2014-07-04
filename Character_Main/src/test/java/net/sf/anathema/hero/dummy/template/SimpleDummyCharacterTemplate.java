@@ -5,7 +5,7 @@ import net.sf.anathema.hero.template.ConfiguredModel;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateType;
 import net.sf.anathema.hero.template.TemplateTypeImpl;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.List;

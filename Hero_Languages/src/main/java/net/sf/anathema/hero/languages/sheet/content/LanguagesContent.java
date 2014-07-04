@@ -5,7 +5,7 @@ import net.sf.anathema.hero.languages.model.LanguagesModelFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

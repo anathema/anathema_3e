@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.access;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 import java.io.File;
 import java.io.FileInputStream;

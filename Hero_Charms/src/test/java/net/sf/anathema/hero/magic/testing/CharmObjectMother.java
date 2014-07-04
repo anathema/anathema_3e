@@ -3,7 +3,7 @@ package net.sf.anathema.hero.magic.testing;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

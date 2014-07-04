@@ -3,7 +3,7 @@ package net.sf.anathema.hero.experience.persistence;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class ExperiencePersister extends AbstractModelJsonPersister<ExperiencePto, ExperienceModel> {

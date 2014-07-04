@@ -16,10 +16,10 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.lib.compare.I18nedIdentificateSorter;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.sort.I18nedIdentificateSorter;
+import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.points.display.overview.presenter.SelectObjectConfiguration;
 

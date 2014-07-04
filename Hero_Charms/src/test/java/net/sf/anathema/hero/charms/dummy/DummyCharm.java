@@ -13,8 +13,8 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.source.SourceBook;
 

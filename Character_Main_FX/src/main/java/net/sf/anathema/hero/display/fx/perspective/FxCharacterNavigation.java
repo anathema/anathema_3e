@@ -6,9 +6,9 @@ import net.sf.anathema.hero.framework.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.framework.perspective.CharacterGridView;
 import net.sf.anathema.hero.framework.perspective.Selector;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
+import net.sf.anathema.library.interaction.view.InteractionView;
+import net.sf.anathema.library.interaction.view.MenuTool;
 import net.sf.anathema.platform.fx.Navigation;
-import net.sf.anathema.platform.view.InteractionView;
-import net.sf.anathema.platform.view.MenuTool;
 
 public class FxCharacterNavigation extends Navigation implements InteractionView, CharacterGridView {
   private final CharacterGridFxView gridView;

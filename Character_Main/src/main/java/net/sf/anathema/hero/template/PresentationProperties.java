@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public interface PresentationProperties {
 

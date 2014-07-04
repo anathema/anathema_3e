@@ -2,7 +2,7 @@ package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.library.resources.Resources;
 
 import java.io.File;

@@ -8,10 +8,10 @@ import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.logging.Logger;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.logging.Logger;
 
-import static net.sf.anathema.lib.message.MessageType.Error;
+import static net.sf.anathema.library.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
 public class EquipmentModelPersister extends AbstractModelJsonPersister<EquipmentListPto, EquipmentModel> {

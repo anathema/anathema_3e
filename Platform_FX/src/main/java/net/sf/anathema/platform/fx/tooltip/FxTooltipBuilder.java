@@ -7,7 +7,7 @@ import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import net.sf.anathema.platform.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
-import static net.sf.anathema.lib.lang.StringUtilities.insertLineBreakEveryXCharacters;
+import static net.sf.anathema.library.lang.StringUtilities.insertLineBreakEveryXCharacters;
 
 public class FxTooltipBuilder {
   private final MigPane body = new MigPane(LayoutUtils.withoutInsets().wrapAfter(2));

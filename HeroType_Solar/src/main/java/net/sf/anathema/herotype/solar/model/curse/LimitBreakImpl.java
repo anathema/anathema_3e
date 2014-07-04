@@ -8,8 +8,8 @@ import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
 import net.sf.anathema.hero.traits.model.rules.ModificationType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
-import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
+import net.sf.anathema.library.text.ITextualDescription;
+import net.sf.anathema.library.text.SimpleTextualDescription;
 
 public class LimitBreakImpl implements LimitBreak {
 

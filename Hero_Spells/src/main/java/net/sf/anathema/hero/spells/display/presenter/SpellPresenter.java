@@ -13,7 +13,7 @@ import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

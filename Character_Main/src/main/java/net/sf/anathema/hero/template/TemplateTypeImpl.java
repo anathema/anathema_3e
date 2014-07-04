@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public final class TemplateTypeImpl implements TemplateType {

@@ -1,6 +1,6 @@
 package net.sf.anathema.points.model.overview;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public interface IOverviewModel extends Identifier {
 

@@ -3,7 +3,7 @@ package net.sf.anathema.platform.fx;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.logging.Logger;
 
 import java.net.URL;
 

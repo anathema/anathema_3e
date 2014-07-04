@@ -3,8 +3,8 @@ package net.sf.anathema.hero.languages.display.view;
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 

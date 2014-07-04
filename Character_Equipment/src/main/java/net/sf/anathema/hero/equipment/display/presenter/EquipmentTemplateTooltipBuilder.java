@@ -4,8 +4,8 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 import java.util.ArrayList;
 import java.util.List;

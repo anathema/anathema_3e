@@ -7,8 +7,8 @@ import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.lib.io.Filenames;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.io.Filenames;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;

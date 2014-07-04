@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.lib.compare.WeightedObject;
-import net.sf.anathema.lib.compare.WeightedObjectSorter;
+import net.sf.anathema.library.sort.WeightedObject;
+import net.sf.anathema.library.sort.WeightedObjectSorter;
 
 import java.util.Collection;
 

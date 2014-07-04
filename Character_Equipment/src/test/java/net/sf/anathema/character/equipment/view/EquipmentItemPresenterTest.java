@@ -13,7 +13,7 @@ import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Assert;
 import org.junit.Test;
 

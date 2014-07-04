@@ -8,7 +8,7 @@ import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.lib.gui.Presenter;
+import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 
 public class EssenceConfigurationPresenter implements Presenter {

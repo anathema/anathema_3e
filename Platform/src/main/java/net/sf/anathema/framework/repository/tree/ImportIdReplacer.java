@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

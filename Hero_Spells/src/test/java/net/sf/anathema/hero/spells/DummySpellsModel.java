@@ -10,9 +10,9 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.lib.exception.NotYetImplementedException;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.exception.NotYetImplementedException;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;

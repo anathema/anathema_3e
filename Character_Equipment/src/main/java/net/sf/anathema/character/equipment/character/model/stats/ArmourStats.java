@@ -2,7 +2,7 @@ package net.sf.anathema.character.equipment.character.model.stats;
 
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;

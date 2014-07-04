@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.interaction.ToggleTool;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 
 public interface ToggleButtonPanel {
 

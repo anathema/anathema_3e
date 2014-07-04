@@ -12,8 +12,8 @@ import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.lib.exception.NotYetImplementedException;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.exception.NotYetImplementedException;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Iterator;
 

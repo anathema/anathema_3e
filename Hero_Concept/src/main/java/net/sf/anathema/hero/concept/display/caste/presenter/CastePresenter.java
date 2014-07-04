@@ -8,9 +8,9 @@ import net.sf.anathema.hero.experience.ExperienceModelFetcher;
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 public class CastePresenter {
 

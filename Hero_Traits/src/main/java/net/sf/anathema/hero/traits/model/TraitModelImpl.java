@@ -14,7 +14,7 @@ import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.LimitationFactory;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Collection;
 import java.util.Iterator;

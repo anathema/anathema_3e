@@ -9,7 +9,7 @@ import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class DummySpiritualTraitModel extends DefaultTraitMap implements SpiritualTraitModel {
 

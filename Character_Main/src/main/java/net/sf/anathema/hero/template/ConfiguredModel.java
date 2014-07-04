@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class ConfiguredModel extends ReflectionEqualsObject{
 

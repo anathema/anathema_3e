@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
 import net.sf.anathema.charm.data.cost.HealthCost;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 public class HealthCostStringBuilder extends AbstractCostStringBuilder<HealthCost> {
 

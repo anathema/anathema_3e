@@ -3,9 +3,9 @@ package net.sf.anathema.character.equipment.item;
 import net.sf.anathema.character.equipment.item.view.ToolListView;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 
 public class RemoveStats {

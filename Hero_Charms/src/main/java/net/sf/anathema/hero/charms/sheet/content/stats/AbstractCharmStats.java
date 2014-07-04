@@ -12,7 +12,7 @@ import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.transform;
+import static net.sf.anathema.library.lang.ArrayUtilities.transform;
 
 public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
 

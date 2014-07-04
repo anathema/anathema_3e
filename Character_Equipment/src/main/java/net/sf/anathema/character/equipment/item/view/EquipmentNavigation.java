@@ -1,8 +1,8 @@
 package net.sf.anathema.character.equipment.item.view;
 
 import net.sf.anathema.framework.repository.tree.VetorFactory;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 public interface EquipmentNavigation extends VetorFactory {
   VetoableObjectSelectionView<String> getTemplateListView();

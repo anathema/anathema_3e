@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data.cost;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class CostImpl extends ReflectionEqualsObject implements Cost {
 

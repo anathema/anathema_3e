@@ -5,7 +5,7 @@ import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.initialization.ItemTypeCollection;
-import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.environment.Environment;
 import org.controlsfx.dialog.Dialog;
 

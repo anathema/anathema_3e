@@ -7,7 +7,7 @@ import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.scribe.scroll.ScrollItemType;
 import net.sf.anathema.scribe.scroll.gson.ScrollGson;
 import net.sf.anathema.scribe.scroll.gson.ScrollReferenceBuilder;

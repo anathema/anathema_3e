@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.display;
 
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 public interface ToolTipProperties {
 

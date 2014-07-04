@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.environment.resources;
 
-import net.sf.anathema.lib.io.Filenames;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.io.Filenames;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.dependencies.ExternalResourceFile;

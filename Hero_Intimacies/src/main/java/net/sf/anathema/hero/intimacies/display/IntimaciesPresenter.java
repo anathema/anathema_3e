@@ -8,10 +8,10 @@ import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListe
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
 import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
 import java.util.HashMap;
 import java.util.Map;

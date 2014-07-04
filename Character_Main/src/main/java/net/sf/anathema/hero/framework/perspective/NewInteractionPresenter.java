@@ -6,8 +6,8 @@ import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.CharacterItemModel;
 import net.sf.anathema.hero.framework.perspective.model.ItemSelectionModel;
 import net.sf.anathema.hero.framework.perspective.model.NewCharacterListener;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.environment.Environment;
 
 public class NewInteractionPresenter {

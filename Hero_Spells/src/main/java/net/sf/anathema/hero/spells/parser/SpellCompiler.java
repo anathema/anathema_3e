@@ -6,7 +6,7 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
 

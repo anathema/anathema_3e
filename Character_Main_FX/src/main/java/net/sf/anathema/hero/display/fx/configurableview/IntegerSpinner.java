@@ -5,9 +5,9 @@ import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
 import jfxtras.scene.control.ListSpinnerIntegerList;
 import net.sf.anathema.library.event.IntValueChangedListener;
-import net.sf.anathema.library.view.IIntegerView;
+import net.sf.anathema.library.view.IntegerView;
 
-public class IntegerSpinner implements IIntegerView, IIntegerSpinner {
+public class IntegerSpinner implements IntegerView, IIntegerSpinner {
 
   private static final String STYLE_READONLY = "readonly";
   private int minimum = 0;

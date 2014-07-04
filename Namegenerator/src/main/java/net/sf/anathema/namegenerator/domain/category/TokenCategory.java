@@ -1,6 +1,6 @@
 package net.sf.anathema.namegenerator.domain.category;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class TokenCategory extends SimpleIdentifier {
 

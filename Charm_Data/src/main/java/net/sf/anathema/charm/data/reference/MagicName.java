@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data.reference;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class MagicName extends ReflectionEqualsObject{
 

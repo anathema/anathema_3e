@@ -16,7 +16,7 @@ import net.sf.anathema.framework.repository.access.printname.PrintNameFileAccess
 import net.sf.anathema.framework.repository.access.printname.ReferenceAccess;
 import net.sf.anathema.framework.repository.access.printname.ReferenceBuilder;
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 import java.io.File;
 import java.io.IOException;

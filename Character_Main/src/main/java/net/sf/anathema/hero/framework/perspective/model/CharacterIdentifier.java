@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class CharacterIdentifier extends SimpleIdentifier {
 

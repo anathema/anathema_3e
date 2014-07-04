@@ -3,7 +3,7 @@ package net.sf.anathema.hero.initialization;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.hero.template.TemplateFactory;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
 import java.util.ArrayList;

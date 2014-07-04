@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.health.model;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum HealthType implements Identifier {
   Bashing {

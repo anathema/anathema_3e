@@ -6,7 +6,7 @@ import net.sf.anathema.hero.model.DefaultHero;
 import net.sf.anathema.hero.model.HeroModelFactory;
 import net.sf.anathema.hero.template.ConfiguredModel;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Test;
 
 import java.util.ArrayList;

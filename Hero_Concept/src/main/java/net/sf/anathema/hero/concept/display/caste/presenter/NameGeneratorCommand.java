@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.text.ITextualDescription;
 import net.sf.anathema.namegenerator.domain.INameGenerator;
 
 public class NameGeneratorCommand implements Command {

@@ -4,9 +4,9 @@ import javafx.scene.Node;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeView;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
-import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.Vetor;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;
 

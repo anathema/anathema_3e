@@ -5,8 +5,8 @@ import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.Version;
 import net.sf.anathema.initialization.BootJob;
 import net.sf.anathema.initialization.IBootJob;
-import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 

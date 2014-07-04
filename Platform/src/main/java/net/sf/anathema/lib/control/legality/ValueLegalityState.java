@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.control.legality;
 
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public enum ValueLegalityState implements Identifier {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 
 public interface PersonalizationEditView {
   void setTitle(String title);

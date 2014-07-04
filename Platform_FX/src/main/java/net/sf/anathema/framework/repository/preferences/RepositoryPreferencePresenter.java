@@ -4,11 +4,11 @@ import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.nio.file.Path;

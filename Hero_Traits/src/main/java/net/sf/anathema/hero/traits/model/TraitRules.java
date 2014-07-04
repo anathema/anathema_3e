@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.library.Range;
+import net.sf.anathema.library.number.IntegerRange;
 
 public interface TraitRules {
 
@@ -24,7 +24,7 @@ public interface TraitRules {
 
   void setCapModifier(int modifier);
 
-  void setModifiedCreationRange(Range range);
+  void setModifiedCreationRange(IntegerRange range);
 
   boolean isRequiredFavored();
 }

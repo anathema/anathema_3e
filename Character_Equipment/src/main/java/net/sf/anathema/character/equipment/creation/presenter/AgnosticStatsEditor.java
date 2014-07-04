@@ -9,7 +9,7 @@ import net.sf.anathema.character.equipment.item.model.ModelToStats;
 import net.sf.anathema.character.equipment.item.model.NullClosure;
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Armor;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
-import net.sf.anathema.lib.gui.file.FileChooserConfiguration;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
+import net.sf.anathema.library.io.FileChooserConfiguration;
+import net.sf.anathema.library.io.SingleFileChooser;
 
 import java.nio.file.Path;
 

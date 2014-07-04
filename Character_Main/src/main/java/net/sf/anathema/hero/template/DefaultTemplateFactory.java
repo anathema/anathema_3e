@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class DefaultTemplateFactory implements TemplateFactory {
 

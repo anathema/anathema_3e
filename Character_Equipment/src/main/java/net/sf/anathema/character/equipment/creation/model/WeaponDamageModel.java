@@ -4,8 +4,8 @@ import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponDamageModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.library.Range;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.number.IntegerRange;
 import org.jmock.example.announcer.Announcer;
 
 public class WeaponDamageModel implements IWeaponDamageModel {
@@ -16,8 +16,8 @@ public class WeaponDamageModel implements IWeaponDamageModel {
   private HealthType healthType = HealthType.Lethal;
 
   public WeaponDamageModel() {
-    damageModel = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 0);
-    minDamageModel = new RangedIntValueModel(new Range(0, Integer.MAX_VALUE), 1);
+    damageModel = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 0);
+    minDamageModel = new RangedIntValueModel(new IntegerRange(0, Integer.MAX_VALUE), 1);
   }
 
   @Override

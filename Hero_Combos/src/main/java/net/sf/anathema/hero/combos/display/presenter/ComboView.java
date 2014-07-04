@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.combos.display.presenter;
 
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.Tool;
 
 public interface ComboView {
 

@@ -12,8 +12,8 @@ import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceDa
 import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 

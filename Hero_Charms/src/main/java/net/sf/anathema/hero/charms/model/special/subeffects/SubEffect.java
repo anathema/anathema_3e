@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 
 public interface SubEffect extends Identifier {
 

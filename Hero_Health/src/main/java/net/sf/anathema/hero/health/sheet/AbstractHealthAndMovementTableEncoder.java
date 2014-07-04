@@ -25,7 +25,7 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.ArrayUtils;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.concat;
+import static net.sf.anathema.library.lang.ArrayUtilities.concat;
 
 public abstract class AbstractHealthAndMovementTableEncoder implements ITableEncoder<ReportSession> {
   public static final int HEALTH_RECT_SIZE = 6;

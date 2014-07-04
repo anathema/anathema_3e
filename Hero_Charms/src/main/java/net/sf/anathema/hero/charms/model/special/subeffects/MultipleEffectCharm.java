@@ -6,7 +6,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.library.model.Condition;
 
 import java.util.ArrayList;
 import java.util.List;

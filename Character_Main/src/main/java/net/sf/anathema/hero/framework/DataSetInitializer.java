@@ -4,9 +4,9 @@ import net.sf.anathema.ProxySplashscreen;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
-import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceLoader;
 

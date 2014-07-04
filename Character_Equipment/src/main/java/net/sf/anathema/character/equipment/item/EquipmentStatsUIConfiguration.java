@@ -6,10 +6,10 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.lib.file.RelativePath;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 public class EquipmentStatsUIConfiguration extends AbstractUIConfiguration<IEquipmentStats> {
   private final EquipmentStringBuilder tooltipFactory;

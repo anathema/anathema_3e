@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display;
 
 import net.sf.anathema.framework.value.IntValueView;
-import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.interaction.model.ToggleTool;
+import net.sf.anathema.library.interaction.model.Tool;
 
 public interface ExtensibleTraitView {
   IntValueView getIntValueView();

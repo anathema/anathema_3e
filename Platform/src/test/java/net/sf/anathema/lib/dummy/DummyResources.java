@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.dummy;
 
-import net.sf.anathema.lib.exception.NotYetImplementedException;
+import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.HashMap;

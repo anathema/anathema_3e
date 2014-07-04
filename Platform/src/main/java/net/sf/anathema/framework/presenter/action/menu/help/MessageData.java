@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.presenter.action.menu.help;
 
-import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.library.message.MessageType;
 
 public class MessageData implements IMessageData {
 

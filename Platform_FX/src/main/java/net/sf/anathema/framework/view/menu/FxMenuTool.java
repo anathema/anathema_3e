@@ -6,11 +6,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
-import net.sf.anathema.interaction.Command;
-import net.sf.anathema.interaction.CommandProxy;
-import net.sf.anathema.interaction.Hotkey;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.CommandProxy;
+import net.sf.anathema.library.interaction.model.Hotkey;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.tool.ImageContainer;
 import net.sf.anathema.platform.tool.LoadImage;
 

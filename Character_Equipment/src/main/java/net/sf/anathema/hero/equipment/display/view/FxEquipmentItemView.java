@@ -7,7 +7,7 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentObjectView;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.platform.fx.FxTextView;
 import org.tbee.javafx.scene.layout.MigPane;
 

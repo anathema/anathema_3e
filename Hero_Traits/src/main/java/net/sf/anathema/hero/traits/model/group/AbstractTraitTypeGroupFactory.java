@@ -6,8 +6,8 @@ import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedCasteTraitTypeList;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.collection.MultiEntryMap;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;

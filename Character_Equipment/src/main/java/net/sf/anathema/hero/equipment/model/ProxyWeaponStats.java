@@ -23,7 +23,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import org.apache.commons.lang3.ArrayUtils;
 
 public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Proxy<IWeaponStats> {

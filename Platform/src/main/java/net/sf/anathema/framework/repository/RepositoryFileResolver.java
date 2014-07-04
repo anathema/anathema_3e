@@ -2,7 +2,7 @@ package net.sf.anathema.framework.repository;
 
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.item.RepositoryConfiguration;
-import net.sf.anathema.lib.io.PathUtils;
+import net.sf.anathema.library.io.PathUtils;
 
 import java.io.File;
 import java.nio.file.Path;

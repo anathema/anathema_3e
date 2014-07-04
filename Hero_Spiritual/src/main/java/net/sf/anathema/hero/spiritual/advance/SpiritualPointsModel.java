@@ -13,8 +13,8 @@ import net.sf.anathema.hero.spiritual.advance.experience.WillpowerExperienceMode
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 

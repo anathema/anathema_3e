@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
 public class MagicMaterialUIConfiguration extends AbstractUIConfiguration<MagicalMaterial> {

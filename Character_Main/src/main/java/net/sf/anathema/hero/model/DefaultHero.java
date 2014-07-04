@@ -3,7 +3,7 @@ package net.sf.anathema.hero.model;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.ChangeAnnouncerImpl;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.HashMap;

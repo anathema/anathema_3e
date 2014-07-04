@@ -5,8 +5,8 @@ import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class ConceptPersister extends AbstractModelJsonPersister<ConceptPto, HeroConcept> {

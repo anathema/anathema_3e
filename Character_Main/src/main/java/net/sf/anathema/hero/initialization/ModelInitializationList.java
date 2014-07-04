@@ -3,8 +3,8 @@ package net.sf.anathema.hero.initialization;
 import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import net.sf.anathema.hero.template.ConfiguredModel;
-import net.sf.anathema.lib.logging.Logger;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.logging.Logger;
 
 import java.util.ArrayList;
 import java.util.Iterator;

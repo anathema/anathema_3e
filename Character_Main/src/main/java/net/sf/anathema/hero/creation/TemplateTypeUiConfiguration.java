@@ -2,7 +2,7 @@ package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
 public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroTemplate> {

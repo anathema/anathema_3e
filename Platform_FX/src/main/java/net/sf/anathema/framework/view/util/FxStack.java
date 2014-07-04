@@ -3,7 +3,7 @@ package net.sf.anathema.framework.view.util;
 import com.google.common.collect.Iterables;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.LinkedHashMap;

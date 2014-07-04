@@ -1,6 +1,6 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class RequiredTraitType extends ReflectionEqualsObject{
 

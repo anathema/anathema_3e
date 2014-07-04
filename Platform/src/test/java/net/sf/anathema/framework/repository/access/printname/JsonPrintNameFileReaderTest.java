@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.access.printname;
 
 import net.sf.anathema.framework.item.IItemType;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;

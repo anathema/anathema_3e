@@ -8,7 +8,7 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
-import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

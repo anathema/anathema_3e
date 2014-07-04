@@ -3,7 +3,7 @@ package net.sf.anathema.framework.repository.access.printname;
 import com.google.gson.Gson;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.view.PrintNameFile;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.File;
 import java.io.FileInputStream;

@@ -12,7 +12,7 @@ import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;

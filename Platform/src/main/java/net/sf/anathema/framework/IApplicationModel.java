@@ -4,13 +4,13 @@ import net.sf.anathema.framework.extension.AnathemaExtension;
 import net.sf.anathema.framework.messaging.MessageContainer;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.Repository;
-import net.sf.anathema.lib.registry.IRegistry;
+import net.sf.anathema.library.initialization.Registry;
 
 public interface IApplicationModel {
 
   Repository getRepository();
 
-  IRegistry<String, AnathemaExtension> getExtensionPointRegistry();
+  Registry<String, AnathemaExtension> getExtensionPointRegistry();
 
   Messaging getMessaging();
 

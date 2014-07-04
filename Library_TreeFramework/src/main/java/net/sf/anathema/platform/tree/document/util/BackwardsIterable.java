@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.tree.document.util;
 
-import net.sf.anathema.lib.exception.NotYetImplementedException;
+import net.sf.anathema.library.exception.NotYetImplementedException;
 
 import java.util.Arrays;
 import java.util.Iterator;

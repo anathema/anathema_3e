@@ -2,7 +2,7 @@ package net.sf.anathema.framework.view.perspective;
 
 import javafx.scene.Node;
 import net.sf.anathema.framework.view.util.FxStack;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class CardContainer implements Container {
 

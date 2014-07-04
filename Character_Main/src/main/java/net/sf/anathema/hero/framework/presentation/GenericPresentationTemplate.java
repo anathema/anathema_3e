@@ -3,7 +3,7 @@ package net.sf.anathema.hero.framework.presentation;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.PresentationProperties;
 import net.sf.anathema.hero.template.TemplateType;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 public class GenericPresentationTemplate implements PresentationProperties {
 

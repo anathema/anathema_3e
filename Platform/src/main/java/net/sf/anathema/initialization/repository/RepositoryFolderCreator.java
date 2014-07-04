@@ -1,6 +1,6 @@
 package net.sf.anathema.initialization.repository;
 
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 import java.io.File;
 import java.io.IOException;

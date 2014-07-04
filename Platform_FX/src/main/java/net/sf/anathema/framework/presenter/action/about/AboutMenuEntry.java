@@ -5,8 +5,8 @@ import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.framework.module.MenuEntry;
 import net.sf.anathema.framework.module.RegisteredMenuEntry;
 import net.sf.anathema.framework.view.MenuBar;
-import net.sf.anathema.interaction.Command;
 import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredMenuEntry

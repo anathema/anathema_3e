@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter.stats.properties;
 
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
 public class WeaponDamageProperties extends AbstractProperties {

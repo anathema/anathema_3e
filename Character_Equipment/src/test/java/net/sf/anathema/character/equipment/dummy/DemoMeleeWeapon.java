@@ -8,7 +8,7 @@ import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
 

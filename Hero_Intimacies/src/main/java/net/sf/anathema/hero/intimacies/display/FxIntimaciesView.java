@@ -5,7 +5,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.languages.display.presenter.RemovableEntryView;
 import net.sf.anathema.hero.languages.display.view.FxRemovableStringView;
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.fx.NodeHolder;
 import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
 import org.tbee.javafx.scene.layout.MigPane;

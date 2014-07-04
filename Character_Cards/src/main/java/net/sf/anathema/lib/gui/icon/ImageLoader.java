@@ -1,7 +1,7 @@
 package net.sf.anathema.lib.gui.icon;
 
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.awt.Image;
 import java.awt.Toolkit;

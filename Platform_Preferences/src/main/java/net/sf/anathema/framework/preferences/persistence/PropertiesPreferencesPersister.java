@@ -5,7 +5,7 @@ import de.idos.updates.configuration.PropertiesLoader;
 import net.sf.anathema.framework.environment.preferences.PropertyPreferences;
 import net.sf.anathema.framework.preferences.perspective.PreferencesPersister;
 import net.sf.anathema.framework.presenter.action.menu.help.updatecheck.PropertiesSaver;
-import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.logging.Logger;
 
 import java.io.IOException;
 import java.util.Map;

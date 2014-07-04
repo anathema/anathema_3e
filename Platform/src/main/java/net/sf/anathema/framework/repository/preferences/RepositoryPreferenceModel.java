@@ -5,8 +5,8 @@ import net.sf.anathema.framework.preferences.elements.RegisteredPreferenceModel;
 import net.sf.anathema.framework.preferences.persistence.PreferenceKey;
 import net.sf.anathema.framework.preferences.persistence.PreferencePto;
 import net.sf.anathema.framework.preferences.persistence.PreferenceValue;
-import net.sf.anathema.interaction.Command;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.interaction.model.Command;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;

@@ -9,9 +9,9 @@ import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.display.presenter.CombosModel;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
-import static net.sf.anathema.lib.message.MessageType.Error;
+import static net.sf.anathema.library.message.MessageType.Error;
 
 @SuppressWarnings("UnusedDeclaration")
 public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, CombosModel> {

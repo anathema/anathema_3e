@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 
 public interface AgnosticTree {
   void setUiConfiguration(AgnosticUIConfiguration configuration);

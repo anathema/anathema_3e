@@ -6,10 +6,10 @@ import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;
-import net.sf.anathema.lib.gui.Presenter;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
+import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.text.TextualPresentation;
 
 public class VirtueFlawPresenter implements Presenter {
 

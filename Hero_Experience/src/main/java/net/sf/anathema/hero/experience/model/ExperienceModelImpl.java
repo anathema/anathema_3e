@@ -7,8 +7,8 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.AnnounceChangeListener;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.identifier.Identifier;
 import org.jmock.example.announcer.Announcer;
 
 public class ExperienceModelImpl implements ExperienceModel, HeroModel {

@@ -1,6 +1,6 @@
 package net.sf.anathema.magic.data.source;
 
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class SourceBookImpl extends ReflectionEqualsObject implements SourceBook {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.item.model;
 
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
 
 public class NullClosure<S> implements Closure<S> {
   @Override

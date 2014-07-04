@@ -2,10 +2,10 @@ package net.sf.anathema.character.equipment.item.view.fx;
 
 import net.sf.anathema.character.equipment.item.view.EquipmentNavigation;
 import net.sf.anathema.framework.repository.tree.FxVetor;
-import net.sf.anathema.interaction.AcceleratorMap;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.list.veto.Vetor;
-import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
+import net.sf.anathema.library.interaction.AcceleratorMap;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.view.VetoableObjectSelectionView;
+import net.sf.anathema.library.view.Vetor;
 import net.sf.anathema.platform.fx.ListSelectionView;
 import net.sf.anathema.platform.fx.Navigation;
 

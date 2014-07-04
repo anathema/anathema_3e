@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.initialization;
 
 import net.sf.anathema.hero.template.ConfiguredModel;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Test;
 
 import java.util.ArrayList;

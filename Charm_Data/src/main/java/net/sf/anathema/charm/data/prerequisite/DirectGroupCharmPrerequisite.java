@@ -1,7 +1,7 @@
 package net.sf.anathema.charm.data.prerequisite;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.lib.lang.ReflectionEqualsObject;
+import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class DirectGroupCharmPrerequisite extends ReflectionEqualsObject implements CharmPrerequisite {
 

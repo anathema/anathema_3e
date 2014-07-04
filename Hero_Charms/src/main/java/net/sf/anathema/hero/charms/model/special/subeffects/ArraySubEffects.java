@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 
 import java.util.Iterator;
 
-import static net.sf.anathema.lib.lang.ArrayUtilities.getFirst;
+import static net.sf.anathema.library.lang.ArrayUtilities.getFirst;
 
 public class ArraySubEffects implements SubEffects {
   private final SubEffect[] subeffects;

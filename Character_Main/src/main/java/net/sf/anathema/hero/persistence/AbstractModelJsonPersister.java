@@ -6,8 +6,8 @@ import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.messaging.NullMessaging;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 
 import java.io.IOException;
 import java.io.InputStream;

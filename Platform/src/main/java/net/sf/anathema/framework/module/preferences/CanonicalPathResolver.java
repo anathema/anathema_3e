@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.module.preferences;
 
 import net.sf.anathema.initialization.repository.IStringResolver;
-import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.exception.PersistenceException;
 
 import java.io.File;
 import java.io.IOException;

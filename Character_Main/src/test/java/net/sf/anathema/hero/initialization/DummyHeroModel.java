@@ -4,7 +4,7 @@ import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 public class DummyHeroModel implements HeroModel {
   private Identifier id;

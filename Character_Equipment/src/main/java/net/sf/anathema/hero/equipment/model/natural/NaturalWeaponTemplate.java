@@ -6,7 +6,7 @@ import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.util.Collection;
 

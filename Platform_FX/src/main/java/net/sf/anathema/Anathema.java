@@ -9,8 +9,8 @@ import net.sf.anathema.framework.repository.tree.FxFileChooser;
 import net.sf.anathema.framework.view.ApplicationFrame;
 import net.sf.anathema.initialization.EnvironmentFactory;
 import net.sf.anathema.initialization.GuiInitializer;
-import net.sf.anathema.lib.logging.Logger;
 import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.fx.FxAcceleratorMap;
 

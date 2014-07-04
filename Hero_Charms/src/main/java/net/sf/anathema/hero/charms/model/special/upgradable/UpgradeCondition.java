@@ -6,7 +6,7 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import net.sf.anathema.lib.data.Condition;
+import net.sf.anathema.library.model.Condition;
 
 public class UpgradeCondition implements Condition {
   private final CharmLearnableArbitrator arbitrator;

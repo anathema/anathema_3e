@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.fx;
 
-import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.RelativePath;
 
 import java.io.InputStream;
 import java.net.URL;

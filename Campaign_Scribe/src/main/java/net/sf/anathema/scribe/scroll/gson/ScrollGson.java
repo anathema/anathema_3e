@@ -4,8 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.sf.anathema.framework.repository.access.printname.RepositoryId;
 import net.sf.anathema.framework.repository.access.printname.SimpleRepositoryId;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.scribe.scroll.persistence.Scroll;
 import net.sf.anathema.scribe.scroll.persistence.ScrollDto;
 

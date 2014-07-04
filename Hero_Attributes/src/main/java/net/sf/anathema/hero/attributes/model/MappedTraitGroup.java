@@ -5,7 +5,7 @@ import net.sf.anathema.hero.traits.model.TraitGroup;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.List;

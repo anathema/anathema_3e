@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.initialization;
 
 import com.google.common.base.Function;
-import net.sf.anathema.lib.util.Identifier;
-import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public class WrapStringInIdentifier implements Function<String, Identifier> {
   @Override

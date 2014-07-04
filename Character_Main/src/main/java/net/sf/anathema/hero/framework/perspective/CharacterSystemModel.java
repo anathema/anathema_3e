@@ -23,9 +23,9 @@ import net.sf.anathema.hero.framework.perspective.sheet.QuickPrintCommand;
 import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.platform.JsonHeroReferenceScanner;
-import net.sf.anathema.lib.exception.PersistenceException;
-import net.sf.anathema.lib.gui.file.SingleFileChooser;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
 import org.jmock.example.announcer.Announcer;
 

@@ -5,9 +5,9 @@ import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresenter;
 import net.sf.anathema.framework.preferences.persistence.PreferencePto;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;

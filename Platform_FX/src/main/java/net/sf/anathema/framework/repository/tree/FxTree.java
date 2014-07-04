@@ -4,8 +4,8 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.collection.Closure;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.platform.fx.ConfigurableTreeCellFactory;
 import org.jmock.example.announcer.Announcer;
 

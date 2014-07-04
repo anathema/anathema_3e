@@ -2,10 +2,10 @@ package net.sf.anathema.hero.display.fx.configurableview;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
-import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
-import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.fx.FxObjectSelectionView;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.fx.selection.ComboBoxSelectionView;

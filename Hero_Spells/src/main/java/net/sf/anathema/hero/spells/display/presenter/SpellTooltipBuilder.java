@@ -5,8 +5,8 @@ import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.lib.gui.ConfigurableTooltip;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 public class SpellTooltipBuilder {
 
