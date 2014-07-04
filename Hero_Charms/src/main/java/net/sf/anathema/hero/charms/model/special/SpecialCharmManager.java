@@ -24,7 +24,7 @@ import net.sf.anathema.hero.charms.model.special.upgradable.UpgradableCharmConfi
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.IPainToleranceProvider;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 

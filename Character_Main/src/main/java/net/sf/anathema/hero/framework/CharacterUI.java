@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.library.resources.RelativePath;
 
 public class CharacterUI {

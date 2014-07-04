@@ -7,7 +7,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.LabelledValueEncoder;

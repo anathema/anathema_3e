@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.attributes.sheet.content;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.library.resources.Resources;
 

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.framework;
 
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Registry;
 import net.sf.anathema.platform.frame.AnathemaExtension;
 import net.sf.anathema.platform.frame.ApplicationModel;

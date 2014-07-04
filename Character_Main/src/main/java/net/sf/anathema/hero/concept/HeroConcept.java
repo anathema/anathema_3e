@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept;
 
 import net.sf.anathema.hero.framework.IIntegerDescription;
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 

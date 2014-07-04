@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.exception.PersistenceException;
 
 public interface IItemOperator {
 
-  void operate(HeroTemplate template)
+  void operate(HeroSplat template)
       throws PersistenceException;
 }

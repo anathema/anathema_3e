@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.display.presenter;
 
 import net.sf.anathema.hero.display.HeroModelGroup;
-import net.sf.anathema.hero.framework.display.CharacterView;
+import net.sf.anathema.hero.framework.display.HeroView;
 import net.sf.anathema.hero.framework.display.SectionView;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
@@ -17,13 +17,13 @@ public class CharacterPresenter {
 
   private final InitializerList initializerList;
   private final Hero hero;
-  private final CharacterView characterView;
+  private final HeroView heroView;
   private final Environment environment;
 
-  public CharacterPresenter(Hero hero, CharacterView view, Environment environment, ApplicationModel model) {
+  public CharacterPresenter(Hero hero, HeroView view, Environment environment, ApplicationModel model) {
     this.initializerList = new InitializerList(environment, model);
     this.hero = hero;
-    this.characterView = view;
+    this.heroView = view;
     this.environment = environment;
   }
 
@@ -43,7 +43,7 @@ public class CharacterPresenter {
 
   private SectionView prepareSection(String titleKey) {
     String sectionTitle = environment.getString(titleKey);
-    return characterView.addSection(sectionTitle);
+    return heroView.addSection(sectionTitle);
   }
 
   private void initializeGroup(HeroModelGroup group, SectionView sectionView) {

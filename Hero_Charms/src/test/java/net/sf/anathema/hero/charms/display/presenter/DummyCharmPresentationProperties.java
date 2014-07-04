@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.model.type.ForCharacterType;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 import net.sf.anathema.library.presenter.RGBColor;

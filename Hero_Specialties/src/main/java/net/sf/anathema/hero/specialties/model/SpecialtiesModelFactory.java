@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.specialties.model;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {

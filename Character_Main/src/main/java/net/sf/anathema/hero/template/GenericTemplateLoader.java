@@ -2,6 +2,7 @@ package net.sf.anathema.hero.template;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
 

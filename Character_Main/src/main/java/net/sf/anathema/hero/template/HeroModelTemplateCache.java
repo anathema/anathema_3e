@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.ResourceFile;

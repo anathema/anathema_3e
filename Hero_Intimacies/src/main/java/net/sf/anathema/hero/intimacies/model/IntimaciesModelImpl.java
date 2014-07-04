@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.intimacies.model;
 
 import com.google.common.base.Strings;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.framework.library.removableentry.AbstractRemovableEntryModel;
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryListener;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.model.change.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.model.change.UnspecifiedChangeListener;
 import net.sf.anathema.library.event.ChangeListener;

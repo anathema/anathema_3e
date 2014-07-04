@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.experience;
 
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

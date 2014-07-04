@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.template;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 public class NativeCharacterType {
 
   public static CharacterType get(Hero hero){
-    return hero.getTemplate().getTemplateType().getCharacterType();
+    return hero.getSplat().getTemplateType().getCharacterType();
   }
 }

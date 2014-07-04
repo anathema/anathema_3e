@@ -1,6 +1,6 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.overview.IOverviewModel;

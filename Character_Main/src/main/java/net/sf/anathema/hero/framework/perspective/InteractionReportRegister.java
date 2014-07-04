@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.framework.perspective;
 
+import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.framework.perspective.model.ItemSelectionModel;
 import net.sf.anathema.hero.framework.perspective.model.ReportRegister;
-import net.sf.anathema.hero.framework.reporting.Report;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.MenuTool;
 import net.sf.anathema.library.io.SingleFileChooser;

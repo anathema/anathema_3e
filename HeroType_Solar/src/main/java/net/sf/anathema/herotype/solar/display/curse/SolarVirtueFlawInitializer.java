@@ -5,7 +5,7 @@ import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.herotype.solar.model.SolarType;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
@@ -33,6 +33,6 @@ public class SolarVirtueFlawInitializer implements HeroModelInitializer {
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    return GreatCurseFetcher.fetch(hero) != null && hero.getTemplate().getTemplateType().getCharacterType().getId().equals(SolarType.ID);
+    return GreatCurseFetcher.fetch(hero) != null && hero.getSplat().getTemplateType().getCharacterType().getId().equals(SolarType.ID);
   }
 }

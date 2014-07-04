@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.concept.model.description;
 
 import net.sf.anathema.hero.description.HeroDescription;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.AnnounceChangeValueListener;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.text.ITextualDescription;

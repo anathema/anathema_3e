@@ -4,10 +4,10 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.concept.HeroConcept;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplateLoader;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")

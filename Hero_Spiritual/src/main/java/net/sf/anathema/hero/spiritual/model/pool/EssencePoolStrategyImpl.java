@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.change.ChangeFlavor;
-import net.sf.anathema.hero.model.change.FlavoredChangeListener;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.change.ChangeFlavor;
+import net.sf.anathema.hero.individual.model.change.FlavoredChangeListener;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.identifier.IdentifiedInteger;
 import org.jmock.example.announcer.Announcer;
 
 public class EssencePoolStrategyImpl implements EssencePoolStrategy {

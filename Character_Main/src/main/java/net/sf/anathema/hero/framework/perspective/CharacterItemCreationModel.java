@@ -4,12 +4,12 @@ import com.google.common.base.Objects;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.creation.ICharacterItemCreationModel;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.framework.HeroTemplateHolder;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateRegistry;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.TemplateRegistry;
+import net.sf.anathema.hero.framework.HeroSplatHolder;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
@@ -20,10 +20,10 @@ import java.util.List;
 public class CharacterItemCreationModel implements ICharacterItemCreationModel {
 
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
-  private final Multimap<CharacterType, HeroTemplate> templatesByType = HashMultimap.create();
+  private final Multimap<CharacterType, HeroSplat> templatesByType = HashMultimap.create();
   private final List<CharacterType> availableCharacterTypes = new ArrayList<>();
   private final HeroEnvironment generics;
-  private final HeroTemplateHolder templateHolder = new HeroTemplateHolder();
+  private final HeroSplatHolder templateHolder = new HeroSplatHolder();
   private CharacterType selectedType;
 
   public CharacterItemCreationModel(HeroEnvironment generics) {
@@ -36,7 +36,7 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
     CharacterTypes types = generics.getCharacterTypes();
     TemplateRegistry templateRegistry = generics.getTemplateRegistry();
     for (CharacterType type : types) {
-      Collection<HeroTemplate> templates = templateRegistry.getAllSupportedTemplates(type);
+      Collection<HeroSplat> templates = templateRegistry.getAllSupportedTemplates(type);
       if (!templates.isEmpty()) {
         availableCharacterTypes.add(type);
         templatesByType.putAll(type, templates);
@@ -60,30 +60,30 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
   }
 
   private void setTemplateToDefault() {
-    Collection<HeroTemplate> templates = generics.getTemplateRegistry().getAllSupportedTemplates(selectedType);
-    HeroTemplate defaultTemplate = templates.iterator().next();
-    templateHolder.setTemplate(defaultTemplate);
+    Collection<HeroSplat> templates = generics.getTemplateRegistry().getAllSupportedTemplates(selectedType);
+    HeroSplat defaultTemplate = templates.iterator().next();
+    templateHolder.setSplat(defaultTemplate);
   }
 
   @Override
-  public HeroTemplate[] getAvailableTemplates() {
-    Collection<HeroTemplate> list = templatesByType.get(selectedType);
-    List<HeroTemplate> copyList = new ArrayList<>(list);
-    return copyList.toArray(new HeroTemplate[copyList.size()]);
+  public HeroSplat[] getAvailableTemplates() {
+    Collection<HeroSplat> list = templatesByType.get(selectedType);
+    List<HeroSplat> copyList = new ArrayList<>(list);
+    return copyList.toArray(new HeroSplat[copyList.size()]);
   }
 
   @Override
-  public void setSelectedTemplate(HeroTemplate newValue) {
+  public void setSelectedTemplate(HeroSplat newValue) {
     if (templateHolder.isCurrentlySelected(newValue)) {
       return;
     }
-    templateHolder.setTemplate(newValue);
+    templateHolder.setSplat(newValue);
     control.announce().changeOccurred();
   }
 
   @Override
-  public HeroTemplate getSelectedTemplate() {
-    return templateHolder.getTemplate();
+  public HeroSplat getSelectedTemplate() {
+    return templateHolder.getSplat();
   }
 
   @Override

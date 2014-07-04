@@ -4,8 +4,8 @@ import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.description.HeroNameFetcher;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 
 public class LoadedDescriptiveFeatures implements DescriptiveFeatures {
@@ -29,9 +29,9 @@ public class LoadedDescriptiveFeatures implements DescriptiveFeatures {
   }
 
   @Override
-  public TemplateType getTemplateType() {
+  public SplatType getTemplateType() {
     Hero hero = getHero();
-    return hero.getTemplate().getTemplateType();
+    return hero.getSplat().getTemplateType();
   }
 
   @Override

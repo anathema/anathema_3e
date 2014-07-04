@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.framework.perspective.sheet;
 
+import net.sf.anathema.hero.application.report.ControlledFileChooser;
 import net.sf.anathema.library.io.FileChooserConfiguration;
 import net.sf.anathema.library.io.FileExtension;
 import net.sf.anathema.library.io.SingleFileChooser;

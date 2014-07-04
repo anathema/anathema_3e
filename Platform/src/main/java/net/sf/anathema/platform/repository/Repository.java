@@ -1,5 +1,6 @@
 package net.sf.anathema.platform.repository;
 
+import net.sf.anathema.library.io.DataFileProvider;
 import net.sf.anathema.library.io.IFileProvider;
 import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;

@@ -7,7 +7,7 @@ import net.sf.anathema.cascades.presenter.CharmCascadesPresenterImpl;
 import net.sf.anathema.cascades.presenter.CharmTreeMap;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.library.initialization.Weight;

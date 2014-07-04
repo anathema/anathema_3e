@@ -5,8 +5,8 @@ import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.combos.display.presenter.CombosModel;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.model.Hero;
 
 import java.util.ArrayList;
 import java.util.List;

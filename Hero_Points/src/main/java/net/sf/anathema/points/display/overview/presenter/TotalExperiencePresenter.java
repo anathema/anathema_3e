@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.hero.description.HeroNameFetcher;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageType;
 import net.sf.anathema.library.resources.Resources;

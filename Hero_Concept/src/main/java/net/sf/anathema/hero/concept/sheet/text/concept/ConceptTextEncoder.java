@@ -8,8 +8,8 @@ import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.sheet.text.TextPartFactory;
@@ -32,7 +32,7 @@ public class ConceptTextEncoder implements HeroTextEncoder {
 
   private void createCasteParagraph(MultiColumnTextReport report, Hero hero) throws DocumentException {
     CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
-    CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
+    CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
     String labelKey = "Sheet.Label.Caste." + characterType.getId();
     addLabeledText(report, labelKey, casteType.getId());
   }

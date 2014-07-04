@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.platform.repository.ChangeManagement;
 import org.jmock.example.announcer.Announcer;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.description;
 
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 
 public class HeroDescriptionFetcher {
 

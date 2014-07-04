@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective.model;
 
 import net.sf.anathema.hero.creation.CharacterTemplateCreator;
-import net.sf.anathema.hero.framework.reporting.Report;
+import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;

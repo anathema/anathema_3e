@@ -4,13 +4,13 @@ import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.CasteSelection;
 import net.sf.anathema.hero.concept.ConceptChange;
 import net.sf.anathema.hero.concept.HeroConcept;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.IIntegerDescription;
 import net.sf.anathema.hero.framework.IntegerDescription;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.model.change.AnnounceChangeListener;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 public class DefaultHeroConcept implements HeroConcept, HeroModel {

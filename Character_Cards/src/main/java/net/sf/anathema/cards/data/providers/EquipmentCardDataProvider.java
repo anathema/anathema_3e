@@ -14,7 +14,7 @@ import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.description;
 
 import net.sf.anathema.hero.application.item.HeroItem;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.text.ITextualDescription;
 
 public class HeroNameFetcher {

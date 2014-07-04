@@ -9,7 +9,7 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
 import java.util.Collection;

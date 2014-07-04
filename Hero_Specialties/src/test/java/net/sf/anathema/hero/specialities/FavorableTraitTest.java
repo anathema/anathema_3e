@@ -4,7 +4,7 @@ import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesContainer;
 import net.sf.anathema.hero.specialties.model.Specialty;

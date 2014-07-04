@@ -7,8 +7,8 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 
 import java.util.ArrayList;
 import java.util.Arrays;

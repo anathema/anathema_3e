@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.intimacies.persistence;
 
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;
 

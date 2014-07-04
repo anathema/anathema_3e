@@ -5,7 +5,7 @@ import net.sf.anathema.hero.display.presenter.CharacterPresenter;
 import net.sf.anathema.hero.framework.display.SubViewMap;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
 import net.sf.anathema.hero.framework.library.util.CssSkinner;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.environment.Environment;
@@ -26,14 +26,14 @@ public class CharacterViewFactory {
   public NodeHolder createView(HeroItemData hero) {
     SubViewRegistry viewFactory = new SubViewMap(environment);
     Stylesheet[] stylesheets = createStylesheets(hero);
-    TaskedCharacterView characterView = new TaskedCharacterView(viewFactory, stylesheets);
+    TaskedHeroView characterView = new TaskedHeroView(viewFactory, stylesheets);
     new CharacterPresenter(hero, characterView, environment, applicationModel).initPresentation();
     hero.getChangeManagement().setClean();
     return characterView;
   }
 
   private Stylesheet[] createStylesheets(Hero hero) {
-    String[] skins = new CssSkinner().getSkins(hero.getTemplate().getTemplateType().getCharacterType());
+    String[] skins = new CssSkinner().getSkins(hero.getSplat().getTemplateType().getCharacterType());
     List<Stylesheet> stylesheets = new ArrayList<>();
     for (String skin : skins) {
       stylesheets.add(new Stylesheet(skin));

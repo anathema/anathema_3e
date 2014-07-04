@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.specialties.advance;
 
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtiesBonusPointCalculator;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyBonusModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtyCreationData;

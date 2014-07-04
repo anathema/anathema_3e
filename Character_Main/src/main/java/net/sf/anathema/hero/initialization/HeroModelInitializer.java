@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.splat.ConfiguredModel;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.model.DefaultHero;
-import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.ConfiguredModel;
 import net.sf.anathema.hero.template.DefaultTemplateFactory;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +15,9 @@ import java.util.List;
 public class HeroModelInitializer {
 
   private HeroEnvironment environment;
-  private HeroTemplate template;
+  private HeroSplat template;
 
-  public HeroModelInitializer(HeroEnvironment environment, HeroTemplate template) {
+  public HeroModelInitializer(HeroEnvironment environment, HeroSplat template) {
     this.environment = environment;
     this.template = template;
   }

@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.framework.CharacterUI;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
@@ -29,7 +29,7 @@ public class CharacterCreationPageProperties {
     return iconProvider.getSmallTypeIconPath(type);
   }
 
-  public AgnosticUIConfiguration<HeroTemplate> getTemplateUI() {
+  public AgnosticUIConfiguration<HeroSplat> getTemplateUI() {
     return new TemplateTypeUiConfiguration(resources);
   }
 

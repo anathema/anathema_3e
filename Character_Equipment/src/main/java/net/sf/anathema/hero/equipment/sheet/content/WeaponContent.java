@@ -12,7 +12,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.DamageWeaponSt
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.DefenceWeaponStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.OverwhelmingStatGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapons.TagsStatsGroup;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;

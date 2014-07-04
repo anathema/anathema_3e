@@ -11,7 +11,7 @@ import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
-import net.sf.anathema.hero.model.HeroModel;
+import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

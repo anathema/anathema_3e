@@ -1,8 +1,10 @@
 package net.sf.anathema.hero.model;
 
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.model.change.ChangeAnnouncerImpl;
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
@@ -16,15 +18,15 @@ public class DefaultHero implements Hero {
   private final ChangeAnnouncer changeAnnouncer = new ChangeAnnouncerImpl();
   private Map<String, HeroModel> modelsById = new HashMap<>();
   private boolean fullyLoaded = false;
-  private final HeroTemplate template;
+  private final HeroSplat template;
   private List<HeroModel> orderedModels = new ArrayList<>();
 
-  public DefaultHero(HeroTemplate template) {
+  public DefaultHero(HeroSplat template) {
     this.template = template;
   }
 
   @Override
-  public HeroTemplate getTemplate() {
+  public HeroSplat getSplat() {
     return template;
   }
 

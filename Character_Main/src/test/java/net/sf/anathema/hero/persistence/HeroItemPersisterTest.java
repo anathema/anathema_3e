@@ -4,10 +4,10 @@ import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyObjectFactory;
-import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterTemplate;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.dummy.template.SimpleDummyCharacterSplat;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.HeroEnvironmentImpl;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.platform.messaging.Messaging;
@@ -19,7 +19,7 @@ import static org.mockito.Mockito.mock;
 
 public class HeroItemPersisterTest {
   private Messaging messaging = mock(Messaging.class);
-  private SimpleDummyCharacterTemplate template = new SimpleDummyCharacterTemplate(new DummyExaltCharacterType(), null);
+  private SimpleDummyCharacterSplat template = new SimpleDummyCharacterSplat(new DummyExaltCharacterType(), null);
 
   @Test
   public void createsFullyLoadedCharacter() throws Exception {
@@ -30,7 +30,7 @@ public class HeroItemPersisterTest {
   }
 
   private HeroEnvironment createEnvironment() {
-    IExtensibleDataSetProvider dataSetProvider = mock(IExtensibleDataSetProvider.class);
+    ExtensibleDataSetProvider dataSetProvider = mock(ExtensibleDataSetProvider.class);
     final DummyObjectFactory objectFactory = new DummyObjectFactory();
     HeroEnvironment generics = new HeroEnvironmentImpl(null, objectFactory, dataSetProvider);
     generics.getTemplateRegistry().register(template);

@@ -7,7 +7,7 @@ import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
@@ -51,7 +51,7 @@ public class DefenceWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IW
     TraitMap traitCollection = TraitModelFetcher.fetch(hero);
     double finalValue = calculateFinalValue(weapon.getDefence() + getOptionModifiers(weapon), traitCollection.getTrait(AttributeType.Dexterity),
             traitCollection.getTrait(weapon.getTraitType()));
-    boolean isMortal = !hero.getTemplate().getTemplateType().getCharacterType().isEssenceUser();
+    boolean isMortal = !hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
     if (isMortal) {
       finalValue = Math.floor(finalValue / 2);
     } else {

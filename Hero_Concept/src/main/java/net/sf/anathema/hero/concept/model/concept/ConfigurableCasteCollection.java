@@ -3,7 +3,7 @@ package net.sf.anathema.hero.concept.model.concept;
 import net.sf.anathema.hero.concept.CasteCollection;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.template.caste.CasteTemplate;
-import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.individual.splat.SplatType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class ConfigurableCasteCollection implements CasteCollection {
   }
 
   @Override
-  public CasteType[] getAllCasteTypes(TemplateType template) {
+  public CasteType[] getAllCasteTypes(SplatType template) {
     return allTypes.toArray(new CasteType[allTypes.size()]);
   }
 }

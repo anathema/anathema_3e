@@ -1,20 +1,20 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.event.ChangeListener;
 
 public interface ICharacterItemCreationModel {
 
   void setCharacterType(CharacterType type);
 
-  void setSelectedTemplate(HeroTemplate newValue);
+  void setSelectedTemplate(HeroSplat newValue);
 
   void addListener(ChangeListener listener);
 
   Iterable<CharacterType> getAvailableCharacterTypes();
 
-  HeroTemplate[] getAvailableTemplates();
+  HeroSplat[] getAvailableTemplates();
 
-  HeroTemplate getSelectedTemplate();
+  HeroSplat getSelectedTemplate();
 }

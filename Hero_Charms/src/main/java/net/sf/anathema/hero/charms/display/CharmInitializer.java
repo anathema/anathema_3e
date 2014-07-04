@@ -10,12 +10,12 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.display.SectionView;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
@@ -38,7 +38,7 @@ public class CharmInitializer implements HeroModelInitializer {
   public void initialize(SectionView sectionView, Hero hero, Environment environment) {
     MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(applicationModel, environment);
     CharmDisplayModel model = new CharmDisplayModel(hero, provider);
-    CharacterType characterType = hero.getTemplate().getTemplateType().getCharacterType();
+    CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
     CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment);
     TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(characterType);
     String header = environment.getString("CardView.CharmConfiguration.CharmSelection.Title");

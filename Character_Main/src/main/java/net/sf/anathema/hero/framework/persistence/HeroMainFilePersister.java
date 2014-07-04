@@ -4,8 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.description.HeroNameFetcher;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
@@ -48,16 +48,16 @@ public class HeroMainFilePersister {
 
   private HeroMainFileDto convertHeroToDto(Item item) {
     Hero hero = (Hero) item.getItemData();
-    TemplateType templateType = hero.getTemplate().getTemplateType();
-    return createDtoToSave(item, hero, templateType);
+    SplatType splatType = hero.getSplat().getTemplateType();
+    return createDtoToSave(item, hero, splatType);
   }
 
-  private HeroMainFileDto createDtoToSave(Item item, Hero hero, TemplateType templateType) {
+  private HeroMainFileDto createDtoToSave(Item item, Hero hero, SplatType splatType) {
     HeroMainFileDto mainFileDto = new HeroMainFileDto();
     mainFileDto.printName = new HeroNameFetcher().getName(hero);
     mainFileDto.repositoryId = item.getRepositoryLocation().getId();
-    mainFileDto.characterType.characterType = templateType.getCharacterType().getId();
-    mainFileDto.characterType.subType = templateType.getSubType().getId();
+    mainFileDto.characterType.characterType = splatType.getCharacterType().getId();
+    mainFileDto.characterType.subType = splatType.getSubType().getId();
     return mainFileDto;
   }
 }

@@ -5,7 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfWriter;
-import net.sf.anathema.hero.framework.reporting.ReportException;
+import net.sf.anathema.hero.environment.report.ReportException;
 
 public class MultiColumnTextReport {
   public static final int TwoColumns = 2;

@@ -6,7 +6,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.armour.HardnessStatsGr
 import net.sf.anathema.hero.equipment.sheet.content.stats.armour.MobilityPenaltyStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.armour.SoakArmourStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.library.resources.Resources;
 

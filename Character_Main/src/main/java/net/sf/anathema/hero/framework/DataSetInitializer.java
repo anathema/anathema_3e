@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.framework;
 
 import net.sf.anathema.ProxySplashscreen;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetProvider;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
-import net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler;
 
 import java.util.Collection;
 import java.util.Set;
@@ -24,10 +23,11 @@ public class DataSetInitializer {
     this.objectFactory = objectFactory;
   }
 
-  public IExtensibleDataSetProvider initializeExtensibleResources() throws InitializationException {
+  public ExtensibleDataSetProvider initializeExtensibleResources() throws InitializationException {
     ExtensibleDataManager manager = new ExtensibleDataManager();
-    Collection<IExtensibleDataSetCompiler> compilers = objectFactory.instantiateOrdered(ExtensibleDataSetCompiler.class, objectFactory);
-    for (IExtensibleDataSetCompiler compiler : compilers) {
+    Collection<ExtensibleDataSetCompiler> compilers = objectFactory.instantiateOrdered(
+      net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler.class, objectFactory);
+    for (ExtensibleDataSetCompiler compiler : compilers) {
       try {
         ProxySplashscreen.getInstance().displayStatusMessage("Compiling " + compiler.getName() + "...");
         getDataFilesFromReflection(compiler);
@@ -40,7 +40,7 @@ public class DataSetInitializer {
     return manager;
   }
 
-  private void getDataFilesFromReflection(IExtensibleDataSetCompiler compiler) throws Exception {
+  private void getDataFilesFromReflection(ExtensibleDataSetCompiler compiler) throws Exception {
     Set<ResourceFile> files = resourceLoader.getResourcesMatching(compiler.getRecognitionPattern());
     logger.info(compiler.getName() + ": Found " + files.size() + " data files.");
     for (ResourceFile file : files) {
@@ -48,7 +48,7 @@ public class DataSetInitializer {
     }
   }
 
-  private String handleCompilationException(IExtensibleDataSetCompiler compiler, Exception e) {
+  private String handleCompilationException(ExtensibleDataSetCompiler compiler, Exception e) {
     StringBuilder message = new StringBuilder("Could not compile ");
     message.append(compiler.getName());
     Throwable cause = e.getCause();

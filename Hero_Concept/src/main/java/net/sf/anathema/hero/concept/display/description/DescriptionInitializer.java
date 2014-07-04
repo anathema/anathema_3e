@@ -8,7 +8,7 @@ import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.hero.display.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.display.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.framework.display.SectionView;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
@@ -41,7 +41,7 @@ public class DescriptionInitializer implements HeroModelInitializer {
   private DescriptionDetails createDescriptionDetails(Hero hero) {
     HeroDescription characterDescription = HeroDescriptionFetcher.fetch(hero);
     HeroConcept heroConcept = HeroConceptFetcher.fetch(hero);
-    boolean isExalt = hero.getTemplate().getTemplateType().getCharacterType().isExaltType();
+    boolean isExalt = hero.getSplat().getTemplateType().getCharacterType().isExaltType();
     return new DescriptionDetails(characterDescription, heroConcept, isExalt);
   }
 }

@@ -1,7 +1,7 @@
 package net.sf.anathema.character.db;
 
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmPresentationProperties;
-import net.sf.anathema.hero.framework.type.CharacterType;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.model.type.ForCharacterType;
 import net.sf.anathema.library.presenter.RGBColor;
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.languages.persistence;
 
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;
 

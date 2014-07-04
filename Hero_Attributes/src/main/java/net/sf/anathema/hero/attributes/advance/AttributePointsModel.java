@@ -10,10 +10,10 @@ import net.sf.anathema.hero.attributes.advance.experience.AttributesExperienceMo
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.attributes.template.AttributePointsTemplate;
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;

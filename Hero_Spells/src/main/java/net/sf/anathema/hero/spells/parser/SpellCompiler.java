@@ -1,21 +1,20 @@
 package net.sf.anathema.hero.spells.parser;
 
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
-import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
-import net.sf.anathema.hero.template.TemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
-import net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 
-@ExtensibleDataSetCompiler
-public class SpellCompiler implements IExtensibleDataSetCompiler {
+@net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
+public class SpellCompiler implements ExtensibleDataSetCompiler {
   private static final String Spell_File_Recognition_Pattern = ".+?\\.spells";
   private final ListSpellCache cache = new ListSpellCache();
   private final TemplateLoader<SpellListTemplate> loader = new GenericTemplateLoader<>(SpellListTemplate.class);

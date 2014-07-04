@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
-public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroTemplate> {
+public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroSplat> {
   private Resources resources;
 
   public TemplateTypeUiConfiguration(Resources resources) {
@@ -13,8 +13,8 @@ public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroTem
   }
 
   @Override
-  protected String labelForExistingValue(HeroTemplate heroTemplate) {
-    GenericPresentationTemplate template = new GenericPresentationTemplate(heroTemplate);
+  protected String labelForExistingValue(HeroSplat heroSplat) {
+    GenericPresentationTemplate template = new GenericPresentationTemplate(heroSplat);
     String newActionResource = template.getNewActionResource();
     return resources.getString(newActionResource);
   }

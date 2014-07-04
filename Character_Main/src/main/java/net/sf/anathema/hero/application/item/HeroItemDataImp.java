@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.application.item;
 
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.framework.CharacterChangeManagement;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.initialization.HeroModelInitializer;
 import net.sf.anathema.hero.model.DefaultHero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.platform.repository.ChangeManagement;
 
@@ -17,14 +17,14 @@ public class HeroItemDataImp implements HeroItemData {
   private final CharacterChangeManagement management = new CharacterChangeManagement(this);
   private final DefaultHero hero;
 
-  public HeroItemDataImp(HeroTemplate template, HeroEnvironment environment) {
+  public HeroItemDataImp(HeroSplat template, HeroEnvironment environment) {
     this.hero = new DefaultHero(template);
     addModels(environment);
     management.initListening();
   }
 
   private void addModels(HeroEnvironment environment) {
-    HeroModelInitializer initializer = new HeroModelInitializer(environment, getTemplate());
+    HeroModelInitializer initializer = new HeroModelInitializer(environment, getSplat());
     initializer.addModels(hero);
   }
 
@@ -34,8 +34,8 @@ public class HeroItemDataImp implements HeroItemData {
   }
 
   @Override
-  public HeroTemplate getTemplate() {
-    return hero.getTemplate();
+  public HeroSplat getSplat() {
+    return hero.getSplat();
   }
 
   @Override

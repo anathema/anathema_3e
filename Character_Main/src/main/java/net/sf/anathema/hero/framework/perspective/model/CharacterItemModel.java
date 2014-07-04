@@ -5,7 +5,7 @@ import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.framework.perspective.DescriptiveFeatures;
 import net.sf.anathema.hero.framework.perspective.LoadedDescriptiveFeatures;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 

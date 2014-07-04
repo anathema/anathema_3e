@@ -5,15 +5,15 @@ import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.display.fx.perspective.CharacterSystemInitializer;
-import net.sf.anathema.hero.framework.HeroEnvironment;
+import net.sf.anathema.hero.environment.CharacterTypes;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.framework.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.framework.persistence.HeroItemPersister;
 import net.sf.anathema.hero.framework.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.framework.perspective.model.CharacterPersistenceModel;
-import net.sf.anathema.hero.framework.type.CharacterTypes;
-import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.hero.template.TemplateTypeImpl;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.frame.ApplicationModel;
@@ -35,7 +35,7 @@ public class CharacterFactory {
   }
 
   public HeroItemData createCharacter(String type, String subtype) {
-    HeroTemplate characterTemplate = loadTemplateForType(type, subtype);
+    HeroSplat characterTemplate = loadTemplateForType(type, subtype);
     return createCharacter(characterTemplate);
   }
 
@@ -48,12 +48,12 @@ public class CharacterFactory {
     return (HeroItemData) loadItem.getItemData();
   }
 
-  private HeroTemplate loadTemplateForType(String type, String subtype) {
+  private HeroSplat loadTemplateForType(String type, String subtype) {
     HeroEnvironment generics = getCharacterGenerics();
-    return generics.getTemplateRegistry().getTemplate(new TemplateTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
+    return generics.getTemplateRegistry().getTemplate(new SplatTypeImpl(characterTypes.findById(type), new SimpleIdentifier(subtype)));
   }
 
-  private HeroItemData createCharacter(HeroTemplate template) {
+  private HeroItemData createCharacter(HeroSplat template) {
     RepositoryItemPersister itemPersister = new HeroItemPersister(getCharacterGenerics(), model.getMessaging());
     Item item = itemPersister.createNew(template);
     return (HeroItemData) item.getItemData();

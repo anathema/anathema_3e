@@ -6,8 +6,8 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.hero.equipment.SpecialtiesCollectionImpl;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -70,6 +70,6 @@ public class EquipmentHeroEvaluatorImpl implements EquipmentHeroEvaluator {
   }
 
   private CharacterType getCharacterType() {
-    return hero.getTemplate().getTemplateType().getCharacterType();
+    return hero.getSplat().getTemplateType().getCharacterType();
   }
 }

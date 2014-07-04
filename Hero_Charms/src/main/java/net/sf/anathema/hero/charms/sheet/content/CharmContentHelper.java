@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmS
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.initialization;
 
-import net.sf.anathema.hero.template.ConfiguredModel;
+import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

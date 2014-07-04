@@ -3,9 +3,9 @@ package net.sf.anathema.hero.charms.advance;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplateLoader;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
 import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")

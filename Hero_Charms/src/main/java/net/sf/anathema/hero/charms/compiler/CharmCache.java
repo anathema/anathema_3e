@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 
 import java.util.List;
 

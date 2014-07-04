@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.concept.model.description;
 
 import net.sf.anathema.hero.description.HeroDescription;
+import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.ExperienceModel;
 import net.sf.anathema.hero.initialization.SimpleModelTreeEntry;
 import net.sf.anathema.hero.model.HeroModelFactory;
-import net.sf.anathema.hero.template.TemplateFactory;
 
 @SuppressWarnings("UnusedDeclaration")
 public class HeroDescriptionFactory extends SimpleModelTreeEntry implements HeroModelFactory {

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.creation;
 
-import net.sf.anathema.hero.framework.type.CharacterType;
-import net.sf.anathema.hero.template.HeroTemplate;
+import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
@@ -32,7 +32,7 @@ public class CharacterCreationPresenter {
       model.addListener(() -> updateButtonChoice(type, button));
       updateButtonChoice(type, button);
     }
-    final VetoableObjectSelectionView<HeroTemplate> list = view.addObjectSelectionList();
+    final VetoableObjectSelectionView<HeroSplat> list = view.addObjectSelectionList();
     list.setCellRenderer(properties.getTemplateUI());
     list.addObjectSelectionChangedListener(newValue -> {
       if (newValue == null) {
@@ -66,15 +66,15 @@ public class CharacterCreationPresenter {
     cancel.setCommand(view::close);
   }
 
-  protected void refreshList(VetoableObjectSelectionView<HeroTemplate> list) {
-    HeroTemplate[] availableTemplates = model.getAvailableTemplates();
+  protected void refreshList(VetoableObjectSelectionView<HeroSplat> list) {
+    HeroSplat[] availableTemplates = model.getAvailableTemplates();
     Arrays.sort(availableTemplates, (o1, o2) -> getTemplateResource(o1).compareTo(getTemplateResource(o2)));
     list.setObjects(availableTemplates);
     list.setSelectedObject(model.getSelectedTemplate());
   }
 
 
-  private String getTemplateResource(HeroTemplate o1) {
+  private String getTemplateResource(HeroSplat o1) {
     return properties.getTemplateUI().getLabel(o1);
   }
 }

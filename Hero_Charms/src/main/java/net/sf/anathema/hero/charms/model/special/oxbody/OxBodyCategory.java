@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.special.oxbody;
 
 import net.sf.anathema.hero.health.model.HealthLevelType;
-import net.sf.anathema.hero.model.Hero;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
 import net.sf.anathema.hero.traits.model.rules.LimitedTrait;

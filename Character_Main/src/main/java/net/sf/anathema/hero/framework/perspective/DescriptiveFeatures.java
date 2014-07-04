@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.framework.perspective;
 
 import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.template.TemplateType;
+import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 
 public interface DescriptiveFeatures {
@@ -10,7 +10,7 @@ public interface DescriptiveFeatures {
 
   CharacterIdentifier getIdentifier();
 
-  TemplateType getTemplateType();
+  SplatType getTemplateType();
 
   Identifier getCasteType();
 

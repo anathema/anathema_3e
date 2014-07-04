@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
-import net.sf.anathema.hero.framework.HeroEnvironment;
-import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.hero.model.change.ChangeAnnouncer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.individual.model.change.ChangeAnnouncer;
 import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -94,7 +94,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
   @Override
   public boolean isEssenceUser() {
-    return hero.getTemplate().getTemplateType().getCharacterType().isEssenceUser();
+    return hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
   }
 
   @Override
