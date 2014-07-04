@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.display.special;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.view.BooleanView;
 
 public class MultipleEffectCharmPresenter {
 
@@ -21,7 +21,7 @@ public class MultipleEffectCharmPresenter {
     for (final SubEffect subeffect : model.getEffects()) {
       String key = model.getCharm().getName().text + ".Subeffects." + subeffect.getId();
       String label = resources.getString(key);
-      final BooleanValueView display = view.addSubeffect(label);
+      final BooleanView display = view.addSubeffect(label);
       subeffect.addChangeListener(() -> display.setSelected(subeffect.isLearned()));
       display.addChangeListener(newValue -> {
         subeffect.setLearned(newValue);

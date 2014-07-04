@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.framework.IIntegerDescription;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
-import net.sf.anathema.library.view.IIntegerView;
+import net.sf.anathema.library.view.IntegerView;
 import net.sf.anathema.platform.fx.FxTextView;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -20,7 +20,7 @@ public class FxMultiComponentLine implements MultiComponentLine {
   }
 
   @Override
-  public IIntegerView addIntegerView(String labelText, IIntegerDescription description) {
+  public IntegerView addIntegerView(String labelText, IIntegerDescription description) {
     IntegerSpinner spinner = new IntegerSpinner();
     spinner.setValue(description.getValue());
     addLabeledComponent(labelText, spinner.getNode());

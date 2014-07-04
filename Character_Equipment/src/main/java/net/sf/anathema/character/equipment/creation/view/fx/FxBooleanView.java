@@ -5,10 +5,10 @@ import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
 import net.sf.anathema.library.event.BooleanChangedListener;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.view.BooleanView;
 import org.jmock.example.announcer.Announcer;
 
-public class FxBooleanView implements BooleanValueView {
+public class FxBooleanView implements BooleanView {
 
   private final CheckBox checkBox = new CheckBox();
   private final Announcer<BooleanChangedListener> announcer = Announcer.to(BooleanChangedListener.class);

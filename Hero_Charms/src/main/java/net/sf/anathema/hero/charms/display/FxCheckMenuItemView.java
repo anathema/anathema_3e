@@ -5,10 +5,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
 import net.sf.anathema.library.event.BooleanChangedListener;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
 
-public class FxCheckMenuItemView implements BooleanValueView, FxSpecialContent {
+public class FxCheckMenuItemView implements BooleanView, FxSpecialContent {
   private final CheckMenuItem menuItem;
 
   public FxCheckMenuItemView(String label) {

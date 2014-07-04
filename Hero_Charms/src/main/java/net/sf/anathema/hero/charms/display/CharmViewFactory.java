@@ -5,7 +5,7 @@ import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.framework.display.SubViewFactory;
-import net.sf.anathema.library.view.BooleanValueView;
+import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.platform.fx.Stylesheet;
 
 @Produces(CharmView.class)
@@ -16,7 +16,7 @@ public class CharmViewFactory implements SubViewFactory {
   public <T> T create() {
     FxCharmView fxView = new FxCharmView();
     fxView.registerSpecialType(IntValueView.class, new FxIntDisplayFactory());
-    fxView.registerSpecialType(BooleanValueView.class, new FxBooleanDisplayFactory());
+    fxView.registerSpecialType(BooleanView.class, new FxBooleanDisplayFactory());
     new Stylesheet("skin/platform/tooltip.css").applyToParent(fxView.getNode());
     return (T) fxView;
   }

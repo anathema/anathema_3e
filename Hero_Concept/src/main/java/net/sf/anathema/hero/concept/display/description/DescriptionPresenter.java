@@ -10,7 +10,7 @@ import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.library.view.IIntegerView;
+import net.sf.anathema.library.view.IntegerView;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
@@ -70,7 +70,7 @@ public class DescriptionPresenter {
 
   private void addInteger(MultiComponentLine componentLine, String label, final IIntegerDescription integerDescription) {
     String title = environment.getString(label);
-    IIntegerView view = componentLine.addIntegerView(title, integerDescription);
+    IntegerView view = componentLine.addIntegerView(title, integerDescription);
     view.addChangeListener(integerDescription::setValue);
   }
 
