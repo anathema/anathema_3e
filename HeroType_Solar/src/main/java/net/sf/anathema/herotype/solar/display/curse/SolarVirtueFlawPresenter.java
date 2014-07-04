@@ -1,11 +1,11 @@
 package net.sf.anathema.herotype.solar.display.curse;
 
-import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.library.view.ConfigurableCharacterView;
 
 public class SolarVirtueFlawPresenter extends VirtueFlawPresenter {
 

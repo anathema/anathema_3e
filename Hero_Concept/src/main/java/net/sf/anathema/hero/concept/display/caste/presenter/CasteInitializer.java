@@ -4,13 +4,13 @@ import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
-import static net.sf.anathema.hero.display.HeroModelGroup.Outline;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
 
 @RegisteredInitializer(Outline)
 @Weight(weight = 100)

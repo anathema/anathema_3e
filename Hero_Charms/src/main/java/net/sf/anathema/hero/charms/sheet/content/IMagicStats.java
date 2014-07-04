@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.hero.framework.library.IStats;
+import net.sf.anathema.hero.sheet.pdf.content.stats.IStats;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 

@@ -7,8 +7,8 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ITraitModifyingStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 
 import java.util.ArrayList;
 import java.util.List;

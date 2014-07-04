@@ -2,7 +2,7 @@ package net.sf.anathema.hero.intimacies.display;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.view.FxRemovableStringView;
 import net.sf.anathema.library.resources.RelativePath;

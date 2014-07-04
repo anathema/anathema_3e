@@ -12,7 +12,6 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.ma
 import net.sf.anathema.character.equipment.character.model.stats.modification.material.MaterialSoakModifier;
 import net.sf.anathema.character.equipment.character.model.stats.modification.modifier.AttunementModifier;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Collection;

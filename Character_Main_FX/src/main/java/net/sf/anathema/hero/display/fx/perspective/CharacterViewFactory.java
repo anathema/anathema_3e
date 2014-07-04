@@ -4,7 +4,6 @@ import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.presenter.HeroPresenter;
 import net.sf.anathema.hero.framework.display.SubViewMap;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
-import net.sf.anathema.hero.framework.library.util.CssSkinner;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;

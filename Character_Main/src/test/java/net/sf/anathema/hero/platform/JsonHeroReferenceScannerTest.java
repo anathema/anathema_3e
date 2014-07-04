@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.platform;
 
+import net.sf.anathema.hero.application.perspective.JsonHeroReferenceScanner;
+import net.sf.anathema.hero.application.perspective.model.CharacterReference;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.environment.CharacterTypes;
-import net.sf.anathema.hero.framework.perspective.model.CharacterReference;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.item.RepositoryConfiguration;
 import net.sf.anathema.platform.repository.IRepositoryFileResolver;

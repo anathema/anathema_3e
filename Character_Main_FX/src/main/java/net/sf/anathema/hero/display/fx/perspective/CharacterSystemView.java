@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
-import net.sf.anathema.hero.framework.perspective.CharacterGridView;
+import net.sf.anathema.hero.application.perspective.CharacterGridView;
 import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.PerspectivePane;

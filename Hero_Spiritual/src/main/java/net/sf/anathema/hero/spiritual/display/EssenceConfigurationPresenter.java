@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.hero.framework.display.labelledvalue.NullStyledValueView;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -9,6 +8,7 @@ import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.IntValueView;
+import net.sf.anathema.library.view.NullStyledValueView;
 import net.sf.anathema.library.view.StyledValueView;
 
 public class EssenceConfigurationPresenter implements Presenter {

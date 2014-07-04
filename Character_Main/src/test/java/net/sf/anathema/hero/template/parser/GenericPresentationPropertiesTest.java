@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.template.parser;
 
+import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.DummyHeroSplat;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
-import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Assert;
 import org.junit.Test;

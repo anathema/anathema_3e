@@ -1,11 +1,11 @@
 package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.hero.elsewhere.experience.ExperienceModelFetcher;
-import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.legality.LegalityColorProvider;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.LabelledAllotmentView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;
@@ -53,7 +53,7 @@ public class ExperiencedOverviewPresenter {
   }
 
   private void initTotal(OverviewCategory category) {
-    totalView = category.addAlotmentView(getString("Overview.Experience.Total"), 4);
+    totalView = category.addAllotmentView(getString("Overview.Experience.Total"), 4);
     PointModelFetcher.fetch(hero).getExperiencePoints().addExperiencePointConfigurationListener(this::calculateXPCost);
   }
 

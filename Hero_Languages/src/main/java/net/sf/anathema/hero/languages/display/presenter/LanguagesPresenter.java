@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.hero.languages.model.LanguagesModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -11,6 +10,7 @@ import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.LabelledAllotmentView;
 import net.sf.anathema.library.view.RemovableEntryView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.platform.taskbar.BasicUi;
@@ -43,8 +43,8 @@ public class LanguagesPresenter {
             resources.getString("Linguistics.Overview.Families"), 1);
     final StyledValueView<Integer> barbarianView = overview.addIntegerValueView(
             resources.getString("Linguistics.Overview.Barbarian"), 2);
-    final LabelledAllotmentView totalView = overview.addAlotmentView(
-            resources.getString("Linguistics.Overview.Total"), 2);
+    final LabelledAllotmentView totalView = overview.addAllotmentView(resources.getString("Linguistics.Overview.Total"),
+      2);
     model.addModelChangeListener(new RemovableEntryListener<Identifier>() {
       @Override
       public void entryAdded(Identifier entry) {

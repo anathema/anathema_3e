@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.application.creation;
 
-import net.sf.anathema.hero.framework.presentation.GenericPresentationTemplate;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;

@@ -2,14 +2,14 @@ package net.sf.anathema.hero.spiritual.display;
 
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
-import static net.sf.anathema.hero.display.HeroModelGroup.SpiritualTraits;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.SpiritualTraits;
 
 @RegisteredInitializer(SpiritualTraits)
 @Weight(weight = 0)

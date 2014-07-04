@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.hero.display.configurableview.ConfigurableCharacterView;
-import net.sf.anathema.hero.display.configurableview.MultiComponentLine;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.description.HeroDescription;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -10,7 +8,9 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.ITextualDescription;
 import net.sf.anathema.library.text.TextualPresentation;
+import net.sf.anathema.library.view.ConfigurableCharacterView;
 import net.sf.anathema.library.view.IntegerView;
+import net.sf.anathema.library.view.MultiComponentLine;
 import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;

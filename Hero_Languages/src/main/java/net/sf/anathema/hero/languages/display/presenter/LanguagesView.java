@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.view.RemovableEntryView;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.hero.elsewhere.experience.ExperienceChange;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.library.event.ObjectChangedListener;

@@ -1,7 +1,7 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;

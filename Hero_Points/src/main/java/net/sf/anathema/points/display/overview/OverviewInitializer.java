@@ -2,8 +2,8 @@ package net.sf.anathema.points.display.overview;
 
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
@@ -15,7 +15,7 @@ import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.ExperiencePointManagementImpl;
 import net.sf.anathema.points.model.PointModelFetcher;
 
-import static net.sf.anathema.hero.display.HeroModelGroup.Miscellaneous;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;
 
 @RegisteredInitializer(Miscellaneous)
 public class OverviewInitializer implements HeroModelInitializer {

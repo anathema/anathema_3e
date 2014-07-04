@@ -2,6 +2,7 @@ package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.character.equipment.character.ItemAttunementEvaluator;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
+import net.sf.anathema.character.equipment.character.model.stats.Proxy;
 import net.sf.anathema.character.equipment.character.model.stats.ProxyArmourStats;
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.InertBaseMaterial;
@@ -15,7 +16,6 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.lang.StringUtilities;
 import org.jmock.example.announcer.Announcer;

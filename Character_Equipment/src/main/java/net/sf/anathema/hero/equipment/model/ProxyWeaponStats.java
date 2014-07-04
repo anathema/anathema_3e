@@ -2,6 +2,7 @@ package net.sf.anathema.hero.equipment.model;
 
 import com.google.common.base.Objects;
 import net.sf.anathema.character.equipment.character.model.stats.AbstractStats;
+import net.sf.anathema.character.equipment.character.model.stats.Proxy;
 import net.sf.anathema.character.equipment.character.model.stats.modification.AccuracyModification;
 import net.sf.anathema.character.equipment.character.model.stats.modification.BaseMaterial;
 import net.sf.anathema.character.equipment.character.model.stats.modification.DamageModification;
@@ -20,7 +21,6 @@ import net.sf.anathema.character.equipment.character.model.stats.modification.mo
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;

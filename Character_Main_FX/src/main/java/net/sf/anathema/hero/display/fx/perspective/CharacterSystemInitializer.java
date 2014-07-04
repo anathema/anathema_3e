@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import net.sf.anathema.hero.platform.CharacterGenericsExtension;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 

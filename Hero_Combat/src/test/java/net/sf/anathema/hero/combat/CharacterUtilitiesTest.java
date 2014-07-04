@@ -3,7 +3,7 @@ package net.sf.anathema.hero.combat;
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
+import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.presenter;
 
-import net.sf.anathema.hero.display.HeroModelGroup;
+import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

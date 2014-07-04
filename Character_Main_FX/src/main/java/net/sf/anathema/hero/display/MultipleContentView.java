@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.display;
 
+import net.sf.anathema.hero.display.fx.ContentProperties;
 import net.sf.anathema.library.fx.NodeHolder;
 
 public interface MultipleContentView {

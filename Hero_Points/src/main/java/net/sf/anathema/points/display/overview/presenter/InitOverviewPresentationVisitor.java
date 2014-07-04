@@ -1,8 +1,8 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
-import net.sf.anathema.hero.framework.library.overview.OverviewCategory;
+import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.LabelledAllotmentView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.points.model.overview.IOverviewModel;
 import net.sf.anathema.points.model.overview.IOverviewModelVisitor;
@@ -38,7 +38,7 @@ public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
   @Override
   public void visitAllotmentModel(SpendingModel visitedModel) {
     OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
-    LabelledAllotmentView valueView = overviewCategory.addAlotmentView(getLabelString(visitedModel), 2);
+    LabelledAllotmentView valueView = overviewCategory.addAllotmentView(getLabelString(visitedModel), 2);
     updater.add(new AllotmentSubPresenter(visitedModel, valueView));
   }
 

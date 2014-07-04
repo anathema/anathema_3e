@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.display;
 
-import net.sf.anathema.hero.framework.display.SectionView;
+import net.sf.anathema.hero.display.fx.ContentProperties;
 import net.sf.anathema.hero.framework.display.SubViewRegistry;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 
 public class CharacterViewSection implements SectionView {

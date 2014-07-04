@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.item.HeroItemData;
-import net.sf.anathema.hero.framework.perspective.CharacterStackBridge;
-import net.sf.anathema.hero.framework.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.CharacterStackBridge;
+import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.library.fx.NodeHolder;
 
 public class CharacterStackFxBridge implements CharacterStackBridge {

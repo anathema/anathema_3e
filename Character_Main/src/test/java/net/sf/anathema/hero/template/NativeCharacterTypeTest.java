@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.template;
 
+import net.sf.anathema.hero.application.template.NativeCharacterType;
 import net.sf.anathema.hero.dummy.DummyMundaneCharacterType;
 import net.sf.anathema.hero.dummy.template.DummyHeroSplat;
 import net.sf.anathema.hero.individual.model.Hero;

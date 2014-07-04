@@ -2,8 +2,8 @@ package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
@@ -11,7 +11,7 @@ import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
-import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
 
 @RegisteredInitializer(Magic)
 @Weight(weight = 200)

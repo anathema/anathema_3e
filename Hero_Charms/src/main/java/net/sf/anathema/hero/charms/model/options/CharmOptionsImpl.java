@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.options;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.hero.application.template.NativeCharacterType;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
@@ -11,7 +12,6 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.template.NativeCharacterType;
 
 import java.util.ArrayList;
 import java.util.Iterator;

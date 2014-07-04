@@ -9,7 +9,7 @@ import net.sf.anathema.hero.combat.sheet.social.stats.ISocialCombatStats;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialCombatNameStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialRateStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialSpeedStatsGroup;
-import net.sf.anathema.hero.framework.library.HeroStatsModifiers;
+import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.stats.AbstractFixedLineStatsTableEncoder;

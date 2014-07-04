@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.application.presenter;
 
-import net.sf.anathema.hero.display.HeroModelGroup;
-import net.sf.anathema.hero.framework.display.HeroView;
-import net.sf.anathema.hero.framework.display.SectionView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.overview.HeroModelGroup;
+import net.sf.anathema.hero.individual.view.HeroView;
+import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
-import static net.sf.anathema.hero.display.HeroModelGroup.Magic;
-import static net.sf.anathema.hero.display.HeroModelGroup.Miscellaneous;
-import static net.sf.anathema.hero.display.HeroModelGroup.NaturalTraits;
-import static net.sf.anathema.hero.display.HeroModelGroup.Outline;
-import static net.sf.anathema.hero.display.HeroModelGroup.SpiritualTraits;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.NaturalTraits;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.SpiritualTraits;
 
 public class HeroPresenter {
 
