@@ -2,9 +2,11 @@ package net.sf.anathema.hero.template;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
 
+import java.util.Collection;
+
 public interface TemplateRegistry {
 
-  HeroTemplate[] getAllSupportedTemplates(CharacterType type);
+  Collection<HeroTemplate> getAllSupportedTemplates(CharacterType type);
 
   void register(HeroTemplate template);
 

@@ -24,7 +24,8 @@ import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.util.Identifier;
-import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.Collection;
 
 public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Proxy<IWeaponStats> {
 
@@ -68,13 +69,13 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
   }
 
   private WeaponStatsType getWeaponStatsType() {
-    if (ArrayUtils.contains(getTags(), WeaponTag.Archery)) {
+    if (getTags().contains(WeaponTag.Archery)) {
       return WeaponStatsType.Bow;
     }
-    if (ArrayUtils.contains(getTags(), WeaponTag.Flame)) {
+    if (getTags().contains(WeaponTag.Flame)) {
       return WeaponStatsType.Flame;
     }
-    if (ArrayUtils.contains(getTags(), WeaponTag.Thrown)) {
+    if (getTags().contains(WeaponTag.Thrown)) {
       return WeaponStatsType.Thrown;
     }
     return WeaponStatsType.Melee;
@@ -114,7 +115,7 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
   }
 
   @Override
-  public Identifier[] getTags() {
+  public Collection<Identifier> getTags() {
     return delegate.getTags();
   }
 

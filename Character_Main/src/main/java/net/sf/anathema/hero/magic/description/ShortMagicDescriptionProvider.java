@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.description;
 
+import com.google.common.base.Strings;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.magic.data.Magic;
-import org.apache.commons.lang3.StringUtils;
 
 import java.text.MessageFormat;
 
@@ -26,7 +26,7 @@ public class ShortMagicDescriptionProvider implements MagicDescriptionProvider {
       @Override
       public String[] getParagraphs() {
         String descriptionString = getDescriptionString(magic);
-        return StringUtils.isEmpty(descriptionString) ? new String[0] : new String[]{descriptionString};
+        return Strings.isNullOrEmpty(descriptionString) ? new String[0] : new String[]{descriptionString};
       }
 
       private String getDescriptionString(Magic magic) {

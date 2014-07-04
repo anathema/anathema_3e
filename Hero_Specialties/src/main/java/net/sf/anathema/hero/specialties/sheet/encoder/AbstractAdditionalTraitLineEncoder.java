@@ -11,9 +11,11 @@ import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.SUBSECTION_FONT_SIZE;
 
 public abstract class AbstractAdditionalTraitLineEncoder {
@@ -72,11 +74,9 @@ public abstract class AbstractAdditionalTraitLineEncoder {
     graphics.setSubsectionFont();
   }
 
-  protected final ValuedTraitReference[] getTraitReferences(Specialty[] traits, TraitType type) {
-    List<ValuedTraitReference> references = new ArrayList<>();
-    for (Specialty trait : traits) {
-      references.add(new NamedSpecialtyReference(trait, type));
-    }
+  protected final ValuedTraitReference[] getTraitReferences(Collection<Specialty> specialties, TraitType type) {
+    Stream<Specialty> traits = specialties.stream();
+    List<ValuedTraitReference> references = traits.map(trait -> new NamedSpecialtyReference(trait, type)).collect(toList());
     return references.toArray(new ValuedTraitReference[references.size()]);
   }
 }

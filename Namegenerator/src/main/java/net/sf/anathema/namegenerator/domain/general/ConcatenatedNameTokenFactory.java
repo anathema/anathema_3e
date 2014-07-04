@@ -1,7 +1,5 @@
 package net.sf.anathema.namegenerator.domain.general;
 
-import org.apache.commons.lang3.StringUtils;
-
 public class ConcatenatedNameTokenFactory implements INameTokenFactory {
 
   public INameTokenFactory[] tokenFactories;
@@ -17,11 +15,15 @@ public class ConcatenatedNameTokenFactory implements INameTokenFactory {
     for (INameTokenFactory factory : tokenFactories) {
       String tokenPart = factory.createToken();
       if (isFirstToken) {
-        tokenPart = StringUtils.capitalize(tokenPart);
+        tokenPart = capitalize(tokenPart);
         isFirstToken = false;
       }
       token.append(tokenPart);
     }
     return token.toString();
+  }
+
+  private String capitalize(String tokenPart) {
+    return Character.toTitleCase(tokenPart.charAt(0)) + tokenPart.substring(1);
   }
 }

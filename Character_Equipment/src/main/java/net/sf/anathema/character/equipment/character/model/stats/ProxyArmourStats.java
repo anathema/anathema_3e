@@ -15,6 +15,8 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.framework.library.Proxy;
 import net.sf.anathema.lib.util.Identifier;
 
+import java.util.Collection;
+
 public class ProxyArmourStats extends AbstractStats implements IArmourStats, Proxy<IArmourStats> {
 
   private final IArmourStats delegate;
@@ -52,7 +54,7 @@ public class ProxyArmourStats extends AbstractStats implements IArmourStats, Pro
   }
 
   @Override
-  public Identifier[] getTags() {
+  public Collection<Identifier> getTags() {
     return delegate.getTags();
   }
 

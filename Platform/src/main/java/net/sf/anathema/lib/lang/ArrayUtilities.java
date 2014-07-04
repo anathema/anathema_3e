@@ -1,7 +1,5 @@
 package net.sf.anathema.lib.lang;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,14 +13,6 @@ public class ArrayUtilities {
 
   public static <T> T getFirst(T[] array, Predicate<T> predicate) {
     return Stream.of(array).filter(predicate).findFirst().orElse(null);
-  }
-
-  public static <R> int indexOf(R[] array, R value) {
-    int index = ArrayUtils.indexOf(array, value);
-    if (index != ArrayUtils.INDEX_NOT_FOUND) {
-      return index;
-    }
-    throw new IllegalArgumentException("Value not contained in array: " + value);
   }
 
   @SuppressWarnings("unchecked")

@@ -3,6 +3,8 @@ package net.sf.anathema.character.equipment.creation.presenter;
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType;
 
+import java.util.Collection;
+
 public interface IEquipmentStatisticsCreationModel {
 
   void setEquipmentType(EquipmentStatisticsType type);
@@ -19,7 +21,7 @@ public interface IEquipmentStatisticsCreationModel {
 
   boolean isNameUnique(String name);
 
-  void setForbiddenNames(String[] definedNames);
+  void setForbiddenNames(Collection<String> definedNames);
 
   IEquipmentStatisticsModel getWeaponModel();
 

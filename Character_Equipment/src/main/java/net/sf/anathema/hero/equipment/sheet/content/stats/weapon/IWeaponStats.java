@@ -4,6 +4,8 @@ import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.lib.util.Identifier;
 
+import java.util.Collection;
+
 public interface IWeaponStats extends IEquipmentStats {
 
   int getAccuracy();
@@ -12,7 +14,7 @@ public interface IWeaponStats extends IEquipmentStats {
 
   HealthType getDamageType();
 
-  Identifier[] getTags();
+  Collection<Identifier> getTags();
 
   TraitType getTraitType();
 

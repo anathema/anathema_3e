@@ -10,6 +10,10 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.lib.util.Identifier;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
 
   private final int accuracy;
@@ -17,7 +21,7 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
   private final HealthType healthType;
   private final Integer defense;
   private final int mobility;
-  private final WeaponTag[] tags;
+  private final Collection<Identifier> tags = new ArrayList<>();
   private Identifier name;
 
   public DemoMeleeWeapon(Identifier name, int accuracy, int damage, HealthType healthType, int defense, int mobility,
@@ -28,7 +32,7 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
     this.healthType = healthType;
     this.defense = defense;
     this.mobility = mobility;
-    this.tags = tags;
+    Collections.addAll(this.tags, tags);
   }
 
   @Override
@@ -57,7 +61,7 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
   }
 
   @Override
-  public Identifier[] getTags() {
+  public Collection<Identifier> getTags() {
     return tags;
   }
 

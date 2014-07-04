@@ -8,8 +8,10 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.lib.util.Closure;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class EditStatsCommand implements Command {
   private final StatsEditor statsEditor;
@@ -27,7 +29,7 @@ public class EditStatsCommand implements Command {
 
   @Override
   public void execute() {
-    String[] forbiddenNames = getNamesOfAllOtherStats();
+    Collection<String> forbiddenNames = getNamesOfAllOtherStats();
     statsEditor.whenChangesAreConfirmed(new ReplaceStats());
     IEquipmentStats selectedStats = editModel.getSelectedStats();
     IEquipmentStatisticsCreationModel model = new StatsToModel().createModel(selectedStats);
@@ -35,16 +37,10 @@ public class EditStatsCommand implements Command {
     statsEditor.editStats(resources, model, view.createEquipmentStatsDialog());
   }
 
-  private String[] getNamesOfAllOtherStats() {
+  private Collection<String> getNamesOfAllOtherStats() {
     IEquipmentStats selectedStats = editModel.getSelectedStats();
-    List<String> definedNames = new ArrayList<>();
-    for (IEquipmentStats stats : editModel.getStats()) {
-      if (stats == selectedStats) {
-        continue;
-      }
-      definedNames.add(stats.getName().getId());
-    }
-    return definedNames.toArray(new String[definedNames.size()]);
+    Stream<IEquipmentStats> allStats = editModel.getStats().stream();
+    return allStats.filter(stats -> stats != selectedStats).map(stats -> stats.getName().getId()).collect(toList());
   }
 
   private class ReplaceStats implements Closure<IEquipmentStats> {

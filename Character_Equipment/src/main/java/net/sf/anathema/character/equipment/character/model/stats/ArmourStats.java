@@ -5,6 +5,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.lib.util.Identifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static net.sf.anathema.character.equipment.character.model.stats.ArmorStatisticsTable.forArtifactArmor;
@@ -34,8 +35,8 @@ public class ArmourStats extends AbstractCombatStats implements IArmourStats {
   }
 
   @Override
-  public Identifier[] getTags() {
-    return tags.toArray(new Identifier[tags.size()]);
+  public Collection<Identifier> getTags() {
+    return new ArrayList<>(tags);
   }
 
   @Override

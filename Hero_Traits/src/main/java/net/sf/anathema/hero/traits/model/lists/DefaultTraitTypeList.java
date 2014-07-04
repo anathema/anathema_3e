@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.traits.model.lists;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class DefaultTraitTypeList implements TraitTypeList {
@@ -17,10 +16,10 @@ public class DefaultTraitTypeList implements TraitTypeList {
     return traitTypes.toArray(new TraitType[traitTypes.size()]);
   }
 
-  private final TraitType[] traitTypes;
+  private final List<TraitType> traitTypes = new ArrayList<>();
 
   public DefaultTraitTypeList(TraitType[] traitTypes) {
-    this.traitTypes = traitTypes;
+    Collections.addAll(this.traitTypes, traitTypes);
   }
 
   @Override
@@ -35,16 +34,16 @@ public class DefaultTraitTypeList implements TraitTypeList {
 
   @Override
   public List<TraitType> getAll() {
-    return Arrays.asList(traitTypes);
+    return new ArrayList<>(traitTypes);
   }
 
   @Override
   public int size() {
-    return traitTypes.length;
+    return traitTypes.size();
   }
 
   @Override
   public final boolean contains(TraitType traitType) {
-    return ArrayUtils.contains(traitTypes, traitType);
+    return traitTypes.contains(traitType);
   }
 }

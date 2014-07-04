@@ -6,6 +6,9 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 
+import java.util.Collection;
+import java.util.Collections;
+
 public class EffectiveArmour extends AbstractCombatStats implements IArmourStats {
 
   private int mobilityPenalty = 0;
@@ -29,8 +32,8 @@ public class EffectiveArmour extends AbstractCombatStats implements IArmourStats
   }
 
   @Override
-  public Identifier[] getTags() {
-    return new Identifier[0];
+  public Collection<Identifier> getTags() {
+    return Collections.emptyList();
   }
 
   @Override

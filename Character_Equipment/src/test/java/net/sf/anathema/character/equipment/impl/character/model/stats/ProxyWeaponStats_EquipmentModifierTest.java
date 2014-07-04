@@ -5,9 +5,10 @@ import net.sf.anathema.hero.equipment.model.IWeaponModifiers;
 import net.sf.anathema.hero.equipment.model.ModifierFactory;
 import net.sf.anathema.hero.equipment.model.ProxyWeaponStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
-import net.sf.anathema.lib.util.Identifier;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Collections;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -28,7 +29,7 @@ public class ProxyWeaponStats_EquipmentModifierTest {
 
   @Before
   public void setUpWeapon() throws Exception {
-    when(original.getTags()).thenReturn(new Identifier[]{});
+    when(original.getTags()).thenReturn(Collections.emptyList());
   }
 
   @Test

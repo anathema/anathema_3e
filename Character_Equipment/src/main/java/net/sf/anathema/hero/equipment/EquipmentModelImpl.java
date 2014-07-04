@@ -40,7 +40,6 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.control.CollectionListener;
 import net.sf.anathema.lib.util.Identifier;
-import org.apache.commons.lang3.ArrayUtils;
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;
@@ -379,8 +378,8 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
 
     private boolean characterStillHasCorrespondingSpecialty(IEquipmentStatsOption option) {
       AbilityType trait = AbilityType.valueOf(option.getType());
-      Specialty[] specialties = dataProvider.getSpecialties(trait);
-      return ArrayUtils.contains(specialties, option.getUnderlyingTrait());
+      Collection<Specialty> specialties = dataProvider.getSpecialties(trait);
+      return specialties.contains(option.getUnderlyingTrait());
     }
   }
 
