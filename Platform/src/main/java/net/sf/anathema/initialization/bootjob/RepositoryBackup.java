@@ -2,11 +2,11 @@ package net.sf.anathema.initialization.bootjob;
 
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.Version;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.repository.Repository;
 import net.sf.anathema.framework.repository.tree.FileExporter;
 import net.sf.anathema.framework.repository.tree.RepositoryZipPathCreator;
 import net.sf.anathema.initialization.ItemTypeCollection;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.IOException;
 import java.nio.file.Path;

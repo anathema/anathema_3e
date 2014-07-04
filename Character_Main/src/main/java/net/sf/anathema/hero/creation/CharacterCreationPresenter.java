@@ -5,9 +5,9 @@ import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.ToggleTool;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.selection.VetoableObjectSelectionView;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 import java.util.Arrays;
 

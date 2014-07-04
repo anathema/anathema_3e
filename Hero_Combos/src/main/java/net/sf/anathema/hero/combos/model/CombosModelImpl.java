@@ -11,8 +11,8 @@ import net.sf.anathema.hero.combos.model.rules.SecondEditionComboArbitrator;
 import net.sf.anathema.hero.framework.HeroEnvironment;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

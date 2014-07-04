@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.framework;
 
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 public class IntegerDescription implements IIntegerDescription {

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.framework.environment.dependencies.DoNotInstantiateAutomatically;
 import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
+import net.sf.anathema.library.resources.Resources;
 
 @DoNotInstantiateAutomatically
 public class NullEncoderFactory extends SimpleIdentifier implements EncoderFactory {

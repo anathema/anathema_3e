@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.spiritual.sheet.essence.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.library.resources.Resources;
 
 public class SimpleEssenceContent extends AbstractSubBoxContent {
 

@@ -3,7 +3,7 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
 
 public class TraitModifyingStatisticsModel extends EquipmentStatisticsModel implements ITraitModifyingStatisticsModel {
   private final IIntValueModel DDVModel = new RangedIntValueModel(new Range(Integer.MIN_VALUE, Integer.MAX_VALUE), 0);

@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.configuration;
 
-import net.sf.anathema.framework.environment.Preferences;
 import net.sf.anathema.framework.repository.preferences.RepositoryPreferenceModel;
+import net.sf.anathema.library.preferences.Preferences;
 
 public class PreferencesBasedRepositoryLocation implements RepositoryPreference {
 

@@ -10,7 +10,7 @@ import net.sf.anathema.hero.concept.CasteSelection;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.magic.description.MagicDescriptionProvider;
 import net.sf.anathema.hero.model.Hero;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 import java.util.List;
 

@@ -2,12 +2,12 @@ package net.sf.anathema.hero.framework.persistence;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.persistence.HeroModelPersister;
 import net.sf.anathema.hero.persistence.HeroModelPersisterAutoCollector;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

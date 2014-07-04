@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

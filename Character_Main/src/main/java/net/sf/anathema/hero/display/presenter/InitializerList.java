@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.presenter;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.display.HeroModelGroup;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 public interface IWeaponDamageModel {
 

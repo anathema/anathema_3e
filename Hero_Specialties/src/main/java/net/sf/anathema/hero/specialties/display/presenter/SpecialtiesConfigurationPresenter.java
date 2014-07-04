@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.experience.ExperienceChange;
@@ -16,11 +15,12 @@ import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.collection.IdentityMapping;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
+import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.ObjectValueListener;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.Arrays;
 import java.util.Comparator;

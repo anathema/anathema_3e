@@ -12,9 +12,9 @@ import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.magic.data.Magic;
 
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,

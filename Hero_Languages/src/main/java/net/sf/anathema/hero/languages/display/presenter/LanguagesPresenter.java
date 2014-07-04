@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.languages.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.hero.framework.display.labelledvalue.IValueView;
 import net.sf.anathema.hero.framework.display.labelledvalue.LabelledAllotmentView;
@@ -13,6 +12,7 @@ import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.gui.AgnosticUIConfiguration;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,11 +1,11 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageType;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.TextualPresentation;
+import net.sf.anathema.library.resources.Resources;
 
 public class GeneralStatsPresenter {
   private final EquipmentStatsView view;

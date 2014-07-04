@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spiritual.sheet.essence.content.pools;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
+import net.sf.anathema.library.resources.Resources;
 
 public class PeripheralPoolRow extends AbstractPoolRow {
 

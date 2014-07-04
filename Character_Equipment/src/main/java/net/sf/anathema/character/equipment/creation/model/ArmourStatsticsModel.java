@@ -5,8 +5,8 @@ import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.health.model.IHealthTypeVisitor;
-import net.sf.anathema.lib.data.Range;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.Range;
+import net.sf.anathema.library.model.BooleanValueModel;
 
 public class ArmourStatsticsModel extends EquipmentStatisticsModel implements IArmourStatisticsModel {
 

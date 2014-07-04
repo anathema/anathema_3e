@@ -6,7 +6,7 @@ import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
 import net.sf.anathema.framework.repository.access.RepositoryWriteAccess;
 import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.initialization.ItemTypeCollection;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

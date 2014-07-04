@@ -8,8 +8,8 @@ import net.sf.anathema.character.equipment.creation.presenter.EquipmentStatsView
 import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
 import net.sf.anathema.hero.display.fx.configurableview.IntegerSpinner;
 import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.view.BooleanValueView;
 import net.sf.anathema.platform.fx.FxTextView;
 import net.sf.anathema.platform.tool.FxCheckToggleTool;
 import org.tbee.javafx.scene.layout.MigPane;

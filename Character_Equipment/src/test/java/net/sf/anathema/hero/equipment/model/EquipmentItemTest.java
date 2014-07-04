@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.model;
 import net.sf.anathema.character.equipment.impl.character.model.stats.NullModifierFactory;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

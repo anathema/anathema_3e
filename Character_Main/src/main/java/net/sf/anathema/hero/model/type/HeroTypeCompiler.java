@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.model.type;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.dependencies.Weight;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
 import net.sf.anathema.hero.framework.data.ExtensibleDataSet;
 import net.sf.anathema.hero.framework.data.IExtensibleDataSetCompiler;
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.GenericTemplateLoader;
 import net.sf.anathema.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.lib.exception.PersistenceException;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.IOException;
 import java.io.InputStream;

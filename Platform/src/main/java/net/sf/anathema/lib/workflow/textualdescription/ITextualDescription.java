@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.workflow.textualdescription;
 
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public interface ITextualDescription {
 

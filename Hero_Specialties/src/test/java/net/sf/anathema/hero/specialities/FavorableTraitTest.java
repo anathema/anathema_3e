@@ -24,7 +24,7 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

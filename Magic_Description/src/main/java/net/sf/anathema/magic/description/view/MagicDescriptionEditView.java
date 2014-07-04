@@ -1,6 +1,6 @@
 package net.sf.anathema.magic.description.view;
 
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 import net.sf.anathema.magic.description.swing.AreaTextView;
 import net.sf.anathema.magic.description.swing.IView;
 import net.sf.anathema.magic.description.swing.TextView;

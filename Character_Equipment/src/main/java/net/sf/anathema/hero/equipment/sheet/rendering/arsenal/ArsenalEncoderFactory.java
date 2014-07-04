@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.equipment.sheet.rendering.arsenal;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.WeaponContent;
 import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.GlobalEncoderFactory;
+import net.sf.anathema.library.resources.Resources;
 
 @SuppressWarnings("UnusedDeclaration")
 public class ArsenalEncoderFactory extends GlobalEncoderFactory {

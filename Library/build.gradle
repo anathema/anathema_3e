@@ -1,7 +1,8 @@
 dependencies {
 //  Insert your dependencies here like this:
-//  compile project(':Character_Equipment')
-//  compile project(':Character_Main')
-  testCompile testDependencies //includes JUnit etc.
+    compile 'com.google.guava:guava:17+'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'com.github.rjeschke:txtmark:0.11'
+    testCompile testDependencies //includes JUnit etc.
 //  testCompile project(path: ':Platform', templateHolder: 'tests')
 }

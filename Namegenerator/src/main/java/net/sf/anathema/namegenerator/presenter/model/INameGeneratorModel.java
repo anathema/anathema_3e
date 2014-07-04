@@ -1,7 +1,7 @@
 package net.sf.anathema.namegenerator.presenter.model;
 
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.event.ChangeListener;
 
 import java.util.Set;
 

@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.presenter.action.updatecheck;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.resources.Resources;
 
 public class UpdateAction implements Command {
 

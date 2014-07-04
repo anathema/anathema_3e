@@ -5,9 +5,6 @@ import net.sf.anathema.ISplashscreen;
 import net.sf.anathema.ProxySplashscreen;
 import net.sf.anathema.framework.IApplicationModel;
 import net.sf.anathema.framework.Version;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.environment.exception.ExtensibleExceptionHandler;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.fx.FxDialogExceptionHandler;
@@ -16,6 +13,10 @@ import net.sf.anathema.framework.presenter.AnathemaViewProperties;
 import net.sf.anathema.framework.view.ApplicationView;
 import net.sf.anathema.framework.view.perspective.PerspectivePaneFactory;
 import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.environment.Environment;
 
 public class GuiInitializer extends Initializer {
 

@@ -2,12 +2,12 @@ package net.sf.anathema.framework.view.perspective;
 
 import javafx.scene.Node;
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.view.util.FxStack;
 import net.sf.anathema.lib.gui.layout.LayoutUtils;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.platform.environment.Environment;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class PerspectiveStack {

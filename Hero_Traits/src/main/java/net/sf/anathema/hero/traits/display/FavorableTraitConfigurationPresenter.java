@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.ExtensibleTraitView;
 import net.sf.anathema.hero.display.fx.traitview.GroupedFavorableTraitConfigurationView;
 import net.sf.anathema.hero.experience.ExperienceChange;
@@ -16,7 +15,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.collection.IdentityMapping;
+import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 

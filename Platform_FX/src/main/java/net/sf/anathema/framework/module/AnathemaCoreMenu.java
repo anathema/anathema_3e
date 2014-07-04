@@ -1,9 +1,9 @@
 package net.sf.anathema.framework.module;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.view.MenuBar;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
 

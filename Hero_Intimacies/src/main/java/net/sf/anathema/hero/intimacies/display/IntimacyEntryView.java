@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.gui.selection.ObjectSelectionView;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public interface IntimacyEntryView {
 

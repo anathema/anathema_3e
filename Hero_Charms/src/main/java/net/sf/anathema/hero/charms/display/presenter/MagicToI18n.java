@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.function.Function;

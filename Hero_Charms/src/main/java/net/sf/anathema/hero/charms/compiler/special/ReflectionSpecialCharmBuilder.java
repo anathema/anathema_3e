@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.List;

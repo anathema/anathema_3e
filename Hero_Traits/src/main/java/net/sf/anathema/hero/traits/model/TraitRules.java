@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
 
 public interface TraitRules {
 

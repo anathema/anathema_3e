@@ -1,7 +1,7 @@
 package net.sf.anathema.magic.description.presenter;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.description.display.MagicDetailPresenter;
 import net.sf.anathema.magic.description.display.MagicDetailPresenterFactory;
 import net.sf.anathema.magic.description.display.RegisteredMagicDetailPresenterFactory;

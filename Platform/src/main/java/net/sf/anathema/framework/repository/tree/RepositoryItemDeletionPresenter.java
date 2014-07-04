@@ -1,9 +1,9 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.platform.environment.Environment;
 
 public class RepositoryItemDeletionPresenter {
 

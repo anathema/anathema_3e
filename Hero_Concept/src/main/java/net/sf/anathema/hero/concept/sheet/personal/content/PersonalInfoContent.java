@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.concept.sheet.personal.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.concept.CasteType;
 import net.sf.anathema.hero.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.description.HeroDescription;
@@ -10,6 +9,7 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.lib.lang.StringUtilities;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Iterator;

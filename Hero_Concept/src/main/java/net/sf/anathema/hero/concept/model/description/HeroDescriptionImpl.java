@@ -6,10 +6,10 @@ import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.model.change.AnnounceChangeValueListener;
 import net.sf.anathema.hero.model.change.ChangeAnnouncer;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
 import net.sf.anathema.lib.workflow.textualdescription.SimpleTextualDescription;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public class HeroDescriptionImpl implements HeroDescription, HeroModel {
 

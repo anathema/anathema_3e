@@ -6,14 +6,14 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.web.WebView;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.environment.fx.DialogFactory;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.lib.io.InputOutput;
+import net.sf.anathema.library.markdown.HtmlConverter;
+import net.sf.anathema.library.markdown.HtmlText;
+import net.sf.anathema.library.markdown.WikiText;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.fx.Stylesheet;
-import net.sf.anathema.platform.markdown.HtmlConverter;
-import net.sf.anathema.platform.markdown.HtmlText;
-import net.sf.anathema.platform.markdown.WikiText;
 import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
 

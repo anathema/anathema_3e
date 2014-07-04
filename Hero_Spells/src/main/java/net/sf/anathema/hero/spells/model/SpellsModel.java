@@ -4,9 +4,9 @@ import net.sf.anathema.hero.model.HeroModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.event.ChangeListener;
 
 import java.util.Collection;
 import java.util.List;

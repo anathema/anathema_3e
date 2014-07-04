@@ -4,8 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
-import net.sf.anathema.lib.control.IBooleanValueChangedListener;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueView;
+import net.sf.anathema.library.event.IBooleanValueChangedListener;
+import net.sf.anathema.library.view.BooleanValueView;
 import org.jmock.example.announcer.Announcer;
 
 public class FxBooleanView implements BooleanValueView {

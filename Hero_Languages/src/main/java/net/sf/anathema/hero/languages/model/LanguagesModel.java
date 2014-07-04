@@ -2,9 +2,9 @@ package net.sf.anathema.hero.languages.model;
 
 import net.sf.anathema.hero.framework.library.removableentry.RemovableEntryModel;
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.util.Identifier;
 import net.sf.anathema.lib.util.SimpleIdentifier;
+import net.sf.anathema.library.event.ChangeListener;
 
 public interface LanguagesModel extends RemovableEntryModel<Identifier>, HeroModel {
 

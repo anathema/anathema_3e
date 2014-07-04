@@ -2,9 +2,9 @@ package net.sf.anathema.hero.equipment.display.presenter;
 
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateProvider;
 import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
 import net.sf.anathema.lib.gui.ConfigurableTooltip;
+import net.sf.anathema.library.resources.Resources;
 
 public class EquipmentItemUIConfiguration extends AbstractUIConfiguration<String> {
 

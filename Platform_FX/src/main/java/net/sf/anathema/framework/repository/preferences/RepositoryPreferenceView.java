@@ -1,8 +1,8 @@
 package net.sf.anathema.framework.repository.preferences;
 
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.workflow.textualdescription.ITextView;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 import java.nio.file.Path;
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.lib.gui.selection;
 
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 import java.util.Collection;
 

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 
 import java.util.Arrays;
 

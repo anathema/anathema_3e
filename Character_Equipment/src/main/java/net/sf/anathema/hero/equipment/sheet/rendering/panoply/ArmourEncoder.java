@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.equipment.sheet.rendering.panoply;
 
 import com.itextpdf.text.DocumentException;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.library.resources.Resources;
 
 public class ArmourEncoder implements ContentEncoder {
 

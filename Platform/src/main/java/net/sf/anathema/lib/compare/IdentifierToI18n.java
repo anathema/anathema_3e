@@ -1,7 +1,7 @@
 package net.sf.anathema.lib.compare;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.function.Function;
 

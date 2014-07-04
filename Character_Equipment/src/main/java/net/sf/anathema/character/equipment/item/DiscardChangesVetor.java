@@ -1,11 +1,11 @@
 package net.sf.anathema.character.equipment.item;
 
 import net.sf.anathema.character.equipment.item.model.IEquipmentDatabaseManagement;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.repository.tree.VetorFactory;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.lib.data.Condition;
 import net.sf.anathema.lib.gui.list.veto.Vetor;
+import net.sf.anathema.library.resources.Resources;
 
 public class DiscardChangesVetor implements Vetor {
 

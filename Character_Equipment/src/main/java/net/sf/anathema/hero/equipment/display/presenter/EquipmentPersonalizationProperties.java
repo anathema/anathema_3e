@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public class EquipmentPersonalizationProperties {
   private final Resources resources;

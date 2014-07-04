@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.spells.data.CircleType;
-import net.sf.anathema.lib.control.ObjectValueListener;
+import net.sf.anathema.library.event.ObjectValueListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.Collection;

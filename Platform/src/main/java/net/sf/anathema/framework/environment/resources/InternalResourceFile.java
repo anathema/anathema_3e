@@ -1,5 +1,7 @@
 package net.sf.anathema.framework.environment.resources;
 
+import net.sf.anathema.library.resources.ResourceFile;
+
 import java.net.URL;
 
 public class InternalResourceFile implements ResourceFile {

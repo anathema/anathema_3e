@@ -3,14 +3,14 @@ package net.sf.anathema.character.equipment.creation.presenter;
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.ArmourTagProperties;
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.WeaponTagProperties;
+import net.sf.anathema.character.equipment.display.OperationResult;
+import net.sf.anathema.character.equipment.display.userdialog.OperationResultHandler;
 import net.sf.anathema.character.equipment.item.model.ModelToStats;
 import net.sf.anathema.character.equipment.item.model.NullClosure;
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.lib.gui.dialog.core.OperationResult;
-import net.sf.anathema.lib.gui.dialog.userdialog.OperationResultHandler;
 import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Armor;
 import static net.sf.anathema.character.equipment.item.model.EquipmentStatisticsType.Artifact;

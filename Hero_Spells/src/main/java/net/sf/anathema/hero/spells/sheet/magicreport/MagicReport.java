@@ -7,7 +7,6 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
@@ -26,6 +25,7 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.platform.environment.Environment;
 
 import static java.text.MessageFormat.format;
 

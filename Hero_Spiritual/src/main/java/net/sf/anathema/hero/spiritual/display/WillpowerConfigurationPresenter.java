@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.spiritual.display;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.lib.gui.Presenter;
+import net.sf.anathema.library.resources.Resources;
 
 public class WillpowerConfigurationPresenter implements Presenter {
 

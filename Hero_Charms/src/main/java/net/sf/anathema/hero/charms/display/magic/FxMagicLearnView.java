@@ -6,7 +6,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.platform.fx.ConfigurableListCellFactory;
 import net.sf.anathema.platform.tool.FxButtonTool;
 import org.tbee.javafx.scene.layout.MigPane;

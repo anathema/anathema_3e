@@ -1,13 +1,13 @@
 package net.sf.anathema;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.initialization.ApplicationFrameView;
-import net.sf.anathema.initialization.InitializationException;
 import net.sf.anathema.initialization.InitializedModelAndView;
 import net.sf.anathema.initialization.Initializer;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.view.NullMainView;
 
 

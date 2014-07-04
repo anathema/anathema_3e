@@ -1,7 +1,8 @@
 package net.sf.anathema.framework.environment;
 
 import com.google.common.collect.HashMultimap;
-import net.sf.anathema.initialization.InitializationException;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.lang.annotation.Annotation;
 import java.util.ArrayList;

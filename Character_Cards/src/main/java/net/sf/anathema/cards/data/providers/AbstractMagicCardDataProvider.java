@@ -1,11 +1,11 @@
 package net.sf.anathema.cards.data.providers;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.magic.description.MagicDescription;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
+import net.sf.anathema.platform.environment.Environment;
 
 public abstract class AbstractMagicCardDataProvider implements ICardDataProvider {
 

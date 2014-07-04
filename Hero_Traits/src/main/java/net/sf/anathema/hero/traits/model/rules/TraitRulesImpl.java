@@ -7,7 +7,7 @@ import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
 
 public class TraitRulesImpl implements TraitRules {
   private int capModifier = 0;

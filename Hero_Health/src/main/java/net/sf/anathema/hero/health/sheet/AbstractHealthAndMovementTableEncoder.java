@@ -11,7 +11,6 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.model.Hero;
@@ -23,6 +22,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.ArrayUtils;
 
 import static net.sf.anathema.lib.lang.ArrayUtilities.concat;

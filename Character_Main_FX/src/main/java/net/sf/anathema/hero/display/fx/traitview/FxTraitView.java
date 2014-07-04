@@ -4,7 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Label;
 import net.sf.anathema.framework.value.IntValueView;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import net.sf.anathema.platform.fx.dot.DotSelectionSpinner;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;

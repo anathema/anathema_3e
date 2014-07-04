@@ -1,7 +1,5 @@
 package net.sf.anathema.framework.preferences.perspective;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.PreferencePresenter;
 import net.sf.anathema.framework.preferences.elements.PreferenceView;
@@ -9,6 +7,8 @@ import net.sf.anathema.framework.preferences.elements.RegisteredPreferencePresen
 import net.sf.anathema.framework.preferences.persistence.PreferencePto;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
 

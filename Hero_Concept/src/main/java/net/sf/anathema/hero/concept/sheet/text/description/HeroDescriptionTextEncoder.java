@@ -4,13 +4,13 @@ import com.itextpdf.text.Chunk;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.model.Hero;
 import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.sheet.text.TextPartFactory;
+import net.sf.anathema.library.resources.Resources;
 
 public class HeroDescriptionTextEncoder implements HeroTextEncoder {
 

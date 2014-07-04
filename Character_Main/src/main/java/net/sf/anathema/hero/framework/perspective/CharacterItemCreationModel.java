@@ -8,8 +8,8 @@ import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.framework.type.CharacterTypes;
 import net.sf.anathema.hero.template.HeroTemplate;
 import net.sf.anathema.hero.template.TemplateRegistry;
-import net.sf.anathema.lib.collection.MultiEntryMap;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.collection.MultiEntryMap;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

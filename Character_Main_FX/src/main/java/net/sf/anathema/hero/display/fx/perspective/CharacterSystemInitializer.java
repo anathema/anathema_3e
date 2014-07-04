@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.hero.platform.CharacterGenericsExtension;
+import net.sf.anathema.platform.environment.Environment;
 
 public class CharacterSystemInitializer {
   private final IApplicationModel model;

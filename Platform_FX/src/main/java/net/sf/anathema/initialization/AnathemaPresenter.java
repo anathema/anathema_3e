@@ -1,10 +1,11 @@
 package net.sf.anathema.initialization;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.messaging.MessageContainer;
 import net.sf.anathema.framework.view.ApplicationView;
 import net.sf.anathema.framework.view.messaging.StatusBar;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.util.Collection;
 

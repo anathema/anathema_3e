@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.health.sheet;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
+import net.sf.anathema.library.resources.Resources;
 
 public class HealthAndMovementEncoder extends AbstractHealthAndMovementEncoder {
 

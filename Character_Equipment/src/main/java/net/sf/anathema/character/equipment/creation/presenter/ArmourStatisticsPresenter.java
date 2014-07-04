@@ -1,14 +1,14 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.ArmourStatisticsProperties;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.ToggleTool;
-import net.sf.anathema.lib.control.IBooleanValueChangedListener;
-import net.sf.anathema.lib.control.IntValueChangedListener;
-import net.sf.anathema.lib.workflow.booleanvalue.BooleanValueModel;
+import net.sf.anathema.library.event.IBooleanValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
+import net.sf.anathema.library.model.BooleanValueModel;
+import net.sf.anathema.library.resources.Resources;
 
 public class ArmourStatisticsPresenter {
   private final EquipmentStatsView view;

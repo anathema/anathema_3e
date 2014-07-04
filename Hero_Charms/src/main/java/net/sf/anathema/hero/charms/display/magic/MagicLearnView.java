@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.magic;
 
 import net.sf.anathema.interaction.Tool;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 import java.util.List;
 

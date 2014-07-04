@@ -1,13 +1,13 @@
 package net.sf.anathema.framework.repository.tree;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.environment.fx.UiEnvironment;
 import net.sf.anathema.framework.module.MenuEntry;
 import net.sf.anathema.framework.module.RegisteredMenuEntry;
 import net.sf.anathema.framework.view.MenuBar;
 import net.sf.anathema.interaction.Command;
+import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.platform.environment.Environment;
 
 @RegisteredMenuEntry
 @Weight(weight = 10)

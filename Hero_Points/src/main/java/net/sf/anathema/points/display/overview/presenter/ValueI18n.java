@@ -1,6 +1,6 @@
 package net.sf.anathema.points.display.overview.presenter;
 
-import net.sf.anathema.framework.environment.Resources;
+import net.sf.anathema.library.resources.Resources;
 
 public interface ValueI18n<T> {
 

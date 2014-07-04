@@ -1,6 +1,5 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.messaging.Messaging;
 import net.sf.anathema.framework.repository.access.RepositoryFileAccess;
@@ -8,6 +7,7 @@ import net.sf.anathema.framework.view.PrintNameFile;
 import net.sf.anathema.interaction.Tool;
 import net.sf.anathema.lib.exception.PersistenceException;
 import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.File;
 import java.io.IOException;

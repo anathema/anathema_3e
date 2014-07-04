@@ -1,12 +1,12 @@
 package net.sf.anathema;
 
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.ObjectFactory;
-import net.sf.anathema.framework.environment.dependencies.DefaultAnathemaReflections;
-import net.sf.anathema.framework.environment.dependencies.ReflectionObjectFactory;
 import net.sf.anathema.framework.environment.exception.ConsoleExceptionHandler;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
-import net.sf.anathema.initialization.InitializationException;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.environment.dependencies.DefaultAnathemaReflections;
+import net.sf.anathema.platform.environment.dependencies.ReflectionObjectFactory;
 
 import java.lang.annotation.Annotation;
 import java.util.Collection;

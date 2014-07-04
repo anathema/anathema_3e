@@ -4,8 +4,8 @@ import net.sf.anathema.character.equipment.creation.presenter.IIntValueModel;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponDamageModel;
 import net.sf.anathema.character.equipment.creation.presenter.RangedIntValueModel;
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.data.Range;
+import net.sf.anathema.library.Range;
+import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 public class WeaponDamageModel implements IWeaponDamageModel {

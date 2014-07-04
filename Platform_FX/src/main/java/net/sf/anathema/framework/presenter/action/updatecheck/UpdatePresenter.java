@@ -5,9 +5,9 @@ import de.idos.updates.UpdateSystem;
 import de.idos.updates.Updater;
 import de.idos.updates.Version;
 import de.idos.updates.configuration.ConfiguredUpdateSystem;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.interaction.Tool;
+import net.sf.anathema.library.resources.Resources;
 
 public class UpdatePresenter {
   private final Resources resources;

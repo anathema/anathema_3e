@@ -4,7 +4,7 @@ import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
 import net.sf.anathema.framework.value.IntValueView;
 import net.sf.anathema.hero.display.fx.traitview.FxTraitView;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
 import org.tbee.javafx.scene.layout.MigPane;
 

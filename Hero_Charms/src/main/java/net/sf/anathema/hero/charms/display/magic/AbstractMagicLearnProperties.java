@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.display.magic;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.presenter.resources.BasicUi;
 import net.sf.anathema.lib.file.RelativePath;
+import net.sf.anathema.library.resources.Resources;
 
 public abstract class AbstractMagicLearnProperties implements MagicLearnProperties {
 

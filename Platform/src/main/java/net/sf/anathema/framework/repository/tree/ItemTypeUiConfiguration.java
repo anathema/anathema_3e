@@ -1,9 +1,9 @@
 package net.sf.anathema.framework.repository.tree;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.lib.file.RelativePath;
 import net.sf.anathema.lib.gui.AbstractUIConfiguration;
+import net.sf.anathema.library.resources.Resources;
 
 public class ItemTypeUiConfiguration extends AbstractUIConfiguration<IItemType> {
   private final Resources resources;

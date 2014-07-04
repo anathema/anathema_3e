@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.framework.library.IStats;
 import net.sf.anathema.lib.util.Identifier;
+import net.sf.anathema.library.resources.Resources;
 
 public interface IMagicStats extends IStats, Comparable<IMagicStats> {
 

@@ -1,5 +1,7 @@
 package net.sf.anathema.framework.environment.dependencies;
 
+import net.sf.anathema.library.initialization.Weight;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;

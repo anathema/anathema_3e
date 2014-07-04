@@ -1,7 +1,7 @@
 package net.sf.anathema.framework.environment.exception;
 
-import net.sf.anathema.framework.environment.ExceptionHandler;
 import net.sf.anathema.lib.logging.Logger;
+import net.sf.anathema.platform.environment.ExceptionHandler;
 
 public class LoggingExceptionHandler implements ExceptionHandler {
   private static final Logger logger = Logger.getLogger(LoggingExceptionHandler.class);

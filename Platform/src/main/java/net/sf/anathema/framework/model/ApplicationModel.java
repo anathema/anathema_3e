@@ -1,7 +1,6 @@
 package net.sf.anathema.framework.model;
 
 import net.sf.anathema.framework.IApplicationModel;
-import net.sf.anathema.framework.environment.Environment;
 import net.sf.anathema.framework.extension.AnathemaExtension;
 import net.sf.anathema.framework.messaging.CollectingMessaging;
 import net.sf.anathema.framework.messaging.MessageContainer;
@@ -10,6 +9,7 @@ import net.sf.anathema.framework.repository.FileSystemRepository;
 import net.sf.anathema.framework.repository.Repository;
 import net.sf.anathema.lib.registry.IRegistry;
 import net.sf.anathema.lib.registry.Registry;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.File;
 

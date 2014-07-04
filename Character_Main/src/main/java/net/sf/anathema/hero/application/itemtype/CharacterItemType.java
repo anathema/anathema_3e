@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.application.itemtype;
 
-import net.sf.anathema.framework.environment.dependencies.Weight;
 import net.sf.anathema.framework.item.IItemType;
 import net.sf.anathema.framework.item.RepositoryConfiguration;
 import net.sf.anathema.framework.module.ItemTypeConfiguration;
 import net.sf.anathema.framework.repository.FolderRepositoryConfiguration;
 import net.sf.anathema.framework.repository.ItemType;
 import net.sf.anathema.initialization.RegisteredItemTypeConfiguration;
+import net.sf.anathema.library.initialization.Weight;
 
 @RegisteredItemTypeConfiguration
 @Weight(weight=10)

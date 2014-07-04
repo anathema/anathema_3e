@@ -1,8 +1,8 @@
 package net.sf.anathema.initialization.initialitems;
 
 import net.sf.anathema.ProxySplashscreen;
-import net.sf.anathema.framework.environment.Environment;
-import net.sf.anathema.framework.environment.resources.ResourceFile;
+import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.environment.Environment;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,10 +1,10 @@
 package net.sf.anathema.framework.messaging;
 
-import net.sf.anathema.framework.environment.Resources;
-import net.sf.anathema.lib.control.ChangeListener;
 import net.sf.anathema.lib.message.Message;
 import net.sf.anathema.lib.message.MessageDuration;
 import net.sf.anathema.lib.message.MessageType;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.resources.Resources;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.creation;
 
 import net.sf.anathema.hero.framework.type.CharacterType;
 import net.sf.anathema.hero.template.HeroTemplate;
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 public interface ICharacterItemCreationModel {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
-import net.sf.anathema.lib.gui.dialog.userdialog.OperationResultHandler;
+import net.sf.anathema.character.equipment.display.userdialog.OperationResultHandler;
 import net.sf.anathema.lib.message.Message;
 
 public interface EquipmentStatsDialog {

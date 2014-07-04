@@ -1,10 +1,10 @@
 package net.sf.anathema.framework.preferences.perspective;
 
-import net.sf.anathema.framework.environment.ObjectFactory;
 import net.sf.anathema.framework.preferences.elements.PreferenceModel;
 import net.sf.anathema.framework.preferences.elements.RegisteredPreferenceModel;
 import net.sf.anathema.framework.preferences.persistence.PreferencePto;
-import net.sf.anathema.initialization.InitializationException;
+import net.sf.anathema.library.initialization.InitializationException;
+import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;

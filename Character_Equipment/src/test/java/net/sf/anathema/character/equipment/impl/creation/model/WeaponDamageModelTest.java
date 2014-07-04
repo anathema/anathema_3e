@@ -3,8 +3,8 @@ package net.sf.anathema.character.equipment.impl.creation.model;
 import junit.framework.TestCase;
 import net.sf.anathema.character.equipment.creation.model.WeaponDamageModel;
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.lib.control.ChangeListener;
-import net.sf.anathema.lib.control.IntValueChangedListener;
+import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.IntValueChangedListener;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

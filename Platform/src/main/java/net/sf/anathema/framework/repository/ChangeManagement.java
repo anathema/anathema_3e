@@ -1,6 +1,6 @@
 package net.sf.anathema.framework.repository;
 
-import net.sf.anathema.lib.control.ChangeListener;
+import net.sf.anathema.library.event.ChangeListener;
 
 public interface ChangeManagement {
   boolean isDirty();

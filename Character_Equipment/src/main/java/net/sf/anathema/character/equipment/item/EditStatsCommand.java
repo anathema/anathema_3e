@@ -3,10 +3,10 @@ package net.sf.anathema.character.equipment.item;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.item.model.StatsEditor;
 import net.sf.anathema.character.equipment.item.model.StatsToModel;
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.interaction.Command;
 import net.sf.anathema.lib.util.Closure;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

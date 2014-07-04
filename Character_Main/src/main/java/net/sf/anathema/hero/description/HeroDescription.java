@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.description;
 
 import net.sf.anathema.hero.model.HeroModel;
-import net.sf.anathema.lib.control.ObjectValueListener;
 import net.sf.anathema.lib.util.SimpleIdentifier;
 import net.sf.anathema.lib.workflow.textualdescription.ITextualDescription;
+import net.sf.anathema.library.event.ObjectValueListener;
 
 public interface HeroDescription extends HeroModel {
 

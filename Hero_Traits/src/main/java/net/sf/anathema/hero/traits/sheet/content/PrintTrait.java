@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.traits.sheet.content;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.library.resources.Resources;
 
 public class PrintTrait implements NamedValue {
 

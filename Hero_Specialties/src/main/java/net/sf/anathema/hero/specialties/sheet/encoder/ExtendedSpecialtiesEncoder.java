@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.specialties.sheet.encoder;
 
-import net.sf.anathema.framework.environment.Resources;
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
@@ -12,6 +11,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
+import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Arrays;
