@@ -1,14 +1,6 @@
-package net.sf.anathema.library.lang;
+package net.sf.anathema.graph.ordering;
 
 public class IntegerUtilities {
-
-  public static int[] revert(int[] numberArray) {
-    int[] revertedArray = new int[numberArray.length];
-    for (int index = 0; index < numberArray.length; index++) {
-      revertedArray[index] = numberArray[numberArray.length - 1 - index];
-    }
-    return revertedArray;
-  }
 
   public static int[] permutate(int[] numberArray) {
     if (isEven(numberArray.length) && numberArray.length > 2) {
@@ -24,6 +16,14 @@ public class IntegerUtilities {
       return new int[]{numberArray[2], numberArray[0], numberArray[1]};
     }
     return revert(numberArray);
+  }
+
+  private static int[] revert(int[] numberArray) {
+    int[] revertedArray = new int[numberArray.length];
+    for (int index = 0; index < numberArray.length; index++) {
+      revertedArray[index] = numberArray[numberArray.length - 1 - index];
+    }
+    return revertedArray;
   }
 
   private static boolean isEven(int number) {

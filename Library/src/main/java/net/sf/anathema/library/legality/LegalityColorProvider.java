@@ -9,7 +9,7 @@ public class LegalityColorProvider {
   public static final RGBColor COLOR_OKAY = RGBColor.Black;
 
   public RGBColor getTextColor(ValueLegalityState state) {
-    final RGBColor[] color = new RGBColor[1];
+    RGBColor[] color = new RGBColor[1];
     state.accept(new IValueLegalityStateVisitor() {
       @Override
       public void visitLow(ValueLegalityState visitedState) {

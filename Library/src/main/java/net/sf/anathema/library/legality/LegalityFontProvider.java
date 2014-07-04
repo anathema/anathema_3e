@@ -8,7 +8,7 @@ public class LegalityFontProvider {
   public static final FontStyle BONUS = FontStyle.Bold;
 
   public FontStyle getFontStyle(ValueLegalityState state) {
-    final FontStyle[] style = new FontStyle[1];
+    FontStyle[] style = new FontStyle[1];
     state.accept(new IValueLegalityStateVisitor() {
       @Override
       public void visitLow(ValueLegalityState visitedState) {

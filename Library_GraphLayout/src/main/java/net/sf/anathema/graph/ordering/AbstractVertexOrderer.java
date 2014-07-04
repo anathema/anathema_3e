@@ -7,7 +7,6 @@ import net.sf.anathema.graph.nodes.WeightedNodeComparator;
 import net.sf.anathema.graph.util.BarycenterCalculator;
 import net.sf.anathema.graph.util.IncidentMatrixUtilities;
 import net.sf.anathema.library.collection.MultiEntryMap;
-import net.sf.anathema.library.lang.IntegerUtilities;
 
 import java.util.Arrays;
 import java.util.Comparator;

@@ -1,6 +1,5 @@
-package net.sf.anathema.lib.lang;
+package net.sf.anathema.graph.ordering;
 
-import net.sf.anathema.library.lang.IntegerUtilities;
 import org.junit.Assert;
 import org.junit.Test;
 
