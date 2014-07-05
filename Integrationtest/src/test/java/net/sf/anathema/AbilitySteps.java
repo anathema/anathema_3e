@@ -67,8 +67,7 @@ public class AbilitySteps {
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      boolean isNotFavored = !stateMap.isFavored(trait);
-      if (isAbility && hasNotYetReachedThreshold && isNotFavored){
+      if (isAbility && hasNotYetReachedThreshold && !stateMap.isFavored(trait)){
         increaseTraitValueByOne(trait);
         break;
       }
