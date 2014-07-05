@@ -16,7 +16,7 @@ public interface TraitState {
 
   void changeStateTo(TraitStateType state);
   
-  void advanceFavorableState();
+  void advanceState();
 
   void setFavored(boolean favored);
 

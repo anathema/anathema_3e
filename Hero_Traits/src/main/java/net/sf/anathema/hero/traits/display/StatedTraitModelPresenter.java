@@ -1,57 +1,49 @@
 package net.sf.anathema.hero.traits.display;
 
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
-import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitListModel;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
-import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
+import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 
+import static net.sf.anathema.hero.experience.model.ExperienceChange.FLAVOR_EXPERIENCE_STATE;
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 
-public class FavorableTraitConfigurationPresenter {
+public class StatedTraitModelPresenter {
 
-  private final GroupedFavorableDotConfigurationView view;
+  private final GroupedStatedDotsView view;
   private final IdentityMapping<Trait, ToggleTool> traitViewsByTrait = new IdentityMapping<>();
   private final Resources resources;
-  private final IdentifiedTraitTypeList[] traitTypeGroups;
-  private final TraitMap traitConfiguration;
   private Hero hero;
-  private TraitListModel traitList;
+  private GroupedTraitsModel model;
 
-  public FavorableTraitConfigurationPresenter(TraitListModel traitList, IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
-                                              Resources resources) {
-    this.traitList = traitList;
+  public StatedTraitModelPresenter(Hero hero, GroupedTraitsModel model, GroupedStatedDotsView view, Resources resources) {
+    this.model = model;
     this.hero = hero;
-    this.traitTypeGroups = traitTypeGroups;
-    this.traitConfiguration = TraitModelFetcher.fetch(hero);
     this.resources = resources;
     this.view = view;
   }
 
   public void init(String typePrefix) {
-    for (IdentifiedTraitTypeList traitTypeGroup : traitTypeGroups) {
+    for (IdentifiedTraitTypeList traitTypeGroup : model.getGroups()) {
       view.startNewTraitGroup(resources.getString(typePrefix + "." + traitTypeGroup.getListId().getId()));
       List<TraitType> allTraitTypes = traitTypeGroup.getAll();
-      addTraitViews(traitConfiguration.getTraits(allTraitTypes.toArray(new TraitType[allTraitTypes.size()])));
+      addTraitViews(model.getTraits(allTraitTypes.toArray(new TraitType[allTraitTypes.size()])));
     }
     hero.getChangeAnnouncer().addListener(flavor -> {
-      if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
+      if (FLAVOR_EXPERIENCE_STATE.equals(flavor)) {
         updateButtons();
       }
     });
@@ -62,13 +54,13 @@ public class FavorableTraitConfigurationPresenter {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = traitViewsByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
-      boolean favored = traitList.getState(trait).isCasteOrFavored();
-      setButtonState(view, favored, !disabled);
+      boolean favored = model.getState(trait).isCasteOrFavored();
+      setButtonState(view, favored);
     }
   }
 
   private Trait[] getAllTraits() {
-    return traitConfiguration.getTraits(DefaultTraitTypeList.getAllTraitTypes(traitTypeGroups));
+    return model.getAll();
   }
 
   private void addTraitViews(Trait[] traits) {
@@ -90,11 +82,9 @@ public class FavorableTraitConfigurationPresenter {
   }
 
   private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
-    final ToggleTool casteTool = traitView.addToggleInFront();
-    TraitState traitState = traitList.getState(favorableTrait);
-    casteTool.setCommand(() -> {
-      traitState.advanceFavorableState();
-    });
+    ToggleTool casteTool = traitView.addToggleInFront();
+    TraitState traitState = model.getState(favorableTrait);
+    casteTool.setCommand(traitState::advanceState);
     traitState.addTraitStateChangedListener(state -> updateView(casteTool, state));
     updateView(casteTool, traitState.getType());
     traitViewsByTrait.put(favorableTrait, casteTool);
@@ -102,15 +92,14 @@ public class FavorableTraitConfigurationPresenter {
 
   private void updateView(final ToggleTool view, TraitStateType state) {
     boolean select = state == Favored || state == Caste;
-    boolean enable = true; // state == Favored || state == Default;
-    setButtonState(view, select, enable);
+    setButtonState(view, select);
     PresentationPropertiesImpl properties = new PresentationPropertiesImpl(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);
   }
 
-  private void setButtonState(ToggleTool view, boolean select, boolean enable) {
+  private void setButtonState(ToggleTool view, boolean select) {
     select(view, select);
-    enable(view, enable);
+    enable(view, true);
   }
 
   private void select(ToggleTool view, boolean select) {

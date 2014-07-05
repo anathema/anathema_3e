@@ -52,7 +52,7 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
-  public final void advanceFavorableState() {
+  public final void advanceState() {
     changeStateTo(getNextLegalState());
   }
 

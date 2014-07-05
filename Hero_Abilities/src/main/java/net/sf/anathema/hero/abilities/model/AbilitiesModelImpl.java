@@ -123,7 +123,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   @Override
-  public IdentifiedTraitTypeList[] getTraitTypeList() {
+  public IdentifiedTraitTypeList[] getGroups() {
     return abilityTraitGroups;
   }
 

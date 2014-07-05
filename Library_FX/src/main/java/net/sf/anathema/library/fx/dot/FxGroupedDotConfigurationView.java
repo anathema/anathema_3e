@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import net.sf.anathema.library.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class FxGroupedDotConfigurationView implements GroupedFavorableDotConfigurationView, NodeHolder {
+public class FxGroupedDotConfigurationView implements GroupedStatedDotsView, NodeHolder {
   private FxGroupedDotView groupedView;
   private final MigPane pane = new MigPane();
 

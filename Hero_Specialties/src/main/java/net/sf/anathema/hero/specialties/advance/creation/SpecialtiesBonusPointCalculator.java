@@ -6,8 +6,8 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.advance.TraitCalculationUtilities;
+import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitListModel;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.points.model.BonusPointCalculator;
 
@@ -23,7 +23,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
   private int specialtyBonusPointCosts;
   private int specialtyDotSum;
 
-  public SpecialtiesBonusPointCalculator(Hero hero, TraitListModel traitMap, SpecialtyCreationData creationData) {
+  public SpecialtiesBonusPointCalculator(Hero hero, GroupedTraitsModel traitMap, SpecialtyCreationData creationData) {
     this.hero = hero;
     this.traitMap = traitMap;
     this.creationData = creationData;

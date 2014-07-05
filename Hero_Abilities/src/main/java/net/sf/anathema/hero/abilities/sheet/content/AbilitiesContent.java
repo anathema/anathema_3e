@@ -29,7 +29,7 @@ public class AbilitiesContent extends FavorableTraitContent {
 
   @Override
   public IdentifiedTraitTypeList[] getIdentifiedTraitTypeGroups() {
-    return AbilitiesModelFetcher.fetch(hero).getTraitTypeList();
+    return AbilitiesModelFetcher.fetch(hero).getGroups();
   }
 
   @Override

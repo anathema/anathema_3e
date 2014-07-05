@@ -124,12 +124,12 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   }
 
   @Override
-  public IdentifiedTraitTypeList[] getTraitTypeList() {
+  public IdentifiedTraitTypeList[] getGroups() {
     return attributeTraitGroups;
   }
 
   public Trait[] getAll(AttributeGroupType groupType) {
-    for (IdentifiedTraitTypeList group : getTraitTypeList()) {
+    for (IdentifiedTraitTypeList group : getGroups()) {
       if (group.getListId().equals(groupType)) {
         List<TraitType> all = group.getAll();
         return getTraits(all.toArray(new TraitType[all.size()]));

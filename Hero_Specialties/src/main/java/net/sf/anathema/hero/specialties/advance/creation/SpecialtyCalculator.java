@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.hero.traits.model.TraitListModel;
+import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class SpecialtyCalculator {
 
-  private final TraitListModel abilityModel;
+  private final GroupedTraitsModel abilityModel;
   private final int specialtyPoints;
 
-  public SpecialtyCalculator(TraitListModel abilityModel, int specialtyPoints) {
+  public SpecialtyCalculator(GroupedTraitsModel abilityModel, int specialtyPoints) {
     this.abilityModel = abilityModel;
     this.specialtyPoints = specialtyPoints;
   }

@@ -42,7 +42,7 @@ public class NullTraitState implements TraitState {
   }
   
   @Override
-  public void advanceFavorableState() {
+  public void advanceState() {
     // nothing to do
   }
 
