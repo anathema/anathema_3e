@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.application.presenter;
 
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;
@@ -18,10 +17,10 @@ public class HeroPresenter {
   private final InitializerList initializerList;
   private final Hero hero;
   private final HeroView heroView;
-  private final Environment environment;
+  private final HeroEnvironment environment;
 
-  public HeroPresenter(Hero hero, HeroView view, Environment environment, ApplicationModel model) {
-    this.initializerList = new InitializerList(environment.getObjectFactory(), model);
+  public HeroPresenter(Hero hero, HeroView view, HeroEnvironment environment) {
+    this.initializerList = new InitializerList(environment);
     this.hero = hero;
     this.heroView = view;
     this.environment = environment;
@@ -42,14 +41,14 @@ public class HeroPresenter {
   }
 
   private SectionView prepareSection(String titleKey) {
-    String sectionTitle = environment.getString(titleKey);
+    String sectionTitle = environment.getResources().getString(titleKey);
     return heroView.addSection(sectionTitle);
   }
 
   private void initializeGroup(HeroModelGroup group, SectionView sectionView) {
     for (HeroModelInitializer initializer : initializerList.getInOrderFor(group)) {
       if (initializer.canWorkForHero(hero)) {
-        initializer.initialize(sectionView, hero, environment);
+        initializer.initialize(sectionView, hero);
       }
     }
   }

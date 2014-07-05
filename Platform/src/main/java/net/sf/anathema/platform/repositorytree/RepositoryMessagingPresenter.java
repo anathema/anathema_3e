@@ -1,7 +1,7 @@
 package net.sf.anathema.platform.repositorytree;
 
 import net.sf.anathema.library.message.MessageType;
-import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.repository.PrintNameFile;
 
 public class RepositoryMessagingPresenter {

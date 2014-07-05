@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application;
+package net.sf.anathema.hero.application.environment;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
@@ -8,8 +8,13 @@ import net.sf.anathema.hero.environment.template.TemplateRegistry;
 import net.sf.anathema.hero.environment.template.TemplateRegistryImpl;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.io.DataFileProvider;
+import net.sf.anathema.library.message.Messaging;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class HeroEnvironmentImpl implements HeroEnvironment {
 
@@ -18,12 +23,20 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
   private final HeroTypes heroTypes;
   private ApplicationModel model;
   private Environment environment;
+  private Map<Class, Object> injectionObjects = new HashMap<>();
 
   public HeroEnvironmentImpl(ApplicationModel model, Environment environment, ExtensibleDataSetProvider dataSetProvider) {
     this.model = model;
     this.environment = environment;
     this.dataSetProvider = dataSetProvider;
     this.heroTypes = dataSetProvider.getDataSet(HeroTypes.class);
+    injectionObjects.put(ApplicationModel.class, model);
+    injectionObjects.put(Environment.class, environment);
+  }
+
+  @Override
+  public Resources getResources() {
+    return environment;
   }
 
   @Override
@@ -33,12 +46,22 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
 
   @Override
   public ObjectFactory getObjectFactory() {
-    return environment.getObjectFactory();
+    return new InjectingObjectFactory(environment.getObjectFactory(), injectionObjects);
   }
 
   @Override
   public HeroTypes getHeroTypes() {
     return heroTypes;
+  }
+
+  @Override
+  public Messaging getMessaging() {
+    return model.getMessaging();
+  }
+
+  @Override
+  public String getPreference(String key) {
+    return environment.getPreference(key);
   }
 
   @Override

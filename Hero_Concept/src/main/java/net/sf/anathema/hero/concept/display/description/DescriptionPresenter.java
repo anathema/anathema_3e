@@ -2,6 +2,8 @@ package net.sf.anathema.hero.concept.display.description;
 
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.IntegerModel;
 import net.sf.anathema.library.resources.Resources;
@@ -11,9 +13,6 @@ import net.sf.anathema.library.text.TextualPresentation;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
 import net.sf.anathema.library.view.IntegerView;
 import net.sf.anathema.library.view.MultiComponentLine;
-import net.sf.anathema.platform.environment.Environment;
-
-import java.util.Collection;
 
 public class DescriptionPresenter {
 
@@ -21,9 +20,9 @@ public class DescriptionPresenter {
   private final HeroConcept heroConcept;
   private final ConfigurableCharacterView descriptionView;
   private final boolean hasAnima;
-  private Environment environment;
+  private HeroEnvironment environment;
 
-  public DescriptionPresenter(DescriptionDetails descriptionDetails, Environment environment, ConfigurableCharacterView descriptionView) {
+  public DescriptionPresenter(DescriptionDetails descriptionDetails, HeroEnvironment environment, ConfigurableCharacterView descriptionView) {
     this.environment = environment;
     this.description = descriptionDetails.getDescription();
     this.heroConcept = descriptionDetails.getHeroConcept();
@@ -47,8 +46,10 @@ public class DescriptionPresenter {
 
   private void initNameLineView(TextualPresentation presentation) {
     initLineView("CharacterDescription.Label.Name", description.getName(), presentation);
-    Collection<NameEditAction> actions = environment.getObjectFactory().instantiateOrdered(RegisteredNameEditAction.class, (Resources) environment);
-    for (NameEditAction action : actions) {
+    ObjectFactory objectFactory = environment.getObjectFactory();
+    Resources resources = environment.getResources();
+    for (NameEditAction action : objectFactory.<NameEditAction>instantiateOrdered(RegisteredNameEditAction.class,
+      resources)) {
       addEditTool(action);
     }
   }
@@ -69,24 +70,24 @@ public class DescriptionPresenter {
   }
 
   private void addInteger(MultiComponentLine componentLine, String label, final IntegerModel integerDescription) {
-    String title = environment.getString(label);
+    String title = environment.getResources().getString(label);
     IntegerView view = componentLine.addIntegerView(title, integerDescription);
     view.addChangeListener(integerDescription::setValue);
   }
 
   private void addField(MultiComponentLine componentLine, String label, ITextualDescription description, TextualPresentation presentation) {
-    String labelText = environment.getString(label);
+    String labelText = environment.getResources().getString(label);
     ITextView textView = componentLine.addFieldsView(labelText);
     presentation.initView(textView, description);
   }
 
   private void initLineView(String labelResourceKey, ITextualDescription textualDescription, TextualPresentation presentation) {
-    ITextView textView = descriptionView.addLineView(environment.getString(labelResourceKey));
+    ITextView textView = descriptionView.addLineView(environment.getResources().getString(labelResourceKey));
     presentation.initView(textView, textualDescription);
   }
 
   private void initAreaView(String labelResourceKey, ITextualDescription textualDescription, TextualPresentation presentation) {
-    ITextView textView = descriptionView.addAreaView(environment.getString(labelResourceKey));
+    ITextView textView = descriptionView.addAreaView(environment.getResources().getString(labelResourceKey));
     presentation.initView(textView, textualDescription);
   }
 }

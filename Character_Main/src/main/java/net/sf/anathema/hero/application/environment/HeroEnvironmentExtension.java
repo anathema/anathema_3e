@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application;
+package net.sf.anathema.hero.application.environment;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 

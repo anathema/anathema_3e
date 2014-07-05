@@ -2,29 +2,30 @@ package net.sf.anathema.hero.equipment.display.presenter;
 
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModelImpl;
 
 @RegisteredInitializer(HeroModelGroup.Miscellaneous)
 @Weight(weight = 200)
 public class EquipmentInitializer implements HeroModelInitializer {
+  private HeroEnvironment environment;
+
   @SuppressWarnings("UnusedParameters")
-  public EquipmentInitializer(ApplicationModelImpl model) {
-    //nothing to do
+  public EquipmentInitializer(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
   @Override
-  public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    String viewName = environment.getString("AdditionalTemplateView.TabName.Equipment");
+  public void initialize(SectionView sectionView, Hero hero) {
+    String viewName = environment.getResources().getString("AdditionalTemplateView.TabName.Equipment");
     EquipmentView view = sectionView.addView(viewName, EquipmentView.class);
     EquipmentModel equipmentModel = EquipmentModelFetcher.fetch(hero);
-    new EquipmentPresenter(environment, equipmentModel, view).initPresentation();
+    new EquipmentPresenter(environment.getResources(), equipmentModel, view).initPresentation();
   }
 
   @Override

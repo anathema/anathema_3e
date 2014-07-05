@@ -7,12 +7,11 @@ import net.sf.anathema.cards.data.providers.LegendCardDataProvider;
 import net.sf.anathema.cards.data.providers.SpellCardDataProvider;
 import net.sf.anathema.cards.layout.DemocritusCardLayout;
 import net.sf.anathema.cards.layout.ICardLayout;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.RegisteredReportFactory;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.environment.report.ReportFactory;
 import net.sf.anathema.library.initialization.Weight;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +20,14 @@ import java.util.List;
 @Weight(weight = 40)
 public class CardReportFactory implements ReportFactory {
   @Override
-  public Report[] createReport(Environment environment, ApplicationModel model) {
+  public Report[] createReport(HeroEnvironment environment) {
     List<ICardDataProvider> dataProviders = new ArrayList<>();
-    dataProviders.add(new CharmCardDataProvider(model, environment));
-    dataProviders.add(new SpellCardDataProvider(model, environment));
-    dataProviders.add(new EquipmentCardDataProvider(environment));
-    dataProviders.add(new LegendCardDataProvider(environment));
-    ICardLayout layout = new DemocritusCardLayout(.23f, environment);
-    return new Report[]{new CardReport(environment, layout, dataProviders.toArray(new ICardDataProvider[dataProviders.size()]))};
+    dataProviders.add(new CharmCardDataProvider(environment));
+    dataProviders.add(new SpellCardDataProvider(environment));
+    dataProviders.add(new EquipmentCardDataProvider(environment.getResources()));
+    dataProviders.add(new LegendCardDataProvider(environment.getResources()));
+    ICardLayout layout = new DemocritusCardLayout(.23f, environment.getResources());
+    return new Report[]{new CardReport(environment.getResources(), layout,
+      dataProviders.toArray(new ICardDataProvider[dataProviders.size()]))};
   }
 }

@@ -1,11 +1,13 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
+import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.CharacterGridPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterStackBridge;
 import net.sf.anathema.hero.application.perspective.CharacterStackPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterSystemModel;
 import net.sf.anathema.hero.application.perspective.InteractionPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
@@ -29,10 +31,11 @@ public class CharacterSystemPerspective implements Perspective {
   @Override
   public void initContent(Container container, ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
     new HeroSystemInitializer(model, environment).initializeCharacterSystem();
+    HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
     CharacterSystemModel systemModel = new CharacterSystemModel(model);
     CharacterSystemView view = new CharacterSystemView(uiEnvironment);
     container.setContent(view.getNode());
-    CharacterViewFactory viewFactory = new CharacterViewFactory(environment, model);
+    CharacterViewFactory viewFactory = new CharacterViewFactory(heroEnvironment);
     CharacterStackBridge bridge = new CharacterStackFxBridge(viewFactory, view.getStackView());
     CharacterStackPresenter stackPresenter = new CharacterStackPresenter(bridge, systemModel);
     ShowOnSelect showOnSelect = new ShowOnSelect(stackPresenter);

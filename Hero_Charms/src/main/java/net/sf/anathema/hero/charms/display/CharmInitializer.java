@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
@@ -17,8 +16,6 @@ import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
@@ -26,25 +23,25 @@ import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
 @RegisteredInitializer(Magic)
 @Weight(weight = 0)
 public class CharmInitializer implements HeroModelInitializer {
-  private final ApplicationModel applicationModel;
-  private final HeroEnvironment heroEnvironment;
 
-  public CharmInitializer(ApplicationModel applicationModel) {
-    this.applicationModel = applicationModel;
-    this.heroEnvironment = HeroEnvironmentExtractor.getGenerics(applicationModel);
+  private HeroEnvironment environment;
+
+  public CharmInitializer(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
   @Override
-  public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(applicationModel, environment);
+  public void initialize(SectionView sectionView, Hero hero) {
+    MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(environment);
     CharmDisplayModel model = new CharmDisplayModel(hero, provider);
     CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
     CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment.getObjectFactory());
     TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(characterType);
-    String header = environment.getString("CardView.CharmConfiguration.CharmSelection.Title");
+    String header = environment.getResources().getString("CardView.CharmConfiguration.CharmSelection.Title");
     CharmView charmView = sectionView.addView(header, CharmView.class);
     CharmMap charmCache = getCharmIdMap();
-    CharacterCharmTreePresenter treePresenter = new CharacterCharmTreePresenter(environment, charmView, model, presentationProperties, charmCache, provider);
+    CharacterCharmTreePresenter treePresenter = new CharacterCharmTreePresenter(environment.getResources(), charmView,
+      model, presentationProperties, charmCache, provider);
     treePresenter.initPresentation();
     //MagicDetailPresenter detailPresenter = createMagicDetailPresenter();
     //new MagicAndDetailPresenter(detailPresenter, treePresenter).initPresentation();
@@ -56,6 +53,6 @@ public class CharmInitializer implements HeroModelInitializer {
   }
 
   private CharmMap getCharmIdMap() {
-    return heroEnvironment.getDataSet(CharmCache.class);
+    return environment.getDataSet(CharmCache.class);
   }
 }

@@ -2,11 +2,11 @@ package net.sf.anathema.platform.fx.repositorytree;
 
 import javafx.scene.Node;
 import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.item.ItemTypeCollection;
-import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.platform.repositorytree.AmountMessaging;
 import net.sf.anathema.platform.repositorytree.RepositoryItemDeletionPresenter;
 import net.sf.anathema.platform.repositorytree.RepositoryItemDuplicationPresenter;

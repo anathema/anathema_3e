@@ -5,7 +5,7 @@ import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.cascades.presenter.CharmCascadesPresenterImpl;
 import net.sf.anathema.cascades.presenter.CharmTreeMap;
-import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -32,10 +32,10 @@ public class CharmCascadePerspective implements Perspective {
 
   @Override
   public void initContent(Container container, ApplicationModel applicationModel, Environment environment, UiEnvironment uiEnvironment) {
-    HeroEnvironment characterGenerics = HeroEnvironmentExtractor.getGenerics(applicationModel);
-    MagicDescriptionProvider magicDescriptionProvider = getCharmDescriptionProvider(applicationModel, environment);
+    HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(applicationModel);
+    MagicDescriptionProvider magicDescriptionProvider = getCharmDescriptionProvider(heroEnvironment);
     FxCharmView cascadeView = new FxCharmView();
-    new CharmCascadesPresenterImpl(environment, characterGenerics, cascadeView, magicDescriptionProvider,
+    new CharmCascadesPresenterImpl(environment, heroEnvironment, cascadeView, magicDescriptionProvider,
             new CharmTreeMap()).initPresentation();
     MigPane content = createContentPane(cascadeView);
     container.setContent(content);
@@ -48,7 +48,7 @@ public class CharmCascadePerspective implements Perspective {
     return content;
   }
 
-  private MagicDescriptionProvider getCharmDescriptionProvider(ApplicationModel model, Environment environment) {
-    return CharmDescriptionProviderExtractor.CreateFor(model, environment);
+  private MagicDescriptionProvider getCharmDescriptionProvider(HeroEnvironment environment) {
+    return CharmDescriptionProviderExtractor.CreateFor(environment);
   }
 }

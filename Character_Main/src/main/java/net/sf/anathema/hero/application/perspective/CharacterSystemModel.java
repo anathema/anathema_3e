@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.perspective;
 
-import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
 import net.sf.anathema.hero.application.ItemReceiver;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.persistence.HeroItemPersister;
@@ -51,7 +51,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   private int newCharacterCount = 0;
 
   public CharacterSystemModel(ApplicationModel model) {
-    this(new CharacterPersistenceModel(model, HeroEnvironmentExtractor.getGenerics(model)), model);
+    this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model);
   }
 
   public CharacterSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
@@ -79,7 +79,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   }
 
   private HeroEnvironment getHeroEnvironment() {
-    return HeroEnvironmentExtractor.getGenerics(model);
+    return HeroEnvironmentFetcher.fetch(model);
   }
 
   @Override
@@ -130,7 +130,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void printCurrentItemQuickly(Environment environment) {
-    HeroReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder();
     new QuickPrintCommand(environment, reportFinder, getCurrentCharacter()).execute();
   }
 
@@ -166,7 +166,7 @@ public class CharacterSystemModel implements ItemSystemModel {
 
   @Override
   public void registerAllReportsOn(ReportRegister register, Environment environment) {
-    HeroReportFinder reportFinder = createReportFinder(environment);
+    HeroReportFinder reportFinder = createReportFinder();
     for (Report report : reportFinder.getAllReports(getCurrentCharacter())) {
       register.register(report);
     }
@@ -231,7 +231,7 @@ public class CharacterSystemModel implements ItemSystemModel {
     item.getItemData().getChangeManagement().setClean();
   }
 
-  private HeroReportFinder createReportFinder(Environment environment) {
-    return new HeroReportFinder(model, environment);
+  private HeroReportFinder createReportFinder() {
+    return new HeroReportFinder(HeroEnvironmentFetcher.fetch(model));
   }
 }

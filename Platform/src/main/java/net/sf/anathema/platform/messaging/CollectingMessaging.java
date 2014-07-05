@@ -3,7 +3,9 @@ package net.sf.anathema.platform.messaging;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageDuration;
+import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.MessageType;
+import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import org.jmock.example.announcer.Announcer;
 

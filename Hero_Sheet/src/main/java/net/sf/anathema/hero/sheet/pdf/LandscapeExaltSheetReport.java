@@ -5,6 +5,7 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.ReportException;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentRegistry;
@@ -18,7 +19,6 @@ import net.sf.anathema.hero.sheet.pdf.page.layout.landscape.SecondPageEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.sheet.preferences.PageSizePreference;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.environment.Environment;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,8 +29,8 @@ public class LandscapeExaltSheetReport extends AbstractPdfReport {
   private PageSizePreference pageSizePreference;
   private final HeroReportingRegistries reportingModuleObject;
 
-  public LandscapeExaltSheetReport(Environment environment, PageSizePreference pageSizePreference) {
-    this.resources = environment;
+  public LandscapeExaltSheetReport(HeroEnvironment environment, PageSizePreference pageSizePreference) {
+    this.resources = environment.getResources();
     this.pageSizePreference = pageSizePreference;
     this.reportingModuleObject = new HeroReportingRegistries(environment.getObjectFactory(), resources);
   }
