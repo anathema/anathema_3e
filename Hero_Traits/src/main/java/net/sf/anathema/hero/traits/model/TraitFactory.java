@@ -22,24 +22,24 @@ public class TraitFactory {
     this.hero = hero;
   }
   
-  public Trait[] createTraits(IIdentifiedCasteTraitTypeList list, IncrementChecker checker, TraitTemplateMap templateMap) {
+  public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list, IncrementChecker checker, TraitTemplateMap templateMap) {
 	  return createTraits(list, new MonoTypeIncrementChecker<TraitState>(checker, null), templateMap);
   }
 
-  public Trait[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
+  public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       CasteType[] casteTypes = list.getTraitCasteTypes(type);
       Trait trait = createTrait(type, casteTypes, checker, templateMap);
       newTraits.add(trait);
     }
-    return newTraits.toArray(new Trait[newTraits.size()]);
+    return newTraits.toArray(new TraitImpl[newTraits.size()]);
   }
 
-  private Trait createTrait(TraitType traitType, CasteType[] casteTypes, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
+  private TraitImpl createTrait(TraitType traitType, CasteType[] casteTypes, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
     TraitTemplate traitTemplate = templateMap.getTemplate(traitType);
     TraitRules favorableTraitRules = new TraitRulesImpl(traitType, traitTemplate, hero);
     ValueChangeChecker valueChecker = new FriendlyValueChangeChecker();
-    return new DefaultTrait(hero, favorableTraitRules, casteTypes, valueChecker, checker);
+    return new TraitImpl(hero, favorableTraitRules, casteTypes, valueChecker, checker);
   }
 }

@@ -13,7 +13,7 @@ import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
-import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
+import net.sf.anathema.hero.traits.model.rules.LimitedTraitImpl;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
@@ -40,7 +40,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
     this.specialCharm = specialCharm;
     this.arbitrator = arbitrator;
     TraitTemplate template = TraitTemplateFactory.createStaticLimitedTemplate(0, specialCharm.getAbsoluteLearnLimit());
-    this.trait = new LimitedTrait(hero, new DefaultTraitType(charm.getName().text), template, new MultiLearnableIncrementChecker());
+    this.trait = new LimitedTraitImpl(hero, new DefaultTraitType(charm.getName().text), template, new MultiLearnableIncrementChecker());
     this.trait.addCurrentValueListener(this::fireLearnCountChanged);
     hero.getChangeAnnouncer().addListener(flavor -> {
       if (flavor instanceof TraitChangeFlavor) {

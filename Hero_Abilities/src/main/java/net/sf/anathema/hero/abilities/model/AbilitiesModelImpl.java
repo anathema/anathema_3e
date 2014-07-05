@@ -11,6 +11,7 @@ import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitFactory;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -21,8 +22,8 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.StatePickIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
@@ -38,6 +39,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private Hero hero;
   private AbilitiesTemplate template;
   private TraitModel traitModel;
+  private TraitStateMapImpl traitStateModelMap = new TraitStateMapImpl();
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
@@ -58,8 +60,10 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     MappableTypeIncrementChecker<TraitState> incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
     TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
-      Trait[] traits = traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template));
-      addTraits(traits);
+      for (TraitImpl trait : traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template))) {
+        addTraits(trait);
+        traitStateModelMap.addTrait(trait);
+      }
     }
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
@@ -68,7 +72,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   @Override
   public void initializeListening(ChangeAnnouncer changeAnnouncer) {
     for (Trait ability : getAll()) {
-      ability.getFavorization().addTraitStateChangedListener(new FavoredChangedListener(changeAnnouncer));
+      getStateMap().addTraitStateChangedListener(ability, new FavoredChangedListener(changeAnnouncer));
       ability.addCurrentValueListener(new TraitValueChangedListener(changeAnnouncer, ability));
     }
   }
@@ -89,7 +93,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     for (GroupedTraitType traitType : abilityGroups) {
       abilityTypes.add(traitType.getTraitType());
     }
-    return new StatePickIncrementChecker(stateLimits, abilityTypes.toArray(new TraitType[abilityTypes.size()]), traitMap);
+    return new StatePickIncrementChecker(stateLimits, abilityTypes.toArray(new TraitType[abilityTypes.size()]), getStateMap());
   }
 
   @Override
@@ -111,5 +115,10 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 	  case Supernal: return template.supernalCount;
 	  default: return 0;
 	  }
+  }
+
+  @Override
+  public TraitStateMap getStateMap() {
+    return traitStateModelMap;
   }
 }

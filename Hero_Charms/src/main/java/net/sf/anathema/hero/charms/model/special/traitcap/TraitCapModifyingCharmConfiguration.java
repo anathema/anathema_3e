@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 
 public class TraitCapModifyingCharmConfiguration implements ITraitCapModifyingCharmConfiguration {
   private CharmSpecialist specialist;
@@ -31,13 +31,13 @@ public class TraitCapModifyingCharmConfiguration implements ITraitCapModifyingCh
   }
 
   public void applyModifier() {
-    DefaultTrait trait = (DefaultTrait) specialist.getTraits().getTrait(specialCharm.getTraitType());
+    TraitImpl trait = (TraitImpl) specialist.getTraits().getTrait(specialCharm.getTraitType());
     trait.applyCapModifier(specialCharm.getModifier());
   }
 
   @Override
   public void forget() {
-    DefaultTrait trait = (DefaultTrait) specialist.getTraits().getTrait(specialCharm.getTraitType());
+    TraitImpl trait = (TraitImpl) specialist.getTraits().getTrait(specialCharm.getTraitType());
     trait.applyCapModifier(-specialCharm.getModifier());
   }
 

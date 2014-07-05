@@ -4,7 +4,6 @@ import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +16,7 @@ import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getC
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
+  private AbilitiesModel abilitiesModel;
   private AbilityCreationData creationData;
   private final Map<Trait, FavorableTraitCost[]> costsByTrait = new HashMap<>();
   private final Trait[] traits;
@@ -27,13 +27,13 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private int generalDotSum = 0;
 
   public AbilityCostCalculatorImpl(AbilitiesModel abilitiesModel, AbilityCreationData creationData) {
+    this.abilitiesModel = abilitiesModel;
     this.creationData = creationData;
     this.traits = abilitiesModel.getAll();
   }
 
   protected int getCostFactor(Trait trait) {
-    TraitStateModel favorization = trait.getFavorization();
-    CurrentRatingCost abilityCosts = creationData.getAbilityCosts(favorization.isCasteOrFavored());
+    CurrentRatingCost abilityCosts = creationData.getAbilityCosts(abilitiesModel.getStateMap().isCasteOrFavored(trait));
     return abilityCosts.getRatingCosts(getCalculationBase(trait));
   }
 
@@ -44,7 +44,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     for (Trait trait : sortedTraits) {
       int costFactor = getCostFactor(trait);
       FavorableTraitCost[] allCosts;
-      if (trait.getFavorization().isCasteOrFavored()) {
+      if (abilitiesModel.getStateMap().isCasteOrFavored(trait)) {
         allCosts = handleFavoredTrait(trait, costFactor);
       } else {
         allCosts = handleGeneralTrait(trait, costFactor);
@@ -63,22 +63,22 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private void countTraitFavorizationPicks() {
-	  for (Trait trait : traits) {
-		  switch (trait.getFavorization().getType()) {
-		  case Favored:
-			  increaseFavoredPicksSpent();
-			  break;
-		  case Caste:
-			  increaseCastePicksSpent();
-			  break;
-		  case Supernal:
-			  increaseCastePicksSpent();
-			  increaseSupernalPicksSpent();
-			  break;
-		default:
-			break;
-		  }
-	  }
+    for (Trait trait : traits) {
+      switch (abilitiesModel.getStateMap().getType(trait)) {
+        case Favored:
+          increaseFavoredPicksSpent();
+          break;
+        case Caste:
+          increaseCastePicksSpent();
+          break;
+        case Supernal:
+          increaseCastePicksSpent();
+          increaseSupernalPicksSpent();
+          break;
+        default:
+          break;
+      }
+    }
   }
 
   public int getBonusPointCost() {
@@ -109,11 +109,11 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   public int getCastePicksSpent() {
-	  return castePicksSpent;
+    return castePicksSpent;
   }
 
   public int getSupernalPicksSpent() {
-	  return supernalPicksSpent;
+    return supernalPicksSpent;
   }
 
   public int getFreePointsSpent(boolean favored) {
@@ -203,11 +203,11 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private void increaseCastePicksSpent() {
-	castePicksSpent++;
+    castePicksSpent++;
   }
-  
+
   private void increaseSupernalPicksSpent() {
-	supernalPicksSpent++;
+    supernalPicksSpent++;
   }
 
   private void increaseGeneralDotSum(int generalDotsSpent) {
@@ -220,7 +220,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private Set<Trait> sortTraitsByStatus() {
     Set<Trait> orderedTraits = new LinkedHashSet<>();
     for (Trait trait : traits) {
-      if (!trait.getFavorization().isCasteOrFavored()) {
+      if (!abilitiesModel.getStateMap().isCasteOrFavored(trait)) {
         addAllTraits(orderedTraits, trait);
       }
     }

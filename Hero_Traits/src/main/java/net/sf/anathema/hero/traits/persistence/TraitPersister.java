@@ -1,8 +1,15 @@
 package net.sf.anathema.hero.traits.persistence;
 
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 
 public class TraitPersister {
+
+  private TraitStateMap stateMap;
+
+  public TraitPersister(TraitStateMap stateMap) {
+    this.stateMap = stateMap;
+  }
 
   public void save(Trait trait, TraitPto pto) {
     saveTraitName(trait, pto);
@@ -12,7 +19,7 @@ public class TraitPersister {
   }
 
   private void saveFavoredValue(Trait trait, TraitPto pto) {
-    if (trait.getFavorization().isFavored()) {
+    if (stateMap.isFavored(trait)) {
       pto.favored = true;
     }
   }
@@ -50,6 +57,6 @@ public class TraitPersister {
 
   private void loadFavoredValue(Trait trait, TraitPto pto) {
     boolean favored = pto.favored != null ? pto.favored : false;
-    trait.getFavorization().setFavored(favored);
+    stateMap.setFavored(trait, favored);
   }
 }

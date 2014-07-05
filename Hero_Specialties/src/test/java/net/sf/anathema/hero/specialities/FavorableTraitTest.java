@@ -10,8 +10,8 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesContainer;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
@@ -40,7 +40,7 @@ public class FavorableTraitTest {
   private IncrementChecker incrementChecker = Mockito.mock(IncrementChecker.class);
   private TraitStateChangedListener abilityStateListener = Mockito.mock(TraitStateChangedListener.class);
   private ProxyTraitValueStrategy valueStrategy;
-  private DefaultTrait trait;
+  private TraitImpl trait;
   private DummyHero dummyHero = new DummyHero();
 
   @Before
@@ -99,10 +99,10 @@ public class FavorableTraitTest {
     assertEquals(0, trait.getCreationValue());
   }
 
-  private DefaultTrait createObjectUnderTest(Hero hero) {
+  private TraitImpl createObjectUnderTest(Hero hero) {
     TraitTemplate archeryTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules rules = new TraitRulesImpl(AbilityType.Archery, archeryTemplate, hero);
-    return new DefaultTrait(hero, rules, new CasteType[]{new DummyCasteType()}, new FriendlyValueChangeChecker(),
+    return new TraitImpl(hero, rules, new CasteType[]{new DummyCasteType()}, new FriendlyValueChangeChecker(),
     		new MonoTypeIncrementChecker<TraitState>(incrementChecker, TraitState.Favored));
   }
 

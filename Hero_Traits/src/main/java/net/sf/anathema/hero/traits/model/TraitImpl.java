@@ -15,7 +15,7 @@ import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.number.Range;
 import org.jmock.example.announcer.Announcer;
 
-public class DefaultTrait implements Trait {
+public class TraitImpl implements Trait {
 
   private int capModifier = 0;
   private int creationValue;
@@ -27,14 +27,14 @@ public class DefaultTrait implements Trait {
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
-  public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                      MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
+  public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
+                   MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
     this.traitFavorization = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
   }
 
-  public DefaultTrait(Hero hero, TraitRules traitRules, ValueChangeChecker checker) {
+  public TraitImpl(Hero hero, TraitRules traitRules, ValueChangeChecker checker) {
     Preconditions.checkNotNull(traitRules);
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
@@ -49,7 +49,6 @@ public class DefaultTrait implements Trait {
     return creationValue;
   }
 
-  @Override
   public TraitStateModel getFavorization() {
     return traitFavorization;
   }

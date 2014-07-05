@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.ValueChangeChecker;
@@ -36,6 +36,6 @@ public class SpiritualTraitFactory {
     TraitTemplate traitTemplate = traitTemplateMap.getTemplate(traitType);
     ValueChangeChecker checker = new FriendlyValueChangeChecker();
     TraitRules rules = new TraitRulesImpl(traitType, traitTemplate, hero);
-    return new DefaultTrait(hero, rules, checker);
+    return new TraitImpl(hero, rules, checker);
   }
 }

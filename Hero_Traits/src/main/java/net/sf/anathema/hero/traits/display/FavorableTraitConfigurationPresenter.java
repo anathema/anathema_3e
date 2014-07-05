@@ -11,7 +11,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
@@ -30,10 +30,12 @@ public class FavorableTraitConfigurationPresenter {
   private final Resources resources;
   private final IdentifiedTraitTypeList[] traitTypeGroups;
   private final TraitMap traitConfiguration;
+  private TraitStateMap stateMap;
   private Hero hero;
 
-  public FavorableTraitConfigurationPresenter(IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
+  public FavorableTraitConfigurationPresenter(TraitStateMap stateMap, IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
                                               Resources resources) {
+    this.stateMap = stateMap;
     this.hero = hero;
     this.traitTypeGroups = traitTypeGroups;
     this.traitConfiguration = TraitModelFetcher.fetch(hero);
@@ -58,8 +60,8 @@ public class FavorableTraitConfigurationPresenter {
   private void updateButtons() {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = traitViewsByTrait.get(trait);
-      boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();// || trait.getFavorization().isCaste();
-      boolean favored = trait.getFavorization().isCasteOrFavored();
+      boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
+      boolean favored = stateMap.isCasteOrFavored(trait);
       setButtonState(view, favored, !disabled);
     }
   }
@@ -89,11 +91,10 @@ public class FavorableTraitConfigurationPresenter {
   private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
     final ToggleTool casteTool = traitView.addToggleInFront();
     casteTool.setCommand(() -> {
-      TraitStateModel favorization = favorableTrait.getFavorization();
-      favorization.advanceFavorableState();
+      stateMap.advanceFavorableState(favorableTrait);
     });
-    favorableTrait.getFavorization().addTraitStateChangedListener(state -> updateView(casteTool, state));
-    updateView(casteTool, favorableTrait.getFavorization().getType());
+    stateMap.addTraitStateChangedListener(favorableTrait, state -> updateView(casteTool, state));
+    updateView(casteTool, stateMap.getType(favorableTrait));
     traitViewsByTrait.put(favorableTrait, casteTool);
   }
 

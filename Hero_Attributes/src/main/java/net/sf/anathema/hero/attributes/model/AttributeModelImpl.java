@@ -20,6 +20,8 @@ import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
+import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -70,6 +72,12 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   @Override
   public GroupedTraitType[] getAttributeGroups() {
     return abilityGroups;
+  }
+
+  @Override
+  public TraitStateMap getStateMap() {
+    // todo sandra favorable attributes?
+    return new NullTraitStateMap();
   }
 
   @Override

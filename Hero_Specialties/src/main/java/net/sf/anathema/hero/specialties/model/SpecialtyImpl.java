@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.specialties.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
-public class DefaultSpecialty extends DefaultTrait implements Specialty {
+public class SpecialtyImpl extends TraitImpl implements Specialty {
 
   private final String subTraitName;
   private final AbstractSubTraitContainer container;
@@ -22,7 +22,7 @@ public class DefaultSpecialty extends DefaultTrait implements Specialty {
     return new TraitRulesImpl(traitType, limitation, hero);
   }
 
-  public DefaultSpecialty(Hero hero, AbstractSubTraitContainer container, TraitType type, String specialtyName) {
+  public SpecialtyImpl(Hero hero, AbstractSubTraitContainer container, TraitType type, String specialtyName) {
     super(hero, createSpecialtyRules(hero), new FriendlyValueChangeChecker());
     this.container = container;
     this.type = type;
@@ -51,10 +51,10 @@ public class DefaultSpecialty extends DefaultTrait implements Specialty {
 
   @Override
   public boolean equals(Object obj) {
-    if (!(obj instanceof DefaultSpecialty)) {
+    if (!(obj instanceof SpecialtyImpl)) {
       return false;
     }
-    DefaultSpecialty other = (DefaultSpecialty) obj;
+    SpecialtyImpl other = (SpecialtyImpl) obj;
     return super.equals(obj) && other.getName().equals(getName()) && other.getBasicTraitType() == getBasicTraitType();
   }
 
