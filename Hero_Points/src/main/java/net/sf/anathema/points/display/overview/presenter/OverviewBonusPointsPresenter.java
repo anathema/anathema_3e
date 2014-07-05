@@ -5,7 +5,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.MessageType;
-import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
@@ -20,10 +19,10 @@ class OverviewBonusPointsPresenter implements IOverviewSubPresenter {
   private SpendingModel model;
   private Hero hero;
 
-  public OverviewBonusPointsPresenter(Resources resources, SpendingModel model, Messaging messaging, Hero hero) {
+  public OverviewBonusPointsPresenter(Resources resources, SpendingModel model, MessageToken token, Hero hero) {
     this.resources = resources;
     this.model = model;
-    this.token = messaging.obtainInitialToken();
+    this.token = token;
     this.hero = hero;
   }
 

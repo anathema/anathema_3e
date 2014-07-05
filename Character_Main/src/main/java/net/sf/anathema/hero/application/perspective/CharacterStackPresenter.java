@@ -27,7 +27,7 @@ public class CharacterStackPresenter {
     model.setCurrentCharacter(identifier);
   }
 
-  public void addViewForCharacter(CharacterIdentifier identifier) {
+  private void addViewForCharacter(CharacterIdentifier identifier) {
     Item item = model.loadItem(identifier);
     bridge.addViewForCharacter(identifier, (HeroItemData) item.getItemData());
   }

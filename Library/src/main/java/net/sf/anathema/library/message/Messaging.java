@@ -9,5 +9,4 @@ public interface Messaging {
   MessageToken addMessage(Message message);
 
   MessageToken obtainInitialToken();
-
 }
