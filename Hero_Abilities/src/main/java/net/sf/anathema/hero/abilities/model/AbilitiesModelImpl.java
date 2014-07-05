@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
+import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
@@ -26,7 +27,7 @@ import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
-import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
@@ -36,8 +37,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Arrays.asList;
-
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
   private IIdentifiedCasteTraitTypeList[] abilityTraitGroups;
@@ -45,9 +44,11 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private AbilitiesTemplate template;
   private TraitModel traitModel;
   private TraitStateMapImpl traitStateMap;
+  private final TraitTemplateMapImpl templateMap;
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
+    this.templateMap = new TraitTemplateMapImpl(template);
   }
 
   @Override
@@ -59,30 +60,41 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.traitStateMap = new TraitStateMapImpl(hero);
     this.hero = hero;
+    this.traitModel = TraitModelFetcher.fetch(hero);
+    createAndAddTraits(hero);
+  }
+
+  private void createAndAddTraits(Hero hero) {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
-    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template,
-      AllAbilityTraitTypeList.getInstance());
+    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
     this.abilityTraitGroups = new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
-    MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
-    for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
-      TraitTemplateMapImpl templateMap = new TraitTemplateMapImpl(template);
-      List<Trait> newTraits = new ArrayList<>();
-      for (TraitType type : traitGroup.getAll()) {
-        List<CasteType> castes = asList(traitGroup.getTraitCasteTypes(type));
-        TraitTemplate traitTemplate = templateMap.getTemplate(type);
-        TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, this.hero);
-        Trait newTrait = new TraitImpl(this.hero, traitRules);
-        newTraits.add(newTrait);
-        boolean requiredFavored = traitRules.isRequiredFavored();
-        traitStateMap.addState(newTrait, new TraitStateImpl(this.hero, castes, checker, newTrait, requiredFavored));
-      }
-      for (Trait trait : newTraits) {
-        addTraits(trait);
+    for (AbilityType type : AbilityType.values()) {
+      TraitRules traitRules = new TraitRulesImpl(type, templateMap.getTemplate(type), this.hero);
+      Trait trait = new TraitImpl(this.hero, traitRules);
+      addTraits(trait);
+      traitStateMap.addState(trait, createTraitState(traitRules, trait));
+    }
+    traitModel.addTraits(getAll());
+  }
+
+  private List<CasteType> getCastesFor(TraitType traitType) {
+    HeroConcept concept = HeroConceptFetcher.fetch(hero);
+    CasteCollection casteCollection = concept.getCasteCollection();
+    List<CasteType> casteTypes = new ArrayList<>();
+    for (CasteTraitTemplate casteAbilitiesTemplate : template.casteAbilities) {
+      if (casteAbilitiesTemplate.traits.contains(traitType.getId())) {
+        casteTypes.add(casteCollection.getById(casteAbilitiesTemplate.caste));
       }
     }
-    this.traitModel = TraitModelFetcher.fetch(hero);
-    traitModel.addTraits(getAll());
+    return casteTypes;
+  }
+
+  private TraitStateImpl createTraitState(TraitRules traitRules, Trait trait) {
+    MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
+    boolean requiredFavored = traitRules.isRequiredFavored();
+    List<CasteType> castes = getCastesFor(trait.getType());
+    return new TraitStateImpl(this.hero, castes, checker, trait, requiredFavored);
   }
 
   @Override

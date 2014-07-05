@@ -10,5 +10,5 @@ public class AbilitiesTemplate extends GroupedTraitsTemplate {
   public int favoredCount = 0;
   public int casteCount = 0;
   public int supernalCount = 0;
-  public List<CasteAbilitiesTemplate> casteAbilities = new ArrayList<>();
+  public List<CasteTraitTemplate> casteAbilities = new ArrayList<>();
 }
