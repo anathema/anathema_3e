@@ -1,12 +1,14 @@
 package net.sf.anathema.platform.item;
 
-import com.google.common.collect.Collections2;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class ItemTypeCollection implements Iterable<IItemType> {
 
@@ -27,7 +29,8 @@ public class ItemTypeCollection implements Iterable<IItemType> {
   }
 
   public Collection<IItemType> getAllTypes() {
-    return Collections2.transform(itemTypeConfigurations, ItemTypeConfiguration::getItemType);
+    Stream<ItemTypeConfiguration> configurations = itemTypeConfigurations.stream();
+    return configurations.map(ItemTypeConfiguration::getItemType).collect(toList());
   }
 
   @Override

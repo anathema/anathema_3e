@@ -19,6 +19,7 @@ public class RepositoryMagicDescriptionProviderFactory implements MagicDescripti
 
   public RepositoryMagicDescriptionProviderFactory() {
     this.applicationModel =null;
+    new RuntimeException().printStackTrace();
   }
 
   @Override

@@ -13,8 +13,7 @@ public class CharmDescriptionProviderExtractor {
 
   public static MagicDescriptionProvider CreateFor(HeroEnvironment environment) {
     AggregatedCharmDescriptionProvider provider = new AggregatedCharmDescriptionProvider(environment.getResources());
-    Collection<MagicDescriptionProviderFactory> factories = findFactories(environment);
-    for (MagicDescriptionProviderFactory factory : factories) {
+    for (MagicDescriptionProviderFactory factory : findFactories(environment)) {
       provider.addProvider(factory.create(environment));
     }
     return provider;

@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.application.persistence;
 
-import com.google.common.base.Predicate;
-import com.google.common.collect.Collections2;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
@@ -11,6 +9,8 @@ import net.sf.anathema.library.initialization.ObjectFactory;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class HeroPersisterList {
 
@@ -31,19 +31,6 @@ public class HeroPersisterList {
   }
 
   private Collection<HeroModelPersister> findPersisters(Collection<HeroModelPersister> allPersisters, Identifier modelId) {
-    return Collections2.filter(allPersisters, new IsForModelWithId(modelId));
-  }
-
-  private static class IsForModelWithId implements Predicate<HeroModelPersister> {
-    private final Identifier modelId;
-
-    public IsForModelWithId(Identifier modelId) {
-      this.modelId = modelId;
-    }
-
-    @Override
-    public boolean apply(HeroModelPersister input) {
-      return input.getModelId().equals(modelId);
-    }
+    return allPersisters.stream().filter(persister -> persister.getModelId().equals(modelId)).collect(toList());
   }
 }
