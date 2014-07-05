@@ -36,6 +36,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static java.util.Arrays.asList;
+
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
   private IIdentifiedCasteTraitTypeList[] abilityTraitGroups;
@@ -75,7 +77,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     TraitTemplateMapImpl templateMap = new TraitTemplateMapImpl(template);
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
-      CasteType[] castes = list.getTraitCasteTypes(type);
+      List<CasteType> castes = asList(list.getTraitCasteTypes(type));
       TraitTemplate traitTemplate = templateMap.getTemplate(type);
       TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
       Trait trait = new TraitImpl(hero, traitRules);

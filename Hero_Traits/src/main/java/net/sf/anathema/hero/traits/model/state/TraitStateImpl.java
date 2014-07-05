@@ -10,6 +10,7 @@ import net.sf.anathema.library.change.FlavoredChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
@@ -22,11 +23,11 @@ public class TraitStateImpl implements TraitState {
   private final Announcer<TraitStateChangedListener> favorableStateControl = Announcer.to(TraitStateChangedListener.class);
   private final MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker;
   private final Trait trait;
-  private final CasteType[] castes;
+  private final List<CasteType> castes;
   private final boolean isRequiredFavored;
   private final Hero hero;
 
-  public TraitStateImpl(Hero hero, CasteType[] castes,
+  public TraitStateImpl(Hero hero, List<CasteType> castes,
                         MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker, Trait trait,
                         boolean isRequiredFavored) {
     this.hero = hero;
