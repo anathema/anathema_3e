@@ -21,5 +21,7 @@
       traits: ["Bureaucracy", "Investigation", "Lore", "Medicine", "Occult"]
     }
   ];
-  favoredCount: 5
+  favoredCount: 5,
+  casteCount: 5,
+  supernalCount: 1
 }

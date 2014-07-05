@@ -28,14 +28,19 @@ public class FavoredIconSelector {
   }
 
   private RelativePath determineIconPath(Hero hero, FavorableState state) {
-    if (state == FavorableState.Caste) {
-      CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
-      return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
-    }
-    if (state == FavorableState.Favored) {
-      CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
-      return new CharacterUI().getMediumBallPath(characterType);
-    }
-    return AgnosticUIConfiguration.NO_ICON;
+	  if (state == FavorableState.Supernal) {
+		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
+		  // TODO: Need a proper icon here
+		  return new CharacterUI().getLinkIconPath();
+	  }
+	  if (state == FavorableState.Caste) {
+		  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
+		  return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
+	  }
+	  if (state == FavorableState.Favored) {
+		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
+		  return new CharacterUI().getMediumBallPath(characterType);
+	  }
+	  return AgnosticUIConfiguration.NO_ICON;
   }
 }

@@ -2,7 +2,9 @@ package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
 import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
 import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
+import net.sf.anathema.hero.sheet.pdf.content.SubContent;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,7 +21,7 @@ public class EncoderFactoryMapTest {
 
   @Before
   public void setUp() throws Exception {
-    when(session.createContent(any(Class.class))).thenReturn(new BasicContent(null));
+    //when(session.createContent(any(SubContent.class))).thenReturn(new BasicContent(null));
   }
 
   @Test

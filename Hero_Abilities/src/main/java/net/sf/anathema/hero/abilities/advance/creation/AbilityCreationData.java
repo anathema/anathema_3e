@@ -10,7 +10,6 @@ public class AbilityCreationData implements TraitListCreationData {
 
   private AbilityPointsTemplate template;
 
-
   public AbilityCreationData(AbilityPointsTemplate template) {
     this.template = template;
   }

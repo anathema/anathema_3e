@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.traits.model.group;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.TraitTypeList;
 import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class GroupedTraitTypeBuilder {
 
@@ -16,7 +15,7 @@ public class GroupedTraitTypeBuilder {
     GroupedTraitTypeBuilder builder = new GroupedTraitTypeBuilder(traitTypelist);
     for (Group group : template.groups) {
       for (String traitId : group.traits) {
-        builder.addGroupedTraitType(traitId, group.id, group.casteId);
+        builder.addGroupedTraitType(traitId, group.id);
       }
     }
     return builder.getTraitTypeGroups();
@@ -33,10 +32,9 @@ public class GroupedTraitTypeBuilder {
     return groupedTraitTypes.toArray(new GroupedTraitType[groupedTraitTypes.size()]);
   }
 
-  public void addGroupedTraitType(String traitId, String groupId, String traitCaste) {
+  public void addGroupedTraitType(String traitId, String groupId) {
     TraitType traitType = traitTypeList.getById(traitId);
-    List<String> traitCasteList = traitCaste == null ? new ArrayList<>() : Collections.singletonList(traitCaste);
-    GroupedTraitType type = new GroupedTraitType(traitType, groupId, traitCasteList);
+    GroupedTraitType type = new GroupedTraitType(traitType, groupId);
     groupedTraitTypes.add(type);
   }
 }

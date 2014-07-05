@@ -1,5 +1,10 @@
 package net.sf.anathema.hero.abilities.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
@@ -8,8 +13,9 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
+import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
+import net.sf.anathema.hero.traits.model.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitFactory;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
@@ -24,9 +30,6 @@ import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
@@ -51,7 +54,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     CasteCollection casteCollection = concept.getCasteCollection();
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
     this.abilityTraitGroups = new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
-    IncrementChecker incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
+    MappableTypeIncrementChecker<FavorableState> incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
     TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
       Trait[] traits = traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template));
@@ -69,13 +72,23 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     }
   }
 
-  private IncrementChecker createFavoredAbilityIncrementChecker(TraitMap traitMap, GroupedTraitType[] abilityGroups) {
-    int maxFavoredAbilityCount = getFavoredCount();
+  private MappableTypeIncrementChecker<FavorableState> createFavoredAbilityIncrementChecker(TraitMap traitMap, GroupedTraitType[] abilityGroups) {
+    
+	Map<FavorableState, Integer> stateLimits = new HashMap<>();
+	for (FavorableState state : FavorableState.values()) {
+		if (state == FavorableState.Default) {
+			stateLimits.put(state, MappableTypeIncrementChecker.NO_LIMIT);
+		}
+		else {
+			stateLimits.put(state, getFavorableTraitPicks(state));
+		}
+	}
+	
     List<TraitType> abilityTypes = new ArrayList<>();
     for (GroupedTraitType traitType : abilityGroups) {
       abilityTypes.add(traitType.getTraitType());
     }
-    return new FavoredIncrementChecker(maxFavoredAbilityCount, abilityTypes.toArray(new TraitType[abilityTypes.size()]), traitMap);
+    return new FavorablePickIncrementChecker(stateLimits, abilityTypes.toArray(new TraitType[abilityTypes.size()]), traitMap);
   }
 
   @Override
@@ -89,7 +102,13 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     return limitation.getAbsoluteLimit(hero);
   }
 
-  public int getFavoredCount() {
-    return template.favoredCount;
+  @Override
+  public int getFavorableTraitPicks(FavorableState favorization) {
+	  switch (favorization) {
+	  case Favored: return template.favoredCount;
+	  case Caste: return template.casteCount;
+	  case Supernal: return template.supernalCount;
+	  default: return 0;
+	  }
   }
 }

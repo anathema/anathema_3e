@@ -9,13 +9,18 @@ public class TraitFavorization implements ITraitFavorization {
 
   private FavorableState state;
   private final Announcer<IFavorableStateChangedListener> favorableStateControl = Announcer.to(IFavorableStateChangedListener.class);
-  private final IncrementChecker favoredIncrementChecker;
+  private final MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker;
   private final Trait trait;
   private final CasteType[] castes;
   private final boolean isRequiredFavored;
   private final Hero hero;
-
+  
   public TraitFavorization(Hero hero, CasteType[] castes, IncrementChecker favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
+	  this(hero, castes, new MonoTypeIncrementChecker<FavorableState>(favoredIncrementChecker, FavorableState.Favored),
+			  trait, isRequiredFavored);
+  }
+
+  public TraitFavorization(Hero hero, CasteType[] castes, MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
     this.hero = hero;
     this.castes = castes;
     this.favoredIncrementChecker = favoredIncrementChecker;
@@ -26,24 +31,45 @@ public class TraitFavorization implements ITraitFavorization {
 
   @Override
   public final void setFavorableState(FavorableState state) {
-    if (state == FavorableState.Caste && isRequiredFavored) {
-      throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
-    }
-    if (this.state == state && state != FavorableState.Caste) {
-      return;
-    }
-    if (this.state == FavorableState.Caste && state == FavorableState.Favored) {
-      return;
-    }
-    if (state == FavorableState.Favored && !favoredIncrementChecker.isValidIncrement(1)) {
-      return;
-    }
     if (isRequiredFavored && state == FavorableState.Default) {
       state = FavorableState.Favored;
     }
-    this.state = state;
-    ensureMinimalValue();
-    favorableStateControl.announce().favorableStateChanged(this.state);
+    if (isLegalState(state)) {
+	    this.state = state;
+	    ensureMinimalValue();
+	    favorableStateControl.announce().favorableStateChanged(this.state);
+    }
+  }
+  
+  @Override
+  public final void advanceFavorableState() {
+	  setFavorableState(getNextLegalState());
+  }
+  
+  private FavorableState getNextLegalState() {
+	  final int stateCount = FavorableState.values().length;
+	  for (int i = 1; i < stateCount; i++) {
+		  FavorableState nextState = FavorableState.values()[(state.ordinal() + i) % FavorableState.values().length];
+		  if (isLegalState(nextState)) {
+			  return nextState;
+		  }
+	  }
+	  return state;
+  }
+  
+  private boolean isLegalState(FavorableState state) {
+	  if (state == FavorableState.Caste && isRequiredFavored) {
+		  throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
+	  }
+	  if (!this.state.countsAs(state) && !favoredIncrementChecker.isValidIncrement(state, 1)) {
+		  return false;
+	  }
+	  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
+	  if ((state == FavorableState.Caste || state == FavorableState.Supernal) &&
+			  !isSupportedCasteType(casteType)) {
+		  return false;
+	  }
+	  return true;
   }
 
   private void ensureMinimalValue() {
@@ -60,10 +86,17 @@ public class TraitFavorization implements ITraitFavorization {
 
   @Override
   public void setFavored(boolean favored) {
-    if (isCaste() || isFavored() == favored) {
-      return;
-    }
-    setFavorableState(favored ? FavorableState.Favored : FavorableState.Default);
+	  if (isCaste() || isFavored() == favored) {
+		  return;
+	  }
+	  setFavorableState(favored ? FavorableState.Favored : FavorableState.Default);
+  }
+  
+  @Override
+  public void clearCaste() {
+	  if (isCaste()) {
+		  setFavorableState(FavorableState.Default);
+	  }
   }
 
   @SuppressWarnings("ConstantConditions")
@@ -91,14 +124,14 @@ public class TraitFavorization implements ITraitFavorization {
 
   @Override
   public final boolean isCaste() {
-    return state == FavorableState.Caste;
+    return state.countsAs(FavorableState.Caste);
   }
 
   @Override
   public final boolean isCasteOrFavored() {
     return isCaste() || isFavored();
   }
-
+  
   @Override
   public void updateFavorableStateToCaste() {
     CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();

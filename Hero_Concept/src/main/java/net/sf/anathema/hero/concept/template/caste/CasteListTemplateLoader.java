@@ -6,11 +6,11 @@ import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
-public class CasteTemplateLoader {
+public class CasteListTemplateLoader {
 
-  public static CasteTemplate loadTemplate(TemplateFactory templateFactory, String templateName) {
+  public static CasteListTemplate loadTemplate(TemplateFactory templateFactory, String templateName) {
     Identifier templateId = new SimpleIdentifier(templateName);
-    TemplateLoader<CasteTemplate> loader = new GenericTemplateLoader<>(CasteTemplate.class);
+    TemplateLoader<CasteListTemplate> loader = new GenericTemplateLoader<>(CasteListTemplate.class);
     return templateFactory.loadModelTemplate(templateId, loader);
   }
 }

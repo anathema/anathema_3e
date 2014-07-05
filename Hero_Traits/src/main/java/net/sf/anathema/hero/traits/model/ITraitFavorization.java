@@ -6,6 +6,8 @@ public interface ITraitFavorization {
 
   FavorableState getFavorableState();
 
+  void clearCaste();
+
   boolean isCaste();
 
   boolean isCasteOrFavored();
@@ -13,6 +15,8 @@ public interface ITraitFavorization {
   boolean isFavored();
 
   void setFavorableState(FavorableState state);
+  
+  void advanceFavorableState();
 
   void setFavored(boolean favored);
 

@@ -34,10 +34,8 @@ public abstract class AbstractTraitTypeGroupFactory {
         if (!type.getGroupId().equals(groupId)) {
           continue;
         }
-        for (String casteTypeId : type.getTraitCasteSet()) {
-          CasteType casteType = casteCollection.getById(casteTypeId);
-          castesByTrait.add(type.getTraitType(), casteType);
-        }
+        CasteType[] favoring = casteCollection.getWithFavoredTrait(type.getTraitType().getId());
+        castesByTrait.add(type.getTraitType(), favoring);
       }
       Identifier groupIdentifier = getGroupIdentifier(casteCollection, groupId);
       TraitType[] types = groupTraitTypes.toArray(new TraitType[groupTraitTypes.size()]);
