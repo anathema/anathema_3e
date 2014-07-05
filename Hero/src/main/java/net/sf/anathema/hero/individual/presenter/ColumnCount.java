@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application;
+package net.sf.anathema.hero.individual.presenter;
 
 public class ColumnCount {
   private final int columnCount;

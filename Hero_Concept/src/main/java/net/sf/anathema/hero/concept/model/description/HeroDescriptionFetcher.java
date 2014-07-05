@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.elsewhere.description;
+package net.sf.anathema.hero.concept.model.description;
 
 import net.sf.anathema.hero.individual.model.Hero;
 

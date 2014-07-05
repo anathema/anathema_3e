@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.display.fx.dot;
 
 import javafx.scene.Node;
-import net.sf.anathema.hero.application.ColumnCount;
+import net.sf.anathema.hero.individual.presenter.ColumnCount;
 import net.sf.anathema.library.fx.NodeHolder;
 import org.tbee.javafx.scene.layout.MigPane;
 

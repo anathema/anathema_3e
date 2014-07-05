@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.hero.application.type.ForCharacterType;
+import net.sf.anathema.hero.environment.herotype.ForCharacterType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
