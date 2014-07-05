@@ -1,5 +1,6 @@
 package net.sf.anathema.magic.description.module;
 
+import net.sf.anathema.hero.application.Inject2;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.magic.data.Magic;
@@ -8,12 +9,17 @@ import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.magic.description.model.MagicDescriptionProviderFactory;
 import net.sf.anathema.magic.description.model.RegisteredMagicDescriptionProviderFactory;
 import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.frame.ApplicationModelImpl;
 
 @RegisteredMagicDescriptionProviderFactory
 public class RepositoryMagicDescriptionProviderFactory implements MagicDescriptionProviderFactory {
 
-  @Inject
-  public ApplicationModel applicationModel;
+  @Inject2
+  public ApplicationModelImpl applicationModel;
+
+  public RepositoryMagicDescriptionProviderFactory() {
+    this.applicationModel =null;
+  }
 
   @Override
   public MagicDescriptionProvider create(HeroEnvironment environment) {
@@ -30,6 +36,6 @@ public class RepositoryMagicDescriptionProviderFactory implements MagicDescripti
 
   @Inject
   public void setModel(ApplicationModel model) {
-    this.applicationModel = model;
+    this.applicationModel = (ApplicationModelImpl) model;
   }
 }
