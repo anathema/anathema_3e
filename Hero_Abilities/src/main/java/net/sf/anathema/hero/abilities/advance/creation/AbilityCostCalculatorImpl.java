@@ -64,7 +64,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void countTraitFavorizationPicks() {
     for (Trait trait : traits) {
-      switch (abilitiesModel.getStateMap().getType(trait)) {
+      switch (abilitiesModel.getStateMap().getState(trait)) {
         case Favored:
           increaseFavoredPicksSpent();
           break;

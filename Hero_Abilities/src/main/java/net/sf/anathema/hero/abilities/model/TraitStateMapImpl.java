@@ -15,6 +15,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import static java.util.Arrays.asList;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Favored;
+
 public class TraitStateMapImpl implements TraitStateMap {
 
   private final Hero hero;
@@ -36,23 +40,24 @@ public class TraitStateMapImpl implements TraitStateMap {
   }
 
   @Override
-  public TraitState getType(Trait trait) {
+  public TraitState getState(Trait trait) {
     return getStateModel(trait).getType();
   }
 
   @Override
-  public boolean isCaste(Trait trait) {
-    return getStateModel(trait).isCaste();
+  public boolean hasState(Trait trait, TraitState... states) {
+    TraitState traitState = getState(trait);
+    return asList(states).contains(traitState);
   }
 
   @Override
   public boolean isFavored(Trait trait) {
-    return getStateModel(trait).isFavored();
+    return hasState(trait, Favored);
   }
 
   @Override
   public boolean isCasteOrFavored(Trait trait) {
-    return getStateModel(trait).isCasteOrFavored();
+    return hasState(trait, Favored, Caste);
   }
 
   @Override

@@ -94,7 +94,7 @@ public class FavorableTraitConfigurationPresenter {
       stateMap.advanceFavorableState(favorableTrait);
     });
     stateMap.addTraitStateChangedListener(favorableTrait, state -> updateView(casteTool, state));
-    updateView(casteTool, stateMap.getType(favorableTrait));
+    updateView(casteTool, stateMap.getState(favorableTrait));
     traitViewsByTrait.put(favorableTrait, casteTool);
   }
 

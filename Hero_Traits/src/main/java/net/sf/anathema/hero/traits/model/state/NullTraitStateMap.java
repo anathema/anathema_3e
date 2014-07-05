@@ -13,12 +13,12 @@ public class NullTraitStateMap implements TraitStateMap {
   }
 
   @Override
-  public TraitState getType(Trait trait) {
+  public TraitState getState(Trait trait) {
     return Default;
   }
 
   @Override
-  public boolean isCaste(Trait trait) {
+  public boolean hasState(Trait trait, TraitState... states) {
     return false;
   }
 

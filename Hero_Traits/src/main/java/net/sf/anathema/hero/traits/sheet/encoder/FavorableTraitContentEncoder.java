@@ -7,9 +7,9 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.sheet.content.FavorableTraitContent;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
@@ -78,7 +78,7 @@ public class FavorableTraitContentEncoder<C extends FavorableTraitContent> exten
         encodeMarker(graphics, new Position(markerX, yPosition + 1));
       }
       TraitMap traitMap = content.getTraitMap();
-      ValuedTraitType trait = traitMap.getTrait(traitType);
+      Trait trait = traitMap.getTrait(traitType);
       String label = content.getTraitLabel(traitType);
       height += encodeFavorableTrait(graphics, content, label, trait, new Position(traitX, yPosition), width - groupLabelWidth);
     }
@@ -95,7 +95,7 @@ public class FavorableTraitContentEncoder<C extends FavorableTraitContent> exten
     graphics.drawVerticalText(groupLabel, position, PdfContentByte.ALIGN_CENTER);
   }
 
-  private float encodeFavorableTrait(SheetGraphics graphics, FavorableTraitContent content, String label, ValuedTraitType trait, Position position,
+  private float encodeFavorableTrait(SheetGraphics graphics, FavorableTraitContent content, String label, Trait trait, Position position,
                                      float width) {
     int value = trait.getCurrentValue();
     boolean favored = trait.isCasteOrFavored();

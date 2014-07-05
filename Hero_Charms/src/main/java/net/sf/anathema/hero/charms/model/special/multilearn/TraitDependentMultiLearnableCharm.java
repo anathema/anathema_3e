@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.model.special.multilearn;
 
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 public class TraitDependentMultiLearnableCharm extends AbstractMultiLearnableCharm {
 
@@ -36,7 +36,7 @@ public class TraitDependentMultiLearnableCharm extends AbstractMultiLearnableCha
 
   @Override
   public int getMaximumLearnCount(LearnRangeContext context) {
-    ValuedTraitType trait = context.getTrait(traitType);
+    Trait trait = context.getTrait(traitType);
     int count = trait.getCurrentValue();
     count += countModifier;
     count = Math.max(count, 0);

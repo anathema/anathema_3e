@@ -18,14 +18,14 @@ public class FavoredMinimumTest {
 
   @Test
   public void hasMinimumOneForFavoredTrait() throws Exception {
-    when(stateMap.getType(trait)).thenReturn(TraitState.Favored);
+    when(stateMap.getState(trait)).thenReturn(TraitState.Favored);
     FavoredMinimum minimum = new FavoredMinimum(stateMap, trait);
     assertThat(minimum.getMinimum(), Matchers.is(1));
   }
 
   @Test
   public void hasMinimumZeroForDefaultTrait() throws Exception {
-    when(stateMap.getType(trait)).thenReturn(TraitState.Default);
+    when(stateMap.getState(trait)).thenReturn(TraitState.Default);
     FavoredMinimum minimum = new FavoredMinimum(stateMap, trait);
     assertThat(minimum.getMinimum(), Matchers.is(0));
   }

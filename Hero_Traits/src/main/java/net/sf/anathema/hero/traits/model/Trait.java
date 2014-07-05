@@ -2,7 +2,13 @@ package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.library.event.IntegerChangedListener;
 
-public interface Trait extends ValuedTraitType {
+public interface Trait {
+
+  TraitType getType();
+
+  int getCurrentValue();
+
+  boolean isCasteOrFavored();
 
   int getCreationValue();
 

@@ -17,7 +17,7 @@ public class FavoredMinimum implements DynamicMinimum {
 
   @Override
   public int getMinimum() {
-    boolean isFavored = stateMap.getType(trait).equals(TraitState.Favored);
+    boolean isFavored = stateMap.getState(trait).equals(TraitState.Favored);
     return isFavored ? 1 : 0;
   }
 

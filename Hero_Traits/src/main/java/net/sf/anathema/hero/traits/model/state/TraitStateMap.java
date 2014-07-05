@@ -8,9 +8,9 @@ public interface TraitStateMap {
 
   void addTraitStateChangedListener(Trait trait, TraitStateChangedListener listener);
 
-  TraitState getType(Trait trait);
+  TraitState getState(Trait trait);
 
-  boolean isCaste(Trait trait);
+  boolean hasState(Trait trait, TraitState ... states);
 
   boolean isFavored(Trait trait);
 

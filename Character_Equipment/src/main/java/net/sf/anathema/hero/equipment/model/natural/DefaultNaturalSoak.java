@@ -2,7 +2,7 @@ package net.sf.anathema.hero.equipment.model.natural;
 
 import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
@@ -11,9 +11,9 @@ import java.util.Collections;
 
 public class DefaultNaturalSoak extends AbstractCombatStats implements IArmourStats, NaturalSoak {
 
-  private final ValuedTraitType stamina;
+  private final Trait stamina;
 
-  public DefaultNaturalSoak(ValuedTraitType stamina) {
+  public DefaultNaturalSoak(Trait stamina) {
     this.stamina = stamina;
   }
 

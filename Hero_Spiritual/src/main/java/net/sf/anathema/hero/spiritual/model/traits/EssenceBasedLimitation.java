@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 public class EssenceBasedLimitation implements TraitLimitation {
@@ -18,7 +18,7 @@ public class EssenceBasedLimitation implements TraitLimitation {
   @Override
   public int getCurrentMaximum(Hero hero, boolean modified) {
     SpiritualTraitModel spiritualTraitModel = getOtherTraitModel(hero);
-    ValuedTraitType essence = spiritualTraitModel.getTrait(OtherTraitType.Essence);
+    Trait essence = spiritualTraitModel.getTrait(OtherTraitType.Essence);
     int currentEssence = Math.min(essence.getCurrentValue(), spiritualTraitModel.getEssenceCap(modified));
     int currentEssenceValue = Math.max(currentEssence, 5);
     return Math.min(getAbsoluteLimit(hero), currentEssenceValue);

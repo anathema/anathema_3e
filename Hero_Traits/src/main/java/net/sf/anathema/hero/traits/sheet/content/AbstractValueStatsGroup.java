@@ -8,7 +8,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.resources.Resources;
 
 public abstract class AbstractValueStatsGroup<T extends IStats> implements IStatsGroup<T> {
@@ -94,9 +94,9 @@ public abstract class AbstractValueStatsGroup<T extends IStats> implements IStat
     return TableEncodingUtilities.createContentCellTable(borderColor, text, font, borderWidth, Rectangle.BOX, alignment, enabled);
   }
 
-  protected final int calculateFinalValue(int weaponValue, ValuedTraitType... traits) {
+  protected final int calculateFinalValue(int weaponValue, Trait... traits) {
     int totalValue = weaponValue;
-    for (ValuedTraitType trait : traits) {
+    for (Trait trait : traits) {
       totalValue += trait.getCurrentValue();
     }
     return totalValue;
