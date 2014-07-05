@@ -15,11 +15,6 @@ public class NullTraitState implements TraitState {
   public TraitStateType getType() {
     return Default;
   }
-  
-  @Override
-  public void clearCaste() {
-    // nothing to do
-  }
 
   @Override
   public boolean isCaste() {
@@ -36,11 +31,6 @@ public class NullTraitState implements TraitState {
     return false;
   }
 
-  @Override
-  public void changeStateTo(TraitStateType state) {
-    // nothing to do
-  }
-  
   @Override
   public void advanceState() {
     // nothing to do

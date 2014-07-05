@@ -40,18 +40,6 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
-  public final void changeStateTo(TraitStateType state) {
-    if (isRequiredFavored && state == Default) {
-      state = Favored;
-    }
-    if (isLegalState(state)) {
-      this.state = state;
-      ensureMinimalValue();
-      favorableStateControl.announce().favorableStateChanged(this.state);
-    }
-  }
-
-  @Override
   public final void advanceState() {
     changeStateTo(getNextLegalState());
   }
@@ -74,7 +62,7 @@ public class TraitStateImpl implements TraitState {
     if (!this.state.countsAs(state) && !favoredIncrementChecker.isValidIncrement(state, 1)) {
       return false;
     }
-    CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
+    CasteType casteType = getCurrentCaste();
     if ((state == Caste || state == Supernal) && !isSupportedCasteType(casteType)) {
       return false;
     }
@@ -105,7 +93,7 @@ public class TraitStateImpl implements TraitState {
 
   @Override
   public boolean isSelectableForCaste() {
-    CasteType currentCaste = HeroConceptFetcher.fetch(hero).getCaste().getType();
+    CasteType currentCaste = getCurrentCaste();
     return castes.contains(currentCaste);
   }
 
@@ -115,13 +103,6 @@ public class TraitStateImpl implements TraitState {
       return;
     }
     changeStateTo(favored ? Favored : Default);
-  }
-
-  @Override
-  public void clearCaste() {
-    if (isCaste()) {
-      changeStateTo(Default);
-    }
   }
 
   @SuppressWarnings("ConstantConditions")
@@ -144,7 +125,7 @@ public class TraitStateImpl implements TraitState {
 
   @Override
   public final boolean isFavored() {
-    return state == Favored;
+    return state.countsAs(Favored);
   }
 
   @Override
@@ -158,7 +139,7 @@ public class TraitStateImpl implements TraitState {
   }
 
   private void updateFavorableStateToCaste() {
-    CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
+    CasteType casteType = getCurrentCaste();
     setCaste(isSupportedCasteType(casteType));
   }
 
@@ -171,6 +152,21 @@ public class TraitStateImpl implements TraitState {
     return false;
   }
 
+  private CasteType getCurrentCaste() {
+    return HeroConceptFetcher.fetch(hero).getCaste().getType();
+  }
+
+  private final void changeStateTo(TraitStateType state) {
+    if (isRequiredFavored && state == Default) {
+      state = Favored;
+    }
+    if (isLegalState(state)) {
+      this.state = state;
+      ensureMinimalValue();
+      favorableStateControl.announce().favorableStateChanged(this.state);
+    }
+  }
+
   public class UpdateFavoredStateOnCasteChange implements FlavoredChangeListener {
 
     @Override
@@ -178,6 +174,12 @@ public class TraitStateImpl implements TraitState {
       if (flavor == ConceptChange.FLAVOR_CASTE) {
         clearCaste();
         updateFavorableStateToCaste();
+      }
+    }
+
+    private void clearCaste() {
+      if (isCaste()) {
+        changeStateTo(Default);
       }
     }
   }
