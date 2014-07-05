@@ -15,13 +15,14 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
-import net.sf.anathema.platform.messaging.CategorizedMessagingImpl;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
 @PerspectiveAutoCollector
 @Weight(weight = 1)
 public class CharacterSystemPerspective implements Perspective {
+  private final CharacterMessaging characterMessaging = new CharacterMessaging();
 
   @Override
   public void configureToggle(PerspectiveToggle toggle) {
@@ -32,6 +33,7 @@ public class CharacterSystemPerspective implements Perspective {
   @Override
   public void initContent(Container container, ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
     new HeroSystemInitializer(model, environment).initializeCharacterSystem();
+    characterMessaging.setDelegate(model.getMessaging());
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
     CharacterSystemModel systemModel = new CharacterSystemModel(model);
     CharacterSystemView view = new CharacterSystemView(uiEnvironment);
@@ -39,9 +41,14 @@ public class CharacterSystemPerspective implements Perspective {
     CharacterViewFactory viewFactory = new CharacterViewFactory(heroEnvironment);
     CharacterStackBridge bridge = new CharacterStackFxBridge(viewFactory, view.getStackView());
     CharacterStackPresenter stackPresenter = new CharacterStackPresenter(bridge, systemModel);
-    ShowOnSelect showOnSelect = new ShowOnSelect(model.getMessaging(), stackPresenter);
+    ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
     CharacterGridPresenter gridPresenter = new CharacterGridPresenter(systemModel, view.getGridView(), showOnSelect, environment);
     gridPresenter.initPresentation();
     new InteractionPresenter(systemModel, view.getInteractionView(), environment, view.getGridView(), showOnSelect, uiEnvironment).initPresentation();
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return characterMessaging.getActiveCategory();
   }
 }

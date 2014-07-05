@@ -12,6 +12,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
@@ -31,5 +32,10 @@ public class NameGeneratorPerspective implements Perspective {
     INameGeneratorModel generatorModel = new ExaltedNameGeneratorModel();
     new NameGeneratorPresenter(environment, view, generatorModel).initPresentation();
     container.setContent(view.getNode());
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return new MessageCategory("NameGenerator");
   }
 }

@@ -1,21 +1,20 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
-import net.sf.anathema.platform.messaging.CategorizedMessaging;
-import net.sf.anathema.platform.messaging.MessageCategory;
+import net.sf.anathema.hero.display.fx.perspective.CharacterMessaging;
 
 public class ShowOnSelect implements Selector<CharacterIdentifier> {
-  private CategorizedMessaging messaging;
+  private final CharacterMessaging messaging;
   private final CharacterStackPresenter characterStack;
 
-  public ShowOnSelect(CategorizedMessaging messaging, CharacterStackPresenter characterStack) {
+  public ShowOnSelect(CharacterMessaging messaging, CharacterStackPresenter characterStack) {
     this.messaging = messaging;
     this.characterStack = characterStack;
   }
 
   @Override
   public void selected(CharacterIdentifier identifier) {
-    messaging.activateCategory(new MessageCategory(identifier.getId()));
+    messaging.showMessagesFor(identifier);
     characterStack.showCharacter(identifier);
   }
 }

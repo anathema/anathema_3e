@@ -17,6 +17,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 import org.tbee.javafx.scene.layout.MigPane;
@@ -39,6 +40,11 @@ public class CharmCascadePerspective implements Perspective {
             new CharmTreeMap()).initPresentation();
     MigPane content = createContentPane(cascadeView);
     container.setContent(content);
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return new MessageCategory("Cascades");
   }
 
   private MigPane createContentPane(FxCharmView cascadeView) {

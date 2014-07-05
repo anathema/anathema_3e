@@ -14,6 +14,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
@@ -31,6 +32,11 @@ public class EquipmentPerspective implements Perspective {
   public void initContent(Container container, ApplicationModel applicationModel, Environment environment, UiEnvironment uiEnvironment) {
     IEquipmentDatabaseManagement databaseManagement = createDatabaseManagement(applicationModel);
     initInFx(container, environment, databaseManagement,uiEnvironment);
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return new MessageCategory("Equipment");
   }
 
   private void initInFx(Container container, Resources resources, IEquipmentDatabaseManagement databaseManagement, UiEnvironment uiEnvironment) {

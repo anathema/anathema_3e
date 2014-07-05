@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CategorizedMessagingImpl implements Messaging, MessageContainer, CategorizedMessaging {
-  public static final MessageCategory Default_Message_Category = new MessageCategory("Default");
   private final Map<MessageCategory, CollectingMessaging> categoryMessagingMap = new HashMap<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final Resources resources;

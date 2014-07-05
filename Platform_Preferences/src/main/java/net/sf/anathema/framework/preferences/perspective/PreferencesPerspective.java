@@ -8,6 +8,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
@@ -28,5 +29,10 @@ public class PreferencesPerspective implements Perspective {
     PreferencesPersister persister = new PropertiesPreferencesPersister();
     PreferencesPresenter presenter = new PreferencesPresenter(environment, view.preferencesNavigation, model, persister, environment.getObjectFactory());
     presenter.initialize();
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return new MessageCategory("Preferences");
   }
 }

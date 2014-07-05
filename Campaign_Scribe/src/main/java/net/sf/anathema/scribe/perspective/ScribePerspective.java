@@ -7,6 +7,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 import net.sf.anathema.scribe.perspective.model.ScribeModel;
@@ -29,5 +30,10 @@ public class ScribePerspective implements Perspective {
     ScribeModel scribeModel = new ScribeModel(applicationModel);
     new ScribePresenter(scribeModel, view, environment).initPresentation();
     container.setContent(view.perspectivePane.getNode());
+  }
+
+  @Override
+  public MessageCategory getMessageCategory() {
+    return new MessageCategory("Scribe");
   }
 }

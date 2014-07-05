@@ -29,6 +29,7 @@ public class PerspectiveStack {
   }
 
   public void show(Perspective perspective) {
+    model.getMessaging().activateCategory(perspective.getMessageCategory());
     perspectiveStack.show(getIdFor(perspective));
   }
 
