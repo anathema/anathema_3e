@@ -78,14 +78,14 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     }
   }
 
-  public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list,
+  private TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list,
                                   MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       CasteType[] casteTypes = list.getTraitCasteTypes(type);
       TraitTemplate traitTemplate = templateMap.getTemplate(type);
       TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
-      Trait trait = new TraitImpl(hero, traitRules, casteTypes, checker);
+      Trait trait = new TraitImpl(hero, traitRules);
       newTraits.add(trait);
     }
     return newTraits.toArray(new TraitImpl[newTraits.size()]);

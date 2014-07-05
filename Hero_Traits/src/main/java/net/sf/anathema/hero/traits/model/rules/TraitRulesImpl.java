@@ -8,15 +8,12 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
-import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.number.Range;
-import org.jmock.example.announcer.Announcer;
 
 import static java.lang.Math.max;
 
 public class TraitRulesImpl implements TraitRules {
 
-  private final Announcer<ChangeListener> announcer = new Announcer<>(ChangeListener.class);
   private final DynamicMinimum dynamicMinimum;
   private int capModifier = 0;
   private final TraitTemplate template;
@@ -27,12 +24,6 @@ public class TraitRulesImpl implements TraitRules {
     this.traitType = traitType;
     this.hero = hero;
     this.dynamicMinimum = TraitModelFetcher.fetch(hero).getMinimumMap().getMinimum(traitType);
-    dynamicMinimum.addChangedListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        announcer.announce().changeOccurred();
-      }
-    });
     this.template = template;
   }
 
@@ -118,10 +109,5 @@ public class TraitRulesImpl implements TraitRules {
   @Override
   public boolean isRequiredFavored() {
     return false;
-  }
-
-  @Override
-  public void addChangeListener(ChangeListener listener) {
-    announcer.addListener(listener);
   }
 }

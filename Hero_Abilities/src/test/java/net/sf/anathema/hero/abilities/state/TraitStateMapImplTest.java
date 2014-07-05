@@ -3,6 +3,7 @@ package net.sf.anathema.hero.abilities.state;
 import net.sf.anathema.hero.abilities.model.FavoredMinimum;
 import net.sf.anathema.hero.abilities.model.TraitStateMapImpl;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
@@ -23,7 +24,7 @@ public class TraitStateMapImplTest {
   public static final AbilityType ANY_TYPE = Archery;
   private Hero hero;
   private TraitStateMapImpl stateMap;
-  private TraitImpl trait;
+  private Trait trait;
   private DynamicMinimumMap minimumMap;
   private TraitModel traitModel;
 
@@ -49,7 +50,7 @@ public class TraitStateMapImplTest {
   @Test
   public void addsFavoredMinimumToTraitModel() throws Exception {
     when(hero.getModel(TraitModel.ID)).thenReturn(traitModel);
-    stateMap.addTrait(trait);
+    stateMap.addState(trait, null);
     verify(minimumMap).addMinimum(eq(Archery), Mockito.isA(FavoredMinimum.class));
   }
 }

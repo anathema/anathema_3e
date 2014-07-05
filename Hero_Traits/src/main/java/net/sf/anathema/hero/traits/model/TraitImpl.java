@@ -1,13 +1,8 @@
 package net.sf.anathema.hero.traits.model;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.NullTraitState;
-import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
@@ -16,34 +11,26 @@ public class TraitImpl implements Trait {
   private int capModifier = 0;
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
-  private TraitState stateModel;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
-
-  public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker) {
-    this(hero, traitRules);
-    this.stateModel = new TraitStateImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
-    traitRules.addChangeListener(this::resetCurrentValue);
-  }
 
   public TraitImpl(Hero hero, TraitRules traitRules) {
     Preconditions.checkNotNull(traitRules);
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
-    this.stateModel = new NullTraitState();
     this.creationValue = traitRules.getStartValue();
+    DynamicMinimum dynamicMinimum = TraitModelFetcher.fetch(hero).getMinimumMap().getMinimum(traitRules.getType());
+    dynamicMinimum.addChangedListener(() -> {
+      resetCurrentValue();;
+    });
   }
 
   @Override
   public final int getCreationValue() {
     return creationValue;
-  }
-
-  public TraitState getStateModel() {
-    return stateModel;
   }
 
   @Override

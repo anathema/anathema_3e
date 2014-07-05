@@ -2,7 +2,6 @@ package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
@@ -17,14 +16,14 @@ import java.util.function.Consumer;
 public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
 
   private final Hero hero;
-  private Map<TraitType, TraitState> traitsByType = new HashMap<>();
+  private Map<TraitType, TraitState> statesByType = new HashMap<>();
 
   public TraitStateMapImpl(Hero hero) {
     this.hero = hero;
   }
 
-  public void addTrait(TraitImpl trait) {
-    traitsByType.put(trait.getType(), trait.getStateModel());
+  public void addState(Trait trait, TraitState state) {
+    statesByType.put(trait.getType(), state);
     DynamicMinimum favoredMinimum = new FavoredMinimum(this, trait);
     TraitModelFetcher.fetch(hero).getMinimumMap().addMinimum(trait.getType(), favoredMinimum);
   }
@@ -34,7 +33,7 @@ public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
   }
 
   public void forEach(Consumer<TraitState> consumer) {
-    traitsByType.values().forEach(consumer);
+    statesByType.values().forEach(consumer);
   }
 
   public TraitState getState(Trait trait) {
@@ -43,6 +42,6 @@ public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
 
   @Override
   public TraitState getState(TraitType traitType) {
-    return traitsByType.get(traitType);
+    return statesByType.get(traitType);
   }
 }

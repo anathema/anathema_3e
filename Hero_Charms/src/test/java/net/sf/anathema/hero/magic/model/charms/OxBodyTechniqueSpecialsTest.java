@@ -20,9 +20,6 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.state.FriendlyIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
@@ -57,7 +54,7 @@ public class OxBodyTechniqueSpecialsTest {
     TraitTemplate resistanceTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules resistanceRules = new TraitRulesImpl(AbilityType.Resistance, resistanceTemplate, hero);
     CasteType[] castes = {new DummyCasteType()};
-    return new TraitImpl(hero, resistanceRules, castes, new MonoTypeIncrementChecker<TraitStateType>(new FriendlyIncrementChecker(), TraitStateType.Favored));
+    return new TraitImpl(hero, resistanceRules);
   }
 
   @Test
