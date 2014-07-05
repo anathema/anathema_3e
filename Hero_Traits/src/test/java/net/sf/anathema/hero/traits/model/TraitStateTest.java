@@ -3,12 +3,12 @@ package net.sf.anathema.hero.traits.model;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.traits.model.FavorableState.Caste;
-import static net.sf.anathema.hero.traits.model.FavorableState.Supernal;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Supernal;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-public class FavorableStateTest {
+public class TraitStateTest {
 
   @Test
   public void supernalCountsAsCaste() throws Exception {

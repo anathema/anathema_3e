@@ -4,6 +4,10 @@ import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.model.state.IncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 
@@ -19,10 +23,10 @@ public class TraitFactory {
   }
   
   public Trait[] createTraits(IIdentifiedCasteTraitTypeList list, IncrementChecker checker, TraitTemplateMap templateMap) {
-	  return createTraits(list, new MonoTypeIncrementChecker<FavorableState>(checker, null), templateMap);
+	  return createTraits(list, new MonoTypeIncrementChecker<TraitState>(checker, null), templateMap);
   }
 
-  public Trait[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<FavorableState> checker, TraitTemplateMap templateMap) {
+  public Trait[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       CasteType[] casteTypes = list.getTraitCasteTypes(type);
@@ -32,7 +36,7 @@ public class TraitFactory {
     return newTraits.toArray(new Trait[newTraits.size()]);
   }
 
-  private Trait createTrait(TraitType traitType, CasteType[] casteTypes, MappableTypeIncrementChecker<FavorableState> checker, TraitTemplateMap templateMap) {
+  private Trait createTrait(TraitType traitType, CasteType[] casteTypes, MappableTypeIncrementChecker<TraitState> checker, TraitTemplateMap templateMap) {
     TraitTemplate traitTemplate = templateMap.getTemplate(traitType);
     TraitRules favorableTraitRules = new TraitRulesImpl(traitType, traitTemplate, hero);
     ValueChangeChecker valueChecker = new FriendlyValueChangeChecker();

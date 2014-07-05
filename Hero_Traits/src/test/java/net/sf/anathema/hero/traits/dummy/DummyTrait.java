@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.traits.dummy;
 
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.NullTraitFavorization;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.state.NullTraitStateModel;
+import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
 public class DummyTrait implements Trait {
@@ -86,8 +86,8 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public ITraitFavorization getFavorization() {
-    return new NullTraitFavorization();
+  public TraitStateModel getFavorization() {
+    return new NullTraitStateModel();
   }
 
   @Override

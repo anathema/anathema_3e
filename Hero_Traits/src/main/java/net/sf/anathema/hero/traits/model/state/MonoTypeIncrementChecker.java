@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.traits.model;
+package net.sf.anathema.hero.traits.model.state;
 
 public class MonoTypeIncrementChecker<T> implements MappableTypeIncrementChecker<T> {
 	

@@ -4,14 +4,14 @@ import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
@@ -20,8 +20,8 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 
-import static net.sf.anathema.hero.traits.model.FavorableState.Caste;
-import static net.sf.anathema.hero.traits.model.FavorableState.Favored;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitState.Favored;
 
 public class FavorableTraitConfigurationPresenter {
 
@@ -89,15 +89,15 @@ public class FavorableTraitConfigurationPresenter {
   private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
     final ToggleTool casteTool = traitView.addToggleInFront();
     casteTool.setCommand(() -> {
-      ITraitFavorization favorization = favorableTrait.getFavorization();
+      TraitStateModel favorization = favorableTrait.getFavorization();
       favorization.advanceFavorableState();
     });
-    favorableTrait.getFavorization().addFavorableStateChangedListener(state -> updateView(casteTool, state));
-    updateView(casteTool, favorableTrait.getFavorization().getFavorableState());
+    favorableTrait.getFavorization().addTraitStateChangedListener(state -> updateView(casteTool, state));
+    updateView(casteTool, favorableTrait.getFavorization().getType());
     traitViewsByTrait.put(favorableTrait, casteTool);
   }
 
-  private void updateView(final ToggleTool view, FavorableState state) {
+  private void updateView(final ToggleTool view, TraitState state) {
     boolean select = state == Favored || state == Caste;
     boolean enable = true; // state == Favored || state == Default;
     setButtonState(view, select, enable);

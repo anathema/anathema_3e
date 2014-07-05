@@ -4,6 +4,11 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.NullTraitStateModel;
+import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateModel;
+import net.sf.anathema.hero.traits.model.state.TraitStateModelImpl;
 import net.sf.anathema.library.change.ChangeFlavor;
 import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.IntegerChangedListener;
@@ -16,16 +21,16 @@ public class DefaultTrait implements Trait {
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
   private final ValueChangeChecker checker;
-  private ITraitFavorization traitFavorization;
+  private TraitStateModel traitFavorization;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
   public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                      MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker) {
+                      MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
-    this.traitFavorization = new TraitFavorization(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
+    this.traitFavorization = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
   }
 
@@ -34,7 +39,7 @@ public class DefaultTrait implements Trait {
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
-    this.traitFavorization = new NullTraitFavorization();
+    this.traitFavorization = new NullTraitStateModel();
     this.checker = checker;
     this.creationValue = traitRules.getStartValue();
   }
@@ -45,7 +50,7 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public ITraitFavorization getFavorization() {
+  public TraitStateModel getFavorization() {
     return traitFavorization;
   }
 

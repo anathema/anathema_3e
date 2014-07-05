@@ -11,16 +11,16 @@ import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
-import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
-import net.sf.anathema.hero.traits.model.IFavorableStateChangedListener;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
-import net.sf.anathema.hero.traits.model.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.model.state.IncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
@@ -38,7 +38,7 @@ import static org.mockito.Mockito.when;
 public class FavorableTraitTest {
 
   private IncrementChecker incrementChecker = Mockito.mock(IncrementChecker.class);
-  private IFavorableStateChangedListener abilityStateListener = Mockito.mock(IFavorableStateChangedListener.class);
+  private TraitStateChangedListener abilityStateListener = Mockito.mock(TraitStateChangedListener.class);
   private ProxyTraitValueStrategy valueStrategy;
   private DefaultTrait trait;
   private DummyHero dummyHero = new DummyHero();
@@ -59,10 +59,10 @@ public class FavorableTraitTest {
   @Test
   public void testSetAbilityToFavored() throws Exception {
     allowOneFavoredIncrement();
-    trait.getFavorization().addFavorableStateChangedListener(abilityStateListener);
+    trait.getFavorization().addTraitStateChangedListener(abilityStateListener);
     assertEquals(0, trait.getCreationValue());
-    trait.getFavorization().setFavorableState(FavorableState.Favored);
-    verify(abilityStateListener).favorableStateChanged(FavorableState.Favored);
+    trait.getFavorization().changeStateTo(TraitState.Favored);
+    verify(abilityStateListener).favorableStateChanged(TraitState.Favored);
     assertEquals(1, trait.getCreationValue());
   }
 
@@ -73,15 +73,15 @@ public class FavorableTraitTest {
   @Test
   public void testSetAbiltyToFavoredUnallowed() throws Exception {
     when(incrementChecker.isValidIncrement(1)).thenReturn(false);
-    trait.getFavorization().setFavorableState(FavorableState.Favored);
-    assertSame(FavorableState.Default, trait.getFavorization().getFavorableState());
+    trait.getFavorization().changeStateTo(TraitState.Favored);
+    assertSame(TraitState.Default, trait.getFavorization().getType());
     assertEquals(0, trait.getCreationValue());
   }
 
   @Test
   public void testSetFavoredAbiltyCreationValueBelow1() throws Exception {
     allowOneFavoredIncrement();
-    trait.getFavorization().setFavorableState(FavorableState.Favored);
+    trait.getFavorization().changeStateTo(TraitState.Favored);
     assertTrue(trait.getFavorization().isFavored());
     trait.setCurrentValue(0);
     assertEquals(1, trait.getCreationValue());
@@ -103,7 +103,7 @@ public class FavorableTraitTest {
     TraitTemplate archeryTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules rules = new TraitRulesImpl(AbilityType.Archery, archeryTemplate, hero);
     return new DefaultTrait(hero, rules, new CasteType[]{new DummyCasteType()}, new FriendlyValueChangeChecker(),
-    		new MonoTypeIncrementChecker<FavorableState>(incrementChecker, FavorableState.Favored));
+    		new MonoTypeIncrementChecker<TraitState>(incrementChecker, TraitState.Favored));
   }
 
   @Test

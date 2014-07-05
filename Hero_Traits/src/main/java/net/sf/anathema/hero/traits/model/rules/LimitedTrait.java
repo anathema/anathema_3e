@@ -3,9 +3,9 @@ package net.sf.anathema.hero.traits.model.rules;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
-import net.sf.anathema.hero.traits.model.IncrementChecker;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 
 public class LimitedTrait extends DefaultTrait {

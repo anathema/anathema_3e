@@ -1,15 +1,15 @@
-package net.sf.anathema.hero.traits.model;
+package net.sf.anathema.hero.traits.model.state;
 
-public class NullTraitFavorization implements ITraitFavorization {
+public class NullTraitStateModel implements TraitStateModel {
 
   @Override
-  public void addFavorableStateChangedListener(IFavorableStateChangedListener listener) {
+  public void addTraitStateChangedListener(TraitStateChangedListener listener) {
     // nothing to do
   }
 
   @Override
-  public FavorableState getFavorableState() {
-    return FavorableState.Default;
+  public TraitState getType() {
+    return TraitState.Default;
   }
   
   @Override
@@ -33,7 +33,7 @@ public class NullTraitFavorization implements ITraitFavorization {
   }
 
   @Override
-  public void setFavorableState(FavorableState state) {
+  public void changeStateTo(TraitState state) {
     // nothing to do
   }
   
