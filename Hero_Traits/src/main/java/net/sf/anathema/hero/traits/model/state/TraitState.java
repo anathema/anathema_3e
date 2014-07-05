@@ -16,8 +16,6 @@ public interface TraitState {
 
   void setFavored(boolean favored);
 
-  int getMinimalValue();
-
   boolean isCheapened();
 
   boolean hasState(TraitStateType... type);

@@ -42,11 +42,6 @@ public class NullTraitState implements TraitState {
   }
 
   @Override
-  public int getMinimalValue() {
-    return 0;
-  }
-
-  @Override
   public boolean isCheapened() {
     return false;
   }

@@ -63,11 +63,6 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
-  public int getMinimalValue() {
-    return this.currentState == Favored ? 1 : 0;
-  }
-
-  @Override
   public boolean isCheapened() {
     return !currentState.equals(Default);
   }
