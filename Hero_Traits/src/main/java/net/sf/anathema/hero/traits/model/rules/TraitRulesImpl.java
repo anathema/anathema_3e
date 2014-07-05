@@ -5,11 +5,19 @@ import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.number.Range;
+import org.jmock.example.announcer.Announcer;
+
+import static java.lang.Math.max;
 
 public class TraitRulesImpl implements TraitRules {
+
+  private final Announcer<ChangeListener> announcer = new Announcer<>(ChangeListener.class);
+  private final DynamicMinimum dynamicMinimum;
   private int capModifier = 0;
   private final TraitTemplate template;
   private final TraitType traitType;
@@ -18,6 +26,13 @@ public class TraitRulesImpl implements TraitRules {
   public TraitRulesImpl(TraitType traitType, TraitTemplate template, Hero hero) {
     this.traitType = traitType;
     this.hero = hero;
+    this.dynamicMinimum = TraitModelFetcher.fetch(hero).getMinimumMap().getMinimum(traitType);
+    dynamicMinimum.addChangedListener(new ChangeListener() {
+      @Override
+      public void changeOccurred() {
+        announcer.announce().changeOccurred();
+      }
+    });
     this.template = template;
   }
 
@@ -43,6 +58,11 @@ public class TraitRulesImpl implements TraitRules {
   @Override
   public int getAbsoluteMinimumValue() {
     return template.minimumValue;
+  }
+
+  @Override
+  public int getCurrentMinimumValue() {
+    return max(getAbsoluteMinimumValue(), dynamicMinimum.getMinimum());
   }
 
   @Override
@@ -73,7 +93,7 @@ public class TraitRulesImpl implements TraitRules {
       range = Range.bounded(getAbsoluteMinimumValue(), maximumValue);
     } else {
       boolean isImmutable = template.modificationType == ModificationType.Immutable;
-      range = Range.bounded(Math.max(Math.min(creationValue, maximumValue), getAbsoluteMinimumValue()),
+      range = Range.bounded(max(Math.min(creationValue, maximumValue), getAbsoluteMinimumValue()),
         isImmutable ? creationValue : maximumValue);
     }
     return getCorrectedValue(demandedValue, range);
@@ -81,7 +101,7 @@ public class TraitRulesImpl implements TraitRules {
 
   @Override
   public int getCreationValue(int demandedValue) {
-    Range currentCreationPointRange = Range.bounded(getAbsoluteMinimumValue(), getCreationMaximumValue());
+    Range currentCreationPointRange = Range.bounded(getCurrentMinimumValue(), getCreationMaximumValue());
     return getCorrectedValue(demandedValue, currentCreationPointRange);
   }
 
@@ -98,5 +118,10 @@ public class TraitRulesImpl implements TraitRules {
   @Override
   public boolean isRequiredFavored() {
     return false;
+  }
+
+  @Override
+  public void addChangeListener(ChangeListener listener) {
+    announcer.addListener(listener);
   }
 }

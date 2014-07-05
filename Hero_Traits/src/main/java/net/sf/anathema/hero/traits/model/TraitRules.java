@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
+import net.sf.anathema.library.event.ChangeListener;
+
 public interface TraitRules {
 
   int UNEXPERIENCED = -1;
@@ -7,6 +9,8 @@ public interface TraitRules {
   int getAbsoluteMaximumValue();
 
   int getAbsoluteMinimumValue();
+
+  int getCurrentMinimumValue();
 
   int getCurrentMaximumValue(boolean modified);
 
@@ -23,4 +27,6 @@ public interface TraitRules {
   void setCapModifier(int modifier);
 
   boolean isRequiredFavored();
+
+  void addChangeListener(ChangeListener listener);
 }

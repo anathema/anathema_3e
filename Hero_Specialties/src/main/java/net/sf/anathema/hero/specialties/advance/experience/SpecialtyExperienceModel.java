@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.advance.experience;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
@@ -28,7 +28,7 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
 
   private int getSpecialtyCosts() {
     int experienceCosts = 0;
-    AbilitiesModel abilitiesModel = AbilityModelFetcher.fetch(hero);
+    AbilitiesModel abilitiesModel = AbilitiesModelFetcher.fetch(hero);
     for (Trait ability : abilitiesModel.getAll()) {
       experienceCosts += getExperienceDots(ability) * getCostPerSpecialtyDot(abilitiesModel.getStateMap(), ability);
     }

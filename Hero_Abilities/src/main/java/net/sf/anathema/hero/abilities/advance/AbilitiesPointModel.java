@@ -11,7 +11,7 @@ import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalcul
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceData;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -57,7 +57,7 @@ public class AbilitiesPointModel implements HeroModel {
   }
 
   private void initializeBonusOverview(Hero hero, AbilityCostCalculatorImpl abilityCalculator) {
-    AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
+    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
     addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData()));
@@ -78,7 +78,7 @@ public class AbilitiesPointModel implements HeroModel {
 
   private void initializeExperiencePoints(Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    AbilitiesModel abilities = AbilityModelFetcher.fetch(hero);
+    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
     AbilityExperienceData experienceData = new AbilityExperienceData(template);
     AbilityExperienceCalculator calculator = new AbilityExperienceCalculator(experienceData);
     pointsModel.addToExperienceOverview(new AbilityExperienceModel(abilities, calculator));
@@ -86,7 +86,7 @@ public class AbilitiesPointModel implements HeroModel {
 
   private AbilityCostCalculatorImpl createCalculator(Hero hero) {
     AbilityCreationData creationData = getCreationData();
-    return new AbilityCostCalculatorImpl(AbilityModelFetcher.fetch(hero), creationData);
+    return new AbilityCostCalculatorImpl(AbilitiesModelFetcher.fetch(hero), creationData);
   }
 
   private AbilityCreationData getCreationData() {

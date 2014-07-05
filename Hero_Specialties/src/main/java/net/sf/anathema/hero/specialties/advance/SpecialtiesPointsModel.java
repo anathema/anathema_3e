@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.advance;
 
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
@@ -34,7 +34,7 @@ public class SpecialtiesPointsModel implements HeroModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    TraitMap traitMap = AbilityModelFetcher.fetch(hero);
+    TraitMap traitMap = AbilitiesModelFetcher.fetch(hero);
     SpecialtyCreationData creationData = new SpecialtyCreationData(template);
     SpecialtiesBonusPointCalculator specialtiesBonusPointCalculator = new SpecialtiesBonusPointCalculator(hero, traitMap, creationData);
     pointsModel.addBonusPointCalculator(specialtiesBonusPointCalculator);

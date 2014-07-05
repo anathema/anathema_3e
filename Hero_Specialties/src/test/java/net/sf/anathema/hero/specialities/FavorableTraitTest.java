@@ -59,9 +59,9 @@ public class FavorableTraitTest {
   @Test
   public void testSetAbilityToFavored() throws Exception {
     allowOneFavoredIncrement();
-    trait.getFavorization().addTraitStateChangedListener(abilityStateListener);
+    trait.getStateModel().addTraitStateChangedListener(abilityStateListener);
     assertEquals(0, trait.getCreationValue());
-    trait.getFavorization().changeStateTo(TraitState.Favored);
+    trait.getStateModel().changeStateTo(TraitState.Favored);
     verify(abilityStateListener).favorableStateChanged(TraitState.Favored);
     assertEquals(1, trait.getCreationValue());
   }
@@ -73,16 +73,16 @@ public class FavorableTraitTest {
   @Test
   public void testSetAbiltyToFavoredUnallowed() throws Exception {
     when(incrementChecker.isValidIncrement(1)).thenReturn(false);
-    trait.getFavorization().changeStateTo(TraitState.Favored);
-    assertSame(TraitState.Default, trait.getFavorization().getType());
+    trait.getStateModel().changeStateTo(TraitState.Favored);
+    assertSame(TraitState.Default, trait.getStateModel().getType());
     assertEquals(0, trait.getCreationValue());
   }
 
   @Test
   public void testSetFavoredAbiltyCreationValueBelow1() throws Exception {
     allowOneFavoredIncrement();
-    trait.getFavorization().changeStateTo(TraitState.Favored);
-    assertTrue(trait.getFavorization().isFavored());
+    trait.getStateModel().changeStateTo(TraitState.Favored);
+    assertTrue(trait.getStateModel().isFavored());
     trait.setCurrentValue(0);
     assertEquals(1, trait.getCreationValue());
   }

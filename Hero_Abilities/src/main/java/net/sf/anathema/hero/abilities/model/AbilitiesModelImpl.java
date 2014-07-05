@@ -39,7 +39,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private Hero hero;
   private AbilitiesTemplate template;
   private TraitModel traitModel;
-  private TraitStateMapImpl traitStateModelMap = new TraitStateMapImpl();
+  private TraitStateMapImpl traitStateModelMap;
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
@@ -52,6 +52,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    this.traitStateModelMap = new TraitStateMapImpl(hero);
     this.hero = hero;
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();

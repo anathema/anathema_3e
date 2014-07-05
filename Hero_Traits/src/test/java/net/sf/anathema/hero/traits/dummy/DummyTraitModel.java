@@ -10,6 +10,7 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
+import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.exception.NotYetImplementedException;
@@ -19,6 +20,7 @@ import java.util.Iterator;
 
 public class DummyTraitModel extends DefaultTraitMap implements TraitModel, HeroModel {
   public TraitValueStrategy valueStrategy = new CreationTraitValueStrategy();
+  private DynamicMinimumMap minimumMap = new DynamicMinimumMap();
 
   @Override
   public Iterator<Trait> iterator() {
@@ -48,5 +50,10 @@ public class DummyTraitModel extends DefaultTraitMap implements TraitModel, Hero
   @Override
   public TraitLimitation createLimitation(LimitationTemplate limitation) {
     return new StaticTraitLimitation(5);
+  }
+
+  @Override
+  public DynamicMinimumMap getMinimumMap() {
+    return minimumMap;
   }
 }

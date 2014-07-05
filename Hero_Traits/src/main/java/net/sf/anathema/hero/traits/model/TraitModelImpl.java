@@ -10,10 +10,9 @@ import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.LimitationFactory;
+import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.library.change.ChangeAnnouncer;
-import net.sf.anathema.library.change.ChangeFlavor;
-import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Collection;
@@ -24,6 +23,7 @@ import static java.util.Arrays.asList;
 public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitModel, HeroModel {
 
   private final ProxyTraitValueStrategy traitValueStrategy = new ProxyTraitValueStrategy(new CreationTraitValueStrategy());
+  private DynamicMinimumMap minimumMap = new DynamicMinimumMap();
   private ExperienceModel experience;
   private Collection<LimitationFactory> limitationFactories;
 
@@ -40,13 +40,10 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    announcer.addListener(new FlavoredChangeListener() {
-      @Override
-      public void changeOccurred(ChangeFlavor flavor) {
-        if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
-          boolean experienced = experience.isExperienced();
-          updateLearnStrategies(experienced);
-        }
+    announcer.addListener(flavor -> {
+      if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
+        boolean experienced = experience.isExperienced();
+        updateLearnStrategies(experienced);
       }
     });
   }
@@ -77,5 +74,10 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
       }
     }
     throw new IllegalArgumentException();
+  }
+
+  @Override
+  public DynamicMinimumMap getMinimumMap() {
+    return minimumMap;
   }
 }

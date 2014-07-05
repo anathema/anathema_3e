@@ -4,7 +4,7 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -28,7 +28,7 @@ public class AbilitySteps {
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
-    TraitStateMap stateMap = AbilityModelFetcher.fetch(character.getHero()).getStateMap();
+    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero()).getStateMap();
     stateMap.setFavored(ability, true);
   }
 
@@ -62,7 +62,7 @@ public class AbilitySteps {
   }
 
   private void spendAPoint() {
-    TraitStateMap abilitiesStateMap = AbilityModelFetcher.fetch(character.getHero()).getStateMap();
+    TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero()).getStateMap();
     Trait[] traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;

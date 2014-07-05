@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.abilities.display;
 
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
@@ -31,6 +31,6 @@ public class AbilitiesInitializer implements HeroModelInitializer {
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    return AbilityModelFetcher.fetch(hero) != null;
+    return AbilitiesModelFetcher.fetch(hero) != null;
   }
 }
