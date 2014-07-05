@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.attributes.model;
 
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
-import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -18,7 +17,6 @@ import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
-import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
@@ -42,7 +40,7 @@ import java.util.List;
 
 public class AttributeModelImpl extends DefaultTraitMap implements AttributeModel, HeroModel {
 
-  private IIdentifiedCasteTraitTypeList[] attributeTraitGroups;
+  private IdentifiedTraitTypeList[] attributeTraitGroups;
   private Hero hero;
   private GroupedTraitType[] abilityGroups;
   private GroupedTraitsTemplate template;
@@ -71,19 +69,19 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
 
   private void addAttributes() {
     IncrementChecker incrementChecker = new GrumpyIncrementChecker();
-    for (IIdentifiedCasteTraitTypeList traitGroup : attributeTraitGroups) {
+    for (IdentifiedTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
       Trait[] traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
       addTraits(traits);
     }
   }
 
-  private TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list,
+  private TraitImpl[] createTraits(IdentifiedTraitTypeList list,
                                   MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
-      CasteType[] casteTypes = list.getTraitCasteTypes(type);
-      TraitTemplate traitTemplate = templateMap.getTemplate(type);
+      TraitTemplate traitTemplate;
+      traitTemplate = templateMap.getTemplate(type);
       TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
       Trait trait = new TraitImpl(hero, traitRules);
       newTraits.add(trait);
@@ -119,7 +117,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   public TraitGroup[] getTraitGroups() {
     TraitGroup[] groups = new TraitGroup[attributeTraitGroups.length];
     for (int index = 0; index < groups.length; index++) {
-      final IIdentifiedCasteTraitTypeList typeGroup = attributeTraitGroups[index];
+      final IdentifiedTraitTypeList typeGroup = attributeTraitGroups[index];
       groups[index] = new MappedTraitGroup(this, typeGroup);
     }
     return groups;

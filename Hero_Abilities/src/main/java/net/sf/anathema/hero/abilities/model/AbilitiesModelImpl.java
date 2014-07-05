@@ -21,7 +21,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.FavoredChangedListener;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
-import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
@@ -39,7 +39,7 @@ import java.util.Map;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
-  private IIdentifiedCasteTraitTypeList[] abilityTraitGroups;
+  private IdentifiedTraitTypeList[] abilityTraitGroups;
   private Hero hero;
   private AbilitiesTemplate template;
   private TraitModel traitModel;
@@ -65,7 +65,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     createAndAddTraits();
   }
 
-  private IIdentifiedCasteTraitTypeList[] createAbilityGroups(Hero hero) {
+  private IdentifiedTraitTypeList[] createAbilityGroups(Hero hero) {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template,
@@ -123,7 +123,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   @Override
-  public IIdentifiedCasteTraitTypeList[] getTraitTypeList() {
+  public IdentifiedTraitTypeList[] getTraitTypeList() {
     return abilityTraitGroups;
   }
 
