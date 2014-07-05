@@ -2,7 +2,6 @@ package net.sf.anathema.hero.application.item;
 
 public class HeroItem implements Item {
 
-  public static final String DEFAULT_PRINT_NAME = "Unnamed";
   private final ItemData itemData;
   private final ItemRepositoryLocation repositoryLocation = new SimpleRepositoryLocation();
 

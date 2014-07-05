@@ -12,10 +12,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
-import net.sf.anathema.hero.traits.model.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -24,6 +21,9 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.model.state.FriendlyIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
@@ -59,7 +59,7 @@ public class OxBodyTechniqueSpecialsTest {
     TraitRules resistanceRules = new TraitRulesImpl(AbilityType.Resistance, resistanceTemplate, hero);
     CasteType[] castes = {new DummyCasteType()};
     return new DefaultTrait(hero, resistanceRules, castes, new FriendlyValueChangeChecker(),
-    		new MonoTypeIncrementChecker<FavorableState>(new FriendlyIncrementChecker(), FavorableState.Favored));
+    		new MonoTypeIncrementChecker<TraitState>(new FriendlyIncrementChecker(), TraitState.Favored));
   }
 
   @Test

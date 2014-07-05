@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.environment.template;
 
-import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ public class TemplateRegistryImpl implements TemplateRegistry {
   private final HashMap<SplatType, HeroSplat> templatesByType = new HashMap<>();
 
   @Override
-  public Collection<HeroSplat> getAllSupportedTemplates(CharacterType type) {
+  public Collection<HeroSplat> getAllSupportedTemplates(HeroType type) {
     List<HeroSplat> typeTemplates = new ArrayList<>();
     for (SplatType splatType : templatesByType.keySet()) {
-      if (splatType.getCharacterType().equals(type)) {
+      if (splatType.getHeroType().equals(type)) {
         HeroSplat template = getTemplate(splatType);
         if (template != null) {
           typeTemplates.add(template);

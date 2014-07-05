@@ -1,10 +1,10 @@
 dependencies {
-    compile project(':Hero')
-    compile project(':Hero_Experience')
-    compile project(':Hero_Points')
-    compile project(':Hero_Sheet')
-    compile project(':Namegenerator')
-    testCompile testDependencies
-    testCompile project(path: ':Platform', configuration: 'tests')
-    testCompile project(path: ':Hero', configuration: 'tests')
+  compile project(':Hero')
+  compile project(':Hero_Experience')
+  compile project(':Hero_Sheet')
+  compile project(':Library')
+  compile project(':Namegenerator')
+  testCompile testDependencies
+  testCompile project(path: ':Hero', configuration: 'tests')
+  testCompile project(path: ':Library', configuration: 'tests')
 }

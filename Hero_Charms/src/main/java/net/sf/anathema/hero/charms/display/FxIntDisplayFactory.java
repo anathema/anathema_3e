@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display;
 
-import net.sf.anathema.hero.display.fx.dot.FxDotView;
+import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.platform.tree.display.ContentFactory;
 
 public class FxIntDisplayFactory implements ContentFactory {

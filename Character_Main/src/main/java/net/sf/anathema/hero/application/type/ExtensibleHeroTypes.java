@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.type;
 
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,15 +9,15 @@ import java.util.List;
 
 public class ExtensibleHeroTypes implements HeroTypes {
 
-  private final List<CharacterType> types = new ArrayList<>();
+  private final List<HeroType> types = new ArrayList<>();
 
-  public void add(CharacterType type) {
+  public void add(HeroType type) {
     types.add(type);
   }
   
   @Override
-  public CharacterType findById(String id) {
-    for (CharacterType type : types) {
+  public HeroType findById(String id) {
+    for (HeroType type : types) {
       if (type.getId().equals(id)) {
         return type;
       }
@@ -26,7 +26,7 @@ public class ExtensibleHeroTypes implements HeroTypes {
   }
 
   @Override
-  public Iterator<CharacterType> iterator() {
+  public Iterator<HeroType> iterator() {
     return types.iterator();
   }
 }

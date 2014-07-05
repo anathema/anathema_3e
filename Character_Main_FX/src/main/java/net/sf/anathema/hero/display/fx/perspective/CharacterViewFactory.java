@@ -29,7 +29,7 @@ public class CharacterViewFactory {
   }
 
   private Stylesheet[] createStylesheets(Hero hero) {
-    String[] skins = new CssSkinner().getSkins(hero.getSplat().getTemplateType().getCharacterType());
+    String[] skins = new CssSkinner().getSkins(hero.getSplat().getTemplateType().getHeroType());
     List<Stylesheet> stylesheets = new ArrayList<>();
     for (String skin : skins) {
       stylesheets.add(new Stylesheet(skin));

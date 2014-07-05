@@ -16,7 +16,7 @@ import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.traits.model.FavorableState;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -62,9 +62,12 @@ public class AbilitiesPointModel implements HeroModel {
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
     addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData()));
     addOnlyModelWithAllotment(pointsModel, new FavoredAbilityBonusModel(abilityCalculator, getCreationData()));
-    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityPickModel(abilityCalculator, abilities.getFavorableTraitPicks(FavorableState.Favored)));
-    addOnlyModelWithAllotment(pointsModel, new CasteAbilityPickModel(abilityCalculator, abilities.getFavorableTraitPicks(FavorableState.Caste)));
-    addOnlyModelWithAllotment(pointsModel, new SupernalAbilityPickModel(abilityCalculator, abilities.getFavorableTraitPicks(FavorableState.Supernal)));
+    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityPickModel(abilityCalculator, abilities.getTraitPicksForState(
+      TraitState.Favored)));
+    addOnlyModelWithAllotment(pointsModel, new CasteAbilityPickModel(abilityCalculator, abilities.getTraitPicksForState(
+      TraitState.Caste)));
+    addOnlyModelWithAllotment(pointsModel, new SupernalAbilityPickModel(abilityCalculator, abilities.getTraitPicksForState(
+      TraitState.Supernal)));
   }
 
   private void addOnlyModelWithAllotment(PointsModel pointsModel, SpendingModel spendingModel) {

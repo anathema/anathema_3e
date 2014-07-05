@@ -6,7 +6,7 @@ import net.sf.anathema.hero.application.persistence.HeroMainFilePersister;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -37,20 +37,20 @@ public class JsonHeroReferenceScanner implements HeroReferenceScanner {
     File scanFile = resolver.getMainFile(retrieveCharacterItemType().getRepositoryConfiguration(), reference.repositoryId.getStringRepresentation());
     try (FileInputStream stream = new FileInputStream(scanFile)) {
       HeroMainFileDto mainFileDto = new HeroMainFilePersister().load(stream);
-      CharacterType characterType = heroTypes.findById(mainFileDto.characterType.characterType);
+      HeroType heroType = heroTypes.findById(mainFileDto.characterType.characterType);
       SimpleIdentifier subType = new SimpleIdentifier(mainFileDto.characterType.subType);
-      typesByFile.put(reference, new SplatTypeImpl(characterType, subType));
+      typesByFile.put(reference, new SplatTypeImpl(heroType, subType));
       castesByFile.put(reference, NULL_CASTE_TYPE);
     }
   }
 
   @Override
-  public CharacterType getCharacterType(CharacterReference reference) {
+  public HeroType getCharacterType(CharacterReference reference) {
     SplatType splatType = getTemplateType(reference);
     if (splatType == null) {
       return null;
     }
-    return splatType.getCharacterType();
+    return splatType.getHeroType();
   }
 
   @Override

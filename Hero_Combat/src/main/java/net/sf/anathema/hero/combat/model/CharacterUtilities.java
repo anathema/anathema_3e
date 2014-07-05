@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.combat.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -113,9 +113,9 @@ public class CharacterUtilities {
     return dvPool;
   }
 
-  private static int getRoundedDodgeDv(CharacterType characterType, int dvPool) {
+  private static int getRoundedDodgeDv(HeroType heroType, int dvPool) {
     int dv;
-    if (characterType.isEssenceUser()) {
+    if (heroType.isEssenceUser()) {
       dv = (int) Math.ceil(dvPool * 0.5);
     } else {
       dv = dvPool / 2;
@@ -123,13 +123,13 @@ public class CharacterUtilities {
     return dv;
   }
 
-  public static int getDodgeDv(CharacterType characterType, TraitMap traitMap, HeroStatsModifiers modifiers) {
-    return getDodgeDvWithSpecialty(characterType, traitMap, modifiers, 0);
+  public static int getDodgeDv(HeroType heroType, TraitMap traitMap, HeroStatsModifiers modifiers) {
+    return getDodgeDvWithSpecialty(heroType, traitMap, modifiers, 0);
   }
 
-  public static int getDodgeDvWithSpecialty(CharacterType characterType, TraitMap traitMap, HeroStatsModifiers equipment, int specialty) {
+  public static int getDodgeDvWithSpecialty(HeroType heroType, TraitMap traitMap, HeroStatsModifiers equipment, int specialty) {
     int dvPool = getDodgeDvPool(traitMap) + specialty + equipment.getDDVPoolMod();
-    int dv = getRoundedDodgeDv(characterType, dvPool) + equipment.getMobilityPenalty();
+    int dv = getRoundedDodgeDv(heroType, dvPool) + equipment.getMobilityPenalty();
     return Math.max(dv, 0);
   }
 }

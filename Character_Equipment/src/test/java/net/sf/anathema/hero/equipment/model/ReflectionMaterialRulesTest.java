@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.equipment.model;
 
 import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
+import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import org.junit.Test;
 
 import static net.sf.anathema.equipment.core.MagicalMaterial.Adamant;
@@ -19,7 +19,7 @@ public class ReflectionMaterialRulesTest {
   @Test
   public void knowsDefaultRulesForCharacterTypes() {
     factory.add(CharacterTypeMaterialRules.class, new DummyMaterialRules(Adamant));
-    CharacterType type = mock(CharacterType.class);
+    HeroType type = mock(HeroType.class);
     when(type.getId()).thenReturn(ID_TEST_TYPE);
     MagicalMaterial result = new ReflectionMaterialRules(factory).getDefault(type);
     assertThat(result, is(Adamant));

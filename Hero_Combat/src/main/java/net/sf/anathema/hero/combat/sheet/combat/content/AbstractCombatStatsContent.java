@@ -2,7 +2,7 @@ package net.sf.anathema.hero.combat.sheet.combat.content;
 
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -55,8 +55,8 @@ public abstract class AbstractCombatStatsContent extends AbstractSubBoxContent {
     return true;
   }
 
-  protected CharacterType getCharacterType() {
-    return hero.getSplat().getTemplateType().getCharacterType();
+  protected HeroType getCharacterType() {
+    return hero.getSplat().getTemplateType().getHeroType();
   }
 
   protected TraitMap getTraits() {

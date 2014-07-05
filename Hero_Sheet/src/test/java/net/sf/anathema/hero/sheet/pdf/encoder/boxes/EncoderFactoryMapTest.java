@@ -1,18 +1,13 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
-import net.sf.anathema.hero.sheet.pdf.content.SubContent;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-
+import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 public class EncoderFactoryMapTest {
   private static final String TEST_ID = "testId";

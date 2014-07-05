@@ -83,6 +83,6 @@ public class PortraitSimpleExaltSheetReport extends AbstractPdfReport {
 
   @Override
   public boolean supports(Hero hero) {
-    return hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
+    return hero.getSplat().getTemplateType().getHeroType().isEssenceUser();
   }
 }

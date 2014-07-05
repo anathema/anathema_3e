@@ -8,8 +8,8 @@ import net.sf.anathema.hero.application.creation.ICharacterItemCreationModel;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.template.TemplateRegistry;
-import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
@@ -20,37 +20,37 @@ import java.util.List;
 public class CharacterItemCreationModel implements ICharacterItemCreationModel {
 
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
-  private final Multimap<CharacterType, HeroSplat> templatesByType = HashMultimap.create();
-  private final List<CharacterType> availableCharacterTypes = new ArrayList<>();
+  private final Multimap<HeroType, HeroSplat> templatesByType = HashMultimap.create();
+  private final List<HeroType> availableHeroTypes = new ArrayList<>();
   private final HeroEnvironment generics;
   private final HeroSplatHolder templateHolder = new HeroSplatHolder();
-  private CharacterType selectedType;
+  private HeroType selectedType;
 
   public CharacterItemCreationModel(HeroEnvironment generics) {
     this.generics = generics;
     initializeTypesAndTemplates();
-    setCharacterType(availableCharacterTypes.get(0));
+    setCharacterType(availableHeroTypes.get(0));
   }
 
   private void initializeTypesAndTemplates() {
     HeroTypes types = generics.getHeroTypes();
     TemplateRegistry templateRegistry = generics.getTemplateRegistry();
-    for (CharacterType type : types) {
+    for (HeroType type : types) {
       Collection<HeroSplat> templates = templateRegistry.getAllSupportedTemplates(type);
       if (!templates.isEmpty()) {
-        availableCharacterTypes.add(type);
+        availableHeroTypes.add(type);
         templatesByType.putAll(type, templates);
       }
     }
   }
 
   @Override
-  public Iterable<CharacterType> getAvailableCharacterTypes() {
-    return availableCharacterTypes;
+  public Iterable<HeroType> getAvailableHeroTypes() {
+    return availableHeroTypes;
   }
 
   @Override
-  public void setCharacterType(CharacterType type) {
+  public void setCharacterType(HeroType type) {
     if (Objects.equal(selectedType, type)) {
       return;
     }

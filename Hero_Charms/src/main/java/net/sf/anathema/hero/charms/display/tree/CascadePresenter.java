@@ -16,12 +16,12 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.presenter.RGBColor;
+import net.sf.anathema.library.presenter.SelectObjectConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.sort.I18nedIdentificateSorter;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.display.TreeView;
-import net.sf.anathema.points.display.overview.presenter.SelectObjectConfiguration;
 
 import java.util.ArrayList;
 import java.util.Collections;

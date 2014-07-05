@@ -3,7 +3,7 @@ package net.sf.anathema.hero.application.type;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.initialization.Weight;
@@ -18,7 +18,7 @@ public class HeroTypeCompiler implements ExtensibleDataSetCompiler {
 
   private static final String TEMPLATE_FILE_RECOGNITION_PATTERN = ".+?\\.charactertype";
   private final ExtensibleHeroTypes types = new ExtensibleHeroTypes();
-  private final GenericTemplateLoader<SimpleCharacterType> loader = new GenericTemplateLoader<>(SimpleCharacterType.class);
+  private final GenericTemplateLoader<SimpleHeroType> loader = new GenericTemplateLoader<>(SimpleHeroType.class);
 
   @SuppressWarnings("UnusedParameters")
   public HeroTypeCompiler(ObjectFactory objectFactory) {
@@ -38,7 +38,7 @@ public class HeroTypeCompiler implements ExtensibleDataSetCompiler {
   @Override
   public void registerFile(ResourceFile resource) {
     try (InputStream inputStream = resource.getURL().openStream()) {
-      CharacterType type = loader.load(inputStream);
+      HeroType type = loader.load(inputStream);
       types.add(type);
     } catch (IOException e) {
       throw new PersistenceException(e);

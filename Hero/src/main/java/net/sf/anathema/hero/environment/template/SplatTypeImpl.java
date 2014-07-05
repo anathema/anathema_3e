@@ -1,23 +1,23 @@
 package net.sf.anathema.hero.environment.template;
 
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public final class SplatTypeImpl implements SplatType {
 
-  private final CharacterType characterType;
+  private final HeroType heroType;
   private final Identifier subType;
 
-  public SplatTypeImpl(CharacterType characterType, Identifier subType) {
-    this.characterType = characterType;
+  public SplatTypeImpl(HeroType heroType, Identifier subType) {
+    this.heroType = heroType;
     this.subType = subType;
   }
 
   @Override
-  public CharacterType getCharacterType() {
-    return characterType;
+  public HeroType getHeroType() {
+    return heroType;
   }
 
   @Override
@@ -33,11 +33,11 @@ public final class SplatTypeImpl implements SplatType {
   
   @Override
   public String toString() {
-	  return characterType.getId() + ", " + subType.getId();
+	  return heroType.getId() + ", " + subType.getId();
   }
 
   @Override
   public int hashCode() {
-    return characterType.getId().hashCode();
+    return heroType.getId().hashCode();
   }
 }

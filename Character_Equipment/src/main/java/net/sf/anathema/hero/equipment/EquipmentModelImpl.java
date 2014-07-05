@@ -25,7 +25,7 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IArmourStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
@@ -57,7 +57,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   private final EquipmentCollection equipmentItems = new EquipmentCollection();
   private IEquipmentTemplateProvider equipmentTemplateProvider;
   private final ChangeListener itemChangePropagator = this::fireModelChanged;
-  private CharacterType characterType;
+  private HeroType heroType;
   private MagicalMaterial defaultMaterial;
   private EquipmentHeroEvaluator dataProvider;
   private IArmourStats naturalArmor;
@@ -74,7 +74,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     MaterialRules materialRules = createMagicalMaterialRules(environment);
     this.naturalArmor = determineNaturalArmor(hero);
     this.dataProvider = new EquipmentHeroEvaluatorImpl(hero, materialRules);
-    this.characterType = hero.getSplat().getTemplateType().getCharacterType();
+    this.heroType = hero.getSplat().getTemplateType().getHeroType();
     this.defaultMaterial = evaluateDefaultMaterial(materialRules);
     createNaturalWeapons();
     new SpecialtiesCollectionImpl(hero).addSpecialtyListChangeListener(new SpecialtyPrintRemover(dataProvider));
@@ -123,7 +123,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   private MagicalMaterial evaluateDefaultMaterial(MaterialRules materialRules) {
-    MagicalMaterial defaultMaterial = materialRules.getDefault(characterType);
+    MagicalMaterial defaultMaterial = materialRules.getDefault(heroType);
     if (defaultMaterial == null) {
       return MagicalMaterial.Orichalcum;
     }

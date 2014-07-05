@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.traits.model.event;
 
-import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.IFavorableStateChangedListener;
+import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.change.ChangeFlavor;
 
-public class FavoredChangedListener implements IFavorableStateChangedListener {
+public class FavoredChangedListener implements TraitStateChangedListener {
   private final ChangeAnnouncer changeAnnouncer;
 
   public FavoredChangedListener(ChangeAnnouncer changeAnnouncer) {
@@ -13,7 +13,7 @@ public class FavoredChangedListener implements IFavorableStateChangedListener {
   }
 
   @Override
-  public void favorableStateChanged(FavorableState state) {
+  public void favorableStateChanged(TraitState state) {
     changeAnnouncer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
   }
 }

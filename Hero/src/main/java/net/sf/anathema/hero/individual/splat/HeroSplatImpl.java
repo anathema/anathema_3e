@@ -14,7 +14,7 @@ public class HeroSplatImpl implements HeroSplat {
   private final List<ConfiguredModel> models = new ArrayList<>();
 
   public HeroSplatImpl(HeroTemplate heroTemplate, HeroTypes heroTypes) {
-    CharacterType type = heroTypes.findById(heroTemplate.characterType);
+    HeroType type = heroTypes.findById(heroTemplate.characterType);
     this.templateType = new SplatTypeImpl(type, new SimpleIdentifier(heroTemplate.template));
     for (Map.Entry<String, String> entry : heroTemplate.models.entrySet()) {
       models.add(new ConfiguredModel(entry.getKey(), entry.getValue()));

@@ -34,6 +34,6 @@ public class SolarVirtueFlawInitializer implements HeroModelInitializer {
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    return GreatCurseFetcher.fetch(hero) != null && hero.getSplat().getTemplateType().getCharacterType().getId().equals(SolarType.ID);
+    return GreatCurseFetcher.fetch(hero) != null && hero.getSplat().getTemplateType().getHeroType().getId().equals(SolarType.ID);
   }
 }

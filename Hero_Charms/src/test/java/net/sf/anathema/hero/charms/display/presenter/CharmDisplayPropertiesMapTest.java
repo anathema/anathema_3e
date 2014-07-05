@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.framework.environment.ConfigurableDummyObjectFactory;
-import net.sf.anathema.hero.dummy.DummyExaltCharacterType;
+import net.sf.anathema.hero.dummy.DummyHeroType;
+import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 import org.junit.Test;
 
@@ -15,7 +15,7 @@ public class CharmDisplayPropertiesMapTest {
     TreePresentationProperties expectation = new DummyCharmPresentationProperties();
     ConfigurableDummyObjectFactory factory = new ConfigurableDummyObjectFactory();
     factory.add(CharmPresentationProperties.class, expectation);
-    DummyExaltCharacterType characterType = new DummyExaltCharacterType();
+    DummyHeroType characterType = new DummyHeroType();
     TreePresentationProperties properties = new CharmDisplayPropertiesMap(factory).getDisplayProperties(characterType);
     assertThat(properties, is(expectation));
 

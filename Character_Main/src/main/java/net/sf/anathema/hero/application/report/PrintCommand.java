@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.application.report;
 
+import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.environment.report.ReportException;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -56,7 +57,8 @@ public class PrintCommand implements Command {
 
   private void performPrint(Report selectedReport, Path selectedFile, Hero hero) throws IOException, ReportException {
     try (OutputStream stream = Files.newOutputStream(selectedFile)) {
-      selectedReport.print(hero, stream);
+      String name = new HeroNameFetcher().getName(hero);
+      selectedReport.print(name, hero, stream);
     }
   }
 

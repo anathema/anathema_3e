@@ -1,13 +1,12 @@
 dependencies {
-    compile project(':Platform')
-    compile project(':Character_Main')
-    compile project(':Character_Equipment')
-    compile project(':Hero')
-    compile project(':Hero_Sheet')
-    compile project(':Hero_Charms')
-    testCompile testDependencies
-    testCompile project(path: ':Platform', configuration: 'tests')
-    testCompile project(path: ':Character_Main', configuration: 'tests')
-    testCompile project(path: ':Character_Equipment', configuration: 'tests')
-    testCompile project(path: ':Hero_Sheet', configuration: 'tests')
+  compile project(':Character_Equipment')
+  compile project(':Hero')
+  compile project(':Hero_Sheet')
+  compile project(':Hero_Charms')
+  compile project(':Platform')
+  testCompile testDependencies
+  testCompile project(path: ':Hero', configuration: 'tests')
+  testCompile project(path: ':Character_Equipment', configuration: 'tests')
+  testCompile project(path: ':Hero_Sheet', configuration: 'tests')
+  testCompile project(path: ':Library', configuration: 'tests')
 }

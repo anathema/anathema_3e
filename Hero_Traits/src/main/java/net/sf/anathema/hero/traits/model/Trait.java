@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.traits.model;
 
+import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
 public interface Trait extends ValuedTraitType {
@@ -20,7 +21,7 @@ public interface Trait extends ValuedTraitType {
 
   void setExperiencedValue(int value);
 
-  ITraitFavorization getFavorization();
+  TraitStateModel getFavorization();
 
   int getMaximalValue();
 

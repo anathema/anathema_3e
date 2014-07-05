@@ -1,6 +1,10 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
+import net.sf.anathema.hero.traits.model.FavorableTraitCost;
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,11 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
-import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
-import net.sf.anathema.hero.traits.model.FavorableTraitCost;
-import net.sf.anathema.hero.traits.model.ITraitFavorization;
-import net.sf.anathema.hero.traits.model.Trait;
+import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
@@ -32,7 +32,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   protected int getCostFactor(Trait trait) {
-    ITraitFavorization favorization = trait.getFavorization();
+    TraitStateModel favorization = trait.getFavorization();
     CurrentRatingCost abilityCosts = creationData.getAbilityCosts(favorization.isCasteOrFavored());
     return abilityCosts.getRatingCosts(getCalculationBase(trait));
   }
@@ -64,7 +64,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void countTraitFavorizationPicks() {
 	  for (Trait trait : traits) {
-		  switch (trait.getFavorization().getFavorableState()) {
+		  switch (trait.getFavorization().getType()) {
 		  case Favored:
 			  increaseFavoredPicksSpent();
 			  break;

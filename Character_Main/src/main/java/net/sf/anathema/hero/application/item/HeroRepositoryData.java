@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.application.item;
 
+import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.platform.item.IItemType;

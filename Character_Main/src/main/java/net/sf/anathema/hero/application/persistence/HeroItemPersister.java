@@ -2,15 +2,15 @@ package net.sf.anathema.hero.application.persistence;
 
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemDataImp;
-import net.sf.anathema.hero.application.item.HeroNameFetcher;
 import net.sf.anathema.hero.application.item.Item;
+import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
-import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -59,9 +59,9 @@ public class HeroItemPersister implements RepositoryItemPersister {
   }
 
   private HeroSplat loadHeroTemplate(HeroMainFileDto mainFileDto) {
-    CharacterType characterType = generics.getHeroTypes().findById(mainFileDto.characterType.characterType);
+    HeroType heroType = generics.getHeroTypes().findById(mainFileDto.characterType.characterType);
     Identifier subtype = new SimpleIdentifier(mainFileDto.characterType.subType);
-    SplatTypeImpl templateType = new SplatTypeImpl(characterType, subtype);
+    SplatTypeImpl templateType = new SplatTypeImpl(heroType, subtype);
     return generics.getTemplateRegistry().getTemplate(templateType);
   }
 

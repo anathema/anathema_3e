@@ -4,7 +4,7 @@ import net.sf.anathema.library.identifier.Identifier;
 
 public interface SplatType {
 
-  CharacterType getCharacterType();
+  HeroType getHeroType();
 
   Identifier getSubType();
 }

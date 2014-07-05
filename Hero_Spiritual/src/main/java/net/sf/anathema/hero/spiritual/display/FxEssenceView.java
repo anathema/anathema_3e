@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
-import net.sf.anathema.hero.display.fx.dot.FxDotView;
+import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.points.display.overview.view.FxStringOverview;

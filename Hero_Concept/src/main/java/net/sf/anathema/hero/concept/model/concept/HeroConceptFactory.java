@@ -7,13 +7,12 @@ import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
-import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class HeroConceptFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public HeroConceptFactory() {
-    super(HeroConcept.ID, ExperienceModel.ID, PointsModel.ID);
+    super(HeroConcept.ID, ExperienceModel.ID);
   }
 
   @SuppressWarnings("unchecked")
