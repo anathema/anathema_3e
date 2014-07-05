@@ -62,7 +62,7 @@ public class FavorableTraitConfigurationPresenter {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = traitViewsByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
-      boolean favored = traitList.getTraitState(trait).isCasteOrFavored();
+      boolean favored = traitList.getState(trait).isCasteOrFavored();
       setButtonState(view, favored, !disabled);
     }
   }
@@ -91,7 +91,7 @@ public class FavorableTraitConfigurationPresenter {
 
   private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
     final ToggleTool casteTool = traitView.addToggleInFront();
-    TraitState traitState = traitList.getTraitState(favorableTrait);
+    TraitState traitState = traitList.getState(favorableTrait);
     casteTool.setCommand(() -> {
       traitState.advanceFavorableState();
     });

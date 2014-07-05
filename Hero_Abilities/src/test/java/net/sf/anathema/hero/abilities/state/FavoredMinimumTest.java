@@ -35,7 +35,7 @@ public class FavoredMinimumTest {
 
   private void configureState(TraitStateType type) {
     TraitState state = createState(type);
-    when(stateMap.getTraitState(trait)).thenReturn(state);
+    when(stateMap.getState(trait)).thenReturn(state);
   }
 
   private TraitState createState(TraitStateType type) {

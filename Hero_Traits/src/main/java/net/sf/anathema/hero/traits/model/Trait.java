@@ -8,8 +8,6 @@ public interface Trait {
 
   int getCurrentValue();
 
-  boolean isCasteOrFavored();
-
   int getCreationValue();
 
   int getExperiencedValue();

@@ -154,11 +154,6 @@ public class TraitImpl implements Trait {
   }
 
   @Override
-  public boolean isCasteOrFavored() {
-    return getStateModel().isCasteOrFavored();
-  }
-
-  @Override
   public boolean isLowerable() {
     return traitRules.isReducible();
   }

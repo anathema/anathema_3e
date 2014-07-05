@@ -7,20 +7,20 @@ import java.util.List;
 
 public class IsFavoredMagic {
 
-  private List<FavoredChecker> favoredCheckers = new ArrayList<>();
+  private List<CheapenedChecker> cheapenedCheckers = new ArrayList<>();
 
   public IsFavoredMagic() {
-    this.favoredCheckers = new ArrayList<>();
+    this.cheapenedCheckers = new ArrayList<>();
   }
 
-  public void add(FavoredChecker checker) {
-    favoredCheckers.add(checker);
+  public void add(CheapenedChecker checker) {
+    cheapenedCheckers.add(checker);
   }
 
   public boolean isFavored(Magic magic) {
-    for (FavoredChecker checker : favoredCheckers) {
+    for (CheapenedChecker checker : cheapenedCheckers) {
       if (checker.supportsMagic(magic)) {
-        return checker.isFavored(magic);
+        return checker.isCheapened(magic);
       }
     }
     return false;

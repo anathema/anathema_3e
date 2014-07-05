@@ -44,11 +44,6 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public boolean isCasteOrFavored() {
-    return false;
-  }
-
-  @Override
   public int getMinimalValue() {
     return 0;
   }

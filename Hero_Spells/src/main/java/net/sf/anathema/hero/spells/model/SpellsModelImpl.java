@@ -58,7 +58,7 @@ public class SpellsModelImpl implements SpellsModel {
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.charms = CharmsModelFetcher.fetch(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
-    charms.addFavoredChecker(new IsFavoredSpell(hero));
+    charms.addCheapenedChecker(new IsFavoredSpell(hero));
     initializeSpellsByCircle(environment);
     initializeCharmsModel(hero);
     initializeExperience(hero);

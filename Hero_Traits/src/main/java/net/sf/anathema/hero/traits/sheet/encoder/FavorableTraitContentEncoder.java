@@ -26,10 +26,6 @@ public class FavorableTraitContentEncoder<C extends FavorableTraitContent> exten
     super(contentClass);
   }
 
-  public final void addAdditionalEncoder(AdditionalTraitLineEncoder encoder) {
-    additionalEncoders.add(encoder);
-  }
-
   public PdfTraitEncoder getTraitEncoder() {
     return traitEncoder;
   }
@@ -98,7 +94,7 @@ public class FavorableTraitContentEncoder<C extends FavorableTraitContent> exten
   private float encodeFavorableTrait(SheetGraphics graphics, FavorableTraitContent content, String label, Trait trait, Position position,
                                      float width) {
     int value = trait.getCurrentValue();
-    boolean favored = trait.isCasteOrFavored();
+    boolean favored = content.isCasteOrFavored(trait);
     return traitEncoder.encodeWithTextAndRectangle(graphics, label, position, width, value, favored, content.getTraitMax());
   }
 

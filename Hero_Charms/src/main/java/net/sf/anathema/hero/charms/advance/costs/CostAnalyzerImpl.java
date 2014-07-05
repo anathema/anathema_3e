@@ -16,7 +16,7 @@ public class CostAnalyzerImpl implements CostAnalyzer {
 
   @Override
   public final boolean isMagicFavored(Magic magic) {
-    return CharmsModelFetcher.fetch(hero).isFavoredMagic(magic);
+    return CharmsModelFetcher.fetch(hero).isMagicCheapened(magic);
   }
 
   @Override

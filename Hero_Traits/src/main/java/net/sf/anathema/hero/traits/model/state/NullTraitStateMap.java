@@ -5,12 +5,12 @@ import net.sf.anathema.hero.traits.model.TraitType;
 
 public class NullTraitStateMap implements TraitStateMap {
   @Override
-  public TraitState getTraitState(Trait trait) {
+  public TraitState getState(Trait trait) {
     return new NullTraitState();
   }
 
   @Override
-  public TraitState getTraitState(TraitType trait) {
+  public TraitState getState(TraitType trait) {
     return new NullTraitState();
   }
 }

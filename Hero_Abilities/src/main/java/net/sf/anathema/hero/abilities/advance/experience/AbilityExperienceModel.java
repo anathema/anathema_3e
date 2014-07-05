@@ -23,7 +23,7 @@ public class AbilityExperienceModel extends AbstractIntegerValueModel {
   private int getAbilityCosts() {
     int experienceCosts = 0;
     for (Trait ability : abilities.getAll()) {
-      experienceCosts += calculator.getAbilityCosts(ability, abilities.getTraitState(ability).isCheapened());
+      experienceCosts += calculator.getAbilityCosts(ability, abilities.getState(ability).isCheapened());
     }
     return experienceCosts;
   }

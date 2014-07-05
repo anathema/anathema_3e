@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.charms.model.favored;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -11,10 +13,10 @@ import net.sf.anathema.magic.data.Magic;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
-public class IsFavoredCharm implements FavoredChecker {
+public class IsCharmCheapened implements CheapenedChecker {
   private Hero hero;
 
-  public IsFavoredCharm(Hero hero) {
+  public IsCharmCheapened(Hero hero) {
     this.hero = hero;
   }
 
@@ -24,19 +26,21 @@ public class IsFavoredCharm implements FavoredChecker {
   }
 
   @Override
-  public boolean isFavored(Magic magic) {
+  public boolean isCheapened(Magic magic) {
     Charm charm = (Charm) magic;
-    return isFavoredMartialArts(charm) || isPrimaryTraitFavored(charm);
+    return isCheapened(charm) || isPrimaryTraitCheapened(charm);
   }
 
-  private boolean isFavoredMartialArts(Charm charm) {
-    return isMartialArts(charm) && getTrait(MartialArts).isCasteOrFavored();
+  private boolean isCheapened(Charm charm) {
+    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
+    return isMartialArts(charm) && abilities.getState(MartialArts).isCasteOrFavored();
   }
 
-  private boolean isPrimaryTraitFavored(Charm charm) {
+  private boolean isPrimaryTraitCheapened(Charm charm) {
+    // todo (sandra) remodel that primary traits might not be abilities
     TraitType traitType = new TraitTypeUtils().getPrimaryTraitType(charm);
     Trait primaryTrait = getTrait(traitType);
-    return primaryTrait.isCasteOrFavored();
+    return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCasteOrFavored();
   }
 
   private Trait getTrait(TraitType traitType) {

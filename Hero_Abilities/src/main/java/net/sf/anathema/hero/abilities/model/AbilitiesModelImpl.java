@@ -119,13 +119,13 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   @Override
-  public TraitState getTraitState(TraitType traitType) {
+  public TraitState getState(TraitType traitType) {
     Trait ability = getTrait(traitType);
-    return getTraitState(ability);
+    return getState(ability);
   }
 
   @Override
-  public TraitState getTraitState(Trait trait) {
-    return traitStateMap.getTraitState(trait);
+  public TraitState getState(Trait trait) {
+    return traitStateMap.getState(trait);
   }
 }

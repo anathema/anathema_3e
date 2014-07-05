@@ -5,7 +5,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 
 public interface TraitStateMap {
 
-  TraitState getTraitState(Trait trait);
+  TraitState getState(Trait trait);
 
-  TraitState getTraitState(TraitType trait);
+  TraitState getState(TraitType trait);
 }

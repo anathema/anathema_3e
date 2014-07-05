@@ -46,7 +46,7 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
   }
 
   private int getCostPerSpecialtyDot(TraitStateMap stateMap, Trait ability) {
-    boolean casteOrFavored = stateMap.getTraitState(ability).isCheapened();
+    boolean casteOrFavored = stateMap.getState(ability).isCheapened();
     return experienceData.getSpecialtyCost(casteOrFavored);
   }
 }

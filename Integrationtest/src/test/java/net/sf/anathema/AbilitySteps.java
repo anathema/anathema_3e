@@ -29,7 +29,7 @@ public class AbilitySteps {
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
-    stateMap.getTraitState(ability).setFavored(true);
+    stateMap.getState(ability).setFavored(true);
   }
 
   @Then("^she has (\\d+) dots in ability (.*)$")
@@ -67,7 +67,7 @@ public class AbilitySteps {
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.getTraitState(trait).isFavored()){
+      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.getState(trait).isFavored()){
         increaseTraitValueByOne(trait);
         break;
       }

@@ -7,9 +7,9 @@ import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 
 public interface TraitListModel extends TraitMap, TraitStateMap, HeroModel {
 
-  TraitState getTraitState(TraitType traitType);
+  TraitState getState(TraitType traitType);
 
-  TraitState getTraitState(Trait trait);
+  TraitState getState(Trait trait);
 
   IdentifiedTraitTypeList[] getTraitTypeList();
 

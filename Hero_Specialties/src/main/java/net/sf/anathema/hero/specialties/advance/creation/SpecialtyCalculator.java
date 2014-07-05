@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.TraitListModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
@@ -9,10 +9,10 @@ import java.util.List;
 
 public class SpecialtyCalculator {
 
-  private final TraitMap abilityModel;
+  private final TraitListModel abilityModel;
   private final int specialtyPoints;
 
-  public SpecialtyCalculator(TraitMap abilityModel, int specialtyPoints) {
+  public SpecialtyCalculator(TraitListModel abilityModel, int specialtyPoints) {
     this.abilityModel = abilityModel;
     this.specialtyPoints = specialtyPoints;
   }
@@ -36,13 +36,13 @@ public class SpecialtyCalculator {
   }
 
   private List<IGenericSpecialty> getFavoredSpecialties(List<IGenericSpecialty> specialties) {
-    List<IGenericSpecialty> favoredSpecialties = new ArrayList<>();
+    List<IGenericSpecialty> cheapenedSpecialties = new ArrayList<>();
     for (IGenericSpecialty specialty : specialties) {
       TraitType type = specialty.getBasicTrait().getType();
-      if (abilityModel.getTrait(type).isCasteOrFavored()) {
-        favoredSpecialties.add(specialty);
+      if (abilityModel.getState(type).isCheapened()) {
+        cheapenedSpecialties.add(specialty);
       }
     }
-    return favoredSpecialties;
+    return cheapenedSpecialties;
   }
 }

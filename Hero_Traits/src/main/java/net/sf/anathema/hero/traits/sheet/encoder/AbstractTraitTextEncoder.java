@@ -10,6 +10,7 @@ import net.sf.anathema.hero.sheet.text.TextPartFactory;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.library.resources.Resources;
 
 public abstract class AbstractTraitTextEncoder extends TextPartFactory implements HeroTextEncoder {
@@ -34,7 +35,7 @@ public abstract class AbstractTraitTextEncoder extends TextPartFactory implement
         traitPhrase.add(createTextChunk(", "));
       }
       firstPrinted = false;
-      if (trait.isCasteOrFavored()) {
+      if (getTraitState(hero, trait).isCasteOrFavored()) {
         traitPhrase.add(createTextChunk("*"));
       }
       traitPhrase.add(createTextChunk(resources.getString(trait.getType().getId())));
@@ -44,6 +45,8 @@ public abstract class AbstractTraitTextEncoder extends TextPartFactory implement
   }
 
   protected abstract TraitType[] getTypes(Hero hero);
+
+  protected abstract TraitState getTraitState(Hero hero, Trait trait);
 
   protected abstract String getLabelKey();
 }

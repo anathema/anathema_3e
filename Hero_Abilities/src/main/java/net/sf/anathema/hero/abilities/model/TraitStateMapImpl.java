@@ -30,19 +30,19 @@ public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
   }
 
   public void addTraitStateChangedListener(Trait trait, TraitStateChangedListener listener) {
-    getTraitState(trait).addTraitStateChangedListener(listener);
+    getState(trait).addTraitStateChangedListener(listener);
   }
 
   public void forEach(Consumer<TraitState> consumer) {
     traitsByType.values().forEach(consumer);
   }
 
-  public TraitState getTraitState(Trait trait) {
-    return getTraitState(trait.getType());
+  public TraitState getState(Trait trait) {
+    return getState(trait.getType());
   }
 
   @Override
-  public TraitState getTraitState(TraitType traitType) {
+  public TraitState getState(TraitType traitType) {
     return traitsByType.get(traitType);
   }
 }

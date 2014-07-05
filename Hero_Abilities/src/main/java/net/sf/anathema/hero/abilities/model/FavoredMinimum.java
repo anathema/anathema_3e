@@ -19,13 +19,13 @@ public class FavoredMinimum implements DynamicMinimum {
 
   @Override
   public int getMinimum() {
-    boolean isFavored = stateMap.getTraitState(trait).hasState(Favored);
+    boolean isFavored = stateMap.getState(trait).hasState(Favored);
     return isFavored ? 1 : 0;
   }
 
   @Override
   public void addChangedListener(ChangeListener listener) {
-    stateMap.getTraitState(trait).addTraitStateChangedListener((TraitStateType state) -> {
+    stateMap.getState(trait).addTraitStateChangedListener((TraitStateType state) -> {
       listener.changeOccurred();
     });
   }

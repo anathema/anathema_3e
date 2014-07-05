@@ -120,12 +120,12 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   }
 
   @Override
-  public TraitState getTraitState(TraitType traitType) {
-    return getTraitState(getTrait(traitType));
+  public TraitState getState(TraitType traitType) {
+    return getState(getTrait(traitType));
   }
 
   @Override
-  public TraitState getTraitState(Trait trait) {
-    return getStateMap().getTraitState(trait);
+  public TraitState getState(Trait trait) {
+    return getStateMap().getState(trait);
   }
 }
