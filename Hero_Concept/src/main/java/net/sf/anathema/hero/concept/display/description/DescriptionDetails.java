@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.description;
 
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
-import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.hero.concept.model.description.HeroDescription;
 
 public class DescriptionDetails {
   private final HeroDescription description;

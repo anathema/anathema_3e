@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.item;
 
-import net.sf.anathema.hero.elsewhere.description.HeroDescription;
-import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.concept.model.description.HeroDescription;
+import net.sf.anathema.hero.concept.model.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.text.ITextualDescription;
 

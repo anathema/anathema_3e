@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.dot;
 
-import net.sf.anathema.hero.application.ColumnCount;
+import net.sf.anathema.hero.individual.presenter.ColumnCount;
 
 public interface GroupedFavorableDotConfigurationView {
 

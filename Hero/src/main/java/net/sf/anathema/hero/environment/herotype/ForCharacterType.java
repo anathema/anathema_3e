@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.type;
+package net.sf.anathema.hero.environment.herotype;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

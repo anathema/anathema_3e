@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.abilities.display;
 
 import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
-import net.sf.anathema.hero.application.ColumnCount;
 import net.sf.anathema.hero.display.fx.dot.GroupedFavorableDotConfigurationView;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.presenter.ColumnCount;
 import net.sf.anathema.hero.traits.display.FavorableTraitConfigurationPresenter;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.library.resources.Resources;

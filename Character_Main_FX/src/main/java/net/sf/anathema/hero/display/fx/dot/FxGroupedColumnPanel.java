@@ -3,7 +3,7 @@ package net.sf.anathema.hero.display.fx.dot;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.application.ColumnCount;
+import net.sf.anathema.hero.individual.presenter.ColumnCount;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 

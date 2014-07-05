@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.concept.persistence.description;
 
-import net.sf.anathema.hero.elsewhere.description.HeroDescription;
+import net.sf.anathema.hero.concept.model.description.HeroDescription;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;

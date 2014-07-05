@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.concept.model.description;
 
-import net.sf.anathema.hero.elsewhere.description.HeroDescription;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;

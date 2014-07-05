@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.application.type;
 
 import com.google.common.base.Functions;
+import net.sf.anathema.hero.environment.herotype.ForCharacterType;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.library.initialization.ObjectFactory;
 

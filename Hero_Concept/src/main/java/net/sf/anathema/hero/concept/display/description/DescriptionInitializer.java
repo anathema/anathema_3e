@@ -2,8 +2,8 @@ package net.sf.anathema.hero.concept.display.description;
 
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.elsewhere.description.HeroDescription;
-import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.concept.model.description.HeroDescription;
+import net.sf.anathema.hero.concept.model.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
