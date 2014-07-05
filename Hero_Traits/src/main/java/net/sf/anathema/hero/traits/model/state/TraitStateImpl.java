@@ -38,6 +38,11 @@ public class TraitStateImpl implements TraitState {
     changeStateTo(getNextLegalState());
   }
 
+  @Override
+  public void restore(TraitStateType type) {
+    this.currentState = type;
+  }
+
   private TraitStateType getNextLegalState() {
     final int stateCount = TraitStateType.values().length;
     for (int i = 1; i < stateCount; i++) {
@@ -76,14 +81,6 @@ public class TraitStateImpl implements TraitState {
   public boolean isSelectableForCaste() {
     CasteType currentCaste = getCurrentCaste();
     return castes.contains(currentCaste);
-  }
-
-  @Override
-  public void setFavored(boolean favored) {
-    if (isCaste() || isFavored() == favored) {
-      return;
-    }
-    changeStateTo(favored ? Favored : Default);
   }
 
   @SuppressWarnings("ConstantConditions")

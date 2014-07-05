@@ -29,7 +29,7 @@ public class AbilitySteps {
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
-    stateMap.getState(ability).setFavored(true);
+    stateMap.getState(ability).advanceState();
   }
 
   @Then("^she has (\\d+) dots in ability (.*)$")

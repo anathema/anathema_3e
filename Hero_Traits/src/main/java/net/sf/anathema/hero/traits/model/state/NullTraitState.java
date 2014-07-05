@@ -37,7 +37,7 @@ public class NullTraitState implements TraitState {
   }
 
   @Override
-  public void setFavored(boolean favored) {
+  public void restore(TraitStateType type) {
     // nothing to do
   }
 

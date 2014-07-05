@@ -14,7 +14,7 @@ public interface TraitState {
 
   void advanceState();
 
-  void setFavored(boolean favored);
+  void restore(TraitStateType type);
 
   boolean isCheapened();
 
