@@ -30,7 +30,7 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
     int experienceCosts = 0;
     AbilitiesModel abilitiesModel = AbilitiesModelFetcher.fetch(hero);
     for (Trait ability : abilitiesModel.getAll()) {
-      experienceCosts += getExperienceDots(ability) * getCostPerSpecialtyDot(abilitiesModel.getStateMap(), ability);
+      experienceCosts += getExperienceDots(ability) * getCostPerSpecialtyDot(abilitiesModel, ability);
     }
     return experienceCosts;
   }
@@ -46,7 +46,7 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
   }
 
   private int getCostPerSpecialtyDot(TraitStateMap stateMap, Trait ability) {
-    boolean casteOrFavored = stateMap.isCasteOrFavored(ability);
+    boolean casteOrFavored = stateMap.getTraitState(ability).isCheapened();
     return experienceData.getSpecialtyCost(casteOrFavored);
   }
 }

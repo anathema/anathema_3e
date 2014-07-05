@@ -33,18 +33,18 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   protected int getCostFactor(Trait trait) {
-    CurrentRatingCost abilityCosts = creationData.getAbilityCosts(abilitiesModel.getStateMap().isCasteOrFavored(trait));
+    CurrentRatingCost abilityCosts = creationData.getAbilityCosts(isCheapened(trait));
     return abilityCosts.getRatingCosts(getCalculationBase(trait));
   }
 
   public void recalculate() {
     clear();
-    countTraitFavorizationPicks();
+    countFavoredPicks();
     Set<Trait> sortedTraits = sortTraitsByStatus();
     for (Trait trait : sortedTraits) {
       int costFactor = getCostFactor(trait);
       FavorableTraitCost[] allCosts;
-      if (abilitiesModel.getStateMap().isCasteOrFavored(trait)) {
+      if (isCheapened(trait)) {
         allCosts = handleFavoredTrait(trait, costFactor);
       } else {
         allCosts = handleGeneralTrait(trait, costFactor);
@@ -62,9 +62,9 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     costsByTrait.clear();
   }
 
-  private void countTraitFavorizationPicks() {
+  private void countFavoredPicks() {
     for (Trait trait : traits) {
-      switch (abilitiesModel.getStateMap().getState(trait)) {
+      switch (abilitiesModel.getTraitState(trait).getType()) {
         case Favored:
           increaseFavoredPicksSpent();
           break;
@@ -220,7 +220,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private Set<Trait> sortTraitsByStatus() {
     Set<Trait> orderedTraits = new LinkedHashSet<>();
     for (Trait trait : traits) {
-      if (!abilitiesModel.getStateMap().isCasteOrFavored(trait)) {
+      if (!isCheapened(trait)) {
         addAllTraits(orderedTraits, trait);
       }
     }
@@ -234,5 +234,9 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void addAllTraits(final Set<Trait> orderedTraits, Trait trait) {
     orderedTraits.add(trait);
+  }
+
+  private boolean isCheapened(Trait trait) {
+    return abilitiesModel.getTraitState(trait).isCheapened();
   }
 }

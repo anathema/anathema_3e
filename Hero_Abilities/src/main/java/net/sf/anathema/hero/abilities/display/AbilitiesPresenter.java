@@ -17,8 +17,7 @@ public class AbilitiesPresenter {
     AbilitiesModel abilitiesModel = AbilitiesModelFetcher.fetch(hero);
     IdentifiedTraitTypeList[] traitTypeGroups = abilitiesModel.getTraitTypeList();
     view.initGui(new ColumnCount(2));
-    this.presenter = new FavorableTraitConfigurationPresenter(abilitiesModel.getStateMap(), traitTypeGroups,
-      hero, view, resources);
+    this.presenter = new FavorableTraitConfigurationPresenter(abilitiesModel, traitTypeGroups, hero, view, resources);
   }
 
   public void initPresentation() {

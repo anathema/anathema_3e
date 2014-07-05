@@ -1,6 +1,10 @@
 package net.sf.anathema.hero.traits.model.state;
 
-public class NullTraitStateModel implements TraitStateModel {
+import java.util.Arrays;
+
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
+
+public class NullTraitState implements TraitState {
 
   @Override
   public void addTraitStateChangedListener(TraitStateChangedListener listener) {
@@ -8,8 +12,8 @@ public class NullTraitStateModel implements TraitStateModel {
   }
 
   @Override
-  public TraitState getType() {
-    return TraitState.Default;
+  public TraitStateType getType() {
+    return Default;
   }
   
   @Override
@@ -33,7 +37,7 @@ public class NullTraitStateModel implements TraitStateModel {
   }
 
   @Override
-  public void changeStateTo(TraitState state) {
+  public void changeStateTo(TraitStateType state) {
     // nothing to do
   }
   
@@ -50,5 +54,15 @@ public class NullTraitStateModel implements TraitStateModel {
   @Override
   public int getMinimalValue() {
     return 0;
+  }
+
+  @Override
+  public boolean isCheapened() {
+    return false;
+  }
+
+  @Override
+  public boolean hasState(TraitStateType... type) {
+    return Arrays.asList().contains(getType());
   }
 }

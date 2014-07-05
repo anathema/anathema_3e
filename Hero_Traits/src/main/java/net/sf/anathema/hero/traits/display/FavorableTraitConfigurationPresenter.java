@@ -5,13 +5,14 @@ import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitListModel;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
@@ -20,8 +21,8 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
 
-import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Favored;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 
 public class FavorableTraitConfigurationPresenter {
 
@@ -30,12 +31,12 @@ public class FavorableTraitConfigurationPresenter {
   private final Resources resources;
   private final IdentifiedTraitTypeList[] traitTypeGroups;
   private final TraitMap traitConfiguration;
-  private TraitStateMap stateMap;
   private Hero hero;
+  private TraitListModel traitList;
 
-  public FavorableTraitConfigurationPresenter(TraitStateMap stateMap, IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
+  public FavorableTraitConfigurationPresenter(TraitListModel traitList, IdentifiedTraitTypeList[] traitTypeGroups, Hero hero, GroupedFavorableDotConfigurationView view,
                                               Resources resources) {
-    this.stateMap = stateMap;
+    this.traitList = traitList;
     this.hero = hero;
     this.traitTypeGroups = traitTypeGroups;
     this.traitConfiguration = TraitModelFetcher.fetch(hero);
@@ -61,7 +62,7 @@ public class FavorableTraitConfigurationPresenter {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = traitViewsByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
-      boolean favored = stateMap.isCasteOrFavored(trait);
+      boolean favored = traitList.getTraitState(trait).isCasteOrFavored();
       setButtonState(view, favored, !disabled);
     }
   }
@@ -90,15 +91,16 @@ public class FavorableTraitConfigurationPresenter {
 
   private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
     final ToggleTool casteTool = traitView.addToggleInFront();
+    TraitState traitState = traitList.getTraitState(favorableTrait);
     casteTool.setCommand(() -> {
-      stateMap.advanceFavorableState(favorableTrait);
+      traitState.advanceFavorableState();
     });
-    stateMap.addTraitStateChangedListener(favorableTrait, state -> updateView(casteTool, state));
-    updateView(casteTool, stateMap.getState(favorableTrait));
+    traitState.addTraitStateChangedListener(state -> updateView(casteTool, state));
+    updateView(casteTool, traitState.getType());
     traitViewsByTrait.put(favorableTrait, casteTool);
   }
 
-  private void updateView(final ToggleTool view, TraitState state) {
+  private void updateView(final ToggleTool view, TraitStateType state) {
     boolean select = state == Favored || state == Caste;
     boolean enable = true; // state == Favored || state == Default;
     setButtonState(view, select, enable);

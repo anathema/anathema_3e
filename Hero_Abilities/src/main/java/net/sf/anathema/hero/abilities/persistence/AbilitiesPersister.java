@@ -34,6 +34,6 @@ public class AbilitiesPersister extends AbstractModelJsonPersister<TraitListPto,
   }
 
   private TraitMapPersister createTraitMapPersistence(AbilitiesModel model) {
-    return new TraitMapPersister(model.getStateMap(), id -> AbilityType.valueOf(id));
+    return new TraitMapPersister(model, id -> AbilityType.valueOf(id));
   }
 }

@@ -23,7 +23,7 @@ import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
@@ -39,7 +39,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private Hero hero;
   private AbilitiesTemplate template;
   private TraitModel traitModel;
-  private TraitStateMapImpl traitStateModelMap;
+  private TraitStateMapImpl traitStateMap;
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
@@ -52,18 +52,18 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    this.traitStateModelMap = new TraitStateMapImpl(hero);
+    this.traitStateMap = new TraitStateMapImpl(hero);
     this.hero = hero;
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
     this.abilityTraitGroups = new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
-    MappableTypeIncrementChecker<TraitState> incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
+    MappableTypeIncrementChecker<TraitStateType> incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
     TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
       for (TraitImpl trait : traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template))) {
         addTraits(trait);
-        traitStateModelMap.addTrait(trait);
+        traitStateMap.addTrait(trait);
       }
     }
     this.traitModel = TraitModelFetcher.fetch(hero);
@@ -73,16 +73,16 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   @Override
   public void initializeListening(ChangeAnnouncer changeAnnouncer) {
     for (Trait ability : getAll()) {
-      getStateMap().addTraitStateChangedListener(ability, new FavoredChangedListener(changeAnnouncer));
+      traitStateMap.addTraitStateChangedListener(ability, new FavoredChangedListener(changeAnnouncer));
       ability.addCurrentValueListener(new TraitValueChangedListener(changeAnnouncer, ability));
     }
   }
 
-  private MappableTypeIncrementChecker<TraitState> createFavoredAbilityIncrementChecker(TraitMap traitMap, GroupedTraitType[] abilityGroups) {
+  private MappableTypeIncrementChecker<TraitStateType> createFavoredAbilityIncrementChecker(TraitMap traitMap, GroupedTraitType[] abilityGroups) {
     
-	Map<TraitState, Integer> stateLimits = new HashMap<>();
-	for (TraitState state : TraitState.values()) {
-		if (state == TraitState.Default) {
+	Map<TraitStateType, Integer> stateLimits = new HashMap<>();
+	for (TraitStateType state : TraitStateType.values()) {
+		if (state == TraitStateType.Default) {
 			stateLimits.put(state, MappableTypeIncrementChecker.NO_LIMIT);
 		}
 		else {
@@ -94,7 +94,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     for (GroupedTraitType traitType : abilityGroups) {
       abilityTypes.add(traitType.getTraitType());
     }
-    return new StatePickIncrementChecker(stateLimits, abilityTypes.toArray(new TraitType[abilityTypes.size()]), getStateMap());
+    return new StatePickIncrementChecker(stateLimits, traitStateMap);
   }
 
   @Override
@@ -109,7 +109,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   @Override
-  public int getTraitPicksForState(TraitState state) {
+  public int getTraitPicksForState(TraitStateType state) {
 	  switch (state) {
 	  case Favored: return template.favoredCount;
 	  case Caste: return template.casteCount;
@@ -119,7 +119,13 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   @Override
-  public TraitStateMap getStateMap() {
-    return traitStateModelMap;
+  public TraitState getTraitState(TraitType traitType) {
+    Trait ability = getTrait(traitType);
+    return getTraitState(ability);
+  }
+
+  @Override
+  public TraitState getTraitState(Trait trait) {
+    return traitStateMap.getTraitState(trait);
   }
 }

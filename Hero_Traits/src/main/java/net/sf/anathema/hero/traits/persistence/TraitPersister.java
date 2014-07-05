@@ -19,7 +19,7 @@ public class TraitPersister {
   }
 
   private void saveFavoredValue(Trait trait, TraitPto pto) {
-    if (stateMap.isFavored(trait)) {
+    if (stateMap.getTraitState(trait).isFavored()) {
       pto.favored = true;
     }
   }
@@ -57,6 +57,6 @@ public class TraitPersister {
 
   private void loadFavoredValue(Trait trait, TraitPto pto) {
     boolean favored = pto.favored != null ? pto.favored : false;
-    stateMap.setFavored(trait, favored);
+    stateMap.getTraitState(trait).setFavored(favored);
   }
 }

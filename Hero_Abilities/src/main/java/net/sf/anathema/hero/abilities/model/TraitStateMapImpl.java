@@ -9,20 +9,15 @@ import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import static java.util.Arrays.asList;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Favored;
-
-public class TraitStateMapImpl implements TraitStateMap {
+public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
 
   private final Hero hero;
-  private Map<TraitType, TraitStateModel> traitsByType = new HashMap<>();
+  private Map<TraitType, TraitState> traitsByType = new HashMap<>();
 
   public TraitStateMapImpl(Hero hero) {
     this.hero = hero;
@@ -34,59 +29,20 @@ public class TraitStateMapImpl implements TraitStateMap {
     TraitModelFetcher.fetch(hero).getMinimumMap().addMinimum(trait.getType(), favoredMinimum);
   }
 
-  @Override
   public void addTraitStateChangedListener(Trait trait, TraitStateChangedListener listener) {
-    getStateModel(trait).addTraitStateChangedListener(listener);
+    getTraitState(trait).addTraitStateChangedListener(listener);
   }
 
-  @Override
-  public TraitState getState(Trait trait) {
-    return getStateModel(trait).getType();
-  }
-
-  @Override
-  public boolean hasState(Trait trait, TraitState... states) {
-    TraitState traitState = getState(trait);
-    return asList(states).contains(traitState);
-  }
-
-  @Override
-  public boolean isFavored(Trait trait) {
-    return hasState(trait, Favored);
-  }
-
-  @Override
-  public boolean isCasteOrFavored(Trait trait) {
-    return hasState(trait, Favored, Caste);
-  }
-
-  @Override
-  public void changeStateTo(Trait trait, TraitState state) {
-    getStateModel(trait).changeStateTo(state);
-  }
-
-  @Override
-  public void forEach(Consumer<TraitStateModel> consumer) {
+  public void forEach(Consumer<TraitState> consumer) {
     traitsByType.values().forEach(consumer);
   }
 
-  @Override
-  public void advanceFavorableState(Trait trait) {
-    getStateModel(trait).advanceFavorableState();
+  public TraitState getTraitState(Trait trait) {
+    return getTraitState(trait.getType());
   }
 
   @Override
-  public void setFavored(Trait trait, boolean favored) {
-    getStateModel(trait).setFavored(favored);
+  public TraitState getTraitState(TraitType traitType) {
+    return traitsByType.get(traitType);
   }
-
-  @Override
-  public int getMinimalValue(Trait trait) {
-    return getStateModel(trait).getMinimalValue();
-  }
-
-  private TraitStateModel getStateModel(Trait trait) {
-    return traitsByType.get(trait.getType());
-  }
-
 }

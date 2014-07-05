@@ -4,10 +4,10 @@ import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.NullTraitStateModel;
+import net.sf.anathema.hero.traits.model.state.NullTraitState;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
-import net.sf.anathema.hero.traits.model.state.TraitStateModelImpl;
+import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.event.IntegerChangedListener;
 import org.jmock.example.announcer.Announcer;
 
@@ -17,16 +17,16 @@ public class TraitImpl implements Trait {
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
   private final ValueChangeChecker checker;
-  private TraitStateModel stateModel;
+  private TraitState stateModel;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
   public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                   MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
+                   MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
-    this.stateModel = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
+    this.stateModel = new TraitStateImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     traitRules.addChangeListener(this::resetCurrentValue);
   }
 
@@ -35,7 +35,7 @@ public class TraitImpl implements Trait {
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
-    this.stateModel = new NullTraitStateModel();
+    this.stateModel = new NullTraitState();
     this.checker = checker;
     this.creationValue = traitRules.getStartValue();
   }
@@ -45,7 +45,7 @@ public class TraitImpl implements Trait {
     return creationValue;
   }
 
-  public TraitStateModel getStateModel() {
+  public TraitState getStateModel() {
     return stateModel;
   }
 

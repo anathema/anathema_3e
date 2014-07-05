@@ -19,8 +19,8 @@ import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
@@ -60,8 +60,8 @@ public class FavorableTraitTest {
     allowOneFavoredIncrement();
     trait.getStateModel().addTraitStateChangedListener(abilityStateListener);
     assertEquals(0, trait.getCreationValue());
-    trait.getStateModel().changeStateTo(TraitState.Favored);
-    verify(abilityStateListener).favorableStateChanged(TraitState.Favored);
+    trait.getStateModel().changeStateTo(TraitStateType.Favored);
+    verify(abilityStateListener).favorableStateChanged(TraitStateType.Favored);
     assertEquals(1, trait.getCreationValue());
   }
 
@@ -72,8 +72,8 @@ public class FavorableTraitTest {
   @Test
   public void testSetAbiltyToFavoredUnallowed() throws Exception {
     when(incrementChecker.isValidIncrement(1)).thenReturn(false);
-    trait.getStateModel().changeStateTo(TraitState.Favored);
-    assertSame(TraitState.Default, trait.getStateModel().getType());
+    trait.getStateModel().changeStateTo(TraitStateType.Favored);
+    assertSame(TraitStateType.Default, trait.getStateModel().getType());
     assertEquals(0, trait.getCreationValue());
   }
 
@@ -93,7 +93,7 @@ public class FavorableTraitTest {
     TraitTemplate archeryTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules rules = new TraitRulesImpl(AbilityType.Archery, archeryTemplate, hero);
     return new TraitImpl(hero, rules, new CasteType[]{new DummyCasteType()}, new FriendlyValueChangeChecker(),
-    		new MonoTypeIncrementChecker<TraitState>(incrementChecker, TraitState.Favored));
+    		new MonoTypeIncrementChecker<TraitStateType>(incrementChecker, TraitStateType.Favored));
   }
 
   @Test

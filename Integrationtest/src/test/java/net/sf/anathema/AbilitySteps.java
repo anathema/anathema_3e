@@ -28,8 +28,8 @@ public class AbilitySteps {
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
-    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero()).getStateMap();
-    stateMap.setFavored(ability, true);
+    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
+    stateMap.getTraitState(ability).setFavored(true);
   }
 
   @Then("^she has (\\d+) dots in ability (.*)$")
@@ -62,22 +62,16 @@ public class AbilitySteps {
   }
 
   private void spendAPoint() {
-    TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero()).getStateMap();
+    TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero());
     Trait[] traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.isFavored(trait)){
+      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.getTraitState(trait).isFavored()){
         increaseTraitValueByOne(trait);
         break;
       }
     }
-  }
-
-  private int determinePointsToSpend(int overspending) {
-    SpendingModel model = (SpendingModel) bonusModel.findBonusModel("Abilities", "General");
-    int freeAbilityPoints = model.getAllotment();
-    return freeAbilityPoints+overspending;
   }
 
   private void increaseTraitValueByOne(Trait trait) {

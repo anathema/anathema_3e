@@ -9,24 +9,26 @@ import net.sf.anathema.library.change.ChangeFlavor;
 import net.sf.anathema.library.change.FlavoredChangeListener;
 import org.jmock.example.announcer.Announcer;
 
-import static net.sf.anathema.hero.traits.model.state.TraitState.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Default;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Favored;
-import static net.sf.anathema.hero.traits.model.state.TraitState.Supernal;
+import java.util.Arrays;
 
-public class TraitStateModelImpl implements TraitStateModel {
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Supernal;
 
-  private TraitState state;
+public class TraitStateImpl implements TraitState {
+
+  private TraitStateType state;
   private final Announcer<TraitStateChangedListener> favorableStateControl = Announcer.to(TraitStateChangedListener.class);
-  private final MappableTypeIncrementChecker<TraitState> favoredIncrementChecker;
+  private final MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker;
   private final Trait trait;
   private final CasteType[] castes;
   private final boolean isRequiredFavored;
   private final Hero hero;
 
-  public TraitStateModelImpl(Hero hero, CasteType[] castes,
-                             MappableTypeIncrementChecker<TraitState> favoredIncrementChecker, Trait trait,
-                             boolean isRequiredFavored) {
+  public TraitStateImpl(Hero hero, CasteType[] castes,
+                        MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker, Trait trait,
+                        boolean isRequiredFavored) {
     this.hero = hero;
     this.castes = castes;
     this.favoredIncrementChecker = favoredIncrementChecker;
@@ -37,7 +39,7 @@ public class TraitStateModelImpl implements TraitStateModel {
   }
 
   @Override
-  public final void changeStateTo(TraitState state) {
+  public final void changeStateTo(TraitStateType state) {
     if (isRequiredFavored && state == Default) {
       state = Favored;
     }
@@ -53,10 +55,10 @@ public class TraitStateModelImpl implements TraitStateModel {
     changeStateTo(getNextLegalState());
   }
 
-  private TraitState getNextLegalState() {
-    final int stateCount = TraitState.values().length;
+  private TraitStateType getNextLegalState() {
+    final int stateCount = TraitStateType.values().length;
     for (int i = 1; i < stateCount; i++) {
-      TraitState nextState = TraitState.values()[(state.ordinal() + i) % TraitState.values().length];
+      TraitStateType nextState = TraitStateType.values()[(state.ordinal() + i) % TraitStateType.values().length];
       if (isLegalState(nextState)) {
         return nextState;
       }
@@ -64,7 +66,7 @@ public class TraitStateModelImpl implements TraitStateModel {
     return state;
   }
 
-  private boolean isLegalState(TraitState state) {
+  private boolean isLegalState(TraitStateType state) {
     if (state == Caste && isRequiredFavored) {
       throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
     }
@@ -91,6 +93,16 @@ public class TraitStateModelImpl implements TraitStateModel {
   }
 
   @Override
+  public boolean isCheapened() {
+    return !state.equals(Default);
+  }
+
+  @Override
+  public boolean hasState(TraitStateType... types) {
+    return Arrays.asList(types).contains(getType());
+  }
+
+  @Override
   public void setFavored(boolean favored) {
     if (isCaste() || isFavored() == favored) {
       return;
@@ -114,7 +126,7 @@ public class TraitStateModelImpl implements TraitStateModel {
   }
 
   @Override
-  public final TraitState getType() {
+  public final TraitStateType getType() {
     return state;
   }
 

@@ -1,33 +1,29 @@
 package net.sf.anathema.hero.abilities.model;
 
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateMap;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.Map;
 
-public class StatePickIncrementChecker implements MappableTypeIncrementChecker<TraitState> {
+public class StatePickIncrementChecker implements MappableTypeIncrementChecker<TraitStateType> {
 
-  private final Map<TraitState, Integer> stateLimits;
-  private final TraitType[] traitTypes;
-  private TraitStateMap stateModelMap;
+  private final Map<TraitStateType, Integer> stateLimits;
+  private TraitStateCollection stateCollection;
 
-  public StatePickIncrementChecker(Map<TraitState, Integer> stateLimits, TraitType[] traitTypes, TraitStateMap stateModel) {
-    this.traitTypes = traitTypes;
-    this.stateModelMap = stateModel;
+  public StatePickIncrementChecker(Map<TraitStateType, Integer> stateLimits, TraitStateCollection stateModel) {
+    this.stateCollection = stateModel;
     this.stateLimits = stateLimits;
   }
 
   @Override
-  public boolean isValidIncrement(TraitState state, int increment) {
+  public boolean isValidIncrement(TraitStateType state, int increment) {
     Integer limit = stateLimits.get(state);
     if (limit == null) {
     	return true;
     }
-    Count<TraitStateModel> countCountsAs = new Count<>(model -> model.getType().countsAs(state));
-    stateModelMap.forEach(countCountsAs);
+    Count<TraitState> countCountsAs = new Count<>(model -> model.getType().countsAs(state));
+    stateCollection.forEach(countCountsAs);
     return countCountsAs.count + increment <= limit;
   }
 }

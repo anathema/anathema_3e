@@ -21,6 +21,7 @@ import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
@@ -116,5 +117,15 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
       }
     }
     return new Trait[0];
+  }
+
+  @Override
+  public TraitState getTraitState(TraitType traitType) {
+    return getTraitState(getTrait(traitType));
+  }
+
+  @Override
+  public TraitState getTraitState(Trait trait) {
+    return getStateMap().getTraitState(trait);
   }
 }
