@@ -1,8 +1,11 @@
 package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.library.change.FlavoredChangeListener;
 import org.jmock.example.announcer.Announcer;
 
 public class TraitFavorization implements ITraitFavorization {
@@ -16,7 +19,7 @@ public class TraitFavorization implements ITraitFavorization {
   private final Hero hero;
   
   public TraitFavorization(Hero hero, CasteType[] castes, IncrementChecker favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
-	  this(hero, castes, new MonoTypeIncrementChecker<FavorableState>(favoredIncrementChecker, FavorableState.Favored),
+	  this(hero, castes, new MonoTypeIncrementChecker<>(favoredIncrementChecker, FavorableState.Favored),
 			  trait, isRequiredFavored);
   }
 
@@ -27,6 +30,7 @@ public class TraitFavorization implements ITraitFavorization {
     this.trait = trait;
     this.isRequiredFavored = isRequiredFavored;
     this.state = isRequiredFavored ? FavorableState.Favored : FavorableState.Default;
+    hero.getChangeAnnouncer().addListener(new UpdateFavoredStateOnCasteChange());
   }
 
   @Override
@@ -145,5 +149,16 @@ public class TraitFavorization implements ITraitFavorization {
       }
     }
     return false;
+  }
+  
+  public class UpdateFavoredStateOnCasteChange implements FlavoredChangeListener {
+
+    @Override
+    public void changeOccurred(ChangeFlavor flavor) {
+      if (flavor == ConceptChange.FLAVOR_CASTE) {
+        clearCaste();
+        updateFavorableStateToCaste();
+      }
+    }
   }
 }
