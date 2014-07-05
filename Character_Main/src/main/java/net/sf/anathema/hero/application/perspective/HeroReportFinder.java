@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.report.DefaultReportFinder;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.RegisteredReportFactory;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.environment.report.ReportFactory;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,12 +18,13 @@ public class HeroReportFinder implements DefaultReportFinder {
   private final Resources resources;
   private final List<Report> reports = new ArrayList<>();
 
-  public HeroReportFinder(ApplicationModel model, Environment environment) {
-    Collection<ReportFactory> factories = environment.getObjectFactory().instantiateOrdered(RegisteredReportFactory.class);
+  public HeroReportFinder(HeroEnvironment environment) {
+    Collection<ReportFactory> factories = environment.getObjectFactory().instantiateOrdered(
+      RegisteredReportFactory.class);
     for (ReportFactory factory : factories) {
-      Collections.addAll(reports, factory.createReport(environment, model));
+      Collections.addAll(reports, factory.createReport(environment));
     }
-    this.resources = environment;
+    this.resources = environment.getResources();
   }
 
   public Report getDefaultReport(Hero hero) {

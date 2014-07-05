@@ -14,8 +14,8 @@ import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.platform.messaging.MessageToken;
-import net.sf.anathema.platform.messaging.Messaging;
+import net.sf.anathema.library.message.MessageToken;
+import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
 import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
 

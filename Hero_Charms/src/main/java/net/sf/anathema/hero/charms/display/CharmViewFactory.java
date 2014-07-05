@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.display;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.individual.view.SubViewFactory;
-import net.sf.anathema.library.autocollect.Produces;
+import net.sf.anathema.library.dependencies.Produces;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.library.view.IntValueView;

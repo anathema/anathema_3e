@@ -2,28 +2,29 @@ package net.sf.anathema.hero.spiritual.display;
 
 import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.SpiritualTraits;
 
 @RegisteredInitializer(SpiritualTraits)
 @Weight(weight = 0)
 public class SpiritualTraitsInitializer implements HeroModelInitializer {
+  private HeroEnvironment environment;
+
   @SuppressWarnings("UnusedParameters")
-  public SpiritualTraitsInitializer(ApplicationModel applicationModel) {
-    //nothing to do
+  public SpiritualTraitsInitializer(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
   @Override
-  public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    String header = new DefaultSpiritualTraitsViewProperties(environment).getOverallHeader();
+  public void initialize(SectionView sectionView, Hero hero) {
+    String header = new DefaultSpiritualTraitsViewProperties(environment.getResources()).getOverallHeader();
     SpiritualTraitsView view = sectionView.addView(header, SpiritualTraitsView.class);
-    new BasicSpiritualTraitsPresenter(environment, hero, view).initPresentation();
+    new BasicSpiritualTraitsPresenter(environment.getResources(), hero, view).initPresentation();
   }
 
   @Override

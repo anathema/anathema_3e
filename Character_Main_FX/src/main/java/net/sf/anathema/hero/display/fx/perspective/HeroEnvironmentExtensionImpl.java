@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.DataSetInitializer;
-import net.sf.anathema.hero.application.HeroEnvironmentExtension;
-import net.sf.anathema.hero.application.HeroEnvironmentImpl;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentExtension;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentImpl;
 import net.sf.anathema.hero.application.template.CharacterTemplateInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;

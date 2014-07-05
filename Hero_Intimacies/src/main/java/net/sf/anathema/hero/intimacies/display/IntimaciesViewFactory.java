@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.hero.individual.view.SubViewFactory;
-import net.sf.anathema.library.autocollect.Produces;
+import net.sf.anathema.library.dependencies.Produces;
 
 @Produces(IntimaciesView.class)
 public class IntimaciesViewFactory implements SubViewFactory {

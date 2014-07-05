@@ -1,19 +1,21 @@
 package net.sf.anathema.hero.sheet.preferences;
 
 import net.sf.anathema.framework.reporting.pdf.PageSize;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.preferences.Preferences;
 import net.sf.anathema.platform.preferences.PreferenceValue;
 
 public class PageSizePreference {
 
-  private Preferences preferences;
+  private HeroEnvironment environment;
 
-  public PageSizePreference(Preferences preferences) {
-    this.preferences = preferences;
+  public PageSizePreference(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
+  // todo
   public PageSize getPageSize() {
-    String value = preferences.getPreference(SheetPreferenceModel.KEY.key);
+    String value = environment.getPreference(SheetPreferenceModel.KEY.key);
     if (value == Preferences.PREFERENCE_NOT_SET) {
       return PageSize.A4;
     }

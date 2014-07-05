@@ -3,7 +3,6 @@ dependencies {
         exclude group:'dom4j'
     }
     compile 'org.javassist:javassist:3.18.2-GA' //for Reflections
-    compile 'com.itextpdf:itextpdf:5.5.1'
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'de.idos.updates:updates-core:1.2.0'
     compile project(':Library')

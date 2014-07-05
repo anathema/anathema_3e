@@ -2,7 +2,7 @@ package net.sf.anathema.points.sheet.content;
 
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentFactory;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.library.autocollect.Produces;
+import net.sf.anathema.library.dependencies.Produces;
 import net.sf.anathema.library.resources.Resources;
 
 @Produces(ExperienceContent.class)

@@ -4,11 +4,10 @@ import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
 import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
 
@@ -16,16 +15,18 @@ import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
 @Weight(weight = 100)
 public class CasteInitializer implements HeroModelInitializer {
 
+  private HeroEnvironment environment;
+
   @SuppressWarnings("UnusedParameters")
-  public CasteInitializer(ApplicationModel applicationModel) {
-    //nothing to do
+  public CasteInitializer(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
   @Override
-  public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    String conceptHeader = environment.getString("CardView.CharacterConcept.Title");
+  public void initialize(SectionView sectionView, Hero hero) {
+    String conceptHeader = environment.getResources().getString("CardView.CharacterConcept.Title");
     CasteView conceptView = sectionView.addView(conceptHeader, CasteView.class);
-    new CastePresenter(hero, conceptView, environment).initPresentation();
+    new CastePresenter(hero, conceptView, environment.getResources()).initPresentation();
   }
 
   @Override

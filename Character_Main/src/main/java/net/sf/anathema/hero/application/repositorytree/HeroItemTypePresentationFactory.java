@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.repositorytree;
 
-import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.perspective.JsonHeroReferenceScanner;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -19,7 +19,7 @@ public class HeroItemTypePresentationFactory implements ItemTypePresentationFact
 
   @Override
   public IItemTypeViewProperties createItemTypeCreationProperties(ApplicationModel anathemaModel, Resources resources) {
-    HeroEnvironment generics = HeroEnvironmentExtractor.getGenerics(anathemaModel);
+    HeroEnvironment generics = HeroEnvironmentFetcher.fetch(anathemaModel);
     IRepositoryFileResolver fileResolver = anathemaModel.getRepository().getRepositoryFileResolver();
     HeroReferenceScanner scanner = new JsonHeroReferenceScanner(generics.getHeroTypes(), fileResolver);
     return new HeroViewProperties(retrieveCharacterItemType(), resources, scanner);

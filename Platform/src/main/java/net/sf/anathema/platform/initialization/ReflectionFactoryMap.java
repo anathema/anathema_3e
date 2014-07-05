@@ -1,6 +1,6 @@
 package net.sf.anathema.platform.initialization;
 
-import net.sf.anathema.library.autocollect.Produces;
+import net.sf.anathema.library.dependencies.Produces;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
 import java.util.Collection;

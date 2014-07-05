@@ -3,9 +3,9 @@ package net.sf.anathema.platform.repositorytree;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.message.MessageType;
+import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.item.IItemType;
-import net.sf.anathema.platform.messaging.Messaging;
 import net.sf.anathema.platform.repository.PrintNameFile;
 import net.sf.anathema.platform.repository.access.RepositoryFileAccess;
 

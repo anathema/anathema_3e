@@ -6,12 +6,11 @@ import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.elsewhere.description.HeroDescription;
 import net.sf.anathema.hero.elsewhere.description.HeroDescriptionFetcher;
+import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
-import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.frame.ApplicationModel;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
 
@@ -19,14 +18,16 @@ import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
 @Weight(weight = 0)
 public class DescriptionInitializer implements HeroModelInitializer {
 
+  private HeroEnvironment environment;
+
   @SuppressWarnings("UnusedParameters")
-  public DescriptionInitializer(ApplicationModel applicationModel) {
-    //nothing to do
+  public DescriptionInitializer(HeroEnvironment environment) {
+    this.environment = environment;
   }
 
   @Override
-  public void initialize(SectionView sectionView, Hero hero, Environment environment) {
-    String descriptionHeader = environment.getString("CardView.CharacterDescription.Title");
+  public void initialize(SectionView sectionView, Hero hero) {
+    String descriptionHeader = environment.getResources().getString("CardView.CharacterDescription.Title");
     ConfigurableCharacterView descriptionView =
             sectionView.addView(descriptionHeader, ConfigurableCharacterView.class);
     DescriptionDetails descriptionDetails = createDescriptionDetails(hero);

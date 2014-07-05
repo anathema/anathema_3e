@@ -1,7 +1,7 @@
 package net.sf.anathema.integration;
 
 import net.sf.anathema.TestInitializer;
-import net.sf.anathema.hero.application.HeroEnvironmentExtractor;
+import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.item.HeroItem;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
@@ -30,7 +30,7 @@ public class CharacterFactory {
     TestInitializer initializer = TestInitializer.Create();
     this.model = initializer.initialize();
     new HeroSystemInitializer(model,initializer.getEnvironment()).initializeCharacterSystem();
-    heroEnvironment = HeroEnvironmentExtractor.getGenerics(model);
+    heroEnvironment = HeroEnvironmentFetcher.fetch(model);
     this.heroTypes = heroEnvironment.getHeroTypes();
   }
 
@@ -60,7 +60,7 @@ public class CharacterFactory {
   }
 
   private HeroEnvironment getCharacterGenerics() {
-    return HeroEnvironmentExtractor.getGenerics(model);
+    return HeroEnvironmentFetcher.fetch(model);
   }
 
   public void tearDownRepository() throws Throwable{
