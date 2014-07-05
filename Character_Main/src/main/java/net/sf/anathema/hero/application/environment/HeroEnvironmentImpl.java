@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.application.environment;
 
-import net.sf.anathema.hero.application.InjectingObjectFactory2;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
@@ -41,7 +40,7 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
 
   @Override
   public ObjectFactory getObjectFactory() {
-    return new InjectingObjectFactory2(environment.getObjectFactory(), model, environment);
+    return new InjectingObjectFactory(environment.getObjectFactory(), model, environment);
   }
 
   @Override
