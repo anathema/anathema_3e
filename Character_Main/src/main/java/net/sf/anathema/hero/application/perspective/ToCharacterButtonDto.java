@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.application.perspective;
 
 import com.google.common.base.Function;
-import net.sf.anathema.hero.application.CharacterUI;
-import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.individual.splat.SplatType;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
-import static net.sf.anathema.hero.elsewhere.concept.CasteType.NULL_CASTE_TYPE;
+import static net.sf.anathema.hero.concept.model.concept.CasteType.NULL_CASTE_TYPE;
 
 public class ToCharacterButtonDto implements Function<DescriptiveFeatures, CharacterButtonDto> {
   private final Resources resources;
@@ -31,15 +31,15 @@ public class ToCharacterButtonDto implements Function<DescriptiveFeatures, Chara
   }
 
   private String getDetails(SplatType splatType) {
-    GenericPresentationTemplate presentationTemplate = new GenericPresentationTemplate(splatType);
+    PresentationPropertiesImpl presentationTemplate = new PresentationPropertiesImpl(splatType);
     return resources.getString(presentationTemplate.getNewActionResource());
   }
 
   private RelativePath getPathToImage(SplatType splatType, Identifier casteType) {
     if (casteType == NULL_CASTE_TYPE) {
-      return new CharacterUI().getLargeTypeIconPath(splatType.getCharacterType());
+      return new HeroUI().getLargeTypeIconPath(splatType.getCharacterType());
     } else {
-      GenericPresentationTemplate presentationTemplate = new GenericPresentationTemplate(splatType);
+      PresentationPropertiesImpl presentationTemplate = new PresentationPropertiesImpl(splatType);
       return presentationTemplate.getLargeCasteIconResource(casteType.getId());
     }
   }

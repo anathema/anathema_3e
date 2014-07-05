@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
 import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
 import net.sf.anathema.hero.display.fx.dot.GroupedFavorableDotConfigurationView;
+import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -21,7 +21,6 @@ import net.sf.anathema.library.resources.Resources;
 import java.util.List;
 
 import static net.sf.anathema.hero.traits.model.FavorableState.Caste;
-import static net.sf.anathema.hero.traits.model.FavorableState.Default;
 import static net.sf.anathema.hero.traits.model.FavorableState.Favored;
 
 public class FavorableTraitConfigurationPresenter {
@@ -102,7 +101,7 @@ public class FavorableTraitConfigurationPresenter {
     boolean select = state == Favored || state == Caste;
     boolean enable = true; // state == Favored || state == Default;
     setButtonState(view, select, enable);
-    GenericPresentationTemplate properties = new GenericPresentationTemplate(hero.getSplat());
+    PresentationPropertiesImpl properties = new PresentationPropertiesImpl(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);
   }
 

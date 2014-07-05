@@ -1,14 +1,11 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
-
-public class DefaultCasteModel {
+public class CasteModelImpl {
 
   private final CasteSelection selection;
   private final CasteCollection collection;
 
-  public DefaultCasteModel(CasteSelection selection, CasteCollection collection) {
+  public CasteModelImpl(CasteSelection selection, CasteCollection collection) {
     this.selection = selection;
     this.collection = collection;
   }

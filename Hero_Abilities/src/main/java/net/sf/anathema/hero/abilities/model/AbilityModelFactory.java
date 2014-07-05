@@ -2,7 +2,7 @@ package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplateLoader;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;

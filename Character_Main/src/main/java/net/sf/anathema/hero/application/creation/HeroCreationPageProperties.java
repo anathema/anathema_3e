@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.creation;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
@@ -10,11 +10,11 @@ import net.sf.anathema.library.resources.Resources;
 public class HeroCreationPageProperties {
 
   private final Resources resources;
-  private final CharacterUI iconProvider;
+  private final HeroUI iconProvider;
 
   public HeroCreationPageProperties(Resources resources) {
     this.resources = resources;
-    this.iconProvider = new CharacterUI();
+    this.iconProvider = new HeroUI();
   }
 
   public String getTitle() {

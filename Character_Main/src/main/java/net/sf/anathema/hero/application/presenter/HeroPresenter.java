@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.presenter;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;

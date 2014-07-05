@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.abilities.model;
 
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.traits.model.group.AbstractTraitTypeGroupFactory;
 import net.sf.anathema.library.identifier.Identifier;
 

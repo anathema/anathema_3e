@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.concept.persistence.concept;
 
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.exception.PersistenceException;

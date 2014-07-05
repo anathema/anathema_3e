@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.dummy.models;
 
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 
 public class NullCasteCollection implements CasteCollection {

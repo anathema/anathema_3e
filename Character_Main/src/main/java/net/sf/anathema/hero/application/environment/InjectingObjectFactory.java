@@ -2,60 +2,66 @@ package net.sf.anathema.hero.application.environment;
 
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
-import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
+import java.util.stream.Stream;
 
 public class InjectingObjectFactory implements ObjectFactory {
 
-  private ObjectFactory objectFactory;
-  private Map<Class, Object> injectObjects;
+  private final ObjectFactory original;
+  private final List<Object> injections = new ArrayList<>();
 
-  public InjectingObjectFactory(ObjectFactory objectFactory, Map<Class, Object> injectObjects) {
-    this.objectFactory = objectFactory;
-    this.injectObjects = injectObjects;
+  public InjectingObjectFactory(ObjectFactory original, Object... injections) {
+    this.original = original;
+    this.injections.addAll(Arrays.asList(injections));
   }
 
   @Override
-  public <T> Collection<T> instantiateOrdered(Class<? extends Annotation> annotation,
-                                              Object... parameter) throws InitializationException {
-    Collection<T> createdObjects = objectFactory.instantiateOrdered(annotation, parameter);
-    return injectAll(createdObjects);
+  public <T> Collection<T> instantiateOrdered(Class<? extends Annotation> annotation, Object... parameter) throws InitializationException {
+    Collection<T> annotatedClasses = original.instantiateOrdered(annotation, parameter);
+    return inject(annotatedClasses);
   }
 
   @Override
-  public <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation,
-                                          Object... parameter) throws InitializationException {
-    Collection<T> createdObject = objectFactory.instantiateAll(annotation, parameter);
-    return injectAll(createdObject);
+  public <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation, Object... parameter) throws InitializationException {
+    Collection<T> annotatedClasses = original.instantiateAll(annotation, parameter);
+    return inject(annotatedClasses);
   }
 
   @Override
   public <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter) {
-    Collection<T> createdObject = objectFactory.instantiateAllImplementers(interfaceClass, parameter);
-    return injectAll(createdObject);
+    Collection<T> implementers = original.instantiateAllImplementers(interfaceClass, parameter);
+    return inject(implementers);
   }
 
-  private <T> Collection<T> injectAll(Collection<T> instances) {
-    instances.forEach(this::inject);
-    return instances;
+  private <T> Collection<T> inject(Collection<T> implementers) {
+    implementers.forEach(this::inject);
+    return implementers;
   }
 
-  private <T> void inject(T instance) {
-    List<Field> fields =  FieldUtils.getAllFieldsList(instance.getClass());
-    fields.forEach(field -> {
+  private <T> void inject(T implementer) {
+    Field[] fields = implementer.getClass().getFields();
+    Stream.of(fields).forEach(field -> injectField(implementer, field));
+  }
+
+  private <T> void injectField(T implementer, Field field) {
+    if (!field.isAnnotationPresent(Inject.class)) {
+      return;
+    }
+    injectAssignableInjections(implementer, field);
+  }
+
+  private void injectAssignableInjections(Object implementer, Field field) {
+    injections.stream().filter(injection -> field.getType().isAssignableFrom(injection.getClass())).forEach(object -> {
       try {
-        Class<?> type = field.getType();
-        if (field.isAnnotationPresent(Inject.class) && injectObjects.containsKey(type)) {
-          Object value = injectObjects.get(field.getType());
-          FieldUtils.writeField(field, instance, value);
-        }
+        field.set(implementer, object);
       } catch (IllegalAccessException e) {
-        throw new InitializationException("Could not inject.", e);
+        throw new RuntimeException(e);
       }
     });
   }

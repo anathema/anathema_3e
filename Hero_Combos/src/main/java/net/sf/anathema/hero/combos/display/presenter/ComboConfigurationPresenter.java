@@ -15,7 +15,7 @@ import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
-import net.sf.anathema.hero.elsewhere.concept.ConceptChange;
+import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Tool;

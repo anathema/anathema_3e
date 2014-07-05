@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.concept.display.caste.presenter.NameGeneratorCommand;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
@@ -20,7 +20,7 @@ public class RealmNameAction implements NameEditAction {
 
   @Override
   public void configure(Tool tool, ITextualDescription description) {
-    tool.setIcon(new CharacterUI().getRandomRealmNameIconPath());
+    tool.setIcon(new HeroUI().getRandomRealmNameIconPath());
     tool.setTooltip(resources.getString("CharacterDescription.Tooltip.RealmName"));
     tool.setCommand(new NameGeneratorCommand(description, new RealmNameGenerator()));
   }

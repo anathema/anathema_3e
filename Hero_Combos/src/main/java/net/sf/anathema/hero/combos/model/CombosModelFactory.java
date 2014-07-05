@@ -4,7 +4,7 @@ import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.combos.display.presenter.CombosModel;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
+import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.health.model.HealthModel;

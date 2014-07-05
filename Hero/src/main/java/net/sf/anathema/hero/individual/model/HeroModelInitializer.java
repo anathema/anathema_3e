@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.application.presenter;
+package net.sf.anathema.hero.individual.model;
 
-import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.view.SectionView;
 
 public interface HeroModelInitializer {

@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.traits.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class TraitFactory {
 

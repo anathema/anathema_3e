@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.traits.model.rules.limitation;
 
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
-import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.concept.HeroConcept;
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 

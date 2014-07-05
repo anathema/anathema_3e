@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.application.creation;
 
+import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
@@ -13,7 +14,7 @@ public class TemplateTypeUiConfiguration extends AbstractUIConfiguration<HeroSpl
 
   @Override
   protected String labelForExistingValue(HeroSplat heroSplat) {
-    GenericPresentationTemplate template = new GenericPresentationTemplate(heroSplat);
+    PresentationPropertiesImpl template = new PresentationPropertiesImpl(heroSplat);
     String newActionResource = template.getNewActionResource();
     return resources.getString(newActionResource);
   }

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.application.presenter;
+package net.sf.anathema.hero.individual.model;
 
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 

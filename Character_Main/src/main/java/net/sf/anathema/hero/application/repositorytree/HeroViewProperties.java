@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.repositorytree;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
@@ -17,7 +17,7 @@ public class HeroViewProperties implements IItemTypeViewProperties {
 
   public HeroViewProperties(IItemType type, Resources resources, HeroReferenceScanner scanner) {
     this.type = type;
-    this.icon = new CharacterUI().getCharacterDescriptionTabIcon();
+    this.icon = new HeroUI().getCharacterDescriptionTabIcon();
     this.ui = new HeroFileUi(resources, scanner);
   }
 
