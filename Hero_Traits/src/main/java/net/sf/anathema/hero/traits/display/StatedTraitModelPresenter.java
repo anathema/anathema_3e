@@ -55,7 +55,7 @@ public class StatedTraitModelPresenter {
       ToggleTool view = traitViewsByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
       boolean favored = model.getState(trait).isCasteOrFavored();
-      setButtonState(view, favored);
+      setButtonState(view, favored, !disabled);
     }
   }
 
@@ -92,14 +92,14 @@ public class StatedTraitModelPresenter {
 
   private void updateView(final ToggleTool view, TraitStateType state) {
     boolean select = state == Favored || state == Caste;
-    setButtonState(view, select);
+    setButtonState(view, select, true);
     PresentationPropertiesImpl properties = new PresentationPropertiesImpl(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);
   }
 
-  private void setButtonState(ToggleTool view, boolean select) {
+  private void setButtonState(ToggleTool view, boolean select, boolean enable) {
     select(view, select);
-    enable(view, true);
+    enable(view, enable);
   }
 
   private void select(ToggleTool view, boolean select) {
