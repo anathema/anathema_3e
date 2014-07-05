@@ -23,7 +23,7 @@ public class DefaultTrait implements Trait {
   private final TraitValueStrategy valueStrategy;
 
   public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-		  	MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker) {
+                      MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
     this.traitFavorization = new TraitFavorization(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
@@ -51,9 +51,7 @@ public class DefaultTrait implements Trait {
 
   @Override
   public void setCreationValue(int value) {
-    if (traitFavorization.isFavored()) {
-      value = Math.max(value, traitFavorization.getMinimalValue());
-    }
+    value = Math.max(value, traitFavorization.getMinimalValue());
     int correctedValue = traitRules.getCreationValue(value);
     if (this.creationValue == correctedValue) {
       return;
