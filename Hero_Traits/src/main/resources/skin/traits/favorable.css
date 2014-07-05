@@ -1,4 +1,16 @@
-.castebutton:disabled {
+.caste-button:disabled {
     -fx-opacity: 1.0;
     -fx-background-color: transparent;
+}
+
+.possible-caste-button:disabled {
+  -fx-opacity: 1.0;
+  -fx-background-color: transparent;
+}
+
+.possible-caste-button {
+  -fx-opacity: 1.0;
+  -fx-background-color: goldenrod, -fx-inner-border, -fx-body-color, #DAA52022, -fx-body-color;
+  -fx-background-insets: -0.2, 1, 2, -1.4, 2.6;
+  -fx-background-radius: 3, 2, 1, 4, 1;
 }

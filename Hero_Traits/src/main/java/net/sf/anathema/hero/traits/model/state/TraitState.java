@@ -25,4 +25,6 @@ public interface TraitState {
   boolean isCheapened();
 
   boolean hasState(TraitStateType... type);
+
+  boolean isSelectableForCaste();
 }

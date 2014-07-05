@@ -104,6 +104,12 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
+  public boolean isSelectableForCaste() {
+    CasteType currentCaste = HeroConceptFetcher.fetch(hero).getCaste().getType();
+    return castes.contains(currentCaste);
+  }
+
+  @Override
   public void setFavored(boolean favored) {
     if (isCaste() || isFavored() == favored) {
       return;

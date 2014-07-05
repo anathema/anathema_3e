@@ -31,7 +31,6 @@ public class FxExtensibleDotView implements ExtensibleDotView {
   @Override
   public ToggleTool addToggleInFront() {
     FxToggleTool toggleTool = FxToggleTool.create();
-    toggleTool.setStyleClass("castebutton");
     addToPanel(front, toggleTool);
     return toggleTool;
   }

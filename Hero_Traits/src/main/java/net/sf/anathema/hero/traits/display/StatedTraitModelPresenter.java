@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.traits.display;
 
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -14,6 +15,7 @@ import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.view.Style;
 
 import java.util.List;
 
@@ -23,8 +25,10 @@ import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 
 public class StatedTraitModelPresenter {
 
+  public static final Style STATE_SELECTION_BUTTON = new Style("caste-button");
+  public static final Style POSSIBLE_CASTE_BUTTON = new Style("possible-caste-button");
   private final GroupedStatedDotsView view;
-  private final IdentityMapping<Trait, ToggleTool> traitViewsByTrait = new IdentityMapping<>();
+  private final IdentityMapping<Trait, ToggleTool> casteToggleByTrait = new IdentityMapping<>();
   private final Resources resources;
   private Hero hero;
   private GroupedTraitsModel model;
@@ -47,15 +51,18 @@ public class StatedTraitModelPresenter {
         updateButtons();
       }
     });
+    HeroConceptFetcher.fetch(hero).getCaste().addChangeListener(() -> updateButtons());
     updateButtons();
   }
 
   private void updateButtons() {
     for (Trait trait : getAllTraits()) {
-      ToggleTool view = traitViewsByTrait.get(trait);
+      ToggleTool view = casteToggleByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
       boolean favored = model.getState(trait).isCasteOrFavored();
       setButtonState(view, favored, !disabled);
+      Style style = model.getState(trait).isSelectableForCaste() ? POSSIBLE_CASTE_BUTTON : STATE_SELECTION_BUTTON;
+      view.setStyle(style);
     }
   }
 
@@ -81,13 +88,14 @@ public class StatedTraitModelPresenter {
     return traitView;
   }
 
-  private void addCasteAndFavoredToggle(final Trait favorableTrait, ExtensibleDotView traitView) {
+  private void addCasteAndFavoredToggle(Trait trait, ExtensibleDotView traitView) {
     ToggleTool casteTool = traitView.addToggleInFront();
-    TraitState traitState = model.getState(favorableTrait);
+    casteTool.setStyle(STATE_SELECTION_BUTTON);
+    TraitState traitState = model.getState(trait);
     casteTool.setCommand(traitState::advanceState);
     traitState.addTraitStateChangedListener(state -> updateView(casteTool, state));
     updateView(casteTool, traitState.getType());
-    traitViewsByTrait.put(favorableTrait, casteTool);
+    casteToggleByTrait.put(trait, casteTool);
   }
 
   private void updateView(final ToggleTool view, TraitStateType state) {

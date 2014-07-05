@@ -65,4 +65,9 @@ public class NullTraitState implements TraitState {
   public boolean hasState(TraitStateType... type) {
     return Arrays.asList().contains(getType());
   }
+
+  @Override
+  public boolean isSelectableForCaste() {
+    return false;
+  }
 }
