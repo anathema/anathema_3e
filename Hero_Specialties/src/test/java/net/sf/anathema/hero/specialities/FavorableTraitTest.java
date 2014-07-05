@@ -10,7 +10,6 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesContainer;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
-import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
@@ -92,8 +91,7 @@ public class FavorableTraitTest {
   private TraitImpl createObjectUnderTest(Hero hero) {
     TraitTemplate archeryTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules rules = new TraitRulesImpl(AbilityType.Archery, archeryTemplate, hero);
-    return new TraitImpl(hero, rules, new CasteType[]{new DummyCasteType()}, new FriendlyValueChangeChecker(),
-    		new MonoTypeIncrementChecker<TraitStateType>(incrementChecker, TraitStateType.Favored));
+    return new TraitImpl(hero, rules, new CasteType[]{new DummyCasteType()}, new MonoTypeIncrementChecker<TraitStateType>(incrementChecker, TraitStateType.Favored));
   }
 
   @Test

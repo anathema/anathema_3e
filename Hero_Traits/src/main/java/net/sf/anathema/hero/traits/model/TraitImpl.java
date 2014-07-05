@@ -16,27 +16,24 @@ public class TraitImpl implements Trait {
   private int capModifier = 0;
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
-  private final ValueChangeChecker checker;
   private TraitState stateModel;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
-  public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                   MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker) {
-    this(hero, traitRules, valueChangeChecker);
+  public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, MappableTypeIncrementChecker<TraitStateType> favoredIncrementChecker) {
+    this(hero, traitRules);
     this.stateModel = new TraitStateImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     traitRules.addChangeListener(this::resetCurrentValue);
   }
 
-  public TraitImpl(Hero hero, TraitRules traitRules, ValueChangeChecker checker) {
+  public TraitImpl(Hero hero, TraitRules traitRules) {
     Preconditions.checkNotNull(traitRules);
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
     this.stateModel = new NullTraitState();
-    this.checker = checker;
     this.creationValue = traitRules.getStartValue();
   }
 
@@ -94,14 +91,10 @@ public class TraitImpl implements Trait {
 
   @Override
   public void setCurrentValue(int value) {
-    if (!checker.isValidNewValue(value)) {
-      resetCurrentValue();
-    } else {
-      if (value == getCurrentValue()) {
-        return;
-      }
-      valueStrategy.setValue(this, value);
+    if (value == getCurrentValue()) {
+      return;
     }
+    valueStrategy.setValue(this, value);
   }
 
   @Override

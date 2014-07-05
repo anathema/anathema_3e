@@ -33,7 +33,6 @@ public class TraitFactory {
   private TraitImpl createTrait(TraitType traitType, CasteType[] casteTypes, MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     TraitTemplate traitTemplate = templateMap.getTemplate(traitType);
     TraitRules favorableTraitRules = new TraitRulesImpl(traitType, traitTemplate, hero);
-    ValueChangeChecker valueChecker = new FriendlyValueChangeChecker();
-    return new TraitImpl(hero, favorableTraitRules, casteTypes, valueChecker, checker);
+    return new TraitImpl(hero, favorableTraitRules, casteTypes, checker);
   }
 }

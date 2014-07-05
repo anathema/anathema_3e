@@ -2,7 +2,6 @@ package net.sf.anathema.hero.specialties.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
-import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -23,7 +22,7 @@ public class SpecialtyImpl extends TraitImpl implements Specialty {
   }
 
   public SpecialtyImpl(Hero hero, AbstractSubTraitContainer container, TraitType type, String specialtyName) {
-    super(hero, createSpecialtyRules(hero), new FriendlyValueChangeChecker());
+    super(hero, createSpecialtyRules(hero));
     this.container = container;
     this.type = type;
     this.subTraitName = specialtyName;

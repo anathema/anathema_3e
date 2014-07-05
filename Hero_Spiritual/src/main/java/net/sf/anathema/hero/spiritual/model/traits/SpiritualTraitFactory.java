@@ -36,6 +36,6 @@ public class SpiritualTraitFactory {
     TraitTemplate traitTemplate = traitTemplateMap.getTemplate(traitType);
     ValueChangeChecker checker = new FriendlyValueChangeChecker();
     TraitRules rules = new TraitRulesImpl(traitType, traitTemplate, hero);
-    return new TraitImpl(hero, rules, checker);
+    return new TraitImpl(hero, rules);
   }
 }
