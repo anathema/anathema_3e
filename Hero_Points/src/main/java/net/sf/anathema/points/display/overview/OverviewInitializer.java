@@ -20,7 +20,6 @@ public class OverviewInitializer implements HeroModelInitializer {
 
   private HeroEnvironment environment;
 
-  @SuppressWarnings("UnusedParameters")
   public OverviewInitializer(HeroEnvironment environment) {
     this.environment = environment;
   }

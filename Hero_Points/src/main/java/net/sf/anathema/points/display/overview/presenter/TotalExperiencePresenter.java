@@ -5,7 +5,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.MessageType;
-import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
@@ -21,10 +20,10 @@ public class TotalExperiencePresenter implements IOverviewSubPresenter {
   private final ExperiencePointManagement management;
   private final MessageToken token;
 
-  public TotalExperiencePresenter(Hero hero, Resources resources, Messaging messaging, ExperiencePointManagement management) {
+  public TotalExperiencePresenter(Hero hero, Resources resources, MessageToken token, ExperiencePointManagement management) {
     this.hero = hero;
     this.resources = resources;
-    this.token = messaging.obtainInitialToken();
+    this.token = token;
     this.management = management;
   }
 

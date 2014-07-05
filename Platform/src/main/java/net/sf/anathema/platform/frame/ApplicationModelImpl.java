@@ -4,7 +4,7 @@ import net.sf.anathema.library.initialization.Registry;
 import net.sf.anathema.library.initialization.RegistryImpl;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
-import net.sf.anathema.platform.messaging.CollectingMessaging;
+import net.sf.anathema.platform.messaging.CategorizedMessagingImpl;
 import net.sf.anathema.platform.messaging.MessageContainer;
 import net.sf.anathema.platform.repository.FileSystemRepository;
 import net.sf.anathema.platform.repository.Repository;
@@ -15,11 +15,11 @@ public class ApplicationModelImpl implements ApplicationModel {
 
   private final Registry<String, AnathemaExtension> extensionRegistry = new RegistryImpl<>();
   private final FileSystemRepository repository;
-  private final CollectingMessaging messaging;
+  private final CategorizedMessagingImpl messaging;
 
   public ApplicationModelImpl(File repositoryFolder, Environment environment) {
     this.repository = new FileSystemRepository(repositoryFolder);
-    this.messaging = new CollectingMessaging(environment);
+    this.messaging = new CategorizedMessagingImpl(environment);
   }
 
   @Override

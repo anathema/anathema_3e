@@ -17,7 +17,7 @@ import static net.sf.anathema.library.message.MessageDuration.Temporary;
 
 public class CollectingMessaging implements Messaging, MessageContainer {
 
-  private static final int MESSAGE_LIMIT = 100;
+  private static final int MESSAGE_LIMIT = 20;
   private final Resources resources;
   private final List<Message> messages = new ArrayList<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);

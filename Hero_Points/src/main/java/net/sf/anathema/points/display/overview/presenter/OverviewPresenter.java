@@ -3,6 +3,8 @@ package net.sf.anathema.points.display.overview.presenter;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.message.Message;
+import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;
@@ -31,10 +33,11 @@ public class OverviewPresenter {
 
   public void initPresentation() {
     CategorizedOverview creationPointView = container.addCreationOverviewView();
-    CreationOverviewPresenter creationOverviewPresenter = new CreationOverviewPresenter(resources, hero, creationPointView, bonusPoints, messaging);
+    MessageToken tokenForCreationAndExperience = messaging.obtainInitialToken();
+    CreationOverviewPresenter creationOverviewPresenter = new CreationOverviewPresenter(resources, hero, creationPointView, bonusPoints, tokenForCreationAndExperience);
     creationOverviewPresenter.initPresentation();
     CategorizedOverview experiencePointView = container.addExperienceOverviewView();
-    ExperiencedOverviewPresenter experiencedOverviewPresenter = new ExperiencedOverviewPresenter(resources, hero, experiencePointView, experiencePoints, messaging);
+    ExperiencedOverviewPresenter experiencedOverviewPresenter = new ExperiencedOverviewPresenter(resources, hero, experiencePointView, experiencePoints, tokenForCreationAndExperience);
     experiencedOverviewPresenter.initPresentation();
     boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
     setOverviewView(experienced);

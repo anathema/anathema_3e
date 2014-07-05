@@ -15,6 +15,7 @@ import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.messaging.CategorizedMessagingImpl;
 import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
 import net.sf.anathema.platform.perspective.PerspectiveToggle;
 
@@ -38,7 +39,7 @@ public class CharacterSystemPerspective implements Perspective {
     CharacterViewFactory viewFactory = new CharacterViewFactory(heroEnvironment);
     CharacterStackBridge bridge = new CharacterStackFxBridge(viewFactory, view.getStackView());
     CharacterStackPresenter stackPresenter = new CharacterStackPresenter(bridge, systemModel);
-    ShowOnSelect showOnSelect = new ShowOnSelect(stackPresenter);
+    ShowOnSelect showOnSelect = new ShowOnSelect(model.getMessaging(), stackPresenter);
     CharacterGridPresenter gridPresenter = new CharacterGridPresenter(systemModel, view.getGridView(), showOnSelect, environment);
     gridPresenter.initPresentation();
     new InteractionPresenter(systemModel, view.getInteractionView(), environment, view.getGridView(), showOnSelect, uiEnvironment).initPresentation();

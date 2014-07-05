@@ -4,6 +4,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.legality.LegalityColorProvider;
+import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.LabelledAllotmentView;
@@ -21,17 +22,17 @@ public class ExperiencedOverviewPresenter {
   private final ExperiencePointManagement management;
   private final CategorizedOverview view;
   private final Hero hero;
-  private Messaging messaging;
+  private MessageToken token;
   private final Resources resources;
   private final List<IOverviewSubPresenter> presenters = new ArrayList<>();
 
   private LabelledAllotmentView totalView;
 
   public ExperiencedOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overview,
-                                      ExperiencePointManagement experiencePoints, Messaging messaging) {
+                                      ExperiencePointManagement experiencePoints, MessageToken token) {
     this.resources = resources;
     this.hero = hero;
-    this.messaging = messaging;
+    this.token = token;
     hero.getChangeAnnouncer().addListener(flavor -> {
       if (ExperienceModelFetcher.fetch(hero).isExperienced()) {
         calculateXPCost();
@@ -47,7 +48,7 @@ public class ExperiencedOverviewPresenter {
       StyledValueView<Integer> valueView = category.addIntegerValueView(getString("Overview.Experience." + model.getId()), 2);
       presenters.add(new ValueSubPresenter(model, valueView));
     }
-    presenters.add(new TotalExperiencePresenter(hero, resources, messaging, management));
+    presenters.add(new TotalExperiencePresenter(hero, resources, token, management));
     initTotal(category);
     calculateXPCost();
   }

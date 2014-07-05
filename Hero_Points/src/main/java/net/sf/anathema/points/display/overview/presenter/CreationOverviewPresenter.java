@@ -2,7 +2,7 @@ package net.sf.anathema.points.display.overview.presenter;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
-import net.sf.anathema.library.message.Messaging;
+import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.points.model.BonusPointManagement;
@@ -15,16 +15,16 @@ public class CreationOverviewPresenter {
   private final Resources resources;
   private final CategorizedOverview view;
   private final Hero hero;
-  private Messaging messaging;
+  private MessageToken token;
   private final BonusPointManagement management;
   private final OverviewUpdater updater = new OverviewUpdater();
   private final MappedOverviewCategories categoriesById = new MappedOverviewCategories();
 
-  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, BonusPointManagement management, Messaging messaging) {
+  public CreationOverviewPresenter(Resources resources, Hero hero, CategorizedOverview overviewView, BonusPointManagement management, MessageToken token) {
     this.management = management;
     this.resources = resources;
     this.hero = hero;
-    this.messaging = messaging;
+    this.token = token;
     hero.getChangeAnnouncer().addListener(flavor -> updateOverview());
     this.view = overviewView;
   }
@@ -57,7 +57,7 @@ public class CreationOverviewPresenter {
     for (IOverviewModel model : PointModelFetcher.fetch(hero).getBonusOverviewModels()) {
       model.accept(new InitOverviewPresentationVisitor(resources, updater, categoriesById));
     }
-    updater.add(new OverviewBonusPointsPresenter(resources,management.getTotalModel(), messaging, hero));
+    updater.add(new OverviewBonusPointsPresenter(resources,management.getTotalModel(), token, hero));
   }
 
   private void updateOverview() {
