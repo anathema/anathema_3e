@@ -2,6 +2,7 @@ package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -10,20 +11,23 @@ import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitFactory;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.FavoredChangedListener;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
+import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.template.TraitTemplate;
+import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
@@ -59,15 +63,26 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
     this.abilityTraitGroups = new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
     MappableTypeIncrementChecker<TraitStateType> incrementChecker = createFavoredAbilityIncrementChecker(this, abilityGroups);
-    TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
-      for (TraitImpl trait : traitFactory.createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template))) {
+      for (TraitImpl trait : createTraits(traitGroup, incrementChecker, new TraitTemplateMapImpl(template))) {
         addTraits(trait);
         traitStateMap.addTrait(trait);
       }
     }
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
+  }
+
+  private TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
+    List<Trait> newTraits = new ArrayList<>();
+    for (TraitType type : list.getAll()) {
+      CasteType[] casteTypes = list.getTraitCasteTypes(type);
+      TraitTemplate traitTemplate = templateMap.getTemplate(type);
+      TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
+      Trait trait = new TraitImpl(hero, traitRules, casteTypes, checker);
+      newTraits.add(trait);
+    }
+    return newTraits.toArray(new TraitImpl[newTraits.size()]);
   }
 
   @Override

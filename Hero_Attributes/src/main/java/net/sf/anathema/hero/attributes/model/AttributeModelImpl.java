@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.attributes.model;
 
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -8,18 +9,21 @@ import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitFactory;
 import net.sf.anathema.hero.traits.model.TraitGroup;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
@@ -27,11 +31,13 @@ import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
+import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AttributeModelImpl extends DefaultTraitMap implements AttributeModel, HeroModel {
@@ -56,7 +62,8 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     this.hero = hero;
     CasteCollection casteCollection = HeroConceptFetcher.fetch(hero).getCasteCollection();
     this.abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
-    this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection, getAttributeGroups());
+    this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection,
+      getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
@@ -64,13 +71,24 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
 
   private void addAttributes() {
     IncrementChecker incrementChecker = new GrumpyIncrementChecker();
-    TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
-      Trait[] traits = traitFactory.createTraits(traitGroup,
-        new MonoTypeIncrementChecker<TraitStateType>(incrementChecker, null), map);
+      Trait[] traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
       addTraits(traits);
     }
+  }
+
+  public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list,
+                                  MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
+    List<Trait> newTraits = new ArrayList<>();
+    for (TraitType type : list.getAll()) {
+      CasteType[] casteTypes = list.getTraitCasteTypes(type);
+      TraitTemplate traitTemplate = templateMap.getTemplate(type);
+      TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
+      Trait trait = new TraitImpl(hero, traitRules, casteTypes, checker);
+      newTraits.add(trait);
+    }
+    return newTraits.toArray(new TraitImpl[newTraits.size()]);
   }
 
   @Override
