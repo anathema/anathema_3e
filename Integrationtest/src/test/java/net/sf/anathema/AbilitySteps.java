@@ -62,12 +62,12 @@ public class AbilitySteps {
   }
 
   private void spendAPoint() {
-    TraitStateMap stateMap = AbilityModelFetcher.fetch(character.getHero()).getStateMap();
+    TraitStateMap abilitiesStateMap = AbilityModelFetcher.fetch(character.getHero()).getStateMap();
     Trait[] traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      if (isAbility && hasNotYetReachedThreshold && !stateMap.isFavored(trait)){
+      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.isFavored(trait)){
         increaseTraitValueByOne(trait);
         break;
       }
