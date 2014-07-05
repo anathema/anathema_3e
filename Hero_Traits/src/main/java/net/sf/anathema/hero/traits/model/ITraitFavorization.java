@@ -20,7 +20,5 @@ public interface ITraitFavorization {
 
   void setFavored(boolean favored);
 
-  void updateFavorableStateToCaste();
-
   int getMinimalValue();
 }

@@ -1,9 +1,17 @@
 package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.library.change.FlavoredChangeListener;
 import org.jmock.example.announcer.Announcer;
+
+import static net.sf.anathema.hero.traits.model.FavorableState.Caste;
+import static net.sf.anathema.hero.traits.model.FavorableState.Default;
+import static net.sf.anathema.hero.traits.model.FavorableState.Favored;
+import static net.sf.anathema.hero.traits.model.FavorableState.Supernal;
 
 public class TraitFavorization implements ITraitFavorization {
 
@@ -14,11 +22,6 @@ public class TraitFavorization implements ITraitFavorization {
   private final CasteType[] castes;
   private final boolean isRequiredFavored;
   private final Hero hero;
-  
-  public TraitFavorization(Hero hero, CasteType[] castes, IncrementChecker favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
-	  this(hero, castes, new MonoTypeIncrementChecker<FavorableState>(favoredIncrementChecker, FavorableState.Favored),
-			  trait, isRequiredFavored);
-  }
 
   public TraitFavorization(Hero hero, CasteType[] castes, MappableTypeIncrementChecker<FavorableState> favoredIncrementChecker, Trait trait, boolean isRequiredFavored) {
     this.hero = hero;
@@ -26,50 +29,50 @@ public class TraitFavorization implements ITraitFavorization {
     this.favoredIncrementChecker = favoredIncrementChecker;
     this.trait = trait;
     this.isRequiredFavored = isRequiredFavored;
-    this.state = isRequiredFavored ? FavorableState.Favored : FavorableState.Default;
+    this.state = isRequiredFavored ? Favored : Default;
+    hero.getChangeAnnouncer().addListener(new UpdateFavoredStateOnCasteChange());
   }
 
   @Override
   public final void setFavorableState(FavorableState state) {
-    if (isRequiredFavored && state == FavorableState.Default) {
-      state = FavorableState.Favored;
+    if (isRequiredFavored && state == Default) {
+      state = Favored;
     }
     if (isLegalState(state)) {
-	    this.state = state;
-	    ensureMinimalValue();
-	    favorableStateControl.announce().favorableStateChanged(this.state);
+      this.state = state;
+      ensureMinimalValue();
+      favorableStateControl.announce().favorableStateChanged(this.state);
     }
   }
-  
+
   @Override
   public final void advanceFavorableState() {
-	  setFavorableState(getNextLegalState());
+    setFavorableState(getNextLegalState());
   }
-  
+
   private FavorableState getNextLegalState() {
-	  final int stateCount = FavorableState.values().length;
-	  for (int i = 1; i < stateCount; i++) {
-		  FavorableState nextState = FavorableState.values()[(state.ordinal() + i) % FavorableState.values().length];
-		  if (isLegalState(nextState)) {
-			  return nextState;
-		  }
-	  }
-	  return state;
+    final int stateCount = FavorableState.values().length;
+    for (int i = 1; i < stateCount; i++) {
+      FavorableState nextState = FavorableState.values()[(state.ordinal() + i) % FavorableState.values().length];
+      if (isLegalState(nextState)) {
+        return nextState;
+      }
+    }
+    return state;
   }
-  
+
   private boolean isLegalState(FavorableState state) {
-	  if (state == FavorableState.Caste && isRequiredFavored) {
-		  throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
-	  }
-	  if (!this.state.countsAs(state) && !favoredIncrementChecker.isValidIncrement(state, 1)) {
-		  return false;
-	  }
-	  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
-	  if ((state == FavorableState.Caste || state == FavorableState.Supernal) &&
-			  !isSupportedCasteType(casteType)) {
-		  return false;
-	  }
-	  return true;
+    if (state == Caste && isRequiredFavored) {
+      throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
+    }
+    if (!this.state.countsAs(state) && !favoredIncrementChecker.isValidIncrement(state, 1)) {
+      return false;
+    }
+    CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
+    if ((state == Caste || state == Supernal) && !isSupportedCasteType(casteType)) {
+      return false;
+    }
+    return true;
   }
 
   private void ensureMinimalValue() {
@@ -81,22 +84,22 @@ public class TraitFavorization implements ITraitFavorization {
 
   @Override
   public int getMinimalValue() {
-    return this.state == FavorableState.Favored ? 1 : 0;
+    return this.state == Favored ? 1 : 0;
   }
 
   @Override
   public void setFavored(boolean favored) {
-	  if (isCaste() || isFavored() == favored) {
-		  return;
-	  }
-	  setFavorableState(favored ? FavorableState.Favored : FavorableState.Default);
+    if (isCaste() || isFavored() == favored) {
+      return;
+    }
+    setFavorableState(favored ? Favored : Default);
   }
-  
+
   @Override
   public void clearCaste() {
-	  if (isCaste()) {
-		  setFavorableState(FavorableState.Default);
-	  }
+    if (isCaste()) {
+      setFavorableState(Default);
+    }
   }
 
   @SuppressWarnings("ConstantConditions")
@@ -104,7 +107,7 @@ public class TraitFavorization implements ITraitFavorization {
     if (!caste && !isCaste()) {
       return;
     }
-    setFavorableState(caste ? FavorableState.Caste : (isCaste() ? FavorableState.Default : FavorableState.Favored));
+    setFavorableState(caste ? Caste : (isCaste() ? Default : Favored));
   }
 
   @Override
@@ -119,21 +122,20 @@ public class TraitFavorization implements ITraitFavorization {
 
   @Override
   public final boolean isFavored() {
-    return state == FavorableState.Favored;
+    return state == Favored;
   }
 
   @Override
   public final boolean isCaste() {
-    return state.countsAs(FavorableState.Caste);
+    return state.countsAs(Caste);
   }
 
   @Override
   public final boolean isCasteOrFavored() {
     return isCaste() || isFavored();
   }
-  
-  @Override
-  public void updateFavorableStateToCaste() {
+
+  private void updateFavorableStateToCaste() {
     CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
     setCaste(isSupportedCasteType(casteType));
   }
@@ -145,5 +147,16 @@ public class TraitFavorization implements ITraitFavorization {
       }
     }
     return false;
+  }
+
+  public class UpdateFavoredStateOnCasteChange implements FlavoredChangeListener {
+
+    @Override
+    public void changeOccurred(ChangeFlavor flavor) {
+      if (flavor == ConceptChange.FLAVOR_CASTE) {
+        clearCaste();
+        updateFavorableStateToCaste();
+      }
+    }
   }
 }
