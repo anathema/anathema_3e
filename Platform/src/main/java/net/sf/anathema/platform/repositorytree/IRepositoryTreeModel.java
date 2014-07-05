@@ -22,7 +22,7 @@ public interface IRepositoryTreeModel extends ExportModel {
 
   String getRepositoryPath();
 
-  void setSelectedObject(Object[] object);
+  void setSelectedObject(Collection<Object> object);
 
   void addTreeSelectionChangeListener(ChangeListener changeListener);
 

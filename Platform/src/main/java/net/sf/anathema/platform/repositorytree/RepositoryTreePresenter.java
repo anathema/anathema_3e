@@ -11,6 +11,7 @@ import net.sf.anathema.platform.repository.PrintNameFile;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class RepositoryTreePresenter {
@@ -51,8 +52,8 @@ public class RepositoryTreePresenter {
     AgnosticTree tree = treeView.addAgnosticTree();
     setUiConfiguration(tree);
     tree.whenSelectionChangesDo(value -> {
-      if (value.length == 0) {
-        repositoryModel.setSelectedObject(new Object[0]);
+      if (value.isEmpty()) {
+        repositoryModel.setSelectedObject(Collections.emptyList());
       } else {
         repositoryModel.setSelectedObject(value);
       }
