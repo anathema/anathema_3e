@@ -73,7 +73,7 @@ public abstract class AbstractSubTraitContainer implements ISubTraitContainer {
   @Override
   public void removeSubTrait(Specialty subtrait) {
     subtraits.remove(subtrait);
-    subtrait.removeCreationPointListener(subTraitCreationPointListener);
+    subtrait.removeCurrentValueListener(subTraitCreationPointListener);
     fireSubTraitRemovedEvent(subtrait);
   }
 

@@ -12,7 +12,6 @@ import net.sf.anathema.hero.traits.model.state.TraitStateModelImpl;
 import net.sf.anathema.library.change.ChangeFlavor;
 import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.IntegerChangedListener;
-import net.sf.anathema.library.number.Range;
 import org.jmock.example.announcer.Announcer;
 
 public class TraitImpl implements Trait {
@@ -21,7 +20,7 @@ public class TraitImpl implements Trait {
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
   private final ValueChangeChecker checker;
-  private TraitStateModel traitFavorization;
+  private TraitStateModel stateModel;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
@@ -30,7 +29,7 @@ public class TraitImpl implements Trait {
   public TraitImpl(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
                    MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
     this(hero, traitRules, valueChangeChecker);
-    this.traitFavorization = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
+    this.stateModel = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
     hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
   }
 
@@ -39,7 +38,7 @@ public class TraitImpl implements Trait {
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
-    this.traitFavorization = new NullTraitStateModel();
+    this.stateModel = new NullTraitStateModel();
     this.checker = checker;
     this.creationValue = traitRules.getStartValue();
   }
@@ -50,12 +49,12 @@ public class TraitImpl implements Trait {
   }
 
   public TraitStateModel getFavorization() {
-    return traitFavorization;
+    return stateModel;
   }
 
   @Override
   public void setCreationValue(int value) {
-    value = Math.max(value, traitFavorization.getMinimalValue());
+    value = Math.max(value, stateModel.getMinimalValue());
     int correctedValue = traitRules.getCreationValue(value);
     if (this.creationValue == correctedValue) {
       return;
@@ -154,12 +153,6 @@ public class TraitImpl implements Trait {
   }
 
   @Override
-  public void setModifiedCreationRange(int lowerBound, int upperBound) {
-    traitRules.setModifiedCreationRange(Range.bounded(lowerBound, upperBound));
-    resetCreationValue();
-  }
-
-  @Override
   public final int getMinimalValue() {
     return valueStrategy.getMinimalValue(this);
   }
@@ -190,18 +183,13 @@ public class TraitImpl implements Trait {
   }
 
   @Override
-  public final void addCreationPointListener(IntegerChangedListener listener) {
-    creationPointControl.addListener(listener);
-  }
-
-  @Override
-  public final void removeCreationPointListener(IntegerChangedListener listener) {
-    creationPointControl.removeListener(listener);
-  }
-
-  @Override
   public final void addCurrentValueListener(IntegerChangedListener listener) {
     currentValueControl.addListener(listener);
+  }
+
+  @Override
+  public void removeCurrentValueListener(IntegerChangedListener listener) {
+    currentValueControl.removeListener(listener);
   }
 
   @Override
@@ -213,7 +201,7 @@ public class TraitImpl implements Trait {
 
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
-      if (flavor == ConceptChange.FLAVOR_CASTE) {
+      if (ConceptChange.FLAVOR_CASTE.equals(flavor)) {
         resetCurrentValue();
       }
     }

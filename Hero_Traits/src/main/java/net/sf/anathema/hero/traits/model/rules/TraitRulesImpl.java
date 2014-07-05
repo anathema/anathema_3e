@@ -13,7 +13,6 @@ public class TraitRulesImpl implements TraitRules {
   private int capModifier = 0;
   private final TraitTemplate template;
   private final TraitType traitType;
-  private Range modifiedCreationRange;
   private Hero hero;
 
   public TraitRulesImpl(TraitType traitType, TraitTemplate template, Hero hero) {
@@ -33,10 +32,7 @@ public class TraitRulesImpl implements TraitRules {
   }
 
   private int getCreationMaximumValue() {
-    if (modifiedCreationRange == null) {
-      return getCurrentMaximumValue(true);
-    }
-    return modifiedCreationRange.getUpperBound();
+    return getCurrentMaximumValue(true);
   }
 
   @Override
@@ -46,10 +42,7 @@ public class TraitRulesImpl implements TraitRules {
 
   @Override
   public int getAbsoluteMinimumValue() {
-    if (modifiedCreationRange == null) {
-      return template.minimumValue;
-    }
-    return modifiedCreationRange.getLowerBound();
+    return template.minimumValue;
   }
 
   @Override
@@ -73,11 +66,6 @@ public class TraitRulesImpl implements TraitRules {
   }
 
   @Override
-  public void setModifiedCreationRange(Range range) {
-    this.modifiedCreationRange = range;
-  }
-
-  @Override
   public int getExperiencedValue(int creationValue, int demandedValue) {
     Range range;
     int maximumValue = getCurrentMaximumValue(true);
@@ -86,10 +74,10 @@ public class TraitRulesImpl implements TraitRules {
     } else {
       boolean isImmutable = template.modificationType == ModificationType.Immutable;
       range = Range.bounded(Math.max(Math.min(creationValue, maximumValue), getAbsoluteMinimumValue()),
-              isImmutable ? creationValue : maximumValue);
+        isImmutable ? creationValue : maximumValue);
     }
     return getCorrectedValue(demandedValue, range);
-   }
+  }
 
   @Override
   public int getCreationValue(int demandedValue) {

@@ -22,11 +22,9 @@ public interface Trait extends ValuedTraitType {
 
   int getMaximalValue();
 
-  void addCreationPointListener(IntegerChangedListener listener);
-
-  void removeCreationPointListener(IntegerChangedListener listener);
-
   void addCurrentValueListener(IntegerChangedListener listener);
+
+  void removeCurrentValueListener(IntegerChangedListener listener);
 
   int getModifiedMaximalValue();
 
@@ -41,6 +39,4 @@ public interface Trait extends ValuedTraitType {
   int getMinimalValue();
 
   void resetCurrentValue();
-
-  void setModifiedCreationRange(int newInitialValue, int newUpperValue);
 }

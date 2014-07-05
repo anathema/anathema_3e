@@ -69,28 +69,18 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public void setModifiedCreationRange(int newInitialValue, int newUpperValue) {
-    //not yet implemented
-  }
-
-  @Override
-  public void addCreationPointListener(IntegerChangedListener listener) {
-    //not yet implemented
-  }
-
-  @Override
   public void addCurrentValueListener(IntegerChangedListener listener) {
+    //not yet implemented
+  }
+
+  @Override
+  public void removeCurrentValueListener(IntegerChangedListener listener) {
     //not yet implemented
   }
 
   @Override
   public int getMaximalValue() {
     return 0;
-  }
-
-  @Override
-  public void removeCreationPointListener(IntegerChangedListener listener) {
-    //not yet implemented
   }
 
   @Override
