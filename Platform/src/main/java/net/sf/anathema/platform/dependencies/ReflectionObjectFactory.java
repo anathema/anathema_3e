@@ -1,7 +1,5 @@
 package net.sf.anathema.platform.dependencies;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -15,6 +13,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 import static com.google.common.collect.Collections2.filter;
 import static java.text.MessageFormat.format;
@@ -35,20 +35,20 @@ public class ReflectionObjectFactory implements ObjectFactory {
                                               Object... parameter) throws InitializationException {
     Set<Class<?>> pluginClasses = finder.getTypesAnnotatedWith(annotation);
     List<Class<?>> sortedClasses = sort(pluginClasses);
-    return Collections2.transform(sortedClasses, new Instantiate<>(parameter));
+    return sortedClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
   }
 
   @Override
   public <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation,
                                           Object... parameter) throws InitializationException {
     Set<Class<?>> pluginClasses = finder.getTypesAnnotatedWith(annotation);
-    return Collections2.transform(pluginClasses, new Instantiate<>(parameter));
+    return pluginClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
   }
   
   @Override
   public <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter) {
     Collection<Class<? extends T>> filteredClasses = findLegalImplementers(interfaceClass);
-    return Collections2.transform(filteredClasses, new Instantiate<>(parameter));
+    return filteredClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
   }
 
   private <T> Collection<Class<? extends T>> findLegalImplementers(Class<T> interfaceClass) {
