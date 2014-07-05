@@ -33,7 +33,7 @@ public class HeroEnvironmentImpl implements HeroEnvironment {
 
   @Override
   public ObjectFactory getObjectFactory() {
-    return environment.getObjectFactory();
+    return new InjectingObjectFactory2(environment.getObjectFactory(), model, environment);
   }
 
   @Override
