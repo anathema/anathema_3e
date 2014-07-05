@@ -9,6 +9,9 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.IntegerModel;
 import net.sf.anathema.library.model.IntegerModelImpl;
 
+import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_AGE;
+import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
+
 public class HeroConceptImpl implements HeroConcept, HeroModel {
 
   private final IntegerModel age = new IntegerModelImpl(0);
@@ -29,8 +32,8 @@ public class HeroConceptImpl implements HeroConcept, HeroModel {
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    casteModel.getSelection().addChangeListener(new AnnounceChangeListener(announcer, ConceptChange.FLAVOR_CASTE));
-    age.addChangeListener(new AnnounceChangeListener(announcer, ConceptChange.FLAVOR_AGE));
+    casteModel.getSelection().addChangeListener(new AnnounceChangeListener(announcer, FLAVOR_CASTE));
+    age.addChangeListener(new AnnounceChangeListener(announcer, FLAVOR_AGE));
   }
 
   @Override

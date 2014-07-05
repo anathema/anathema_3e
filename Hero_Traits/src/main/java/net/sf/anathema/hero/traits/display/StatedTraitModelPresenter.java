@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -19,6 +18,8 @@ import net.sf.anathema.library.view.Style;
 
 import java.util.List;
 
+import static java.util.Arrays.asList;
+import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.experience.model.ExperienceChange.FLAVOR_EXPERIENCE_STATE;
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
@@ -47,11 +48,10 @@ public class StatedTraitModelPresenter {
       addTraitViews(model.getTraits(allTraitTypes.toArray(new TraitType[allTraitTypes.size()])));
     }
     hero.getChangeAnnouncer().addListener(flavor -> {
-      if (FLAVOR_EXPERIENCE_STATE.equals(flavor)) {
+      if (asList(FLAVOR_EXPERIENCE_STATE, FLAVOR_CASTE).contains(flavor)) {
         updateButtons();
       }
     });
-    HeroConceptFetcher.fetch(hero).getCaste().addChangeListener(() -> updateButtons());
     updateButtons();
   }
 
