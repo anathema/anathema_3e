@@ -40,8 +40,8 @@ import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModify
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.PrintCharmsProvider;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
-import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;

@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
-import net.sf.anathema.hero.elsewhere.concept.ConceptChange;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
@@ -13,12 +9,12 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.IntegerModel;
 import net.sf.anathema.library.model.IntegerModelImpl;
 
-public class DefaultHeroConcept implements HeroConcept, HeroModel {
+public class HeroConceptImpl implements HeroConcept, HeroModel {
 
   private final IntegerModel age = new IntegerModelImpl(0);
-  private DefaultCasteModel casteModel;
+  private CasteModelImpl casteModel;
 
-  public DefaultHeroConcept(DefaultCasteModel casteModel) {
+  public HeroConceptImpl(CasteModelImpl casteModel) {
     this.casteModel = casteModel;
   }
 

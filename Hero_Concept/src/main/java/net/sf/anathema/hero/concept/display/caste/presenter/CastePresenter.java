@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.concept.display.caste.presenter;
 
-import net.sf.anathema.hero.application.creation.GenericPresentationTemplate;
-import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
-import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.concept.CasteSelection;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -26,7 +26,7 @@ public class CastePresenter {
 
   public void initPresentation() {
     HeroSplat template = hero.getSplat();
-    GenericPresentationTemplate presentationTemplate = new GenericPresentationTemplate(template);
+    PresentationPropertiesImpl presentationTemplate = new PresentationPropertiesImpl(template);
     String casteLabelResourceKey = presentationTemplate.getCasteLabelResource();
     CasteType[] casteTypes = HeroConceptFetcher.fetch(hero).getCasteCollection().getAllCasteTypes(hero.getSplat().getTemplateType());
     AgnosticUIConfiguration<CasteType> casteUi = new AgnosticCasteUi(resources, presentationTemplate);

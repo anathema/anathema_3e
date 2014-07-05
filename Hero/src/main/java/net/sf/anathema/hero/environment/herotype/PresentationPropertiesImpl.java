@@ -1,19 +1,18 @@
-package net.sf.anathema.hero.application.creation;
+package net.sf.anathema.hero.environment.herotype;
 
-import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.resources.RelativePath;
 
-public class GenericPresentationTemplate implements PresentationProperties {
+public class PresentationPropertiesImpl implements PresentationProperties {
 
   private final SplatType splatType;
 
-  public GenericPresentationTemplate(HeroSplat heroSplat) {
+  public PresentationPropertiesImpl(HeroSplat heroSplat) {
     this(heroSplat.getTemplateType());
   }
  
-  public GenericPresentationTemplate(SplatType splatType) {
+  public PresentationPropertiesImpl(SplatType splatType) {
     this.splatType = splatType;
   }
 

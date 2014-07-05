@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.specialities;
 
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummyHeroConcept;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesContainer;
@@ -12,7 +12,6 @@ import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.traits.model.DefaultTrait;
 import net.sf.anathema.hero.traits.model.FavorableState;
-import net.sf.anathema.hero.traits.model.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.model.FriendlyValueChangeChecker;
 import net.sf.anathema.hero.traits.model.IFavorableStateChangedListener;
 import net.sf.anathema.hero.traits.model.IncrementChecker;
@@ -26,7 +25,6 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

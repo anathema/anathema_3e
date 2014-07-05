@@ -3,7 +3,7 @@ package net.sf.anathema.hero.concept.display.caste.view;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteView;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;

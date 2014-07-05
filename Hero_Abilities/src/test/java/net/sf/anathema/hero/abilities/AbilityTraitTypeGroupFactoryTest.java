@@ -1,5 +1,12 @@
 package net.sf.anathema.hero.abilities;
 
+import net.sf.anathema.hero.abilities.model.AbilityTypeGroupFactory;
+import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.dummy.models.NullCasteCollection;
+import net.sf.anathema.hero.traits.model.GroupedTraitType;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+import org.junit.Test;
+
 import static net.sf.anathema.hero.abilities.model.AbilityGroupType.Life;
 import static net.sf.anathema.hero.abilities.model.AbilityGroupType.War;
 import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
@@ -8,13 +15,6 @@ import static net.sf.anathema.hero.traits.model.types.AbilityType.Melee;
 import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
-import net.sf.anathema.hero.abilities.model.AbilityTypeGroupFactory;
-import net.sf.anathema.hero.dummy.models.NullCasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.traits.model.GroupedTraitType;
-import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-
-import org.junit.Test;
 
 public class AbilityTraitTypeGroupFactoryTest {
 

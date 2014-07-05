@@ -1,9 +1,9 @@
-package net.sf.anathema.hero.application;
+package net.sf.anathema.hero.individual.view;
 
 import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.library.resources.RelativePath;
 
-public class CharacterUI {
+public class HeroUI {
 
   public RelativePath getCharacterDescriptionTabIcon() {
     return new RelativePath("icons/TabDescription16.png");

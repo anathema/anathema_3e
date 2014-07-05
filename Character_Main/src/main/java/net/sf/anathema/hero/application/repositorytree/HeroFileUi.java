@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.application.repositorytree;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.application.creation.CharacterTypeUi;
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
@@ -26,7 +26,7 @@ public class HeroFileUi extends AbstractUIConfiguration<PrintNameFile> {
   @Override
   public RelativePath getIconsRelativePath(PrintNameFile value) {
     CharacterType characterType = scanner.getCharacterType(createReference(value));
-    return new CharacterUI().getSmallTypeIconPath(characterType);
+    return new HeroUI().getSmallTypeIconPath(characterType);
   }
 
   @Override

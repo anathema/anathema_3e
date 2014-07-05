@@ -1,9 +1,9 @@
 package net.sf.anathema.points.display.overview;
 
-import net.sf.anathema.hero.application.presenter.HeroModelInitializer;
-import net.sf.anathema.hero.application.presenter.RegisteredInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModelInitializer;
+import net.sf.anathema.hero.individual.model.RegisteredInitializer;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.points.display.overview.presenter.OverviewPresenter;

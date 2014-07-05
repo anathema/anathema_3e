@@ -3,7 +3,6 @@ package net.sf.anathema.hero.concept.model.concept;
 import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.concept.template.caste.CasteListTemplate;
 import net.sf.anathema.hero.concept.template.caste.CasteListTemplateLoader;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
@@ -11,18 +10,18 @@ import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
-public class CharacterConceptFactory extends SimpleModelTreeEntry implements HeroModelFactory {
+public class HeroConceptFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
-  public CharacterConceptFactory() {
+  public HeroConceptFactory() {
     super(HeroConcept.ID, ExperienceModel.ID, PointsModel.ID);
   }
 
   @SuppressWarnings("unchecked")
   @Override
-  public DefaultHeroConcept create(TemplateFactory templateFactory, String templateId) {
+  public HeroConceptImpl create(TemplateFactory templateFactory, String templateId) {
     Preconditions.checkNotNull(templateId, "The Character Concept requires a configured template.");
     CasteListTemplate template = CasteListTemplateLoader.loadTemplate(templateFactory, templateId);
-    DefaultCasteModel casteModel = new DefaultCasteModel(new DefaultCasteSelection(), new ConfigurableCasteCollection(template));
-    return new DefaultHeroConcept(casteModel);
+    CasteModelImpl casteModel = new CasteModelImpl(new CasteSelectionImpl(), new ConfigurableCasteCollection(template));
+    return new HeroConceptImpl(casteModel);
   }
 }

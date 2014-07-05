@@ -1,12 +1,10 @@
 package net.sf.anathema.hero.concept.model.concept;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.elsewhere.concept.CasteSelection;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
 import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 
-public class DefaultCasteSelection implements CasteSelection {
+public class CasteSelectionImpl implements CasteSelection {
 
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private CasteType type = CasteType.NULL_CASTE_TYPE;

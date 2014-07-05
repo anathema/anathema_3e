@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.elsewhere.concept;
+package net.sf.anathema.hero.concept.model.concept;
 
 import net.sf.anathema.hero.individual.splat.SplatType;
 

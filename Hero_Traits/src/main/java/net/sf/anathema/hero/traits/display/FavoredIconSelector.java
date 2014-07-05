@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.concept.display.caste.presenter.CasteUI;
-import net.sf.anathema.hero.elsewhere.concept.CasteType;
-import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.concept.CasteType;
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
@@ -31,7 +31,7 @@ public class FavoredIconSelector {
 	  if (state == FavorableState.Supernal) {
 		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
 		  // TODO: Need a proper icon here
-		  return new CharacterUI().getLinkIconPath();
+		  return new HeroUI().getLinkIconPath();
 	  }
 	  if (state == FavorableState.Caste) {
 		  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
@@ -39,7 +39,7 @@ public class FavoredIconSelector {
 	  }
 	  if (state == FavorableState.Favored) {
 		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
-		  return new CharacterUI().getMediumBallPath(characterType);
+		  return new HeroUI().getMediumBallPath(characterType);
 	  }
 	  return AgnosticUIConfiguration.NO_ICON;
   }

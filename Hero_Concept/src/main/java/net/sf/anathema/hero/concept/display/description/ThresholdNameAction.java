@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.concept.display.description;
 
-import net.sf.anathema.hero.application.CharacterUI;
 import net.sf.anathema.hero.concept.display.caste.presenter.NameGeneratorCommand;
+import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
@@ -20,7 +20,7 @@ public class ThresholdNameAction implements NameEditAction {
 
   @Override
   public void configure(Tool tool, ITextualDescription description) {
-    tool.setIcon(new CharacterUI().getRandomThresholdNameIconPath());
+    tool.setIcon(new HeroUI().getRandomThresholdNameIconPath());
     tool.setTooltip(resources.getString("CharacterDescription.Tooltip.ThresholdName"));
     tool.setCommand(new NameGeneratorCommand(description, new ThresholdNameGenerator()));
   }

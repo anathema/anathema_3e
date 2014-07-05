@@ -1,14 +1,9 @@
 package net.sf.anathema.hero.abilities.model;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
-import net.sf.anathema.hero.elsewhere.concept.CasteCollection;
-import net.sf.anathema.hero.elsewhere.concept.HeroConcept;
-import net.sf.anathema.hero.elsewhere.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.concept.CasteCollection;
+import net.sf.anathema.hero.concept.model.concept.HeroConcept;
+import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
@@ -30,6 +25,11 @@ import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
