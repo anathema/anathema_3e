@@ -64,28 +64,25 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template,
       AllAbilityTraitTypeList.getInstance());
     this.abilityTraitGroups = new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
+    MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     for (IIdentifiedCasteTraitTypeList traitGroup : abilityTraitGroups) {
-      for (TraitImpl trait : createTraits(traitGroup)) {
+      TraitTemplateMapImpl templateMap = new TraitTemplateMapImpl(template);
+      List<Trait> newTraits = new ArrayList<>();
+      for (TraitType type : traitGroup.getAll()) {
+        List<CasteType> castes = asList(traitGroup.getTraitCasteTypes(type));
+        TraitTemplate traitTemplate = templateMap.getTemplate(type);
+        TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, this.hero);
+        Trait newTrait = new TraitImpl(this.hero, traitRules);
+        newTraits.add(newTrait);
+        boolean requiredFavored = traitRules.isRequiredFavored();
+        traitStateMap.addState(newTrait, new TraitStateImpl(this.hero, castes, checker, newTrait, requiredFavored));
+      }
+      for (Trait trait : newTraits) {
         addTraits(trait);
       }
     }
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
-  }
-
-  private TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list) {
-    TraitTemplateMapImpl templateMap = new TraitTemplateMapImpl(template);
-    List<Trait> newTraits = new ArrayList<>();
-    for (TraitType type : list.getAll()) {
-      List<CasteType> castes = asList(list.getTraitCasteTypes(type));
-      TraitTemplate traitTemplate = templateMap.getTemplate(type);
-      TraitRules traitRules = new TraitRulesImpl(type, traitTemplate, hero);
-      Trait trait = new TraitImpl(hero, traitRules);
-      newTraits.add(trait);
-      traitStateMap.addState(trait,
-        new TraitStateImpl(hero, castes, createStateIncrementChecker(), trait, traitRules.isRequiredFavored()));
-    }
-    return newTraits.toArray(new TraitImpl[newTraits.size()]);
   }
 
   @Override
