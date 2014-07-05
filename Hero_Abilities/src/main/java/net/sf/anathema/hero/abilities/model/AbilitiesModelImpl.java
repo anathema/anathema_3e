@@ -99,7 +99,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     boolean requiredFavored = traitRules.isRequiredFavored();
     List<CasteType> castes = getCastesFor(trait.getType());
-    return new TraitStateImpl(this.hero, castes, checker, trait, requiredFavored);
+    return new TraitStateImpl(this.hero, castes, checker, requiredFavored);
   }
 
   @Override
