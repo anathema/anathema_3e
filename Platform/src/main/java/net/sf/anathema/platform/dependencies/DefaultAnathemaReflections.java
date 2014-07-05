@@ -1,6 +1,5 @@
 package net.sf.anathema.platform.dependencies;
 
-import com.google.common.base.Function;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.platform.resources.InternalResourceFile;
@@ -10,9 +9,9 @@ import org.reflections.util.ConfigurationBuilder;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
-import static com.google.common.collect.Collections2.transform;
-import static com.google.common.collect.Sets.newHashSet;
+import static java.util.stream.Collectors.toSet;
 
 public class DefaultAnathemaReflections implements ResourceFileLoader, AnnotationFinder, InterfaceFinder {
 
@@ -33,7 +32,8 @@ public class DefaultAnathemaReflections implements ResourceFileLoader, Annotatio
   @Override
   public Set<ResourceFile> getResourcesMatching(String namePattern) {
     Pattern pattern = Pattern.compile(namePattern);
-    return newHashSet(transform(reflections.getResources(pattern), new ToResource()));
+    Stream<String> resourceNames = reflections.getResources(pattern).stream();
+    return resourceNames.map(this::toResource).collect(toSet());
   }
 
   @Override
@@ -52,16 +52,13 @@ public class DefaultAnathemaReflections implements ResourceFileLoader, Annotatio
     return new ClassLoader[]{contextClassLoader, staticClassLoader};
   }
 
-  private class ToResource implements Function<String, ResourceFile> {
-    @Override
-    public ResourceFile apply(String resource) {
-      ClassLoader loaderForResource = null;
-      for (ClassLoader loader : classLoaders) {
-        if (loader.getResource(resource) != null) {
-          loaderForResource = loader;
-        }
+  private ResourceFile toResource(String resource) {
+    ClassLoader loaderForResource = null;
+    for (ClassLoader loader : classLoaders) {
+      if (loader.getResource(resource) != null) {
+        loaderForResource = loader;
       }
-      return new InternalResourceFile(resource, loaderForResource);
     }
+    return new InternalResourceFile(resource, loaderForResource);
   }
 }

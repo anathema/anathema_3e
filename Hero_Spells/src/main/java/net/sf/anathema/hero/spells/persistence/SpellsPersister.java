@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.spells.persistence;
 
-import com.google.common.base.Predicate;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.spells.data.Spell;
@@ -10,8 +9,9 @@ import net.sf.anathema.library.identifier.Identifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static com.google.common.collect.Collections2.filter;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpellsPersister extends AbstractModelJsonPersister<SpellListPto, SpellsModel> {
@@ -27,15 +27,16 @@ public class SpellsPersister extends AbstractModelJsonPersister<SpellListPto, Sp
 
   @Override
   protected void loadModelFromPto(Hero hero, SpellsModel model, SpellListPto pto) {
-    List<Spell> creationSpellList = collectSpells(model, pto, new CreationLearned());
+    List<Spell> creationSpellList = collectSpells(model, pto, spell -> !spell.isExperienceLearned);
     model.addSpells(creationSpellList, false);
-    List<Spell> experienceSpellList = collectSpells(model, pto, new ExperienceLearned());
+    List<Spell> experienceSpellList = collectSpells(model, pto, spell -> spell.isExperienceLearned);
     model.addSpells(experienceSpellList, true);
   }
 
   private List<Spell> collectSpells(SpellsModel model, SpellListPto pto, Predicate<AttributedPto> predicate) {
-    Collection<AttributedPto> creationLearned = filter(pto.spells, predicate);
-    return collectSpells(model, creationLearned);
+    Stream<AttributedPto> spells = pto.spells.stream();
+    Collection<AttributedPto> matching = spells.filter(predicate).collect(Collectors.toList());
+    return collectSpells(model, matching);
   }
 
   private List<Spell> collectSpells(SpellsModel model, Iterable<AttributedPto> matchingPtoList) {

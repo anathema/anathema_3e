@@ -1,13 +1,14 @@
 package net.sf.anathema.scribe.scroll.persistence;
 
-import com.google.common.base.Function;
-import com.google.common.collect.Collections2;
 import net.sf.anathema.platform.repository.printname.RepositoryId;
 import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class InMemoryScrollPersister implements ScrollPersister {
 
@@ -34,13 +35,8 @@ public class InMemoryScrollPersister implements ScrollPersister {
 
   @Override
   public Collection<ScrollReference> listAll() {
-    Collection<Scroll> values = scrollsByRepositoryId.values();
-    return Collections2.transform(values, new Function<Scroll, ScrollReference>() {
-      @Override
-      public ScrollReference apply(Scroll input) {
-        return new ScrollReference(input.repositoryId, input.dto.title);
-      }
-    });
+    Stream<Scroll> scrolls = scrollsByRepositoryId.values().stream();
+    return scrolls.map(scroll -> new ScrollReference(scroll.repositoryId, scroll.dto.title)).collect(toList());
   }
 
   @Override
