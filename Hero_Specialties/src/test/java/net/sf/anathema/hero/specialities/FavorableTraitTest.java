@@ -33,7 +33,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 public class FavorableTraitTest {
@@ -86,15 +85,6 @@ public class FavorableTraitTest {
     assertTrue(trait.getFavorization().isFavored());
     trait.setCurrentValue(0);
     assertEquals(1, trait.getCreationValue());
-  }
-
-  @Test
-  public void testCasteAbilityNotSetToFavored() throws Exception {
-    trait.getFavorization().setFavorableState(FavorableState.Caste);
-    trait.getFavorization().addFavorableStateChangedListener(abilityStateListener);
-    trait.getFavorization().setFavorableState(FavorableState.Favored);
-    assertSame(FavorableState.Caste, trait.getFavorization().getFavorableState());
-    verifyZeroInteractions(abilityStateListener);
   }
 
   @Test
