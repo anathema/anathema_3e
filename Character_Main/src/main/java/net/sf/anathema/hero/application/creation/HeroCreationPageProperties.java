@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.creation;
 
-import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
@@ -21,11 +21,11 @@ public class HeroCreationPageProperties {
     return resources.getString("CharacterDialog.Title");
   }
 
-  public String getTypeString(CharacterType type) {
+  public String getTypeString(HeroType type) {
     return new CharacterTypeUi(resources).getLabel(type);
   }
 
-  public RelativePath getTypeIcon(CharacterType type) {
+  public RelativePath getTypeIcon(HeroType type) {
     return iconProvider.getSmallTypeIconPath(type);
   }
 

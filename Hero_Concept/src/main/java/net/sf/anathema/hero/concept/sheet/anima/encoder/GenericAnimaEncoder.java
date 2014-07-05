@@ -5,7 +5,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Phrase;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.HorizontalLineEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
@@ -45,8 +45,8 @@ public class GenericAnimaEncoder implements ContentEncoder {
     Phrase phrase = new Phrase("", graphics.createFont(fontSize));
     // Add standard powers for character type
     Chunk symbolChunk = graphics.createSymbolChunk();
-    CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
-    ListUtils.addBulletedListText(resources, symbolChunk, "Sheet.AnimaPower." + characterType.getId(), phrase, false);
+    HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
+    ListUtils.addBulletedListText(resources, symbolChunk, "Sheet.AnimaPower." + heroType.getId(), phrase, false);
     String casteResourceKey = "Sheet.AnimaPower." + HeroConceptFetcher.fetch(hero).getCaste().getType().getId() + ".SecondEdition";
     if (resources.supportsKey(casteResourceKey)) {
       phrase.add(symbolChunk);

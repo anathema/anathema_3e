@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.specialties.display.presenter;
 
-import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.ISpecialtyListener;
@@ -11,6 +10,7 @@ import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;

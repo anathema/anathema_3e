@@ -12,7 +12,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
@@ -34,9 +34,9 @@ public class CharmInitializer implements HeroModelInitializer {
   public void initialize(SectionView sectionView, Hero hero) {
     MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(environment);
     CharmDisplayModel model = new CharmDisplayModel(hero, provider);
-    CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
+    HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
     CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment.getObjectFactory());
-    TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(characterType);
+    TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(heroType);
     String header = environment.getResources().getString("CardView.CharmConfiguration.CharmSelection.Title");
     CharmView charmView = sectionView.addView(header, CharmView.class);
     CharmMap charmCache = getCharmIdMap();

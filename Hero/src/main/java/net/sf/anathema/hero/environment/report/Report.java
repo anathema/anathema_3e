@@ -8,5 +8,5 @@ public interface Report {
 
   boolean supports(Hero hero);
 
-  void print(Hero hero, OutputStream stream) throws ReportException;
+  void print(String name, Hero hero, OutputStream stream) throws ReportException;
 }

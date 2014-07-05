@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.display.model.CategoryCollection;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -34,7 +34,7 @@ public class CascadeCategoryCollection implements CategoryCollection  {
 
   private List<CategoryReference> getCurrentCharacterTypes() {
     Set<CategoryReference> set = new LinkedHashSet<>();
-    for (CharacterType type : heroTypes) {
+    for (HeroType type : heroTypes) {
       CategoryReference categoryReference = getCategory(type);
       if (charmProvider.getCharms(categoryReference).length > 0) {
         set.add(categoryReference);

@@ -9,7 +9,7 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,8 +29,8 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
-  public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, CharacterType characterType) {
-    CategoryReference categoryReference = MartialArtsUtilities.getCategory(characterType);
+  public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, HeroType heroType) {
+    CategoryReference categoryReference = MartialArtsUtilities.getCategory(heroType);
     Charm[] charms = provider.getCharms(categoryReference);
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }

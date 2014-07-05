@@ -42,7 +42,7 @@ public class DescriptionInitializer implements HeroModelInitializer {
   private DescriptionDetails createDescriptionDetails(Hero hero) {
     HeroDescription characterDescription = HeroDescriptionFetcher.fetch(hero);
     HeroConcept heroConcept = HeroConceptFetcher.fetch(hero);
-    boolean isExalt = hero.getSplat().getTemplateType().getCharacterType().isExaltType();
+    boolean isExalt = hero.getSplat().getTemplateType().getHeroType().isExaltType();
     return new DescriptionDetails(characterDescription, heroConcept, isExalt);
   }
 }

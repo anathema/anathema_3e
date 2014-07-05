@@ -5,7 +5,7 @@ import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.hero.traits.model.FavorableState;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -29,7 +29,7 @@ public class FavoredIconSelector {
 
   private RelativePath determineIconPath(Hero hero, FavorableState state) {
 	  if (state == FavorableState.Supernal) {
-		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
+		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
 		  // TODO: Need a proper icon here
 		  return new HeroUI().getLinkIconPath();
 	  }
@@ -38,8 +38,8 @@ public class FavoredIconSelector {
 		  return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
 	  }
 	  if (state == FavorableState.Favored) {
-		  CharacterType characterType = hero.getSplat().getTemplateType().getCharacterType();
-		  return new HeroUI().getMediumBallPath(characterType);
+		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
+		  return new HeroUI().getMediumBallPath(heroType);
 	  }
 	  return AgnosticUIConfiguration.NO_ICON;
   }

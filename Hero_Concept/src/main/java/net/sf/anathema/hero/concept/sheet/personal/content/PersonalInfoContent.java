@@ -5,7 +5,7 @@ import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.model.description.HeroDescription;
 import net.sf.anathema.hero.concept.model.description.HeroDescriptionFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.library.lang.StringUtilities;
@@ -34,13 +34,13 @@ public class PersonalInfoContent extends AbstractSubContent implements SubBoxCon
   }
 
   private PersonalInfoRow createFirstRow() {
-    CharacterType characterType = getCharacterType();
-    if (!characterType.isExaltType()) {
+    HeroType heroType = getCharacterType();
+    if (!heroType.isExaltType()) {
       TitledInfo conceptInfo = new TitledInfo(getLabel("Concept"), description.getConcept().getText(), 3);
       return new PersonalInfoRow(conceptInfo);
     }
     TitledInfo conceptInfo = new TitledInfo(getLabel("Concept"), description.getConcept().getText(), 2);
-    TitledInfo casteInfo = new TitledInfo(getLabel("Caste." + characterType.getId()), getCasteContent());
+    TitledInfo casteInfo = new TitledInfo(getLabel("Caste." + heroType.getId()), getCasteContent());
     return new PersonalInfoRow(conceptInfo, casteInfo);
   }
 
@@ -66,8 +66,8 @@ public class PersonalInfoContent extends AbstractSubContent implements SubBoxCon
     return String.valueOf(HeroConceptFetcher.fetch(hero).getAge().getValue());
   }
 
-  private CharacterType getCharacterType() {
-    return hero.getSplat().getTemplateType().getCharacterType();
+  private HeroType getCharacterType() {
+    return hero.getSplat().getTemplateType().getHeroType();
   }
 
   private String getCasteContent() {

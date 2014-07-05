@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.application.perspective;
 
-import net.sf.anathema.hero.application.item.HeroNameFetcher;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
+import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;

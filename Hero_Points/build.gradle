@@ -1,10 +1,8 @@
 dependencies {
-//  Insert your dependencies here like this:
-//  compile project(':Character_Equipment')
-    compile project(':Character_Main')
-    compile project(':Character_Main_FX')
-    compile project(':Hero_Experience')
-    compile project(':Hero_Sheet')
-    testCompile project(path: ':Platform', configuration: 'tests')
-    testCompile project(path: ':Character_Main', configuration: 'tests')
+  compile project(':Hero')
+  compile project(':Hero_Concept')
+  compile project(':Hero_Experience')
+  compile project(':Hero_Sheet')
+  compile project(':Library_FX')
+  testCompile project(path: ':Hero', configuration: 'tests')
 }

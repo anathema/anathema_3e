@@ -94,7 +94,7 @@ public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
   @Override
   public boolean isEssenceUser() {
-    return hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
+    return hero.getSplat().getTemplateType().getHeroType().isEssenceUser();
   }
 
   @Override

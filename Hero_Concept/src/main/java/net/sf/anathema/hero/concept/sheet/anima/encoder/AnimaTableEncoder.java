@@ -13,7 +13,7 @@ import net.sf.anathema.hero.concept.sheet.anima.content.ColumnDescriptor;
 import net.sf.anathema.hero.concept.sheet.anima.content.IAnimaTableRangeProvider;
 import net.sf.anathema.hero.concept.sheet.anima.content.IAnimaTableStealthProvider;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.AbstractTableEncoder;
@@ -48,7 +48,7 @@ public class AnimaTableEncoder extends AbstractTableEncoder<ReportSession> {
     for (ColumnDescriptor column : columns) {
       table.addCell(createHeaderCell(graphics, getString(column.getHeaderKey())));
     }
-    CharacterType type = session.getHero().getSplat().getTemplateType().getCharacterType();
+    HeroType type = session.getHero().getSplat().getTemplateType().getHeroType();
     String descriptionPrefix = "Sheet.AnimaTable.Description." + type.getId();
     for (int index = 0; index < 5; index++) {
       addAnimaRow(graphics, table, index, session, descriptionPrefix);

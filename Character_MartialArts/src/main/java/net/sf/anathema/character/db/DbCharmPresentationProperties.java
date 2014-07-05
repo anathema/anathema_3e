@@ -2,7 +2,7 @@ package net.sf.anathema.character.db;
 
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmPresentationProperties;
 import net.sf.anathema.hero.environment.herotype.ForCharacterType;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.presenter.RGBColor;
 
 @ForCharacterType("Dragon-Blooded")
@@ -15,7 +15,7 @@ public class DbCharmPresentationProperties extends AbstractCharmPresentationProp
   }
 
   @Override
-  public boolean supportsCharacterType(CharacterType type) {
+  public boolean supportsCharacterType(HeroType type) {
     return type.getId().equals(ID);
   }
 }

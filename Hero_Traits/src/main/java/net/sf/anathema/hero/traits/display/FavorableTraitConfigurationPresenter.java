@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.traits.display;
 
-import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
-import net.sf.anathema.hero.display.fx.dot.GroupedFavorableDotConfigurationView;
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -15,6 +13,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.DefaultTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.library.collection.IdentityMapping;
+import net.sf.anathema.library.fx.dot.ExtensibleDotView;
+import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.resources.Resources;
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.individual.view;
 
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.resources.RelativePath;
 
 public class HeroUI {
@@ -17,16 +17,16 @@ public class HeroUI {
     return new RelativePath("icons/ButtonRandomNameB16.png");
   }
 
-  public RelativePath getSmallTypeIconPath(CharacterType characterType) {
-    return new RelativePath("icons/" + characterType.getId() + "Icon16.png");
+  public RelativePath getSmallTypeIconPath(HeroType heroType) {
+    return new RelativePath("icons/" + heroType.getId() + "Icon16.png");
   }
 
-  public RelativePath getLargeTypeIconPath(CharacterType characterType) {
-    return new RelativePath("icons/" + characterType.getId() + "Icon100.png");
+  public RelativePath getLargeTypeIconPath(HeroType heroType) {
+    return new RelativePath("icons/" + heroType.getId() + "Icon100.png");
   }
 
-  public RelativePath getMediumBallPath(CharacterType characterType) {
-    return new RelativePath("icons/Border" + characterType.getId() + "Button16.png");
+  public RelativePath getMediumBallPath(HeroType heroType) {
+    return new RelativePath("icons/Border" + heroType.getId() + "Button16.png");
   }
 
   public RelativePath getRandomRealmNameIconPath() {

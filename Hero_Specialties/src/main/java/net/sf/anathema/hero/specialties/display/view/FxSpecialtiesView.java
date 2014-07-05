@@ -2,14 +2,14 @@ package net.sf.anathema.hero.specialties.display.view;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.display.fx.dot.ExtensibleDotView;
-import net.sf.anathema.hero.display.fx.dot.FxDotView;
-import net.sf.anathema.hero.display.fx.dot.FxExtensibleDotView;
-import net.sf.anathema.hero.display.fx.dot.SimpleDotViewPanel;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtiesConfigurationView;
 import net.sf.anathema.hero.specialties.display.presenter.SpecialtyCreationView;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.library.fx.dot.ExtensibleDotView;
+import net.sf.anathema.library.fx.dot.FxDotView;
+import net.sf.anathema.library.fx.dot.FxExtensibleDotView;
+import net.sf.anathema.library.fx.dot.SimpleDotViewPanel;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;

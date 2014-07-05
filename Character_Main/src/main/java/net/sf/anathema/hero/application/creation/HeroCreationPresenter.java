@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.creation;
 
-import net.sf.anathema.hero.individual.splat.CharacterType;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
@@ -26,7 +26,7 @@ public class HeroCreationPresenter {
   public void initPresentation() {
     view.setTitle(properties.getTitle());
     ToggleButtonPanel panel = view.addToggleButtonPanel();
-    for (final CharacterType type : model.getAvailableCharacterTypes()) {
+    for (final HeroType type : model.getAvailableHeroTypes()) {
       final ToggleTool button = panel.addButton(properties.getTypeString(type));
       button.setIcon(properties.getTypeIcon(type));
       button.setCommand(() -> model.setCharacterType(type));
@@ -47,8 +47,8 @@ public class HeroCreationPresenter {
     view.show();
   }
 
-  private void updateButtonChoice(CharacterType type, ToggleTool button) {
-    if (type.equals(model.getSelectedTemplate().getTemplateType().getCharacterType())) {
+  private void updateButtonChoice(HeroType type, ToggleTool button) {
+    if (type.equals(model.getSelectedTemplate().getTemplateType().getHeroType())) {
       button.select();
     } else {
       button.deselect();

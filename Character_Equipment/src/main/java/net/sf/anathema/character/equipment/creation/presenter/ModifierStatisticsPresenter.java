@@ -1,7 +1,7 @@
 package net.sf.anathema.character.equipment.creation.presenter;
 
 import net.sf.anathema.character.equipment.creation.presenter.stats.properties.TraitBoostStatisticsProperties;
-import net.sf.anathema.hero.display.fx.configurableview.IIntegerSpinner;
+import net.sf.anathema.library.fx.configurableview.IIntegerSpinner;
 import net.sf.anathema.library.resources.Resources;
 
 public class ModifierStatisticsPresenter {

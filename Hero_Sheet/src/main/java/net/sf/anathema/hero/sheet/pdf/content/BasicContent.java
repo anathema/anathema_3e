@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.sheet.pdf.content;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 
 public class BasicContent implements SubContent {
 
@@ -15,8 +15,8 @@ public class BasicContent implements SubContent {
     return getCharacterType().isEssenceUser();
   }
 
-  private CharacterType getCharacterType() {
-    return hero.getSplat().getTemplateType().getCharacterType();
+  private HeroType getCharacterType() {
+    return hero.getSplat().getTemplateType().getHeroType();
   }
 
   public boolean hasTypeId(String id) {

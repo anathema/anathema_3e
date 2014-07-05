@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.abilities;
 
 import net.sf.anathema.hero.abilities.model.AbilityTypeGroupFactory;
+import net.sf.anathema.hero.concept.dummy.NullCasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
-import net.sf.anathema.hero.dummy.models.NullCasteCollection;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import org.junit.Test;

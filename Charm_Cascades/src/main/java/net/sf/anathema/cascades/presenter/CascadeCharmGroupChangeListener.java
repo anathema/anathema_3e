@@ -3,7 +3,7 @@ package net.sf.anathema.cascades.presenter;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
@@ -27,15 +27,15 @@ public class CascadeCharmGroupChangeListener extends AbstractCharmGroupChangeLis
   }
 
   private RGBColor findColor(Identifier type) {
-    if (type instanceof CharacterType) {
-      TreePresentationProperties displayProperties = getDisplayProperties((CharacterType) type);
+    if (type instanceof HeroType) {
+      TreePresentationProperties displayProperties = getDisplayProperties((HeroType) type);
       return displayProperties.getColor();
     } else {
       return RGBColor.White;
     }
   }
 
-  protected TreePresentationProperties getDisplayProperties(CharacterType characterType) {
-    return displayPropertiesMap.getDisplayProperties(characterType);
+  protected TreePresentationProperties getDisplayProperties(HeroType heroType) {
+    return displayPropertiesMap.getDisplayProperties(heroType);
   }
 }

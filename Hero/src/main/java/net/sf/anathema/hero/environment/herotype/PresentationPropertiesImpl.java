@@ -37,7 +37,7 @@ public class PresentationPropertiesImpl implements PresentationProperties {
   }
 
   private String getCharacterTypeId() {
-    return splatType.getCharacterType().getId();
+    return splatType.getHeroType().getId();
   }
 
   private String getSubTypeId() {

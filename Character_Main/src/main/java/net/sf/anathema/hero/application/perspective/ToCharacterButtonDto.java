@@ -37,7 +37,7 @@ public class ToCharacterButtonDto implements Function<DescriptiveFeatures, Chara
 
   private RelativePath getPathToImage(SplatType splatType, Identifier casteType) {
     if (casteType == NULL_CASTE_TYPE) {
-      return new HeroUI().getLargeTypeIconPath(splatType.getCharacterType());
+      return new HeroUI().getLargeTypeIconPath(splatType.getHeroType());
     } else {
       PresentationPropertiesImpl presentationTemplate = new PresentationPropertiesImpl(splatType);
       return presentationTemplate.getLargeCasteIconResource(casteType.getId());

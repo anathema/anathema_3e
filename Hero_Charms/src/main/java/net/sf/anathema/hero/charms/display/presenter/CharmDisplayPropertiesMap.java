@@ -1,18 +1,18 @@
 package net.sf.anathema.hero.charms.display.presenter;
 
-import net.sf.anathema.hero.application.type.CharacterSpecificsMap;
-import net.sf.anathema.hero.individual.splat.CharacterType;
+import net.sf.anathema.hero.environment.herotype.HeroTypeSpecificsMap;
+import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
 
 public class CharmDisplayPropertiesMap {
-  private final CharacterSpecificsMap<CharmPresentationProperties> map;
+  private final HeroTypeSpecificsMap<CharmPresentationProperties> map;
 
   public CharmDisplayPropertiesMap(ObjectFactory objectFactory) {
-    this.map = new CharacterSpecificsMap<>(objectFactory, CharmPresentationProperties.class, new NullCharmPresentationProperties());
+    this.map = new HeroTypeSpecificsMap<>(objectFactory, CharmPresentationProperties.class, new NullCharmPresentationProperties());
   }
 
-  public TreePresentationProperties getDisplayProperties(CharacterType characterType) {
-    return map.getForCharacterType(characterType);
+  public TreePresentationProperties getDisplayProperties(HeroType heroType) {
+    return map.getForCharacterType(heroType);
   }
 }

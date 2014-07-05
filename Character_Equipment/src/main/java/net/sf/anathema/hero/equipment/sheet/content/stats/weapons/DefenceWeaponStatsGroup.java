@@ -51,7 +51,7 @@ public class DefenceWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IW
     TraitMap traitCollection = TraitModelFetcher.fetch(hero);
     double finalValue = calculateFinalValue(weapon.getDefence() + getOptionModifiers(weapon), traitCollection.getTrait(AttributeType.Dexterity),
             traitCollection.getTrait(weapon.getTraitType()));
-    boolean isMortal = !hero.getSplat().getTemplateType().getCharacterType().isEssenceUser();
+    boolean isMortal = !hero.getSplat().getTemplateType().getHeroType().isEssenceUser();
     if (isMortal) {
       finalValue = Math.floor(finalValue / 2);
     } else {
