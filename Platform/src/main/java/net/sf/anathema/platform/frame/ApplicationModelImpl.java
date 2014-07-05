@@ -2,8 +2,8 @@ package net.sf.anathema.platform.frame;
 
 import net.sf.anathema.library.initialization.Registry;
 import net.sf.anathema.library.initialization.RegistryImpl;
-import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
+import net.sf.anathema.platform.messaging.CategorizedMessaging;
 import net.sf.anathema.platform.messaging.CategorizedMessagingImpl;
 import net.sf.anathema.platform.messaging.MessageContainer;
 import net.sf.anathema.platform.repository.FileSystemRepository;
@@ -33,7 +33,7 @@ public class ApplicationModelImpl implements ApplicationModel {
   }
 
   @Override
-  public Messaging getMessaging() {
+  public CategorizedMessaging getMessaging() {
     return messaging;
   }
 
