@@ -20,7 +20,7 @@ public class RepositoryTreeModel implements IRepositoryTreeModel {
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final Repository repository;
   private final ItemTypeCollection itemTypes;
-  private Object[] currentlySelectedUserObjects;
+  private List<Object> currentlySelectedUserObjects = new ArrayList<>();
   private final RepositoryFileAccessFactory repositoryFileAccessFactory;
 
   public RepositoryTreeModel(Repository repository, ItemTypeCollection itemTypes) {
@@ -83,8 +83,9 @@ public class RepositoryTreeModel implements IRepositoryTreeModel {
   }
 
   @Override
-  public void setSelectedObject(Object[] objects) {
-    this.currentlySelectedUserObjects = objects;
+  public void setSelectedObject(Collection<Object> objects) {
+    currentlySelectedUserObjects.clear();
+    currentlySelectedUserObjects.addAll(objects);
     changeControl.announce().changeOccurred();
   }
 

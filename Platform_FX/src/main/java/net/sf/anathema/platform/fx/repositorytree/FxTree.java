@@ -28,13 +28,13 @@ public class FxTree implements AgnosticTree {
         for (TreeItem<Object> selectedItem : selectedItems) {
           selectedValues.add(selectedItem.getValue());
         }
-        announcer.announce().execute(selectedValues.toArray(new Object[selectedValues.size()]));
+        announcer.announce().execute(selectedValues);
       }
     });
   }
 
   @Override
-  public void setUiConfiguration(AgnosticUIConfiguration configuration) {
+  public void setUiConfiguration(AgnosticUIConfiguration<Object> configuration) {
     treeView.setCellFactory(new ConfigurableTreeCellFactory<>(configuration));
   }
 
@@ -47,7 +47,7 @@ public class FxTree implements AgnosticTree {
   }
 
   @Override
-  public void whenSelectionChangesDo(Closure<Object[]> closure) {
+  public void whenSelectionChangesDo(Closure<List<Object>> closure) {
     announcer.addListener(closure);
   }
 }
