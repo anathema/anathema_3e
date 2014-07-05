@@ -4,9 +4,7 @@ import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -20,10 +18,6 @@ public class TraitFactory {
 
   public TraitFactory(Hero hero) {
     this.hero = hero;
-  }
-  
-  public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list, IncrementChecker checker, TraitTemplateMap templateMap) {
-	  return createTraits(list, new MonoTypeIncrementChecker<TraitStateType>(checker, null), templateMap);
   }
 
   public TraitImpl[] createTraits(IIdentifiedCasteTraitTypeList list, MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {

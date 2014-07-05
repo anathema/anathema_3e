@@ -20,9 +20,11 @@ import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -65,7 +67,8 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     TraitFactory traitFactory = new TraitFactory(this.hero);
     for (IIdentifiedCasteTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
-      Trait[] traits = traitFactory.createTraits(traitGroup, incrementChecker, map);
+      Trait[] traits = traitFactory.createTraits(traitGroup,
+        new MonoTypeIncrementChecker<TraitStateType>(incrementChecker, null), map);
       addTraits(traits);
     }
   }
