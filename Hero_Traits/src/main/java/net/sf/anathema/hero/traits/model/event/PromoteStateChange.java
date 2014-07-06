@@ -5,10 +5,10 @@ import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.change.ChangeFlavor;
 
-public class FavoredChangedListener implements TraitStateChangedListener {
+public class PromoteStateChange implements TraitStateChangedListener {
   private final ChangeAnnouncer changeAnnouncer;
 
-  public FavoredChangedListener(ChangeAnnouncer changeAnnouncer) {
+  public PromoteStateChange(ChangeAnnouncer changeAnnouncer) {
     this.changeAnnouncer = changeAnnouncer;
   }
 

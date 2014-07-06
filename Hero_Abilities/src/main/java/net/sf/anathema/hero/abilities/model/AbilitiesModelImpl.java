@@ -18,7 +18,7 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.event.FavoredChangedListener;
+import net.sf.anathema.hero.traits.model.event.PromoteStateChange;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
@@ -105,7 +105,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   @Override
   public void initializeListening(ChangeAnnouncer changeAnnouncer) {
     for (Trait ability : getAll()) {
-      traitStateMap.addTraitStateChangedListener(ability, new FavoredChangedListener(changeAnnouncer));
+      traitStateMap.addTraitStateChangedListener(ability, new PromoteStateChange(changeAnnouncer));
       ability.addCurrentValueListener(new TraitValueChangedListener(changeAnnouncer, ability));
     }
   }

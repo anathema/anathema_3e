@@ -1,5 +1,6 @@
 dependencies {
     compile project(':Hero')
+    compile project(':Hero_History')
     testCompile testDependencies
     testCompile project(path: ':Platform', configuration: 'tests')
     testCompile project(path: ':Character_Main', configuration: 'tests')
