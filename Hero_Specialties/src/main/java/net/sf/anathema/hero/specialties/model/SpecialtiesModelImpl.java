@@ -61,7 +61,7 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   }
 
   @Override
-  public TraitType[] getAllEligibleParentTraits() {
+  public List<TraitType> getAllEligibleParentTraits() {
     List<TraitType> eligibleTypes = new ArrayList<>(specialtiesByType.keySet());
     Set<TraitType> toRemove = new HashSet<>();
     for (TraitType type : eligibleTypes) {
@@ -70,7 +70,7 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
       }
     }
     eligibleTypes.removeAll(toRemove);
-    return eligibleTypes.toArray(new TraitType[eligibleTypes.size()]);
+    return eligibleTypes;
   }
 
   @Override

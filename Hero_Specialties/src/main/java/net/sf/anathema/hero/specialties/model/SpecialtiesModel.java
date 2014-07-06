@@ -6,6 +6,8 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
+import java.util.List;
+
 public interface SpecialtiesModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("Specialties");
@@ -14,7 +16,7 @@ public interface SpecialtiesModel extends HeroModel {
 
   Iterable<TraitType> getAllParentTraits();
 
-  TraitType[] getAllEligibleParentTraits();
+  List<TraitType> getAllEligibleParentTraits();
 
   void setCurrentTrait(TraitType newValue);
 
