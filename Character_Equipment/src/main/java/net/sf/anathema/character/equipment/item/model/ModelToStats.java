@@ -6,7 +6,6 @@ import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
-import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsModel;
@@ -21,7 +20,7 @@ public class ModelToStats {
     switch (model.getEquipmentType()) {
       case Armor:
         ArmourStats armourStats = new ArmourStats();
-        IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
+        IEquipmentStatisticsModel armourModel = model.getArmorModel();
         setName(armourStats, armourModel);
         for (ArmourTag tag : model.getArmorTagsModel().getSelectedTags()) {
           armourStats.addTag(tag);

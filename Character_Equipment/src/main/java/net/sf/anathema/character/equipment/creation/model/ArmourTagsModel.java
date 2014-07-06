@@ -33,7 +33,7 @@ public class ArmourTagsModel implements TagsModel<ArmourTag> {
 
   @Override
   public void makeValid() {
-    if (!model.isAnySelected(getSizeTags())){
+    if (!isSizeSelected()){
         model.getSelection(Light).setValue(true);
     }
   }
@@ -42,5 +42,9 @@ public class ArmourTagsModel implements TagsModel<ArmourTag> {
   public ArmourTag[] getSelectedTags() {
     List<ArmourTag> selectedTags = model.getSelectedTags();
     return selectedTags.toArray(new ArmourTag[selectedTags.size()]);
+  }
+
+  public boolean isSizeSelected() {
+    return model.isAnySelected(getSizeTags());
   }
 }

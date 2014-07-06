@@ -55,7 +55,7 @@ public class AgnosticStatsEditor implements StatsEditor {
 
   private void initArmourPresentation(Resources resources, IEquipmentStatisticsCreationModel model, EquipmentStatsDialog dialog) {
     EquipmentStatsView view = dialog.getEquipmentStatsView();
-    IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
+    IEquipmentStatisticsModel armourModel = model.getArmorModel();
     TagsModel<ArmourTag> tagModel = model.getArmorTagsModel();
     new GeneralStatsPresenter(view, dialog, armourModel, model, resources).initPresentation();
     new TagPresenter<>(tagModel, view, new ArmourTagProperties(resources)).initPresentation();

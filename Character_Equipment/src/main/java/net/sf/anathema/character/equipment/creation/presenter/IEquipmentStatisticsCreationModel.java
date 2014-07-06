@@ -9,7 +9,7 @@ public interface IEquipmentStatisticsCreationModel {
 
   void setEquipmentType(EquipmentStatisticsType type);
 
-  IArmourStatisticsModel getArmourStatisticsModel();
+  IEquipmentStatisticsModel getArmorModel();
   
   IArtifactStatisticsModel getArtifactStatisticsModel();
   

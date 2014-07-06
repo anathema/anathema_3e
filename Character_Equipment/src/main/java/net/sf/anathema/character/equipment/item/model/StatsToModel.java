@@ -3,7 +3,6 @@ package net.sf.anathema.character.equipment.item.model;
 import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 import net.sf.anathema.character.equipment.creation.model.EquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.character.equipment.creation.presenter.IArmourStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IArtifactStatisticsModel;
 import net.sf.anathema.character.equipment.creation.presenter.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.character.equipment.creation.presenter.ITraitModifyingStatisticsModel;
@@ -31,21 +30,12 @@ public class StatsToModel {
     } else if (stats instanceof IArmourStats) {
       IArmourStats armourStats = (IArmourStats) stats;
       model.setEquipmentType(EquipmentStatisticsType.Armor);
-      IArmourStatisticsModel armourModel = model.getArmourStatisticsModel();
-      armourModel.getName().setText(armourStats.getName().getId());
-      armourModel.getBashingHardnessModel().setValue(armourStats.getHardness());
-      armourModel.getBashingSoakModel().setValue(armourStats.getSoak());
-      armourModel.getLethalHardnessModel().setValue(armourStats.getHardness());
-      armourModel.getLethalSoakModel().setValue(armourStats.getSoak());
-      armourModel.getAggravatedSoakModel().setValue(armourStats.getSoak());
-      armourModel.getMobilityPenaltyModel().setValue(armourStats.getMobilityPenalty());
+      model.getArmorModel().getName().setText(armourStats.getName().getId());
       for (Identifier tag : armourStats.getTags()) {
         model.getArmorTagsModel().getSelectedModel((ArmourTag) tag).setValue(true);
       }
       model.getArmorTagsModel().makeValid();
-    } else if (stats instanceof ArtifactStats)
-
-    {
+    } else if (stats instanceof ArtifactStats) {
       ArtifactStats artifactStats = (ArtifactStats) stats;
       model.setEquipmentType(Artifact);
       IArtifactStatisticsModel artifactModel = model.getArtifactStatisticsModel();

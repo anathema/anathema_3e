@@ -39,7 +39,7 @@ public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
       case Weapon:
         return model.getWeaponModel();
       case Armor:
-        return model.getArmourStatisticsModel();
+        return model.getArmorModel();
       case TraitModifying:
         return model.getTraitModifyingStatisticsModel();
       case Artifact:
