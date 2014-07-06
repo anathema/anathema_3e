@@ -88,8 +88,8 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private List<Charm> getSortedCharmList(CharmsModel model) {
     List<Charm> charms = new ArrayList<>();
-    Collections.addAll(charms, model.getLearnModel().getCreationLearnedCharms());
-    Collections.addAll(charms, model.getLearnModel().getExperienceLearnedCharms());
+    charms.addAll(model.getLearnModel().getCreationLearnedCharms());
+    charms.addAll(model.getLearnModel().getExperienceLearnedCharms());
     Collections.sort(charms, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     return charms;
   }

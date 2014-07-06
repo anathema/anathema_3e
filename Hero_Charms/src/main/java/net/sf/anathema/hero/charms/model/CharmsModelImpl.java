@@ -54,7 +54,6 @@ import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
@@ -190,9 +189,9 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public Charm[] getLearnedCharms(boolean experienced) {
     List<Charm> allLearnedCharms = new ArrayList<>();
-    Collections.addAll(allLearnedCharms, learningModel.getCreationLearnedCharms());
+    allLearnedCharms.addAll(learningModel.getCreationLearnedCharms());
     if (experienced) {
-      Collections.addAll(allLearnedCharms, learningModel.getExperienceLearnedCharms());
+      allLearnedCharms.addAll(learningModel.getExperienceLearnedCharms());
     }
     return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
   }

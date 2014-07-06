@@ -7,6 +7,7 @@ import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -135,13 +136,13 @@ public class LearningModelImpl implements LearningModel {
   }
 
   @Override
-  public Charm[] getCreationLearnedCharms() {
-    return charmsLearnedOnCreation.toArray(new Charm[charmsLearnedOnCreation.size()]);
+  public Set<Charm> getCreationLearnedCharms() {
+    return Collections.unmodifiableSet(charmsLearnedOnCreation);
   }
 
   @Override
-  public Charm[] getExperienceLearnedCharms() {
-    return charmsLearnedWithExperience.toArray(new Charm[charmsLearnedWithExperience.size()]);
+  public Set<Charm> getExperienceLearnedCharms() {
+    return Collections.unmodifiableSet(charmsLearnedWithExperience);
   }
 
   @Override
