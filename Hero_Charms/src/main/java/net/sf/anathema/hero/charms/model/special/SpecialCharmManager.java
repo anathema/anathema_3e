@@ -5,7 +5,7 @@ import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnableCharmSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
@@ -46,21 +46,21 @@ public class SpecialCharmManager implements ISpecialCharmManager {
   }
 
   @Override
-  public void registerSpecialCharmConfiguration(ISpecialCharm specialCharm, final Charm charm, final LearningCharmTree group) {
+  public void registerSpecialCharmConfiguration(ISpecialCharm specialCharm, Charm charm, LearningModel learningModel) {
     specialCharm.accept(new ISpecialCharmVisitor() {
       @Override
       public void visitMultiLearnableCharm(IMultiLearnableCharm visitedCharm) {
-        registerMultiLearnableCharm(visitedCharm, charm, group);
+        registerMultiLearnableCharm(visitedCharm, charm, learningModel);
       }
 
       @Override
       public void visitMultipleEffectCharm(IMultipleEffectCharm visitedCharm) {
-        registerEffectMultilearnableCharm(visitedCharm, charm, group);
+        registerEffectMultilearnableCharm(visitedCharm, charm, learningModel);
       }
 
       @Override
       public void visitOxBodyTechnique(IOxBodyTechniqueCharm visitedCharm) {
-        registerOxBodyTechnique(visitedCharm, charm, group);
+        registerOxBodyTechnique(visitedCharm, charm, learningModel);
       }
 
       @Override
@@ -70,12 +70,12 @@ public class SpecialCharmManager implements ISpecialCharmManager {
 
       @Override
       public void visitSubEffectCharm(ISubEffectCharm visitedCharm) {
-        registerSubEffectCharm(visitedCharm, charm, group);
+        registerSubEffectCharm(visitedCharm, charm, learningModel);
       }
 
       @Override
       public void visitUpgradableCharm(IUpgradableCharm visitedCharm) {
-        registerUpgradableCharm(visitedCharm, charm, group);
+        registerUpgradableCharm(visitedCharm, charm, learningModel);
       }
 
       @Override
@@ -85,7 +85,7 @@ public class SpecialCharmManager implements ISpecialCharmManager {
 
       @Override
       public void visitTraitCapModifyingCharm(ITraitCapModifyingCharm visitedCharm) {
-        registerTraitCapModifyingCharm(visitedCharm, charm, group);
+        registerTraitCapModifyingCharm(visitedCharm, charm, learningModel);
       }
     });
   }
@@ -95,31 +95,36 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     return specialConfigurationsByCharm.get(charm);
   }
 
-  private void registerTraitCapModifyingCharm(ITraitCapModifyingCharm specialCharm, Charm charm, LearningCharmTree group) {
-    TraitCapModifyingCharmConfiguration configuration = new TraitCapModifyingCharmConfiguration(specialist, charmsModel, charm, specialCharm);
+  private void registerTraitCapModifyingCharm(ITraitCapModifyingCharm specialCharm, Charm charm, LearningModel group) {
+    TraitCapModifyingCharmConfiguration configuration = new TraitCapModifyingCharmConfiguration(specialist, charmsModel,
+      charm, specialCharm);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void registerEffectMultilearnableCharm(IMultipleEffectCharm visited, Charm charm, LearningCharmTree group) {
-    MultipleEffectCharmSpecialsImpl configuration = new MultipleEffectCharmSpecialsImpl(specialist, charm, visited, arbitrator);
+  private void registerEffectMultilearnableCharm(IMultipleEffectCharm visited, Charm charm, LearningModel group) {
+    MultipleEffectCharmSpecialsImpl configuration = new MultipleEffectCharmSpecialsImpl(specialist, charm, visited,
+      arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void registerUpgradableCharm(IUpgradableCharm visited, Charm charm, LearningCharmTree group) {
-    UpgradableCharmConfiguration configuration = new UpgradableCharmConfiguration(specialist, charm, visited, arbitrator);
+  private void registerUpgradableCharm(IUpgradableCharm visited, Charm charm, LearningModel group) {
+    UpgradableCharmConfiguration configuration = new UpgradableCharmConfiguration(specialist, charm, visited,
+      arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, visited.requiresBase(), false);
   }
 
-  private void registerMultiLearnableCharm(IMultiLearnableCharm visitedCharm, Charm charm, LearningCharmTree group) {
-    MultiLearnableCharmSpecialsImpl configuration = new MultiLearnableCharmSpecialsImpl(hero, charmsModel, charm, visitedCharm, arbitrator);
+  private void registerMultiLearnableCharm(IMultiLearnableCharm visitedCharm, Charm charm, LearningModel group) {
+    MultiLearnableCharmSpecialsImpl configuration = new MultiLearnableCharmSpecialsImpl(hero, charmsModel, charm,
+      visitedCharm, arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void registerOxBodyTechnique(IOxBodyTechniqueCharm visited, Charm charm, LearningCharmTree group) {
+  private void registerOxBodyTechnique(IOxBodyTechniqueCharm visited, Charm charm, LearningModel group) {
     HealthModel health = specialist.getHealth();
     OxBodyTechniqueArbitratorImpl arbitrator = createArbitrator();
     TraitType[] relevantTraits = visited.getRelevantTraits();
-    OxBodyTechniqueSpecialsImpl specials = new OxBodyTechniqueSpecialsImpl(hero, charm, relevantTraits, arbitrator, visited);
+    OxBodyTechniqueSpecialsImpl specials = new OxBodyTechniqueSpecialsImpl(hero, charm, relevantTraits, arbitrator,
+      visited);
     addSpecialCharmConfiguration(charm, group, specials, true, true);
     arbitrator.addOxBodyTechniqueConfiguration(specials);
     health.addHealthLevelProvider(specials.getHealthLevelProvider());
@@ -143,13 +148,13 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     specialist.getHealth().addPainToleranceProvider(painToleranceProvider);
   }
 
-  private void registerSubEffectCharm(ISubEffectCharm visited, Charm charm, LearningCharmTree group) {
+  private void registerSubEffectCharm(ISubEffectCharm visited, Charm charm, LearningModel group) {
     SubEffectCharmSpecialsImpl configuration = new SubEffectCharmSpecialsImpl(specialist, charm, visited, arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void addSpecialCharmConfiguration(final Charm charm, final LearningCharmTree group, final CharmSpecialsModel configuration,
-                                            boolean learnListener, final boolean forgetAtZero) {
+  private void addSpecialCharmConfiguration(Charm charm, LearningModel group, CharmSpecialsModel configuration,
+                                            boolean learnListener, boolean forgetAtZero) {
     if (specialConfigurationsByCharm.containsKey(charm)) {
       throw new IllegalArgumentException("Special configuration already defined for charm " + charm.getName().text);
     }

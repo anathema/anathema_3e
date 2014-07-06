@@ -6,7 +6,6 @@ import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -59,7 +58,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static java.text.MessageFormat.format;
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isFormMagic;
@@ -166,8 +164,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      LearningCharmTree group = getLearningTree(charm.getTreeReference());
-      manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
+      manager.registerSpecialCharmConfiguration(specialCharm, charm, aggregatedLearningModel);
     }
   }
 
@@ -315,18 +312,6 @@ public class CharmsModelImpl implements CharmsModel {
   public final boolean isLearned(Charm charm) {
     return getLearnModel().isLearned(charm);
   }
-
-  private LearningCharmTree getLearningTree(TreeReference reference) {
-    LearningCharmTree[] charmTrees = getLearningCharmTrees(reference.category);
-    for (LearningCharmTree tree : charmTrees) {
-      if (tree.getReference().name.equals(reference.name)) {
-        return tree;
-      }
-    }
-    String pattern = "No charm tree defined for id: {0} in {1}.";
-    throw new IllegalArgumentException(format(pattern, reference.name.text, reference.category.text));
-  }
-
 
   @Override
   public void addCheapenedChecker(CheapenedChecker cheapenedChecker) {
