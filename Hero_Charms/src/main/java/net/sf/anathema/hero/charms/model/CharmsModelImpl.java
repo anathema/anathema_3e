@@ -15,8 +15,8 @@ import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
-import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
-import net.sf.anathema.hero.charms.model.favored.IsFavoredCharm;
+import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
 import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
@@ -99,7 +99,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    isFavoredMagic.add(new IsFavoredCharm(hero));
+    isFavoredMagic.add(new IsCharmCheapened(hero));
     CharmSpecialistImpl specialist = new CharmSpecialistImpl(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.traits = TraitModelFetcher.fetch(hero);
@@ -361,8 +361,8 @@ public class CharmsModelImpl implements CharmsModel {
 
 
   @Override
-  public void addFavoredChecker(FavoredChecker favoredChecker) {
-    isFavoredMagic.add(favoredChecker);
+  public void addCheapenedChecker(CheapenedChecker cheapenedChecker) {
+    isFavoredMagic.add(cheapenedChecker);
   }
 
   @Override
@@ -393,7 +393,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public boolean isFavoredMagic(Magic magic) {
+  public boolean isMagicCheapened(Magic magic) {
     return isFavoredMagic.isFavored(magic);
   }
 

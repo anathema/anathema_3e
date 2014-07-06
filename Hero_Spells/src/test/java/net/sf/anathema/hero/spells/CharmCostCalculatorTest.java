@@ -9,7 +9,7 @@ import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
-import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
@@ -122,17 +122,17 @@ public class CharmCostCalculatorTest {
   }
 
   private void setSpellsFavored() {
-    charmModel.addFavoredChecker(new FavorsSpells());
+    charmModel.addCheapenedChecker(new FavorsSpells());
   }
 
-  private static class FavorsSpells implements FavoredChecker {
+  private static class FavorsSpells implements CheapenedChecker {
     @Override
     public boolean supportsMagic(Magic magic) {
       return magic instanceof Spell;
     }
 
     @Override
-    public boolean isFavored(Magic magic) {
+    public boolean isCheapened(Magic magic) {
       return true;
     }
   }

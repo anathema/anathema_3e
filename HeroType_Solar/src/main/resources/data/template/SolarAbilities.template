@@ -21,7 +21,30 @@
       traits: ["Bureaucracy", "Investigation", "Lore", "Medicine", "Occult"]
     }
   ];
-  favoredCount: 5,
-  casteCount: 5,
+  casteAbilities: [
+    {
+      caste: "Dawn",
+      traits: [ "Archery", "Awareness", "Dodge", "MartialArts", "Melee", "Resistance", "Thrown", "War" ]
+    },
+    {
+      caste: "Zenith",
+      traits: [ "Athletics", "Integrity", "Performance", "Lore", "Presence", "Resistance", "Survival", "War" ]
+    },
+    {
+      caste: "Twilight",
+      traits: [ "Bureaucracy", "Craft", "Integrity", "Investigation", "Linguistics", "Lore", "Medicine", "Occult" ]
+    },
+    {
+      caste: "Night",
+      "traits": [ "Athletics", "Awareness", "Dodge", "Investigation", "Larceny", "Ride", "Stealth", "Socialize" ]
+    },
+    {
+      "caste": "Eclipse",
+      "traits": [ "Bureaucracy", "Larceny", "Linguistics", "Occult", "Presence", "Ride", "Sail", "Socialize" ]
+    }
+
+  ];
+  favoredCount: 5;
+  casteCount: 5;
   supernalCount: 1
 }

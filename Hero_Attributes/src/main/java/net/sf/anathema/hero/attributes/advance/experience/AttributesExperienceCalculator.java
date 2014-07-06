@@ -12,8 +12,8 @@ public class AttributesExperienceCalculator {
     this.experienceData = experienceData;
   }
 
-  public int getAttributeCosts(Trait trait, boolean favored) {
-    return getTraitRatingCosts(trait, experienceData.getAttributeCosts(favored));
+  public int getAttributeCosts(Trait trait, boolean cheapened) {
+    return getTraitRatingCosts(trait, experienceData.getAttributeCosts(cheapened));
   }
 
   private int getTraitRatingCosts(Trait trait, CurrentRatingCost ratingCosts) {

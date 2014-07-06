@@ -3,7 +3,7 @@ package net.sf.anathema.herotype.solar.model.curse;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
+import net.sf.anathema.hero.traits.model.rules.LimitedTraitImpl;
 import net.sf.anathema.hero.traits.model.rules.ModificationType;
 import net.sf.anathema.hero.traits.model.state.FriendlyIncrementChecker;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
@@ -26,7 +26,7 @@ public class LimitBreakImpl implements LimitBreak {
     if (limitTrait == null) {
       DefaultTraitType traitType = new DefaultTraitType(getLimitString());
       TraitTemplate limitedTemplate = TraitTemplateFactory.createStaticLimitedTemplate(0, 10, ModificationType.Free);
-      limitTrait = new LimitedTrait(hero, traitType, limitedTemplate, new FriendlyIncrementChecker());
+      limitTrait = new LimitedTraitImpl(hero, traitType, limitedTemplate, new FriendlyIncrementChecker());
     }
     return limitTrait;
   }

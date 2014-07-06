@@ -2,8 +2,6 @@ package net.sf.anathema.hero.traits.dummy;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.state.NullTraitStateModel;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
 public class DummyTrait implements Trait {
@@ -46,11 +44,6 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public boolean isCasteOrFavored() {
-    return false;
-  }
-
-  @Override
   public int getMinimalValue() {
     return 0;
   }
@@ -71,33 +64,18 @@ public class DummyTrait implements Trait {
   }
 
   @Override
-  public void setModifiedCreationRange(int newInitialValue, int newUpperValue) {
-    //not yet implemented
-  }
-
-  @Override
-  public void addCreationPointListener(IntegerChangedListener listener) {
-    //not yet implemented
-  }
-
-  @Override
   public void addCurrentValueListener(IntegerChangedListener listener) {
     //not yet implemented
   }
 
   @Override
-  public TraitStateModel getFavorization() {
-    return new NullTraitStateModel();
+  public void removeCurrentValueListener(IntegerChangedListener listener) {
+    //not yet implemented
   }
 
   @Override
   public int getMaximalValue() {
     return 0;
-  }
-
-  @Override
-  public void removeCreationPointListener(IntegerChangedListener listener) {
-    //not yet implemented
   }
 
   @Override

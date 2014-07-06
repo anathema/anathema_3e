@@ -3,9 +3,9 @@ package net.sf.anathema.hero.display.fx;
 import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.dependencies.Produces;
 import net.sf.anathema.library.fx.dot.FxGroupedDotConfigurationView;
-import net.sf.anathema.library.fx.dot.GroupedFavorableDotConfigurationView;
+import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
 
-@Produces(GroupedFavorableDotConfigurationView.class)
+@Produces(GroupedStatedDotsView.class)
 public class GroupedFavorableDotViewFactory implements SubViewFactory {
 
   @SuppressWarnings("unchecked")

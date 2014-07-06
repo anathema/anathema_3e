@@ -23,8 +23,8 @@ public class AttributesExperienceModel extends AbstractIntegerValueModel {
   private int getAttributeCosts() {
     int experienceCosts = 0;
     for (Trait attribute : attributes.getAll()) {
-      boolean casteOrFavored = attribute.getFavorization().isCasteOrFavored();
-      experienceCosts += calculator.getAttributeCosts(attribute, casteOrFavored);
+      boolean cheapened = attributes.getState(attribute).isCheapened();
+      experienceCosts += calculator.getAttributeCosts(attribute, cheapened);
     }
     return experienceCosts;
   }

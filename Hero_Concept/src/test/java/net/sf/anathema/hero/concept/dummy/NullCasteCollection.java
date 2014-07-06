@@ -15,12 +15,6 @@ public class NullCasteCollection implements CasteCollection {
 	  return new CasteType[0];
   }
 
-
-  @Override
-  public CasteType[] getWithFavoredTrait(String id) {
-	  return new CasteType[0];
-  }
-
   @Override
   public CasteType getById(String casteTypeId) {
     return CasteType.NULL_CASTE_TYPE;

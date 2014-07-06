@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.Trait;
 
 public interface IGenericSpecialty {
 
-  ValuedTraitType getBasicTrait();
+  Trait getBasicTrait();
 }

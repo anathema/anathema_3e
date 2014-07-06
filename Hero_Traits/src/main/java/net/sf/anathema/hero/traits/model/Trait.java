@@ -1,9 +1,12 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
-public interface Trait extends ValuedTraitType {
+public interface Trait {
+
+  TraitType getType();
+
+  int getCurrentValue();
 
   int getCreationValue();
 
@@ -21,15 +24,11 @@ public interface Trait extends ValuedTraitType {
 
   void setExperiencedValue(int value);
 
-  TraitStateModel getFavorization();
-
   int getMaximalValue();
 
-  void addCreationPointListener(IntegerChangedListener listener);
-
-  void removeCreationPointListener(IntegerChangedListener listener);
-
   void addCurrentValueListener(IntegerChangedListener listener);
+
+  void removeCurrentValueListener(IntegerChangedListener listener);
 
   int getModifiedMaximalValue();
 
@@ -44,6 +43,4 @@ public interface Trait extends ValuedTraitType {
   int getMinimalValue();
 
   void resetCurrentValue();
-
-  void setModifiedCreationRange(int newInitialValue, int newUpperValue);
 }

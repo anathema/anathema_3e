@@ -1,6 +1,6 @@
 package net.sf.anathema.library.fx.dot;
 
-public interface GroupedFavorableDotConfigurationView {
+public interface GroupedStatedDotsView {
 
   void initGui(ColumnCount columnCount);
 

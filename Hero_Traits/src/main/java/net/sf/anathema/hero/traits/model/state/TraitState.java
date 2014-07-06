@@ -1,19 +1,24 @@
 package net.sf.anathema.hero.traits.model.state;
 
-import net.sf.anathema.library.identifier.Identifier;
+public interface TraitState {
 
-public enum TraitState implements Identifier {
+  void addTraitStateChangedListener(TraitStateChangedListener listener);
 
-  Default, Favored, Caste, Supernal;
+  TraitStateType getType();
 
-  @Override
-  public String getId() {
-    return name();
-  }
-  
-  public boolean countsAs(TraitState otherState) {
-	  return ((this == TraitState.Caste || this == TraitState.Supernal) &&
-			  (otherState == TraitState.Caste || otherState == TraitState.Supernal)) ||
-			   this == otherState;
-  }
+  boolean isCaste();
+
+  boolean isCasteOrFavored();
+
+  boolean isFavored();
+
+  void advanceState();
+
+  void restore(TraitStateType type);
+
+  boolean isCheapened();
+
+  boolean hasState(TraitStateType... type);
+
+  boolean isSelectableForCaste();
 }

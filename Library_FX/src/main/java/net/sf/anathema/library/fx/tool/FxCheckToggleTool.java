@@ -4,6 +4,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.ToggleTool;
+import net.sf.anathema.library.view.Style;
 
 public class FxCheckToggleTool extends FxBaseTool implements ToggleTool {
 
@@ -37,6 +38,11 @@ public class FxCheckToggleTool extends FxBaseTool implements ToggleTool {
 
   public void setStyleClass(String styleClass) {
     box.getStyleClass().add(styleClass);
+  }
+
+  @Override
+  public void setStyle(Style style) {
+
   }
 
   private class DeselectCheckboxAndProcess implements Command {

@@ -20,7 +20,7 @@ public class HeroConceptFactory extends SimpleModelTreeEntry implements HeroMode
   public HeroConceptImpl create(TemplateFactory templateFactory, String templateId) {
     Preconditions.checkNotNull(templateId, "The Character Concept requires a configured template.");
     CasteListTemplate template = CasteListTemplateLoader.loadTemplate(templateFactory, templateId);
-    CasteModelImpl casteModel = new CasteModelImpl(new CasteSelectionImpl(), new ConfigurableCasteCollection(template));
+    CasteModelImpl casteModel = new CasteModelImpl(new CasteSelectionImpl(), new CasteCollectionImpl(template));
     return new HeroConceptImpl(casteModel);
   }
 }

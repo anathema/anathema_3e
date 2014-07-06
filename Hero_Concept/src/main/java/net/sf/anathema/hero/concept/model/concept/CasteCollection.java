@@ -7,8 +7,6 @@ public interface CasteCollection {
   boolean containsCasteType(String casteTypeId);
 
   CasteType[] getAllCasteTypes(SplatType template);
-  
-  CasteType[] getWithFavoredTrait(String id);
 
   CasteType getById(String casteTypeId);
 

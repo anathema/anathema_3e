@@ -2,12 +2,11 @@ package net.sf.anathema.hero.abilities.advance.experience;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class AbilityExperienceModel extends AbstractIntegerValueModel {
 
-  private final TraitMap abilities;
+  private final AbilitiesModel abilities;
   private final AbilityExperienceCalculator calculator;
 
   public AbilityExperienceModel(AbilitiesModel abilities, AbilityExperienceCalculator calculator) {
@@ -24,7 +23,7 @@ public class AbilityExperienceModel extends AbstractIntegerValueModel {
   private int getAbilityCosts() {
     int experienceCosts = 0;
     for (Trait ability : abilities.getAll()) {
-      experienceCosts += calculator.getAbilityCosts(ability, ability.getFavorization().isCaste() || ability.getFavorization().isFavored());
+      experienceCosts += calculator.getAbilityCosts(ability, abilities.getState(ability).isCheapened());
     }
     return experienceCosts;
   }

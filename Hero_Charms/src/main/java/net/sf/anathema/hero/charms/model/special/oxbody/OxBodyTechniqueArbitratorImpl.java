@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.oxbody;
 
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ public class OxBodyTechniqueArbitratorImpl implements OxBodyTechniqueArbitrator 
   public boolean isIncrementAllowed(int increment) {
     int oxBodyCount = 0;
     int maxCount = Integer.MAX_VALUE;
-    for (ValuedTraitType trait : controllingTraits) {
+    for (Trait trait : controllingTraits) {
       maxCount = Math.min(maxCount, trait.getCurrentValue());
     }
     for (OxBodyTechniqueSpecials configuration : oxBodyList) {

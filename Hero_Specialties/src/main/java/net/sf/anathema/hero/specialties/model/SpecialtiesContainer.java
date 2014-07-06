@@ -28,6 +28,6 @@ public class SpecialtiesContainer extends AbstractSubTraitContainer {
 
   @Override
   public Specialty createSubTrait(String name) {
-    return new DefaultSpecialty(hero, this, type, name);
+    return new SpecialtyImpl(hero, this, type, name);
   }
 }

@@ -7,7 +7,7 @@ import net.sf.anathema.hero.environment.herotype.PresentationProperties;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.view.HeroUI;
-import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
@@ -22,22 +22,22 @@ public class FavoredIconSelector {
   }
 
 
-  public void setIconFor(Hero hero, TraitState state) {
+  public void setIconFor(Hero hero, TraitStateType state) {
     RelativePath path = determineIconPath(hero, state);
     tool.setIcon(path);
   }
 
-  private RelativePath determineIconPath(Hero hero, TraitState state) {
-	  if (state == TraitState.Supernal) {
+  private RelativePath determineIconPath(Hero hero, TraitStateType state) {
+	  if (state == TraitStateType.Supernal) {
 		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
 		  // TODO: Need a proper icon here
 		  return new HeroUI().getLinkIconPath();
 	  }
-	  if (state == TraitState.Caste) {
+	  if (state == TraitStateType.Caste) {
 		  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
 		  return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
 	  }
-	  if (state == TraitState.Favored) {
+	  if (state == TraitStateType.Favored) {
 		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
 		  return new HeroUI().getMediumBallPath(heroType);
 	  }

@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
+import net.sf.anathema.hero.traits.model.Trait;
 
 public class GenericSpecialty implements IGenericSpecialty {
 
-  private final ValuedTraitType trait;
+  private final Trait trait;
 
-  public GenericSpecialty(ValuedTraitType trait) {
+  public GenericSpecialty(Trait trait) {
     this.trait = trait;
   }
 
   @Override
-  public ValuedTraitType getBasicTrait() {
+  public Trait getBasicTrait() {
     return trait;
   }
 }

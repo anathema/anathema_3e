@@ -12,9 +12,4 @@ public class DummyCasteType extends SimpleIdentifier implements CasteType {
   public DummyCasteType(String id) {
     super(id);
   }
-
-  @Override
-  public String[] getCasteTraitIds() {
-	  return new String[0];
-  }
 }

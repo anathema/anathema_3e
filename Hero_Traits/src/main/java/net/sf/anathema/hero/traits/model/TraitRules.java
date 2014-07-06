@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.library.number.Range;
-
 public interface TraitRules {
 
   int UNEXPERIENCED = -1;
@@ -9,6 +7,8 @@ public interface TraitRules {
   int getAbsoluteMaximumValue();
 
   int getAbsoluteMinimumValue();
+
+  int getCurrentMinimumValue();
 
   int getCurrentMaximumValue(boolean modified);
 
@@ -23,8 +23,6 @@ public interface TraitRules {
   int getCreationValue(int demandedValue);
 
   void setCapModifier(int modifier);
-
-  void setModifiedCreationRange(Range range);
 
   boolean isRequiredFavored();
 }

@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
-import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
@@ -20,7 +20,7 @@ import net.sf.anathema.magic.data.Magic;
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
-  void addFavoredChecker(FavoredChecker favoredChecker);
+  void addCheapenedChecker(CheapenedChecker cheapenedChecker);
 
   Identifier ID = new SimpleIdentifier("Charms");
 
@@ -50,5 +50,5 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   boolean isAlienCharm(Charm charm);
 
-  boolean isFavoredMagic(Magic magic);
+  boolean isMagicCheapened(Magic magic);
 }

@@ -1,47 +1,31 @@
 package net.sf.anathema.hero.traits.model;
 
 import com.google.common.base.Preconditions;
-import net.sf.anathema.hero.concept.model.concept.CasteType;
-import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.NullTraitStateModel;
-import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateModel;
-import net.sf.anathema.hero.traits.model.state.TraitStateModelImpl;
-import net.sf.anathema.library.change.ChangeFlavor;
-import net.sf.anathema.library.change.FlavoredChangeListener;
+import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.library.event.IntegerChangedListener;
-import net.sf.anathema.library.number.Range;
 import org.jmock.example.announcer.Announcer;
 
-public class DefaultTrait implements Trait {
+public class TraitImpl implements Trait {
 
   private int capModifier = 0;
   private int creationValue;
   private int experiencedValue = TraitRules.UNEXPERIENCED;
-  private final ValueChangeChecker checker;
-  private TraitStateModel traitFavorization;
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
   private final TraitValueStrategy valueStrategy;
 
-  public DefaultTrait(Hero hero, TraitRules traitRules, CasteType[] castes, ValueChangeChecker valueChangeChecker,
-                      MappableTypeIncrementChecker<TraitState> favoredIncrementChecker) {
-    this(hero, traitRules, valueChangeChecker);
-    this.traitFavorization = new TraitStateModelImpl(hero, castes, favoredIncrementChecker, this, traitRules.isRequiredFavored());
-    hero.getChangeAnnouncer().addListener(new ResetCurrentValueOnCasteChange());
-  }
-
-  public DefaultTrait(Hero hero, TraitRules traitRules, ValueChangeChecker checker) {
+  public TraitImpl(Hero hero, TraitRules traitRules) {
     Preconditions.checkNotNull(traitRules);
     this.traitRules = traitRules;
     TraitModel traits = TraitModelFetcher.fetch(hero);
     this.valueStrategy = traits.getValueStrategy();
-    this.traitFavorization = new NullTraitStateModel();
-    this.checker = checker;
     this.creationValue = traitRules.getStartValue();
+    DynamicMinimum dynamicMinimum = TraitModelFetcher.fetch(hero).getMinimumMap().getMinimum(traitRules.getType());
+    dynamicMinimum.addChangedListener(() -> {
+      resetCurrentValue();;
+    });
   }
 
   @Override
@@ -50,13 +34,7 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public TraitStateModel getFavorization() {
-    return traitFavorization;
-  }
-
-  @Override
   public void setCreationValue(int value) {
-    value = Math.max(value, traitFavorization.getMinimalValue());
     int correctedValue = traitRules.getCreationValue(value);
     if (this.creationValue == correctedValue) {
       return;
@@ -100,14 +78,10 @@ public class DefaultTrait implements Trait {
 
   @Override
   public void setCurrentValue(int value) {
-    if (!checker.isValidNewValue(value)) {
-      resetCurrentValue();
-    } else {
-      if (value == getCurrentValue()) {
-        return;
-      }
-      valueStrategy.setValue(this, value);
+    if (value == getCurrentValue()) {
+      return;
     }
+    valueStrategy.setValue(this, value);
   }
 
   @Override
@@ -135,7 +109,7 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public final void resetCurrentValue() {
+  public void resetCurrentValue() {
     valueStrategy.resetCurrentValue(this);
   }
 
@@ -155,23 +129,12 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public void setModifiedCreationRange(int lowerBound, int upperBound) {
-    traitRules.setModifiedCreationRange(Range.bounded(lowerBound, upperBound));
-    resetCreationValue();
-  }
-
-  @Override
-  public final int getMinimalValue() {
+  public int getMinimalValue() {
     return valueStrategy.getMinimalValue(this);
   }
 
   @Override
-  public boolean isCasteOrFavored() {
-    return getFavorization().isCasteOrFavored();
-  }
-
-  @Override
-  public final boolean isLowerable() {
+  public boolean isLowerable() {
     return traitRules.isReducible();
   }
 
@@ -181,42 +144,27 @@ public class DefaultTrait implements Trait {
   }
 
   @Override
-  public final TraitType getType() {
+  public TraitType getType() {
     return traitRules.getType();
   }
 
   @Override
-  public final int getMaximalValue() {
+  public int getMaximalValue() {
     return traitRules.getAbsoluteMaximumValue();
   }
 
   @Override
-  public final void addCreationPointListener(IntegerChangedListener listener) {
-    creationPointControl.addListener(listener);
-  }
-
-  @Override
-  public final void removeCreationPointListener(IntegerChangedListener listener) {
-    creationPointControl.removeListener(listener);
-  }
-
-  @Override
-  public final void addCurrentValueListener(IntegerChangedListener listener) {
+  public void addCurrentValueListener(IntegerChangedListener listener) {
     currentValueControl.addListener(listener);
+  }
+
+  @Override
+  public void removeCurrentValueListener(IntegerChangedListener listener) {
+    currentValueControl.removeListener(listener);
   }
 
   @Override
   public int hashCode() {
     return getType().getId().hashCode();
-  }
-
-  public class ResetCurrentValueOnCasteChange implements FlavoredChangeListener {
-
-    @Override
-    public void changeOccurred(ChangeFlavor flavor) {
-      if (flavor == ConceptChange.FLAVOR_CASTE) {
-        resetCurrentValue();
-      }
-    }
   }
 }

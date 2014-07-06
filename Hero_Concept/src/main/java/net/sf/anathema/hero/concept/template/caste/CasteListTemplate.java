@@ -5,5 +5,5 @@ import java.util.List;
 
 public class CasteListTemplate {
 
-  public List<CasteTemplate> castes = new ArrayList<>();
+  public List<String> castes = new ArrayList<>();
 }

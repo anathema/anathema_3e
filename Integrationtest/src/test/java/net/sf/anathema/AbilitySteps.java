@@ -4,7 +4,9 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
@@ -26,7 +28,8 @@ public class AbilitySteps {
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
-    ability.getFavorization().setFavored(true);
+    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
+    stateMap.getState(ability).advanceState();
   }
 
   @Then("^she has (\\d+) dots in ability (.*)$")
@@ -59,22 +62,16 @@ public class AbilitySteps {
   }
 
   private void spendAPoint() {
+    TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero());
     Trait[] traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      boolean isNotFavored = !trait.getFavorization().isFavored();
-      if (isAbility && hasNotYetReachedThreshold && isNotFavored){
+      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.getState(trait).isFavored()){
         increaseTraitValueByOne(trait);
         break;
       }
     }
-  }
-
-  private int determinePointsToSpend(int overspending) {
-    SpendingModel model = (SpendingModel) bonusModel.findBonusModel("Abilities", "General");
-    int freeAbilityPoints = model.getAllotment();
-    return freeAbilityPoints+overspending;
   }
 
   private void increaseTraitValueByOne(Trait trait) {

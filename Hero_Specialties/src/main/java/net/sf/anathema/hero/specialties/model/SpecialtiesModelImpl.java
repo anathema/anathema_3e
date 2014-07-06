@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Strings;
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -31,7 +31,7 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    for (Trait trait : AbilityModelFetcher.fetch(hero).getAll()) {
+    for (Trait trait : AbilitiesModelFetcher.fetch(hero).getAll()) {
       SpecialtiesContainer specialtiesContainer = new SpecialtiesContainer(trait.getType(), hero);
       specialtiesByType.put(trait.getType(), specialtiesContainer);
     }
@@ -39,7 +39,7 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    for (Trait ability : AbilityModelFetcher.fetch(hero).getAll()) {
+    for (Trait ability : AbilitiesModelFetcher.fetch(hero).getAll()) {
       getSpecialtiesContainer(ability.getType()).addSubTraitListener(new SpecialtiesListener(announcer));
     }
   }

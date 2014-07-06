@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.traits.model.group;
 
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
-import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.lists.IIdentifiedCasteTraitTypeList;
-import net.sf.anathema.hero.traits.model.lists.IdentifiedCasteTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeListImpl;
 import net.sf.anathema.library.collection.MultiEntryMap;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -18,7 +17,7 @@ public abstract class AbstractTraitTypeGroupFactory {
 
   protected abstract Identifier getGroupIdentifier(CasteCollection casteCollection, String groupId);
 
-  public IIdentifiedCasteTraitTypeList[] createTraitGroups(CasteCollection casteCollection, GroupedTraitType[] traitTypes) {
+  public IdentifiedTraitTypeList[] createTraitGroups(CasteCollection casteCollection, GroupedTraitType[] traitTypes) {
     Set<String> groupIds = new LinkedHashSet<>();
     MultiEntryMap<String, TraitType> traitTypesByGroupId = new MultiEntryMap<>();
     for (GroupedTraitType type : traitTypes) {
@@ -26,21 +25,18 @@ public abstract class AbstractTraitTypeGroupFactory {
       groupIds.add(groupId);
       traitTypesByGroupId.add(groupId, type.getTraitType());
     }
-    List<IIdentifiedCasteTraitTypeList> groups = new ArrayList<>();
+    List<IdentifiedTraitTypeList> groups = new ArrayList<>();
     for (String groupId : groupIds) {
       List<TraitType> groupTraitTypes = traitTypesByGroupId.get(groupId);
-      MultiEntryMap<TraitType, CasteType> castesByTrait = new MultiEntryMap<>();
       for (GroupedTraitType type : traitTypes) {
         if (!type.getGroupId().equals(groupId)) {
           continue;
         }
-        CasteType[] favoring = casteCollection.getWithFavoredTrait(type.getTraitType().getId());
-        castesByTrait.add(type.getTraitType(), favoring);
       }
       Identifier groupIdentifier = getGroupIdentifier(casteCollection, groupId);
       TraitType[] types = groupTraitTypes.toArray(new TraitType[groupTraitTypes.size()]);
-      groups.add(new IdentifiedCasteTraitTypeList(types, groupIdentifier, castesByTrait));
+      groups.add(new IdentifiedTraitTypeListImpl(types, groupIdentifier));
     }
-    return groups.toArray(new IIdentifiedCasteTraitTypeList[groups.size()]);
+    return groups.toArray(new IdentifiedTraitTypeList[groups.size()]);
   }
 }

@@ -9,7 +9,7 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.PrintMagicProvider;
-import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
@@ -109,7 +109,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public boolean isFavoredMagic(Magic magic) {
+  public boolean isMagicCheapened(Magic magic) {
     return favoredMagic.isFavored(magic);
   }
 
@@ -149,8 +149,8 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public void addFavoredChecker(FavoredChecker favoredChecker) {
-    favoredMagic.add(favoredChecker);
+  public void addCheapenedChecker(CheapenedChecker cheapenedChecker) {
+    favoredMagic.add(cheapenedChecker);
   }
 
   @Override

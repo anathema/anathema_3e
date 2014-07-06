@@ -4,7 +4,7 @@ import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -58,7 +58,7 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   private void updateLanguagePointAllowance() {
     int currentPoints = languagePointsAllowed;
-    Trait linguistics = AbilityModelFetcher.fetch(hero).getTrait(AbilityType.Linguistics);
+    Trait linguistics = AbilitiesModelFetcher.fetch(hero).getTrait(AbilityType.Linguistics);
     languagePointsAllowed = linguistics.getCurrentValue() + 1;
     if (currentPoints != languagePointsAllowed) {
       pointControl.announce().changeOccurred();

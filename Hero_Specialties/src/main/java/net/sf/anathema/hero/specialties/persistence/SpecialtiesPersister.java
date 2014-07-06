@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.Specialty;
+import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
 import net.sf.anathema.hero.traits.persistence.TraitPto;
@@ -13,7 +14,8 @@ import net.sf.anathema.library.identifier.Identifier;
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesPersister extends AbstractModelJsonPersister<SpecialtiesPto, SpecialtiesModel> {
 
-  private final TraitPersister traitPersister = new TraitPersister();
+  // todo sandra specialties are no longer traits
+  private final TraitPersister traitPersister = new TraitPersister(new NullTraitStateMap());
 
   public SpecialtiesPersister() {
     super("specialties", SpecialtiesPto.class);

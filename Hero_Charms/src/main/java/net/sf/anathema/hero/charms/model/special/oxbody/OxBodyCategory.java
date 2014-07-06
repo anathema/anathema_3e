@@ -3,11 +3,11 @@ package net.sf.anathema.hero.charms.model.special.oxbody;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
-import net.sf.anathema.hero.traits.model.rules.LimitedTrait;
+import net.sf.anathema.hero.traits.model.rules.LimitedTraitImpl;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
-public class OxBodyCategory extends LimitedTrait {
+public class OxBodyCategory extends LimitedTraitImpl {
 
   private final String id;
   private final HealthLevelType[] healthLevelTypes;

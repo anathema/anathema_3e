@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.spells.model;
 
-import net.sf.anathema.hero.charms.model.favored.FavoredChecker;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
+import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.magic.data.Magic;
 
-public class IsFavoredSpell implements FavoredChecker {
+public class IsFavoredSpell implements CheapenedChecker {
 
   private Hero hero;
 
@@ -21,8 +22,10 @@ public class IsFavoredSpell implements FavoredChecker {
   }
 
   @Override
-  public boolean isFavored(Magic magic) {
+  public boolean isCheapened(Magic magic) {
     TraitType traitType = SpellsModelFetcher.fetch(hero).getFavoringTraitType();
-    return TraitModelFetcher.fetch(hero).getTrait(traitType).isCasteOrFavored();
+    // todo (sandra) model that spells might be favored non-ability
+    TraitState traitState = AbilitiesModelFetcher.fetch(hero).getState(traitType);
+    return traitState.isCasteOrFavored();
   }
 }

@@ -2,8 +2,8 @@ package net.sf.anathema.hero.spiritual.model.pool;
 
 import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.ValuedTraitType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +38,7 @@ public class EssencePoolConfiguration {
     }
     List<FactorizedTrait> traits = new ArrayList<>();
     for (PoolPartTemplate part : parts) {
-      ValuedTraitType trait = traitMap.getTrait(part.traitType);
+      Trait trait = traitMap.getTrait(part.traitType);
       traits.add(new FactorizedTrait(trait, part.multiplier));
     }
     return traits.toArray(new FactorizedTrait[traits.size()]);

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.specialties.advance;
 
-import net.sf.anathema.hero.abilities.model.AbilityModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
@@ -10,7 +10,7 @@ import net.sf.anathema.hero.specialties.advance.creation.SpecialtyCreationData;
 import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceData;
 import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
-import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -34,7 +34,7 @@ public class SpecialtiesPointsModel implements HeroModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    TraitMap traitMap = AbilityModelFetcher.fetch(hero);
+    GroupedTraitsModel traitMap = AbilitiesModelFetcher.fetch(hero);
     SpecialtyCreationData creationData = new SpecialtyCreationData(template);
     SpecialtiesBonusPointCalculator specialtiesBonusPointCalculator = new SpecialtiesBonusPointCalculator(hero, traitMap, creationData);
     pointsModel.addBonusPointCalculator(specialtiesBonusPointCalculator);
