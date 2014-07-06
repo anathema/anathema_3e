@@ -58,7 +58,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningCharmTree[] getCharmGroups(CategoryReference category) {
+  public LearningCharmTree[] getTreesFor(CategoryReference category) {
     return groups;
   }
 
@@ -89,7 +89,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningCharmTree[] getAllGroups() {
+  public LearningCharmTree[] getAllTrees() {
     throw new NotYetImplementedException();
   }
 
@@ -119,7 +119,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningCharmTree getGroup(Charm charm) {
+  public LearningCharmTree getTreeFor(Charm charm) {
     throw new NotYetImplementedException();
   }
 

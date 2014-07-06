@@ -21,6 +21,6 @@ public final class CharacterGroupCharmTree implements CharmTreeCollection {
 
   @Override
   public CharmTree[] getAllCharmTrees() {
-    return model.getCharmModel().getCharmGroups(cascadeType);
+    return model.getCharmModel().getTreesFor(cascadeType);
   }
 }

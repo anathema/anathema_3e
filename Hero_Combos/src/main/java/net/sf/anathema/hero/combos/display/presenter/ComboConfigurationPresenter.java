@@ -217,7 +217,7 @@ public class ComboConfigurationPresenter {
         updateCharmListsInView();
       }
     };
-    for (LearningCharmTree group : charmConfiguration.getAllGroups()) {
+    for (LearningCharmTree group : charmConfiguration.getAllTrees()) {
       group.addCharmLearnListener(charmLearnListener);
     }
   }

@@ -30,11 +30,11 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   void addLearnProvider(MagicLearner provider);
 
-  LearningCharmTree getGroup(Charm charm);
+  LearningCharmTree[] getTreesFor(CategoryReference type);
 
-  LearningCharmTree[] getAllGroups();
+  LearningCharmTree[] getAllTrees();
 
-  LearningCharmTree[] getCharmGroups(CategoryReference type);
+  LearningCharmTree getTreeFor(Charm charm);
 
   Charm[] getLearnedCharms(boolean experienced);
 

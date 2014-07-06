@@ -96,6 +96,6 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   }
 
   private LearningCharmTree[] getMartialArtsGroups() {
-    return charmModel.getCharmGroups(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
+    return charmModel.getTreesFor(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
   }
 }
