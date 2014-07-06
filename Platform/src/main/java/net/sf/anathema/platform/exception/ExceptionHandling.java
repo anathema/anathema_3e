@@ -12,11 +12,6 @@ public class ExceptionHandling {
   }
 
   private void attachForThreadUncaughtExceptionHandling() {
-    Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-      @Override
-      public void uncaughtException(Thread t, Throwable e) {
-        handler.handle(e);
-      }
-    });
+    Thread.setDefaultUncaughtExceptionHandler((t, e) -> handler.handle(e));
   }
 }

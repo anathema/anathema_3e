@@ -11,14 +11,15 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class InputOutput {
-  private static final String COMPATIBILITY_ENCODING = "ISO-8859-1";
+
+  public static final String ENCODING = "UTF-8";
 
   public static String toString(InputStream inputStream) throws IOException {
-    return IOUtils.toString(inputStream);
+    return IOUtils.toString(inputStream, ENCODING);
   }
 
   public static String toString(File itemFile) throws IOException {
-    return FileUtils.readFileToString(itemFile, COMPATIBILITY_ENCODING);
+    return FileUtils.readFileToString(itemFile, ENCODING);
   }
 
   public static byte[] toByteArray(InputStream inputStream) throws IOException {
@@ -33,7 +34,7 @@ public class InputOutput {
   }
 
   public static void writeStringToFile(File file, String content) throws IOException {
-    FileUtils.writeStringToFile(file, content);
+    FileUtils.writeStringToFile(file, content, ENCODING);
   }
 
   public static void deleteDirectory(File directory) throws IOException {
