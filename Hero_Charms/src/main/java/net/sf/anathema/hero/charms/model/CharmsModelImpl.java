@@ -20,7 +20,6 @@ import net.sf.anathema.hero.charms.model.learn.AggregatedLearningModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
@@ -55,6 +54,7 @@ import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -110,9 +110,9 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void initializeCharmTrees() {
     for (CharmTreeCategory category : options) {
-      for (CharmTree charmGroup : category.getAllCharmTrees()) {
+      for (CharmTree charmTree : category.getAllCharmTrees()) {
         aggregatedLearningModel.addModel(
-          new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, aggregatedLearningModel));
+          new LearningCharmTreeImpl(charmLearnStrategy, charmTree, this, aggregatedLearningModel));
       }
     }
   }
@@ -170,7 +170,21 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public CharmTree[] getAllTrees() {
-    return aggregatedLearningModel.getAllTrees();
+    List<CharmTree> allTrees = new ArrayList<>();
+    for (CharmTreeCategory category : options) {
+      allTrees.addAll(Arrays.asList(category.getAllCharmTrees()));
+    }
+    return allTrees.toArray(new CharmTree[allTrees.size()]);
+  }
+
+  @Override
+  public CharmTree[] getTreesFor(CategoryReference reference) {
+    for (CharmTreeCategory category : options) {
+      if (category.getReference().equals(reference)) {
+        return category.getAllCharmTrees();
+      }
+    }
+    return new CharmTree[0];
   }
 
   @Override
@@ -180,15 +194,6 @@ public class CharmsModelImpl implements CharmsModel {
       return charm;
     }
     throw new IllegalArgumentException("No charm found for id \"" + charmId.text + "\"");
-  }
-
-  @Override
-  public LearningCharmTree[] getTreesFor(CategoryReference category) {
-    return getLearningCharmTrees(category);
-  }
-
-  private LearningCharmTree[] getLearningCharmTrees(CategoryReference category) {
-    return aggregatedLearningModel.getLearningCharmTrees(category);
   }
 
   @Override

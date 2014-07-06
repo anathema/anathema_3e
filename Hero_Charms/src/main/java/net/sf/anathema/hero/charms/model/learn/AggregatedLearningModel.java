@@ -7,7 +7,6 @@ import net.sf.anathema.library.collection.MultiEntryMap;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -142,16 +141,6 @@ public class AggregatedLearningModel implements LearningModel {
   @Override
   public void toggleExperienceLearnedCharm(Charm charm) {
     learnTreesByTreeName.values().forEach((charmTree) -> charmTree.toggleLearnedOnCreation(charm));
-  }
-
-  public LearningCharmTree[] getAllTrees() {
-    Collection<LearningCharmTree> allTrees = learnTreesByTreeName.values();
-    return allTrees.toArray(new LearningCharmTree[allTrees.size()]);
-  }
-
-  public LearningCharmTree[] getLearningCharmTrees(CategoryReference category) {
-    List<LearningCharmTree> charmTrees = learnTreesByCategory.get(category);
-    return charmTrees.toArray(new LearningCharmTree[charmTrees.size()]);
   }
 
   public void forgetAll(CategoryReference reference) {
