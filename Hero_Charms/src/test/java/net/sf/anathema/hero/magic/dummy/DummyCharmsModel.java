@@ -13,6 +13,7 @@ import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
@@ -161,6 +162,11 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public void addLearnProvider(MagicLearner provider) {
     // nothing to do
+  }
+
+  @Override
+  public LearningModel getLearnModel() {
+    return null;
   }
 
   @Override

@@ -7,6 +7,7 @@ import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
@@ -29,6 +30,8 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   void addLearnableListener(ChangeListener listener);
 
   void addLearnProvider(MagicLearner provider);
+
+  LearningModel getLearnModel();
 
   LearningCharmTree[] getTreesFor(CategoryReference type);
 

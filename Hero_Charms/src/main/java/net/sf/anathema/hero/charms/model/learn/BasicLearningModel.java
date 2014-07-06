@@ -1,8 +1,8 @@
-package net.sf.anathema.hero.charms.model;
+package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.Charm;
 
-public interface BasicLearnCharmTree {
+public interface BasicLearningModel {
 
   boolean isLearned(Charm charm);
 

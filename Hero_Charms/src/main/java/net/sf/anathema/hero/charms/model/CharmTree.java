@@ -11,4 +11,6 @@ public interface CharmTree extends Identifier {
   TreeReference getReference();
 
   boolean isCharmFromTree(Charm charm);
+
+  Charm[] getCoreCharms();
 }
