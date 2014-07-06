@@ -27,7 +27,6 @@ import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
-import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -126,16 +125,6 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   @Override
   public IdentifiedTraitTypeList[] getGroups() {
     return attributeTraitGroups;
-  }
-
-  public Trait[] getAll(AttributeGroupType groupType) {
-    for (IdentifiedTraitTypeList group : getGroups()) {
-      if (group.getListId().equals(groupType)) {
-        List<TraitType> all = group.getAll();
-        return getTraits(all.toArray(new TraitType[all.size()]));
-      }
-    }
-    return new Trait[0];
   }
 
   @Override
