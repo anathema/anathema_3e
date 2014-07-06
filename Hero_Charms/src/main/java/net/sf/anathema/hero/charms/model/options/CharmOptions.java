@@ -7,6 +7,7 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 
+import java.util.Collection;
 import java.util.List;
 
 public interface CharmOptions extends CharmTreeArbitrator {
@@ -15,7 +16,7 @@ public interface CharmOptions extends CharmTreeArbitrator {
 
   ISpecialCharm[] getSpecialCharms();
 
-  Charm[] filterAvailableCharms(CharmTree tree);
+  Collection<Charm> filterAvailableCharms(CharmTree tree);
 
   boolean isAlienCharmsAllowedForHero();
 

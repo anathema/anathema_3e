@@ -14,6 +14,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.NativeCharacterType;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -73,8 +74,8 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   @Override
-  public Charm[] filterAvailableCharms(CharmTree tree) {
-    Charm[] allCharms = tree.getAllCharms();
+  public Collection<Charm> filterAvailableCharms(CharmTree tree) {
+    Collection<Charm> allCharms = tree.getAllCharms();
     if (isAlienCharmsAllowedForHero()) {
       return allCharms;
     }
@@ -94,7 +95,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     return charmsRule.getNativeCategories();
   }
 
-  private Charm[] collectCharmsThatAreNativeOrNotExclusive(Charm[] allCharms) {
+  private Collection<Charm> collectCharmsThatAreNativeOrNotExclusive(Collection<Charm> allCharms) {
     List<Charm> charms = new ArrayList<>();
     for (Charm charm : allCharms) {
       if (!charm.hasAttribute(EXCLUSIVE_ATTRIBUTE)) {
@@ -104,7 +105,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
         charms.add(charm);
       }
     }
-    return charms.toArray(new Charm[charms.size()]);
+    return charms;
   }
 
   @Override

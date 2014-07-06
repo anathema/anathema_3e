@@ -4,13 +4,15 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.library.identifier.Identifier;
 
+import java.util.Collection;
+
 public interface CharmTree extends Identifier {
 
-  Charm[] getAllCharms();
+  Collection<Charm> getAllCharms();
+
+  Collection<Charm> getCoreCharms();
 
   TreeReference getReference();
 
   boolean isCharmFromTree(Charm charm);
-
-  Charm[] getCoreCharms();
 }

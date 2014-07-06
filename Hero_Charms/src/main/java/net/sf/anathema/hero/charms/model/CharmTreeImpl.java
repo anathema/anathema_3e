@@ -1,12 +1,15 @@
 package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.library.identifier.Identifier;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
+import static net.sf.anathema.charm.data.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 
 public class CharmTreeImpl implements CharmTree, Identifier {
 
@@ -29,8 +32,8 @@ public class CharmTreeImpl implements CharmTree, Identifier {
   }
 
   @Override
-  public Charm[] getAllCharms() {
-    return charms;
+  public Collection<Charm> getAllCharms() {
+    return Arrays.asList(charms);
   }
 
   @Override
@@ -45,14 +48,8 @@ public class CharmTreeImpl implements CharmTree, Identifier {
   }
 
   @Override
-  public Charm[] getCoreCharms() {
-    Charm[] allCharms = getAllCharms();
-    List<Charm> charms = new ArrayList<>();
-    for (Charm charm : allCharms) {
-      if (!charm.hasAttribute(CharmAttributeList.EXCLUSIVE_ATTRIBUTE)) {
-        charms.add(charm);
-      }
-    }
-    return charms.toArray(new Charm[charms.size()]);
+  public Collection<Charm> getCoreCharms() {
+    Stream<Charm> allCharms = getAllCharms().stream();
+    return allCharms.filter(charm -> !charm.hasAttribute(EXCLUSIVE_ATTRIBUTE)).collect(toList());
   }
 }

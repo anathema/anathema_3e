@@ -5,6 +5,7 @@ import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class ConfigurableCharmDye implements CharmDye {
@@ -41,7 +42,7 @@ public class ConfigurableCharmDye implements CharmDye {
     coloring.operateOn(treeView);
   }
 
-  private Charm[] getAllCharmsFromCurrentGroup() {
+  private Collection<Charm> getAllCharmsFromCurrentGroup() {
     return groupInformer.getCurrentTree().getAllCharms();
   }
 }
