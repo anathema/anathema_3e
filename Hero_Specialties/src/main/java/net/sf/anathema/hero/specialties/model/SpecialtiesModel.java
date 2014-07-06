@@ -12,7 +12,7 @@ public interface SpecialtiesModel extends HeroModel {
 
   ISubTraitContainer getSpecialtiesContainer(TraitType traitType);
 
-  TraitType[] getAllParentTraits();
+  Iterable<TraitType> getAllParentTraits();
 
   TraitType[] getAllEligibleParentTraits();
 

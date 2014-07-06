@@ -55,9 +55,9 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   }
 
   @Override
-  public TraitType[] getAllParentTraits() {
+  public Iterable<TraitType> getAllParentTraits() {
     Set<TraitType> keySet = specialtiesByType.keySet();
-    return keySet.toArray(new TraitType[keySet.size()]);
+    return new ArrayList<>(keySet);
   }
 
   @Override

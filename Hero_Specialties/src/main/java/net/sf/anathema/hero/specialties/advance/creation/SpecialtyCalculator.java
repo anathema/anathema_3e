@@ -4,7 +4,7 @@ import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class SpecialtyCalculator {
@@ -17,13 +17,13 @@ public class SpecialtyCalculator {
     this.specialtyPoints = specialtyPoints;
   }
 
-  public int getSpecialtyPointsSpent(IGenericSpecialty[] specialties) {
-    return Math.min(specialtyPoints, specialties.length);
+  public int getSpecialtyPointsSpent(Collection<IGenericSpecialty> specialties) {
+    return Math.min(specialtyPoints, specialties.size());
   }
 
-  public int getSpecialtyCosts(IGenericSpecialty[] specialties) {
-    List<IGenericSpecialty> favoredSpecialties = getFavoredSpecialties(Arrays.asList(specialties));
-    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<>(Arrays.asList(specialties));
+  public int getSpecialtyCosts(Collection<IGenericSpecialty> specialties) {
+    List<IGenericSpecialty> favoredSpecialties = getFavoredSpecialties(specialties);
+    List<IGenericSpecialty> unfavoredSpecialties = new ArrayList<>(specialties);
     unfavoredSpecialties.removeAll(favoredSpecialties);
     int favoredCount = favoredSpecialties.size();
     int unfavoredCount = unfavoredSpecialties.size();
@@ -35,7 +35,7 @@ public class SpecialtyCalculator {
     return unfavoredCount + (int) Math.ceil(favoredCount * 0.5);
   }
 
-  private List<IGenericSpecialty> getFavoredSpecialties(List<IGenericSpecialty> specialties) {
+  private List<IGenericSpecialty> getFavoredSpecialties(Iterable<IGenericSpecialty> specialties) {
     List<IGenericSpecialty> cheapenedSpecialties = new ArrayList<>();
     for (IGenericSpecialty specialty : specialties) {
       TraitType type = specialty.getBasicTrait().getType();

@@ -119,7 +119,7 @@ public class SpecialtiesConfigurationPresenter {
     }
   }
 
-  private TraitType[] getAllTraits() {
+  private Iterable<TraitType> getAllTraits() {
     return specialtyManagement.getAllParentTraits();
   }
 
