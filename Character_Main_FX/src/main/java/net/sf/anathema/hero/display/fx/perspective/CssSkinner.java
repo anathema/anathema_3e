@@ -3,18 +3,19 @@ package net.sf.anathema.hero.display.fx.perspective;
 import net.sf.anathema.hero.individual.splat.HeroType;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import static java.text.MessageFormat.format;
 
 public class CssSkinner {
 
-  public String[] getSkins(HeroType heroType) {
+  public Collection<String> getSkins(HeroType heroType) {
     List<String> skins = new ArrayList<>();
     skins.add("skin/platform/dotselector.css");
     skins.add("skin/traits/favorable.css");
     skins.add(chooseSkinForCharacterType(heroType));
-    return skins.toArray(new String[skins.size()]);
+    return skins;
   }
 
   private String chooseSkinForCharacterType(HeroType heroType) {

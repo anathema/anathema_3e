@@ -19,6 +19,8 @@ import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.Collection;
+
 public class FxExperienceView implements ExperienceView, NodeHolder {
   private final MigPane content = new MigPane(new LC().wrapAfter(1).fill());
   private final TableView<ExperiencePointEntry> table = new TableView<>();
@@ -75,7 +77,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
   }
 
   @Override
-  public void setEntries(ExperiencePointEntry... allEntries) {
+  public void setEntries(Collection<ExperiencePointEntry> allEntries) {
     clearEntries();
     addEntries(allEntries);
     forceTableRefresh();
@@ -140,7 +142,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
     table.getItems().removeAll(table.getItems());
   }
 
-  private void addEntries(ExperiencePointEntry[] allEntries) {
+  private void addEntries(Iterable<ExperiencePointEntry> allEntries) {
     for (ExperiencePointEntry entry : allEntries) {
       table.getItems().add(entry);
     }

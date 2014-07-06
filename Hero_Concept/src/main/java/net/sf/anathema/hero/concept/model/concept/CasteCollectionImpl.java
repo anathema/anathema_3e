@@ -4,6 +4,8 @@ import net.sf.anathema.hero.concept.template.caste.CasteListTemplate;
 import net.sf.anathema.hero.individual.splat.SplatType;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class CasteCollectionImpl implements CasteCollection {
@@ -41,7 +43,7 @@ public class CasteCollectionImpl implements CasteCollection {
   }
 
   @Override
-  public CasteType[] getAllCasteTypes(SplatType template) {
-    return allTypes.toArray(new CasteType[allTypes.size()]);
+  public Collection<CasteType> getAllCasteTypes(SplatType template) {
+    return Collections.unmodifiableCollection(allTypes);
   }
 }

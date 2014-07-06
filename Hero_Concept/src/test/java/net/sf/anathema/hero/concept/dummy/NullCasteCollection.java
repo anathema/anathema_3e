@@ -4,6 +4,9 @@ import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 
+import java.util.Collection;
+import java.util.Collections;
+
 public class NullCasteCollection implements CasteCollection {
   @Override
   public boolean containsCasteType(String casteTypeId) {
@@ -11,8 +14,8 @@ public class NullCasteCollection implements CasteCollection {
   }
 
   @Override
-  public CasteType[] getAllCasteTypes(SplatType template) {
-	  return new CasteType[0];
+  public Collection<CasteType> getAllCasteTypes(SplatType template) {
+	  return Collections.emptyList();
   }
 
   @Override

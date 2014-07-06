@@ -11,6 +11,8 @@ import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.Collection;
+
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class TaskedHeroView implements HeroView, NodeHolder {
@@ -18,9 +20,9 @@ public class TaskedHeroView implements HeroView, NodeHolder {
   private final TaskedCharacterPane characterPane = new TaskedCharacterPane();
   private MigPane content;
   private final SubViewRegistry subViewFactory;
-  private final Stylesheet[] stylesheets;
+  private final Collection<Stylesheet> stylesheets;
 
-  public TaskedHeroView(SubViewRegistry viewFactory, Stylesheet... stylesheets) {
+  public TaskedHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets) {
     this.subViewFactory = viewFactory;
     this.stylesheets = stylesheets;
   }
@@ -34,9 +36,7 @@ public class TaskedHeroView implements HeroView, NodeHolder {
   public Node getNode() {
     if (content == null) {
       content = new MigPane(fillWithoutInsets(), new AC().index(0).shrink().shrinkPrio(200));
-      for (Stylesheet stylesheet : stylesheets) {
-        stylesheet.applyToParent(content);
-      }
+      stylesheets.forEach(sheet -> sheet.applyToParent(content));
       content.add(characterPane.getNode(), new CC().grow().push());
     }
     return content;

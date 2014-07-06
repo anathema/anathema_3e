@@ -15,6 +15,7 @@ import net.sf.anathema.library.view.RemovableEntryView;
 import net.sf.anathema.library.view.StyledValueView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -87,7 +88,8 @@ public class LanguagesPresenter {
     String labelText = resources.getString("Linguistics.SelectionView.Label");
     AgnosticUIConfiguration<Object> uiConfiguration = new LanguageUiConfiguration();
     final ObjectSelectionViewWithTool<Object> selectionView = view.addSelectionView(labelText, uiConfiguration);
-    selectionView.setObjects(model.getPredefinedLanguages());
+    Collection predefinedLanguages = model.getPredefinedLanguages();
+    selectionView.setObjects(predefinedLanguages);
     selectionView.addObjectSelectionChangedListener(newValue -> {
       if (newValue == null) {
         return;

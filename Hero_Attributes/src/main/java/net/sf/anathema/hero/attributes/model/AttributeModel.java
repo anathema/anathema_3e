@@ -7,11 +7,13 @@ import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
+import java.util.Collection;
+
 public interface AttributeModel extends GroupedTraitsModel {
 
   Identifier ID = new SimpleIdentifier("Attributes");
 
-  TraitGroup[] getTraitGroups();
+  Collection<TraitGroup> getTraitGroups();
 
   GroupedTraitType[] getAttributeGroups();
 

@@ -27,7 +27,6 @@ import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
-import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -36,7 +35,12 @@ import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class AttributeModelImpl extends DefaultTraitMap implements AttributeModel, HeroModel {
 
@@ -61,7 +65,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     CasteCollection casteCollection = HeroConceptFetcher.fetch(hero).getCasteCollection();
     this.abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
     this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection,
-      getAttributeGroups());
+            getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
@@ -71,13 +75,13 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     IncrementChecker incrementChecker = new GrumpyIncrementChecker();
     for (IdentifiedTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
-      Trait[] traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
+      Collection<Trait> traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
       addTraits(traits);
     }
   }
 
-  private TraitImpl[] createTraits(IdentifiedTraitTypeList list,
-                                  MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
+  private Collection<Trait> createTraits(IdentifiedTraitTypeList list,
+                                         MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       TraitTemplate traitTemplate;
@@ -86,7 +90,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
       Trait trait = new TraitImpl(hero, traitRules);
       newTraits.add(trait);
     }
-    return newTraits.toArray(new TraitImpl[newTraits.size()]);
+    return newTraits;
   }
 
   @Override
@@ -114,28 +118,14 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   }
 
   @Override
-  public TraitGroup[] getTraitGroups() {
-    TraitGroup[] groups = new TraitGroup[attributeTraitGroups.length];
-    for (int index = 0; index < groups.length; index++) {
-      final IdentifiedTraitTypeList typeGroup = attributeTraitGroups[index];
-      groups[index] = new MappedTraitGroup(this, typeGroup);
-    }
-    return groups;
+  public Collection<TraitGroup> getTraitGroups() {
+    Stream<IdentifiedTraitTypeList> attributeGroups = Stream.of(attributeTraitGroups);
+    return attributeGroups.map(typeGroup -> new MappedTraitGroup(this, typeGroup)).collect(toList());
   }
 
   @Override
   public IdentifiedTraitTypeList[] getGroups() {
     return attributeTraitGroups;
-  }
-
-  public Trait[] getAll(AttributeGroupType groupType) {
-    for (IdentifiedTraitTypeList group : getGroups()) {
-      if (group.getListId().equals(groupType)) {
-        List<TraitType> all = group.getAll();
-        return getTraits(all.toArray(new TraitType[all.size()]));
-      }
-    }
-    return new Trait[0];
   }
 
   @Override

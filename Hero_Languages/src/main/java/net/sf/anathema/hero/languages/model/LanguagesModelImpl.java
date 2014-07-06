@@ -19,6 +19,8 @@ import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryChangeAdapter;
 import org.jmock.example.announcer.Announcer;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> implements LanguagesModel {
@@ -66,8 +68,8 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
   }
 
   @Override
-  public Identifier[] getPredefinedLanguages() {
-    return languages.toArray(new Identifier[languages.size()]);
+  public Collection<Identifier> getPredefinedLanguages() {
+    return new ArrayList<>(languages);
   }
 
   @Override

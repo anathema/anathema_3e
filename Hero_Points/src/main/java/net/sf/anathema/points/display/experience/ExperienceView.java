@@ -4,6 +4,8 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 
+import java.util.Collection;
+
 public interface ExperienceView {
 
   void initGui(ExperienceViewProperties properties);
@@ -14,7 +16,7 @@ public interface ExperienceView {
 
   void addUpdateListener(ExperienceUpdateListener experienceUpdateListener);
 
-  void setEntries(ExperiencePointEntry... allEntries);
+  void setEntries(Collection<ExperiencePointEntry> allEntries);
 
   void setTotalValueLabel(int overallExperiencePoints);
 

@@ -7,6 +7,10 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class HeroCreationPresenter {
 
@@ -68,8 +72,8 @@ public class HeroCreationPresenter {
   }
 
   protected void refreshList(VetoableObjectSelectionView<HeroSplat> list) {
-    HeroSplat[] availableTemplates = model.getAvailableTemplates();
-    Arrays.sort(availableTemplates, (o1, o2) -> getTemplateResource(o1).compareTo(getTemplateResource(o2)));
+    List<HeroSplat> availableTemplates = model.getAvailableTemplates();
+    Collections.<HeroSplat>sort(availableTemplates, (o1, o2) -> HeroCreationPresenter.this.getTemplateResource(o1).compareTo(HeroCreationPresenter.this.getTemplateResource(o2)));
     list.setObjects(availableTemplates);
     list.setSelectedObject(model.getSelectedTemplate());
   }

@@ -66,10 +66,9 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
   }
 
   @Override
-  public HeroSplat[] getAvailableTemplates() {
+  public List<HeroSplat> getAvailableTemplates() {
     Collection<HeroSplat> list = templatesByType.get(selectedType);
-    List<HeroSplat> copyList = new ArrayList<>(list);
-    return copyList.toArray(new HeroSplat[copyList.size()]);
+    return new ArrayList<>(list);
   }
 
   @Override

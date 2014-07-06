@@ -7,6 +7,7 @@ import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class DefaultExperiencePointConfiguration implements ExperiencePoints {
@@ -18,8 +19,8 @@ public class DefaultExperiencePointConfiguration implements ExperiencePoints {
   private final Announcer<ExperienceSelectionListener> selectionAnnouncer = Announcer.to(ExperienceSelectionListener.class);
 
   @Override
-  public ExperiencePointEntry[] getAllEntries() {
-    return entries.toArray(new ExperiencePointEntry[entries.size()]);
+  public Collection<ExperiencePointEntry> getAllEntries() {
+    return new ArrayList<>(entries);
   }
 
   @Override

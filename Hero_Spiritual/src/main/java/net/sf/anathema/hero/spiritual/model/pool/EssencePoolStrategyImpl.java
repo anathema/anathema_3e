@@ -82,7 +82,7 @@ public class EssencePoolStrategyImpl implements EssencePoolStrategy {
     return expenditure;
   }
 
-  private int getPool(FactorizedTrait[] factorizedTraits) {
+  private int getPool(Iterable<FactorizedTrait> factorizedTraits) {
     int overallSum = 0;
     for (FactorizedTrait factorizedTrait : factorizedTraits) {
       overallSum += factorizedTrait.getCalculateTotal();

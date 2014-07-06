@@ -1,8 +1,10 @@
 package net.sf.anathema.points.model.xp;
 
+import java.util.Collection;
+
 public interface ExperiencePoints {
 
-  ExperiencePointEntry[] getAllEntries();
+  Collection<ExperiencePointEntry> getAllEntries();
 
   ExperiencePointEntry addEntry();
 
