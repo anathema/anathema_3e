@@ -4,9 +4,11 @@ import net.sf.anathema.charm.data.Charm;
 
 public interface BasicLearningModel {
 
-  boolean isLearned(Charm charm);
+  boolean isCurrentlyLearned(Charm charm);
 
-  boolean isLearned(Charm charm, boolean experienced);
+  boolean isLearnedOnCreation(Charm charm);
+
+  boolean isLearnedWithExperience(Charm charm);
 
   void toggleLearnedOnCreation(Charm charm);
 

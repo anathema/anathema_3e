@@ -32,7 +32,7 @@ import java.util.List;
 
 public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
-  private Charm[] charms = new Charm[0];
+  private List<Charm> charms = new ArrayList<>();
 
   private IsFavoredMagic favoredMagic = new IsFavoredMagic();
 
@@ -59,11 +59,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public CharmTree[] getTreesFor(CategoryReference category) {
     return new CharmTree[0];
-  }
-
-  @Override
-  public Charm[] getLearnedCharms(boolean experienced) {
-    return charms;
   }
 
   @Override
@@ -158,7 +153,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningModel getLearnModel() {
+  public LearningModel getLearningModel() {
     return null;
   }
 

@@ -7,8 +7,9 @@ import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecia
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
 import net.sf.anathema.magic.data.Magic;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Set;
 
 public class CharmLearner implements MagicLearner {
@@ -59,12 +60,13 @@ public class CharmLearner implements MagicLearner {
     return 1;
   }
 
-  private boolean isSpecialCharm(Charm charm) {
-    return charms.getCharmSpecialsModel(charm) != null;
-  }
-
   @Override
   public Collection<? extends Magic> getLearnedMagic(boolean experienced) {
-    return Arrays.asList(charms.getLearnedCharms(experienced));
+    List<Charm> allLearnedCharms = new ArrayList<>();
+    allLearnedCharms.addAll(charms.getLearningModel().getCharmsLearnedOnCreation());
+    if (experienced) {
+      allLearnedCharms.addAll(charms.getLearningModel().getCharmsLearnedWithExperience());
+    }
+    return allLearnedCharms;
   }
 }

@@ -46,7 +46,7 @@ public class LearnInteractionPresenter implements CharmInteractionPresenter {
 
   private void initCharmLearnListening(CharmsModel charmsModel) {
     ICharmLearnListener charmLearnListener = new CharmLearnVisualizer(dye);
-    charmsModel.getLearnModel().addCharmLearnListener(charmLearnListener);
+    charmsModel.getLearningModel().addCharmLearnListener(charmLearnListener);
   }
 
   @Override

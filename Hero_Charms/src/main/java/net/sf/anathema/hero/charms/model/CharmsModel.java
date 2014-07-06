@@ -30,17 +30,15 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   void addLearnProvider(MagicLearner provider);
 
-  LearningModel getLearnModel();
+  CharmSpecialsModel getCharmSpecialsModel(Charm charm);
+
+  LearningModel getLearningModel();
+
+  void forgetAllAlienCharms();
 
   CharmTree[] getTreesFor(CategoryReference type);
 
   CharmTree[] getAllTrees();
-
-  Charm[] getLearnedCharms(boolean experienced);
-
-  void forgetAllAlienCharms();
-
-  CharmSpecialsModel getCharmSpecialsModel(Charm charm);
 
   MartialArtsLevel getStandardMartialArtsLevel();
 

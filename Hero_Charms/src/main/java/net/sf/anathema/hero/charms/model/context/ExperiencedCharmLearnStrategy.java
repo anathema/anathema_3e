@@ -7,13 +7,13 @@ import net.sf.anathema.hero.charms.model.learn.ICharmLearnStrategy;
 public class ExperiencedCharmLearnStrategy implements ICharmLearnStrategy {
 
   @Override
-  public boolean isUnlearnable(BasicLearningModel group, Charm charm) {
-    return group.isLearned(charm, true);
+  public boolean isForgettable(BasicLearningModel group, Charm charm) {
+    return group.isLearnedOnCreation(charm);
   }
 
   @Override
   public boolean isLearned(BasicLearningModel group, Charm charm) {
-    return group.isLearned(charm, false) || group.isLearned(charm, true);
+    return group.isLearnedOnCreation(charm) || group.isLearnedWithExperience(charm);
   }
 
   @Override

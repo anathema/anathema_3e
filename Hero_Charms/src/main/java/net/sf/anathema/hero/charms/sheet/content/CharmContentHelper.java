@@ -7,12 +7,10 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CharmContentHelper {
@@ -50,8 +48,7 @@ public class CharmContentHelper {
   }
 
   public List<Charm> getLearnedCharms() {
-    boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
-    return Arrays.asList(CharmsModelFetcher.fetch(hero).getLearnedCharms(experienced));
+    return new ArrayList<>(CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms());
   }
 
   public boolean isSubEffectCharm(Charm charm) {

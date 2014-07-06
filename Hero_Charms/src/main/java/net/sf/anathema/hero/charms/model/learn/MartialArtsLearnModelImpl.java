@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.experience.model.ExperienceModel;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -16,16 +15,14 @@ import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
 
 public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   private final CharmsModel charmModel;
-  private ExperienceModel experience;
 
-  public MartialArtsLearnModelImpl(CharmsModel charmModel, ExperienceModel experience) {
+  public MartialArtsLearnModelImpl(CharmsModel charmModel) {
     this.charmModel = charmModel;
-    this.experience = experience;
   }
 
   @Override
-  public Charm[] getLearnedCharms() {
-    return charmModel.getLearnedCharms(experience.isExperienced());
+  public Set<Charm> getLearnedCharms() {
+    return charmModel.getLearningModel().getCurrentlyLearnedCharms();
   }
 
   @Override
@@ -80,7 +77,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isBegun(CharmTree group) {
     for (Charm charm : group.getAllCharms()) {
-      if (charmModel.getLearnModel().isLearned(charm)) {
+      if (charmModel.getLearningModel().isCurrentlyLearned(charm)) {
         return true;
       }
     }
@@ -89,7 +86,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isCompleted(CharmTree group) {
     for (Charm charm : group.getCoreCharms()) {
-      if (!charmModel.getLearnModel().isLearned(charm)) {
+      if (!charmModel.getLearningModel().isCurrentlyLearned(charm)) {
         return false;
       }
     }

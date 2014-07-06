@@ -11,9 +11,7 @@ import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static net.sf.anathema.library.message.MessageType.Error;
 
@@ -40,8 +38,8 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
       Charm charm = model.getCharmById(new CharmName(charmPto.charm));
-      LearningModel learningModel = model.getLearnModel();
-      if (!learningModel.isLearned(charm, false)) {
+      LearningModel learningModel = model.getLearningModel();
+      if (!learningModel.isLearnedOnCreation(charm)) {
         learningModel.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
@@ -59,10 +57,8 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
   }
 
   private void saveCharms(CharmsModel model, CharmListPto pto) {
-    Map<String, Boolean> isExperiencedLearned = getExperiencedLearnedMap(model);
-    List<Charm> sortedCharmList = getSortedCharmList(model);
-    for (Charm charm : sortedCharmList) {
-      saveCharm(charm, isExperiencedLearned.get(charm.getName().text), pto);
+    for (Charm charm : getSortedCharmList(model)) {
+      saveCharm(charm, model.getLearningModel().isLearnedWithExperience(charm), pto);
     }
   }
 
@@ -87,21 +83,9 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
   }
 
   private List<Charm> getSortedCharmList(CharmsModel model) {
-    List<Charm> charms = new ArrayList<>();
-    Collections.addAll(charms, model.getLearnModel().getCreationLearnedCharms());
-    Collections.addAll(charms, model.getLearnModel().getExperienceLearnedCharms());
+    LearningModel learningModel = model.getLearningModel();
+    List<Charm> charms = new ArrayList<>(learningModel.getCharmsLearnedEitherWay());
     Collections.sort(charms, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     return charms;
-  }
-
-  private Map<String, Boolean> getExperiencedLearnedMap(CharmsModel model) {
-    HashMap<String, Boolean> isExperiencedLearned = new HashMap<>();
-    for (Charm charm : model.getLearnModel().getCreationLearnedCharms()) {
-      isExperiencedLearned.put(charm.getName().text, false);
-    }
-    for (Charm charm : model.getLearnModel().getExperienceLearnedCharms()) {
-      isExperiencedLearned.put(charm.getName().text, true);
-    }
-    return isExperiencedLearned;
   }
 }
