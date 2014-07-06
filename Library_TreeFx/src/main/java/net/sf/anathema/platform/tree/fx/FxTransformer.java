@@ -15,7 +15,7 @@ public class FxTransformer {
   }
 
   public static Shape convert(AgnosticShape shape) {
-    final Shape[] result = new Shape[1];
+    Shape[] result = new Shape[1];
     shape.accept(new ShapeVisitor() {
       @Override
       public void visitPolygon(Polygon polygon) {

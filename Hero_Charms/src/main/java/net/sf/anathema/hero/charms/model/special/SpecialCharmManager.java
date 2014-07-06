@@ -138,12 +138,9 @@ public class SpecialCharmManager implements ISpecialCharmManager {
 
   private void registerPainToleranceCharm(final IPainToleranceCharm visitedCharm, Charm charm) {
     final CharmSpecialsModel charmSpecialsModel = getSpecialCharmConfiguration(charm);
-    IPainToleranceProvider painToleranceProvider = new IPainToleranceProvider() {
-      @Override
-      public int getPainToleranceLevel() {
-        int learnCount = charmSpecialsModel.getCurrentLearnCount();
-        return visitedCharm.getPainToleranceLevel(learnCount);
-      }
+    IPainToleranceProvider painToleranceProvider = () -> {
+      int learnCount = charmSpecialsModel.getCurrentLearnCount();
+      return visitedCharm.getPainToleranceLevel(learnCount);
     };
     specialist.getHealth().addPainToleranceProvider(painToleranceProvider);
   }
@@ -160,24 +157,21 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     }
     specialConfigurationsByCharm.put(charm, charmSpecialsModel);
     if (learnListener) {
-      charmSpecialsModel.addSpecialCharmLearnListener(new ISpecialCharmLearnListener() {
-        @Override
-        public void learnCountChanged(int newValue) {
-          if (!hero.isFullyLoaded()) {
-            return;
-          }
-          if (newValue == 0) {
-            if (forgetAtZero) {
-              group.forgetCharm(charm, group.isLearnedWithExperience(charm));
-            } else {
-              group.fireRecalculateRequested();
-            }
+      charmSpecialsModel.addSpecialCharmLearnListener(newValue -> {
+        if (!hero.isFullyLoaded()) {
+          return;
+        }
+        if (newValue == 0) {
+          if (forgetAtZero) {
+            group.forgetCharm(charm, group.isLearnedWithExperience(charm));
           } else {
-            if (!group.isCurrentlyLearned(charm)) {
-              group.toggleLearned(charm);
-            }
             group.fireRecalculateRequested();
           }
+        } else {
+          if (!group.isCurrentlyLearned(charm)) {
+            group.toggleLearned(charm);
+          }
+          group.fireRecalculateRequested();
         }
       });
     }
