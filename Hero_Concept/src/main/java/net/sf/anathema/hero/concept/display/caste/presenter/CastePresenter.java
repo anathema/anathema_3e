@@ -12,6 +12,8 @@ import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 
+import java.util.Collection;
+
 public class CastePresenter {
 
   private final CasteView view;
@@ -28,13 +30,13 @@ public class CastePresenter {
     HeroSplat template = hero.getSplat();
     PresentationPropertiesImpl presentationTemplate = new PresentationPropertiesImpl(template);
     String casteLabelResourceKey = presentationTemplate.getCasteLabelResource();
-    CasteType[] casteTypes = HeroConceptFetcher.fetch(hero).getCasteCollection().getAllCasteTypes(hero.getSplat().getTemplateType());
+    Collection<CasteType> casteTypes = HeroConceptFetcher.fetch(hero).getCasteCollection().getAllCasteTypes(hero.getSplat().getTemplateType());
     AgnosticUIConfiguration<CasteType> casteUi = new AgnosticCasteUi(resources, presentationTemplate);
     final ObjectSelectionView<CasteType> casteView = view.addObjectSelectionView(resources.getString(casteLabelResourceKey), casteUi);
     casteView.setObjects(casteTypes);
     final CasteSelection caste = HeroConceptFetcher.fetch(hero).getCaste();
     if (caste.isNotSelected()) {
-      caste.setType(casteTypes[0]);
+      caste.setType(casteTypes.iterator().next());
     }
     casteView.setSelectedObject(caste.getType());
     casteView.addObjectSelectionChangedListener(caste::setType);
