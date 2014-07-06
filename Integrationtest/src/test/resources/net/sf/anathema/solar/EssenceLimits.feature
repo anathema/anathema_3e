@@ -3,19 +3,19 @@ Feature: Essence Limits
   Essence imposes some limits on other traits and is itself limited by age
 
   Scenario: Solars with low Essence cannot increase traits above 5
-    Given a new Solar using rules for BigDamnHero
+    Given any Solar
     When I set any of her attributes to 6
     Then she has 5 dots in the attribute
 
   Scenario: Solars with high Essence can raise traits  above 5
-    Given a new Solar using rules for BigDamnHero
+    Given any Solar
     And she has been exalted for 100 years
     And I set her Essence to 6
     When I set any of her attributes to 6
     Then she has 6 dots in the attribute
     
   Scenario Outline: Essence depends on the character's age
-    Given a new Solar using rules for BigDamnHero
+    Given any Solar
     And she has been exalted for <age> years
     When I set her Essence to 10
     Then she has <value> dots in Essence

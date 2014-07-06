@@ -41,11 +41,16 @@ public class CharacterCreationSteps {
     holder.setCharacter(heroItemData);
   }
 
+  @Given("^any Solar$")
+  public void I_create_any_Solar() throws Throwable {
+    HeroItemData heroItemData = characterFactory.createCharacter("Solar", "RookieLawgiver");
+    holder.setCharacter(heroItemData);
+  }
+
   @Given("^any Solar with Caste (.*)$")
   public void I_create_any_Solar_with_Caste(String caste) throws Throwable {
-    HeroItemData heroItemData = characterFactory.createCharacter("Solar", "RookieLawgiver");
-    ConceptModelUtilities.setCaste(heroItemData, caste);
-    holder.setCharacter(heroItemData);
+    I_create_any_Solar();
+    ConceptModelUtilities.setCaste(holder.getHero(), caste);
   }
 
   @Then("^I can create a new (.*) using rules for (.*)$")
