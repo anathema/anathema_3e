@@ -50,7 +50,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();
       int specialCharmCost = timesLearnedWithExperience * charmCost;
       if (specialCharm instanceof IUpgradableCharmConfiguration) {
-        return (charms.getGroup(charm).isLearned(charm, true) ? charmCost : 0) +
+        return (charms.getTreeFor(charm).isLearned(charm, true) ? charmCost : 0) +
                ((IUpgradableCharmConfiguration) specialCharm).getUpgradeXPCost();
       }
       if (!(specialCharm instanceof SubEffectCharmSpecials)) {
@@ -62,7 +62,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       int subEffectCost = (int) Math.ceil(count * subEffectCharmConfiguration.getPointCostPerEffect() * 2);
       return subEffectCost + specialCharmCost;
     }
-    return charms.getGroup(charm).isLearned(charm, true) ? charmCost : 0;
+    return charms.getTreeFor(charm).isLearned(charm, true) ? charmCost : 0;
   }
 
 }

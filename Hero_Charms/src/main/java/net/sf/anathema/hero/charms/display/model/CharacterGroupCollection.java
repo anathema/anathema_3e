@@ -17,6 +17,6 @@ public class CharacterGroupCollection implements CharmTreeCollection {
 
   @Override
   public CharmTree[] getAllCharmTrees() {
-    return model.getCharmModel().getAllGroups();
+    return model.getCharmModel().getAllTrees();
   }
 }

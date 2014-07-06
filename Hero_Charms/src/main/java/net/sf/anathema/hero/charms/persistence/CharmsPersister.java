@@ -40,7 +40,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
       Charm charm = model.getCharmById(new CharmName(charmPto.charm));
-      LearningCharmTree group = model.getGroup(charm);
+      LearningCharmTree group = model.getTreeFor(charm);
       if (!group.isLearned(charm, false)) {
         group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
@@ -88,7 +88,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private List<Charm> getSortedCharmList(CharmsModel model) {
     List<Charm> charms = new ArrayList<>();
-    for (LearningCharmTree group : model.getAllGroups()) {
+    for (LearningCharmTree group : model.getAllTrees()) {
       Collections.addAll(charms, group.getCreationLearnedCharms());
       Collections.addAll(charms, group.getExperienceLearnedCharms());
     }
@@ -98,7 +98,7 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private Map<String, Boolean> getExperiencedLearnedMap(CharmsModel model) {
     HashMap<String, Boolean> isExperiencedLearned = new HashMap<>();
-    for (LearningCharmTree group : model.getAllGroups()) {
+    for (LearningCharmTree group : model.getAllTrees()) {
       for (Charm charm : group.getCreationLearnedCharms()) {
         isExperiencedLearned.put(charm.getName().text, false);
       }
