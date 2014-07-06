@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
@@ -18,7 +19,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private AbilitiesModel abilitiesModel;
   private AbilityCreationData creationData;
-  private final Map<Trait, FavorableTraitCost[]> costsByTrait = new HashMap<>();
+  private final Multimap<Trait, FavorableTraitCost> costsByTrait = HashMultimap.create();
   private final Trait[] traits;
   private int favoredPicksSpent = 0;
   private int castePicksSpent = 0;
@@ -43,13 +44,13 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     Set<Trait> sortedTraits = sortTraitsByStatus();
     for (Trait trait : sortedTraits) {
       int costFactor = getCostFactor(trait);
-      FavorableTraitCost[] allCosts;
+      Collection<FavorableTraitCost> allCosts;
       if (isCheapened(trait)) {
         allCosts = handleFavoredTrait(trait, costFactor);
       } else {
         allCosts = handleGeneralTrait(trait, costFactor);
       }
-      costsByTrait.put(trait, allCosts);
+      costsByTrait.putAll(trait, allCosts);
     }
   }
 
@@ -83,8 +84,8 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   public int getBonusPointCost() {
     int bonusPointSum = 0;
-    for (FavorableTraitCost[] allCosts : costsByTrait.values()) {
-      for (FavorableTraitCost cost : allCosts) {
+    for (Trait trait : costsByTrait.keys()) {
+      for (FavorableTraitCost cost : costsByTrait.get(trait)) {
         bonusPointSum += cost.getBonusCost();
       }
     }
@@ -159,10 +160,10 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return new FavorableTraitCost(bonusPointsSpent, generalDotsSpent, favoredDotsSpent);
   }
 
-  private FavorableTraitCost[] handleFavoredTrait(Trait trait, final int bonusPointCostFactor) {
-    final List<FavorableTraitCost> allCosts = new ArrayList<>();
+  private Collection<FavorableTraitCost> handleFavoredTrait(Trait trait, final int bonusPointCostFactor) {
+    List<FavorableTraitCost> allCosts = new ArrayList<>();
     allCosts.add(handleFavoredSingleTrait(trait, bonusPointCostFactor));
-    return allCosts.toArray(new FavorableTraitCost[allCosts.size()]);
+    return allCosts;
   }
 
   private FavorableTraitCost handleGeneralSingleTrait(Trait trait, int bonusPointCostFactor) {
@@ -188,10 +189,10 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return getCreationCalculationValue(trait, creationData);
   }
 
-  private FavorableTraitCost[] handleGeneralTrait(Trait trait, final int bonusPointCostFactor) {
-    final List<FavorableTraitCost> allCosts = new ArrayList<>();
+  private Collection<FavorableTraitCost> handleGeneralTrait(Trait trait, final int bonusPointCostFactor) {
+    List<FavorableTraitCost> allCosts = new ArrayList<>();
     allCosts.add(handleGeneralSingleTrait(trait, bonusPointCostFactor));
-    return allCosts.toArray(new FavorableTraitCost[allCosts.size()]);
+    return allCosts;
   }
 
   private void increaseFavoredDotSum(int favoredDotsSpent) {
