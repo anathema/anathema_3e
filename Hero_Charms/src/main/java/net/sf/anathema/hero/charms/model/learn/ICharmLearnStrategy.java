@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 
 public interface ICharmLearnStrategy {
 
-  boolean isUnlearnable(BasicLearningModel group, Charm charm);
+  boolean isForgettable(BasicLearningModel group, Charm charm);
 
   boolean isLearned(BasicLearningModel group, Charm charm);
 

@@ -153,14 +153,14 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void addSpecialCharmConfiguration(Charm charm, LearningModel group, CharmSpecialsModel configuration,
+  private void addSpecialCharmConfiguration(Charm charm, LearningModel group, CharmSpecialsModel charmSpecialsModel,
                                             boolean learnListener, boolean forgetAtZero) {
     if (specialConfigurationsByCharm.containsKey(charm)) {
-      throw new IllegalArgumentException("Special configuration already defined for charm " + charm.getName().text);
+      throw new IllegalArgumentException("Special charmSpecialsModel already defined for charm " + charm.getName().text);
     }
-    specialConfigurationsByCharm.put(charm, configuration);
+    specialConfigurationsByCharm.put(charm, charmSpecialsModel);
     if (learnListener) {
-      configuration.addSpecialCharmLearnListener(new ISpecialCharmLearnListener() {
+      charmSpecialsModel.addSpecialCharmLearnListener(new ISpecialCharmLearnListener() {
         @Override
         public void learnCountChanged(int newValue) {
           if (!hero.isFullyLoaded()) {
@@ -168,12 +168,12 @@ public class SpecialCharmManager implements ISpecialCharmManager {
           }
           if (newValue == 0) {
             if (forgetAtZero) {
-              group.forgetCharm(charm, group.isLearned(charm, true));
+              group.forgetCharm(charm, group.isLearnedWithExperience(charm));
             } else {
               group.fireRecalculateRequested();
             }
           } else {
-            if (!group.isLearned(charm)) {
+            if (!group.isCurrentlyLearned(charm)) {
               group.toggleLearned(charm);
             }
             group.fireRecalculateRequested();
@@ -185,14 +185,14 @@ public class SpecialCharmManager implements ISpecialCharmManager {
       @Override
       public void charmForgotten(Charm forgottenCharm) {
         if (charm.equals(forgottenCharm)) {
-          configuration.forget();
+          charmSpecialsModel.forget();
         }
       }
 
       @Override
       public void charmLearned(Charm learnedCharm) {
         if (charm.equals(learnedCharm)) {
-          configuration.learn(group.isLearned(charm, true));
+          charmSpecialsModel.learn(group.isLearnedWithExperience(charm));
         }
       }
     });

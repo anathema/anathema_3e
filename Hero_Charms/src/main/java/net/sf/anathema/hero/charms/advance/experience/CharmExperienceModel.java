@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.advance.experience;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
@@ -30,11 +31,11 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
 
   private int getCharmCosts() {
     int experienceCosts = 0;
-    CharmsModel charmConfiguration = CharmsModelFetcher.fetch(hero);
+    CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     Set<Charm> charmsCalculated = new HashSet<>();
-    for (Charm charm : charmConfiguration.getLearnedCharms()) {
-      int charmCosts = calculateCharmCost(charmConfiguration, charm);
-      if (charmConfiguration.isAlienCharm(charm)) {
+    for (Charm charm : charmsModel.getLearningModel().getCharmsLearnedWithExperience()) {
+      int charmCosts = calculateCharmCost(charmsModel, charm);
+      if (charmsModel.isAlienCharm(charm)) {
         charmCosts *= 2;
       }
       experienceCosts += charmCosts;
@@ -46,12 +47,14 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
   private int calculateCharmCost(CharmsModel charms, Charm charm) {
     CharmSpecialsModel specialCharm = charms.getCharmSpecialsModel(charm);
     int charmCost = calculator.getCharmCosts(hero, charm);
+    LearningModel learnModel = charms.getLearningModel();
     if (specialCharm != null) {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();
       int specialCharmCost = timesLearnedWithExperience * charmCost;
       if (specialCharm instanceof IUpgradableCharmConfiguration) {
-        return (charms.getLearnModel().isLearned(charm,
-          true) ? charmCost : 0) + ((IUpgradableCharmConfiguration) specialCharm).getUpgradeXPCost();
+        IUpgradableCharmConfiguration upgradableSpecial = (IUpgradableCharmConfiguration) specialCharm;
+        return (learnModel.isLearnedWithExperience(
+          charm) ? charmCost : 0) + upgradableSpecial.getUpgradeXPCost();
       }
       if (!(specialCharm instanceof SubEffectCharmSpecials)) {
         return specialCharmCost;
@@ -62,7 +65,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       int subEffectCost = (int) Math.ceil(count * subEffectCharmConfiguration.getPointCostPerEffect() * 2);
       return subEffectCost + specialCharmCost;
     }
-    return charms.getLearnModel().isLearned(charm, true) ? charmCost : 0;
+    return learnModel.isLearnedWithExperience(charm) ? charmCost : 0;
   }
 
 }

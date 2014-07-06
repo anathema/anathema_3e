@@ -16,6 +16,7 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import static java.text.MessageFormat.format;
 
@@ -89,7 +90,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     return cards.toArray(new ICardData[cards.size()]);
   }
 
-  private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Charm[] charms) {
+  private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Set<Charm> charms) {
     for (Charm charm : charms) {
       if (!MartialArtsUtilities.isMartialArts(charm)) {
         LegendEntry trait = new LegendEntry(resourceProvider.getTreeIcon(charm), resourceProvider.getTreeLabel(charm));
@@ -147,8 +148,8 @@ public class LegendCardDataProvider implements ICardDataProvider {
     }
   }
 
-  private Charm[] getCurrentCharms(Hero hero) {
-    return CharmsModelFetcher.fetch(hero).getLearnedCharms();
+  private Set<Charm> getCurrentCharms(Hero hero) {
+    return CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms();
   }
 
   private Spell[] getCurrentSpells(Hero hero) {

@@ -11,7 +11,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CharmContentHelper {
@@ -49,7 +48,7 @@ public class CharmContentHelper {
   }
 
   public List<Charm> getLearnedCharms() {
-    return Arrays.asList(CharmsModelFetcher.fetch(hero).getLearnedCharms());
+    return new ArrayList<>(CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms());
   }
 
   public boolean isSubEffectCharm(Charm charm) {

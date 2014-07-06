@@ -11,6 +11,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
@@ -103,7 +104,7 @@ public class LearningModelImpl implements LearningModel {
 
   private void learnParents(Charm charm, boolean experienced) {
     for (Charm parent : collectPrerequisiteCharms(charm, learnArbitrator)) {
-      if (!isLearned(parent)) {
+      if (!isCurrentlyLearned(parent)) {
         learnCharm(parent, experienced);
       }
     }
@@ -136,35 +137,46 @@ public class LearningModelImpl implements LearningModel {
   }
 
   @Override
-  public Set<Charm> getCreationLearnedCharms() {
+  public Set<Charm> getCharmsLearnedOnCreation() {
     return Collections.unmodifiableSet(charmsLearnedOnCreation);
   }
 
   @Override
-  public Set<Charm> getExperienceLearnedCharms() {
+  public Set<Charm> getCharmsLearnedWithExperience() {
     return Collections.unmodifiableSet(charmsLearnedWithExperience);
   }
 
   @Override
-  public boolean isLearned(Charm charm) {
+  public Set<Charm> getCurrentlyLearnedCharms() {
+    return getCharmsLearnedEitherWay().stream().filter(this::isCurrentlyLearned).collect(Collectors.toSet());
+  }
+
+  @Override
+  public Set<Charm> getCharmsLearnedEitherWay() {
+    Set<Charm> allLearnedCharms = new HashSet<>();
+    allLearnedCharms.addAll(charmsLearnedOnCreation);
+    allLearnedCharms.addAll(charmsLearnedWithExperience);
+    return Collections.unmodifiableSet(allLearnedCharms);
+  }
+
+  @Override
+  public boolean isCurrentlyLearned(Charm charm) {
     return learnStrategy.isLearned(this, charm);
   }
 
-  /**
-   * @param experienced true to learn whether the charm is learned on xp, false if interested in creation
-   *                    learning.
-   */
   @Override
-  public boolean isLearned(Charm charm, boolean experienced) {
-    if (experienced) {
-      return charmsLearnedWithExperience.contains(charm);
-    }
-    return charmsLearnedOnCreation.contains(charm);
+  public boolean isLearnedOnCreation(Charm charm) {
+    return charmsLearnedWithExperience.contains(charm);
+  }
+
+  @Override
+  public boolean isLearnedWithExperience(Charm charm) {
+    return charmsLearnedWithExperience.contains(charm);
   }
 
   @Override
   public boolean isForgettable(Charm charm) {
-    return !learnArbitrator.isCompulsiveCharm(charm) && learnStrategy.isUnlearnable(this, charm);
+    return !learnArbitrator.isCompulsiveCharm(charm) && learnStrategy.isForgettable(this, charm);
   }
 
   public void forgetAll(CategoryReference reference) {

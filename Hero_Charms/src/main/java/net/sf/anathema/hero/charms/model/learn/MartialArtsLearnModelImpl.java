@@ -21,8 +21,8 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   }
 
   @Override
-  public Charm[] getLearnedCharms() {
-    return charmModel.getLearnedCharms();
+  public Set<Charm> getLearnedCharms() {
+    return charmModel.getLearningModel().getCurrentlyLearnedCharms();
   }
 
   @Override
@@ -77,7 +77,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isBegun(CharmTree group) {
     for (Charm charm : group.getAllCharms()) {
-      if (charmModel.getLearnModel().isLearned(charm)) {
+      if (charmModel.getLearningModel().isCurrentlyLearned(charm)) {
         return true;
       }
     }
@@ -86,7 +86,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isCompleted(CharmTree group) {
     for (Charm charm : group.getCoreCharms()) {
-      if (!charmModel.getLearnModel().isLearned(charm)) {
+      if (!charmModel.getLearningModel().isCurrentlyLearned(charm)) {
         return false;
       }
     }

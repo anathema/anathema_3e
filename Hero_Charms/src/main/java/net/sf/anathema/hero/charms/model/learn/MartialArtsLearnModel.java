@@ -2,9 +2,11 @@ package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.Charm;
 
+import java.util.Set;
+
 public interface MartialArtsLearnModel {
 
-  Charm[] getLearnedCharms();
+  Set<Charm> getLearnedCharms();
 
   String[] getIncompleteCelestialMartialArtsGroups();
 

@@ -220,7 +220,7 @@ public class ComboConfigurationPresenter {
         updateCharmListsInView();
       }
     };
-    charmsModel.getLearnModel().addCharmLearnListener(charmLearnListener);
+    charmsModel.getLearningModel().addCharmLearnListener(charmLearnListener);
   }
 
   private void addComboToView(ComboContainer container, final Combo combo) {

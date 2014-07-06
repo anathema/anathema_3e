@@ -5,17 +5,20 @@ import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class CharmFetcher {
   
-  public Charm[] getCharms(Hero hero){
+  public Set<Charm> getCharms(Hero hero){
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     if (charmsModel == CharmsModelFetcher.NO_MODEL) {
-      return new Charm[0];
+      return new HashSet<>();
     }
-    return charmsModel.getLearnedCharms();
+    return charmsModel.getLearningModel().getCurrentlyLearnedCharms();
   }
   
   public boolean hasCharms(Hero hero){
-    return getCharms(hero).length > 0;
+    return getCharms(hero).size() > 0;
   }
 }

@@ -14,9 +14,13 @@ public interface LearningModel extends BasicLearningModel {
 
   void learnCharmNoParents(Charm charm, boolean experienced, boolean announce);
 
-  Set<Charm> getCreationLearnedCharms();
+  Set<Charm> getCharmsLearnedOnCreation();
 
-  Set<Charm> getExperienceLearnedCharms();
+  Set<Charm> getCharmsLearnedWithExperience();
+
+  Set<Charm> getCharmsLearnedEitherWay();
+
+  Set<Charm> getCurrentlyLearnedCharms();
 
   boolean isForgettable(Charm charm);
 

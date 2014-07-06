@@ -17,8 +17,8 @@ public class ProxyCharmLearnStrategy implements ICharmLearnStrategy {
   }
 
   @Override
-  public boolean isUnlearnable(BasicLearningModel group, Charm charm) {
-    return strategy.isUnlearnable(group, charm);
+  public boolean isForgettable(BasicLearningModel group, Charm charm) {
+    return strategy.isForgettable(group, charm);
   }
 
   @Override

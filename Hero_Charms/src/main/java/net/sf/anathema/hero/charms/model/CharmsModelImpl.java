@@ -67,9 +67,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(
     new CreationCharmLearnStrategy());
-  private LearningModelImpl learningModel= new LearningModelImpl(charmLearnStrategy, this);
-    ;
-
+  private LearningModelImpl learningModel = new LearningModelImpl(charmLearnStrategy, this);
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
@@ -137,7 +135,7 @@ public class CharmsModelImpl implements CharmsModel {
   private void learnCompulsiveCharms() {
     charmsRules.forAllCompulsiveCharms(charmName -> {
       Charm charm = getCharmById(charmName);
-      getLearnModel().learnCharm(charm, false);
+      getLearningModel().learnCharm(charm, false);
     });
   }
 
@@ -187,26 +185,6 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public Charm[] getLearnedCharms() {
-    List<Charm> allLearnedCharms = new ArrayList<>();
-    allLearnedCharms.addAll(learningModel.getCreationLearnedCharms());
-    if (isExperienced()) {
-      allLearnedCharms.addAll(learningModel.getExperienceLearnedCharms());
-    }
-    return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
-  }
-
-  @Override
-  public Charm[] getLearnedCharms(boolean experienced) {
-    List<Charm> allLearnedCharms = new ArrayList<>();
-    allLearnedCharms.addAll(learningModel.getCreationLearnedCharms());
-    if (experienced) {
-      allLearnedCharms.addAll(learningModel.getExperienceLearnedCharms());
-    }
-    return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
-  }
-
-  @Override
   public CharmSpecialsModel getCharmSpecialsModel(Charm charm) {
     return manager.getSpecialCharmConfiguration(charm);
   }
@@ -227,15 +205,14 @@ public class CharmsModelImpl implements CharmsModel {
       return;
     }
     List<Charm> charmsToUnlearn = new ArrayList<>();
-    for (Charm charm : this.getLearnedCharms(true)) {
+    for (Charm charm : learningModel.getCharmsLearnedEitherWay()) {
       boolean prerequisitesForCharmAreNoLongerMet = !isLearnable(charm);
       boolean charmCanBeUnlearned = isForgettable(charm);
       if (prerequisitesForCharmAreNoLongerMet && charmCanBeUnlearned) {
         charmsToUnlearn.add(charm);
       }
-    }
-    for (Charm charm : charmsToUnlearn) {
-      boolean learnedAtCreation = learningModel.isLearned(charm, false);
+    } for (Charm charm : charmsToUnlearn) {
+      boolean learnedAtCreation = learningModel.isLearnedOnCreation(charm);
       boolean learnedWithExperience = !learnedAtCreation;
       learningModel.forgetCharm(charm, learnedWithExperience);
     }
@@ -279,9 +256,8 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
-    Charm[] learnedCharms = getLearnedCharms();
     int count = 0;
-    for (Charm charm : learnedCharms) {
+    for (Charm charm : learningModel.getCurrentlyLearnedCharms()) {
       if (charm.hasAttribute(attribute)) {
         count++;
       }
@@ -310,12 +286,12 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   public final boolean isForgettable(Charm charm) {
-    return getLearnModel().isForgettable(charm);
+    return getLearningModel().isForgettable(charm);
   }
 
   @Override
   public final boolean isLearned(Charm charm) {
-    return getLearnModel().isLearned(charm);
+    return getLearningModel().isCurrentlyLearned(charm);
   }
 
   @Override
@@ -341,7 +317,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public LearningModel getLearnModel() {
+  public LearningModel getLearningModel() {
     return learningModel;
   }
 

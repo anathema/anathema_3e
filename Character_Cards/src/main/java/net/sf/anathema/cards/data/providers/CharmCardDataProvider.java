@@ -22,7 +22,7 @@ public class CharmCardDataProvider extends AbstractMagicCardDataProvider {
   @Override
   public ICardData[] getCards(Hero hero, ICardReportResourceProvider fontProvider) {
     List<ICardData> cards = new ArrayList<>();
-    for (Charm charm : CharmsModelFetcher.fetch(hero).getLearnedCharms()) {
+    for (Charm charm : CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms()) {
       cards.add(new CharmCardData(charm, createCharmStats(hero, charm), getMagicDescription(charm), fontProvider,
         getResources()));
     }
