@@ -16,12 +16,11 @@ import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
 import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
-import net.sf.anathema.hero.charms.model.learn.AggregatedLearningModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
+import net.sf.anathema.hero.charms.model.learn.LearningModelImpl;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModel;
 import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModelImpl;
@@ -69,6 +68,9 @@ public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(
     new CreationCharmLearnStrategy());
+  private LearningModelImpl learningModel= new LearningModelImpl(charmLearnStrategy, this);
+    ;
+
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
@@ -80,7 +82,6 @@ public class CharmsModelImpl implements CharmsModel {
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final List<MagicLearner> magicLearners = new ArrayList<>();
   private final IsFavoredMagic isFavoredMagic = new IsFavoredMagic();
-  private final AggregatedLearningModel aggregatedLearningModel = new AggregatedLearningModel();
 
   public CharmsModelImpl(CharmsTemplate template) {
     this.charmsRules = new CharmsRulesImpl(template);
@@ -101,25 +102,15 @@ public class CharmsModelImpl implements CharmsModel {
     CharmProvider provider = environment.getDataSet(CharmCache.class);
     this.options = new CharmOptionsImpl(provider, charmsRules, hero);
     this.manager = new SpecialCharmManager(specialist, hero, this);
-    initializeCharmTrees();
     initSpecialCharmConfigurations();
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     addLearnProvider(new CharmLearner(this));
   }
 
-  private void initializeCharmTrees() {
-    for (CharmTreeCategory category : options) {
-      for (CharmTree charmTree : category.getAllCharmTrees()) {
-        aggregatedLearningModel.addModel(
-          new LearningCharmTreeImpl(charmLearnStrategy, charmTree, this, aggregatedLearningModel));
-      }
-    }
-  }
-
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    aggregatedLearningModel.addCharmLearnListener(new CharmLearnAdapter() {
+    learningModel.addCharmLearnListener(new CharmLearnAdapter() {
       @Override
       public void charmForgotten(Charm charm) {
         control.announce().changeOccurred();
@@ -153,7 +144,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void addCharmLearnListener(ICharmLearnListener listener) {
-    aggregatedLearningModel.addCharmLearnListener(listener);
+    learningModel.addCharmLearnListener(listener);
   }
 
   private void initSpecialCharmConfigurations() {
@@ -164,7 +155,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      manager.registerSpecialCharmConfiguration(specialCharm, charm, aggregatedLearningModel);
+      manager.registerSpecialCharmConfiguration(specialCharm, charm, learningModel);
     }
   }
 
@@ -199,9 +190,9 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public Charm[] getLearnedCharms(boolean experienced) {
     List<Charm> allLearnedCharms = new ArrayList<>();
-    Collections.addAll(allLearnedCharms, aggregatedLearningModel.getCreationLearnedCharms());
+    Collections.addAll(allLearnedCharms, learningModel.getCreationLearnedCharms());
     if (experienced) {
-      Collections.addAll(allLearnedCharms, aggregatedLearningModel.getExperienceLearnedCharms());
+      Collections.addAll(allLearnedCharms, learningModel.getExperienceLearnedCharms());
     }
     return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
   }
@@ -215,9 +206,9 @@ public class CharmsModelImpl implements CharmsModel {
   public void forgetAllAlienCharms() {
     for (CharmTreeCategory category : options) {
       if (charmsRules.isAlienCategory(category.getReference())) {
-        aggregatedLearningModel.forgetAll(category.getReference());
+        learningModel.forgetAll(category.getReference());
       } else {
-        aggregatedLearningModel.forgetExclusives(category.getReference());
+        learningModel.forgetExclusives(category.getReference());
       }
     }
   }
@@ -235,9 +226,9 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     for (Charm charm : charmsToUnlearn) {
-      boolean learnedAtCreation = aggregatedLearningModel.isLearned(charm, false);
+      boolean learnedAtCreation = learningModel.isLearned(charm, false);
       boolean learnedWithExperience = !learnedAtCreation;
-      aggregatedLearningModel.forgetCharm(charm, learnedWithExperience);
+      learningModel.forgetCharm(charm, learnedWithExperience);
     }
   }
 
@@ -342,7 +333,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public LearningModel getLearnModel() {
-    return aggregatedLearningModel;
+    return learningModel;
   }
 
   @Override

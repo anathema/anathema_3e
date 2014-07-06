@@ -2,36 +2,29 @@ package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
-import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
 
-public class LearningCharmTreeImpl implements LearningCharmTree {
+public class LearningModelImpl implements LearningModel {
 
   private final Set<Charm> charmsLearnedOnCreation = new HashSet<>();
   private final Set<Charm> charmsLearnedWithExperience = new HashSet<>();
   private final Announcer<ICharmLearnListener> control = Announcer.to(ICharmLearnListener.class);
-  private CharmTree charmTree;
   private final IExtendedCharmLearnableArbitrator learnArbitrator;
   private final ICharmLearnStrategy learnStrategy;
-  private final LearningModel learningModel;
 
-  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree charmTree,
-                               IExtendedCharmLearnableArbitrator arbitrator, LearningModel learningModel) {
+  public LearningModelImpl(ICharmLearnStrategy learnStrategy, IExtendedCharmLearnableArbitrator arbitrator) {
     this.learnStrategy = learnStrategy;
-    this.charmTree = charmTree;
     this.learnArbitrator = arbitrator;
-    this.learningModel = learningModel;
   }
 
   @Override
@@ -98,7 +91,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private void forgetChildren(Charm charm, boolean experienced) {
     for (Charm child : getLearnFollowUpCharms(charm, learnArbitrator)) {
-      learningModel.forgetCharm(child, experienced);
+      forgetCharm(child, experienced);
     }
   }
 
@@ -109,8 +102,8 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private void learnParents(Charm charm, boolean experienced) {
     for (Charm parent : collectPrerequisiteCharms(charm, learnArbitrator)) {
-      if (!learningModel.isLearned(parent)) {
-        learningModel.learnCharm(parent, experienced);
+      if (!isLearned(parent)) {
+        learnCharm(parent, experienced);
       }
     }
   }
@@ -175,21 +168,25 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   @Override
   public void forgetAll() {
-    Set<Charm> forgetCloneCharms = new HashSet<>(charmsLearnedWithExperience);
-    for (Charm charm : forgetCloneCharms) {
+    for (Charm charm : new HashSet<>(charmsLearnedWithExperience)) {
       forgetCharm(charm, true);
     }
-    forgetCloneCharms = new HashSet<>(charmsLearnedOnCreation);
-    for (Charm charm : forgetCloneCharms) {
+    for (Charm charm : new HashSet<>(charmsLearnedOnCreation)) {
       forgetCharm(charm, false);
     }
   }
 
-  @Override
-  public Charm[] getCoreCharms() {
-    Charm[] allCharms = getAllCharms();
+  public void forgetAll(CategoryReference reference) {
+    for (Charm charm : getAllLearnedCharms()) {
+      if (reference.equals(charm.getTreeReference().category)) {
+        forgetCharm(charm, isLearned(charm, true));
+      }
+    }
+  }
+
+  private Charm[] getLearnedCoreCharms() {
     List<Charm> charms = new ArrayList<>();
-    for (Charm charm : allCharms) {
+    for (Charm charm : getAllLearnedCharms()) {
       if (!charm.hasAttribute(CharmAttributeList.EXCLUSIVE_ATTRIBUTE)) {
         charms.add(charm);
       }
@@ -199,46 +196,31 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   @Override
   public void forgetExclusives() {
-    List<Charm> exclusiveCharms = new ArrayList<>();
-    Collections.addAll(exclusiveCharms, getAllCharms());
-    exclusiveCharms.removeAll(Arrays.asList(getCoreCharms()));
+    List<Charm> exclusiveCharms = getAllLearnedExclusiveCharms();
     for (Charm charm : exclusiveCharms) {
       forgetCharm(charm, isLearned(charm, true));
     }
   }
 
-  @Override
-  public Charm[] getAllCharms() {
-    return charmTree.getAllCharms();
+  public void forgetExclusives(CategoryReference reference) {
+    for (Charm charm : getAllLearnedExclusiveCharms()) {
+      if (reference.equals(charm.getTreeReference().category)) {
+        forgetCharm(charm, isLearned(charm, true));
+      }
+    }
   }
 
-  @Override
-  public boolean isCharmFromTree(Charm charm) {
-    return charmTree.isCharmFromTree(charm);
+  private List<Charm> getAllLearnedExclusiveCharms() {
+    List<Charm> exclusiveCharms = new ArrayList<>();
+    exclusiveCharms.addAll(getAllLearnedCharms());
+    exclusiveCharms.removeAll(asList(getLearnedCoreCharms()));
+    return exclusiveCharms;
   }
 
-  @Override
-  public String getId() {
-    return charmTree.getId();
-  }
-
-  @Override
-  public TreeReference getReference() {
-    return charmTree.getReference();
-  }
-
-  @Override
-  public boolean equals(Object obj) {
-    return super.equals(obj);
-  }
-
-  @Override
-  public int hashCode() {
-    return super.hashCode();
-  }
-
-  @Override
-  public String toString() {
-    return getId();
+  private List<Charm> getAllLearnedCharms() {
+    List<Charm> allLearnedCharms = new ArrayList<>();
+    allLearnedCharms.addAll(charmsLearnedOnCreation);
+    allLearnedCharms.addAll(charmsLearnedWithExperience);
+    return allLearnedCharms;
   }
 }
