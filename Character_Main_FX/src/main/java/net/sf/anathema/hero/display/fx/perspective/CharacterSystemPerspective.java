@@ -2,6 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.CharacterGridPresenter;
+import net.sf.anathema.hero.application.perspective.CharacterMessaging;
 import net.sf.anathema.hero.application.perspective.CharacterStackBridge;
 import net.sf.anathema.hero.application.perspective.CharacterStackPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterSystemModel;

@@ -40,6 +40,9 @@ public class AnathemaPresenter {
     if (messageContainer.hasMessages()) {
       view.getStatusBar().setLatestMessage(messageContainer.getLatestMessage());
     }
+    else{
+      view.getStatusBar().clear();
+    }
   }
 
   private void runBootJobs() throws InitializationException {

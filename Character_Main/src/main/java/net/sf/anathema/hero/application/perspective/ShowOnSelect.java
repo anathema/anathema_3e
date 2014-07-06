@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
-import net.sf.anathema.hero.display.fx.perspective.CharacterMessaging;
 
 public class ShowOnSelect implements Selector<CharacterIdentifier> {
   private final CharacterMessaging messaging;

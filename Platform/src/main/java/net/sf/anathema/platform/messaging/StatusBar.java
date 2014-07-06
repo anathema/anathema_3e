@@ -12,4 +12,6 @@ public interface StatusBar {
   void whenAllMessagesAreRequested(Command command);
 
   void showMessages(Collection<Message> messages);
+
+  void clear();
 }

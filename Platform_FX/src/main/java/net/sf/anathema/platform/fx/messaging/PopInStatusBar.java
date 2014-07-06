@@ -63,6 +63,11 @@ public class PopInStatusBar implements StatusBar {
     showInPopOver(content);
   }
 
+  @Override
+  public void clear() {
+    pane.hide();
+  }
+
   private void showInPopOver(MigPane content) {
     PopOver popOver = new PopOver(content);
     popOver.setArrowLocation(BOTTOM_LEFT);

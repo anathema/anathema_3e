@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.platform.messaging.CategorizedMessaging;
