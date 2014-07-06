@@ -21,4 +21,9 @@ public class NullStatusBar implements StatusBar {
   public void showMessages(Collection<Message> messages) {
     //nothing to do
   }
+
+  @Override
+  public void clear() {
+    //nothing to do
+  }
 }
