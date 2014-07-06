@@ -18,7 +18,7 @@ public class ChangeHistoryImpl implements TransactionReceiver {
 
   @Override
   public void commitTransaction(HeroChange rootChange, List<HeroChange> followUpChanges) {
-    String pattern = "Transaction commited for root change {0} with {1} follow ups";
+    String pattern = "Transaction committed for root change {0} with {1} follow ups";
     System.err.println(format(pattern, rootChange.flavor, followUpChanges.size()));
   }
 }
