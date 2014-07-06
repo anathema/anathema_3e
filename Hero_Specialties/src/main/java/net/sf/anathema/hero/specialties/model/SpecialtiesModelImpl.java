@@ -55,13 +55,13 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   }
 
   @Override
-  public TraitType[] getAllParentTraits() {
+  public Iterable<TraitType> getAllParentTraits() {
     Set<TraitType> keySet = specialtiesByType.keySet();
-    return keySet.toArray(new TraitType[keySet.size()]);
+    return new ArrayList<>(keySet);
   }
 
   @Override
-  public TraitType[] getAllEligibleParentTraits() {
+  public List<TraitType> getAllEligibleParentTraits() {
     List<TraitType> eligibleTypes = new ArrayList<>(specialtiesByType.keySet());
     Set<TraitType> toRemove = new HashSet<>();
     for (TraitType type : eligibleTypes) {
@@ -70,7 +70,7 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
       }
     }
     eligibleTypes.removeAll(toRemove);
-    return eligibleTypes.toArray(new TraitType[eligibleTypes.size()]);
+    return eligibleTypes;
   }
 
   @Override

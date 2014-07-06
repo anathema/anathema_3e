@@ -12,6 +12,7 @@ import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.points.model.BonusPointCalculator;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
@@ -33,7 +34,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
   @Override
   public void recalculate() {
     clear();
-    IGenericSpecialty[] specialties = createGenericSpecialties();
+    Collection<IGenericSpecialty> specialties = createGenericSpecialties();
     specialtyDotSum = specialtyCalculator.getSpecialtyPointsSpent(specialties);
     specialtyBonusPointCosts = specialtyCalculator.getSpecialtyCosts(specialties);
   }
@@ -43,7 +44,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
     specialtyBonusPointCosts = 0;
   }
 
-  private IGenericSpecialty[] createGenericSpecialties() {
+  private Collection<IGenericSpecialty> createGenericSpecialties() {
     List<IGenericSpecialty> specialties = new ArrayList<>();
     for (Trait ability : traitMap.getAll()) {
       SpecialtiesModel specialtiesModel = SpecialtiesModelFetcher.fetch(hero);
@@ -55,7 +56,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
         }
       }
     }
-    return specialties.toArray(new IGenericSpecialty[specialties.size()]);
+    return specialties;
   }
 
   @Override

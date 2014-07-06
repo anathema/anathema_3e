@@ -4,6 +4,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Command;
 
+import java.util.Collection;
+
 public interface SpecialtyCreationView {
 
   void addSelectionChangedListener(ObjectChangedListener<TraitType> name);
@@ -16,7 +18,7 @@ public interface SpecialtyCreationView {
 
   void setButtonEnabled(boolean enabled);
 
-  void setObjects(TraitType[] objects);
+  void setObjects(Collection<TraitType> objects);
 
   void enterName(String currentName);
 

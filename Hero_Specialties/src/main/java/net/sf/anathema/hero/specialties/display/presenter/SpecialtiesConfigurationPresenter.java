@@ -18,7 +18,9 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
 
 public class SpecialtiesConfigurationPresenter {
 
@@ -94,7 +96,7 @@ public class SpecialtiesConfigurationPresenter {
 
   private void reset() {
     specialtyManagement.clear();
-    specialtyManagement.setCurrentTrait(getSortedEligibleTraits()[0]);
+    specialtyManagement.setCurrentTrait(getSortedEligibleTraits().get(0));
   }
 
   private void sync(SpecialtyCreationView creationView) {
@@ -103,13 +105,13 @@ public class SpecialtiesConfigurationPresenter {
   }
 
   private void setObjects(SpecialtyCreationView specialtySelectionView) {
-    TraitType[] allTraits = getSortedEligibleTraits();
+    Collection<TraitType> allTraits = getSortedEligibleTraits();
     specialtySelectionView.setObjects(allTraits);
   }
 
-  private TraitType[] getSortedEligibleTraits() {
-    TraitType[] allTraits = getAllEligibleTraits();
-    Arrays.sort(allTraits, comparator);
+  private List<TraitType> getSortedEligibleTraits() {
+    List<TraitType> allTraits = getAllEligibleTraits();
+    allTraits.sort(comparator);
     return allTraits;
   }
 
@@ -119,11 +121,11 @@ public class SpecialtiesConfigurationPresenter {
     }
   }
 
-  private TraitType[] getAllTraits() {
+  private Iterable<TraitType> getAllTraits() {
     return specialtyManagement.getAllParentTraits();
   }
 
-  private TraitType[] getAllEligibleTraits() {
+  private List<TraitType> getAllEligibleTraits() {
     return specialtyManagement.getAllEligibleParentTraits();
   }
 

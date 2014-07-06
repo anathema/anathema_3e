@@ -13,6 +13,8 @@ import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.Collection;
+
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxSpecialtyCreationView implements SpecialtyCreationView {
@@ -61,7 +63,7 @@ public class FxSpecialtyCreationView implements SpecialtyCreationView {
   }
 
   @Override
-  public void setObjects(final TraitType[] references) {
+  public void setObjects(Collection<TraitType> references) {
     box.setObjects(references);
   }
 
