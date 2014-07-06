@@ -20,9 +20,5 @@ public interface LearningModel extends BasicLearningModel {
 
   void forgetCharm(Charm child, boolean experienced);
 
-  void forgetAll();
-
-  void forgetExclusives();
-
   void fireRecalculateRequested();
 }

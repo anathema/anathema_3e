@@ -166,20 +166,15 @@ public class LearningModelImpl implements LearningModel {
     return !learnArbitrator.isCompulsiveCharm(charm) && learnStrategy.isUnlearnable(this, charm);
   }
 
-  @Override
-  public void forgetAll() {
+  public void forgetAll(CategoryReference reference) {
     for (Charm charm : new HashSet<>(charmsLearnedWithExperience)) {
-      forgetCharm(charm, true);
+      if (reference.equals(charm.getTreeReference().category)) {
+        forgetCharm(charm, true);
+      }
     }
     for (Charm charm : new HashSet<>(charmsLearnedOnCreation)) {
-      forgetCharm(charm, false);
-    }
-  }
-
-  public void forgetAll(CategoryReference reference) {
-    for (Charm charm : getAllLearnedCharms()) {
       if (reference.equals(charm.getTreeReference().category)) {
-        forgetCharm(charm, isLearned(charm, true));
+        forgetCharm(charm, false);
       }
     }
   }
@@ -194,18 +189,11 @@ public class LearningModelImpl implements LearningModel {
     return charms.toArray(new Charm[charms.size()]);
   }
 
-  @Override
-  public void forgetExclusives() {
-    List<Charm> exclusiveCharms = getAllLearnedExclusiveCharms();
-    for (Charm charm : exclusiveCharms) {
-      forgetCharm(charm, isLearned(charm, true));
-    }
-  }
-
   public void forgetExclusives(CategoryReference reference) {
     for (Charm charm : getAllLearnedExclusiveCharms()) {
       if (reference.equals(charm.getTreeReference().category)) {
-        forgetCharm(charm, isLearned(charm, true));
+        boolean isCreationLearned = charmsLearnedOnCreation.contains(charm);
+        forgetCharm(charm, isCreationLearned);
       }
     }
   }
