@@ -4,6 +4,9 @@ import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.library.event.ChangeListener;
 
+import java.util.Collection;
+import java.util.List;
+
 public interface ICharacterItemCreationModel {
 
   void setCharacterType(HeroType type);
@@ -14,7 +17,7 @@ public interface ICharacterItemCreationModel {
 
   Iterable<HeroType> getAvailableHeroTypes();
 
-  HeroSplat[] getAvailableTemplates();
+  List<HeroSplat> getAvailableTemplates();
 
   HeroSplat getSelectedTemplate();
 }
