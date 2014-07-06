@@ -10,7 +10,7 @@ import net.sf.anathema.library.text.SimpleTextualDescription;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class ComboImpl implements Combo {
@@ -65,8 +65,7 @@ public class ComboImpl implements Combo {
   }
 
   @Override
-  public void removeCharms(Charm[] charms) {
-    List<Charm> removal = Arrays.asList(charms);
+  public void removeCharms(Collection<Charm> removal) {
     creationCharmList.removeAll(removal);
     experiencedCharmList.removeAll(removal);
     if (simpleCharm != null && removal.contains(simpleCharm)) {
@@ -121,8 +120,8 @@ public class ComboImpl implements Combo {
     id = null;
     name.setText("");
     description.setText("");
-    removeCharms(creationCharmList.toArray(new Charm[creationCharmList.size()]));
-    removeCharms(experiencedCharmList.toArray(new Charm[experiencedCharmList.size()]));
+    removeCharms(creationCharmList);
+    removeCharms(experiencedCharmList);
   }
 
   @Override

@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static java.util.Collections.emptyList;
+
 public class CascadePresenter {
 
   private final Resources resources;
@@ -97,7 +99,7 @@ public class CascadePresenter {
     SelectObjectConfiguration<CategoryReference> config = new SelectObjectConfiguration<>(resources,
             (i18nResources, category) -> i18nResources.getString(category.text));
     ObjectSelectionView<CategoryReference> typeSelector = view.addSelectionView(title, config);
-    typeSelector.setObjects(categories.toArray(new CategoryReference[categories.size()]));
+    typeSelector.setObjects(categories);
     typeSelector.setSelectedObject(null);
     return typeSelector;
   }
@@ -140,17 +142,17 @@ public class CascadePresenter {
 
   private void handleTypeSelectionChange(CategoryReference cascadeType, ObjectSelectionView<CharmTree> groupSelector) {
     if (cascadeType == null) {
-      groupSelector.setObjects(new CharmTree[0]);
+      groupSelector.setObjects(emptyList());
       return;
     }
     CharmTreeCollection charmTree = charmTreeCollectionMap.getCharmTree(cascadeType);
     if (charmTree == null) {
-      groupSelector.setObjects(new CharmTree[0]);
+      groupSelector.setObjects(emptyList());
       return;
     }
     Collection<CharmTree> allCharmGroups = charmTree.getAllCharmTrees();
     List<CharmTree> sortedGroups = sortCharmGroups(allCharmGroups);
-    groupSelector.setObjects(sortedGroups.toArray(new CharmTree[sortedGroups.size()]));
+    groupSelector.setObjects(sortedGroups);
     specialCharmPresenter.showSpecialViews();
   }
 

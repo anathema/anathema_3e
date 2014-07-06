@@ -16,7 +16,10 @@ import net.sf.anathema.library.identifier.Identifier;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+
+import static java.util.Collections.singletonList;
 
 public class CombosModelImpl implements CombosModel {
 
@@ -57,7 +60,7 @@ public class CombosModelImpl implements CombosModel {
     List<Combo> deletionList = new ArrayList<>();
     for (Combo combo : comboList) {
       if (combo.contains(charm)) {
-        combo.removeCharms(new Charm[]{charm});
+        combo.removeCharms(singletonList(charm));
         if (combo.getCharms().length < 2) {
           deletionList.add(combo);
         }
@@ -65,7 +68,7 @@ public class CombosModelImpl implements CombosModel {
       }
     }
     if (editCombo.contains(charm)) {
-      removeCharmsFromCombo(new Charm[]{charm});
+      removeCharmsFromCombo(singletonList(charm));
     }
     for (Combo combo : deletionList) {
       deleteCombo(combo);
@@ -87,7 +90,7 @@ public class CombosModelImpl implements CombosModel {
   }
 
   @Override
-  public void removeCharmsFromCombo(Charm[] charms) {
+  public void removeCharmsFromCombo(Collection<Charm> charms) {
     editCombo.removeCharms(charms);
   }
 

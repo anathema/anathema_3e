@@ -102,7 +102,7 @@ public class ComboConfigurationPresenter {
         for (Object charmObject : removedMagic) {
           charms.add((Charm) charmObject);
         }
-        comboConfiguration.removeCharmsFromCombo(charms.toArray(new Charm[charms.size()]));
+        comboConfiguration.removeCharmsFromCombo(charms);
       }
 
       @Override

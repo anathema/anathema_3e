@@ -4,11 +4,13 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.text.ITextualDescription;
 
+import java.util.Collection;
+
 public interface Combo extends Cloneable {
 
   void addComboModelListener(ChangeListener listener);
 
-  void removeCharms(Charm[] charm);
+  void removeCharms(Collection<Charm> charm);
 
   @SuppressWarnings("CloneDoesntDeclareCloneNotSupportedException")
   Combo clone();

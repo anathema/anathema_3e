@@ -6,6 +6,8 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
+import java.util.Collection;
+
 public interface CombosModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("Combos");
@@ -14,7 +16,7 @@ public interface CombosModel extends HeroModel {
 
   void addComboModelListener(ChangeListener listener);
 
-  void removeCharmsFromCombo(Charm[] charms);
+  void removeCharmsFromCombo(Collection<Charm> charms);
 
   void finalizeCombo();
 
