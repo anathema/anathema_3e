@@ -6,11 +6,13 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.RemovableEntryModel;
 
+import java.util.Collection;
+
 public interface LanguagesModel extends RemovableEntryModel<Identifier>, HeroModel {
 
   Identifier ID = new SimpleIdentifier("Languages");
 
-  Identifier[] getPredefinedLanguages();
+  Collection<Identifier> getPredefinedLanguages();
 
   boolean isPredefinedLanguage(Object object);
 

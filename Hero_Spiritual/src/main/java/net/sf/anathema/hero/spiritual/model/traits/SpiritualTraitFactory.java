@@ -24,17 +24,8 @@ public class SpiritualTraitFactory {
     this.traitTemplateMap = traitTemplateMap;
   }
 
-  public Trait[] createTraits(TraitType[] traitTypes) {
-    List<Trait> newTraits = new ArrayList<>();
-    for (TraitType traitType : traitTypes) {
-      newTraits.add(createTrait(traitType));
-    }
-    return newTraits.toArray(new Trait[newTraits.size()]);
-  }
-
   public Trait createTrait(TraitType traitType) {
     TraitTemplate traitTemplate = traitTemplateMap.getTemplate(traitType);
-    ValueChangeChecker checker = new FriendlyValueChangeChecker();
     TraitRules rules = new TraitRulesImpl(traitType, traitTemplate, hero);
     return new TraitImpl(hero, rules);
   }

@@ -6,6 +6,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EssencePoolConfiguration {
@@ -24,24 +25,24 @@ public class EssencePoolConfiguration {
     this.peripheralParts = peripheralParser.getPartTemplates();
   }
 
-  public FactorizedTrait[] getPersonalTraits(TraitMap traitMap) {
+  public Iterable<FactorizedTrait> getPersonalTraits(TraitMap traitMap) {
     return createFactorizedTraits(personalParts, traitMap);
   }
 
-  public FactorizedTrait[] getPeripheralTraits(TraitMap traitMap) {
+  public Iterable<FactorizedTrait> getPeripheralTraits(TraitMap traitMap) {
     return createFactorizedTraits(peripheralParts, traitMap);
   }
 
-  private FactorizedTrait[] createFactorizedTraits(List<PoolPartTemplate> parts, TraitMap traitMap) {
+  private Iterable<FactorizedTrait> createFactorizedTraits(List<PoolPartTemplate> parts, TraitMap traitMap) {
     if (parts.isEmpty()) {
-      return new FactorizedTrait[0];
+      return Collections.emptyList();
     }
     List<FactorizedTrait> traits = new ArrayList<>();
     for (PoolPartTemplate part : parts) {
       Trait trait = traitMap.getTrait(part.traitType);
       traits.add(new FactorizedTrait(trait, part.multiplier));
     }
-    return traits.toArray(new FactorizedTrait[traits.size()]);
+    return traits;
   }
 
   public int getPeripheralBase() {
