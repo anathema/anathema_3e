@@ -75,6 +75,7 @@ public class LearningModelImpl implements LearningModel {
 
   @Override
   public void learnCharm(Charm charm, boolean experienced) {
+    // todo sandra notify hero change announcer with bulk (for history)
     learnParents(charm, experienced);
     learnCharmNoParents(charm, experienced, true);
   }
