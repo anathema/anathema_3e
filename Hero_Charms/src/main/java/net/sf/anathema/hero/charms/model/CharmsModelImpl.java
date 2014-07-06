@@ -21,7 +21,6 @@ import net.sf.anathema.hero.charms.model.learn.AggregatedLearningModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.ILearningCharmGroupContainer;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
@@ -74,8 +73,6 @@ public class CharmsModelImpl implements CharmsModel {
           new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
-  // todo (sandra) eliminate ILearnCharmGroupContainer
-  private ILearningCharmGroupContainer learningCharmGroupContainer = (charm) -> getTreeFor(charm);
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private ExperienceModel experience;
   private TraitModel traits;
@@ -182,7 +179,7 @@ public class CharmsModelImpl implements CharmsModel {
     List<LearningCharmTree> newGroups = new ArrayList<>();
     for (CharmTree charmGroup : charmGroups) {
       LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this,
-              learningCharmGroupContainer);
+              aggregatedLearningModel);
       newGroups.add(group);
     }
     return newGroups.toArray(new LearningCharmTree[newGroups.size()]);
@@ -252,10 +249,9 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     for (Charm charm : charmsToUnlearn) {
-      LearningCharmTree group = learningCharmGroupContainer.getLearningCharmGroup(charm);
-      boolean learnedAtCreation = group.isLearned(charm, false);
+      boolean learnedAtCreation = aggregatedLearningModel.isLearned(charm, false);
       boolean learnedWithExperience = !learnedAtCreation;
-      group.forgetCharm(charm, learnedWithExperience);
+      aggregatedLearningModel.forgetCharm(charm, learnedWithExperience);
     }
   }
 

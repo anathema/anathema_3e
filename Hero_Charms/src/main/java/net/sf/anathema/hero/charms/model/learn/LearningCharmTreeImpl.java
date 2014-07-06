@@ -24,14 +24,14 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
   private CharmTree charmTree;
   private final IExtendedCharmLearnableArbitrator learnArbitrator;
   private final ICharmLearnStrategy learnStrategy;
-  private final ILearningCharmGroupContainer charmGroupContainer;
+  private final LearningModel learningModel;
 
-  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree charmTree, IExtendedCharmLearnableArbitrator arbitrator,
-                               ILearningCharmGroupContainer charmGroupContainer) {
+  public LearningCharmTreeImpl(ICharmLearnStrategy learnStrategy, CharmTree charmTree,
+                               IExtendedCharmLearnableArbitrator arbitrator, LearningModel learningModel) {
     this.learnStrategy = learnStrategy;
     this.charmTree = charmTree;
     this.learnArbitrator = arbitrator;
-    this.charmGroupContainer = charmGroupContainer;
+    this.learningModel = learningModel;
   }
 
   @Override
@@ -98,8 +98,7 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private void forgetChildren(Charm charm, boolean experienced) {
     for (Charm child : getLearnFollowUpCharms(charm, learnArbitrator)) {
-      LearningCharmTree childGroup = charmGroupContainer.getLearningCharmGroup(child);
-      childGroup.forgetCharm(child, experienced);
+      learningModel.forgetCharm(child, experienced);
     }
   }
 
@@ -110,9 +109,8 @@ public class LearningCharmTreeImpl implements LearningCharmTree {
 
   private void learnParents(Charm charm, boolean experienced) {
     for (Charm parent : collectPrerequisiteCharms(charm, learnArbitrator)) {
-      LearningCharmTree parentGroup = charmGroupContainer.getLearningCharmGroup(parent);
-      if (!parentGroup.isLearned(parent)) {
-        parentGroup.learnCharm(parent, experienced);
+      if (!learningModel.isLearned(parent)) {
+        learningModel.learnCharm(parent, experienced);
       }
     }
   }
