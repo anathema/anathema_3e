@@ -123,7 +123,7 @@ public class LearningModelImpl implements LearningModel {
   }
 
   private void fireNotForgettableEvent(Charm charm) {
-    control.announce().charmNotUnlearnable(charm);
+    control.announce().charmNotForgettable(charm);
   }
 
   @Override

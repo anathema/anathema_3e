@@ -10,7 +10,7 @@ public interface ICharmLearnListener {
 
   void charmNotLearnable(Charm charm);
 
-  void charmNotUnlearnable(Charm charm);
+  void charmNotForgettable(Charm charm);
 
   void recalculateRequested();
 }

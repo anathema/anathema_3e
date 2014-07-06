@@ -20,7 +20,7 @@ public class CharmLearnAdapter implements ICharmLearnListener {
   }
 
   @Override
-  public void charmNotUnlearnable(Charm charm) {
+  public void charmNotForgettable(Charm charm) {
     // Nothing to do
   }
 

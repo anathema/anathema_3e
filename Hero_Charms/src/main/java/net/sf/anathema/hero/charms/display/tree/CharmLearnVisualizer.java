@@ -29,7 +29,7 @@ public final class CharmLearnVisualizer extends CharmLearnAdapter {
   }
 
   @Override
-  public void charmNotUnlearnable(Charm charm) {
+  public void charmNotForgettable(Charm charm) {
     Toolkit.getDefaultToolkit().beep();
   }
 }

@@ -6,6 +6,8 @@ import net.sf.anathema.hero.individual.model.Hero;
 
 import java.util.List;
 
+import static java.text.MessageFormat.format;
+
 public class ChangeHistoryImpl implements TransactionReceiver {
 
   private Hero hero;
@@ -16,6 +18,7 @@ public class ChangeHistoryImpl implements TransactionReceiver {
 
   @Override
   public void commitTransaction(HeroChange rootChange, List<HeroChange> followUpChanges) {
-    System.err.print("Transaction commited for root change " + rootChange.flavor);
+    String pattern = "Transaction commited for root change {0} with {1} follow ups";
+    System.err.println(format(pattern, rootChange.flavor, followUpChanges.size()));
   }
 }
