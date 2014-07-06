@@ -20,9 +20,9 @@ import net.sf.anathema.magic.data.Magic;
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
-  void addCheapenedChecker(CheapenedChecker cheapenedChecker);
-
   Identifier ID = new SimpleIdentifier("Charms");
+
+  void addCheapenedChecker(CheapenedChecker cheapenedChecker);
 
   void addPrintProvider(PrintMagicProvider provider);
 
