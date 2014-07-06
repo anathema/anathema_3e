@@ -74,7 +74,8 @@ public class CharmsModelImpl implements CharmsModel {
           new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
-  private ILearningCharmGroupContainer learningCharmGroupContainer = this::getTreeFor;
+  // todo (sandra) eliminate ILearnCharmGroupContainer
+  private ILearningCharmGroupContainer learningCharmGroupContainer = (charm) -> getTreeFor(charm);
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private ExperienceModel experience;
   private TraitModel traits;
@@ -153,7 +154,7 @@ public class CharmsModelImpl implements CharmsModel {
   private void learnCompulsiveCharms() {
     charmsRules.forAllCompulsiveCharms(charmName -> {
       Charm charm = getCharmById(charmName);
-      getTreeFor(charm).learnCharm(charm, false);
+      getLearnModel().learnCharm(charm, false);
     });
   }
 
@@ -245,7 +246,7 @@ public class CharmsModelImpl implements CharmsModel {
     List<Charm> charmsToUnlearn = new ArrayList<>();
     for (Charm charm : this.getLearnedCharms(true)) {
       boolean prerequisitesForCharmAreNoLongerMet = !isLearnable(charm);
-      boolean charmCanBeUnlearned = isUnlearnable(charm);
+      boolean charmCanBeUnlearned = isForgettable(charm);
       if (prerequisitesForCharmAreNoLongerMet && charmCanBeUnlearned) {
         charmsToUnlearn.add(charm);
       }
@@ -326,15 +327,13 @@ public class CharmsModelImpl implements CharmsModel {
     return charm != null && isLearned(charm);
   }
 
-  public final boolean isUnlearnable(Charm charm) {
-    LearningCharmTree group = getTreeFor(charm);
-    return group.isForgettable(charm);
+  public final boolean isForgettable(Charm charm) {
+    return getLearnModel().isForgettable(charm);
   }
 
   @Override
   public final boolean isLearned(Charm charm) {
-    LearningCharmTree group = getTreeFor(charm);
-    return group != null && group.isLearned(charm);
+    return getLearnModel().isLearned(charm);
   }
 
   private LearningCharmTree getLearningTree(TreeReference reference) {
@@ -348,8 +347,7 @@ public class CharmsModelImpl implements CharmsModel {
     throw new IllegalArgumentException(format(pattern, reference.name.text, reference.category.text));
   }
 
-  @Override
-  public final LearningCharmTree getTreeFor(Charm charm) {
+  private LearningCharmTree getTreeFor(Charm charm) {
     return getLearningTree(charm.getTreeReference());
   }
 

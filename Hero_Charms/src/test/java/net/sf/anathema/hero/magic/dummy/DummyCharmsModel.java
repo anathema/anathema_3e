@@ -35,7 +35,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
   private Charm[] charms = new Charm[0];
 
-  private LearningCharmTree[] groups;
   private IsFavoredMagic favoredMagic = new IsFavoredMagic();
 
   @Override
@@ -60,7 +59,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
   @Override
   public LearningCharmTree[] getTreesFor(CategoryReference category) {
-    return groups;
+    return new LearningCharmTree[0];
   }
 
   @Override
@@ -117,11 +116,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public CharmSpecialsModel getCharmSpecialsModel(Charm charm) {
     return null;
-  }
-
-  @Override
-  public LearningCharmTree getTreeFor(Charm charm) {
-    throw new NotYetImplementedException();
   }
 
   @Override

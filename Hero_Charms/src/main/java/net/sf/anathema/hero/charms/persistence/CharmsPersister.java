@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
@@ -40,9 +41,9 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
       Charm charm = model.getCharmById(new CharmName(charmPto.charm));
-      LearningCharmTree group = model.getTreeFor(charm);
-      if (!group.isLearned(charm, false)) {
-        group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
+      LearningModel learningModel = model.getLearnModel();
+      if (!learningModel.isLearned(charm, false)) {
+        learningModel.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
     } catch (IllegalArgumentException e) {

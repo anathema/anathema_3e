@@ -37,8 +37,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   LearningCharmTree[] getAllTrees();
 
-  LearningCharmTree getTreeFor(Charm charm);
-
   Charm[] getLearnedCharms(boolean experienced);
 
   void forgetAllAlienCharms();
