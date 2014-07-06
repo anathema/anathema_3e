@@ -2,11 +2,12 @@ package net.sf.anathema.library.lang;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
-import org.apache.commons.lang3.StringUtils;
+import net.sf.anathema.library.io.InputOutput;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -16,7 +17,11 @@ public class StringUtilities {
   public static final String EMPTY_STRING = "";
 
   public static String getFileNameRepresentation(String string) {
-    string = StringUtils.stripAccents(string);
+    try {
+      string = URLEncoder.encode(string, InputOutput.ENCODING);
+    } catch (UnsupportedEncodingException e) {
+      throw new RuntimeException(e);
+    }
     StringBuilder fileName = new StringBuilder(string.length());
     for (int index = 0; index < string.length(); index++) {
       char character = string.charAt(index);
