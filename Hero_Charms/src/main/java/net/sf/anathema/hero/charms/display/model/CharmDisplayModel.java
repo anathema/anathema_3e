@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.concept.model.concept.CasteSelection;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -41,15 +41,15 @@ public class CharmDisplayModel {
 
   public void toggleLearned(CharmName charmId) {
     CharmsModel charms = getCharmModel();
-    LearningCharmTree charmGroup = getCharmGroupByCharmId(charmId);
+    LearningModel charmGroup = getCharmGroupByCharmId(charmId);
     Charm charmToLearn = charms.getCharmById(charmId);
     charmGroup.toggleLearned(charmToLearn);
   }
 
-  private LearningCharmTree getCharmGroupByCharmId(CharmName charmId) {
+  private LearningModel getCharmGroupByCharmId(CharmName charmId) {
     CharmsModel charms = getCharmModel();
     Charm charm = charms.getCharmById(charmId);
-    return charms.getTreeFor(charm);
+    return charms.getLearnModel();
   }
 
   public MagicDescriptionProvider getMagicDescriptionProvider() {

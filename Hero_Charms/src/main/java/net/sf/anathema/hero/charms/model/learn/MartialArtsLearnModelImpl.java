@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
+import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 
@@ -35,7 +36,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   @Override
   public String[] getCompleteCelestialMartialArtsGroups() {
     Set<String> completedGroups = new HashSet<>();
-    for (LearningCharmTree group : getMartialArtsGroups()) {
+    for (CharmTree group : getMartialArtsGroups()) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (isCelestialStyle(martialArtsCharm) && isCompleted(group)) {
         completedGroups.add(group.getId());
@@ -49,9 +50,9 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return isAnyCelestialMartialArtsGroupCompleted(getMartialArtsGroups());
   }
 
-  private String[] getIncompleteCelestialMartialArtsGroups(LearningCharmTree[] groups) {
+  private String[] getIncompleteCelestialMartialArtsGroups(CharmTree[] groups) {
     Set<String> uncompletedGroups = new HashSet<>();
-    for (LearningCharmTree group : groups) {
+    for (CharmTree group : groups) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (!isCelestialStyle(martialArtsCharm) || isCompleted(group)) {
         continue;
@@ -63,8 +64,8 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return uncompletedGroups.toArray(new String[uncompletedGroups.size()]);
   }
 
-  private boolean isAnyCelestialMartialArtsGroupCompleted(LearningCharmTree[] groups) {
-    for (LearningCharmTree group : groups) {
+  private boolean isAnyCelestialMartialArtsGroupCompleted(CharmTree[] groups) {
+    for (CharmTree group : groups) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (isCelestialStyle(martialArtsCharm) && isCompleted(group)) {
         return true;
@@ -77,25 +78,25 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return hasLevel(Celestial, martialArtsCharm) && !martialArtsCharm.hasAttribute(NO_STYLE_ATTRIBUTE);
   }
 
-  private boolean isBegun(LearningCharmTree group) {
+  private boolean isBegun(CharmTree group) {
     for (Charm charm : group.getAllCharms()) {
-      if (group.isLearned(charm)) {
+      if (charmModel.getLearnModel().isLearned(charm)) {
         return true;
       }
     }
     return false;
   }
 
-  private boolean isCompleted(LearningCharmTree group) {
+  private boolean isCompleted(CharmTree group) {
     for (Charm charm : group.getCoreCharms()) {
-      if (!group.isLearned(charm)) {
+      if (!charmModel.getLearnModel().isLearned(charm)) {
         return false;
       }
     }
     return true;
   }
 
-  private LearningCharmTree[] getMartialArtsGroups() {
+  private CharmTree[] getMartialArtsGroups() {
     return charmModel.getTreesFor(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
   }
 }

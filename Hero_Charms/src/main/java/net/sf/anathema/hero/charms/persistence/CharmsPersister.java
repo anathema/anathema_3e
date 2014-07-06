@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.persistence;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
+import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
@@ -40,9 +40,9 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     SpecialCharmListPersister specialPersister = new SpecialCharmListPersister(model);
     try {
       Charm charm = model.getCharmById(new CharmName(charmPto.charm));
-      LearningCharmTree group = model.getTreeFor(charm);
-      if (!group.isLearned(charm, false)) {
-        group.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
+      LearningModel learningModel = model.getLearnModel();
+      if (!learningModel.isLearned(charm, false)) {
+        learningModel.learnCharmNoParents(charm, charmPto.isExperienceLearned, false);
       }
       specialPersister.loadSpecials(model, charm, pto, charmPto.isExperienceLearned);
     } catch (IllegalArgumentException e) {
@@ -88,23 +88,19 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
 
   private List<Charm> getSortedCharmList(CharmsModel model) {
     List<Charm> charms = new ArrayList<>();
-    for (LearningCharmTree group : model.getAllTrees()) {
-      Collections.addAll(charms, group.getCreationLearnedCharms());
-      Collections.addAll(charms, group.getExperienceLearnedCharms());
-    }
+    Collections.addAll(charms, model.getLearnModel().getCreationLearnedCharms());
+    Collections.addAll(charms, model.getLearnModel().getExperienceLearnedCharms());
     Collections.sort(charms, (o1, o2) -> o1.getName().compareTo(o2.getName()));
     return charms;
   }
 
   private Map<String, Boolean> getExperiencedLearnedMap(CharmsModel model) {
     HashMap<String, Boolean> isExperiencedLearned = new HashMap<>();
-    for (LearningCharmTree group : model.getAllTrees()) {
-      for (Charm charm : group.getCreationLearnedCharms()) {
-        isExperiencedLearned.put(charm.getName().text, false);
-      }
-      for (Charm charm : group.getExperienceLearnedCharms()) {
-        isExperiencedLearned.put(charm.getName().text, true);
-      }
+    for (Charm charm : model.getLearnModel().getCreationLearnedCharms()) {
+      isExperiencedLearned.put(charm.getName().text, false);
+    }
+    for (Charm charm : model.getLearnModel().getExperienceLearnedCharms()) {
+      isExperiencedLearned.put(charm.getName().text, true);
     }
     return isExperiencedLearned;
   }

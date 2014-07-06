@@ -68,6 +68,6 @@ public class CharmSteps {
 
   private void toggleLearned(String id) {
     Charm charm = character.getCharms().getCharmById(new CharmName(id));
-    character.getCharms().getTreeFor(charm).toggleLearned(charm);
+    character.getCharms().getLearnModel().toggleLearned(charm);
   }
 }

@@ -13,7 +13,6 @@ import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.combos.model.ComboConfigurationModel;
 import net.sf.anathema.hero.concept.model.concept.ConceptChange;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -32,7 +31,7 @@ import java.util.Map;
 
 public class ComboConfigurationPresenter {
 
-  private final CharmsModel charmConfiguration;
+  private final CharmsModel charmsModel;
   private final CombosModel comboConfiguration;
   private final Map<Combo, ComboView> viewsByCombo = new HashMap<>();
   private final Map<Combo, Tool> toolsByCombo = new HashMap<>();
@@ -48,22 +47,25 @@ public class ComboConfigurationPresenter {
   private boolean isDescriptionEntered;
   private boolean isNameEntered;
 
-  public ComboConfigurationPresenter(Hero hero, Resources resources, ComboConfigurationModel comboModel, ComboConfigurationView view) {
+  public ComboConfigurationPresenter(Hero hero, Resources resources, ComboConfigurationModel comboModel,
+                                     ComboConfigurationView view) {
     this.hero = hero;
     this.resources = resources;
     this.comboModel = comboModel;
-    this.charmConfiguration = comboModel.getCharmConfiguration();
+    this.charmsModel = comboModel.getCharmConfiguration();
     this.comboConfiguration = comboModel.getCombos();
     this.labeler = new MagicDisplayLabeler(resources);
     this.view = view;
-    this.properties = new CombinedComboViewAndMagicProperties(resources, comboConfiguration, comboModel.getMagicDescriptionProvider());
+    this.properties = new CombinedComboViewAndMagicProperties(resources, comboConfiguration,
+      comboModel.getMagicDescriptionProvider());
   }
 
   public void initPresentation() {
     initMagicLearnView();
     view.addComboEditor(properties);
     initCharmLearnListening();
-    ITextView nameView = view.addComboNameView(resources.getString("CardView.CharmConfiguration.ComboCreation.NameLabel"));
+    ITextView nameView = view.addComboNameView(
+      resources.getString("CardView.CharmConfiguration.ComboCreation.NameLabel"));
     nameView.addTextChangedListener(newValue -> {
       isNameEntered = newValue != null && !newValue.equals("");
       enableOrDisableClearButton();
@@ -71,7 +73,8 @@ public class ComboConfigurationPresenter {
     Combo editCombo = comboConfiguration.getEditCombo();
     TextualPresentation textualPresentation = new TextualPresentation();
     textualPresentation.initView(nameView, editCombo.getName());
-    ITextView descriptionView = view.addComboDescriptionView(resources.getString("CardView.CharmConfiguration.ComboCreation.DescriptionLabel"));
+    ITextView descriptionView = view.addComboDescriptionView(
+      resources.getString("CardView.CharmConfiguration.ComboCreation.DescriptionLabel"));
     descriptionView.addTextChangedListener(newValue -> {
       isDescriptionEntered = newValue != null && !newValue.equals("");
       enableOrDisableClearButton();
@@ -201,7 +204,7 @@ public class ComboConfigurationPresenter {
     clearTool.setIcon(editing ? properties.getCancelEditButtonIcon() : properties.getClearButtonIcon());
     clearTool.setTooltip(editing ? properties.getCancelButtonEditToolTip() : properties.getClearButtonToolTip());
     finalizeTool.setTooltip(
-            editing ? properties.getFinalizeButtonEditToolTip() : properties.getFinalizeButtonToolTip());
+      editing ? properties.getFinalizeButtonEditToolTip() : properties.getFinalizeButtonToolTip());
   }
 
 
@@ -217,9 +220,7 @@ public class ComboConfigurationPresenter {
         updateCharmListsInView();
       }
     };
-    for (LearningCharmTree group : charmConfiguration.getAllTrees()) {
-      group.addCharmLearnListener(charmLearnListener);
-    }
+    charmsModel.getLearnModel().addCharmLearnListener(charmLearnListener);
   }
 
   private void addComboToView(ComboContainer container, final Combo combo) {
@@ -269,7 +270,8 @@ public class ComboConfigurationPresenter {
 
   private void setViewToEditing(Combo combo) {
     ComboView comboView = viewsByCombo.get(combo);
-    comboView.displayComboName(getComboName(combo) + " (" + resources.getString("CardView.CharmConfiguration.ComboCreation.EditingLabel") + ")");
+    comboView.displayComboName(
+      getComboName(combo) + " (" + resources.getString("CardView.CharmConfiguration.ComboCreation.EditingLabel") + ")");
     updateRepresentation(comboView, combo);
     toolsByCombo.get(combo).setText(resources.getString("CardView.CharmConfiguration.ComboCreation.RestartEditLabel"));
   }
@@ -279,7 +281,8 @@ public class ComboConfigurationPresenter {
       ComboView comboView = viewsByCombo.get(currentCombo);
       comboView.displayComboName(getComboName(currentCombo));
       updateRepresentation(comboView, currentCombo);
-      toolsByCombo.get(currentCombo).setText(resources.getString("CardView.CharmConfiguration.ComboCreation.EditLabel"));
+      toolsByCombo.get(currentCombo).setText(
+        resources.getString("CardView.CharmConfiguration.ComboCreation.EditLabel"));
     }
   }
 
