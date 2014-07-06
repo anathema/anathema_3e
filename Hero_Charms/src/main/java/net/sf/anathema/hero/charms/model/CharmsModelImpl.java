@@ -70,7 +70,7 @@ import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.
 public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(
-          new CreationCharmLearnStrategy());
+    new CreationCharmLearnStrategy());
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
@@ -112,28 +112,26 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void initializeCharmTrees() {
     for (CharmTreeCategory category : options) {
-      LearningCharmTree[] learningCharmTrees = createTrees(category.getAllCharmTrees());
-      for(LearningCharmTree tree : learningCharmTrees) {
-        aggregatedLearningModel.addModel(tree);
+      for (CharmTree charmGroup : category.getAllCharmTrees()) {
+        aggregatedLearningModel.addModel(
+          new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, aggregatedLearningModel));
       }
     }
   }
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    for (LearningCharmTree group : getAllTrees()) {
-      group.addCharmLearnListener(new CharmLearnAdapter() {
-        @Override
-        public void charmForgotten(Charm charm) {
-          control.announce().changeOccurred();
-        }
+    aggregatedLearningModel.addCharmLearnListener(new CharmLearnAdapter() {
+      @Override
+      public void charmForgotten(Charm charm) {
+        control.announce().changeOccurred();
+      }
 
-        @Override
-        public void charmLearned(Charm charm) {
-          control.announce().changeOccurred();
-        }
-      });
-    }
+      @Override
+      public void charmLearned(Charm charm) {
+        control.announce().changeOccurred();
+      }
+    });
     this.experience.addStateChangeListener(() -> {
       if (experience.isExperienced()) {
         charmLearnStrategy.setStrategy(new ExperiencedCharmLearnStrategy());
@@ -157,9 +155,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void addCharmLearnListener(ICharmLearnListener listener) {
-    for (LearningCharmTree group : getAllTrees()) {
-      group.addCharmLearnListener(listener);
-    }
+    aggregatedLearningModel.addCharmLearnListener(listener);
   }
 
   private void initSpecialCharmConfigurations() {
@@ -175,18 +171,8 @@ public class CharmsModelImpl implements CharmsModel {
     }
   }
 
-  private LearningCharmTree[] createTrees(CharmTree[] charmGroups) {
-    List<LearningCharmTree> newGroups = new ArrayList<>();
-    for (CharmTree charmGroup : charmGroups) {
-      LearningCharmTree group = new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this,
-              aggregatedLearningModel);
-      newGroups.add(group);
-    }
-    return newGroups.toArray(new LearningCharmTree[newGroups.size()]);
-  }
-
   @Override
-  public LearningCharmTree[] getAllTrees() {
+  public CharmTree[] getAllTrees() {
     return aggregatedLearningModel.getAllTrees();
   }
 
@@ -211,11 +197,9 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public Charm[] getLearnedCharms(boolean experienced) {
     List<Charm> allLearnedCharms = new ArrayList<>();
-    for (LearningCharmTree group : getAllTrees()) {
-      Collections.addAll(allLearnedCharms, group.getCreationLearnedCharms());
-      if (experienced) {
-        Collections.addAll(allLearnedCharms, group.getExperienceLearnedCharms());
-      }
+    Collections.addAll(allLearnedCharms, aggregatedLearningModel.getCreationLearnedCharms());
+    if (experienced) {
+      Collections.addAll(allLearnedCharms, aggregatedLearningModel.getExperienceLearnedCharms());
     }
     return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
   }
@@ -287,7 +271,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-            getPrerequisiteModifyingCharms(), traits, this);
+      getPrerequisiteModifyingCharms(), traits, this);
     return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
@@ -341,10 +325,6 @@ public class CharmsModelImpl implements CharmsModel {
     }
     String pattern = "No charm tree defined for id: {0} in {1}.";
     throw new IllegalArgumentException(format(pattern, reference.name.text, reference.category.text));
-  }
-
-  private LearningCharmTree getTreeFor(Charm charm) {
-    return getLearningTree(charm.getTreeReference());
   }
 
 
