@@ -32,7 +32,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
     int experienceCosts = 0;
     CharmsModel charmConfiguration = CharmsModelFetcher.fetch(hero);
     Set<Charm> charmsCalculated = new HashSet<>();
-    for (Charm charm : charmConfiguration.getLearnedCharms(true)) {
+    for (Charm charm : charmConfiguration.getLearnedCharms()) {
       int charmCosts = calculateCharmCost(charmConfiguration, charm);
       if (charmConfiguration.isAlienCharm(charm)) {
         charmCosts *= 2;

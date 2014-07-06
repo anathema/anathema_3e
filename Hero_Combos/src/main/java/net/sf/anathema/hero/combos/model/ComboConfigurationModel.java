@@ -38,7 +38,7 @@ public class ComboConfigurationModel {
   }
 
   public List<Charm> getEligibleCharms() {
-    Charm[] learnedCharms = CharmsModelFetcher.fetch(hero).getLearnedCharms(isExperienced());
+    Charm[] learnedCharms = CharmsModelFetcher.fetch(hero).getLearnedCharms();
     ArrayList<Charm> eligibleCharms = new ArrayList<>();
     for (Charm charm : learnedCharms) {
       if (getCombos().isComboLegal(charm)) {

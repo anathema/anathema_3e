@@ -148,8 +148,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
   }
 
   private Charm[] getCurrentCharms(Hero hero) {
-    boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
-    return CharmsModelFetcher.fetch(hero).getLearnedCharms(experienced);
+    return CharmsModelFetcher.fetch(hero).getLearnedCharms();
   }
 
   private Spell[] getCurrentSpells(Hero hero) {

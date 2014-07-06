@@ -59,10 +59,6 @@ public class CharmLearner implements MagicLearner {
     return 1;
   }
 
-  private boolean isSpecialCharm(Charm charm) {
-    return charms.getCharmSpecialsModel(charm) != null;
-  }
-
   @Override
   public Collection<? extends Magic> getLearnedMagic(boolean experienced) {
     return Arrays.asList(charms.getLearnedCharms(experienced));

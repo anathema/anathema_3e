@@ -187,6 +187,16 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
+  public Charm[] getLearnedCharms() {
+    List<Charm> allLearnedCharms = new ArrayList<>();
+    allLearnedCharms.addAll(learningModel.getCreationLearnedCharms());
+    if (isExperienced()) {
+      allLearnedCharms.addAll(learningModel.getExperienceLearnedCharms());
+    }
+    return allLearnedCharms.toArray(new Charm[allLearnedCharms.size()]);
+  }
+
+  @Override
   public Charm[] getLearnedCharms(boolean experienced) {
     List<Charm> allLearnedCharms = new ArrayList<>();
     allLearnedCharms.addAll(learningModel.getCreationLearnedCharms());
@@ -249,7 +259,7 @@ public class CharmsModelImpl implements CharmsModel {
     }
     if (isMartialArts(charm)) {
       boolean isSiderealFormCharm = isFormMagic(charm) && hasLevel(Sidereal, charm);
-      MartialArtsLearnModel martialArtsConfiguration = new MartialArtsLearnModelImpl(this, experience);
+      MartialArtsLearnModel martialArtsConfiguration = new MartialArtsLearnModelImpl(this);
       if (isSiderealFormCharm && !martialArtsConfiguration.isAnyCelestialStyleCompleted()) {
         return false;
       }
@@ -269,7 +279,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
-    Charm[] learnedCharms = getLearnedCharms(true);
+    Charm[] learnedCharms = getLearnedCharms();
     int count = 0;
     for (Charm charm : learnedCharms) {
       if (charm.hasAttribute(attribute)) {
