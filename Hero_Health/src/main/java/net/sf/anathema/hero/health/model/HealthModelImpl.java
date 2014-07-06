@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.health.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
@@ -11,12 +12,18 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HealthModelImpl implements HealthModel {
 
   private final List<IHealthLevelProvider> healthLevelProviders = new ArrayList<>();
   private final List<IPainToleranceProvider> painResistanceProviders = new ArrayList<>();
+  private final HealthTemplate healthTemplate;
+
+  public HealthModelImpl(HealthTemplate healthTemplate) {
+    this.healthTemplate = healthTemplate;
+  }
 
   @Override
   public Identifier getId() {
@@ -52,40 +59,9 @@ public class HealthModelImpl implements HealthModel {
     return typeCount;
   }
 
-  private int getBasicHealthLevel(HealthLevelType type) {
-    final int[] basicCount = new int[1];
-    type.accept(new IHealthLevelTypeVisitor() {
-      @Override
-      public void visitZero(HealthLevelType visitedType) {
-        basicCount[0] = 1;
-      }
-
-      @Override
-      public void visitOne(HealthLevelType visitedType) {
-        basicCount[0] = 2;
-      }
-
-      @Override
-      public void visitTwo(HealthLevelType visitedType) {
-        basicCount[0] = 2;
-      }
-
-      @Override
-      public void visitFour(HealthLevelType visitedType) {
-        basicCount[0] = 1;
-      }
-
-      @Override
-      public void visitIncapacitated(HealthLevelType visitedType) {
-        basicCount[0] = 1;
-      }
-
-      @Override
-      public void visitDying(HealthLevelType visitedType) {
-        basicCount[0] = 0;
-      }
-    });
-    return basicCount[0];
+  @Override
+  public int getBasicHealthLevel(HealthLevelType type) {
+    return Collections.frequency(healthTemplate.levels, type);
   }
 
   @Override
@@ -99,7 +75,7 @@ public class HealthModelImpl implements HealthModel {
 
   @Override
   public TraitType[] getToughnessControllingTraitTypes() {
-    return new TraitType[] {AbilityType.Resistance};
+    return new TraitType[]{AbilityType.Resistance};
   }
 
   private static class DyingStaminaHealthLevelProvider implements IHealthLevelProvider {

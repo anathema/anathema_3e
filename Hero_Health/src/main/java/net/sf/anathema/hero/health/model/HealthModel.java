@@ -15,6 +15,8 @@ public interface HealthModel extends HeroModel {
 
   void addPainToleranceProvider(IPainToleranceProvider provider);
 
+  int getBasicHealthLevel(HealthLevelType type);
+
   int getPainToleranceLevel();
 
   TraitType[] getToughnessControllingTraitTypes();
