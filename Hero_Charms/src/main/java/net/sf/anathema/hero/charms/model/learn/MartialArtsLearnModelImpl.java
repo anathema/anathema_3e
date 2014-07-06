@@ -4,9 +4,13 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.library.identifier.Identifier;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static net.sf.anathema.charm.data.CharmAttributeList.NO_STYLE_ATTRIBUTE;
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Celestial;
@@ -47,21 +51,19 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return isAnyCelestialMartialArtsGroupCompleted(getMartialArtsGroups());
   }
 
-  private String[] getIncompleteCelestialMartialArtsGroups(CharmTree[] groups) {
-    Set<String> uncompletedGroups = new HashSet<>();
-    for (CharmTree group : groups) {
+  private String[] getIncompleteCelestialMartialArtsGroups(Collection<CharmTree> groups) {
+    Stream<CharmTree> allGroups = groups.stream();
+    Set<String> incompleteGroups = allGroups.filter(group -> {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (!isCelestialStyle(martialArtsCharm) || isCompleted(group)) {
-        continue;
+        return false;
       }
-      if (isBegun(group)) {
-        uncompletedGroups.add(group.getId());
-      }
-    }
-    return uncompletedGroups.toArray(new String[uncompletedGroups.size()]);
+      return isBegun(group);
+    }).map(Identifier::getId).collect(Collectors.toSet());
+    return incompleteGroups.toArray(new String[0]);
   }
 
-  private boolean isAnyCelestialMartialArtsGroupCompleted(CharmTree[] groups) {
+  private boolean isAnyCelestialMartialArtsGroupCompleted(Iterable<CharmTree> groups) {
     for (CharmTree group : groups) {
       Charm martialArtsCharm = group.getCoreCharms()[0];
       if (isCelestialStyle(martialArtsCharm) && isCompleted(group)) {
@@ -93,7 +95,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
     return true;
   }
 
-  private CharmTree[] getMartialArtsGroups() {
+  private Collection<CharmTree> getMartialArtsGroups() {
     return charmModel.getTreesFor(MartialArtsUtilities.getCategory(MARTIAL_ARTS));
   }
 }

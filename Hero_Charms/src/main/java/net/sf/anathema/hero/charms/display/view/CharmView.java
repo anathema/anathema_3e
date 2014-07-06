@@ -4,6 +4,8 @@ import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.tree.display.TreeView;
 
+import java.util.Collection;
+
 public interface CharmView extends SpecialCharmViewContainer {
 
   TreeView addTreeView();
@@ -11,7 +13,7 @@ public interface CharmView extends SpecialCharmViewContainer {
   <T> ObjectSelectionView<T> addSelectionView(String title, AgnosticUIConfiguration<T> uiConfig);
 
   <T> ObjectSelectionView<T> addSelectionViewAndSizeItFor(String title, AgnosticUIConfiguration<T> uiConfig,
-                                                          T[] objects);
+                                                          Collection<T> objects);
 
   void whenCursorLeavesCharmAreaResetAllPopups();
 }

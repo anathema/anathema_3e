@@ -81,11 +81,11 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
   }
 
   @Override
-  public final CharmTree[] getAllCharmTrees() {
+  public final Collection<CharmTree> getAllCharmTrees() {
     Set<TreeName> treeNameList = new HashSet<>();
     List<CharmTree> treeList = new ArrayList<>();
     addCharmTreesFor(treeNameList, treeList, getAllCharms());
-    return treeList.toArray(new CharmTree[treeList.size()]);
+    return treeList;
   }
 
   public final List<Charm> getAllCharmsForTree(TreeName treeName) {

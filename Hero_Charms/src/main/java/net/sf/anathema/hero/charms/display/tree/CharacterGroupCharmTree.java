@@ -5,6 +5,8 @@ import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 
+import java.util.Collection;
+
 public final class CharacterGroupCharmTree implements CharmTreeCollection {
   private final CategoryReference cascadeType;
   private CharmDisplayModel model;
@@ -16,11 +18,11 @@ public final class CharacterGroupCharmTree implements CharmTreeCollection {
 
   @Override
   public boolean isEmpty() {
-    return getAllCharmTrees().length > 0;
+    return getAllCharmTrees().isEmpty();
   }
 
   @Override
-  public CharmTree[] getAllCharmTrees() {
+  public Collection<CharmTree> getAllCharmTrees() {
     return model.getCharmModel().getTreesFor(cascadeType);
   }
 }

@@ -11,7 +11,7 @@ import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.individual.splat.HeroType;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class CascadeGroupCollection implements CharmTreeCollection {
@@ -31,11 +31,11 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   @Override
-  public CharmTree[] getAllCharmTrees() {
+  public Collection<CharmTree> getAllCharmTrees() {
     List<CharmTree> allCharmGroups = new ArrayList<>();
     initCharacterTypeCharms(allCharmGroups);
     initMartialArtsCharms(allCharmGroups);
-    return allCharmGroups.toArray(new CharmTree[allCharmGroups.size()]);
+    return allCharmGroups;
   }
 
   private void initCharacterTypeCharms(List<CharmTree> allCharmGroups) {
@@ -49,7 +49,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   private void initMartialArtsCharms(List<CharmTree> allCharmGroups) {
     CharmTreeCategory martialArtsTree = CharmTreeCategoryImpl.ForMartialArts(new GreedyCharmOptionCheck(), charmProvider);
     treeIdentifierMap.put(MartialArtsUtilities.getCategory(MartialArtsUtilities.MARTIAL_ARTS), martialArtsTree);
-    allCharmGroups.addAll(Arrays.asList(martialArtsTree.getAllCharmTrees()));
+    allCharmGroups.addAll(martialArtsTree.getAllCharmTrees());
   }
 
   private void registerTypeCharms(List<CharmTree> allCharmGroups, HeroType type) {
@@ -58,10 +58,10 @@ public class CascadeGroupCollection implements CharmTreeCollection {
   }
 
   private void registerGroups(List<CharmTree> allCharmGroups, CategoryReference typeId, CharmTreeCategory charmTreeCategory) {
-    CharmTree[] groups = charmTreeCategory.getAllCharmTrees();
-    if (groups.length != 0) {
+    Collection<CharmTree> groups = charmTreeCategory.getAllCharmTrees();
+    if (!groups.isEmpty()) {
       treeIdentifierMap.put(typeId, charmTreeCategory);
-      allCharmGroups.addAll(Arrays.asList(groups));
+      allCharmGroups.addAll(groups);
     }
   }
 

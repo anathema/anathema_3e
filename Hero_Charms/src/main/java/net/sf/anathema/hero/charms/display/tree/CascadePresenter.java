@@ -24,7 +24,7 @@ import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Collection;
 import java.util.List;
 
 public class CascadePresenter {
@@ -103,7 +103,7 @@ public class CascadePresenter {
   }
 
   private ObjectSelectionView<CharmTree> createCharmTreeSelector() {
-    CharmTree[] allGroups = charmTrees.getAllCharmTrees();
+    Collection<CharmTree> allGroups = charmTrees.getAllCharmTrees();
     AgnosticUIConfiguration<CharmTree> config = new SelectObjectConfiguration<>(resources,
             (i18nResources, tree) -> i18nResources.getString(tree.getReference().name.text));
     String title = getResources().getString("CardView.CharmConfiguration.AlienCharms.CharmGroup");
@@ -113,9 +113,8 @@ public class CascadePresenter {
     return selector;
   }
 
-  private List<CharmTree> sortCharmGroups(CharmTree[] originalGroups) {
-    ArrayList<CharmTree> filteredGroups = new ArrayList<>();
-    Collections.addAll(filteredGroups, originalGroups);
+  private List<CharmTree> sortCharmGroups(Collection<CharmTree> originalGroups) {
+    ArrayList<CharmTree> filteredGroups = new ArrayList<>(originalGroups);
     return new I18nedIdentificateSorter<CharmTree>(resources).sortAscending(filteredGroups);
   }
 
@@ -149,7 +148,7 @@ public class CascadePresenter {
       groupSelector.setObjects(new CharmTree[0]);
       return;
     }
-    CharmTree[] allCharmGroups = charmTree.getAllCharmTrees();
+    Collection<CharmTree> allCharmGroups = charmTree.getAllCharmTrees();
     List<CharmTree> sortedGroups = sortCharmGroups(allCharmGroups);
     groupSelector.setObjects(sortedGroups.toArray(new CharmTree[sortedGroups.size()]));
     specialCharmPresenter.showSpecialViews();

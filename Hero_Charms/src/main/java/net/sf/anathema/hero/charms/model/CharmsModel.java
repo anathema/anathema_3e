@@ -17,6 +17,8 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.magic.data.Magic;
 
+import java.util.Collection;
+
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
 
@@ -36,9 +38,9 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   void forgetAllAlienCharms();
 
-  CharmTree[] getTreesFor(CategoryReference type);
+  Collection<CharmTree> getTreesFor(CategoryReference type);
 
-  CharmTree[] getAllTrees();
+  Collection<CharmTree> getAllTrees();
 
   MartialArtsLevel getStandardMartialArtsLevel();
 

@@ -20,6 +20,8 @@ import net.sf.anathema.platform.tree.fx.FxPolygonPanel;
 import net.sf.anathema.platform.tree.view.MouseBorderClosure;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.Collection;
+
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
@@ -51,7 +53,7 @@ public class FxCharmView implements CharmView, NodeHolder {
 
   @Override
   public <T> ObjectSelectionView<T> addSelectionViewAndSizeItFor(String title, AgnosticUIConfiguration<T> uiConfig,
-                                                                 T[] objects) {
+                                                                 Collection<T> objects) {
     return addSelectionView(title, uiConfig);
   }
 

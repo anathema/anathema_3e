@@ -53,7 +53,8 @@ import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
@@ -157,22 +158,22 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public CharmTree[] getAllTrees() {
+  public Collection<CharmTree> getAllTrees() {
     List<CharmTree> allTrees = new ArrayList<>();
     for (CharmTreeCategory category : options) {
-      allTrees.addAll(Arrays.asList(category.getAllCharmTrees()));
+      allTrees.addAll(category.getAllCharmTrees());
     }
-    return allTrees.toArray(new CharmTree[allTrees.size()]);
+    return allTrees;
   }
 
   @Override
-  public CharmTree[] getTreesFor(CategoryReference reference) {
+  public Collection<CharmTree> getTreesFor(CategoryReference reference) {
     for (CharmTreeCategory category : options) {
       if (category.getReference().equals(reference)) {
         return category.getAllCharmTrees();
       }
     }
-    return new CharmTree[0];
+    return Collections.emptyList();
   }
 
   @Override

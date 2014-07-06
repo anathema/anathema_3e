@@ -28,6 +28,8 @@ import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class DummyCharmsModel implements CharmsModel, CharmOptions {
@@ -57,8 +59,8 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public CharmTree[] getTreesFor(CategoryReference category) {
-    return new CharmTree[0];
+  public Collection<CharmTree> getTreesFor(CategoryReference category) {
+    return Collections.emptyList();
   }
 
   @Override
@@ -83,7 +85,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public CharmTree[] getAllTrees() {
+  public Collection<CharmTree> getAllTrees() {
     throw new NotYetImplementedException();
   }
 
