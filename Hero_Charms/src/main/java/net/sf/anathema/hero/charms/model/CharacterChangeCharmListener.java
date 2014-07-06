@@ -15,16 +15,16 @@ public final class CharacterChangeCharmListener extends CharmLearnAdapter {
 
   @Override
   public void charmForgotten(Charm charm) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
   public void charmLearned(Charm charm) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
   public void recalculateRequested() {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

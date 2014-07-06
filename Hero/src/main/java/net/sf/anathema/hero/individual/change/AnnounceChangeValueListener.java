@@ -17,6 +17,6 @@ public class AnnounceChangeValueListener implements ObjectChangedListener<String
 
   @Override
   public void valueChanged(String newValue) {
-    announcer.announceChangeOf(flavor);
+    announcer.announceChangeFlavor(flavor);
   }
 }

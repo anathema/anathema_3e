@@ -15,6 +15,6 @@ public class TraitValueChangedListener implements IntegerChangedListener {
 
   @Override
   public void valueChanged(int newValue) {
-    changeAnnouncer.announceChangeOf(new TraitChangeFlavor(trait.getType()));
+    changeAnnouncer.announceChangeFlavor(new TraitChangeFlavor(trait.getType()));
   }
 }

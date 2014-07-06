@@ -14,6 +14,6 @@ public class PromoteStateChange implements TraitStateChangedListener {
 
   @Override
   public void favorableStateChanged(TraitStateType state) {
-    changeAnnouncer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    changeAnnouncer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

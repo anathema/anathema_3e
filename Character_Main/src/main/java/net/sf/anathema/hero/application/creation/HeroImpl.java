@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.creation;
 
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncerImpl;
+import net.sf.anathema.hero.individual.history.ChangeHistoryImpl;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
@@ -13,16 +14,18 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class DefaultHero implements Hero {
+public class HeroImpl implements Hero {
 
-  private final ChangeAnnouncer changeAnnouncer = new ChangeAnnouncerImpl();
+  private final ChangeAnnouncer changeAnnouncer;
   private Map<String, HeroModel> modelsById = new HashMap<>();
   private boolean fullyLoaded = false;
   private final HeroSplat template;
   private List<HeroModel> orderedModels = new ArrayList<>();
+  private ChangeHistoryImpl history = new ChangeHistoryImpl(this);
 
-  public DefaultHero(HeroSplat template) {
+  public HeroImpl(HeroSplat template) {
     this.template = template;
+    this.changeAnnouncer = new ChangeAnnouncerImpl(history);
   }
 
   @Override

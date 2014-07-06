@@ -13,8 +13,8 @@ import java.util.Map;
 
 public class DummyHero implements Hero {
 
-  private final ChangeAnnouncer changeAnnouncer = new ChangeAnnouncerImpl();
-
+  private final ChangeAnnouncer changeAnnouncer = new ChangeAnnouncerImpl((rootChange, followUpChanges) -> {
+  });
   public final DummyHeroSplat template = new DummyHeroSplat();
   public final Map<Identifier, HeroModel> modelsById = new HashMap<>();
 

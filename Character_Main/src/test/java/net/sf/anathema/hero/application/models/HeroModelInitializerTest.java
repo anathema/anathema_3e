@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.models;
 
-import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.HeroImpl;
 import net.sf.anathema.hero.application.creation.models.HeroModelInitializer;
 import net.sf.anathema.hero.dummy.DummyModelFactory;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -38,16 +38,16 @@ public class HeroModelInitializerTest {
   public void instantiatesModelsThatAreRequiredThroughTransitiveDependencies() throws Exception {
     addModelToConfiguration(Configured_Model);
     setupAvailableModelsInAChainOfThree();
-    DefaultHero hero = createHero();
+    HeroImpl hero = createHero();
     initializeModelsForHero(hero);
     assertThat(hero.getModel(new SimpleIdentifier(Transitively_Required_Model)), is(not(nullValue())));
   }
 
-  private DefaultHero createHero() {
-    return new DefaultHero(template);
+  private HeroImpl createHero() {
+    return new HeroImpl(template);
   }
 
-  private void initializeModelsForHero(DefaultHero hero) {
+  private void initializeModelsForHero(HeroImpl hero) {
     initializer.addModels(hero);
   }
 

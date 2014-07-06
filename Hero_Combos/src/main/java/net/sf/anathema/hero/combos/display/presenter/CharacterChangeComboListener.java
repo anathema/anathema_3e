@@ -23,16 +23,16 @@ public class CharacterChangeComboListener implements ComboConfigurationListener 
 
   @Override
   public void comboDeleted(Combo combo) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
   public void comboChanged(Combo combo) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
   public void comboAdded(Combo combo) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

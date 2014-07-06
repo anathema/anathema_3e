@@ -4,5 +4,7 @@ public interface ChangeAnnouncer {
 
   void addListener(FlavoredChangeListener listener);
 
-  void announceChangeOf(ChangeFlavor flavor);
+  void announceChangeFlavor(ChangeFlavor flavor);
+
+  void announceChange(HeroChange flavor);
 }

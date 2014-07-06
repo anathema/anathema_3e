@@ -13,6 +13,6 @@ public class AnnounceChangeListener implements ChangeListener {
 
   @Override
   public void changeOccurred() {
-    announcer.announceChangeOf(flavor);
+    announcer.announceChangeFlavor(flavor);
   }
 }

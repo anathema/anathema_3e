@@ -13,6 +13,6 @@ public class AnnounceExperiencePointChange implements ExperiencePointsListener {
 
   @Override
   public void entriesAddedRemovedOrChanged() {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

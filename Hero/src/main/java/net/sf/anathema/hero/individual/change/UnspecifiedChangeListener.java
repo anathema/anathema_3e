@@ -12,6 +12,6 @@ public class UnspecifiedChangeListener implements ChangeListener {
 
   @Override
   public void changeOccurred() {
-    changeAnnouncer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    changeAnnouncer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

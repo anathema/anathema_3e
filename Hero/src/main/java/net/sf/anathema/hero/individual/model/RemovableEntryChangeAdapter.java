@@ -13,12 +13,12 @@ public class RemovableEntryChangeAdapter<E> implements RemovableEntryListener<E>
 
   @Override
   public void entryAdded(E entry) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
   public void entryRemoved(E entry) {
-    announcer.announceChangeOf(ChangeFlavor.UNSPECIFIED);
+    announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override

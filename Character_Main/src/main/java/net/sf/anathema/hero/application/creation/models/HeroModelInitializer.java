@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.creation.models;
 
-import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.HeroImpl;
 import net.sf.anathema.hero.application.template.DefaultTemplateFactory;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
@@ -22,7 +22,7 @@ public class HeroModelInitializer {
     this.template = template;
   }
 
-  public void addModels(DefaultHero hero) {
+  public void addModels(HeroImpl hero) {
     ModelFactoryAutoCollector collector = new ModelFactoryAutoCollector(environment.getObjectFactory());
     ModelFactoryMap factoryMap = new ModelFactoryMap(collector);
     Iterable<ConfiguredModel> sortedRelevantModelIds = getSortedModelIdsForHero(factoryMap);
@@ -45,7 +45,7 @@ public class HeroModelInitializer {
     return modelList;
   }
 
-  private void initializeModelsInOrder(DefaultHero hero, Iterable<HeroModel> modelList) {
+  private void initializeModelsInOrder(HeroImpl hero, Iterable<HeroModel> modelList) {
     for (HeroModel model : modelList) {
       model.initialize(environment, hero);
       model.initializeListening(hero.getChangeAnnouncer());

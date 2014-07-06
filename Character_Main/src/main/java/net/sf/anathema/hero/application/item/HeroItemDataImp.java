@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.item;
 
 import net.sf.anathema.hero.application.CharacterChangeManagement;
-import net.sf.anathema.hero.application.creation.DefaultHero;
+import net.sf.anathema.hero.application.creation.HeroImpl;
 import net.sf.anathema.hero.application.creation.models.HeroModelInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -15,10 +15,10 @@ import java.util.Iterator;
 public class HeroItemDataImp implements HeroItemData {
 
   private final CharacterChangeManagement management = new CharacterChangeManagement(this);
-  private final DefaultHero hero;
+  private final HeroImpl hero;
 
   public HeroItemDataImp(HeroSplat template, HeroEnvironment environment) {
-    this.hero = new DefaultHero(template);
+    this.hero = new HeroImpl(template);
     addModels(environment);
     management.initListening();
   }
