@@ -35,6 +35,7 @@ import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class AttributeModelImpl extends DefaultTraitMap implements AttributeModel, HeroModel {
@@ -70,12 +71,12 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     IncrementChecker incrementChecker = new GrumpyIncrementChecker();
     for (IdentifiedTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
-      Trait[] traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
+      Collection<Trait> traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
       addTraits(traits);
     }
   }
 
-  private TraitImpl[] createTraits(IdentifiedTraitTypeList list,
+  private Collection<Trait> createTraits(IdentifiedTraitTypeList list,
                                   MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
@@ -85,7 +86,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
       Trait trait = new TraitImpl(hero, traitRules);
       newTraits.add(trait);
     }
-    return newTraits.toArray(new TraitImpl[newTraits.size()]);
+    return newTraits;
   }
 
   @Override

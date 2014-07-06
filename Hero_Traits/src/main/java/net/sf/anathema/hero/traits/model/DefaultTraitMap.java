@@ -12,8 +12,13 @@ public class DefaultTraitMap implements TraitMap {
 
   private final Map<TraitType, Trait> traitsByType = new HashMap<>();
 
+  public void addTraits(Trait... traits) {
+    for (Trait trait : traits) {
+      addSingleTrait(trait);
+    }
+  }
 
-  public final void addTraits(Trait... traits) {
+  public void addTraits(Iterable<Trait> traits) {
     for (Trait trait : traits) {
       addSingleTrait(trait);
     }
