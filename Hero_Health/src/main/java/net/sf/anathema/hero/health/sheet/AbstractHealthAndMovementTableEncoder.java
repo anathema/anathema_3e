@@ -169,7 +169,7 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   }
 
   private void addHealthCells(SheetGraphics graphics, PdfPTable table, Hero hero, HealthLevelType level, int row, Image activeImage, Image passiveImage) {
-    int naturalCount = getNaturalHealthLevels(level);
+    int naturalCount = getNaturalHealthLevels(level, hero);
     if (row < naturalCount) {
       table.addCell(createHealthCell(activeImage));
     } else {
@@ -206,8 +206,8 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
     }
   }
 
-  private int getNaturalHealthLevels(HealthLevelType level) {
-    return level == HealthLevelType.ONE || level == HealthLevelType.TWO ? 2 : 1;
+  private int getNaturalHealthLevels(HealthLevelType level, Hero hero) {
+    return HealthModelFetcher.fetch(hero).getBasicHealthLevel(level);
   }
 
   private PdfPCell createHealthCell(Image image) {

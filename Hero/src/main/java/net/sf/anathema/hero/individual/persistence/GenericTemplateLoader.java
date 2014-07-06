@@ -15,10 +15,16 @@ public class GenericTemplateLoader<T> implements TemplateLoader<T> {
   private final Class<T> aClass;
 
   public GenericTemplateLoader(Class<T> aClass) {
+    this(aClass, new GenericAdapter[0]);
+  }
+
+  public GenericTemplateLoader(Class<T> aClass, GenericAdapter... adapters) {
     this.aClass = aClass;
     GsonBuilder gsonBuilder = new GsonBuilder();
+    for (GenericAdapter adapter : adapters) {
+      gsonBuilder.registerTypeAdapter(adapter.type, adapter.adapter);
+    }
     gson = gsonBuilder.create();
-
   }
 
   public T load(InputStream inputStream) {

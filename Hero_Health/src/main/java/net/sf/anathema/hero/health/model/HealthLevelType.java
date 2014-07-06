@@ -4,42 +4,12 @@ import net.sf.anathema.library.identifier.Identifier;
 
 public enum HealthLevelType implements Identifier {
 
-  ZERO("0", 0) {
-    @Override
-    public void accept(IHealthLevelTypeVisitor visitor) {
-      visitor.visitZero(this);
-    }
-  },
-  ONE("1", -1) {
-    @Override
-    public void accept(IHealthLevelTypeVisitor visitor) {
-      visitor.visitOne(this);
-    }
-  },
-  TWO("2", -2) {
-    @Override
-    public void accept(IHealthLevelTypeVisitor visitor) {
-      visitor.visitTwo(this);
-    }
-  },
-  FOUR("4", -4) {
-    @Override
-    public void accept(IHealthLevelTypeVisitor visitor) {
-      visitor.visitFour(this);
-    }
-  },
-  INCAPACITATED("Incapacitated", Integer.MIN_VALUE) {
-    @Override
-    public void accept(IHealthLevelTypeVisitor visitor) {
-      visitor.visitIncapacitated(this);
-    }
-  },
-  DYING("Dying", Integer.MIN_VALUE) {
-	    @Override
-	    public void accept(IHealthLevelTypeVisitor visitor) {
-	      visitor.visitDying(this);
-	    }
-	  };
+  ZERO("0", 0),
+  ONE("1", -1),
+  TWO("2", -2),
+  FOUR("4", -4),
+  INCAPACITATED("Incapacitated", Integer.MIN_VALUE),
+  DYING("Dying", Integer.MIN_VALUE);
 
   private final String id;
   private final int value;
@@ -54,8 +24,6 @@ public enum HealthLevelType implements Identifier {
     this.value = value;
   }
 
-  public abstract void accept(IHealthLevelTypeVisitor visitor);
-
   @Override
   public String toString() {
     return getId();
@@ -63,5 +31,22 @@ public enum HealthLevelType implements Identifier {
 
   public int getIntValue() {
     return value;
+  }
+
+  public static HealthLevelType byGameNotation(String gameNotation) {
+    try {
+      Integer integer = Integer.valueOf(gameNotation);
+      for (HealthLevelType healthLevelType : values()) {
+        if (healthLevelType.getIntValue() == integer) {
+          return healthLevelType;
+        }
+      }
+      throw new IllegalArgumentException("Unknown Health Level Type:" + gameNotation);
+    } catch (NumberFormatException e) {
+      if (gameNotation.equals(INCAPACITATED.getId())) {
+        return INCAPACITATED;
+      }
+      throw new IllegalArgumentException("Unknown Health Level Type:" + gameNotation);
+    }
   }
 }
