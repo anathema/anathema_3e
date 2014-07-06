@@ -12,7 +12,6 @@ import net.sf.anathema.hero.charms.model.PrintMagicProvider;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
@@ -58,8 +57,8 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningCharmTree[] getTreesFor(CategoryReference category) {
-    return new LearningCharmTree[0];
+  public CharmTree[] getTreesFor(CategoryReference category) {
+    return new CharmTree[0];
   }
 
   @Override
@@ -89,7 +88,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public LearningCharmTree[] getAllTrees() {
+  public CharmTree[] getAllTrees() {
     throw new NotYetImplementedException();
   }
 

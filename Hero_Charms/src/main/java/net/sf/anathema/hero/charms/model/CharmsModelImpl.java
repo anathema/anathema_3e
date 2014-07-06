@@ -6,7 +6,6 @@ import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
@@ -21,7 +20,6 @@ import net.sf.anathema.hero.charms.model.learn.AggregatedLearningModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
-import net.sf.anathema.hero.charms.model.learn.LearningCharmTree;
 import net.sf.anathema.hero.charms.model.learn.LearningCharmTreeImpl;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
@@ -56,10 +54,10 @@ import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import static java.text.MessageFormat.format;
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isFormMagic;
@@ -112,9 +110,9 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void initializeCharmTrees() {
     for (CharmTreeCategory category : options) {
-      for (CharmTree charmGroup : category.getAllCharmTrees()) {
+      for (CharmTree charmTree : category.getAllCharmTrees()) {
         aggregatedLearningModel.addModel(
-          new LearningCharmTreeImpl(charmLearnStrategy, charmGroup, this, aggregatedLearningModel));
+          new LearningCharmTreeImpl(charmLearnStrategy, charmTree, this, aggregatedLearningModel));
       }
     }
   }
@@ -166,14 +164,27 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm == null) {
         continue;
       }
-      LearningCharmTree group = getLearningTree(charm.getTreeReference());
-      manager.registerSpecialCharmConfiguration(specialCharm, charm, group);
+      manager.registerSpecialCharmConfiguration(specialCharm, charm, aggregatedLearningModel);
     }
   }
 
   @Override
   public CharmTree[] getAllTrees() {
-    return aggregatedLearningModel.getAllTrees();
+    List<CharmTree> allTrees = new ArrayList<>();
+    for (CharmTreeCategory category : options) {
+      allTrees.addAll(Arrays.asList(category.getAllCharmTrees()));
+    }
+    return allTrees.toArray(new CharmTree[allTrees.size()]);
+  }
+
+  @Override
+  public CharmTree[] getTreesFor(CategoryReference reference) {
+    for (CharmTreeCategory category : options) {
+      if (category.getReference().equals(reference)) {
+        return category.getAllCharmTrees();
+      }
+    }
+    return new CharmTree[0];
   }
 
   @Override
@@ -183,15 +194,6 @@ public class CharmsModelImpl implements CharmsModel {
       return charm;
     }
     throw new IllegalArgumentException("No charm found for id \"" + charmId.text + "\"");
-  }
-
-  @Override
-  public LearningCharmTree[] getTreesFor(CategoryReference category) {
-    return getLearningCharmTrees(category);
-  }
-
-  private LearningCharmTree[] getLearningCharmTrees(CategoryReference category) {
-    return aggregatedLearningModel.getLearningCharmTrees(category);
   }
 
   @Override
@@ -315,18 +317,6 @@ public class CharmsModelImpl implements CharmsModel {
   public final boolean isLearned(Charm charm) {
     return getLearnModel().isLearned(charm);
   }
-
-  private LearningCharmTree getLearningTree(TreeReference reference) {
-    LearningCharmTree[] charmTrees = getLearningCharmTrees(reference.category);
-    for (LearningCharmTree tree : charmTrees) {
-      if (tree.getReference().name.equals(reference.name)) {
-        return tree;
-      }
-    }
-    String pattern = "No charm tree defined for id: {0} in {1}.";
-    throw new IllegalArgumentException(format(pattern, reference.name.text, reference.category.text));
-  }
-
 
   @Override
   public void addCheapenedChecker(CheapenedChecker cheapenedChecker) {
