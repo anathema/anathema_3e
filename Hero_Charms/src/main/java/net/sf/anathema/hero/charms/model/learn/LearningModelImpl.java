@@ -166,7 +166,7 @@ public class LearningModelImpl implements LearningModel {
 
   @Override
   public boolean isLearnedOnCreation(Charm charm) {
-    return charmsLearnedWithExperience.contains(charm);
+    return charmsLearnedOnCreation.contains(charm);
   }
 
   @Override
