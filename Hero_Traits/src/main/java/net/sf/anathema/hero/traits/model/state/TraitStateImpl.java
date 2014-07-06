@@ -18,7 +18,7 @@ import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 public class TraitStateImpl implements TraitState {
 
   private TraitStateType currentState;
-  private final Announcer<TraitStateChangedListener> favorableStateControl = Announcer.to(TraitStateChangedListener.class);
+  private final Announcer<TraitStateChangedListener> stateChangeAnnouncer = Announcer.to(TraitStateChangedListener.class);
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final List<CasteType> castes;
   private final boolean isRequiredFavored;
@@ -30,7 +30,7 @@ public class TraitStateImpl implements TraitState {
     this.checker = checker;
     this.isRequiredFavored = requiredFavor;
     this.currentState = requiredFavor ? Favored : Default;
-    hero.getChangeAnnouncer().addListener(new UpdateFavoredStateOnCasteChange());
+    hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
 
   @Override
@@ -98,7 +98,7 @@ public class TraitStateImpl implements TraitState {
 
   @Override
   public final void addTraitStateChangedListener(TraitStateChangedListener listener) {
-    favorableStateControl.addListener(listener);
+    stateChangeAnnouncer.addListener(listener);
   }
 
   @Override
@@ -140,11 +140,11 @@ public class TraitStateImpl implements TraitState {
     }
     if (isLegalState(state)) {
       this.currentState = state;
-      favorableStateControl.announce().favorableStateChanged(this.currentState);
+      stateChangeAnnouncer.announce().favorableStateChanged(this.currentState);
     }
   }
 
-  public class UpdateFavoredStateOnCasteChange implements FlavoredChangeListener {
+  public class UpdateStateOnCasteChange implements FlavoredChangeListener {
 
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
