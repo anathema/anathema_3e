@@ -5,7 +5,6 @@ import net.sf.anathema.hero.attributes.advance.CreationPointSumComparator;
 import net.sf.anathema.hero.traits.model.TraitGroup;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,13 +15,9 @@ public class AttributeGroupList {
   private final List<TraitGroup> attributeGroups;
   private final IncrementCounter incrementCounter;
 
-  public AttributeGroupList(TraitGroup[] traitGroup, IncrementCounter incrementCounter) {
-    this(Arrays.asList(traitGroup), incrementCounter);
-  }
-
   public AttributeGroupList(Collection<TraitGroup> traitGroup, IncrementCounter incrementCounter) {
     this.incrementCounter = incrementCounter;
-    attributeGroups = new ArrayList<>(traitGroup);
+    this.attributeGroups = new ArrayList<>(traitGroup);
   }
 
   public void remove(TraitGroup group) {

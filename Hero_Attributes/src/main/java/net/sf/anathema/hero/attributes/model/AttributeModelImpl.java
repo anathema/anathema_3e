@@ -37,6 +37,10 @@ import net.sf.anathema.library.identifier.Identifier;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class AttributeModelImpl extends DefaultTraitMap implements AttributeModel, HeroModel {
 
@@ -61,7 +65,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     CasteCollection casteCollection = HeroConceptFetcher.fetch(hero).getCasteCollection();
     this.abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
     this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection,
-      getAttributeGroups());
+            getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
@@ -77,7 +81,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   }
 
   private Collection<Trait> createTraits(IdentifiedTraitTypeList list,
-                                  MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
+                                         MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       TraitTemplate traitTemplate;
@@ -114,13 +118,9 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   }
 
   @Override
-  public TraitGroup[] getTraitGroups() {
-    TraitGroup[] groups = new TraitGroup[attributeTraitGroups.length];
-    for (int index = 0; index < groups.length; index++) {
-      final IdentifiedTraitTypeList typeGroup = attributeTraitGroups[index];
-      groups[index] = new MappedTraitGroup(this, typeGroup);
-    }
-    return groups;
+  public Collection<TraitGroup> getTraitGroups() {
+    Stream<IdentifiedTraitTypeList> attributeGroups = Stream.of(attributeTraitGroups);
+    return attributeGroups.map(typeGroup -> new MappedTraitGroup(this, typeGroup)).collect(toList());
   }
 
   @Override
