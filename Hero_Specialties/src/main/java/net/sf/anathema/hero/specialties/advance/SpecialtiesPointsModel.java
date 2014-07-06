@@ -2,6 +2,7 @@ package net.sf.anathema.hero.specialties.advance;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.specialties.advance.creation.SpecialtiesBonusPointCalculator;
@@ -11,7 +12,6 @@ import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceDa
 import net.sf.anathema.hero.specialties.advance.experience.SpecialtyExperienceModel;
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
 import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;

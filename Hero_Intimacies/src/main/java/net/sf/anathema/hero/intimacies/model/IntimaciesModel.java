@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.intimacies.model;
 
+import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

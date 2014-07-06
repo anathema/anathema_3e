@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.individual.model;
 
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 public interface Hero extends Iterable<HeroModel> {

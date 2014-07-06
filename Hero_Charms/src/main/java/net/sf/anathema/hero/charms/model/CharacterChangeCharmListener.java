@@ -2,8 +2,8 @@ package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
-import net.sf.anathema.library.change.ChangeAnnouncer;
-import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
 
 public final class CharacterChangeCharmListener extends CharmLearnAdapter {
 

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
 
 public interface ConceptChange {
 

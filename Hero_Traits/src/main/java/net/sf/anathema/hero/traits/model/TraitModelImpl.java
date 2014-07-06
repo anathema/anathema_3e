@@ -4,6 +4,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
@@ -12,7 +13,6 @@ import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.LimitationFactory;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.Collection;

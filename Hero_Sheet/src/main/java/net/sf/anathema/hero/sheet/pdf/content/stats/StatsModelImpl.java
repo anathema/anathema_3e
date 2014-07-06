@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.sheet.pdf.content.stats;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.StatsModifierFactory;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

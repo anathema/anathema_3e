@@ -1,4 +1,4 @@
-package net.sf.anathema.library.change;
+package net.sf.anathema.hero.individual.change;
 
 public interface ChangeAnnouncer {
 

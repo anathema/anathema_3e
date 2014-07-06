@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.specialties.model;
 
-import net.sf.anathema.library.change.ChangeAnnouncer;
-import net.sf.anathema.library.change.ChangeFlavor;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
 
 public class SpecialtiesListener implements ISpecialtyListener {
   private final ChangeAnnouncer changeAnnouncer;

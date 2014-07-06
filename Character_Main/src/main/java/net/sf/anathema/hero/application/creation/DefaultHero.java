@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.application.creation;
 
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncerImpl;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.library.change.ChangeAnnouncer;
-import net.sf.anathema.library.change.ChangeAnnouncerImpl;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

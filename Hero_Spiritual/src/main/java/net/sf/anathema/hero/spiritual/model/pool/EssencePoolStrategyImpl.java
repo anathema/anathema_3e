@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
+import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.library.change.ChangeFlavor;
-import net.sf.anathema.library.change.FlavoredChangeListener;
 import net.sf.anathema.library.event.ChangeListener;
 import org.jmock.example.announcer.Announcer;
 

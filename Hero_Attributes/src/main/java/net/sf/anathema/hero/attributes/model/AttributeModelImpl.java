@@ -3,6 +3,7 @@ package net.sf.anathema.hero.attributes.model;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
@@ -31,13 +32,11 @@ import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;

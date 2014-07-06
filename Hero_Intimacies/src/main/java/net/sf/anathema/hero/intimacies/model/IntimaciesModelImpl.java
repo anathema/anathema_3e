@@ -3,14 +3,14 @@ package net.sf.anathema.hero.intimacies.model;
 import com.google.common.base.Strings;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
+import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.library.change.ChangeAnnouncer;
-import net.sf.anathema.library.change.FlavoredChangeListener;
-import net.sf.anathema.library.change.UnspecifiedChangeListener;
+import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
-import net.sf.anathema.library.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.library.model.RemovableEntryListener;
 import org.jmock.example.announcer.Announcer;
 

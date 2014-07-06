@@ -7,6 +7,7 @@ import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
@@ -29,7 +30,6 @@ import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.dummy;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
@@ -12,7 +13,6 @@ import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
-import net.sf.anathema.library.change.ChangeAnnouncer;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
 
