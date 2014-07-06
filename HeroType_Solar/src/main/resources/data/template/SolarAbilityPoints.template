@@ -10,14 +10,14 @@
       experiencePoints: {
         factor: 2;
         addend: -1;
-        initialCost: 3
+        firstDotCost: 3
       }
     };
     defaultCost: {
       bonusPoints: 2;
       experiencePoints: {
         factor: 2;
-        initialCost: 3
+        firstDotCost: 3
       }
     }
   }
