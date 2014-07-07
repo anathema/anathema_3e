@@ -65,7 +65,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     CategoryReference preferredCategory = getCategory(NativeCharacterType.get(hero));
     SpecialCharmSet set = new SpecialCharmSet();
     for (CategoryReference type : charmProvider.getAllCategories()) {
-      set.add(charmProvider.getSpecialCharms(type));
+      set.addAll(charmProvider.getSpecialCharms(type));
     }
     for (ISpecialCharm preferredCharm : charmProvider.getSpecialCharms(preferredCategory)) {
       set.add(preferredCharm);

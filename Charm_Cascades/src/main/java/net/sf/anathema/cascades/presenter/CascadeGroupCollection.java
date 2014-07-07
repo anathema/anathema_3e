@@ -40,7 +40,7 @@ public class CascadeGroupCollection implements CharmTreeCollection {
 
   private void initCharacterTypeCharms(List<CharmTree> allCharmGroups) {
     for (HeroType type : heroTypes) {
-       if (charmProvider.getCharms(MartialArtsUtilities.getCategory(type)).length > 0) {
+       if (!charmProvider.getCharms(MartialArtsUtilities.getCategory(type)).isEmpty()) {
         registerTypeCharms(allCharmGroups, type);
       }
     }

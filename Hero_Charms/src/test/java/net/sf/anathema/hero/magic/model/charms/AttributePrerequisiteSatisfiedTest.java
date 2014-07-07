@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
@@ -12,7 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 import static org.mockito.Mockito.when;
 
@@ -28,55 +30,54 @@ public class AttributePrerequisiteSatisfiedTest {
   @Test
   public void isNotFulfilledWithoutCharms() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 1);
-    Charm[] charms = new Charm[0];
-    Assert.assertFalse(isSatisfied(requirement, charms));
+    Assert.assertFalse(isSatisfied(requirement, Collections.emptyList()));
   }
 
   @Test
   public void isFulfilledIfAttributeIsPresent() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 1);
     Charm charm = createAttributedDummyCharm();
-    Assert.assertTrue(isSatisfied(requirement, new Charm[]{charm}));
+    Assert.assertTrue(isSatisfied(requirement, Lists.newArrayList(charm)));
   }
 
   @Test
   public void isNotFulfilledWithoutCorrectAttribute() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 1);
     DummyCharm charm = new DummyCharm();
-    Assert.assertFalse(isSatisfied(requirement, new Charm[]{charm}));
+    Assert.assertFalse(isSatisfied(requirement, Lists.newArrayList(charm)));
   }
 
   @Test
   public void isNotFulfilledWithoutCorrectCount() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
     Charm charm = createAttributedDummyCharm();
-    Assert.assertFalse(isSatisfied(requirement, new Charm[]{charm}));
+    Assert.assertFalse(isSatisfied(requirement, Lists.newArrayList(charm)));
   }
 
   @Test
   public void isNotFulfilledWithoutCorrectAttributesAndCount() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
     Charm charm = createAttributedDummyCharm();
-    Assert.assertFalse(isSatisfied(requirement, new Charm[]{charm, new DummyCharm()}));
+    Assert.assertFalse(isSatisfied(requirement, Lists.newArrayList(charm, new DummyCharm())));
   }
 
   @Test
   public void isFulfilledEvenIfChainIsBroken() throws Exception {
     AttributeKnownCharmPrerequisite requirement = new AttributeKnownCharmPrerequisite(attribute, 2);
     Charm charm = createAttributedDummyCharm();
-    Assert.assertTrue(isSatisfied(requirement, new Charm[]{charm, new DummyCharm(), charm}));
+    Assert.assertTrue(isSatisfied(requirement, Lists.newArrayList(charm, new DummyCharm(), charm)));
   }
 
-  private boolean isSatisfied(AttributeKnownCharmPrerequisite requirement, Charm[] charms) {
+  private boolean isSatisfied(AttributeKnownCharmPrerequisite requirement, Collection<Charm> charms) {
     return IsSatisfied.isSatisfied(requirement, getLearnArbiter(charms));
   }
 
-  private CharmLearnArbitrator getLearnArbiter(final Charm[] charms) {
+  private CharmLearnArbitrator getLearnArbiter(Collection<Charm> charms) {
 	  return new CharmLearnArbitrator() {
 
 		@Override
 		public boolean isLearned(Charm charm) {
-			return Arrays.asList(charms).contains(charm);
+			return charms.contains(charm);
 		}
 			
 		@Override

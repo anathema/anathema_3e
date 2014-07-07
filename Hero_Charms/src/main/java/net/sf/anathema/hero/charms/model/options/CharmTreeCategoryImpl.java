@@ -25,27 +25,27 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
     CategoryReference categoryReference = MartialArtsUtilities.getCategory(MARTIAL_ARTS);
-    Charm[] charms = provider.getCharms(categoryReference);
+    Collection<Charm> charms = provider.getCharms(categoryReference);
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
   public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, HeroType heroType) {
     CategoryReference categoryReference = MartialArtsUtilities.getCategory(heroType);
-    Charm[] charms = provider.getCharms(categoryReference);
+    Collection<Charm> charms = provider.getCharms(categoryReference);
     return new CharmTreeCategoryImpl(check, charms, categoryReference);
   }
 
   public static CharmTreeCategory CreateFor(CharmOptionCheck check, CharmProvider provider, CategoryReference reference) {
-    Charm[] charms = provider.getCharms(reference);
+    Collection<Charm> charms = provider.getCharms(reference);
     return new CharmTreeCategoryImpl(check, charms, reference);
   }
 
   private final Map<CharmName, Charm> charmById = new HashMap<>();
   private CharmOptionCheck optionCheck;
-  private Charm[] allCharms;
+  private Collection<Charm> allCharms;
   private CategoryReference category;
 
-  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Charm[] allCharms, CategoryReference category) {
+  public CharmTreeCategoryImpl(CharmOptionCheck optionCheck, Collection<Charm> allCharms, CategoryReference category) {
     this.optionCheck = optionCheck;
     this.allCharms = allCharms;
     this.category = category;
@@ -59,11 +59,11 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     return charmById.get(charmID);
   }
 
-  public final Charm[] getAllCharms() {
+  public final Collection<Charm> getAllCharms() {
     return allCharms;
   }
 
-  private void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Charm[] charms) {
+  private void addCharmTreesFor(Collection<TreeName> treeNameList, List<CharmTree> treeList, Collection<Charm> charms) {
     for (Charm charm : charms) {
       TreeName treeName = charm.getTreeReference().name;
       if (!treeNameList.contains(treeName) && optionCheck.isValidOptionForHeroType(charm)) {
@@ -77,7 +77,7 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 
   @Override
   public boolean isEmpty() {
-    return allCharms.length == 0;
+    return allCharms.isEmpty();
   }
 
   @Override

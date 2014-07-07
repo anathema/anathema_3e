@@ -7,6 +7,7 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.library.collection.MultiEntryMap;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,12 +26,12 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public Charm[] getCharms(CategoryReference type) {
+  public List<Charm> getCharms(CategoryReference type) {
     if (!charmsByCategory.containsKey(type)) {
-      return new Charm[0];
+      return Collections.emptyList();
     }
     List<Charm> charmList = charmsByCategory.get(type);
-    return charmList.toArray(new Charm[charmList.size()]);
+    return new ArrayList<>(charmList);
   }
 
   @Override
@@ -39,12 +40,12 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms(CategoryReference type) {
+  public List<ISpecialCharm> getSpecialCharms(CategoryReference type) {
     if (specialCharmsByCategory.containsKey(type)) {
       List<ISpecialCharm> specials = specialCharmsByCategory.get(type);
-      return specials.toArray(new ISpecialCharm[specials.size()]);
+      return new ArrayList<>(specials);
     }
-    return new ISpecialCharm[0];
+    return Collections.emptyList();
   }
 
   public Iterable<Charm> getCharms() {

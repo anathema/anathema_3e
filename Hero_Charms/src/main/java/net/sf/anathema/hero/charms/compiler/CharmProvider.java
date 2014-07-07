@@ -10,7 +10,7 @@ public interface CharmProvider {
 
   List<CategoryReference> getAllCategories();
 
-  Charm[] getCharms(CategoryReference category);
+  List<Charm> getCharms(CategoryReference category);
 
-  ISpecialCharm[] getSpecialCharms(CategoryReference category);
+  List<ISpecialCharm> getSpecialCharms(CategoryReference category);
 }

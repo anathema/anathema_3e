@@ -10,13 +10,7 @@ public class SpecialCharmSet {
 
   private final List<ISpecialCharm> list = new ArrayList<>();
 
-  public void add(ISpecialCharm... identificates) {
-    for (ISpecialCharm identificate : identificates) {
-      addCharm(identificate);
-    }
-  }
-
-  private void addCharm(ISpecialCharm identificate) {
+  public void add(ISpecialCharm identificate) {
     for (ISpecialCharm existing : new ArrayList<>(list)) {
       if (existing.getCharmName().equals(identificate.getCharmName())) {
         list.remove(existing);
@@ -35,7 +29,7 @@ public class SpecialCharmSet {
 
   public void addAll(Collection<ISpecialCharm> identificates) {
     for (ISpecialCharm identificate : identificates) {
-      addCharm(identificate);
+      add(identificate);
     }
   }
 }

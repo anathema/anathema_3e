@@ -25,7 +25,7 @@ public class CharacterAlienCharmPresenter implements AlienCharmPresenter {
         charmConfiguration.forgetAllAlienCharms();
       }
       List<CategoryReference> categories = new CharacterCategoryCollection(model).getCurrentCategories();
-      typeSelector.setObjects(categories.toArray(new CategoryReference[categories.size()]));
+      typeSelector.setObjects(categories);
     });
   }
 }

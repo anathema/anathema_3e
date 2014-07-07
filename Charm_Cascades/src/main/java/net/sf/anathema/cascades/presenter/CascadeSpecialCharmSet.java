@@ -5,7 +5,6 @@ import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class CascadeSpecialCharmSet implements SpecialCharmSet {
@@ -23,7 +22,6 @@ public class CascadeSpecialCharmSet implements SpecialCharmSet {
 
   @Override
   public Iterator<ISpecialCharm> iterator() {
-    ISpecialCharm[] specialCharms = cache.getSpecialCharms(category);
-    return Arrays.asList(specialCharms).iterator();
+    return cache.getSpecialCharms(category).iterator();
   }
 }

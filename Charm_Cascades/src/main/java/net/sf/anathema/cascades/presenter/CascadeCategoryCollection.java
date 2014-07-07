@@ -36,7 +36,7 @@ public class CascadeCategoryCollection implements CategoryCollection  {
     Set<CategoryReference> set = new LinkedHashSet<>();
     for (HeroType type : heroTypes) {
       CategoryReference categoryReference = getCategory(type);
-      if (charmProvider.getCharms(categoryReference).length > 0) {
+      if (!charmProvider.getCharms(categoryReference).isEmpty()) {
         set.add(categoryReference);
       }
     }
