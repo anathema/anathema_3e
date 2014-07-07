@@ -16,8 +16,8 @@ public class CollectionSubEffects implements SubEffects {
   }
 
   @Override
-  public SubEffect[] getEffects() {
-    return effects.toArray(new SubEffect[effects.size()]);
+  public List<SubEffect> getEffects() {
+    return new ArrayList<>(effects);
   }
 
   @Override

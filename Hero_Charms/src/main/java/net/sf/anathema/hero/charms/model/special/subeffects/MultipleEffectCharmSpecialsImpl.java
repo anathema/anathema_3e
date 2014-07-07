@@ -28,7 +28,7 @@ public class MultipleEffectCharmSpecialsImpl implements MultipleEffectCharmSpeci
 
   @Override
   public void learn(boolean experienced) {
-    SubEffect firstEffect = subeffects.getEffects()[0];
+    SubEffect firstEffect = subeffects.getEffects().get(0);
     if (experienced && getCurrentLearnCount() == 0) {
       firstEffect.setExperienceLearned(true);
     } else if (!experienced && getCreationLearnCount() == 0) {
@@ -51,7 +51,7 @@ public class MultipleEffectCharmSpecialsImpl implements MultipleEffectCharmSpeci
   }
 
   @Override
-  public SubEffect[] getEffects() {
+  public Iterable<SubEffect> getEffects() {
     return subeffects.getEffects();
   }
 

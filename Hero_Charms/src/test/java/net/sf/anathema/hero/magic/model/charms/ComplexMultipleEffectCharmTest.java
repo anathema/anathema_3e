@@ -11,6 +11,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -25,14 +26,14 @@ public class ComplexMultipleEffectCharmTest {
 
   @Test
   public void instantiatesSubeffects() throws Exception {
-    SubEffect[] subeffects = charmWithThreeEffects.buildSubEffects(specialist, arbitrator, baseCharm).getEffects();
-    assertThat(subeffects.length, is(3));
+    List<SubEffect> subeffects = charmWithThreeEffects.buildSubEffects(specialist, arbitrator, baseCharm).getEffects();
+    assertThat(subeffects.size(), is(3));
   }
 
   @Test
   public void instantiatesSubeffectsOnlyOnce() throws Exception {
     charmWithThreeEffects.buildSubEffects(specialist, arbitrator, baseCharm);
-    SubEffect[] subeffectsAgain = charmWithThreeEffects.buildSubEffects(specialist, arbitrator, baseCharm).getEffects();
-    assertThat(subeffectsAgain.length, is(3));
+    List<SubEffect> subeffectsAgain = charmWithThreeEffects.buildSubEffects(specialist, arbitrator, baseCharm).getEffects();
+    assertThat(subeffectsAgain.size(), is(3));
   }
 }
