@@ -8,6 +8,10 @@ import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.source.SourceBook;
 
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
+
 public class MagicSourceContributor<M extends Magic> implements IMagicSourceStringBuilder<M>, MagicTooltipContributor {
 
   private final Resources resources;
@@ -30,20 +34,19 @@ public class MagicSourceContributor<M extends Magic> implements IMagicSourceStri
 
   @Override
   public String createSourceString(M magic) {
-    SourceBook[] sources = getSources(magic);
-    String[] sourceStrings = new String[sources.length];
-    for (int i = 0; i != sources.length; i++) {
+    List<SourceBook> sources = getSources(magic);
+    List<String> sourceStrings = sources.stream().map(source -> {
       StringBuilder builder = new StringBuilder();
-      builder.append(resources.getString(createSourceBookKey(sources[i])));
-      String pageKey = createPageKey(magic.getName().text, sources[i]);
+      builder.append(resources.getString(createSourceBookKey(source)));
+      String pageKey = createPageKey(magic.getName().text, source);
       if (resources.supportsKey(pageKey)) {
         builder.append(ConfigurableTooltip.CommaSpace);
         builder.append(resources.getString("CharmTreeView.ToolTip.Page"));
         builder.append(ConfigurableTooltip.Space);
         builder.append(resources.getString(pageKey));
       }
-      sourceStrings[i] = builder.toString();
-    }
+      return builder.toString();
+    }).collect(toList());
     String andString = resources.getString("CharmTreeView.ToolTip.SourceAnd");
     return StringUtilities.joinStringsWithDelimiter(sourceStrings, ", " + andString + " ");
   }
@@ -58,15 +61,15 @@ public class MagicSourceContributor<M extends Magic> implements IMagicSourceStri
 
   @Override
   public String createShortSourceString(M magic) {
-    SourceBook[] sources = magic.getSources();
-    if (sources == null || sources.length == 0) {
+    List<SourceBook> sources = magic.getSources();
+    if (sources.isEmpty()) {
       return "";
     }
     String id = magic.getName().text;
-    return createShortSourceString(sources[0], id);
+    return createShortSourceString(sources.get(0), id);
   }
 
-  protected SourceBook[] getSources(M magic) {
+  protected List<SourceBook> getSources(M magic) {
     return magic.getSources();
   }
 

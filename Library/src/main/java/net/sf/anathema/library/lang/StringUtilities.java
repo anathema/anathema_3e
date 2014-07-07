@@ -102,11 +102,11 @@ public class StringUtilities {
     return Joiner.on(lineBreak).join(lines);
   }
 
-  public static String joinStringsWithDelimiter(String[] stringsToJoin, String delimiter) {
+  public static String joinStringsWithDelimiter(List<String> stringsToJoin, String delimiter) {
     return joinStringsWithDelimiter(stringsToJoin, delimiter, "-");
   }
 
-  public static String joinStringsWithDelimiter(String[] stringsToJoin, String delimiter, String nullString) {
+  public static String joinStringsWithDelimiter(List<String> stringsToJoin, String delimiter, String nullString) {
     String finalText = Joiner.on(delimiter).join(stringsToJoin);
     if (Strings.isNullOrEmpty(finalText)) {
       finalText = nullString;

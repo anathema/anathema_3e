@@ -20,6 +20,7 @@ import net.sf.anathema.magic.data.source.SourceBook;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -131,8 +132,8 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   @Override
-  public SourceBook[] getSources() {
-    return new SourceBook[]{null};
+  public List<SourceBook> getSources() {
+    return Collections.emptyList();
   }
 
   @Override

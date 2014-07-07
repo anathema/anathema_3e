@@ -54,10 +54,9 @@ public class CharmImpl extends AbstractMagic implements Charm {
   }
 
   @Override
-  public SourceBook[] getSources() {
+  public List<SourceBook> getSources() {
     Stream<String> sourceStrings = template.sources.stream();
-    List<SourceBook> sourceBooks = sourceStrings.map(SourceBookImpl::new).collect(toList());
-    return sourceBooks.toArray(new SourceBook[sourceBooks.size()]);
+    return sourceStrings.map(SourceBookImpl::new).collect(toList());
   }
 
   @Override

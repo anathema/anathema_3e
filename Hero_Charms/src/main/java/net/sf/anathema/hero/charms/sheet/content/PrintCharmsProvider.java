@@ -29,8 +29,7 @@ public class PrintCharmsProvider implements PrintMagicProvider {
 
   private void addStatsForNonGenericCharm(List<IMagicStats> printMagic, Charm charm) {
     if (createContentHelper().isMultipleEffectCharm(charm)) {
-      String[] effects = createContentHelper().getLearnedEffects(charm);
-      for (String effect : effects) {
+      for (String effect : createContentHelper().getLearnedEffects(charm)) {
         printMagic.add(new MultipleEffectCharmStats(charm, effect));
       }
     } else {

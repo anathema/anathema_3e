@@ -6,6 +6,9 @@ import net.sf.anathema.magic.data.AbstractMagic;
 import net.sf.anathema.magic.data.source.SourceBook;
 import net.sf.anathema.magic.data.source.SourceList;
 
+import java.util.Collections;
+import java.util.List;
+
 public class SpellImpl extends AbstractMagic implements Spell {
   private SpellName name;
   private final CircleType circleType;
@@ -37,8 +40,8 @@ public class SpellImpl extends AbstractMagic implements Spell {
   }
 
   @Override
-  public SourceBook[] getSources() {
-    return new SourceBook[]{source.getPrimarySource()};
+  public List<SourceBook> getSources() {
+    return Collections.singletonList(source.getPrimarySource());
   }
 
   @Override

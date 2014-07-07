@@ -6,13 +6,15 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.source.SourceBook;
 
+import java.util.List;
+
 public interface Magic {
 
   MagicName getName();
 
   MagicAttribute[] getAttributes();
 
-  SourceBook[] getSources();
+  List<SourceBook> getSources();
 
   CostList getTemporaryCost();
 

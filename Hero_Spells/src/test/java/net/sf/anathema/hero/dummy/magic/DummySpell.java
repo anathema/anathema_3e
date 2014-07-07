@@ -9,6 +9,8 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.source.SourceBook;
 
+import java.util.List;
+
 public class DummySpell implements Spell {
 
   public DummySpell() {
@@ -30,7 +32,7 @@ public class DummySpell implements Spell {
   }
 
   @Override
-  public SourceBook[] getSources() {
+  public List<SourceBook> getSources() {
     throw new NotYetImplementedException();
   }
 

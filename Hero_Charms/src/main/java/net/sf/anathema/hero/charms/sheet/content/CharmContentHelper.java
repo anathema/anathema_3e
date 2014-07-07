@@ -11,6 +11,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CharmContentHelper {
@@ -32,10 +33,10 @@ public class CharmContentHelper {
     return charmConfiguration instanceof MultipleEffectCharmSpecials && !(charmConfiguration instanceof SubEffectCharmSpecials);
   }
 
-  public String[] getLearnedEffects(Charm charm) {
+  public Iterable<String> getLearnedEffects(Charm charm) {
     CharmSpecialsModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialsModel(charm);
     if (!(charmConfiguration instanceof MultipleEffectCharmSpecials)) {
-      return new String[0];
+      return Collections.emptyList();
     }
     MultipleEffectCharmSpecials configuration = (MultipleEffectCharmSpecials) charmConfiguration;
     List<String> learnedEffectIds = new ArrayList<>();
@@ -44,7 +45,7 @@ public class CharmContentHelper {
         learnedEffectIds.add(effect.getId());
       }
     }
-    return learnedEffectIds.toArray(new String[learnedEffectIds.size()]);
+    return learnedEffectIds;
   }
 
   public List<Charm> getLearnedCharms() {
