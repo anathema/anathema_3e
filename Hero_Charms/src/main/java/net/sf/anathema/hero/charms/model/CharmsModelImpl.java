@@ -147,8 +147,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void initSpecialCharmConfigurations() {
     CharmMap charmMap = options.getCharmIdMap();
-    ISpecialCharm[] specialCharms = options.getSpecialCharms();
-    for (ISpecialCharm specialCharm : specialCharms) {
+    for (ISpecialCharm specialCharm : options.getSpecialCharms()) {
       Charm charm = charmMap.getCharmById(specialCharm.getCharmName());
       if (charm == null) {
         continue;

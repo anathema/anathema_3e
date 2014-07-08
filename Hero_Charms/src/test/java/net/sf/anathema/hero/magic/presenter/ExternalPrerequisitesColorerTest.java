@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.presenter;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
@@ -41,7 +42,7 @@ public class ExternalPrerequisitesColorerTest {
 
   private CharmTree createGroupWithCharms(DummyCharm parent, Charm child) {
     TreeReference treeReference = child.getTreeReference();
-    return new CharmTreeImpl(treeReference, new Charm[] { parent, child });
+    return new CharmTreeImpl(treeReference, Lists.newArrayList(parent, child ));
   }
 
   private DummyCharm createParentCharmFromGroup(String treeName) {

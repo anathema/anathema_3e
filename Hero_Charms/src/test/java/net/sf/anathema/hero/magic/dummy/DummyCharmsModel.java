@@ -135,8 +135,8 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms() {
-    return new ISpecialCharm[0];
+  public Collection<ISpecialCharm> getSpecialCharms() {
+    return Collections.emptyList();
   }
 
   @Override

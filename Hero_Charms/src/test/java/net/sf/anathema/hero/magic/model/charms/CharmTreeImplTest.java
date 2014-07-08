@@ -8,6 +8,8 @@ import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 import org.junit.Test;
 
+import java.util.Collections;
+
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -39,6 +41,6 @@ public class CharmTreeImplTest {
   }
 
   private CharmTreeImpl createGroupWithCharacterType(TreeReference reference) {
-    return new CharmTreeImpl(reference, new Charm[0]);
+    return new CharmTreeImpl(reference, Collections.emptyList());
   }
 }

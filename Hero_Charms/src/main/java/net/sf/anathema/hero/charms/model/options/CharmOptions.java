@@ -14,7 +14,7 @@ public interface CharmOptions extends CharmTreeArbitrator {
 
   CharmMap getCharmIdMap();
 
-  ISpecialCharm[] getSpecialCharms();
+  Collection<ISpecialCharm> getSpecialCharms();
 
   Collection<Charm> filterAvailableCharms(CharmTree tree);
 

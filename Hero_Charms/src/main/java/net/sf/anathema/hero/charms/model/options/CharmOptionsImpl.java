@@ -49,7 +49,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   @Override
-  public ISpecialCharm[] getSpecialCharms() {
+  public Collection<ISpecialCharm> getSpecialCharms() {
     List<ISpecialCharm> relevantCharms = new ArrayList<>();
     ISpecialCharm[] allSpecialCharms = getAllSpecialCharms();
     for (ISpecialCharm specialCharm : allSpecialCharms) {
@@ -58,7 +58,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
         relevantCharms.add(specialCharm);
       }
     }
-    return relevantCharms.toArray(new ISpecialCharm[relevantCharms.size()]);
+    return relevantCharms;
   }
 
   private ISpecialCharm[] getAllSpecialCharms() {

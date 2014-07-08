@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.library.identifier.Identifier;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Stream;
 
@@ -13,10 +13,10 @@ import static net.sf.anathema.charm.data.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 
 public class CharmTreeImpl implements CharmTree, Identifier {
 
-  private final Charm[] charms;
+  private final Collection<Charm> charms;
   private TreeReference reference;
 
-  public CharmTreeImpl(TreeReference reference, Charm[] charms) {
+  public CharmTreeImpl(TreeReference reference, Collection<Charm> charms) {
     this.reference = reference;
     this.charms = charms;
   }
@@ -33,7 +33,7 @@ public class CharmTreeImpl implements CharmTree, Identifier {
 
   @Override
   public Collection<Charm> getAllCharms() {
-    return Arrays.asList(charms);
+    return new ArrayList<>(charms);
   }
 
   @Override

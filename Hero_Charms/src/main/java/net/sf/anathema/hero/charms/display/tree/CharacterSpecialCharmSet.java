@@ -4,7 +4,6 @@ import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class CharacterSpecialCharmSet implements SpecialCharmSet {
@@ -16,7 +15,6 @@ public class CharacterSpecialCharmSet implements SpecialCharmSet {
 
   @Override
   public Iterator<ISpecialCharm> iterator() {
-    ISpecialCharm[] specialCharms = model.getCharmModel().getOptions().getSpecialCharms();
-    return Arrays.asList(specialCharms).iterator();
+    return model.getCharmModel().getOptions().getSpecialCharms().iterator();
   }
 }
