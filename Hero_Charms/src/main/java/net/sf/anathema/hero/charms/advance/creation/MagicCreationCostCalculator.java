@@ -1,13 +1,15 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.model.WeightedMagicSorter;
+import net.sf.anathema.hero.charms.model.WeightedMagic;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.points.model.BonusPointCalculator;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Stream;
+
+import static java.util.Collections.reverseOrder;
+import static java.util.stream.Collectors.toList;
 
 public class MagicCreationCostCalculator implements BonusPointCalculator {
 
@@ -29,21 +31,6 @@ public class MagicCreationCostCalculator implements BonusPointCalculator {
     recalculate();
   }
 
-  private void handleMagic(Magic magic, Set<Magic> handledMagic) {
-    int bonusPointFactor = getMagicCosts(magic);
-    boolean favored = analyzer.isMagicFavored(magic);
-    int learnCount = magicCreationCostEvaluator.getLearnCount(magic, handledMagic);
-    for (int timesHandled = 0; timesHandled < learnCount; timesHandled++) {
-      if (favored) {
-        handleFavoredMagic(bonusPointFactor);
-      } else {
-        handleGeneralMagic(bonusPointFactor);
-      }
-    }
-    bonusPointsSpent += magicCreationCostEvaluator.getAdditionalBonusPoints(magic);
-    handledMagic.add(magic);
-  }
-
   private void handleFavoredMagic(int bonusPointFactor) {
     if (favoredPicksSpent < creationData.getFavoredMagicPicks()) {
       favoredPicksSpent++;
@@ -63,19 +50,26 @@ public class MagicCreationCostCalculator implements BonusPointCalculator {
   @Override
   public void recalculate() {
     clear();
-    List<Magic> magicToHandle = magicCreationCostEvaluator.compileCompleteMagicList();
-    if (magicToHandle == null || magicToHandle.size() == 0) {
-      return;
+    Stream<Magic> magics = magicCreationCostEvaluator.compileCompleteMagicList().stream();
+    List<Magic> weightedMagics = magics.map(magic -> new WeightedMagic(magic, getMagicCosts(magic))).sorted(
+            reverseOrder()).map(WeightedMagic::getValue).collect(toList());
+    for (Magic magic : weightedMagics) {
+      handleMagic(magic);
     }
-    int[] weights = new int[magicToHandle.size()];
-    for (int index = 0; index < weights.length; index++) {
-      weights[index] = getMagicCosts(magicToHandle.get(index));
+  }
+
+  private void handleMagic(Magic magic) {
+    int bonusPointFactor = getMagicCosts(magic);
+    boolean favored = analyzer.isMagicFavored(magic);
+    int learnCount = magicCreationCostEvaluator.getLearnCount(magic);
+    for (int timesHandled = 0; timesHandled < learnCount; timesHandled++) {
+      if (favored) {
+        handleFavoredMagic(bonusPointFactor);
+      } else {
+        handleGeneralMagic(bonusPointFactor);
+      }
     }
-    List<Magic> sortedMagicList = new WeightedMagicSorter().sortDescending(magicToHandle.toArray(new Magic[magicToHandle.size()]), weights);
-    Set<Magic> handledMagic = new HashSet<>();
-    for (Magic magic : sortedMagicList) {
-      handleMagic(magic, handledMagic);
-    }
+    bonusPointsSpent += magicCreationCostEvaluator.getAdditionalBonusPoints(magic);
   }
 
   @Override

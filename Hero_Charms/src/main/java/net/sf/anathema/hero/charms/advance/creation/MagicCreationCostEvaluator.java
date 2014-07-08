@@ -5,7 +5,6 @@ import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class MagicCreationCostEvaluator {
 
@@ -17,16 +16,16 @@ public class MagicCreationCostEvaluator {
 
   public List<Magic> compileCompleteMagicList() {
     List<Magic> completeList = new ArrayList<>();
-    for(MagicLearner learner : magicLearners) {
+    for (MagicLearner learner : magicLearners) {
       completeList.addAll(learner.getLearnedMagic(false));
     }
 
     return completeList;
   }
 
-  public int getLearnCount(Magic magic, Set<Magic> alreadyHandledMagic) {
+  public int getLearnCount(Magic magic) {
     MagicLearner learner = getLearnerFor(magic);
-    return learner.getCreationLearnCount(magic, alreadyHandledMagic);
+    return learner.getCreationLearnCount(magic);
   }
 
   public int getAdditionalBonusPoints(Magic magic) {

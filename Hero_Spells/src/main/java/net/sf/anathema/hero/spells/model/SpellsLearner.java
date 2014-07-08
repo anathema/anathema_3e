@@ -6,7 +6,6 @@ import net.sf.anathema.magic.data.Magic;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Set;
 
 public class SpellsLearner implements MagicLearner {
   private SpellsModelImpl spellsModel;
@@ -26,7 +25,7 @@ public class SpellsLearner implements MagicLearner {
   }
 
   @Override
-  public int getCreationLearnCount(Magic magic, Set<Magic> alreadyHandledMagic) {
+  public int getCreationLearnCount(Magic magic) {
     return 1;
   }
 

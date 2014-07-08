@@ -10,7 +10,6 @@ import net.sf.anathema.magic.data.Magic;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 public class CharmLearner implements MagicLearner {
   private CharmsModel charms;
@@ -40,7 +39,7 @@ public class CharmLearner implements MagicLearner {
   }
 
   @Override
-  public int getCreationLearnCount(Magic magic, Set<Magic> alreadyHandledMagic) {
+  public int getCreationLearnCount(Magic magic) {
     Charm charm = (Charm) magic;
     int learnCount = handleSpecialCharm(charm);
     if (charms.isAlienCharm(charm)) {

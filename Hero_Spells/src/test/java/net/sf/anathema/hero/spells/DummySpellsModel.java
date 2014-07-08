@@ -20,7 +20,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 public class DummySpellsModel implements SpellsModel {
 
@@ -165,7 +164,7 @@ public class DummySpellsModel implements SpellsModel {
       }
 
       @Override
-      public int getCreationLearnCount(Magic magic, Set<Magic> alreadyHandledMagic) {
+      public int getCreationLearnCount(Magic magic) {
         return 1;
       }
 
