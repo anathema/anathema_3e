@@ -49,9 +49,6 @@ public class ComboImpl implements Combo {
     if (charm.getCharmType() == CharmType.Simple) {
       simpleCharm = charm;
     }
-    if (charm.getCharmType() == CharmType.ExtraAction) {
-      extraActionCharm = charm;
-    }
     fireComboChanged();
   }
 

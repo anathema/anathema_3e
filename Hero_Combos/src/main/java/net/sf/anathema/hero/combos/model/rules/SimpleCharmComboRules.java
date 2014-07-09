@@ -22,16 +22,6 @@ public class SimpleCharmComboRules extends AbstractComboRules {
       }
 
       @Override
-      public void visitExtraAction(CharmType visitedType) {
-        boolean samePrerequisite = haveSamePrerequisite(simpleCharm, otherCharm);
-        boolean attributePrerequisites = haveAttributePrerequisites(simpleCharm, otherCharm);
-        boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(simpleCharm, otherCharm);
-        boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(simpleCharm);
-        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                   noTraitPrerequisiteCombo;
-      }
-
-      @Override
       public void visitReflexive(CharmType visitedType) {
         legal[0] = true;
       }
@@ -48,11 +38,6 @@ public class SimpleCharmComboRules extends AbstractComboRules {
 
       @Override
       public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-
-      @Override
-      public void visitSpecial(CharmType visitedType) {
         legal[0] = false;
       }
     });

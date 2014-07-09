@@ -13,7 +13,7 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
   }
 
   @Override
-  public boolean isComboLegal(final Charm supplementalCharm, final Charm otherCharm) {
+  public boolean isComboLegal(Charm supplementalCharm, Charm otherCharm) {
     final boolean[] legal = new boolean[1];
     otherCharm.getCharmType().accept(new CharmTypeVisitor() {
       @Override
@@ -23,17 +23,7 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
         boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(supplementalCharm, otherCharm);
         boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(supplementalCharm);
         legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                   noTraitPrerequisiteCombo;
-      }
-
-      @Override
-      public void visitExtraAction(CharmType visitedType) {
-        boolean samePrerequisite = haveSamePrerequisite(supplementalCharm, otherCharm);
-        boolean attributePrerequisites = haveAttributePrerequisites(supplementalCharm, otherCharm);
-        boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(supplementalCharm, otherCharm);
-        boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(supplementalCharm);
-        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                   noTraitPrerequisiteCombo;
+                noTraitPrerequisiteCombo;
       }
 
       @Override
@@ -48,16 +38,11 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
         boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(supplementalCharm, otherCharm);
         boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(supplementalCharm);
         legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                   noTraitPrerequisiteCombo;
+                noTraitPrerequisiteCombo;
       }
 
       @Override
       public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-
-      @Override
-      public void visitSpecial(CharmType visitedType) {
         legal[0] = false;
       }
     });

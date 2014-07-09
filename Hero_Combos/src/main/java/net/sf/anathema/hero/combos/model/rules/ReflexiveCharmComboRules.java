@@ -23,12 +23,6 @@ public class ReflexiveCharmComboRules extends AbstractComboRules {
       }
 
       @Override
-      public void visitExtraAction(CharmType visitedType) {
-        legal[0] = haveAbilityPrerequisites(reflexiveCharm, otherCharm) || haveAttributePrerequisites(reflexiveCharm, otherCharm) ||
-                   hasNoTraitPrerequisites(reflexiveCharm) || crossPrerequisite;
-      }
-
-      @Override
       public void visitReflexive(CharmType visitedType) {
         legal[0] = haveAbilityPrerequisites(reflexiveCharm, otherCharm) || haveAttributePrerequisites(reflexiveCharm, otherCharm) ||
                    hasNoTraitPrerequisites(reflexiveCharm) || crossPrerequisite;
@@ -42,11 +36,6 @@ public class ReflexiveCharmComboRules extends AbstractComboRules {
 
       @Override
       public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-
-      @Override
-      public void visitSpecial(CharmType visitedType) {
         legal[0] = false;
       }
     });

@@ -9,14 +9,12 @@ import net.sf.anathema.hero.combos.model.ComboRules;
 public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
 
   private final ComboRules simpleCharmRules = new SimpleCharmComboRules();
-  private final ComboRules extraActionCharmRules = new ExtraActionCharmComboRules();
   private final ComboRules supplementalCharmRules = new SupplementalCharmComboRules();
   private final ComboRules reflexiveCharmRules = new ReflexiveCharmComboRules();
 
   @Override
   public void setCrossPrerequisiteTypeComboAllowed(boolean allowed) {
     simpleCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
-    extraActionCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
     supplementalCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
     reflexiveCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
   }
@@ -57,11 +55,6 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
       }
 
       @Override
-      public void visitExtraAction(CharmType visitedType) {
-        legal[0] = extraActionCharmRules.isComboLegal(charm1, charm2);
-      }
-
-      @Override
       public void visitReflexive(CharmType visitedType) {
         legal[0] = reflexiveCharmRules.isComboLegal(charm1, charm2);
       }
@@ -73,11 +66,6 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
 
       @Override
       public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-
-      @Override
-      public void visitSpecial(CharmType visitedType) {
         legal[0] = false;
       }
     });

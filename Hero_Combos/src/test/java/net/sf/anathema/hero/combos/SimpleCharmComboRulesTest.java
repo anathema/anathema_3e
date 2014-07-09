@@ -54,31 +54,4 @@ public class SimpleCharmComboRulesTest extends AbstractComboRulesTestCase {
     getRules().setCrossPrerequisiteTypeComboAllowed(false);
     assertFalse(comboAbilityAttributeCharms(CharmType.Simple, CharmType.Supplemental));
   }
-
-  @Test
-  public void testCharmComboSimpleCharmWithExtraActionOfSameAbility() throws Exception {
-    assertTrue(comboSameAbilityCharms(CharmType.Simple, CharmType.ExtraAction));
-  }
-
-  @Test
-  public void testCharmComboSimpleCharmWithExtraActionOfDifferentAbility() throws Exception {
-    assertFalse(comboDifferentAbilityCharms(CharmType.Simple, CharmType.ExtraAction));
-  }
-
-  @Test
-  public void testCharmComboSimpleCharmWithExtraActionOfDifferentAttribute() throws Exception {
-    assertTrue(comboDifferentAttributeCharms(CharmType.Simple, CharmType.ExtraAction));
-  }
-
-  @Test
-  public void testCharmComboAbilitySimpleCharmCombosWithAttributeExtraActionAllowed() throws Exception {
-    getRules().setCrossPrerequisiteTypeComboAllowed(true);
-    assertTrue(comboAbilityAttributeCharms(CharmType.Simple, CharmType.ExtraAction));
-  }
-
-  @Test
-  public void testCharmComboAbilitySimpleCharmCombosWithAttributeExtraActionForbidden() throws Exception {
-    getRules().setCrossPrerequisiteTypeComboAllowed(false);
-    assertFalse(comboAbilityAttributeCharms(CharmType.Simple, CharmType.ExtraAction));
-  }
 }

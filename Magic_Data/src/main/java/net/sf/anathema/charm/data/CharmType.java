@@ -9,10 +9,10 @@ public enum CharmType implements Identifier {
       visitor.visitSimple(this);
     }
   },
-  ExtraAction() {
+  Supplemental() {
     @Override
     public void accept(CharmTypeVisitor visitor) {
-      visitor.visitExtraAction(this);
+      visitor.visitSupplemental(this);
     }
   },
   Reflexive() {
@@ -21,33 +21,16 @@ public enum CharmType implements Identifier {
       visitor.visitReflexive(this);
     }
   },
-  Supplemental() {
-    @Override
-    public void accept(CharmTypeVisitor visitor) {
-      visitor.visitSupplemental(this);
-    }
-  },
   Permanent() {
     @Override
     public void accept(CharmTypeVisitor visitor) {
       visitor.visitPermanent(this);
-    }
-  },
-  Special() {
-    @Override
-    public void accept(CharmTypeVisitor visitor) {
-      visitor.visitSpecial(this);
     }
   };
 
   @Override
   public String getId() {
     return name();
-  }
-
-  @Override
-  public String toString() {
-    return getId();
   }
 
   public abstract void accept(CharmTypeVisitor visitor);
