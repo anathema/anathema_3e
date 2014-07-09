@@ -2,7 +2,6 @@ package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
-import net.sf.anathema.charm.data.CharmTypeVisitor;
 
 public class SupplementalCharmComboRules extends AbstractComboRules {
   private boolean crossPrerequisite;
@@ -14,38 +13,14 @@ public class SupplementalCharmComboRules extends AbstractComboRules {
 
   @Override
   public boolean isComboLegal(Charm supplementalCharm, Charm otherCharm) {
-    final boolean[] legal = new boolean[1];
-    otherCharm.getCharmType().accept(new CharmTypeVisitor() {
-      @Override
-      public void visitSimple(CharmType visitedType) {
-        boolean samePrerequisite = haveSamePrerequisite(supplementalCharm, otherCharm);
-        boolean attributePrerequisites = haveAttributePrerequisites(supplementalCharm, otherCharm);
-        boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(supplementalCharm, otherCharm);
-        boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(supplementalCharm);
-        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                noTraitPrerequisiteCombo;
-      }
-
-      @Override
-      public void visitReflexive(CharmType visitedType) {
-        legal[0] = true;
-      }
-
-      @Override
-      public void visitSupplemental(CharmType visitedType) {
-        boolean samePrerequisite = haveSamePrerequisite(supplementalCharm, otherCharm);
-        boolean attributePrerequisites = haveAttributePrerequisites(supplementalCharm, otherCharm);
-        boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(supplementalCharm, otherCharm);
-        boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(supplementalCharm);
-        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                noTraitPrerequisiteCombo;
-      }
-
-      @Override
-      public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-    });
-    return legal[0];
+    CharmType otherType = otherCharm.getCharmType();
+    switch (otherType) {
+      case Reflexive:
+        return true;
+      case Permanent:
+        return false;
+      default:
+        return haveCompatiblePrerequisites(supplementalCharm, otherCharm, crossPrerequisite);
+    }
   }
 }

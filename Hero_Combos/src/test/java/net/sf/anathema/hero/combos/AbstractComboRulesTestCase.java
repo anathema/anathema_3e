@@ -2,22 +2,17 @@ package net.sf.anathema.hero.combos;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
-import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.combos.model.ComboRules;
-import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
+import net.sf.anathema.hero.combos.model.rules.DefaultComboArbitrator;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 
 public abstract class AbstractComboRulesTestCase {
 
-  private ComboRules rules = new AbstractComboArbitrator() {
+  private ComboRules rules = new DefaultComboArbitrator() {
 
-    @Override
-    protected boolean isCharmLegalByRules(Charm charm) {
-      return charm.getDuration().text.equals(Duration.INSTANT);
-    }
   };
 
   protected ComboRules getRules() {

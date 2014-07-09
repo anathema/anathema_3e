@@ -32,7 +32,7 @@ public interface CombosModel extends HeroModel {
 
   void beginComboEdit(Combo combo);
 
-  Combo[] getAllCombos();
+  Collection<Combo> getAllCombos();
 
   void setCrossPrerequisiteTypeComboAllowed(boolean allowed);
 }

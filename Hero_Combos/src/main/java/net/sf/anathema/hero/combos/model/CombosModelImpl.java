@@ -7,7 +7,7 @@ import net.sf.anathema.hero.combos.display.presenter.CharacterChangeComboListene
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.display.presenter.ComboConfigurationListener;
 import net.sf.anathema.hero.combos.display.presenter.CombosModel;
-import net.sf.anathema.hero.combos.model.rules.SecondEditionComboArbitrator;
+import net.sf.anathema.hero.combos.model.rules.DefaultComboArbitrator;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -24,7 +24,7 @@ import static java.util.Collections.singletonList;
 public class CombosModelImpl implements CombosModel {
 
   private final List<Combo> comboList = new ArrayList<>();
-  private final ComboArbitrator rules =  new SecondEditionComboArbitrator();
+  private final ComboArbitrator rules =  new DefaultComboArbitrator();
   private final Combo editCombo = new ComboImpl();
   private final Announcer<ComboConfigurationListener> control = Announcer.to(ComboConfigurationListener.class);
   private final ComboIdProvider idProvider = new ComboIdProvider();
@@ -150,8 +150,8 @@ public class CombosModelImpl implements CombosModel {
   }
 
   @Override
-  public Combo[] getAllCombos() {
-    return comboList.toArray(new Combo[comboList.size()]);
+  public Collection<Combo> getAllCombos() {
+    return comboList;
   }
 
   @Override

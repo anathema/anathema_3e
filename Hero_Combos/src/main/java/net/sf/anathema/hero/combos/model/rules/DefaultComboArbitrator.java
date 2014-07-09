@@ -2,11 +2,10 @@ package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
-import net.sf.anathema.charm.data.CharmTypeVisitor;
 import net.sf.anathema.hero.combos.display.presenter.Combo;
 import net.sf.anathema.hero.combos.model.ComboRules;
 
-public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
+public class DefaultComboArbitrator implements net.sf.anathema.hero.combos.model.ComboArbitrator {
 
   private final ComboRules simpleCharmRules = new SimpleCharmComboRules();
   private final ComboRules supplementalCharmRules = new SupplementalCharmComboRules();
@@ -18,12 +17,6 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
     supplementalCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
     reflexiveCharmRules.setCrossPrerequisiteTypeComboAllowed(allowed);
   }
-
-  public boolean isCharmComboLegal(Charm charm) {
-    return isCharmLegalByRules(charm);
-  }
-
-  protected abstract boolean isCharmLegalByRules(Charm charm);
 
   @Override
   public boolean canBeAddedToCombo(Combo combo, Charm charm) {
@@ -47,28 +40,22 @@ public abstract class AbstractComboArbitrator implements net.sf.anathema.hero.co
   }
 
   private boolean handleComboRules(final Charm charm1, final Charm charm2) {
-    final boolean[] legal = new boolean[1];
-    charm1.getCharmType().accept(new CharmTypeVisitor() {
-      @Override
-      public void visitSimple(CharmType visitedType) {
-        legal[0] = simpleCharmRules.isComboLegal(charm1, charm2);
-      }
+    CharmType charmType = charm1.getCharmType();
+    switch (charmType) {
+      case Permanent:
+        return false;
+      case Simple:
+        return simpleCharmRules.isComboLegal(charm1, charm2);
+      case Reflexive:
+        return reflexiveCharmRules.isComboLegal(charm1, charm2);
+      case Supplemental:
+        return supplementalCharmRules.isComboLegal(charm1, charm2);
+      default:
+        throw new IllegalArgumentException("Unknown Charm type " + charmType);
+    }
+  }
 
-      @Override
-      public void visitReflexive(CharmType visitedType) {
-        legal[0] = reflexiveCharmRules.isComboLegal(charm1, charm2);
-      }
-
-      @Override
-      public void visitSupplemental(CharmType visitedType) {
-        legal[0] = supplementalCharmRules.isComboLegal(charm1, charm2);
-      }
-
-      @Override
-      public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-    });
-    return legal[0];
+  private boolean isCharmComboLegal(Charm charm) {
+    return charm.getCharmType() != CharmType.Permanent;
   }
 }

@@ -5,12 +5,11 @@ import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.combos.model.ComboImpl;
-import net.sf.anathema.hero.combos.model.rules.AbstractComboArbitrator;
+import net.sf.anathema.hero.combos.model.rules.DefaultComboArbitrator;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import org.junit.Test;
 
-import static net.sf.anathema.charm.data.Duration.INSTANT;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -18,12 +17,8 @@ import static org.junit.Assert.assertTrue;
 public class ComboTest {
 
   private ComboImpl combo = new ComboImpl();
-  private AbstractComboArbitrator comboRules = new AbstractComboArbitrator() {
+  private DefaultComboArbitrator comboRules = new DefaultComboArbitrator() {
 
-    @Override
-    protected boolean isCharmLegalByRules(Charm charm) {
-      return charm.getDuration().text.equals(INSTANT);
-    }
   };
 
   protected final void addCharm(Charm charm) {

@@ -43,4 +43,12 @@ public abstract class AbstractComboRules implements ComboRules {
   private boolean hasAttributePrerequisite(Charm charm) {
     return hasValue(AttributeType.class, charm.getPrerequisites().getPrimaryTraitType().type);
   }
+
+  protected boolean haveCompatiblePrerequisites(Charm charm, Charm other, boolean crossPrerequisite) {
+    boolean samePrerequisite = haveSamePrerequisite(charm, other);
+    boolean attributePrerequisites = haveAttributePrerequisites(charm, other);
+    boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(charm, other);
+    boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(charm);
+    return samePrerequisite || attributePrerequisites || abilityAttributeCombo || noTraitPrerequisiteCombo;
+  }
 }

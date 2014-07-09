@@ -7,7 +7,6 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.google.common.collect.Lists.transform;
@@ -37,8 +36,6 @@ public class ComboContent extends AbstractSubBoxContent {
   }
 
   private List<Combo> getCombosAsList() {
-    List<Combo> genericCombos = new ArrayList<>();
-    Collections.addAll(genericCombos, CombosModelFetcher.fetch(hero).getAllCombos());
-    return genericCombos;
+    return new ArrayList<>(CombosModelFetcher.fetch(hero).getAllCombos());
   }
 }

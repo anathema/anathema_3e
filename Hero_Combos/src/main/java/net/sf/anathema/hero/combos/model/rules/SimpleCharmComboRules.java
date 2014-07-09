@@ -2,7 +2,6 @@ package net.sf.anathema.hero.combos.model.rules;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
-import net.sf.anathema.charm.data.CharmTypeVisitor;
 
 public class SimpleCharmComboRules extends AbstractComboRules {
   private boolean crossPrerequisite;
@@ -13,34 +12,15 @@ public class SimpleCharmComboRules extends AbstractComboRules {
   }
 
   @Override
-  public boolean isComboLegal(final Charm simpleCharm, final Charm otherCharm) {
-    final boolean[] legal = new boolean[1];
-    otherCharm.getCharmType().accept(new CharmTypeVisitor() {
-      @Override
-      public void visitSimple(CharmType visitedType) {
-        legal[0] = false;
-      }
-
-      @Override
-      public void visitReflexive(CharmType visitedType) {
-        legal[0] = true;
-      }
-
-      @Override
-      public void visitSupplemental(CharmType visitedType) {
-        boolean samePrerequisite = haveSamePrerequisite(simpleCharm, otherCharm);
-        boolean attributePrerequisites = haveAttributePrerequisites(simpleCharm, otherCharm);
-        boolean abilityAttributeCombo = crossPrerequisite && isAbilityAttributeCombo(simpleCharm, otherCharm);
-        boolean noTraitPrerequisiteCombo = hasNoTraitPrerequisites(simpleCharm);
-        legal[0] = samePrerequisite || attributePrerequisites || abilityAttributeCombo ||
-                   noTraitPrerequisiteCombo;
-      }
-
-      @Override
-      public void visitPermanent(CharmType visitedType) {
-        legal[0] = false;
-      }
-    });
-    return legal[0];
+  public boolean isComboLegal(Charm simpleCharm, Charm otherCharm) {
+    CharmType otherType = otherCharm.getCharmType();
+    switch (otherType) {
+      case Supplemental:
+        return haveCompatiblePrerequisites(simpleCharm, otherCharm, crossPrerequisite);
+      case Reflexive:
+        return true;
+      default:
+        return false;
+    }
   }
 }
