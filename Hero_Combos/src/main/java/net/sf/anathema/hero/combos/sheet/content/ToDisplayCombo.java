@@ -34,7 +34,7 @@ public class ToDisplayCombo implements Function<Combo, DisplayCombo> {
 
   private String getCharmString(Combo combo) {
     MagicDisplayLabeler labeler = new MagicDisplayLabeler(resources);
-    Stream<Charm> comboCharms = Stream.of(combo.getCharms());
+    Stream<Charm> comboCharms = combo.getCharms().stream();
     List<String> charmNames = comboCharms.map(labeler::getLabelForMagic).collect(toList());
     return Joiner.on(", ").join(charmNames);
   }

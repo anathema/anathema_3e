@@ -70,7 +70,7 @@ public class CombosPersister extends AbstractModelJsonPersister<ComboListPto, Co
     saveCharms(pto, combo.getExperiencedCharms(), true);
   }
 
-  private void saveCharms(ComboPto pto, Charm[] charms, boolean experiencedLearned) {
+  private void saveCharms(ComboPto pto, Iterable<Charm> charms, boolean experiencedLearned) {
     for (Charm charm : charms) {
       CharmPto charmPto = new CharmPto();
       charmPto.charm = charm.getName().text;

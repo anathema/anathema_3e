@@ -5,6 +5,7 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.text.ITextualDescription;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface Combo extends Cloneable {
 
@@ -21,11 +22,11 @@ public interface Combo extends Cloneable {
 
   ITextualDescription getDescription();
 
-  Charm[] getCharms();
+  List<Charm> getCharms();
 
-  Charm[] getCreationCharms();
+  List<Charm> getCreationCharms();
 
-  Charm[] getExperiencedCharms();
+  List<Charm> getExperiencedCharms();
 
   boolean contains(Charm charm);
 

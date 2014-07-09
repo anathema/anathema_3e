@@ -61,7 +61,7 @@ public class CombosModelImpl implements CombosModel {
     for (Combo combo : comboList) {
       if (combo.contains(charm)) {
         combo.removeCharms(singletonList(charm));
-        if (combo.getCharms().length < 2) {
+        if (combo.getCharms().size() < 2) {
           deletionList.add(combo);
         }
         fireComboChanged(combo);

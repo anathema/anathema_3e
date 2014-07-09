@@ -21,7 +21,7 @@ public class RepositoryFileAccessFactory {
   public RepositoryFileAccess getFileAccess(PrintNameFile printNameFile) {
     ConfigurableFileProvider provider = new ConfigurableFileProvider();
     provider.setFile(printNameFile.getFile());
-    final RepositoryReadAccess access = repository.openReadAccess(printNameFile.getItemType(), provider);
+    RepositoryReadAccess access = repository.openReadAccess(printNameFile.getItemType(), provider);
     return new RepositoryFileAccess() {
       @Override
       public File[] getFiles() {

@@ -24,7 +24,6 @@ import net.sf.anathema.library.text.TextualPresentation;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -243,8 +242,8 @@ public class ComboConfigurationPresenter {
     comboView.displayDescription(combo.getDescription().getText());
   }
 
-  private String getCommaSeparatedCharms(Charm[] charms) {
-    List<String> charmNames = Lists.transform(Arrays.asList(charms), labeler::getLabelForMagic);
+  private String getCommaSeparatedCharms(List<Charm> charms) {
+    List<String> charmNames = Lists.transform(charms, labeler::getLabelForMagic);
     return Joiner.on(", ").join(charmNames);
   }
 
@@ -260,7 +259,7 @@ public class ComboConfigurationPresenter {
   }
 
   private void showCharmsInCombo() {
-    List<Charm> charmsInCombo = Arrays.asList(comboConfiguration.getEditCombo().getCharms());
+    List<Charm> charmsInCombo = comboConfiguration.getEditCombo().getCharms();
     learnView.setLearnedMagic(charmsInCombo);
   }
 

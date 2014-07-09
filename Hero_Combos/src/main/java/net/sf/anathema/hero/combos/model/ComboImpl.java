@@ -25,21 +25,21 @@ public class ComboImpl implements Combo {
   private Integer id = null;
 
   @Override
-  public Charm[] getCharms() {
+  public List<Charm> getCharms() {
     ArrayList<Charm> charms = new ArrayList<>();
     charms.addAll(creationCharmList);
     charms.addAll(experiencedCharmList);
-    return charms.toArray(new Charm[charms.size()]);
+    return charms;
   }
 
   @Override
-  public Charm[] getCreationCharms() {
-    return creationCharmList.toArray(new Charm[creationCharmList.size()]);
+  public List<Charm> getCreationCharms() {
+    return new ArrayList<>(creationCharmList);
   }
 
   @Override
-  public Charm[] getExperiencedCharms() {
-    return experiencedCharmList.toArray(new Charm[experiencedCharmList.size()]);
+  public List<Charm> getExperiencedCharms() {
+    return new ArrayList<>(experiencedCharmList);
   }
 
   @Override

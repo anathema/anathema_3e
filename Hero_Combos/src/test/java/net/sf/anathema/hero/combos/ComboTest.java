@@ -36,7 +36,7 @@ public class ComboTest {
 
   @Test
   public void testCreation() throws Exception {
-    assertEquals(0, combo.getCharms().length);
+    assertEquals(0, combo.getCharms().size());
     assertTrue(combo.getName().getText().isEmpty());
     assertTrue(combo.getDescription().getText().isEmpty());
   }
