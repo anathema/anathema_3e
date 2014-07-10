@@ -4,7 +4,7 @@ import net.sf.anathema.platform.environment.Environment;
 
 public interface CharacterTemplateCreator {
 
-  void createTemplate(final IItemOperator operator, final ICharacterItemCreationModel creationModel);
+  void createTemplate(IItemOperator operator, ICharacterItemCreationModel creationModel);
 
   void useEnvironment(Environment environment);
 }

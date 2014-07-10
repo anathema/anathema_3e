@@ -41,15 +41,10 @@ public class NewInteractionPresenter {
   }
 
   private void initializeCommand() {
-    interaction.setCommand(new CreateNewCommand());
-  }
-
-  private class CreateNewCommand implements Command {
-    @Override
-    public void execute() {
+    interaction.setCommand(() -> {
       CharacterTemplateCreator creator = view.createNewCharacter();
       creator.useEnvironment(environment);
       model.createNew(creator, environment);
-    }
+    });
   }
 }

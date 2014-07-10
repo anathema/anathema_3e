@@ -21,17 +21,17 @@ public class FxCharacterNavigation extends Navigation implements InteractionView
 
 
   @Override
-  public void addButton(final CharacterButtonDto dto, final Selector<CharacterIdentifier> characterSelector) {
+  public void addButton(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {
     gridView.addButton(dto, characterSelector);
   }
 
   @Override
-  public void selectButton(final CharacterIdentifier identifier) {
+  public void selectButton(CharacterIdentifier identifier) {
     gridView.selectButton(identifier);
   }
 
   @Override
-  public void updateButton(final CharacterButtonDto dto) {
+  public void updateButton(CharacterButtonDto dto) {
     gridView.updateButton(dto);
   }
 
