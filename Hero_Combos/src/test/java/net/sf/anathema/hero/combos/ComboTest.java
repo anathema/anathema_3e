@@ -44,11 +44,11 @@ public class ComboTest {
   }
 
   @Test
-  public void testOnlyInstantDurationCombos() throws Exception {
-    final Charm dummy1 = new DummyCharm("Instant", CharmType.Reflexive);
+  public void durationDoesNotMatter() throws Exception {
+    Charm dummy1 = new DummyCharm("Instant", CharmType.Reflexive);
     assertTrue(comboRules.canBeAddedToCombo(combo, dummy1));
-    final Charm dummy2 = new DummyCharm("Other", CharmType.Reflexive);
-    assertFalse(comboRules.canBeAddedToCombo(combo, dummy2));
+    Charm dummy2 = new DummyCharm("Other", CharmType.Reflexive);
+    assertTrue(comboRules.canBeAddedToCombo(combo, dummy2));
   }
 
   @Test
