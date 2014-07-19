@@ -39,6 +39,11 @@ public class SimpleSpecialtiesContent implements ListSubBoxContent {
   }
 
   @Override
+  public boolean useNewLineForEachEntry() {
+    return false;
+  }
+
+  @Override
   public String getHeader() {
     return resources.getString("Sheet.Header.Specialties");
   }

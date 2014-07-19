@@ -5,4 +5,6 @@ import java.util.List;
 public interface ListSubBoxContent extends SubBoxContent {
 
   List<String> getPrintEntries();
+
+  boolean useNewLineForEachEntry();
 }

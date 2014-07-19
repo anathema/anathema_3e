@@ -46,6 +46,11 @@ public class PossessionsContent extends AbstractSubBoxContent implements ListSub
     return printPossessions;
   }
 
+  @Override
+  public boolean useNewLineForEachEntry() {
+    return false;
+  }
+
   private boolean isInArsenalOrPanopoly(IEquipmentItem item) {
     for (IEquipmentStats stats : item.getStats()) {
       if (stats.representsItemForUseInCombat() && item.isPrintEnabled(stats)) {

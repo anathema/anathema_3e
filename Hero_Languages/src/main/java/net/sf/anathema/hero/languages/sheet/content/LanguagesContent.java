@@ -39,6 +39,11 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
     return printLanguages;
   }
 
+  @Override
+  public boolean useNewLineForEachEntry() {
+    return false;
+  }
+
   private LanguagesModel getModel() {
     return LanguagesModelFetcher.fetch(hero);
   }

@@ -35,6 +35,11 @@ public class SimpleIntimaciesContent extends AbstractSubBoxContent implements Li
     return printIntimacies;
   }
 
+  @Override
+  public boolean useNewLineForEachEntry() {
+    return true;
+  }
+
   private IntimaciesModel getModel() {
     return IntimaciesModelFetcher.fetch(hero);
   }
