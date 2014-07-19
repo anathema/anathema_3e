@@ -7,6 +7,7 @@ import net.sf.anathema.hero.intimacies.model.Intimacy;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.RemovableEntryView;
@@ -100,7 +101,10 @@ public class IntimaciesPresenter {
   }
 
   private RemovableEntryView createSubView(final Intimacy intimacy) {
-    String representation = format("{0}, a {1} {2} {3}", intimacy.getName(), intimacy.getStrength(), intimacy.getOutlook(), intimacy.getBond());
+    String strength = new StrengthUiConfiguration(resources).getLabel(intimacy.getStrength());
+    String outlook = new OutlookUiConfiguration(resources).getLabel(intimacy.getOutlook());
+    String bond = new BondUiConfiguration(resources).getLabel(intimacy.getBond());
+    String representation = format(resources.getString("Intimacies.Format"), intimacy.getName(), strength, outlook, bond);
     return view.addIntimacy(representation, new BasicUi().getRemoveIconPath());
   }
 
@@ -131,17 +135,17 @@ public class IntimaciesPresenter {
 
   private Tool initCreationViewListening(IntimacyEntryView selectionView) {
     selectionView.addTextChangeListener(model::setCurrentName);
-    allowSelection(selectionView, model.getStrengths(), model::setCurrentStrength, model.getStrength());
-    allowSelection(selectionView, model.getOutlooks(), model::setCurrentOutlook, model.getOutlook());
-    allowSelection(selectionView, model.getBonds(), model::setCurrentBond, model.getBond());
+    allowSelection(selectionView, model.getStrengths(), model::setCurrentStrength, model.getStrength(), new StrengthUiConfiguration(resources));
+    allowSelection(selectionView, model.getOutlooks(), model::setCurrentOutlook, model.getOutlook(), new OutlookUiConfiguration(resources));
+    allowSelection(selectionView, model.getBonds(), model::setCurrentBond, model.getBond(), new BondUiConfiguration(resources));
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setCommand(model::commitSelection);
     return tool;
   }
 
-  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial) {
-    ObjectSelectionView<T> selection = selectionView.addSelection();
+  private <T> void allowSelection(IntimacyEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
+    ObjectSelectionView<T> selection = selectionView.addSelection(uiConfiguration);
     selection.setObjects(objects);
     selection.setSelectedObject(initial);
     selection.addObjectSelectionChangedListener(listener);

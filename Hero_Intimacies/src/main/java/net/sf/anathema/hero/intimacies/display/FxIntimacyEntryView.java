@@ -5,6 +5,7 @@ import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
 
@@ -31,13 +32,8 @@ public class FxIntimacyEntryView implements IntimacyEntryView {
   }
 
   @Override
-  public <T> ObjectSelectionView<T> addSelection() {
-    return view.addSelectionView("", new AbstractUIConfiguration<T>() {
-      @Override
-      protected String labelForExistingValue(T value) {
-        return value.toString();
-      }
-    });
+  public <T> ObjectSelectionView<T> addSelection(AgnosticUIConfiguration<T> uiConfiguration) {
+    return view.addSelectionView("", uiConfiguration);
   }
 
   public Node getNode() {

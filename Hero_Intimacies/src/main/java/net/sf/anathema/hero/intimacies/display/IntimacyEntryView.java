@@ -2,6 +2,8 @@ package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.presenter.AbstractUIConfiguration;
+import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 
 public interface IntimacyEntryView {
@@ -12,5 +14,5 @@ public interface IntimacyEntryView {
 
   void clear();
 
-  <T> ObjectSelectionView<T> addSelection();
+  <T> ObjectSelectionView<T> addSelection(AgnosticUIConfiguration<T> uiConfiguration);
 }
