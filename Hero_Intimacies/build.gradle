@@ -5,4 +5,7 @@ dependencies {
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
     testCompile testDependencies
+    testCompile project(path: ':Library', configuration: 'tests')
+    testCompile project(path: ':Platform', configuration: 'tests')
+    testCompile project(path: ':Hero', configuration: 'tests')
 }
