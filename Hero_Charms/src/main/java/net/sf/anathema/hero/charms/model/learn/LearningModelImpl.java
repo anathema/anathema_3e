@@ -6,14 +6,11 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
 
 public class LearningModelImpl implements LearningModel {
@@ -138,26 +135,26 @@ public class LearningModelImpl implements LearningModel {
   }
 
   @Override
-  public Set<Charm> getCharmsLearnedOnCreation() {
-    return Collections.unmodifiableSet(charmsLearnedOnCreation);
+  public Charms getCharmsLearnedOnCreation() {
+    return Charms.copyOf(charmsLearnedOnCreation);
   }
 
   @Override
-  public Set<Charm> getCharmsLearnedWithExperience() {
-    return Collections.unmodifiableSet(charmsLearnedWithExperience);
+  public Charms getCharmsLearnedWithExperience() {
+    return Charms.copyOf(charmsLearnedWithExperience);
   }
 
   @Override
-  public Set<Charm> getCurrentlyLearnedCharms() {
-    return getCharmsLearnedEitherWay().stream().filter(this::isCurrentlyLearned).collect(Collectors.toSet());
+  public Charms getCurrentlyLearnedCharms() {
+    return getCharmsLearnedEitherWay().applyFilter(this::isCurrentlyLearned);
   }
 
   @Override
-  public Set<Charm> getCharmsLearnedEitherWay() {
-    Set<Charm> allLearnedCharms = new HashSet<>();
+  public Charms getCharmsLearnedEitherWay() {
+    Charms allLearnedCharms = Charms.unique();
     allLearnedCharms.addAll(charmsLearnedOnCreation);
     allLearnedCharms.addAll(charmsLearnedWithExperience);
-    return Collections.unmodifiableSet(allLearnedCharms);
+    return allLearnedCharms;
   }
 
   @Override
@@ -193,14 +190,14 @@ public class LearningModelImpl implements LearningModel {
     }
   }
 
-  private Charm[] getLearnedCoreCharms() {
-    List<Charm> charms = new ArrayList<>();
+  private Charms getLearnedCoreCharms() {
+    Charms charms = new Charms();
     for (Charm charm : getAllLearnedCharms()) {
       if (!charm.hasAttribute(CharmAttributeList.EXCLUSIVE_ATTRIBUTE)) {
         charms.add(charm);
       }
     }
-    return charms.toArray(new Charm[charms.size()]);
+    return charms;
   }
 
   public void forgetExclusives(CategoryReference reference) {
@@ -212,15 +209,15 @@ public class LearningModelImpl implements LearningModel {
     }
   }
 
-  private List<Charm> getAllLearnedExclusiveCharms() {
-    List<Charm> exclusiveCharms = new ArrayList<>();
-    exclusiveCharms.addAll(getAllLearnedCharms());
-    exclusiveCharms.removeAll(asList(getLearnedCoreCharms()));
+  private Charms getAllLearnedExclusiveCharms() {
+    Charms exclusiveCharms = new Charms();
+    exclusiveCharms.adopt(getAllLearnedCharms());
+    exclusiveCharms.removeAll(getLearnedCoreCharms());
     return exclusiveCharms;
   }
 
-  private List<Charm> getAllLearnedCharms() {
-    List<Charm> allLearnedCharms = new ArrayList<>();
+  private Charms getAllLearnedCharms() {
+    Charms allLearnedCharms = new Charms();
     allLearnedCharms.addAll(charmsLearnedOnCreation);
     allLearnedCharms.addAll(charmsLearnedWithExperience);
     return allLearnedCharms;

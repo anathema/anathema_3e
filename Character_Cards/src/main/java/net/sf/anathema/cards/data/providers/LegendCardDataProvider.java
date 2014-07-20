@@ -8,6 +8,7 @@ import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
@@ -90,7 +91,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     return cards;
   }
 
-  private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Set<Charm> charms) {
+  private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Charms charms) {
     for (Charm charm : charms) {
       if (!MartialArtsUtilities.isMartialArts(charm)) {
         LegendEntry trait = new LegendEntry(resourceProvider.getTreeIcon(charm), resourceProvider.getTreeLabel(charm));
@@ -148,7 +149,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     }
   }
 
-  private Set<Charm> getCurrentCharms(Hero hero) {
+  private Charms getCurrentCharms(Hero hero) {
     return CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms();
   }
 

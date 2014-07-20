@@ -19,7 +19,6 @@ public class MagicCreationCostEvaluator {
     for (MagicLearner learner : magicLearners) {
       completeList.addAll(learner.getLearnedMagic(false));
     }
-
     return completeList;
   }
 

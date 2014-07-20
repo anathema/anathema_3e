@@ -2,8 +2,6 @@ package net.sf.anathema.hero.charms.model.learn;
 
 import net.sf.anathema.charm.data.Charm;
 
-import java.util.Set;
-
 public interface LearningModel extends BasicLearningModel {
 
   void toggleLearned(Charm charm);
@@ -14,13 +12,13 @@ public interface LearningModel extends BasicLearningModel {
 
   void learnCharmNoParents(Charm charm, boolean experienced, boolean announce);
 
-  Set<Charm> getCharmsLearnedOnCreation();
+  Charms getCharmsLearnedOnCreation();
 
-  Set<Charm> getCharmsLearnedWithExperience();
+  Charms getCharmsLearnedWithExperience();
 
-  Set<Charm> getCharmsLearnedEitherWay();
+  Charms getCharmsLearnedEitherWay();
 
-  Set<Charm> getCurrentlyLearnedCharms();
+  Charms getCurrentlyLearnedCharms();
 
   boolean isForgettable(Charm charm);
 

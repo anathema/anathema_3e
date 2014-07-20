@@ -3,15 +3,12 @@ package net.sf.anathema.hero.charms.persistence;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmListPersister;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.library.identifier.Identifier;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static net.sf.anathema.library.message.MessageType.Error;
 
@@ -82,10 +79,9 @@ public class CharmsPersister extends AbstractModelJsonPersister<CharmListPto, Ch
     persister.saveCharmSpecials(charmsModel, charm, charmListPto);
   }
 
-  private List<Charm> getSortedCharmList(CharmsModel model) {
+  private Charms getSortedCharmList(CharmsModel model) {
     LearningModel learningModel = model.getLearningModel();
-    List<Charm> charms = new ArrayList<>(learningModel.getCharmsLearnedEitherWay());
-    Collections.sort(charms, (o1, o2) -> o1.getName().compareTo(o2.getName()));
-    return charms;
+    Charms learnedCharms = learningModel.getCharmsLearnedEitherWay();
+    return learnedCharms.applySort((Charm o1, Charm o2) -> o1.getName().compareTo(o2.getName()));
   }
 }

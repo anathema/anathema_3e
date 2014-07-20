@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.sheet.content;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
@@ -48,8 +49,8 @@ public class CharmContentHelper {
     return learnedEffectIds;
   }
 
-  public List<Charm> getLearnedCharms() {
-    return new ArrayList<>(CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms());
+  public Charms getLearnedCharms() {
+    return CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms();
   }
 
   public boolean isSubEffectCharm(Charm charm) {
