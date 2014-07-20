@@ -64,7 +64,7 @@ public class Layer implements ILayer {
   }
 
   private IVisualizableNode findFirstOrderedChild(IVisualizableNode[] children) {
-    IVisualizableNode[] nodesByLayer = nextLayer.getNodes();
+    VisualizableNodes nodesByLayer = nextLayer.getNodes();
     for (IVisualizableNode node : nodesByLayer) {
       for (IVisualizableNode child : children) {
         if (node == child) {
@@ -76,14 +76,13 @@ public class Layer implements ILayer {
   }
 
   @Override
-  public IVisualizableNode[] getNodes() {
-    return nodes.toArray(new IVisualizableNode[nodes.size()]);
+  public VisualizableNodes getNodes() {
+    return new VisualizableNodes(nodes);
   }
 
   private IVisualizableNode findLastOrderedChild(IVisualizableNode[] children) {
     List<IVisualizableNode> remainingChildren = Lists.newArrayList(children);
-    IVisualizableNode[] nodesByLayer = nextLayer.getNodes();
-    for (IVisualizableNode node : nodesByLayer) {
+    for (IVisualizableNode node : nextLayer.getNodes()) {
       for (IVisualizableNode child : children) {
         if (node == child) {
           remainingChildren.remove(child);

@@ -14,7 +14,7 @@ public class NodeProjection {
 
   public NodeProjection(ILayer... layers) {
     for (ILayer layer : layers) {
-      Collections.addAll(nodeProjection, layer.getNodes());
+      nodeProjection.addAll(layer.getNodes().asList());
     }
     Collections.sort(nodeProjection, new VisualizableNodeLeftSideComparator());
   }

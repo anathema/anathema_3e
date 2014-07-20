@@ -5,6 +5,7 @@ import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.VisualizableNodeLeftSideComparator;
+import net.sf.anathema.platform.tree.document.components.VisualizableNodes;
 import net.sf.anathema.platform.tree.document.util.BackwardsIterable;
 
 import java.util.ArrayList;
@@ -107,14 +108,14 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
   private void centerTrailingSingleNodePath(ILayer[] layers) {
     int lengthOfTail = getLengthOfTail(layers);
     for (int index = layers.length - lengthOfTail; index < layers.length; index++) {
-      centerOnlyChild(layers[index].getNodes()[0]);
+      centerOnlyChild(layers[index].getNodes().getFirst());
     }
   }
 
   private int getLengthOfTail(ILayer[] layers) {
     int lengthOfTail = 0;
     for (ILayer layer : new BackwardsIterable<>(layers)) {
-      if (layer.getNodes().length == 1) {
+      if (layer.getNodes().hasOnlyOneNode()) {
         lengthOfTail++;
       } else {
         break;
@@ -148,11 +149,11 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
   private void createSlimWaistSymmetrie(ILayer[] layers) {
     for (int layerIndex = 1; layerIndex < layers.length; layerIndex++) {
       ILayer layer = layers[layerIndex];
-      IVisualizableNode[] layerNodes = layer.getNodes();
-      if (layerNodes.length == 1) {
+      VisualizableNodes layerNodes = layer.getNodes();
+      if (layerNodes.hasOnlyOneNode()) {
         boolean isStraigthLine = true;
         for (int lowerLayerIndex = layerIndex + 1; lowerLayerIndex < layers.length; lowerLayerIndex++) {
-          isStraigthLine = isStraigthLine && layers[lowerLayerIndex].getNodes().length == 1;
+          isStraigthLine = isStraigthLine && layers[lowerLayerIndex].getNodes().hasOnlyOneNode();
         }
         if (isStraigthLine) {
           return;
@@ -162,7 +163,7 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
           maximumWidth = Math.max(maximumWidth, otherLayer.getWidth());
         }
         int imageCenter = maximumWidth / 2;
-        layer.getNodes()[0].setPosition(imageCenter);
+        layer.getNodes().getFirst().setPosition(imageCenter);
         for (int lowerLayerIndex = layerIndex + 1; lowerLayerIndex < layers.length; lowerLayerIndex++) {
           shiftLayerWithoutChecking(layers[lowerLayerIndex], imageCenter);
         }
@@ -171,9 +172,9 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
   }
 
   private void shiftLayerWithoutChecking(ILayer layer, int imageCenter) {
-    IVisualizableNode[] layerNodes = layer.getNodes();
-    int leftSide = layerNodes[0].getLeftSide();
-    int rightSide = layerNodes[layerNodes.length - 1].getRightSide();
+    VisualizableNodes layerNodes = layer.getNodes();
+    int leftSide = layerNodes.getFirst().getLeftSide();
+    int rightSide = layerNodes.getLast().getRightSide();
     int layerCenter = (rightSide + leftSide) / 2;
     int shift = imageCenter - layerCenter;
     for (IVisualizableNode node : layerNodes) {
@@ -231,7 +232,7 @@ public class BottomUpGraphPositioner extends AbstractCascadeVisualizer {
       if (layer.getPreviousLayer() == null) {
         continue;
       }
-      for (IVisualizableNode node : new BackwardsIterable<>(layer.getNodes())) {
+      for (IVisualizableNode node : new BackwardsIterable<>(layer.getNodes().asList())) {
         IVisualizableNode[] parents = node.getParents();
         IVisualizableNode[] children = node.getChildren();
         if (parents.length == 1 && children.length <= 1) {

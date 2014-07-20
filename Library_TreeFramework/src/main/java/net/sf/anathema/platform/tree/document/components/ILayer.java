@@ -1,5 +1,7 @@
 package net.sf.anathema.platform.tree.document.components;
 
+import java.util.List;
+
 public interface ILayer {
 
   void addNode(IVisualizableNode node);
@@ -12,7 +14,7 @@ public interface ILayer {
 
   void positionNodes();
 
-  IVisualizableNode[] getNodes();
+  VisualizableNodes getNodes();
 
   int getYPosition();
 

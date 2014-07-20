@@ -21,10 +21,10 @@ public class SimplifiedBottomUpGraphVisualizer extends AbstractCascadeVisualizer
     ILayer[] layers = createLayers();
     int width = 0;
     for (ILayer layer : layers) {
-      width = Math.max(width, layer.getNodes()[0].getWidth());
+      width = Math.max(width, layer.getNodes().getFirst().getWidth());
     }
     for (ILayer layer : new BackwardsIterable<>(layers)) {
-      layer.getNodes()[0].setPosition(width / 2);
+      layer.getNodes().getFirst().setPosition(width / 2);
     }
     for (ILayer layer : new BackwardsIterable<>(layers)) {
       layer.unrollHorizontalMetanodes();

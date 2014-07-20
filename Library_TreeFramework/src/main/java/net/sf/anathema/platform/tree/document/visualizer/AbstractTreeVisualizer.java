@@ -25,7 +25,7 @@ public abstract class AbstractTreeVisualizer extends AbstractCascadeVisualizer {
       createVisualizableNodes(layerIndex);
     }
     ILayer[] layers = createLayers(layerCount);
-    setPositionRecursively(getInitialLayer(layers).getNodes()[0], 0);
+    setPositionRecursively(getInitialLayer(layers).getNodes().getFirst(), 0);
     return layers;
   }
 

@@ -3,11 +3,13 @@ package net.sf.anathema.platform.tree.view.visualizer;
 import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
+import net.sf.anathema.platform.tree.document.components.VisualizableNodes;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -47,11 +49,10 @@ public class AgnosticGraphFactoryTest {
   }
 
   private void addNodesToLayer(ILayer layer, int amount) {
-    IVisualizableNode[] nodes = new IVisualizableNode[amount];
-    ArrayList<IVisualizableNode> list = new ArrayList<>();
+    List<IVisualizableNode> list = new ArrayList<>();
     for (int i = 0; i < amount; i++) {
       list.add(mock(IVisualizableNode.class));
     }
-    when(layer.getNodes()).thenReturn(list.toArray(nodes));
+    when(layer.getNodes()).thenReturn(new VisualizableNodes(list));
   }
 }

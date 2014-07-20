@@ -19,7 +19,7 @@ public class AgnosticGraphFactory implements VisualizedGraphFactory {
 
   @Override
   public VisualizedGraph create(ILayer... layers) {
-    boolean singleNode = layers.length == 1 && layers[0].getNodes().length == 1;
+    boolean singleNode = layers.length == 1 && layers[0].getNodes().hasOnlyOneNode();
     return new AgnosticVisualizedGraph(createCascade(layers), calculateSize(layers), singleNode);
   }
 
