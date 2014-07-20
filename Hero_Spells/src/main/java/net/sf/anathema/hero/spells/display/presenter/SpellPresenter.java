@@ -10,6 +10,7 @@ import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.library.identifier.Identifier;
@@ -102,13 +103,13 @@ public class SpellPresenter {
   }
 
   private void showAvailableSpells(MagicLearnView magicLearnView) {
-    List<Spell> availableSpells = spellConfiguration.getAvailableSpellsInCircle(circleModel.getSelectedCircle());
-    List<Spell> sortedSpells = new MagicSorter<Spell>(resources).sortAscending(availableSpells);
-    magicLearnView.setAvailableMagic(sortedSpells);
+    Spells availableSpells = spellConfiguration.getAvailableSpellsInCircle(circleModel.getSelectedCircle());
+    List<Spell> sortedList = new MagicSorter<Spell>(resources).sortAscending(availableSpells.asList());
+    magicLearnView.setAvailableMagic(sortedList);
   }
 
   private void showLearnedSpells(MagicLearnView magicLearnView) {
-    List<Spell> learnedSpells = spellConfiguration.getLearnedSpellsInCircles(circleModel.getCircles());
-    magicLearnView.setLearnedMagic(learnedSpells);
+    Spells learnedSpells = spellConfiguration.getLearnedSpellsInCircles(circleModel.getCircles());
+    magicLearnView.setLearnedMagic(learnedSpells.asList());
   }
 }

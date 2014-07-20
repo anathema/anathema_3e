@@ -18,6 +18,7 @@ import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.parser.SpellCache;
 import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
@@ -29,9 +30,7 @@ import net.sf.anathema.points.model.PointModelFetcher;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class SpellsModelImpl implements SpellsModel {
@@ -170,18 +169,18 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   @Override
-  public Spell[] getLearnedSpells() {
+  public Spells getLearnedSpells() {
     return strategy.getLearnedSpells(this);
   }
 
   @Override
-  public Spell[] getLearnedSpells(boolean experienced) {
-    List<Spell> list = new ArrayList<>();
-    list.addAll(creationLearnedList);
+  public Spells getLearnedSpells(boolean experienced) {
+    Spells spells = new Spells();
+    spells.addAll(creationLearnedList);
     if (experienced) {
-      list.addAll(experiencedLearnedList);
+      spells.addAll(experiencedLearnedList);
     }
-    return list.toArray(new Spell[list.size()]);
+    return spells;
   }
 
   @Override
@@ -189,9 +188,10 @@ public class SpellsModelImpl implements SpellsModel {
     changeControl.addListener(listener);
   }
 
-  private Spell[] getSpellsByCircle(CircleType circle) {
-    Collection<Spell> spells = spellsByCircle.get(circle);
-    return spells.toArray(new Spell[spells.size()]);
+  private Spells getSpellsByCircle(CircleType circle) {
+    Spells spellSet = new Spells();
+    spellSet.addAll(spellsByCircle.get(circle));
+    return spellSet;
   }
 
   @Override
@@ -219,22 +219,22 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   @Override
-  public List<Spell> getAvailableSpellsInCircle(CircleType circle) {
-    List<Spell> showSpells = new ArrayList<>();
-    Collections.addAll(showSpells, getSpellsByCircle(circle));
-    showSpells.removeAll(Arrays.asList(getLearnedSpells()));
+  public Spells getAvailableSpellsInCircle(CircleType circle) {
+    Spells showSpells = new Spells();
+    showSpells.adopt(getSpellsByCircle(circle));
+    showSpells.removeAll(getLearnedSpells());
     return showSpells;
   }
 
   @Override
-  public List<Spell> getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles) {
-    List<Spell> spellList = new ArrayList<>();
+  public Spells getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles) {
+    Spells spells = new Spells();
     for (Spell spell : getLearnedSpells()) {
       if (eligibleCircles.contains(spell.getCircleType())) {
-        spellList.add(spell);
+        spells.add(spell);
       }
     }
-    return spellList;
+    return spells;
   }
 
   @Override

@@ -12,12 +12,12 @@ import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static java.text.MessageFormat.format;
 
@@ -119,7 +119,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     }
   }
 
-  private void buildSpellEntries(ICardReportResourceProvider resourceProvider, Spell[] spells) {
+  private void buildSpellEntries(ICardReportResourceProvider resourceProvider, Spells spells) {
     for (Spell spell : spells) {
 
       String circleString;
@@ -153,7 +153,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     return CharmsModelFetcher.fetch(hero).getLearningModel().getCurrentlyLearnedCharms();
   }
 
-  private Spell[] getCurrentSpells(Hero hero) {
+  private Spells getCurrentSpells(Hero hero) {
     boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
     return SpellsModelFetcher.fetch(hero).getLearnedSpells(experienced);
   }

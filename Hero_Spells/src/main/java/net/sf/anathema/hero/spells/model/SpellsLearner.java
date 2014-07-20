@@ -31,6 +31,6 @@ public class SpellsLearner implements MagicLearner {
 
   @Override
   public Collection<? extends Magic> getLearnedMagic(boolean experienced) {
-    return Arrays.asList(spellsModel.getLearnedSpells(experienced));
+    return spellsModel.getLearnedSpells(experienced).asList();
   }
 }

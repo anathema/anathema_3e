@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class ProxySpellLearnStrategy implements ISpellLearnStrategy {
   }
 
   @Override
-  public Spell[] getLearnedSpells(SpellsModel configuration) {
+  public Spells getLearnedSpells(SpellsModel configuration) {
     return strategy.getLearnedSpells(configuration);
   }
 

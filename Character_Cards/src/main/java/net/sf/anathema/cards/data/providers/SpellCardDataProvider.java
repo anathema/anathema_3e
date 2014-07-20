@@ -7,6 +7,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 
@@ -28,7 +29,7 @@ public class SpellCardDataProvider extends AbstractMagicCardDataProvider {
     return cards;
   }
 
-  private Spell[] getCurrentSpells(Hero hero) {
+  private Spells getCurrentSpells(Hero hero) {
     boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
     return SpellsModelFetcher.fetch(hero).getLearnedSpells(experienced);
   }

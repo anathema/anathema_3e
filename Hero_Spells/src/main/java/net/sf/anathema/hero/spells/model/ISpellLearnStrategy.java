@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public interface ISpellLearnStrategy {
 
   boolean isSpellAllowed(SpellsModel configuration, Spell spell);
 
-  Spell[] getLearnedSpells(SpellsModel configuration);
+  Spells getLearnedSpells(SpellsModel configuration);
 
   boolean isLearned(SpellsModel configuration, Spell spell);
 }

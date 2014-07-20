@@ -5,9 +5,9 @@ import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class PrintSpellsProvider implements PrintMagicProvider {
@@ -25,8 +25,8 @@ public class PrintSpellsProvider implements PrintMagicProvider {
     }
   }
 
-  private List<Spell> getAllLearnedSpells() {
+  private Spells getAllLearnedSpells() {
     boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
-    return Arrays.asList(SpellsModelFetcher.fetch(hero).getLearnedSpells(experienced));
+    return SpellsModelFetcher.fetch(hero).getLearnedSpells(experienced);
   }
 }

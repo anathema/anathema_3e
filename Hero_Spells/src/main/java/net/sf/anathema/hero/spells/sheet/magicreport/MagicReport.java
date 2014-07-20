@@ -21,6 +21,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 import net.sf.anathema.library.resources.Resources;
@@ -175,7 +176,7 @@ public class MagicReport extends AbstractPdfReport {
     return new CharmFetcher().hasCharms(hero);
   }
 
-  private Spell[] getCurrentSpells(Hero hero) {
+  private Spells getCurrentSpells(Hero hero) {
     boolean experienced = ExperienceModelFetcher.fetch(hero).isExperienced();
     return SpellsModelFetcher.fetch(hero).getLearnedSpells(experienced);
   }

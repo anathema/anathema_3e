@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class CreationSpellLearnStrategy implements ISpellLearnStrategy {
   }
 
   @Override
-  public Spell[] getLearnedSpells(SpellsModel configuration) {
+  public Spells getLearnedSpells(SpellsModel configuration) {
     return configuration.getLearnedSpells(false);
   }
 

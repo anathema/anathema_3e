@@ -3,6 +3,7 @@ package net.sf.anathema.hero.spells.model;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -19,7 +20,7 @@ public interface SpellsModel extends HeroModel {
 
   void addSpells(List<Spell> addedSpells);
 
-  Spell[] getLearnedSpells();
+  Spells getLearnedSpells();
 
   void addChangeListener(ChangeListener listener);
 
@@ -29,7 +30,7 @@ public interface SpellsModel extends HeroModel {
 
   boolean isLearnedOnCreation(Spell spell);
 
-  Spell[] getLearnedSpells(boolean experienced);
+  Spells getLearnedSpells(boolean experienced);
 
   void addSpells(List<Spell> addedSpells, boolean experienced);
 
@@ -39,9 +40,9 @@ public interface SpellsModel extends HeroModel {
 
   boolean isLearnedOnCreationOrExperience(Spell spell);
 
-  List<Spell> getAvailableSpellsInCircle(CircleType circle);
+  Spells getAvailableSpellsInCircle(CircleType circle);
 
-  List<Spell> getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles);
+  Spells getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles);
 
   boolean canLearnSorcery();
 

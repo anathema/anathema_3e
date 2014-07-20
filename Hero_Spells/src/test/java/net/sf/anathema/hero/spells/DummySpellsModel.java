@@ -7,6 +7,7 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -51,7 +52,7 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public Spell[] getLearnedSpells() {
+  public Spells getLearnedSpells() {
     throw new NotYetImplementedException();
   }
 
@@ -77,11 +78,13 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public Spell[] getLearnedSpells(boolean experienced) {
+  public Spells getLearnedSpells(boolean experienced) {
     if (experienced) {
       throw new IllegalArgumentException("Not implemented");
     }
-    return spells.toArray(new Spell[spells.size()]);
+    Spells spellSet = new Spells();
+    spellSet.addAll(spells);
+    return spellSet;
   }
 
   @Override
@@ -111,19 +114,19 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public List<Spell> getAvailableSpellsInCircle(CircleType circle) {
+  public Spells getAvailableSpellsInCircle(CircleType circle) {
     throw new NotYetImplementedException();
   }
 
   @Override
-  public List<Spell> getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles) {
-    List<Spell> spellList = new ArrayList<>();
+  public Spells getLearnedSpellsInCircles(Collection<CircleType> eligibleCircles) {
+    Spells spells = new Spells();
     for (Spell spell : getLearnedSpells()) {
       if (eligibleCircles.contains(spell.getCircleType())) {
-        spellList.add(spell);
+        spells.add(spell);
       }
     }
-    return spellList;
+    return spells;
   }
 
   @Override
@@ -170,7 +173,7 @@ public class DummySpellsModel implements SpellsModel {
 
       @Override
       public Collection<? extends Magic> getLearnedMagic(boolean experienced) {
-        return Arrays.asList(getLearnedSpells(experienced));
+        return getLearnedSpells(experienced).asList();
       }
     });
   }
