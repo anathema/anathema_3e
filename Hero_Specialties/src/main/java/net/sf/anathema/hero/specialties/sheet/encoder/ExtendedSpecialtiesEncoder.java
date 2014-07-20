@@ -15,7 +15,6 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.BARE_LINE_HEIGHT;
@@ -31,17 +30,16 @@ public class ExtendedSpecialtiesEncoder extends AbstractAdditionalTraitLineEncod
   @Override
   public void encode(SheetGraphics graphics, ReportSession reportSession, Bounds bounds) {
     SpecialtiesContentCandidate content = new SpecialtiesContentCandidate(reportSession.getHero());
-    List<ValuedTraitReference> references = new ArrayList<>();
-    for (IdentifiedTraitTypeList group :  AbilitiesModelFetcher.fetch(reportSession.getHero()).getGroups()) {
+    List<ValuedTraitReference> specialties = new ArrayList<>();
+    for (IdentifiedTraitTypeList group : AbilitiesModelFetcher.fetch(reportSession.getHero()).getGroups()) {
       for (TraitType traitType : group.getAll()) {
-        Collections.addAll(references, getTraitReferences(content.getSpecialties(traitType), traitType));
+        specialties.addAll(getTraitReferences(content.getSpecialties(traitType), traitType));
       }
     }
-    ValuedTraitReference[] specialties = references.toArray(new ValuedTraitReference[references.size()]);
 
     int lineCount = getLineCount(null, bounds.height);
-    ValuedTraitReference[] leftSpecialties = Arrays.copyOfRange(specialties, 0, Math.min(specialties.length, lineCount));
-    ValuedTraitReference[] rightSpecialties = Arrays.copyOfRange(specialties, leftSpecialties.length, specialties.length);
+    TraitReferences leftSpecialties = new TraitReferences(specialties.subList(0, Math.min(specialties.size(), lineCount)));
+    TraitReferences rightSpecialties = new TraitReferences(specialties.subList(leftSpecialties.countTraits(), specialties.size()));
 
     float columnWidth = (bounds.width - PADDING) / 2f;
     float columnHeight = bounds.height - TEXT_PADDING / 2f;

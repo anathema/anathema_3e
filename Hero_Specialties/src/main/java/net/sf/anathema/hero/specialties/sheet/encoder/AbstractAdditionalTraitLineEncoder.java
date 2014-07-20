@@ -38,30 +38,26 @@ public abstract class AbstractAdditionalTraitLineEncoder {
     return (int) (height / traitEncoder.getTraitHeight());
   }
 
-  protected float drawNamedTraitSection(SheetGraphics graphics, String title, ValuedTraitReference[] traits, Position position, float width, float height, int dotCount) {
-    return _drawNamedTraitSection(graphics, title, traits, position, width, getLineCount(title, height), dotCount);
-  }
-
-  protected float _drawNamedTraitSection(SheetGraphics graphics, String title, ValuedTraitReference[] traits, Position position, float width, int lineCount, int dotCount) {
-    float height = 0;
+  protected float drawNamedTraitSection(SheetGraphics graphics, String title, TraitReferences traits, Position position, float width, float height, int dotCount) {
+    int lineCount = getLineCount(title, height);
+    float height1 = 0;
     if (title != null) {
-      height = drawSubsectionHeader(graphics, title, position, width);
+      height1 = drawSubsectionHeader(graphics, title, position, width);
     }
     TraitReferenceI18n internationalizer = new TraitReferenceI18n(getResources());
-    for (int index = 0; index < lineCount && index < traits.length; index++) {
-      ValuedTraitReference trait = traits[index];
+    for (ValuedTraitReference trait : traits.forElementsFromOneTo(lineCount)) {
       String name = internationalizer.getSheetName(trait);
-      Position traitPosition = new Position(position.x, position.y - height);
+      Position traitPosition = new Position(position.x, position.y - height1);
       int value = trait.getValue();
       traitEncoder.encodeWithText(graphics, name, traitPosition, width, value, dotCount);
-      height += traitEncoder.getTraitHeight();
+      height1 += traitEncoder.getTraitHeight();
     }
-    for (int index = traits.length; index < lineCount; index++) {
-      Position traitPosition = new Position(position.x, position.y - height);
+    for (int index = traits.countTraits(); index < lineCount; index++) {
+      Position traitPosition = new Position(position.x, position.y - height1);
       traitEncoder.encodeWithLine(graphics, traitPosition, width, 0, dotCount);
-      height += traitEncoder.getTraitHeight();
+      height1 += traitEncoder.getTraitHeight();
     }
-    return height;
+    return height1;
   }
 
   private float drawSubsectionHeader(SheetGraphics graphics, String text, Position position, float width) {
@@ -74,9 +70,8 @@ public abstract class AbstractAdditionalTraitLineEncoder {
     graphics.setSubsectionFont();
   }
 
-  protected final ValuedTraitReference[] getTraitReferences(Collection<Specialty> specialties, TraitType type) {
+  protected final List<ValuedTraitReference> getTraitReferences(Collection<Specialty> specialties, TraitType type) {
     Stream<Specialty> traits = specialties.stream();
-    List<ValuedTraitReference> references = traits.map(trait -> new NamedSpecialtyReference(trait, type)).collect(toList());
-    return references.toArray(new ValuedTraitReference[references.size()]);
+    return traits.map(trait -> new NamedSpecialtyReference(trait, type)).collect(toList());
   }
 }
