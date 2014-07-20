@@ -14,8 +14,8 @@ public abstract class AbstractMagic implements Magic {
   }
 
   @Override
-  public MagicAttribute[] getAttributes() {
-    return magicAttributes.toArray(new MagicAttribute[magicAttributes.size()]);
+  public Iterable<MagicAttribute> getAttributes() {
+    return magicAttributes;
   }
 
   @Override

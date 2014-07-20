@@ -9,6 +9,7 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.source.SourceBook;
 
+import java.util.Collections;
 import java.util.List;
 
 public class DummySpell implements Spell {
@@ -27,8 +28,8 @@ public class DummySpell implements Spell {
   }
 
   @Override
-  public MagicAttribute[] getAttributes() {
-    return new MagicAttribute[0];
+  public Iterable<MagicAttribute> getAttributes() {
+    return Collections.emptyList();
   }
 
   @Override

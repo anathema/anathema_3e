@@ -142,7 +142,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   @Override
-  public MagicAttribute[] getAttributes() {
-    return attributes.toArray(new MagicAttribute[attributes.size()]);
+  public Iterable<MagicAttribute> getAttributes() {
+    return attributes;
   }
 }

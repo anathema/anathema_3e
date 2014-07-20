@@ -12,7 +12,7 @@ public interface Magic {
 
   MagicName getName();
 
-  MagicAttribute[] getAttributes();
+  Iterable<MagicAttribute> getAttributes();
 
   List<SourceBook> getSources();
 
