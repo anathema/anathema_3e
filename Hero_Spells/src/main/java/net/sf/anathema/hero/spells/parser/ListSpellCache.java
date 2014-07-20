@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells.parser;
 
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +14,7 @@ public class ListSpellCache implements SpellCache {
   }
 
   @Override
-  public Spell[] getSpells() {
-    return spellList.toArray(new Spell[spellList.size()]);
+  public Spells getSpells() {
+    return Spells.copyOf(spellList);
   }
 }

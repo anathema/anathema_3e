@@ -18,6 +18,12 @@ public class Spells implements Iterable<Spell> {
     return spellSet;
   }
 
+  public static Spells copyOf(Collection<Spell> spells) {
+    Spells spellSet = new Spells();
+    spellSet.addAll(spells);
+    return spellSet;
+  }
+
   private final List<Spell> list = new ArrayList<>();
 
   @Override

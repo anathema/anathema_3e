@@ -189,9 +189,7 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   private Spells getSpellsByCircle(CircleType circle) {
-    Spells spellSet = new Spells();
-    spellSet.addAll(spellsByCircle.get(circle));
-    return spellSet;
+    return Spells.copyOf(spellsByCircle.get(circle));
   }
 
   @Override
