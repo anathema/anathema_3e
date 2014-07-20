@@ -7,5 +7,5 @@ public interface AgnosticTreeNode {
 
   void remove();
 
-  AgnosticTreeNode[] getChildren();
+  Iterable<AgnosticTreeNode> getChildren();
 }

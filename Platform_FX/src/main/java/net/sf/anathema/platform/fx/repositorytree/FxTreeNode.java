@@ -31,11 +31,11 @@ public class FxTreeNode implements AgnosticTreeNode {
   }
 
   @Override
-  public AgnosticTreeNode[] getChildren() {
+  public Iterable<AgnosticTreeNode> getChildren() {
     List<AgnosticTreeNode> childNodes = new ArrayList<>();
     for (TreeItem<Object> childItem : item.getChildren()) {
       childNodes.add(new FxTreeNode(childItem));
     }
-    return childNodes.toArray(new AgnosticTreeNode[childNodes.size()]);
+    return childNodes;
   }
 }
