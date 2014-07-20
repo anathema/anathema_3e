@@ -17,6 +17,7 @@ import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.AbstractTableEncoder;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;
 
@@ -43,7 +44,7 @@ public class AnimaTableEncoder extends AbstractTableEncoder<ReportSession> {
   @Override
   protected PdfPTable createTable(SheetGraphics graphics, ReportSession session, Bounds bounds) {
     ColumnDescriptor[] columns = getColumns();
-    PdfPTable table = new PdfPTable(getColumnWidths(columns));
+    PdfPTable table = new PdfPTable(getColumnWidths(columns).asArray());
     table.setWidthPercentage(100);
     for (ColumnDescriptor column : columns) {
       table.addCell(createHeaderCell(graphics, getString(column.getHeaderKey())));
@@ -74,12 +75,12 @@ public class AnimaTableEncoder extends AbstractTableEncoder<ReportSession> {
     return createContentCell(graphics, rangeProvider.getRange(level, hero));
   }
 
-  private float[] getColumnWidths(ColumnDescriptor[] columns) {
-    float[] widths = new float[columns.length];
-    for (int index = 0; index < widths.length; index++) {
-      widths[index] = columns[index].getWidthPart();
+  private TableColumns getColumnWidths(ColumnDescriptor[] columns) {
+    TableColumns tableColumns = new TableColumns();
+    for (ColumnDescriptor column : columns) {
+      tableColumns.add(column.getWidthPart());
     }
-    return widths;
+    return tableColumns;
   }
 
   protected ColumnDescriptor[] getColumns() {
