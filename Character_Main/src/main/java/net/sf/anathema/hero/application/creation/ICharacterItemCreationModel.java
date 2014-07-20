@@ -15,7 +15,7 @@ public interface ICharacterItemCreationModel {
 
   void addListener(ChangeListener listener);
 
-  Iterable<HeroType> getAvailableHeroTypes();
+  List<HeroType> getAvailableHeroTypes();
 
   List<HeroSplat> getAvailableTemplates();
 

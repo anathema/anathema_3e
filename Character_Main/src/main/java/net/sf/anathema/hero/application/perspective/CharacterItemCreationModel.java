@@ -45,8 +45,8 @@ public class CharacterItemCreationModel implements ICharacterItemCreationModel {
   }
 
   @Override
-  public Iterable<HeroType> getAvailableHeroTypes() {
-    return availableHeroTypes;
+  public List<HeroType> getAvailableHeroTypes() {
+    return new ArrayList<>(availableHeroTypes);
   }
 
   @Override

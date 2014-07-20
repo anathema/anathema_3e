@@ -6,10 +6,7 @@ import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class HeroCreationPresenter {
@@ -30,8 +27,10 @@ public class HeroCreationPresenter {
   public void initPresentation() {
     view.setTitle(properties.getTitle());
     ToggleButtonPanel panel = view.addToggleButtonPanel();
-    for (final HeroType type : model.getAvailableHeroTypes()) {
-      final ToggleTool button = panel.addButton(properties.getTypeString(type));
+    List<HeroType> heroTypes = model.getAvailableHeroTypes();
+    heroTypes.sort((h1, h2) -> h1.getId().compareTo(h2.getId()));
+    for (HeroType type : heroTypes) {
+      ToggleTool button = panel.addButton(properties.getTypeString(type));
       button.setIcon(properties.getTypeIcon(type));
       button.setCommand(() -> model.setCharacterType(type));
       model.addListener(() -> updateButtonChoice(type, button));
@@ -73,7 +72,7 @@ public class HeroCreationPresenter {
 
   protected void refreshList(VetoableObjectSelectionView<HeroSplat> list) {
     List<HeroSplat> availableTemplates = model.getAvailableTemplates();
-    Collections.<HeroSplat>sort(availableTemplates, (o1, o2) -> HeroCreationPresenter.this.getTemplateResource(o1).compareTo(HeroCreationPresenter.this.getTemplateResource(o2)));
+    Collections.<HeroSplat>sort(availableTemplates, (o1, o2) -> getTemplateResource(o1).compareTo(getTemplateResource(o2)));
     list.setObjects(availableTemplates);
     list.setSelectedObject(model.getSelectedTemplate());
   }
