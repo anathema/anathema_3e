@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface ISpellLearnStrategy {
 
-  void addSpells(SpellsModel configuration, List<Spell> addedSpells);
+  void addSpells(SpellsModel configuration, Spells addedSpells);
 
-  void removeSpells(SpellsModel configuration, List<Spell> removedSpells);
+  void removeSpells(SpellsModel configuration, Spells removedSpells);
 
   boolean isSpellAllowed(SpellsModel configuration, Spell spell);
 

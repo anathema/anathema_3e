@@ -3,6 +3,7 @@ package net.sf.anathema.hero.spells.persistence;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -27,20 +28,20 @@ public class SpellsPersister extends AbstractModelJsonPersister<SpellListPto, Sp
 
   @Override
   protected void loadModelFromPto(Hero hero, SpellsModel model, SpellListPto pto) {
-    List<Spell> creationSpellList = collectSpells(model, pto, spell -> !spell.isExperienceLearned);
+    Spells creationSpellList = collectSpells(model, pto, spell -> !spell.isExperienceLearned);
     model.addSpells(creationSpellList, false);
-    List<Spell> experienceSpellList = collectSpells(model, pto, spell -> spell.isExperienceLearned);
+    Spells experienceSpellList = collectSpells(model, pto, spell -> spell.isExperienceLearned);
     model.addSpells(experienceSpellList, true);
   }
 
-  private List<Spell> collectSpells(SpellsModel model, SpellListPto pto, Predicate<AttributedPto> predicate) {
+  private Spells collectSpells(SpellsModel model, SpellListPto pto, Predicate<AttributedPto> predicate) {
     Stream<AttributedPto> spells = pto.spells.stream();
     Collection<AttributedPto> matching = spells.filter(predicate).collect(Collectors.toList());
     return collectSpells(model, matching);
   }
 
-  private List<Spell> collectSpells(SpellsModel model, Iterable<AttributedPto> matchingPtoList) {
-    List<Spell> found = new ArrayList<>();
+  private Spells collectSpells(SpellsModel model, Iterable<AttributedPto> matchingPtoList) {
+    Spells found = new Spells();
     for (AttributedPto spellPto : matchingPtoList) {
       Spell spell = model.getSpellById(spellPto.id);
       found.add(spell);

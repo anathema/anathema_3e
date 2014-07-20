@@ -2,11 +2,22 @@ package net.sf.anathema.hero.spells.data;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class Spells implements Iterable<Spell>{
+public class Spells implements Iterable<Spell> {
+  public static Spells singleSpell(Spell spell) {
+    return from(spell);
+  }
+
+  public static Spells from(Spell... spells) {
+    Spells spellSet = new Spells();
+    for (Spell spell : spells) {
+      spellSet.add(spell);
+    }
+    return spellSet;
+  }
+
   private final List<Spell> list = new ArrayList<>();
 
   @Override

@@ -18,12 +18,12 @@ public class ProxySpellLearnStrategy implements ISpellLearnStrategy {
   }
 
   @Override
-  public void addSpells(SpellsModel configuration, List<Spell> addedSpells) {
+  public void addSpells(SpellsModel configuration, Spells addedSpells) {
     strategy.addSpells(configuration, addedSpells);
   }
 
   @Override
-  public void removeSpells(SpellsModel configuration, List<Spell> removedSpells) {
+  public void removeSpells(SpellsModel configuration, Spells removedSpells) {
     strategy.removeSpells(configuration, removedSpells);
   }
 

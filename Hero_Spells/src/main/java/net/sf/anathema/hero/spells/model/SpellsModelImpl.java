@@ -104,12 +104,12 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   @Override
-  public void removeSpells(List<Spell> removedSpells) {
+  public void removeSpells(Spells removedSpells) {
     strategy.removeSpells(this, removedSpells);
   }
 
   @Override
-  public void removeSpells(List<Spell> removedSpells, boolean experienced) {
+  public void removeSpells(Spells removedSpells, boolean experienced) {
     for (Spell spell : removedSpells) {
       if (experienced) {
         experiencedLearnedList.remove(spell);
@@ -121,8 +121,8 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   @Override
-  public void addSpells(List<Spell> addedSpells) {
-    List<Spell> allowedSpells = new ArrayList<>();
+  public void addSpells(Spells addedSpells) {
+    Spells allowedSpells = new Spells();
     for (Spell spell : addedSpells) {
       if (isSpellAllowed(spell)) {
         allowedSpells.add(spell);
@@ -132,7 +132,7 @@ public class SpellsModelImpl implements SpellsModel {
   }
 
   @Override
-  public void addSpells(List<Spell> addedSpells, boolean experienced) {
+  public void addSpells(Spells addedSpells, boolean experienced) {
     for (Spell spell : addedSpells) {
       if (isSpellAllowed(spell, experienced)) {
         if (experienced) {

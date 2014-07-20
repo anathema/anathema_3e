@@ -17,7 +17,6 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -42,13 +41,13 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public void removeSpells(List<Spell> removedSpells) {
+  public void removeSpells(Spells removedSpells) {
     throw new NotYetImplementedException();
   }
 
   @Override
-  public void addSpells(List<Spell> addedSpells) {
-    spells.addAll(addedSpells);
+  public void addSpells(Spells addedSpells) {
+    spells.addAll(addedSpells.asList());
   }
 
   @Override
@@ -88,19 +87,19 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public void addSpells(List<Spell> addedSpells, boolean experienced) {
+  public void addSpells(Spells addedSpells, boolean experienced) {
     if (experienced) {
       throw new IllegalArgumentException("Not implemented");
     }
-    spells.addAll(addedSpells);
+    spells.addAll(addedSpells.asList());
   }
 
   @Override
-  public void removeSpells(List<Spell> removedSpells, boolean experienced) {
+  public void removeSpells(Spells removedSpells, boolean experienced) {
     if (experienced) {
       throw new IllegalArgumentException("Not implemented");
     }
-    spells.removeAll(removedSpells);
+    spells.removeAll(removedSpells.asList());
   }
 
   @Override

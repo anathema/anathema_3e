@@ -8,12 +8,12 @@ import java.util.List;
 public class CreationSpellLearnStrategy implements ISpellLearnStrategy {
 
   @Override
-  public void addSpells(SpellsModel configuration, List<Spell> addedSpells) {
+  public void addSpells(SpellsModel configuration, Spells addedSpells) {
     configuration.addSpells(addedSpells, false);
   }
 
   @Override
-  public void removeSpells(SpellsModel configuration, List<Spell> removedSpells) {
+  public void removeSpells(SpellsModel configuration, Spells removedSpells) {
     configuration.removeSpells(removedSpells, false);
   }
 

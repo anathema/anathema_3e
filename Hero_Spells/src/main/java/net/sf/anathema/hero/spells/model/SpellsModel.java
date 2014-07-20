@@ -16,9 +16,9 @@ public interface SpellsModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("Spells");
 
-  void removeSpells(List<Spell> removedSpells);
+  void removeSpells(Spells removedSpells);
 
-  void addSpells(List<Spell> addedSpells);
+  void addSpells(Spells addedSpells);
 
   Spells getLearnedSpells();
 
@@ -32,9 +32,9 @@ public interface SpellsModel extends HeroModel {
 
   Spells getLearnedSpells(boolean experienced);
 
-  void addSpells(List<Spell> addedSpells, boolean experienced);
+  void addSpells(Spells addedSpells, boolean experienced);
 
-  void removeSpells(List<Spell> removedSpells, boolean experienced);
+  void removeSpells(Spells removedSpells, boolean experienced);
 
   boolean isSpellAllowed(Spell spell, boolean experienced);
 

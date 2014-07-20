@@ -54,13 +54,13 @@ public class SpellPresenter {
     learnPresenter.addChangeListener(new MagicViewListener() {
       @Override
       public void removeMagicRequested(Object[] removedSpells) {
-        List<Spell> spellList = convertToList(removedSpells);
+        Spells spellList = convertToList(removedSpells);
         spellConfiguration.removeSpells(spellList);
       }
 
       @Override
       public void addMagicRequested(Object[] addedSpells) {
-        List<Spell> spellList = convertToList(addedSpells);
+        Spells spellList = convertToList(addedSpells);
         spellConfiguration.addSpells(spellList);
       }
     });
@@ -89,8 +89,8 @@ public class SpellPresenter {
     view.showSelectedCircle(newValue);
   }
 
-  private List<Spell> convertToList(Object[] addedSpells) {
-    List<Spell> spellList = new ArrayList<>();
+  private Spells convertToList(Object[] addedSpells) {
+    Spells spellList = new Spells();
     for (Object spellObject : addedSpells) {
       spellList.add((Spell) spellObject);
     }
