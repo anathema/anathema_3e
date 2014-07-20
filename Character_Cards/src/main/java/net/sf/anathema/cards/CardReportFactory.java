@@ -1,5 +1,6 @@
 package net.sf.anathema.cards;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.cards.data.providers.CharmCardDataProvider;
 import net.sf.anathema.cards.data.providers.EquipmentCardDataProvider;
 import net.sf.anathema.cards.data.providers.ICardDataProvider;
@@ -20,14 +21,14 @@ import java.util.List;
 @Weight(weight = 40)
 public class CardReportFactory implements ReportFactory {
   @Override
-  public Report[] createReport(HeroEnvironment environment) {
+  public List<Report> createReport(HeroEnvironment environment) {
     List<ICardDataProvider> dataProviders = new ArrayList<>();
     dataProviders.add(new CharmCardDataProvider(environment));
     dataProviders.add(new SpellCardDataProvider(environment));
     dataProviders.add(new EquipmentCardDataProvider(environment.getResources()));
     dataProviders.add(new LegendCardDataProvider(environment.getResources()));
     ICardLayout layout = new DemocritusCardLayout(.23f, environment.getResources());
-    return new Report[]{new CardReport(environment.getResources(), layout,
-      dataProviders.toArray(new ICardDataProvider[dataProviders.size()]))};
+    return Lists.newArrayList(new CardReport(environment.getResources(), layout,
+            dataProviders.toArray(new ICardDataProvider[dataProviders.size()])));
   }
 }

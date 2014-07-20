@@ -51,7 +51,7 @@ public class PortraitSimpleExaltSheetReport extends AbstractPdfReport {
       List<PageEncoder> encoderList = new ArrayList<>();
       encoderList.add(new FirstPageEncoder(configuration));
       ReportSession session = new ReportSession(getContentRegistry(), hero);
-      Collections.addAll(encoderList, findAdditionalPages(pageSize, session));
+      encoderList.addAll(findAdditionalPages(pageSize, session));
       encoderList.add(new SecondPageEncoder());
       Sheet sheet = new Sheet(document, getEncoderRegistry(), resources, pageSize);
       for (PageEncoder encoder : encoderList) {
@@ -63,7 +63,7 @@ public class PortraitSimpleExaltSheetReport extends AbstractPdfReport {
     }
   }
 
-  private PageEncoder[] findAdditionalPages(PageSize pageSize, ReportSession session) {
+  private List<PageEncoder> findAdditionalPages(PageSize pageSize, ReportSession session) {
     PageRegistry additionalPageRegistry = getReportingModuleObject().getAdditionalPageRegistry();
     return additionalPageRegistry.createEncoders(pageSize, getEncoderRegistry(), resources, session);
   }

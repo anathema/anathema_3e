@@ -16,12 +16,11 @@ import java.util.List;
 public class SheetReportFactory implements ReportFactory {
 
   @Override
-  public Report[] createReport(HeroEnvironment environment) {
+  public List<Report> createReport(HeroEnvironment environment) {
     PageSizePreference pageSizePreference = new PageSizePreference(environment);
-    List<AbstractPdfReport> reports = Lists.newArrayList(
+    return Lists.newArrayList(
             new PortraitSimpleExaltSheetReport(environment, pageSizePreference),
             new PortraitSimpleMortalSheetReport(environment, pageSizePreference),
             new LandscapeExaltSheetReport(environment, pageSizePreference));
-    return reports.toArray(new Report[reports.size()]);
   }
 }

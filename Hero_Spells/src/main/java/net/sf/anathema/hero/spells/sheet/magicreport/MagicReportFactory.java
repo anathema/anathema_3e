@@ -6,12 +6,15 @@ import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.environment.report.ReportFactory;
 import net.sf.anathema.library.initialization.Weight;
 
+import java.util.Collections;
+import java.util.List;
+
 @RegisteredReportFactory
 @Weight(weight = 30)
 public class MagicReportFactory implements ReportFactory {
 
   @Override
-  public Report[] createReport(HeroEnvironment environment) {
-    return new Report[]{new MagicReport(environment)};
+  public List<Report> createReport(HeroEnvironment environment) {
+    return Collections.singletonList(new MagicReport(environment));
   }
 }

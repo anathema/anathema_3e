@@ -5,11 +5,14 @@ import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncoderRegistry;
 import net.sf.anathema.library.resources.Resources;
 
+import java.util.Collections;
+import java.util.List;
+
 public class NullPageFactory implements PageFactory {
 
   @Override
-  public PageEncoder[] create(EncoderRegistry encoderRegistry, Resources resources, PageSize pageSize) {
-    return new PageEncoder[0];
+  public List<PageEncoder> create(EncoderRegistry encoderRegistry, Resources resources, PageSize pageSize) {
+    return Collections.emptyList();
   }
 
   @Override

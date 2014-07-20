@@ -5,9 +5,11 @@ import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncoderRegistry;
 import net.sf.anathema.library.resources.Resources;
 
+import java.util.List;
+
 public interface PageFactory {
 
-  PageEncoder[] create(EncoderRegistry encoderRegistry, Resources resources, PageSize pageSize);
+  List<PageEncoder> create(EncoderRegistry encoderRegistry, Resources resources, PageSize pageSize);
 
   boolean supports(BasicContent content);
 }

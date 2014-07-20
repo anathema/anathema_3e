@@ -11,6 +11,7 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 public class PageRegistry {
   private static final Logger logger = Logger.getLogger(PageRegistry.class);
@@ -20,7 +21,7 @@ public class PageRegistry {
     this.objectFactory = objectFactory;
   }
 
-  public PageEncoder[] createEncoders(PageSize pageSize, EncoderRegistry encoderRegistry, Resources resources,
+  public List<PageEncoder> createEncoders(PageSize pageSize, EncoderRegistry encoderRegistry, Resources resources,
           ReportSession session) {
     return findFactory(session).create(encoderRegistry, resources, pageSize);
   }

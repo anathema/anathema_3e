@@ -21,7 +21,6 @@ import net.sf.anathema.hero.sheet.preferences.PageSizePreference;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class LandscapeExaltSheetReport extends AbstractPdfReport {
@@ -60,11 +59,11 @@ public class LandscapeExaltSheetReport extends AbstractPdfReport {
     List<PageEncoder> encoderList = new ArrayList<>();
     encoderList.add(new FirstPageEncoder());
     encoderList.add(new SecondPageEncoder());
-    Collections.addAll(encoderList, findAdditionalPages(pageSize, session));
+    encoderList.addAll(findAdditionalPages(pageSize, session));
     return encoderList;
   }
 
-  private PageEncoder[] findAdditionalPages(PageSize pageSize, ReportSession session) {
+  private List<PageEncoder> findAdditionalPages(PageSize pageSize, ReportSession session) {
     PageRegistry additionalPageRegistry = getReportingModuleObject().getAdditionalPageRegistry();
     return additionalPageRegistry.createEncoders(pageSize, getEncoderRegistry(), resources, session);
   }
