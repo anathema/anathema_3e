@@ -2,6 +2,7 @@ package net.sf.anathema.character.equipment.character.model.stats;
 
 import com.google.common.collect.Lists;
 import net.sf.anathema.character.equipment.item.MutableArtifactStats;
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 
@@ -45,7 +46,7 @@ public class ArtifactStats extends AbstractNonCombatStats implements MutableArti
   }
 
   @Override
-  public IEquipmentStats[] getViews() {
+  public ItemStatsSet getViews() {
     List<IEquipmentStats> views = Lists.newArrayList();
     if (allowForeignAttunement()) {
       views.add(createAttunement(ArtifactAttuneType.PartiallyAttuned));
@@ -55,7 +56,7 @@ public class ArtifactStats extends AbstractNonCombatStats implements MutableArti
     } else {
       views.add(createAttunement(ArtifactAttuneType.FullyAttuned));
     }
-    return views.toArray(new IEquipmentStats[views.size()]);
+    return new ItemStatsSet(views);
   }
 
   private ArtifactStatsDecorator createAttunement(ArtifactAttuneType artifactAttuneType) {

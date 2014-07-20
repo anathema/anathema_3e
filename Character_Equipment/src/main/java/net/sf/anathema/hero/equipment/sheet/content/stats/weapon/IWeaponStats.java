@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapon;
 
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
@@ -28,7 +29,7 @@ public interface IWeaponStats extends IEquipmentStats {
   
   int getMobilityPenalty();
 
-  IEquipmentStats[] getViews();
+  ItemStatsSet getViews();
 
   int getOverwhelmingValue();
 }

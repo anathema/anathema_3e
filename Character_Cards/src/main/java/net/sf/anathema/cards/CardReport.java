@@ -20,9 +20,9 @@ public class CardReport extends AbstractPdfReport {
 
   private Resources resources;
   private ICardLayout layout;
-  private ICardDataProvider[] cardDataProviders;
+  private List<ICardDataProvider> cardDataProviders;
 
-  public CardReport(Resources resources, ICardLayout layout, ICardDataProvider... cardProviders) {
+  public CardReport(Resources resources, ICardLayout layout, List<ICardDataProvider> cardProviders) {
     this.resources = resources;
     this.cardDataProviders = cardProviders;
     this.layout = layout;
@@ -43,7 +43,7 @@ public class CardReport extends AbstractPdfReport {
       // all spells and charms
       List<ICardData> cardDataSet = new ArrayList<>();
       for (ICardDataProvider provider : cardDataProviders) {
-        Collections.addAll(cardDataSet, provider.getCards(hero, layout.getResourceProvider()));
+        cardDataSet.addAll(provider.getCards(hero, layout.getResourceProvider()));
       }
 
       float documentWidth = document.right() - document.left();

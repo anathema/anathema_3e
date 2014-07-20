@@ -2,6 +2,7 @@ package net.sf.anathema.character.equipment.character.model.stats;
 
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
@@ -103,14 +104,11 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
   }
 
   @Override
-  public IEquipmentStats[] getViews() {
+  public ItemStatsSet getViews() {
     if (isMartialArtsOnlyWeapon()) {
-      return new IEquipmentStats[]{this};
+      return ItemStatsSet.withSingleStat(this);
     }
-    IEquipmentStats[] views = new IEquipmentStats[2];
-    views[0] = new WeaponStatsDecorator(this, AbilityType.Melee);
-    views[1] = new WeaponStatsDecorator(this, AbilityType.MartialArts);
-    return views;
+    return ItemStatsSet.from(new WeaponStatsDecorator(this, AbilityType.Melee), new WeaponStatsDecorator(this, AbilityType.MartialArts));
   }
 
   @Override

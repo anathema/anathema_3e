@@ -144,8 +144,8 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
   }
 
   @Override
-  public IEquipmentStats[] getViews() {
-    return new IEquipmentStats[]{this};
+  public ItemStatsSet getViews() {
+    return ItemStatsSet.withSingleStat(this);
   }
 
   @Override

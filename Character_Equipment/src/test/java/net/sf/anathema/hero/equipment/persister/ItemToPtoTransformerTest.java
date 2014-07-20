@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.persister;
 
 import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
-import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
+import net.sf.anathema.character.equipment.character.StatsOptions;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DummyEquipmentItem;
 import net.sf.anathema.hero.equipment.EquipmentModel;
@@ -39,8 +39,7 @@ public class ItemToPtoTransformerTest {
     EquipmentModel model = mock(EquipmentModel.class);
     EquipmentOptionsProvider provider = mock(EquipmentOptionsProvider.class);
     when(model.getOptionProvider()).thenReturn(provider);
-    when(provider.getEnabledStatOptions(item, stats)).thenReturn(
-            new IEquipmentStatsOption[0]);
+    when(provider.getEnabledStatOptions(item, stats)).thenReturn(new StatsOptions());
     return model;
   }
 }

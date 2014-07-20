@@ -4,7 +4,7 @@ import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
 import net.sf.anathema.hero.equipment.model.EquipmentCollection;
 import net.sf.anathema.hero.equipment.model.IWeaponModifiers;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -33,7 +33,7 @@ public class EquipmentCollectionTest {
 
   private IEquipmentItem createItemWithStats(TraitModifyingStats traitModifyingStats) {
     IEquipmentItem item = mock(IEquipmentItem.class);
-    when(item.getStats()).thenReturn(new IEquipmentStats[]{traitModifyingStats});
+    when(item.getStats()).thenReturn(ItemStatsSet.withSingleStat(traitModifyingStats));
     when(item.isPrintEnabled(traitModifyingStats)).thenReturn(true);
     return item;
   }

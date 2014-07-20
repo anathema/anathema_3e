@@ -33,7 +33,7 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
   }
 
   @Override
-  public ICardData[] getCards(Hero hero, ICardReportResourceProvider resourceProvider) {
+  public List<ICardData> getCards(Hero hero, ICardReportResourceProvider resourceProvider) {
     EquipmentModel model = EquipmentModelFetcher.fetch(hero);
     List<ICardData> data = new ArrayList<>();
     for (IEquipmentItem item : model.getEquipmentItems()) {
@@ -91,7 +91,7 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
 
       data.add(new EquipmentCardData(title, headerText, bodyText.toArray(new Phrase[bodyText.size()]), resourceProvider.getNullIcon()));
     }
-    return data.toArray(new ICardData[data.size()]);
+    return data;
   }
 
   private boolean hasCustomTitle(IEquipmentItem item) {

@@ -4,6 +4,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import net.sf.anathema.character.equipment.character.EquipmentHeroEvaluator;
 import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
+import net.sf.anathema.character.equipment.character.StatsOptions;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
 import net.sf.anathema.character.equipment.item.model.IEquipmentTemplateProvider;
@@ -196,18 +197,18 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   @Override
-  public IEquipmentStatsOption[] getEnabledStatOptions(IEquipmentItem item, IEquipmentStats stats) {
+  public StatsOptions getEnabledStatOptions(IEquipmentItem item, IEquipmentStats stats) {
     if (item == null || stats == null) {
-      return new IEquipmentStatsOption[0];
+      return new StatsOptions();
     }
     List<IEquipmentStatsOption> options = getOptionsList(item, stats);
-    return options.toArray(new IEquipmentStatsOption[options.size()]);
+    return new StatsOptions(options);
   }
 
   @Override
-  public IEquipmentStatsOption[] getEnabledStatOptions(IEquipmentStats stats) {
+  public StatsOptions getEnabledStatOptions(IEquipmentStats stats) {
     if (stats == null) {
-      return new IEquipmentStatsOption[0];
+      return new StatsOptions();
     }
     List<IEquipmentItem> itemList = new ArrayList<>();
     itemList.addAll(getNaturalWeapons());
@@ -219,7 +220,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
         }
       }
     }
-    return new IEquipmentStatsOption[0];
+    return new StatsOptions();
   }
 
   @Override

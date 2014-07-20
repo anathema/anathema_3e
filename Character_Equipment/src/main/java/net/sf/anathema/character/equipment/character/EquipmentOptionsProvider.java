@@ -11,9 +11,9 @@ public interface EquipmentOptionsProvider {
 
   boolean isStatOptionEnabled(IEquipmentItem item, IEquipmentStats stats, IEquipmentStatsOption option);
 
-  IEquipmentStatsOption[] getEnabledStatOptions(IEquipmentItem item, IEquipmentStats stats);
+  StatsOptions getEnabledStatOptions(IEquipmentItem item, IEquipmentStats stats);
 
-  IEquipmentStatsOption[] getEnabledStatOptions(IEquipmentStats stats);
+  StatsOptions getEnabledStatOptions(IEquipmentStats stats);
 
   // returns true if options have been transferred
   boolean transferOptions(IEquipmentItem fromItem, IEquipmentItem toItem);

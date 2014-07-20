@@ -1,6 +1,6 @@
 package net.sf.anathema.character.equipment.character.model.stats;
 
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -78,8 +78,8 @@ public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats 
   }
 
   @Override
-  public IEquipmentStats[] getViews() {
-    return new IEquipmentStats[]{this};
+  public ItemStatsSet getViews() {
+    return ItemStatsSet.withSingleStat(this);
   }
 
   @Override

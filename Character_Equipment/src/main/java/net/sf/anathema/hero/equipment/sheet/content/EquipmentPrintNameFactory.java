@@ -20,7 +20,7 @@ public class EquipmentPrintNameFactory {
 
   public String create(IEquipmentItem item, IWeaponStats stats) {
     StringBuilder builder = new StringBuilder(item.getTitle());
-    if (item.getStats().length == 1) {
+    if (item.getStats().hasOnlyOneStat()) {
       return builder.toString();
     }
     if (!hasSingleOriginalStat(item)) {

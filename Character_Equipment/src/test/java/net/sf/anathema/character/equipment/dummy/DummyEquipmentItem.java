@@ -5,6 +5,7 @@ import net.sf.anathema.character.equipment.character.model.stats.AbstractStats;
 import net.sf.anathema.equipment.core.ItemCost;
 import net.sf.anathema.equipment.core.MagicalMaterial;
 import net.sf.anathema.equipment.core.MaterialComposition;
+import net.sf.anathema.hero.equipment.model.ItemStatsSet;
 import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.library.event.ChangeListener;
@@ -29,8 +30,8 @@ public class DummyEquipmentItem extends AbstractStats implements IEquipmentItem 
   }
 
   @Override
-  public IEquipmentStats[] getStats() {
-    return allEquipments.toArray(new IEquipmentStats[allEquipments.size()]);
+  public ItemStatsSet getStats() {
+    return new ItemStatsSet(allEquipments);
   }
 
   @Override

@@ -1,6 +1,5 @@
 package net.sf.anathema.cards;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.cards.data.providers.CharmCardDataProvider;
 import net.sf.anathema.cards.data.providers.EquipmentCardDataProvider;
 import net.sf.anathema.cards.data.providers.ICardDataProvider;
@@ -15,6 +14,7 @@ import net.sf.anathema.hero.environment.report.ReportFactory;
 import net.sf.anathema.library.initialization.Weight;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @RegisteredReportFactory
@@ -28,7 +28,6 @@ public class CardReportFactory implements ReportFactory {
     dataProviders.add(new EquipmentCardDataProvider(environment.getResources()));
     dataProviders.add(new LegendCardDataProvider(environment.getResources()));
     ICardLayout layout = new DemocritusCardLayout(.23f, environment.getResources());
-    return Lists.newArrayList(new CardReport(environment.getResources(), layout,
-            dataProviders.toArray(new ICardDataProvider[dataProviders.size()])));
+    return Collections.singletonList(new CardReport(environment.getResources(), layout, dataProviders));
   }
 }

@@ -20,15 +20,9 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.lang.StringUtilities;
 import org.jmock.example.announcer.Announcer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static net.sf.anathema.equipment.core.MaterialComposition.Variable;
 
@@ -100,23 +94,23 @@ public class EquipmentItem implements IEquipmentItem {
   }
 
   @Override
-  public IEquipmentStats[] getStats() {
-    Stream<IEquipmentStats> views = getViews().stream();
-    return views.map(new MaterialWrapper()).collect(Collectors.toList()).toArray(new IEquipmentStats[0]);
+  public ItemStatsSet getStats() {
+    ItemStatsSet statsSet = getViews();
+    return statsSet.apply(new MaterialWrapper());
   }
 
-  private Collection<IEquipmentStats> getViews() {
-    List<IEquipmentStats> views = new ArrayList<>();
+  private ItemStatsSet getViews() {
+    ItemStatsSet statsSet = new ItemStatsSet();
     for (IEquipmentStats stats : template.getStatsList()) {
       if (stats instanceof IWeaponStats) {
-        Collections.addAll(views, ((IWeaponStats) stats).getViews());
+        statsSet.adopt(((IWeaponStats) stats).getViews());
       } else if (stats instanceof ArtifactStats) {
-        Collections.addAll(views, ((ArtifactStats) stats).getViews());
+        statsSet.adopt(((ArtifactStats) stats).getViews());
       } else {
-        views.add(stats);
+        statsSet.add(stats);
       }
     }
-    return views;
+    return statsSet;
   }
 
   @Override

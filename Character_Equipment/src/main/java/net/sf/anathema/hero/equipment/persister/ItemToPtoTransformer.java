@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.equipment.persister;
 
 import net.sf.anathema.character.equipment.character.EquipmentOptionsProvider;
+import net.sf.anathema.character.equipment.character.StatsOptions;
 import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
 import net.sf.anathema.character.equipment.character.model.IEquipmentStatsOption;
 import net.sf.anathema.equipment.core.MaterialComposition;
@@ -38,7 +39,7 @@ public class ItemToPtoTransformer {
     statsPto.id = stats.getId();
     IEquipmentStats stat = item.getStat(stats.getId());
     EquipmentOptionsProvider optionProvider = heroModel.getOptionProvider();
-    IEquipmentStatsOption[] enabledStatOptions = optionProvider.getEnabledStatOptions(item, stat);
+    StatsOptions enabledStatOptions = optionProvider.getEnabledStatOptions(item, stat);
     for (IEquipmentStatsOption option : enabledStatOptions) {
       EquipmentOptionPto optionPto = new EquipmentOptionPto();
       optionPto.name = option.getName();

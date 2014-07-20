@@ -20,12 +20,12 @@ public class SpellCardDataProvider extends AbstractMagicCardDataProvider {
   }
 
   @Override
-  public ICardData[] getCards(Hero hero, ICardReportResourceProvider fontProvider) {
+  public List<ICardData> getCards(Hero hero, ICardReportResourceProvider fontProvider) {
     List<ICardData> cards = new ArrayList<>();
     for (Spell spell : getCurrentSpells(hero)) {
       cards.add(new SpellCardData(spell, createSpellStats(spell), getMagicDescription(spell), fontProvider, getResources()));
     }
-    return cards.toArray(new ICardData[cards.size()]);
+    return cards;
   }
 
   private Spell[] getCurrentSpells(Hero hero) {

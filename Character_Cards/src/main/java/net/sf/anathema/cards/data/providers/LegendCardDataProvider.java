@@ -36,7 +36,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
   }
 
   @Override
-  public ICardData[] getCards(Hero hero, ICardReportResourceProvider resourceProvider) {
+  public List<ICardData> getCards(Hero hero, ICardReportResourceProvider resourceProvider) {
     traits.clear();
     characterTypes.clear();
     spellCircles.clear();
@@ -52,7 +52,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     return createCards(resourceProvider);
   }
 
-  private ICardData[] createCards(ICardReportResourceProvider resourceProvider) {
+  private List<ICardData> createCards(ICardReportResourceProvider resourceProvider) {
     List<LegendEntry> entries = new ArrayList<>();
     List<ICardData> cards = new ArrayList<>();
 
@@ -87,7 +87,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
       newPage = false;
     }
 
-    return cards.toArray(new ICardData[cards.size()]);
+    return cards;
   }
 
   private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Set<Charm> charms) {
