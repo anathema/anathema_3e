@@ -18,21 +18,18 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.resources.Resources;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public abstract class AbstractHealthAndMovementTableEncoder implements ITableEncoder<ReportSession> {
   public static final int HEALTH_RECT_SIZE = 6;
   private static final int HEALTH_COLUMN_COUNT = 10;
   protected static float PADDING = 0.3f;
-  private static final Float[] HEALTH_LEVEL_COLUMNS = new Float[]{PADDING, 0.6f, 0.7f, PADDING};
+  private static final TableColumns HEALTH_LEVEL_COLUMNS = TableColumns.from(PADDING, 0.6f, 0.7f, PADDING);
 
   private final Resources resources;
 
@@ -40,7 +37,7 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
     this.resources = resources;
   }
 
-  protected abstract Float[] getMovementColumns();
+  protected abstract TableColumns getMovementColumns();
 
   @Override
   public float encodeTable(SheetGraphics graphics, ReportSession session, Bounds bounds) throws DocumentException {
@@ -66,8 +63,8 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
       PdfContentByte directContent = graphics.getDirectContent();
       Image activeTemplate  = Image.getInstance(HealthTemplateFactory.createRectTemplate(directContent, BaseColor.BLACK));
       Image passiveTemplate = Image.getInstance(HealthTemplateFactory.createRectTemplate(directContent, BaseColor.LIGHT_GRAY));
-      float[] columnWidth = createColumnWidth();
-      PdfPTable table = new PdfPTable(columnWidth);
+      TableColumns columnWidth = createColumnWidth();
+      PdfPTable table = new PdfPTable(columnWidth.asArray());
       addHeaders(graphics, table);
       for (HealthLevelType type : HealthLevelType.values()) {
         addHealthTypeRows(graphics, table, session.getHero(), activeTemplate, passiveTemplate, type);
@@ -94,7 +91,7 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
         }
         addHealthTypeCells(graphics, table, type, painTolerance);
       } else {
-        addSpaceCells(graphics, table, getMovementColumns().length + HEALTH_LEVEL_COLUMNS.length);
+        addSpaceCells(graphics, table, getMovementColumns().countWeights() + HEALTH_LEVEL_COLUMNS.countWeights());
       }
       addHealthCells(graphics, table, hero, type, rowIndex, activeTemplate, passiveTemplate);
     }
@@ -109,7 +106,7 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   private void addIncapacitatedMovement(SheetGraphics graphics, PdfPTable table) {
     Phrase commentPhrase = createIncapacitatedComment(graphics);
     TableCell cell = new TableCell(commentPhrase, Rectangle.NO_BORDER);
-    cell.setColspan(getMovementColumns().length);
+    cell.setColspan(getMovementColumns().countWeights());
     cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
     table.addCell(cell);
   }
@@ -218,13 +215,13 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
     return cell;
   }
 
-  private float[] createColumnWidth() {
-    ArrayList<Float> widths = new ArrayList<>();
-    Float[] healthColumns = TableEncodingUtilities.createStandardColumnWidths(HEALTH_COLUMN_COUNT, 0.4f);
-    Collections.addAll(widths, getMovementColumns());
-    Collections.addAll(widths, HEALTH_LEVEL_COLUMNS);
-    Collections.addAll(widths, healthColumns);    
-    return ArrayUtils.toPrimitive(widths.toArray(new Float[widths.size()]));
+  private TableColumns createColumnWidth() {
+    TableColumns columns = new TableColumns();
+    TableColumns healthColumns = TableEncodingUtilities.createStandardColumnWidths(HEALTH_COLUMN_COUNT, 0.4f);
+    columns.adopt(getMovementColumns());
+    columns.adopt(HEALTH_LEVEL_COLUMNS);
+    columns.adopt(healthColumns);
+    return columns;
   }
 
   protected final Resources getResources() {

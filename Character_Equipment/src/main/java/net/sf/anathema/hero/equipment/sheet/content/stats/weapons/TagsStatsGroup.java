@@ -11,6 +11,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.character.equipment.creation.model.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
@@ -50,8 +51,8 @@ public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> 
   }
 
   @Override
-  public Float[] getColumnWeights() {
-    return new Float[]{new Float(1.7)};
+  public TableColumns getColumnWeights() {
+    return TableColumns.singleColumn(1.7f);
   }
 
   @Override

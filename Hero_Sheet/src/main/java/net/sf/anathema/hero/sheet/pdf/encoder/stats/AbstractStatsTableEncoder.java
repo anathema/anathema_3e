@@ -11,6 +11,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.AbstractTableEncoder;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import org.apache.commons.lang3.ArrayUtils;
 
@@ -32,8 +33,8 @@ public abstract class AbstractStatsTableEncoder<T extends IStats, C> extends Abs
   @Override
   protected PdfPTable createTable(SheetGraphics graphics, C content, Bounds bounds) {
     IStatsGroup<T>[] groups = createStatsGroups(content);
-    float[] columnWidths = calculateColumnWidths(groups);
-    PdfPTable table = new PdfPTable(columnWidths);
+    TableColumns columns = calculateColumnWidths(groups);
+    PdfPTable table = new PdfPTable(columns.asArray());
     table.setTotalWidth(bounds.width);
     if (!suppressHeaderLine) {
       encodeHeaderLine(graphics, table, groups);
@@ -72,15 +73,15 @@ public abstract class AbstractStatsTableEncoder<T extends IStats, C> extends Abs
     table.addCell(cell);
   }
 
-  protected final float[] calculateColumnWidths(IStatsGroup<T>[] groups) {
-    ArrayList<Float> columnWidths = new ArrayList<>();
+  private TableColumns calculateColumnWidths(IStatsGroup<T>[] groups) {
+    TableColumns tableColumns = new TableColumns();
     for (IStatsGroup<T> group : groups) {
-      if (!columnWidths.isEmpty()) {
-        columnWidths.add(new Float(0.2));
+      if (!tableColumns.isEmpty()) {
+        tableColumns.add(0.2f);
       }
-      Collections.addAll(columnWidths, group.getColumnWeights());
+      tableColumns.adopt(group.getColumnWeights());
     }
-    return ArrayUtils.toPrimitive(columnWidths.toArray(new Float[columnWidths.size()]));
+    return tableColumns;
   }
 
   protected PdfPCell createSpaceCell(SheetGraphics graphics) {

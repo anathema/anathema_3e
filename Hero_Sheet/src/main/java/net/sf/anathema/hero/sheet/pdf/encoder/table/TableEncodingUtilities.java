@@ -11,16 +11,16 @@ import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 
 public class TableEncodingUtilities {
 
-  public static Float[] createStandardColumnWeights(int columnCount) {
+  public static TableColumns createStandardColumnWeights(int columnCount) {
     return createStandardColumnWidths(columnCount, 1);
   }
 
-  public static Float[] createStandardColumnWidths(int columnCount, float value) {
-    Float[] columnWeights = new Float[columnCount];
-    for (int index = 0; index < columnWeights.length; index++) {
-      columnWeights[index] = value;
+  public static TableColumns createStandardColumnWidths(int columnCount, float value) {
+    TableColumns columns = new TableColumns();
+    for (int index = 0; index < columnCount; index++) {
+      columns.add(value);
     }
-    return columnWeights;
+    return columns;
   }
 
   public static PdfPCell createContentCellTable(BaseColor borderColor, String text, Font font, float borderWidth, int border, int alignment) {

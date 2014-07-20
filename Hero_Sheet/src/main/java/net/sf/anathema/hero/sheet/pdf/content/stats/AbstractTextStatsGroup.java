@@ -12,7 +12,7 @@ public abstract class AbstractTextStatsGroup<T extends IStats> implements IStats
 
   @Override
   public final int getColumnCount() {
-    return getColumnWeights().length;
+    return getColumnWeights().countWeights();
   }
 
   protected final PdfPCell createTextCell(Font font, String text) {

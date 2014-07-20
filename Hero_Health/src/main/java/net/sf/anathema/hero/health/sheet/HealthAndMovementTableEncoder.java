@@ -7,6 +7,7 @@ import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -28,8 +29,8 @@ public class HealthAndMovementTableEncoder extends AbstractHealthAndMovementTabl
   }
 
   @Override
-  protected final Float[] getMovementColumns() {
-    return new Float[]{1f, PADDING, 1f, PADDING, 1f, 1f};
+  protected final TableColumns getMovementColumns() {
+    return TableColumns.from(1f, PADDING, 1f, PADDING, 1f, 1f);
   }
 
   @Override

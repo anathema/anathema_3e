@@ -18,11 +18,11 @@ public class ListUtils {
   public static void addBulletedListText(Resources resources, Chunk symbolChunk, String resourceBase, Phrase phrase,
                                          boolean showHeader) {
     String header = showHeader ? getRequiredString(resources, resourceBase) : null;
-    String[] items = getAvailableLineItems(resources, resourceBase);
+    List<String> items = getAvailableLineItems(resources, resourceBase);
     addBulletList(phrase, symbolChunk, header, items);
   }
 
-  public static void addBulletList(Phrase phrase, Chunk symbolChunk, String header, String[] items) {
+  public static void addBulletList(Phrase phrase, Chunk symbolChunk, String header, List<String> items) {
     if (header != null) {
       phrase.add(header + "\n");
     }
@@ -32,7 +32,7 @@ public class ListUtils {
     }
   }
 
-  public static String[] getAvailableLineItems(Resources resources, String resourceBase) {
+  public static List<String> getAvailableLineItems(Resources resources, String resourceBase) {
     List<String> items = new ArrayList<>();
     for (String itemId : ListUtils.RESOURCE_ID) {
       String lineItem = getRequiredString(resources, resourceBase, itemId);
@@ -40,7 +40,7 @@ public class ListUtils {
         items.add(lineItem);
       }
     }
-    return items.toArray(new String[items.size()]);
+    return items;
   }
 
   public static String getRequiredString(Resources resources, String resourceBase) {
@@ -54,7 +54,6 @@ public class ListUtils {
     } else {
       baseId = resourceBase + "." + resourceId;
     }
-
     String resource = null;
     if (resources.supportsKey(baseId)) {
       resource = resources.getString(baseId);

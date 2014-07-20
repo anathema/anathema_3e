@@ -6,6 +6,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractTextStatsGroup;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.Collection;
@@ -33,8 +34,8 @@ public class MagicDetailsStatsGroup extends AbstractTextStatsGroup<IMagicStats> 
   }
 
   @Override
-  public Float[] getColumnWeights() {
-    return new Float[]{7f};
+  public TableColumns getColumnWeights() {
+    return TableColumns.singleColumn(7);
   }
 
   @Override

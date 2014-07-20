@@ -2,6 +2,7 @@ package net.sf.anathema.hero.sheet.pdf.content.stats;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.library.resources.Resources;
 
 public abstract class AbstractNameStatsGroup<T extends IStats> extends AbstractTextStatsGroup<T> {
@@ -19,8 +20,8 @@ public abstract class AbstractNameStatsGroup<T extends IStats> extends AbstractT
   }
 
   @Override
-  public Float[] getColumnWeights() {
-    return new Float[]{6f};
+  public TableColumns getColumnWeights() {
+    return TableColumns.singleColumn(6);
   }
 
   @Override

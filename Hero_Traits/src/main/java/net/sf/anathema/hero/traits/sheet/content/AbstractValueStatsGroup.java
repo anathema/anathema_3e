@@ -7,6 +7,7 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.resources.Resources;
@@ -28,7 +29,7 @@ public abstract class AbstractValueStatsGroup<T extends IStats> implements IStat
   }
 
   @Override
-  public Float[] getColumnWeights() {
+  public TableColumns getColumnWeights() {
     return TableEncodingUtilities.createStandardColumnWeights(getColumnCount());
   }
 

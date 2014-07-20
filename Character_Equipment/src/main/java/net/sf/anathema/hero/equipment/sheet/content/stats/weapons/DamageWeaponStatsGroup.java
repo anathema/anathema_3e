@@ -6,6 +6,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
 import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
 import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.resources.Resources;
@@ -20,10 +21,10 @@ public class DamageWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWe
   }
 
   @Override
-  public Float[] getColumnWeights() {
-    Float[] columnWidth = super.getColumnWeights();
-    columnWidth[getColumnCount() - 1] = 0.7f;
-    return columnWidth;
+  public TableColumns getColumnWeights() {
+    TableColumns columns = super.getColumnWeights();
+    columns.changeLastTo(0.7f);
+    return columns;
   }
 
   @Override

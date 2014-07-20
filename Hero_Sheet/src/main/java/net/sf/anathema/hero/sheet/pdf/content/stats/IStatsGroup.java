@@ -2,6 +2,7 @@ package net.sf.anathema.hero.sheet.pdf.content.stats;
 
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 
 public interface IStatsGroup<T extends IStats> {
 
@@ -9,7 +10,7 @@ public interface IStatsGroup<T extends IStats> {
 
   String getTitle();
 
-  Float[] getColumnWeights();
+  TableColumns getColumnWeights();
 
   void addContent(PdfPTable table, Font font, T stats);
 }

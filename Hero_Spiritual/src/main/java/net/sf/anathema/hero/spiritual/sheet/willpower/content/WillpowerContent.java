@@ -8,6 +8,8 @@ import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.sheet.content.BulletList;
 import net.sf.anathema.library.resources.Resources;
 
+import java.util.List;
+
 public class WillpowerContent extends AbstractSubBoxContent {
 
   private Hero hero;
@@ -40,7 +42,7 @@ public class WillpowerContent extends AbstractSubBoxContent {
 
   private BulletList createBulletList(String resourceBase) {
     String header = ListUtils.getRequiredString(getResources(), resourceBase);
-    String[] items = ListUtils.getAvailableLineItems(getResources(), resourceBase);
+    List<String> items = ListUtils.getAvailableLineItems(getResources(), resourceBase);
     return new BulletList(header, items);
   }
 }
