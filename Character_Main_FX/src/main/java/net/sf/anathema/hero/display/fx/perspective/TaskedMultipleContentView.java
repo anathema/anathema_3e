@@ -52,7 +52,7 @@ public class TaskedMultipleContentView implements MultipleContentView {
     paneContainer.add(styledPane, new CC().push().grow());
   }
 
-  private Node createContainer(final NodeHolder content, String name) {
+  private Node createContainer(NodeHolder content, String name) {
     MigPane viewComponent = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1));
     MigPane titlePane = new MigPane(LayoutUtils.fillWithoutInsets());
     Label title = new Label(name);
