@@ -1,6 +1,7 @@
 package net.sf.anathema.magic.description.module;
 
 import net.sf.anathema.magic.description.model.MagicDescription;
+import net.sf.anathema.magic.description.model.Paragraphs;
 
 public class DirectMagicDescription implements MagicDescription {
   private String description;
@@ -15,11 +16,12 @@ public class DirectMagicDescription implements MagicDescription {
   }
 
   @Override
-  public String[] getParagraphs() {
-    return isEmpty() ? new String[0] : splitInParagraphs();
+  public Paragraphs getParagraphs() {
+    return isEmpty() ? new Paragraphs() : splitInParagraphs();
   }
 
-  private String[] splitInParagraphs() {
-    return description.split("\\r?\\n");
+  private Paragraphs splitInParagraphs() {
+    String[] split = description.split("\\r?\\n");
+    return new Paragraphs(split);
   }
 }

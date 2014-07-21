@@ -20,12 +20,12 @@ public class AggregatedMagicDescription implements MagicDescription {
   }
 
   @Override
-  public String[] getParagraphs() {
+  public Paragraphs getParagraphs() {
     for (MagicDescription description : descriptions) {
       if (!description.isEmpty()) {
         return description.getParagraphs();
       }
     }
-    return new String[0];
+    return new Paragraphs();
   }
 }

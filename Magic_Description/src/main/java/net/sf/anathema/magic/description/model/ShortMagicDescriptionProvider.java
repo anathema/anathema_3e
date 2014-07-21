@@ -20,13 +20,13 @@ public class ShortMagicDescriptionProvider implements MagicDescriptionProvider {
     return new MagicDescription() {
       @Override
       public boolean isEmpty() {
-        return getParagraphs().length == 0;
+        return getParagraphs().isEmpty();
       }
 
       @Override
-      public String[] getParagraphs() {
+      public Paragraphs getParagraphs() {
         String descriptionString = getDescriptionString(magic);
-        return Strings.isNullOrEmpty(descriptionString) ? new String[0] : new String[]{descriptionString};
+        return Strings.isNullOrEmpty(descriptionString) ? new Paragraphs() : new Paragraphs(descriptionString);
       }
 
       private String getDescriptionString(Magic magic) {
