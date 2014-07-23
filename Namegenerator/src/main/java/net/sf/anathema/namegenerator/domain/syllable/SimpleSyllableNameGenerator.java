@@ -1,6 +1,7 @@
 package net.sf.anathema.namegenerator.domain.syllable;
 
 import net.sf.anathema.namegenerator.domain.INameGenerator;
+import net.sf.anathema.namegenerator.domain.Names;
 
 public class SimpleSyllableNameGenerator implements INameGenerator {
 
@@ -13,9 +14,9 @@ public class SimpleSyllableNameGenerator implements INameGenerator {
   }
 
   @Override
-  public String[] createNames(int count) {
-    String[] names = new String[count];
-    for (int nameIndex = 0; nameIndex < names.length; nameIndex++) {
+  public Names createNames(int count) {
+    Names names = new Names();
+    for (int nameIndex = 0; nameIndex < count; nameIndex++) {
       StringBuilder name = new StringBuilder();
       int wordCount = wordCalculator.calculateNamePartCount();
       for (int wordIndex = 0; wordIndex < wordCount; wordIndex++) {
@@ -24,7 +25,7 @@ public class SimpleSyllableNameGenerator implements INameGenerator {
         }
         name.append(wordFactory.createWord(wordIndex));
       }
-      names[nameIndex] = name.toString();
+      names.add(name.toString());
     }
     return names;
   }

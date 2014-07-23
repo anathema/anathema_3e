@@ -2,6 +2,7 @@ package net.sf.anathema.namegenerator.exalted.domain;
 
 import net.sf.anathema.library.RandomUtilities;
 import net.sf.anathema.namegenerator.domain.INameGenerator;
+import net.sf.anathema.namegenerator.domain.Names;
 import net.sf.anathema.namegenerator.domain.category.CategorizedTokenNameFactory;
 import net.sf.anathema.namegenerator.domain.category.CategorizedTokenNameTemplate;
 import net.sf.anathema.namegenerator.domain.category.ICategorizedTokenConfiguration;
@@ -344,11 +345,11 @@ public class ThresholdNameGenerator implements INameGenerator {
   }
 
   @Override
-  public String[] createNames(int count) {
-    String[] names = new String[count];
-    for (int nameIndex = 0; nameIndex < names.length; nameIndex++) {
+  public Names createNames(int count) {
+    Names names = new Names();
+    for (int nameIndex = 0; nameIndex < count; nameIndex++) {
       ICategorizedTokenNameTemplate template = RandomUtilities.choose(templates);
-      names[nameIndex] = factory.createName(template);
+      names.add(factory.createName(template));
     }
     return names;
   }

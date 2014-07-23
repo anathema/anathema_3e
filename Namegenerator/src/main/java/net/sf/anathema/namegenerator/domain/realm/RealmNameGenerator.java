@@ -1,6 +1,7 @@
 package net.sf.anathema.namegenerator.domain.realm;
 
 import net.sf.anathema.namegenerator.domain.INameGenerator;
+import net.sf.anathema.namegenerator.domain.Names;
 import net.sf.anathema.namegenerator.domain.syllable.SimpleSyllableNameGenerator;
 
 public class RealmNameGenerator implements INameGenerator {
@@ -18,11 +19,11 @@ public class RealmNameGenerator implements INameGenerator {
   }
 
   @Override
-  public String[] createNames(int count) {
-    String[] names = new String[count];
-    for (int index = 0; index < names.length; index++) {
-      String newName = realmNameGenerator.createNames(1)[0];
-      names[index] = newName;
+  public Names createNames(int count) {
+    Names names = new Names();
+    for (int index = 0; index < count; index++) {
+      String newName = realmNameGenerator.createNames(1).getFirst();
+      names.add(newName);
     }
     return names;
   }
