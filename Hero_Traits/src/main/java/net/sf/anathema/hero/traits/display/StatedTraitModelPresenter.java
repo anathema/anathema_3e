@@ -66,11 +66,11 @@ public class StatedTraitModelPresenter {
     }
   }
 
-  private Trait[] getAllTraits() {
+  private Traits getAllTraits() {
     return model.getAll();
   }
 
-  private void addTraitViews(Trait[] traits) {
+  private void addTraitViews(Traits traits) {
     for (Trait trait : traits) {
       addTraitView(trait);
     }

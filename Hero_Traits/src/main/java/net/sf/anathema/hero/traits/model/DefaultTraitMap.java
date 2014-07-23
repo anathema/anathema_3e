@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.traits.model;
 
 import com.google.common.base.Preconditions;
+import net.sf.anathema.hero.traits.display.Traits;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class DefaultTraitMap implements TraitMap {
@@ -38,17 +37,17 @@ public class DefaultTraitMap implements TraitMap {
   }
 
   @Override
-  public final Trait[] getTraits(TraitType... traitTypes) {
-    List<Trait> foundTraits = new ArrayList<>();
+  public final Traits getTraits(TraitType... traitTypes) {
+    Traits foundTraits = new Traits();
     for (TraitType type : traitTypes) {
       foundTraits.add(getTrait(type));
     }
-    return foundTraits.toArray(new Trait[foundTraits.size()]);
+    return foundTraits;
   }
 
-  public final Trait[] getAll() {
+  public final Traits getAll() {
     Collection<Trait> attributes = traitsByType.values();
-    return attributes.toArray(new Trait[attributes.size()]);
+    return new Traits(attributes);
   }
 
   public final boolean contains(TraitType traitType) {

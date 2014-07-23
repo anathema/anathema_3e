@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.oxbody;
 
+import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
 
 import java.util.ArrayList;
@@ -7,9 +8,9 @@ import java.util.List;
 
 public class OxBodyTechniqueArbitratorImpl implements OxBodyTechniqueArbitrator {
   private final List<OxBodyTechniqueSpecials> oxBodyList = new ArrayList<>();
-  private final Trait[] controllingTraits;
+  private final Traits controllingTraits;
 
-  public OxBodyTechniqueArbitratorImpl(Trait[] toughnessControllingTraits) {
+  public OxBodyTechniqueArbitratorImpl(Traits toughnessControllingTraits) {
     this.controllingTraits = toughnessControllingTraits;
   }
 

@@ -18,8 +18,6 @@ import net.sf.anathema.library.identifier.Identifier;
 import java.util.Collection;
 import java.util.Iterator;
 
-import static java.util.Arrays.asList;
-
 public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitModel, HeroModel {
 
   private final ProxyTraitValueStrategy traitValueStrategy = new ProxyTraitValueStrategy(new CreationTraitValueStrategy());
@@ -63,7 +61,7 @@ public class TraitModelImpl extends DefaultTraitMap implements TraitMap, TraitMo
 
   @Override
   public Iterator<Trait> iterator() {
-    return asList(getAll()).iterator();
+    return getAll().iterator();
   }
 
   @Override

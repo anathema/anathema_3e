@@ -3,6 +3,8 @@ package net.sf.anathema.hero.traits.dummy;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.IntegerChangedListener;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class DummyTrait implements Trait {
 
@@ -126,5 +128,16 @@ public class DummyTrait implements Trait {
   @Override
   public boolean isLowerable() {
     return false;
+  }
+
+  @SuppressWarnings("EqualsWhichDoesntCheckParameterClass")
+  @Override
+  public boolean equals(Object o) {
+    return EqualsBuilder.reflectionEquals(this, o);
+  }
+
+  @Override
+  public int hashCode() {
+    return HashCodeBuilder.reflectionHashCode(this);
   }
 }

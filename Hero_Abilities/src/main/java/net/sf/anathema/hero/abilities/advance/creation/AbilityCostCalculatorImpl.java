@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
+import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
 
@@ -20,7 +21,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private AbilitiesModel abilitiesModel;
   private AbilityCreationData creationData;
   private final Multimap<Trait, FavorableTraitCost> costsByTrait = HashMultimap.create();
-  private final Trait[] traits;
+  private final Traits traits;
   private int favoredPicksSpent = 0;
   private int castePicksSpent = 0;
   private int supernalPicksSpent = 0;
@@ -121,7 +122,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return favored ? favoredDotSum : generalDotSum;
   }
 
-  protected Trait[] getTraits() {
+  protected Traits getTraits() {
     return traits;
   }
 

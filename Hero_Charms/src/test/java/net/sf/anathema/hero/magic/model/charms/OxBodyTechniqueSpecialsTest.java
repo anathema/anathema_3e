@@ -7,10 +7,9 @@ import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueArbitrato
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecials;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecialsImpl;
-import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.health.model.HealthLevelType;
-import net.sf.anathema.hero.traits.dummy.DummyCasteType;
+import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -43,7 +42,7 @@ public class OxBodyTechniqueSpecialsTest {
     TraitValueStrategy strategy = new CreationTraitValueStrategy();
     hero = new CharmHeroObjectMother().createModelContextWithEssence2(strategy);
     resistance = createResistance(hero);
-    this.arbitrator = new OxBodyTechniqueArbitratorImpl(new Trait[]{resistance});
+    this.arbitrator = new OxBodyTechniqueArbitratorImpl(new Traits(resistance));
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(resistance);
     specials = new OxBodyTechniqueSpecialsImpl(hero, null, healthTraitTypes, arbitrator, createObtCharm());
@@ -53,7 +52,6 @@ public class OxBodyTechniqueSpecialsTest {
   private TraitImpl createResistance(DummyHero hero) {
     TraitTemplate resistanceTemplate = TraitTemplateFactory.createEssenceLimitedTemplate(0);
     TraitRules resistanceRules = new TraitRulesImpl(AbilityType.Resistance, resistanceTemplate, hero);
-    CasteType[] castes = {new DummyCasteType()};
     return new TraitImpl(hero, resistanceRules);
   }
 
