@@ -5,6 +5,7 @@ import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.cost.CostImpl;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
+import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
 import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.library.resources.Resources;
@@ -35,7 +36,7 @@ public abstract class AbstractMagicCardData implements ICardData {
 
   @Override
   public String getTitle() {
-    return getResources().getString(magic.getName().text);
+    return new MagicDisplayLabeler(getResources()).getLabelForMagic(magic);
   }
 
   @Override
