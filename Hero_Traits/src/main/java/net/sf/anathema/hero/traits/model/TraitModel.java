@@ -11,6 +11,8 @@ public interface TraitModel extends TraitIterable, TraitMap {
 
   void addTraits(Trait... traits);
 
+  void addTraits(Iterable<Trait> traits);
+
   TraitValueStrategy getValueStrategy();
 
   TraitLimitation createLimitation(LimitationTemplate limitation);

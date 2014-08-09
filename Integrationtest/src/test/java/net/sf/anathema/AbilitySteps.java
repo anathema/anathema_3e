@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
+import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -63,7 +64,7 @@ public class AbilitySteps {
 
   private void spendAPoint() {
     TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero());
-    Trait[] traits = character.getTraitConfiguration().getAll();
+    Traits traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;

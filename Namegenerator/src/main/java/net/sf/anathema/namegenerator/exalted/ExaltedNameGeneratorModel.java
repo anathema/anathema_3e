@@ -5,6 +5,7 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.namegenerator.domain.INameGenerator;
+import net.sf.anathema.namegenerator.domain.Names;
 import net.sf.anathema.namegenerator.domain.realm.RealmNameGenerator;
 import net.sf.anathema.namegenerator.exalted.domain.ThresholdNameGenerator;
 import net.sf.anathema.namegenerator.presenter.model.INameGeneratorModel;
@@ -51,7 +52,7 @@ public class ExaltedNameGeneratorModel implements INameGeneratorModel {
   }
 
   @Override
-  public String[] generateNames(int count) {
+  public Names generateNames(int count) {
     INameGenerator generator = generatorsByIdentificate.get(getSelectedGeneratorType());
     return generator.createNames(count);
   }

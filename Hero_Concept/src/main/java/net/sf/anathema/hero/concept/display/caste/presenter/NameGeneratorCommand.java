@@ -3,6 +3,7 @@ package net.sf.anathema.hero.concept.display.caste.presenter;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.text.ITextualDescription;
 import net.sf.anathema.namegenerator.domain.INameGenerator;
+import net.sf.anathema.namegenerator.domain.Names;
 
 public class NameGeneratorCommand implements Command {
   private final ITextualDescription description;
@@ -15,7 +16,7 @@ public class NameGeneratorCommand implements Command {
 
   @Override
   public void execute() {
-    String[] names = generator.createNames(1);
-    description.setText(names[0]);
+    Names names = generator.createNames(1);
+    description.setText(names.getFirst());
   }
 }

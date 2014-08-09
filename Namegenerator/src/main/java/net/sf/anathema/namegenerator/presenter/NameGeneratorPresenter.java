@@ -1,10 +1,9 @@
 package net.sf.anathema.namegenerator.presenter;
 
 import com.google.common.base.Joiner;
-import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.namegenerator.domain.Names;
 import net.sf.anathema.namegenerator.presenter.model.INameGeneratorModel;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
 
@@ -33,7 +32,7 @@ public class NameGeneratorPresenter {
     String label = resources.getString("Namegenerator.GenerateButton.Label");
     view.addGenerationAction(label,
             () -> {
-              String[] generatedNames = model.generateNames(50);
+              Names generatedNames = model.generateNames(50);
               view.setResult(Joiner.on("\n").join(generatedNames));
             });
   }

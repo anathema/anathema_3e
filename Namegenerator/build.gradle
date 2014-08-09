@@ -1,4 +1,5 @@
 dependencies {
   compile project(':Platform')
   compile project(':Platform_FX')
+  testCompile testDependencies
 }

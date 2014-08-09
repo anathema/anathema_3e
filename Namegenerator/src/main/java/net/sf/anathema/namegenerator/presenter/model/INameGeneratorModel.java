@@ -2,6 +2,7 @@ package net.sf.anathema.namegenerator.presenter.model;
 
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.namegenerator.domain.Names;
 
 import java.util.Set;
 
@@ -15,5 +16,5 @@ public interface INameGeneratorModel {
 
   void setGeneratorType(Identifier selectedGeneratorType);
 
-  String[] generateNames(int count);
+  Names generateNames(int count);
 }
