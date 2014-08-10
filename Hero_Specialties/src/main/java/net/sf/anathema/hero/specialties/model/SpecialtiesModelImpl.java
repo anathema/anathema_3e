@@ -22,8 +22,9 @@ import java.util.Set;
 
 public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
-  private final Map<TraitType, ISubTraitContainer> specialtiesByType = new HashMap<>();
+  private final List<Specialty> specialties = new ArrayList<>();
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
+  private final Announcer<ISpecialtyListener> specialtiesChangedListener = Announcer.to(ISpecialtyListener.class);
   private Hero hero;
   private String currentName;
   private TraitType currentType;
@@ -31,46 +32,49 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    for (Trait trait : AbilitiesModelFetcher.fetch(hero).getAll()) {
-      SpecialtiesContainer specialtiesContainer = new SpecialtiesContainer(trait.getType(), hero);
-      specialtiesByType.put(trait.getType(), specialtiesContainer);
-    }
   }
 
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
-    for (Trait ability : AbilitiesModelFetcher.fetch(hero).getAll()) {
-      getSpecialtiesContainer(ability.getType()).addSubTraitListener(new SpecialtiesListener(announcer));
-    }
+  	// nothing to do
   }
 
   @Override
   public Identifier getId() {
     return SpecialtiesModel.ID;
   }
-
+  
   @Override
-  public ISubTraitContainer getSpecialtiesContainer(TraitType traitType) {
-    return specialtiesByType.get(traitType);
+	public List<Specialty> getAllSpecialties() {
+		return new ArrayList<Specialty>(specialties);
+	}
+  
+  @Override
+  public List<Specialty> getAllSpecialtiesOfType(TraitType type) {
+  	List<Specialty> traitSpecialties = getAllSpecialties();
+  	traitSpecialties.removeIf(specialty -> !specialty.getBasicTraitType().equals(type));
+  	return traitSpecialties;
   }
 
-  @Override
-  public Iterable<TraitType> getAllParentTraits() {
-    Set<TraitType> keySet = specialtiesByType.keySet();
-    return new ArrayList<>(keySet);
-  }
+	@Override
+	public boolean removeSpecialty(Specialty specialty) {
+		specialtiesChangedListener.announce().specialtyRemoved(specialty);
+		return specialties.remove(specialty);
+	}
 
   @Override
   public List<TraitType> getAllEligibleParentTraits() {
-    List<TraitType> eligibleTypes = new ArrayList<>(specialtiesByType.keySet());
-    Set<TraitType> toRemove = new HashSet<>();
-    for (TraitType type : eligibleTypes) {
-      if (!getSpecialtiesContainer(type).isNewSubTraitAllowed()) {
-        toRemove.add(type);
+    List<TraitType> eligibleTypes = new ArrayList<>();
+    for (Trait ability : AbilitiesModelFetcher.fetch(hero).getAll()) {
+      if (isNewSpecialtyAllowed(ability)) {
+        eligibleTypes.add(ability.getType());
       }
     }
-    eligibleTypes.removeAll(toRemove);
     return eligibleTypes;
+  }
+  
+  private boolean isNewSpecialtyAllowed(Trait ability) {
+  	return ability.getCurrentValue() > 0;
   }
 
   @Override
@@ -84,13 +88,16 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
     this.currentType = newValue;
     control.announce().changeOccurred();
   }
+  
+  public void addSpecialty(Hero hero, TraitType trait, String name, boolean isCreationLearned) {
+  	Specialty specialty = new SpecialtyImpl(hero, trait, name, isCreationLearned);
+  	specialties.add(specialty);
+  	specialtiesChangedListener.announce().specialtyAdded(specialty);
+  }
 
   @Override
   public void commitSelection() {
-    Specialty specialty = getSpecialtiesContainer(currentType).addSubTrait(currentName);
-    if (specialty != null && specialty.getCurrentValue() == 0) {
-      specialty.setCurrentValue(1);
-    }
+  	addSpecialty(hero, currentType, currentName, !isExperienced());
   }
 
   @Override
@@ -104,6 +111,11 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   public void addSelectionChangeListener(ChangeListener listener) {
     control.addListener(listener);
   }
+  
+  @Override
+	public void addSpecialtiesChangedListener(ISpecialtyListener listener) {
+		specialtiesChangedListener.addListener(listener);
+	}
 
   @Override
   public TraitType getCurrentTrait() {

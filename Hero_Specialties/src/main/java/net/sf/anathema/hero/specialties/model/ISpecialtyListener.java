@@ -2,9 +2,7 @@ package net.sf.anathema.hero.specialties.model;
 
 public interface ISpecialtyListener {
 
-  void subTraitValueChanged();
+  void specialtyAdded(Specialty subTrait);
 
-  void subTraitAdded(Specialty subTrait);
-
-  void subTraitRemoved(Specialty subTrait);
+  void specialtyRemoved(Specialty subTrait);
 }

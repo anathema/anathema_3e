@@ -10,7 +10,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxRemovableStringView implements RemovableEntryView {
   private final Label label;
-  private final FxButtonTool button;
+  protected final FxButtonTool button;
   private MigPane parent;
 
   public FxRemovableStringView(RelativePath removeIcon, String label) {

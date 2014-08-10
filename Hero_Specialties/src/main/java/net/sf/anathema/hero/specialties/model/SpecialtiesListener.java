@@ -11,17 +11,12 @@ public class SpecialtiesListener implements ISpecialtyListener {
   }
 
   @Override
-  public void subTraitRemoved(Specialty specialty) {
+  public void specialtyRemoved(Specialty specialty) {
     changeAnnouncer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Override
-  public void subTraitAdded(Specialty specialty) {
-    changeAnnouncer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
-  }
-
-  @Override
-  public void subTraitValueChanged() {
+  public void specialtyAdded(Specialty specialty) {
     changeAnnouncer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 }

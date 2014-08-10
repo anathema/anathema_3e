@@ -1,51 +1,38 @@
 package net.sf.anathema.hero.specialties.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
-import net.sf.anathema.hero.traits.model.TraitImpl;
-import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.template.TraitTemplate;
-import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
-public class SpecialtyImpl extends TraitImpl implements Specialty {
+public class SpecialtyImpl implements Specialty {
 
-  private final String subTraitName;
-  private final AbstractSubTraitContainer container;
+  private final String specialtyName;
   private final TraitType type;
+  private final boolean isLearnedAtCreation;
 
-  private static TraitRules createSpecialtyRules(Hero hero) {
-    DefaultTraitType traitType = new DefaultTraitType("Specialty");
-    TraitTemplate limitation = TraitTemplateFactory.createStaticLimitedTemplate(0, 3);
-    return new TraitRulesImpl(traitType, limitation, hero);
-  }
-
-  public SpecialtyImpl(Hero hero, AbstractSubTraitContainer container, TraitType type, String specialtyName) {
-    super(hero, createSpecialtyRules(hero));
-    this.container = container;
+  public SpecialtyImpl(Hero hero, TraitType type, String specialtyName, boolean isLearnedAtCreation) {
     this.type = type;
-    this.subTraitName = specialtyName;
+    this.specialtyName = specialtyName;
+    this.isLearnedAtCreation = isLearnedAtCreation;
   }
 
   @Override
   public String getName() {
-    return subTraitName;
+    return specialtyName;
   }
 
   @Override
   public TraitType getBasicTraitType() {
     return type;
   }
-
+  
   @Override
-  public void setCurrentValue(int value) {
-    int increment = value - getCurrentValue();
-    if (container.getCurrentDotTotal() + increment <= SpecialtiesContainer.ALLOWED_SPECIALTY_COUNT) {
-      super.setCurrentValue(value);
-    } else {
-      super.resetCurrentValue();
-    }
+  public boolean isLearnedAtCreation() {
+  	return isLearnedAtCreation;
+  }
+  
+  @Override
+  public int getCurrentValue() {
+  	return 1;
   }
 
   @Override

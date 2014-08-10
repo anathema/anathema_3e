@@ -11,10 +11,12 @@ import java.util.List;
 public interface SpecialtiesModel extends HeroModel {
 
   Identifier ID = new SimpleIdentifier("Specialties");
-
-  ISubTraitContainer getSpecialtiesContainer(TraitType traitType);
-
-  Iterable<TraitType> getAllParentTraits();
+  
+  List<Specialty> getAllSpecialties();
+  
+  List<Specialty> getAllSpecialtiesOfType(TraitType type);
+  
+  boolean removeSpecialty(Specialty specialty);
 
   List<TraitType> getAllEligibleParentTraits();
 
@@ -31,6 +33,8 @@ public interface SpecialtiesModel extends HeroModel {
   boolean isExperienced();
 
   void addSelectionChangeListener(ChangeListener listener);
+  
+  void addSpecialtiesChangedListener(ISpecialtyListener listener);
 
   TraitType getCurrentTrait();
 

@@ -8,20 +8,16 @@ import java.util.Collection;
 
 public class HighestSpecialty {
 
-  private int value = 0;
   private String name;
 
   public HighestSpecialty(Hero hero, AbilityType type) {
-    for (Specialty t : getSpecialties(hero, type)) {
-      if (value < t.getCurrentValue()) {
-        value = t.getCurrentValue();
-        name = t.getName();
-      }
+    for (Specialty t : SpecialtiesModelFetcher.fetch(hero).getAllSpecialtiesOfType(type)) {
+      name = t.getName();
     }
   }
-
+  
   public int getValue() {
-    return value;
+  	return name == null ? 0 : 1;
   }
 
   public String getName() {
@@ -31,11 +27,5 @@ public class HighestSpecialty {
   @Override
   public String toString() {
     return name;
-  }
-
-  public Collection<Specialty> getSpecialties(Hero hero, TraitType traitType) {
-    SpecialtiesModel specialtyConfiguration = SpecialtiesModelFetcher.fetch(hero);
-    ISubTraitContainer specialtiesContainer = specialtyConfiguration.getSpecialtiesContainer(traitType);
-    return specialtiesContainer.getSubTraits();
   }
 }

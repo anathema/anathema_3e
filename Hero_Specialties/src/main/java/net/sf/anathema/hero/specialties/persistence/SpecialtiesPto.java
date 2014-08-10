@@ -5,5 +5,5 @@ import java.util.List;
 
 public class SpecialtiesPto {
 
-  public List<SpecialtiesTraitPto> traits = new ArrayList<>();
+  public List<SpecialtyPto> specialties = new ArrayList<>();
 }

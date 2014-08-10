@@ -1,21 +1,17 @@
 package net.sf.anathema.hero.specialties.persistence;
 
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.hero.specialties.model.ISubTraitContainer;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
+import net.sf.anathema.hero.specialties.model.SpecialtiesModelImpl;
 import net.sf.anathema.hero.specialties.model.Specialty;
-import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.traits.persistence.TraitPersister;
-import net.sf.anathema.hero.traits.persistence.TraitPto;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpecialtiesPersister extends AbstractModelJsonPersister<SpecialtiesPto, SpecialtiesModel> {
-
-  // todo sandra specialties are no longer traits
-  private final TraitPersister traitPersister = new TraitPersister(new NullTraitStateMap());
 
   public SpecialtiesPersister() {
     super("specialties", SpecialtiesPto.class);
@@ -28,34 +24,28 @@ public class SpecialtiesPersister extends AbstractModelJsonPersister<Specialties
 
   @Override
   protected void loadModelFromPto(Hero hero, SpecialtiesModel model, SpecialtiesPto pto) {
-    for (SpecialtiesTraitPto traitPto : pto.traits) {
-      ISubTraitContainer container = model.getSpecialtiesContainer(AbilityType.valueOf(traitPto.traitName));
-      for (TraitPto specialtyPto : traitPto.specialties) {
-        Specialty specialty = container.addSubTrait(specialtyPto.name);
-        traitPersister.load(specialty, specialtyPto);
-      }
+    for (SpecialtyPto specialtyPto : pto.specialties) {
+    	TraitType type = null;
+    	for (IdentifiedTraitTypeList group : AbilitiesModelFetcher.fetch(hero).getGroups()) {
+    		type = group.getById(specialtyPto.traitName);
+    		if (type != null) {
+    			break;
+    		}
+    	}
+    	((SpecialtiesModelImpl)model).addSpecialty(hero, type, specialtyPto.specialtyName, specialtyPto.isCreationLearned);
     }
   }
 
   @Override
   protected SpecialtiesPto saveModelToPto(SpecialtiesModel model) {
     SpecialtiesPto pto = new SpecialtiesPto();
-    for (AbilityType type : AbilityType.values()) {
-      SpecialtiesTraitPto specialtiesTraitPto = new SpecialtiesTraitPto();
-      specialtiesTraitPto.traitName = type.name();
-      saveSpecialties(model.getSpecialtiesContainer(type), specialtiesTraitPto);
-      if (!specialtiesTraitPto.specialties.isEmpty()) {
-        pto.traits.add(specialtiesTraitPto);
-      }
+    for (Specialty specialty : model.getAllSpecialties()) {
+      SpecialtyPto specialtyPto = new SpecialtyPto();
+      specialtyPto.traitName = specialty.getBasicTraitType().toString();
+      specialtyPto.specialtyName = specialty.getName();
+      specialtyPto.isCreationLearned = specialty.isLearnedAtCreation();
+      pto.specialties.add(specialtyPto);
     }
     return pto;
-  }
-
-  private void saveSpecialties(ISubTraitContainer container, SpecialtiesTraitPto pto) {
-    for (Specialty specialty : container.getSubTraits()) {
-      TraitPto traitPto = new TraitPto();
-      traitPersister.save(specialty, traitPto);
-      pto.specialties.add(traitPto);
-    }
   }
 }

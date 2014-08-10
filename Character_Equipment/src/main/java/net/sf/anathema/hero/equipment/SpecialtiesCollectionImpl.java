@@ -20,27 +20,21 @@ public class SpecialtiesCollectionImpl {
 
   public Collection<Specialty> getSpecialties(TraitType traitType) {
     SpecialtiesModel specialtyConfiguration = SpecialtiesModelFetcher.fetch(hero);
-    return specialtyConfiguration.getSpecialtiesContainer(traitType).getSubTraits();
+    return specialtyConfiguration.getAllSpecialtiesOfType(traitType);
   }
 
   public void addSpecialtyListChangeListener(final ChangeListener listener) {
-    SpecialtiesModel config = SpecialtiesModelFetcher.fetch(hero);
-    for (TraitType trait : config.getAllParentTraits()) {
-      config.getSpecialtiesContainer(trait).addSubTraitListener(new ISpecialtyListener() {
-        @Override
-        public void subTraitValueChanged() {
-        }
+    SpecialtiesModelFetcher.fetch(hero).addSpecialtiesChangedListener(new ISpecialtyListener() {
 
         @Override
-        public void subTraitAdded(Specialty subTrait) {
+        public void specialtyAdded(Specialty specialty) {
           listener.changeOccurred();
         }
 
         @Override
-        public void subTraitRemoved(Specialty subTrait) {
+        public void specialtyRemoved(Specialty specialty) {
           listener.changeOccurred();
         }
       });
-    }
   }
 }
