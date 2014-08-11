@@ -2,17 +2,6 @@ package net.sf.anathema.hero.traits.model.state;
 
 import net.sf.anathema.library.identifier.Identifier;
 
-public enum TraitStateType implements Identifier {
-
-  Default, Favored, Caste, Supernal;
-
-  @Override
-  public String getId() {
-    return name();
-  }
-  
-  public boolean countsAs(TraitStateType otherState) {
-	  return (this == TraitStateType.Supernal && (otherState == TraitStateType.Caste || otherState == TraitStateType.Supernal)) ||
-			   this == otherState;
-  }
+public interface TraitStateType extends Identifier {
+  boolean countsAs(TraitStateType otherState);
 }

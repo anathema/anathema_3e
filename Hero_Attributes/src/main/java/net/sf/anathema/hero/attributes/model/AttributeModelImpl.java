@@ -22,12 +22,9 @@ import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.IncrementChecker;
-import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.MonoTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -74,13 +71,12 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     IncrementChecker incrementChecker = new GrumpyIncrementChecker();
     for (IdentifiedTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
-      Collection<Trait> traits = createTraits(traitGroup, new MonoTypeIncrementChecker<>(incrementChecker, null), map);
+      Collection<Trait> traits = createTraits(traitGroup, map);
       addTraits(traits);
     }
   }
 
-  private Collection<Trait> createTraits(IdentifiedTraitTypeList list,
-                                         MappableTypeIncrementChecker<TraitStateType> checker, TraitTemplateMap templateMap) {
+  private Collection<Trait> createTraits(IdentifiedTraitTypeList list, TraitTemplateMap templateMap) {
     List<Trait> newTraits = new ArrayList<>();
     for (TraitType type : list.getAll()) {
       TraitTemplate traitTemplate;

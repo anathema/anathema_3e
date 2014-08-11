@@ -25,10 +25,12 @@ import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.CasteChangedBehavior;
+import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
@@ -37,6 +39,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
@@ -70,7 +76,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template,
-      AllAbilityTraitTypeList.getInstance());
+            AllAbilityTraitTypeList.getInstance());
     return new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
   }
 
@@ -100,17 +106,16 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     boolean requiredFavored = traitRules.isRequiredFavored();
     List<CasteType> castes = getCastesFor(trait.getType());
-    return new TraitStateImpl(this.hero, castes, checker,
-    		getCasteChangedBehavior(), requiredFavored);
+    return new TraitStateImpl(this.hero, castes, checker, getCasteChangedBehavior(), requiredFavored);
   }
-  
+
   private CasteChangedBehavior getCasteChangedBehavior() {
-  	for (CasteTraitTemplate casteTraits : template.casteAbilities) {
-  		if (casteTraits.traits.size() != template.casteCount) {
-  			return CasteChangedBehavior.CLEAR;
-  		}
-  	}
-  	return CasteChangedBehavior.SET;
+    for (CasteTraitTemplate casteTraits : template.casteAbilities) {
+      if (casteTraits.traits.size() != template.casteCount) {
+        return CasteChangedBehavior.CLEAR;
+      }
+    }
+    return CasteChangedBehavior.SET;
   }
 
   @Override
@@ -123,8 +128,8 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   private MappableTypeIncrementChecker<TraitStateType> createStateIncrementChecker() {
     Map<TraitStateType, Integer> stateLimits = new HashMap<>();
-    for (TraitStateType state : TraitStateType.values()) {
-      if (state == TraitStateType.Default) {
+    for (TraitStateType state : new TraitStateTypes()) {
+      if (state == DefaultTraitStateType.Default) {
         stateLimits.put(state, MappableTypeIncrementChecker.NO_LIMIT);
       } else {
         stateLimits.put(state, getTraitPicksForState(state));
@@ -146,16 +151,10 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   @Override
   public int getTraitPicksForState(TraitStateType state) {
-    switch (state) {
-      case Favored:
-        return template.favoredCount;
-      case Caste:
-        return template.casteCount;
-      case Supernal:
-        return template.supernalCount;
-      default:
-        return 0;
-    }
+    if (Favored == state) return template.favoredCount;
+    if (Caste == state) return template.casteCount;
+    if (Supernal == state) return template.supernalCount;
+    return 0;
   }
 
   @Override

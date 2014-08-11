@@ -6,8 +6,9 @@ import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModif
 import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+
+import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class CharmTraitRequirementCalculator {
 	private final PrerequisiteModifyingCharms prerequisiteModifyingCharms;
@@ -26,7 +27,7 @@ public class CharmTraitRequirementCalculator {
 		int requiredValue = baseValue;
 		
 		if (trait.equals(OtherTraitType.Essence) &&
-				stateFetcher.fetch(new TraitTypeUtils().getPrimaryTraitType(charm)) == TraitStateType.Supernal) {
+				stateFetcher.fetch(new TraitTypeUtils().getPrimaryTraitType(charm)) == Supernal) {
 			if (baseValue <= 5) {
 				return 1;
 			}

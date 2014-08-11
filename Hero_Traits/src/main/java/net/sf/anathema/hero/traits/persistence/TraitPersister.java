@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.traits.persistence;
 
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
 
 public class TraitPersister {
 
@@ -55,7 +56,7 @@ public class TraitPersister {
   }
 
   private void loadFavoredValue(Trait trait, TraitPto pto) {
-    TraitStateType stateType = TraitStateType.valueOf(pto.state);
+    TraitStateType stateType = new TraitStateTypes().lookUp(pto.state);
     stateMap.getState(trait).restore(stateType);
   }
 }

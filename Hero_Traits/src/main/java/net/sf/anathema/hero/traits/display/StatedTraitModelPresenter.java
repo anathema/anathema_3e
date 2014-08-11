@@ -7,8 +7,8 @@ import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
@@ -21,8 +21,8 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.experience.model.ExperienceChange.FLAVOR_EXPERIENCE_STATE;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class StatedTraitModelPresenter {
 

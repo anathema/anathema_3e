@@ -8,9 +8,13 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.state.SupernalTraitStateType;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
+
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class FavoredIconSelector {
   private final Tool tool;
@@ -28,16 +32,16 @@ public class FavoredIconSelector {
   }
 
   private RelativePath determineIconPath(Hero hero, TraitStateType state) {
-	  if (state == TraitStateType.Supernal) {
+	  if (state == SupernalTraitStateType.Supernal) {
 		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
 		  // TODO: Need a proper icon here
 		  return new HeroUI().getLinkIconPath();
 	  }
-	  if (state == TraitStateType.Caste) {
+	  if (state == Caste) {
 		  CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
 		  return new CasteUI(presentationProperties).getSmallCasteIconPath(casteType);
 	  }
-	  if (state == TraitStateType.Favored) {
+	  if (state == Favored) {
 		  HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
 		  return new HeroUI().getMediumBallPath(heroType);
 	  }

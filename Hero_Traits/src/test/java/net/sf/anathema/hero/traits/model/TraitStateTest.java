@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.traits.model;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Supernal;
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
+import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

@@ -2,14 +2,14 @@ package net.sf.anathema.hero.abilities.state;
 
 import net.sf.anathema.hero.abilities.model.FavoredMinimum;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
+import net.sf.anathema.hero.traits.model.state.FavoredTraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -21,14 +21,14 @@ public class FavoredMinimumTest {
 
   @Test
   public void hasMinimumOneForFavoredTrait() throws Exception {
-    configureState(Favored);
+    configureState(FavoredTraitStateType.Favored);
     FavoredMinimum minimum = new FavoredMinimum(stateMap, trait);
     assertThat(minimum.getMinimum(), Matchers.is(1));
   }
 
   @Test
   public void hasMinimumZeroForDefaultTrait() throws Exception {
-    configureState(Default);
+    configureState(DefaultTraitStateType.Default);
     FavoredMinimum minimum = new FavoredMinimum(stateMap, trait);
     assertThat(minimum.getMinimum(), Matchers.is(0));
   }

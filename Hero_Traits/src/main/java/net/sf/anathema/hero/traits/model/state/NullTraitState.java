@@ -2,8 +2,6 @@ package net.sf.anathema.hero.traits.model.state;
 
 import java.util.Arrays;
 
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
-
 public class NullTraitState implements TraitState {
 
   @Override
@@ -13,7 +11,7 @@ public class NullTraitState implements TraitState {
 
   @Override
   public TraitStateType getType() {
-    return Default;
+    return DefaultTraitStateType.Default;
   }
 
   @Override

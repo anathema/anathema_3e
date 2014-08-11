@@ -7,6 +7,7 @@ import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,6 +16,9 @@ import java.util.List;
 import java.util.Set;
 
 import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
@@ -66,20 +70,10 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void countFavoredPicks() {
     for (Trait trait : traits) {
-      switch (abilitiesModel.getState(trait).getType()) {
-        case Favored:
-          increaseFavoredPicksSpent();
-          break;
-        case Caste:
-          increaseCastePicksSpent();
-          break;
-        case Supernal:
-          increaseCastePicksSpent();
-          increaseSupernalPicksSpent();
-          break;
-        default:
-          break;
-      }
+      TraitStateType state = abilitiesModel.getState(trait).getType();
+      if (state.countsAs(Favored)) increaseFavoredPicksSpent();
+      if (state.countsAs(Caste)) increaseCastePicksSpent();
+      if (state.countsAs(Supernal)) increaseSupernalPicksSpent();
     }
   }
 

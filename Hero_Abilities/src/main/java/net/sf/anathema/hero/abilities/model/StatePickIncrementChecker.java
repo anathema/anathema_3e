@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.abilities.model;
 
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.Map;
 
