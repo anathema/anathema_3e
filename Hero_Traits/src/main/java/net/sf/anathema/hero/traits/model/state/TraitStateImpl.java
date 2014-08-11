@@ -1,19 +1,20 @@
 package net.sf.anathema.hero.traits.model.state;
 
+import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
+import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
+
+import java.util.Arrays;
+import java.util.List;
+
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
+
 import org.jmock.example.announcer.Announcer;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Default;
-import static net.sf.anathema.hero.traits.model.state.TraitStateType.Favored;
 
 public class TraitStateImpl implements TraitState {
 
@@ -22,14 +23,17 @@ public class TraitStateImpl implements TraitState {
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final List<CasteType> castes;
   private final boolean isRequiredFavored;
+  private final CasteChangedBehavior casteChangedBehavior;
   private final Hero hero;
 
-  public TraitStateImpl(Hero hero, List<CasteType> castes, MappableTypeIncrementChecker<TraitStateType> checker, boolean requiredFavor) {
+  public TraitStateImpl(Hero hero, List<CasteType> castes, MappableTypeIncrementChecker<TraitStateType> checker,
+  		CasteChangedBehavior casteChangedBehavior, boolean requiredFavor) {
     this.hero = hero;
     this.castes = castes;
     this.checker = checker;
     this.isRequiredFavored = requiredFavor;
     this.currentState = requiredFavor ? Favored : Default;
+    this.casteChangedBehavior = casteChangedBehavior;
     hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
 
@@ -149,8 +153,15 @@ public class TraitStateImpl implements TraitState {
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
       if (FLAVOR_CASTE.equals(flavor)) {
-        clearCaste();
-        updateFavorableStateToCaste();
+      	switch (casteChangedBehavior) {
+      	case CLEAR:
+      		clearCaste();
+      		break;
+      	case SET:
+          updateFavorableStateToCaste();
+          break;
+      	}
+        
       }
     }
 

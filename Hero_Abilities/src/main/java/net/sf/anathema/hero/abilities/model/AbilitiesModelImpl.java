@@ -24,6 +24,7 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.model.state.CasteChangedBehavior;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
@@ -99,7 +100,17 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     boolean requiredFavored = traitRules.isRequiredFavored();
     List<CasteType> castes = getCastesFor(trait.getType());
-    return new TraitStateImpl(this.hero, castes, checker, requiredFavored);
+    return new TraitStateImpl(this.hero, castes, checker,
+    		getCasteChangedBehavior(), requiredFavored);
+  }
+  
+  private CasteChangedBehavior getCasteChangedBehavior() {
+  	for (CasteTraitTemplate casteTraits : template.casteAbilities) {
+  		if (casteTraits.traits.size() != template.casteCount) {
+  			return CasteChangedBehavior.CLEAR;
+  		}
+  	}
+  	return CasteChangedBehavior.SET;
   }
 
   @Override
