@@ -2,8 +2,10 @@ package net.sf.anathema.hero.charms.model.special.multilearn;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
+import net.sf.anathema.hero.charms.model.CharmTraitRequirementCalculator;
 import net.sf.anathema.hero.charms.model.CharmTraitRequirementChecker;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.TraitStateFetcher;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
@@ -18,6 +20,7 @@ import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 import net.sf.anathema.library.number.Range;
+
 import org.jmock.example.announcer.Announcer;
 
 public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials {
@@ -121,7 +124,8 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
 
   private LearnRangeContext createLearnRangeContext() {
     PrerequisiteModifyingCharms modifyingCharms = new PrerequisiteModifyingCharms(config.getOptions().getSpecialCharms());
-    CharmTraitRequirementChecker requirementChecker = new CharmTraitRequirementChecker(modifyingCharms, specialist.getTraits(), config);
+    CharmTraitRequirementChecker requirementChecker = new CharmTraitRequirementChecker(
+    		new CharmTraitRequirementCalculator(modifyingCharms, config, new TraitStateFetcher(hero)), specialist.getTraits());
     return new LearnRangeContext(TraitModelFetcher.fetch(hero), requirementChecker, charm);
   }
 

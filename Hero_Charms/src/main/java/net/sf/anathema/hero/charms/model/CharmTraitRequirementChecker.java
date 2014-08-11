@@ -12,15 +12,12 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 
 public class CharmTraitRequirementChecker implements TraitRequirementChecker {
-  private final PrerequisiteModifyingCharms prerequisiteModifyingCharms;
+  private final CharmTraitRequirementCalculator calculator;
   private TraitMap traitMap;
-  private final SpecialCharmLearnArbitrator learnArbitrator;
 
-  public CharmTraitRequirementChecker(PrerequisiteModifyingCharms prerequisiteModifyingCharms, TraitMap traitMap,
-                                      SpecialCharmLearnArbitrator learnArbitrator) {
-    this.prerequisiteModifyingCharms = prerequisiteModifyingCharms;
+  public CharmTraitRequirementChecker(CharmTraitRequirementCalculator calculator, TraitMap traitMap) {
+    this.calculator = calculator;
     this.traitMap = traitMap;
-    this.learnArbitrator = learnArbitrator;
   }
 
   public boolean areTraitMinimumsSatisfied(Charm charm) {
@@ -39,12 +36,8 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
     if (actualTrait == null) {
       return false;
     }
-    int requiredValue = prerequisite.minimalValue;
-    for (IPrerequisiteModifyingCharm modifier : prerequisiteModifyingCharms.getPrerequisiteModifyingCharms()) {
-      if (learnArbitrator.isLearned(modifier.getCharmName())) {
-        requiredValue = modifier.modifyRequiredValue(charm, requiredValue);
-      }
-    }
+    int requiredValue = calculator.calculateMinimum(charm, traitType, prerequisite.minimalValue);
+    
     return actualTrait.getCurrentValue() >= requiredValue;
   }
 }

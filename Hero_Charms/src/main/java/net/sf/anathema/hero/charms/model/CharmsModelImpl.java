@@ -250,7 +250,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-      getPrerequisiteModifyingCharms(), traits, this);
+    		new CharmTraitRequirementCalculator(getPrerequisiteModifyingCharms(), this, new TraitStateFetcher(hero)), traits);
     return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
