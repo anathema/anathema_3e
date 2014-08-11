@@ -1,7 +1,7 @@
 {
     "category": "Solar", 
     "charms": {
-        "Accuracy Without Distance": {
+        "Solar.AccuracyWithoutDistance": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -9,11 +9,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Force Without Fire"
+                "Solar.ForceWithoutFire"
             ], 
             "type": "Reflexive"
         }, 
-        "Arrow Storm Technique": {
+        "Solar.ArrowStormTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -21,11 +21,48 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Trance of Unhesitating Speed"
+                "Solar.TranceofUnhesitatingSpeed"
             ], 
             "type": "Simple"
         }, 
-        "Dazzling Flare Attack": {
+        "Solar.BlindArrow": {
+            "cost": "2m, 3i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WiseArrow"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BloodWithoutBalance": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SightWithoutEyes"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CrimsonStreamingIncineration": {
+            "cost": "4m, 1wp + Variable", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HeartEatingIncineration", 
+                "Solar.HeavensCrashDown"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DazzlingFlareAttack": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -33,11 +70,23 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Fiery Arrow Attack"
+                "Solar.FieryArrowAttack"
             ], 
             "type": "Reflexive"
         }, 
-        "Fiery Arrow Attack": {
+        "Solar.DustandAshesSleight": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SevenOmensShot"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FieryArrowAttack": {
             "cost": "2m", 
             "duration": "Instant", 
             "minimums": {
@@ -45,11 +94,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Phantom Arrow Technique"
+                "Solar.PhantomArrowTechnique"
             ], 
             "type": "Supplemental"
         }, 
-        "Finishing Snipe": {
+        "Solar.FinishingSnipe": {
             "cost": "7m", 
             "duration": "Instant", 
             "minimums": {
@@ -57,11 +106,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Hunter\u2019s Swift Answer"
+                "Solar.HuntersSwiftAnswer"
             ], 
             "type": "Reflexive"
         }, 
-        "Flashing Vengeance Draw": {
+        "Solar.FlashingVengeanceDraw": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -69,11 +118,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Trance of Unhesitating Speed"
+                "Solar.TranceofUnhesitatingSpeed"
             ], 
             "type": "Supplemental"
         }, 
-        "Force Without Fire": {
+        "Solar.ForceWithoutFire": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -81,11 +130,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Sight Without Eyes"
+                "Solar.SightWithoutEyes"
             ], 
             "type": "Supplemental"
         }, 
-        "Heart-Eating Incineration": {
+        "Solar.HeartEatingIncineration": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -93,11 +142,23 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Solar Spike"
+                "Solar.SolarSpike"
             ], 
             "type": "Reflexive"
         }, 
-        "Hunter\u2019s Swift Answer": {
+        "Solar.HeavensCrashDown": {
+            "cost": "6m, 2i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RevolvingBowDiscipline"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HuntersSwiftAnswer": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -105,11 +166,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Flashing Vengeance Draw"
+                "Solar.FlashingVengeanceDraw"
             ], 
             "type": "Reflexive"
         }, 
-        "Immaculate Golden Bow": {
+        "Solar.ImmaculateGoldenBow": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
             "minimums": {
@@ -117,11 +178,24 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Phantom Arrow Technique"
+                "Solar.PhantomArrowTechnique"
             ], 
             "type": "Simple"
         }, 
-        "Phantom Arrow Technique": {
+        "Solar.NovaArrow": {
+            "cost": "25m, 25i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+            	"Solar.ScourgingWindAttack",
+                "Solar.CrimsonStreamingIncineration"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PhantomArrowTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
             "minimums": {
@@ -131,7 +205,7 @@
             "prerequisiteCharms": [], 
             "type": "Reflexive"
         }, 
-        "Rain of Feathered Death": {
+        "Solar.RainofFeatheredDeath": {
             "cost": "3m per duplicate, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -139,11 +213,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Phantom Arrow Technique"
+                "Solar.PhantomArrowTechnique"
             ], 
             "type": "Simple"
         }, 
-        "Revolving Bow Discipline": {
+        "Solar.RevolvingBowDiscipline": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -151,23 +225,35 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Arrow Storm Technique"
+                "Solar.ArrowStormTechnique"
             ], 
             "type": "Simple"
         }, 
-        "Searing Sunfire Interdiction": {
-            "cost": "4m, 1wp", 
+        "Solar.ScourgingWindAttack": {
+            "cost": "10m, 3i, 3a, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SearingSunfireInterdiction"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SearingSunfireInterdiction": {
+            "cost": "4m, 1i, 1wp", 
             "duration": "Instant", 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Dazzling Flare Attack"
+                "Solar.DazzlingFlareAttack"
             ], 
-            "type": "Reflexive"
+            "type": "Simple"
         }, 
-        "Seven Omens Shot": {
+        "Solar.SevenOmensShot": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -175,11 +261,23 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Accuracy Without Distance"
+                "Solar.AccuracyWithoutDistance"
             ], 
             "type": "Simple"
         }, 
-        "Sight Without Eyes": {
+        "Solar.ShadowSeekingArrow": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DazzlingFlareAttack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SightWithoutEyes": {
             "cost": "1m", 
             "duration": "One tick", 
             "minimums": {
@@ -187,11 +285,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Wise Arrow"
+                "Solar.WiseArrow"
             ], 
             "type": "Reflexive"
         }, 
-        "Solar Spike": {
+        "Solar.SolarSpike": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -199,11 +297,23 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Dazzling Flare Attack"
+                "Solar.DazzlingFlareAttack"
             ], 
             "type": "Simple"
         }, 
-        "There Is No Wind": {
+        "Solar.StreamingArrowStance": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FinishingSnipe"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ThereIsNoWind": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -211,23 +321,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Sight Without Eyes"
+                "Solar.SightWithoutEyes"
             ], 
             "type": "Reflexive"
         }, 
-        "Thread the Needle": {
-            "cost": "2m, 1wp", 
-            "duration": "Instant", 
-            "minimums": {
-                "Archery": 5, 
-                "Essence": 3
-            }, 
-            "prerequisiteCharms": [
-                "Accuracy Without Distance"
-            ], 
-            "type": "Supplemental"
-        }, 
-        "Trance of Unhesitating Speed": {
+        "Solar.TranceofUnhesitatingSpeed": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -235,11 +333,23 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Wise Arrow"
+                "Solar.WiseArrow"
             ], 
             "type": "Simple"
         }, 
-        "Wise Arrow": {
+        "Solar.WhisperedPrayerofJudgment": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StreamingArrowStance"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.WiseArrow": {
             "cost": "1m", 
             "duration": "Instant", 
             "minimums": {
