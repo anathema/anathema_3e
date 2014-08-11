@@ -26,7 +26,6 @@ public class TraitStateTest {
     assertTrue(Supernal.countsAs(Caste));
   }
 
-  @Ignore
   @Test
   public void casteDoesNotCountAsSupernal() throws Exception {
     assertFalse(Caste.countsAs(Supernal));

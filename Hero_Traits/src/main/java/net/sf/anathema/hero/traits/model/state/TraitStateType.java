@@ -12,8 +12,7 @@ public enum TraitStateType implements Identifier {
   }
   
   public boolean countsAs(TraitStateType otherState) {
-	  return ((this == TraitStateType.Caste || this == TraitStateType.Supernal) &&
-			  (otherState == TraitStateType.Caste || otherState == TraitStateType.Supernal)) ||
+	  return (this == TraitStateType.Supernal && (otherState == TraitStateType.Caste || otherState == TraitStateType.Supernal)) ||
 			   this == otherState;
   }
 }
