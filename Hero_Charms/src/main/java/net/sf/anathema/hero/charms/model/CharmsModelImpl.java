@@ -8,14 +8,13 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
-import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
-import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
+import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
@@ -79,7 +78,7 @@ public class CharmsModelImpl implements CharmsModel {
   private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final List<MagicLearner> magicLearners = new ArrayList<>();
-  private final IsFavoredMagic isFavoredMagic = new IsFavoredMagic();
+  private final IsCheapenedMagic isCheapenedMagic = new IsCheapenedMagic();
 
   public CharmsModelImpl(CharmsTemplate template) {
     this.charmsRules = new CharmsRulesImpl(template);
@@ -92,15 +91,13 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    isFavoredMagic.add(new IsCharmCheapened(hero));
-    CharmSpecialistImpl specialist = new CharmSpecialistImpl(hero);
+    isCheapenedMagic.add(new IsCharmCheapened(hero));
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.traits = TraitModelFetcher.fetch(hero);
     this.hero = hero;
-    CharmProvider provider = environment.getDataSet(CharmCache.class);
-    this.options = new CharmOptionsImpl(provider, charmsRules, hero);
-    this.manager = new SpecialCharmManager(specialist, hero, this);
-    initSpecialCharmConfigurations();
+    this.options = new CharmOptionsImpl(environment.getDataSet(CharmCache.class), charmsRules, hero);
+    this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
+    initSpecialCharms();
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     addLearnProvider(new CharmLearner(this));
@@ -145,7 +142,7 @@ public class CharmsModelImpl implements CharmsModel {
     learningModel.addCharmLearnListener(listener);
   }
 
-  private void initSpecialCharmConfigurations() {
+  private void initSpecialCharms() {
     CharmMap charmMap = options.getCharmIdMap();
     for (ISpecialCharm specialCharm : options.getSpecialCharms()) {
       Charm charm = charmMap.getCharmById(specialCharm.getCharmName());
@@ -296,7 +293,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public void addCheapenedChecker(CheapenedChecker cheapenedChecker) {
-    isFavoredMagic.add(cheapenedChecker);
+    isCheapenedMagic.add(cheapenedChecker);
   }
 
   @Override
@@ -333,7 +330,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   @Override
   public boolean isMagicCheapened(Magic magic) {
-    return isFavoredMagic.isFavored(magic);
+    return isCheapenedMagic.isFavored(magic);
   }
 
   @Override
