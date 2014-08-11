@@ -6,6 +6,7 @@ import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelImpl;
 import net.sf.anathema.hero.specialties.model.Specialty;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.library.identifier.Identifier;
@@ -25,13 +26,7 @@ public class SpecialtiesPersister extends AbstractModelJsonPersister<Specialties
   @Override
   protected void loadModelFromPto(Hero hero, SpecialtiesModel model, SpecialtiesPto pto) {
     for (SpecialtyPto specialtyPto : pto.specialties) {
-    	TraitType type = null;
-    	for (IdentifiedTraitTypeList group : AbilitiesModelFetcher.fetch(hero).getGroups()) {
-    		type = group.getById(specialtyPto.traitName);
-    		if (type != null) {
-    			break;
-    		}
-    	}
+    	TraitType type = new TraitTypeFinder().getTrait(specialtyPto.traitName);
     	((SpecialtiesModelImpl)model).addSpecialty(hero, type, specialtyPto.specialtyName, specialtyPto.isCreationLearned);
     }
   }
