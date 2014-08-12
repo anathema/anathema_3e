@@ -2,5 +2,4 @@ dependencies {
     compile project(':Hero')
     testCompile testDependencies
     testCompile project(path: ':Platform', configuration: 'tests')
-    testCompile project(path: ':Character_Main', configuration: 'tests')
 }
