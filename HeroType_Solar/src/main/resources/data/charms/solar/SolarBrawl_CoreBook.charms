@@ -213,6 +213,18 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.HeavenFurySmite": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RampageBerserkerAttack"
+            ], 
+            "type": "Reflexive"
+        }, 
         "Solar.HeavenThunderHammer": {
             "cost": "3m", 
             "duration": "Instant", 
@@ -366,8 +378,7 @@
                 "Essence": 4
             }, 
             "prerequisiteCharms": [
-                "Solar.FivefoldFuryOnslaught", 
-                "Solar.RampageBerserkerAttack"
+                "Solar.FivefoldFuryOnslaught"
             ], 
             "type": "Simple"
         }, 
