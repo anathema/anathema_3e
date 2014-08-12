@@ -10,7 +10,7 @@ import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.PrintMagicProvider;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
-import net.sf.anathema.hero.charms.model.favored.IsFavoredMagic;
+import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
@@ -36,7 +36,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
   private List<Charm> charms = new ArrayList<>();
 
-  private IsFavoredMagic favoredMagic = new IsFavoredMagic();
+  private IsCheapenedMagic favoredMagic = new IsCheapenedMagic();
 
   @Override
   public void addLearnableListener(ChangeListener listener) {

@@ -5,11 +5,11 @@ import net.sf.anathema.magic.data.Magic;
 import java.util.ArrayList;
 import java.util.List;
 
-public class IsFavoredMagic {
+public class IsCheapenedMagic {
 
   private List<CheapenedChecker> cheapenedCheckers = new ArrayList<>();
 
-  public IsFavoredMagic() {
+  public IsCheapenedMagic() {
     this.cheapenedCheckers = new ArrayList<>();
   }
 
