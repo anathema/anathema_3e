@@ -6,7 +6,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.WhiteReaperForm"
@@ -18,7 +18,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.WhiteReaperForm"
@@ -30,7 +30,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -40,7 +40,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [
                 "MartialArts.WhiteReaperForm"
@@ -52,7 +52,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.BleedingCrescentStrike"
@@ -64,7 +64,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FlickeringCoronaBarrier"
@@ -76,7 +76,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Reflexive"
@@ -86,7 +86,7 @@
             "duration": "Permanent", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.EnemiesLikeGrass", 
@@ -100,7 +100,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FallingScytheFlash", 

@@ -6,7 +6,7 @@
             "duration": "Permanent", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CelestialTigerHide", 
@@ -21,7 +21,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.TigerForm"
@@ -33,7 +33,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -43,7 +43,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.TigerForm"
@@ -55,7 +55,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.StalkingCatMovementMeditation"
@@ -67,7 +67,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.IronClawGrip"
@@ -79,7 +79,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.TigerForm"
@@ -91,7 +91,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.RagingTigerPounce"
@@ -103,7 +103,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.TigerForm"
@@ -115,7 +115,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -125,7 +125,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CrimsonLeapingCatTechnique", 

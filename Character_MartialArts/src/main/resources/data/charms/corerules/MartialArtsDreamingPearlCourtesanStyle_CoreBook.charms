@@ -6,7 +6,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Reflexive"
@@ -16,7 +16,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.DemureCarpFeint", 
@@ -30,7 +30,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -40,7 +40,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.DreamingPearlCourtesanForm"
@@ -52,7 +52,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [
                 "MartialArts.DreamingPearlCourtesanForm"
@@ -64,7 +64,7 @@
             "duration": "Permanent", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.SevenStormsEscapePrana", 
@@ -77,7 +77,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 2
+                "MartialArts": 2
             }, 
             "prerequisiteCharms": [], 
             "type": "Reflexive"
@@ -87,7 +87,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FragrantPetalFascinationKata"
@@ -99,7 +99,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FlurryofAugustLeaves"

@@ -6,7 +6,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.EmpoweringJusticeRedirection", 
@@ -19,7 +19,7 @@
             "duration": "Until next turn", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CraneForm"
@@ -31,7 +31,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 2
+                "MartialArts": 2
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -41,7 +41,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CrossedWingsDenial"
@@ -53,7 +53,7 @@
             "duration": "One round", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 2
+                "MartialArts": 2
             }, 
             "prerequisiteCharms": [], 
             "type": "Reflexive"
@@ -63,7 +63,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CraneForm"
@@ -75,7 +75,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.HumblingEnlightenmentCommentary"
@@ -87,7 +87,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.HumblingEnlightenmentCommentary"
@@ -99,7 +99,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.CrossedWingsDenial"
@@ -111,7 +111,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 4, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FeatherStirredArrowDeflection", 

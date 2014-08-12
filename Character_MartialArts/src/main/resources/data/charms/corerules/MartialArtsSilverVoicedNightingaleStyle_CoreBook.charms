@@ -6,7 +6,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.FlashingBladeHarmony"
@@ -18,7 +18,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.SilverVoicedNightingaleForm"
@@ -30,7 +30,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.HearingtheHeartsSong"
@@ -42,7 +42,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.SilverVoicedNightingaleForm"
@@ -54,7 +54,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [
                 "MartialArts.SilverVoicedNightingaleForm"
@@ -66,7 +66,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [
                 "MartialArts.VoiceoftheNightBird"
@@ -78,7 +78,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.HauntingHeartRendingMelody"
@@ -90,7 +90,7 @@
             "duration": "Until the enemy's next turn", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.AriaofVictory", 
@@ -104,7 +104,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.InspiringBattleHymn", 
@@ -117,7 +117,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [
                 "MartialArts.VoiceoftheNightBird"
@@ -129,7 +129,7 @@
             "duration": "Permanent", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 2
+                "MartialArts": 2
             }, 
             "prerequisiteCharms": [], 
             "type": "Permanent"

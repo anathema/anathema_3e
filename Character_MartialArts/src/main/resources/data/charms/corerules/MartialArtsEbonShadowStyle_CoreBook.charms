@@ -6,7 +6,7 @@
             "duration": "One scene", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.NothingButShadows", 
@@ -19,7 +19,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.EbonShadowForm"
@@ -31,7 +31,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 2
+                "MartialArts": 2
             }, 
             "prerequisiteCharms": [], 
             "type": "Reflexive"
@@ -41,7 +41,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 3
+                "MartialArts": 3
             }, 
             "prerequisiteCharms": [], 
             "type": "Supplemental"
@@ -51,7 +51,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.ElusiveFlickerEvasion"
@@ -63,7 +63,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 2, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.EbonShadowForm"
@@ -75,7 +75,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 4
+                "MartialArts": 4
             }, 
             "prerequisiteCharms": [
                 "MartialArts.ShadowSteppingMotion"
@@ -87,7 +87,7 @@
             "duration": "Instant", 
             "minimums": {
                 "Essence": 3, 
-                "Martial Arts": 5
+                "MartialArts": 5
             }, 
             "prerequisiteCharms": [
                 "MartialArts.ShadowBodyDissolution", 
