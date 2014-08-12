@@ -23,12 +23,11 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.state.CasteChangedBehavior;
 import net.sf.anathema.hero.traits.model.state.Castes;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NoRequiredState;
-import net.sf.anathema.hero.traits.model.state.RequiredFavoredState;
+import net.sf.anathema.hero.traits.model.state.RequiredFavored;
 import net.sf.anathema.hero.traits.model.state.RequiredTraitState;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
@@ -107,24 +106,15 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     Castes castes = getCastesFor(trait.getType());
     RequiredTraitState requiredState = findRequiredState(traitRules);
-    return new TraitStateImpl(hero, castes, checker, getCasteChangedBehavior(), requiredState);
+    return new TraitStateImpl(hero, castes, checker, requiredState);
   }
 
   private RequiredTraitState findRequiredState(TraitRules traitRules) {
     if (traitRules.isRequiredFavored()) {
-      return new RequiredFavoredState();
+      return new RequiredFavored();
     } else {
       return new NoRequiredState();
     }
-  }
-
-  private CasteChangedBehavior getCasteChangedBehavior() {
-    for (CasteTraitTemplate casteTraits : template.casteAbilities) {
-      if (casteTraits.traits.size() != template.casteCount) {
-        return CasteChangedBehavior.CLEAR;
-      }
-    }
-    return CasteChangedBehavior.SET;
   }
 
   @Override
@@ -137,7 +127,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   private MappableTypeIncrementChecker<TraitStateType> createStateIncrementChecker() {
     Map<TraitStateType, Integer> stateLimits = new HashMap<>();
-    for (TraitStateType state : new TraitStateTypes()) {
+    for (TraitStateType state : getAvailableTraitStates()) {
       if (state == DefaultTraitStateType.Default) {
         stateLimits.put(state, MappableTypeIncrementChecker.NO_LIMIT);
       } else {
@@ -164,6 +154,11 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     if (Caste == state) return template.casteCount;
     if (Supernal == state) return template.supernalCount;
     return 0;
+  }
+
+  @Override
+  public Iterable<TraitStateType> getAvailableTraitStates() {
+    return new TraitStateTypes();
   }
 
   @Override

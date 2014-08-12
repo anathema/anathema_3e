@@ -10,7 +10,6 @@ import java.util.Arrays;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class TraitStateImpl implements TraitState {
 
@@ -19,16 +18,14 @@ public class TraitStateImpl implements TraitState {
           TraitStateChangedListener.class);
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final Castes traitCastes;
-  private final CasteChangedBehavior casteChangedBehavior;
   private final RequiredTraitState requiredState;
 
   public TraitStateImpl(Hero hero, Castes traitCastes, MappableTypeIncrementChecker<TraitStateType> checker,
-                        CasteChangedBehavior casteChangedBehavior, RequiredTraitState requiredState) {
+                        RequiredTraitState requiredState) {
     this.traitCastes = traitCastes;
     this.checker = checker;
     this.requiredState = requiredState;
     this.currentState = requiredState.overrideStateIfNecessary(Default);
-    this.casteChangedBehavior = casteChangedBehavior;
     hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
 
@@ -78,14 +75,6 @@ public class TraitStateImpl implements TraitState {
     return traitCastes.isCurrentCasteSupported();
   }
 
-  @SuppressWarnings("ConstantConditions")
-  public void setCaste(boolean caste) {
-    if (!caste && !isCaste()) {
-      return;
-    }
-    changeStateTo(caste ? Caste : (isCaste() ? Default : Favored));
-  }
-
   @Override
   public final TraitStateType getType() {
     return currentState;
@@ -109,10 +98,6 @@ public class TraitStateImpl implements TraitState {
     return currentState.countsAs(Caste);
   }
 
-  private void updateFavorableStateToCaste() {
-    setCaste(traitCastes.isCurrentCasteSupported());
-  }
-
   private void changeStateTo(TraitStateType state) {
     state = requiredState.overrideStateIfNecessary(state);
     if (isLegalState(state)) {
@@ -126,15 +111,7 @@ public class TraitStateImpl implements TraitState {
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
       if (FLAVOR_CASTE.equals(flavor)) {
-        switch (casteChangedBehavior) {
-          case CLEAR:
-            clearCaste();
-            break;
-          case SET:
-            updateFavorableStateToCaste();
-            break;
-        }
-
+        clearCaste();
       }
     }
 

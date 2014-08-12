@@ -4,7 +4,7 @@ import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
-public class RequiredFavoredState implements RequiredTraitState{
+public class RequiredFavored implements RequiredTraitState {
 
   @Override
   public boolean satisfiesRequirement(TraitStateType newState) {

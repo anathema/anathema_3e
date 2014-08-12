@@ -11,14 +11,13 @@ import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getCreationCalculationValue;
-import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
-import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
@@ -26,9 +25,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private AbilityCreationData creationData;
   private final Multimap<Trait, FavorableTraitCost> costsByTrait = HashMultimap.create();
   private final Traits traits;
-  private int favoredPicksSpent = 0;
-  private int castePicksSpent = 0;
-  private int supernalPicksSpent = 0;
+  private final Map<TraitStateType, Integer> statePicks = new HashMap<>();
   private int favoredDotSum = 0;
   private int generalDotSum = 0;
 
@@ -36,6 +33,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     this.abilitiesModel = abilitiesModel;
     this.creationData = creationData;
     this.traits = abilitiesModel.getAll();
+    clearStatePickCounter();
   }
 
   protected int getCostFactor(Trait trait) {
@@ -45,7 +43,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   public void recalculate() {
     clear();
-    countFavoredPicks();
+    countTraitStatePicks();
     Set<Trait> sortedTraits = sortTraitsByStatus();
     for (Trait trait : sortedTraits) {
       int costFactor = getCostFactor(trait);
@@ -60,20 +58,24 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private void clear() {
-    favoredPicksSpent = 0;
-    castePicksSpent = 0;
-    supernalPicksSpent = 0;
+    clearStatePickCounter();
     favoredDotSum = 0;
     generalDotSum = 0;
     costsByTrait.clear();
   }
 
-  private void countFavoredPicks() {
+  private void clearStatePickCounter() {
+    for (TraitStateType candidate : abilitiesModel.getAvailableTraitStates()) {
+      statePicks.put(candidate, 0);
+    }
+  }
+
+  private void countTraitStatePicks() {
     for (Trait trait : traits) {
       TraitStateType state = abilitiesModel.getState(trait).getType();
-      if (state.countsAs(Favored)) increaseFavoredPicksSpent();
-      if (state.countsAs(Caste)) increaseCastePicksSpent();
-      if (state.countsAs(Supernal)) increaseSupernalPicksSpent();
+      for (TraitStateType candidate : abilitiesModel.getAvailableTraitStates()) {
+        if (state.countsAs(candidate)) increasePicksForType(candidate);
+      }
     }
   }
 
@@ -100,16 +102,9 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return creationData.getFavoredDotCount();
   }
 
-  public int getFavoredPicksSpent() {
-    return favoredPicksSpent;
-  }
-
-  public int getCastePicksSpent() {
-    return castePicksSpent;
-  }
-
-  public int getSupernalPicksSpent() {
-    return supernalPicksSpent;
+  @Override
+  public int getPicksSpent(TraitStateType type) {
+    return statePicks.get(type);
   }
 
   public int getFreePointsSpent(boolean favored) {
@@ -194,16 +189,8 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     favoredDotSum += favoredDotsSpent;
   }
 
-  private void increaseFavoredPicksSpent() {
-    favoredPicksSpent++;
-  }
-
-  private void increaseCastePicksSpent() {
-    castePicksSpent++;
-  }
-
-  private void increaseSupernalPicksSpent() {
-    supernalPicksSpent++;
+  private void increasePicksForType(TraitStateType stateType) {
+    statePicks.put(stateType, statePicks.get(stateType) + 1);
   }
 
   private void increaseGeneralDotSum(int generalDotsSpent) {

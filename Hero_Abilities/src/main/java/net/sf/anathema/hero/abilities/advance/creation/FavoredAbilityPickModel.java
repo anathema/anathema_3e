@@ -2,6 +2,8 @@ package net.sf.anathema.hero.abilities.advance.creation;
 
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+
 public class FavoredAbilityPickModel extends AbstractSpendingModel {
 
   private final AbilityCostCalculator abilityCalculator;
@@ -20,7 +22,7 @@ public class FavoredAbilityPickModel extends AbstractSpendingModel {
 
   @Override
   public Integer getValue() {
-    return abilityCalculator.getFavoredPicksSpent();
+    return abilityCalculator.getPicksSpent(Favored);
   }
 
   @Override

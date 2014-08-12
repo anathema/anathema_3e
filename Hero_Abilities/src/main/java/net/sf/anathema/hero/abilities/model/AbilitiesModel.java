@@ -10,4 +10,6 @@ public interface AbilitiesModel extends GroupedTraitsModel {
   Identifier ID = new SimpleIdentifier("Abilities");
 
   int getTraitPicksForState(TraitStateType state);
+
+  Iterable<TraitStateType> getAvailableTraitStates();
 }

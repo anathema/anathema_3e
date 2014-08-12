@@ -2,6 +2,8 @@ package net.sf.anathema.hero.abilities.advance.creation;
 
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+
 public class CasteAbilityPickModel extends AbstractSpendingModel {
 
   private final AbilityCostCalculator abilityCalculator;
@@ -20,7 +22,7 @@ public class CasteAbilityPickModel extends AbstractSpendingModel {
 
   @Override
   public Integer getValue() {
-    return abilityCalculator.getCastePicksSpent();
+    return abilityCalculator.getPicksSpent(Caste);
   }
 
   @Override
