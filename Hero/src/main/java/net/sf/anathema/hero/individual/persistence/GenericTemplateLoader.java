@@ -2,6 +2,8 @@ package net.sf.anathema.hero.individual.persistence;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapterFactory;
+
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
@@ -26,6 +28,15 @@ public class GenericTemplateLoader<T> implements TemplateLoader<T> {
     }
     gson = gsonBuilder.create();
   }
+  
+  public GenericTemplateLoader(Class<T> aClass, TypeAdapterFactory... adapterFactories) {
+	    this.aClass = aClass;
+	    GsonBuilder gsonBuilder = new GsonBuilder();
+	    for (TypeAdapterFactory factory : adapterFactories) {
+	      gsonBuilder.registerTypeAdapterFactory(factory);
+	    }
+	    gson = gsonBuilder.create();
+	  }
 
   public T load(InputStream inputStream) {
     try {
