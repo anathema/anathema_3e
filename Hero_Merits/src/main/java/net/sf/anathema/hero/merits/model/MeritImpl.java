@@ -4,7 +4,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.rules.ModificationType;
-import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;

@@ -57,7 +57,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @Override
   public List<MeritOption> getCurrentMeritOptions() {
   	List<MeritOption> options = meritCache.getAllMeritOptions();
-  	options.removeIf(item -> item.getType() != currentType);
+  	options.removeIf(item -> item.getType() != currentType || !item.isHeroEligible(hero));
   	return options;
   }
   
@@ -136,7 +136,9 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 		return false;
 	}
 	MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);
-	if (baseMerit != null && !baseMerit.allowsRepurchase() && hasMerit(baseMerit)) {
+	if (baseMerit != null)
+		if (!baseMerit.isHeroEligible(hero) ||
+		    (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
 		return false;
 	}
     return true;

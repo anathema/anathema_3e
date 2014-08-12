@@ -99,7 +99,7 @@ public class MeritsPresenter {
     selection.setSelectedObject(initial);
     selection.addObjectSelectionChangedListener(listener);
  // TODO: There should be a much more elegant means to do this
-    if (objects[0].getClass().equals(String.class)) {
+    if (objects.getClass().equals(new String[0].getClass())) {
     	((ComboBoxSelectionView<String>)selection).makeEditable();
     }
     return selection;

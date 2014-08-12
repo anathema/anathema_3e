@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 public interface MeritOption extends TraitType {
@@ -9,6 +10,8 @@ public interface MeritOption extends TraitType {
 	MeritCategory getType();
 
 	boolean allowsRepurchase();
+	
+	boolean isHeroEligible(Hero hero);
 	
 	boolean isLegalValue(int value);
 	

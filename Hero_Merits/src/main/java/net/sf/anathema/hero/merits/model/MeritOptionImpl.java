@@ -1,6 +1,12 @@
 package net.sf.anathema.hero.merits.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
+import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
+import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class MeritOptionImpl implements MeritOption {
@@ -9,6 +15,7 @@ public class MeritOptionImpl implements MeritOption {
 	private final MeritCategory type;
 	private final boolean allowRepurchase;
 	private final boolean[] legalValues = new boolean[MAX_MERIT_RATING + 1];
+	private final List<MeritRequirement> requirements = new ArrayList<>();
 	
 	public MeritOptionImpl(MeritTemplate template) {
 		this.name = template.name;
@@ -16,6 +23,13 @@ public class MeritOptionImpl implements MeritOption {
 		this.type = MeritCategory.valueOf(template.type);
 		
 		parseLegalValues(template.values);
+		parseRequirements(template.requirements);
+	}
+	
+	private void parseRequirements(List<MeritRequirementsTemplate> templateRequirements) {
+		for (MeritRequirementsTemplate template : templateRequirements) {
+			requirements.add(template.generate());
+		}
 	}
 	
 	private void parseLegalValues(String values) {
@@ -38,6 +52,16 @@ public class MeritOptionImpl implements MeritOption {
 			assert (position >= 0 && position <= MAX_MERIT_RATING);
 			legalValues[position] = true;
 		}
+	}
+
+	@Override
+	public boolean isHeroEligible(Hero hero) {
+		for (MeritRequirement requirement : requirements) {
+			if (!requirement.isSatisfied(hero)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -87,6 +111,4 @@ public class MeritOptionImpl implements MeritOption {
 		}
 		return legalValues[value];
 	}
-	
-	
 }
