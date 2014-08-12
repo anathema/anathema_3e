@@ -26,6 +26,6 @@ public class IsFavoredSpell implements CheapenedChecker {
     TraitType traitType = SpellsModelFetcher.fetch(hero).getFavoringTraitType();
     // todo (sandra) model that spells might be favored non-ability
     TraitState traitState = AbilitiesModelFetcher.fetch(hero).getState(traitType);
-    return traitState.isCasteOrFavored();
+    return traitState.isCheapened();
   }
 }

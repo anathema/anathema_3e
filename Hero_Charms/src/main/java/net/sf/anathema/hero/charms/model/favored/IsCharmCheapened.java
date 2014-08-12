@@ -33,14 +33,14 @@ public class IsCharmCheapened implements CheapenedChecker {
 
   private boolean isCheapened(Charm charm) {
     AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
-    return isMartialArts(charm) && abilities.getState(MartialArts).isCasteOrFavored();
+    return isMartialArts(charm) && abilities.getState(MartialArts).isCheapened();
   }
 
   private boolean isPrimaryTraitCheapened(Charm charm) {
     // todo (sandra) remodel that primary traits might not be abilities
     TraitType traitType = new TraitTypeUtils().getPrimaryTraitType(charm);
     Trait primaryTrait = getTrait(traitType);
-    return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCasteOrFavored();
+    return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCheapened();
   }
 
   private Trait getTrait(TraitType traitType) {

@@ -6,12 +6,6 @@ public interface TraitState {
 
   TraitStateType getType();
 
-  boolean isCaste();
-
-  boolean isCasteOrFavored();
-
-  boolean isFavored();
-
   void advanceState();
 
   void restore(TraitStateType type);

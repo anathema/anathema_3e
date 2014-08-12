@@ -64,6 +64,6 @@ public abstract class FavorableTraitContent extends AbstractSubBoxContent {
   public abstract String getMarkerCommentKey();
 
   public boolean isCasteOrFavored(Trait trait) {
-    return model.getState(trait).isCasteOrFavored();
+    return model.getState(trait).isCheapened();
   }
 }

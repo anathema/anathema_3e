@@ -35,7 +35,7 @@ public abstract class AbstractTraitTextEncoder extends TextPartFactory implement
         traitPhrase.add(createTextChunk(", "));
       }
       firstPrinted = false;
-      if (getTraitState(hero, trait).isCasteOrFavored()) {
+      if (getTraitState(hero, trait).isCheapened()) {
         traitPhrase.add(createTextChunk("*"));
       }
       traitPhrase.add(createTextChunk(resources.getString(trait.getType().getId())));

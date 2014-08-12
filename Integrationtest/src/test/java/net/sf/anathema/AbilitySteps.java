@@ -11,6 +11,7 @@ import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -68,7 +69,7 @@ public class AbilitySteps {
     for (Trait trait : traits) {
       boolean isAbility = trait.getType() instanceof AbilityType;
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      if (isAbility && hasNotYetReachedThreshold && !abilitiesStateMap.getState(trait).isFavored()){
+      if (isAbility && hasNotYetReachedThreshold && abilitiesStateMap.getState(trait) != Favored){
         increaseTraitValueByOne(trait);
         break;
       }

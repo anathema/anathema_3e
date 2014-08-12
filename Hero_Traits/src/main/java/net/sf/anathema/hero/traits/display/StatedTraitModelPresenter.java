@@ -7,8 +7,9 @@ import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
@@ -21,8 +22,6 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.experience.model.ExperienceChange.FLAVOR_EXPERIENCE_STATE;
-import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class StatedTraitModelPresenter {
 
@@ -59,8 +58,8 @@ public class StatedTraitModelPresenter {
     for (Trait trait : getAllTraits()) {
       ToggleTool view = casteToggleByTrait.get(trait);
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
-      boolean favored = model.getState(trait).isCasteOrFavored();
-      setButtonState(view, favored, !disabled);
+      boolean cheapened = model.getState(trait).isCheapened();
+      setButtonState(view, cheapened, !disabled);
       Style style = model.getState(trait).isSelectableForCaste() ? POSSIBLE_CASTE_BUTTON : STATE_SELECTION_BUTTON;
       view.setStyle(style);
     }
@@ -99,7 +98,7 @@ public class StatedTraitModelPresenter {
   }
 
   private void updateView(final ToggleTool view, TraitStateType state) {
-    boolean select = state == Favored || state == Caste;
+    boolean select = TraitStateImpl.isCheapened(state);
     setButtonState(view, select, true);
     PresentationPropertiesImpl properties = new PresentationPropertiesImpl(hero.getSplat());
     new FavoredIconSelector(view, properties).setIconFor(hero, state);

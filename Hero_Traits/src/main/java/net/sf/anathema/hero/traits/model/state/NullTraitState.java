@@ -15,21 +15,6 @@ public class NullTraitState implements TraitState {
   }
 
   @Override
-  public boolean isCaste() {
-    return false;
-  }
-
-  @Override
-  public boolean isCasteOrFavored() {
-    return false;
-  }
-
-  @Override
-  public boolean isFavored() {
-    return false;
-  }
-
-  @Override
   public void advanceState() {
     // nothing to do
   }

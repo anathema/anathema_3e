@@ -1,14 +1,11 @@
 package net.sf.anathema.hero.traits.model.state;
 
-import net.sf.anathema.hero.concept.model.concept.CasteType;
-import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.Arrays;
-import java.util.List;
 
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
@@ -21,15 +18,13 @@ public class TraitStateImpl implements TraitState {
   private final Announcer<TraitStateChangedListener> stateChangeAnnouncer = Announcer.to(
           TraitStateChangedListener.class);
   private final MappableTypeIncrementChecker<TraitStateType> checker;
-  private final List<CasteType> castes;
+  private final Castes traitCastes;
   private final boolean isRequiredFavored;
   private final CasteChangedBehavior casteChangedBehavior;
-  private final Hero hero;
 
-  public TraitStateImpl(Hero hero, List<CasteType> castes, MappableTypeIncrementChecker<TraitStateType> checker,
+  public TraitStateImpl(Hero hero, Castes traitCastes, MappableTypeIncrementChecker<TraitStateType> checker,
                         CasteChangedBehavior casteChangedBehavior, boolean requiredFavor) {
-    this.hero = hero;
-    this.castes = castes;
+    this.traitCastes = traitCastes;
     this.checker = checker;
     this.isRequiredFavored = requiredFavor;
     this.currentState = requiredFavor ? Favored : Default;
@@ -66,15 +61,10 @@ public class TraitStateImpl implements TraitState {
     if (!currentState.countsAs(newState) && !checker.isValidIncrement(newState, 1)) {
       return false;
     }
-    if (newState.countsAs(Caste) && !isSupportedCasteType(getCurrentCaste())) {
+    if (newState.countsAs(Caste) && !traitCastes.isCurrentCasteSupported()) {
       return false;
     }
     return true;
-  }
-
-  @Override
-  public boolean isCheapened() {
-    return !currentState.equals(Default);
   }
 
   @Override
@@ -84,11 +74,9 @@ public class TraitStateImpl implements TraitState {
 
   @Override
   public boolean isSelectableForCaste() {
-    CasteType currentCaste = getCurrentCaste();
-    return castes.contains(currentCaste);
+    return traitCastes.isCurrentCasteSupported();
   }
 
-  @SuppressWarnings("ConstantConditions")
   public void setCaste(boolean caste) {
     if (!caste && !isCaste()) {
       return;
@@ -107,36 +95,20 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
-  public final boolean isFavored() {
-    return currentState.countsAs(Favored);
+  public boolean isCheapened() {
+    return isCheapened(currentState);
   }
 
-  @Override
-  public final boolean isCaste() {
+  public static boolean isCheapened(TraitStateType state) {
+    return !state.equals(Default);
+  }
+  
+  private boolean isCaste() {
     return currentState.countsAs(Caste);
   }
 
-  @Override
-  public final boolean isCasteOrFavored() {
-    return isCaste() || isFavored();
-  }
-
   private void updateFavorableStateToCaste() {
-    CasteType casteType = getCurrentCaste();
-    setCaste(isSupportedCasteType(casteType));
-  }
-
-  private boolean isSupportedCasteType(CasteType casteType) {
-    for (CasteType caste : castes) {
-      if (caste.equals(casteType)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  private CasteType getCurrentCaste() {
-    return HeroConceptFetcher.fetch(hero).getCaste().getType();
+    setCaste(traitCastes.isCurrentCasteSupported());
   }
 
   private void changeStateTo(TraitStateType state) {
