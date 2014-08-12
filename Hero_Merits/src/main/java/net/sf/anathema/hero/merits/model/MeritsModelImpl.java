@@ -1,10 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -14,6 +10,7 @@ import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
+import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
@@ -21,9 +18,13 @@ import net.sf.anathema.library.model.RemovableEntryListener;
 
 import org.jmock.example.announcer.Announcer;
 
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
+
 public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implements MeritsModel {
 
   private final Announcer<ChangeListener> announcer = Announcer.to(ChangeListener.class);
+  private ChangeAnnouncer change;
   private MeritCache meritCache;
   private MeritCategory currentType = MeritCategory.Story;
   private String currentMerit = "";
@@ -46,6 +47,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   public void initializeListening(final ChangeAnnouncer announcer) {
     addModelChangeListener(new UnspecifiedChangeListener(announcer));
     addModelChangeListener((RemovableEntryListener) new RemovableEntryChangeAdapter<>(announcer));
+    change = announcer;
   }
   
   @Override
@@ -126,8 +128,10 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   protected Merit createEntry() {
-	  return new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
+	  MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
 			  currentDescription, hero);
+	  merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
+	  return merit;
   }
 
   @Override
