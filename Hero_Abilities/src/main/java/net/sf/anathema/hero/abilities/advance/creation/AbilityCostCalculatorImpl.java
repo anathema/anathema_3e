@@ -107,6 +107,7 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return statePicks.get(type);
   }
 
+  //TODO (Urs): Do we expect a character type with reserved dots for favored abilities ever again?
   public int getFreePointsSpent(boolean favored) {
     return favored ? favoredDotSum : generalDotSum;
   }
