@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.abilities.model;
 
+import com.google.common.base.Functions;
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
@@ -39,10 +40,6 @@ import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
-import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
@@ -148,12 +145,10 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     return limitation.getAbsoluteLimit(hero);
   }
 
+  @SuppressWarnings("ConstantConditions")
   @Override
   public int getTraitPicksForState(TraitStateType state) {
-    if (Favored == state) return template.favoredCount;
-    if (Caste == state) return template.casteCount;
-    if (Supernal == state) return template.supernalCount;
-    return 0;
+    return Functions.forMap(template.picks, 0).apply(state.getId());
   }
 
   @Override

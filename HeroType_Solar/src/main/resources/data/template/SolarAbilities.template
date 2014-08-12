@@ -44,7 +44,9 @@
     }
 
   ];
-  favoredCount: 5;
-  casteCount: 5;
-  supernalCount: 1
+  picks: {
+    Favored: 5;
+    Caste: 5;
+    Supernal: 1
+  }
 }
