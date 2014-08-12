@@ -19,15 +19,15 @@ public class TraitStateImpl implements TraitState {
           TraitStateChangedListener.class);
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final Castes traitCastes;
-  private final boolean isRequiredFavored;
   private final CasteChangedBehavior casteChangedBehavior;
+  private final RequiredTraitState requiredState;
 
   public TraitStateImpl(Hero hero, Castes traitCastes, MappableTypeIncrementChecker<TraitStateType> checker,
-                        CasteChangedBehavior casteChangedBehavior, boolean requiredFavor) {
+                        CasteChangedBehavior casteChangedBehavior, RequiredTraitState requiredState) {
     this.traitCastes = traitCastes;
     this.checker = checker;
-    this.isRequiredFavored = requiredFavor;
-    this.currentState = requiredFavor ? Favored : Default;
+    this.requiredState = requiredState;
+    this.currentState = requiredState.overrideStateIfNecessary(Default);
     this.casteChangedBehavior = casteChangedBehavior;
     hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
@@ -54,9 +54,10 @@ public class TraitStateImpl implements TraitState {
     return currentState;
   }
 
+  @SuppressWarnings("RedundantIfStatement")
   private boolean isLegalState(TraitStateType newState) {
-    if (newState == Caste && isRequiredFavored) {
-      throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
+    if (!requiredState.satisfiesRequirement(newState)) {
+      return false;
     }
     if (!currentState.countsAs(newState) && !checker.isValidIncrement(newState, 1)) {
       return false;
@@ -77,6 +78,7 @@ public class TraitStateImpl implements TraitState {
     return traitCastes.isCurrentCasteSupported();
   }
 
+  @SuppressWarnings("ConstantConditions")
   public void setCaste(boolean caste) {
     if (!caste && !isCaste()) {
       return;
@@ -102,7 +104,7 @@ public class TraitStateImpl implements TraitState {
   public static boolean isCheapened(TraitStateType state) {
     return !state.equals(Default);
   }
-  
+
   private boolean isCaste() {
     return currentState.countsAs(Caste);
   }
@@ -112,9 +114,7 @@ public class TraitStateImpl implements TraitState {
   }
 
   private void changeStateTo(TraitStateType state) {
-    if (isRequiredFavored && state == Default) {
-      state = Favored;
-    }
+    state = requiredState.overrideStateIfNecessary(state);
     if (isLegalState(state)) {
       this.currentState = state;
       stateChangeAnnouncer.announce().favorableStateChanged(this.currentState);

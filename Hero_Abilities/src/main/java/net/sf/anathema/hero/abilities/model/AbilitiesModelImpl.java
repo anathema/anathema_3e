@@ -27,6 +27,9 @@ import net.sf.anathema.hero.traits.model.state.CasteChangedBehavior;
 import net.sf.anathema.hero.traits.model.state.Castes;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.NoRequiredState;
+import net.sf.anathema.hero.traits.model.state.RequiredFavoredState;
+import net.sf.anathema.hero.traits.model.state.RequiredTraitState;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
@@ -102,9 +105,17 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   private TraitStateImpl createTraitState(TraitRules traitRules, Trait trait) {
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
-    boolean requiredFavored = traitRules.isRequiredFavored();
     Castes castes = getCastesFor(trait.getType());
-    return new TraitStateImpl(this.hero, castes, checker, getCasteChangedBehavior(), requiredFavored);
+    RequiredTraitState requiredState = findRequiredState(traitRules);
+    return new TraitStateImpl(hero, castes, checker, getCasteChangedBehavior(), requiredState);
+  }
+
+  private RequiredTraitState findRequiredState(TraitRules traitRules) {
+    if (traitRules.isRequiredFavored()) {
+      return new RequiredFavoredState();
+    } else {
+      return new NoRequiredState();
+    }
   }
 
   private CasteChangedBehavior getCasteChangedBehavior() {
