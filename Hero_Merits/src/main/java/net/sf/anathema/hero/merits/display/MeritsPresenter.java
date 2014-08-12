@@ -77,10 +77,11 @@ public class MeritsPresenter {
   private Tool initCreationViewListening(MeritEntryView selectionView) {
 	String labelText = resources.getString("Merits.DescriptionLabel");
 	ObjectSelectionView<MeritCategory> categories = allowSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
-	ObjectSelectionView<MeritOption> option = allowSelection(selectionView, model.getCurrentMeritOptions().toArray(new MeritOption[0]), model::setCurrentMeritOption, model.getCurrentMeritOption(), new MeritUiConfiguration<MeritOption>(resources));
+	ObjectSelectionView<String> option = allowSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
+			model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
     // TODO: There should be a much more elegant means to do this
 	((ComboBoxSelectionView)option).makeEditable();
-	categories.addObjectSelectionChangedListener(item -> option.setObjects(model.getCurrentMeritOptions()));
+	categories.addObjectSelectionChangedListener(item -> option.setObjects(model.getCurrentMeritOptionLabels()));
 	selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentMerit);
     Tool tool = selectionView.addTool();
@@ -102,17 +103,6 @@ public class MeritsPresenter {
     model.setCurrentMerit("");
   }
 
-  private String getDisplayString(Object object) {
-	  if (object == null) {
-		  return null;
-	  }
-	  // TODO: Clean this up. Use IDs?
-	  if (object instanceof MeritOption) {
-		  return ((MeritOption)object).getId();
-	  }
-	  return object.toString();
-  }
-
   private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {
 	  	private final Resources resources;
 	  	
@@ -122,7 +112,7 @@ public class MeritsPresenter {
 	  
 	    @Override
 	    public String getLabel(T value) {
-	      return getDisplayString(value);
+	      return value != null ? value.toString() : null;
 	    }
 	  }
 }

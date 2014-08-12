@@ -6,10 +6,10 @@ import net.sf.anathema.library.dependencies.Produces;
 import net.sf.anathema.library.resources.Resources;
 
 @Produces(SimpleMeritsContent.class)
-public class SimpleIntimaciesContentFactory implements ReportContentFactory<SimpleMeritsContent> {
+public class SimpleMeritsContentFactory implements ReportContentFactory<SimpleMeritsContent> {
   private Resources resources;
 
-  public SimpleIntimaciesContentFactory(Resources resources) {
+  public SimpleMeritsContentFactory(Resources resources) {
     this.resources = resources;
   }
 

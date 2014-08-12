@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -58,6 +59,11 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   	List<MeritOption> options = meritCache.getAllMeritOptions();
   	options.removeIf(item -> item.getType() != currentType);
   	return options;
+  }
+  
+  @Override
+  public List<String> getCurrentMeritOptionLabels() {
+  	return Lists.transform(getCurrentMeritOptions(), option -> option.getId());
   }
 
   @Override

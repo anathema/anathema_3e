@@ -7,15 +7,15 @@ import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.library.resources.Resources;
 
 @SuppressWarnings("UnusedDeclaration")
-public class SimpleIntimaciesEncoderFactory extends AbstractEncoderFactory {
+public class SimpleMeritsEncoderFactory extends AbstractEncoderFactory {
 
-  public SimpleIntimaciesEncoderFactory() {
+  public SimpleMeritsEncoderFactory() {
     super(EncoderIds.INTIMACIES_SIMPLE);
   }
 
   @Override
   public ContentEncoder create(Resources resources, BasicContent content) {
-    return new SimpleIntimaciesEncoder();
+    return new SimpleMeritsEncoder();
   }
 
   @Override

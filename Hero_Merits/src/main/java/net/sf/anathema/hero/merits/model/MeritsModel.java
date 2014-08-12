@@ -16,6 +16,8 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
   List<Merit> getMerits();
   
   List<MeritOption> getCurrentMeritOptions();
+  
+  List<String> getCurrentMeritOptionLabels();
 
   void setCurrentType(MeritCategory newValue);
 
