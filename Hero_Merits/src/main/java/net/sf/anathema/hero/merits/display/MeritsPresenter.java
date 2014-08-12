@@ -5,11 +5,9 @@ import java.util.Map;
 
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
-import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.library.event.ObjectChangedListener;
-import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
@@ -78,8 +76,8 @@ public class MeritsPresenter {
 
   private Tool initCreationViewListening(MeritEntryView selectionView) {
 	String labelText = resources.getString("Merits.DescriptionLabel");
-	ObjectSelectionView<MeritCategory> categories = allowSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
-	ObjectSelectionView<String> option = allowSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
+	ObjectSelectionView<MeritCategory> categories = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
+	ObjectSelectionView<String> option = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
 			model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
     
 	// We ideally want a text changed listener rather than an object change
@@ -92,22 +90,26 @@ public class MeritsPresenter {
     tool.setCommand(model::commitSelection);
     return tool;
   }
+  
+  private <T> ObjectSelectionView<T> addMeritSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
+	  return allowSelection(selectionView.addMeritSelection(uiConfiguration), objects, listener, initial);
+  }
+  
+  private <T> ObjectSelectionView<T> addGenericSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
+	  return allowSelection(selectionView.addSelection(uiConfiguration), objects, listener, initial);
+  }
 
-  private <T> ObjectSelectionView<T> allowSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
-    ObjectSelectionView<T> selection = selectionView.addSelection(uiConfiguration);
+  private <T> ObjectSelectionView<T> allowSelection(ObjectSelectionView<T> selection, T[] objects, ObjectChangedListener<T> listener, T initial) {
     selection.setObjects(objects);
     selection.setSelectedObject(initial);
     selection.addObjectSelectionChangedListener(listener);
- // TODO: There should be a much more elegant means to do this
-    if (objects.getClass().equals(new String[0].getClass())) {
-    	((ComboBoxSelectionView<String>)selection).makeEditable();
-    }
     return selection;
   }
 
   private void reset(MeritEntryView selectionView) {
     selectionView.clear();
     model.setCurrentMerit("");
+    model.setCurrentDescription("");
   }
 
   private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {

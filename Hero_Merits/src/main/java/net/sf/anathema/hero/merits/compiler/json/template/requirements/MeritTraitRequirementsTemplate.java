@@ -11,6 +11,6 @@ public class MeritTraitRequirementsTemplate implements MeritRequirementsTemplate
 	
 	@Override
 	public MeritRequirement generate() {
-		return new MeritTraitRequirement(trait, rating);
+		return new MeritTraitRequirement(trait.replaceAll(" ", ""), rating);
 	}
 }

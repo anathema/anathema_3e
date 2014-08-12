@@ -16,4 +16,6 @@ public interface MeritEntryView {
   void addDescriptionBox(String label);
 
   <T> ObjectSelectionView<T> addSelection(AgnosticUIConfiguration<T> uiConfiguration);
+
+  <T> ObjectSelectionView<T> addMeritSelection(AgnosticUIConfiguration<T> uiConfiguration);
 }

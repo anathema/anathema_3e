@@ -36,6 +36,7 @@ public class MeritCacheImpl implements MeritCache {
 		template.type = MeritCategory.Purchased.toString();
 		template.repurchases = true;
 		template.values = "1-5";
+		template.requirements = new ArrayList<>();
 		return new MeritOptionImpl(template);
 	}
 }

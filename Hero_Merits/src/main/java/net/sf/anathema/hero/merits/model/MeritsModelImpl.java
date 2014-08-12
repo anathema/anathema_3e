@@ -24,7 +24,6 @@ import org.jmock.example.announcer.Announcer;
 public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implements MeritsModel {
 
   private final Announcer<ChangeListener> announcer = Announcer.to(ChangeListener.class);
-  private final List<Merit> possessedMerits = new ArrayList<>();
   private MeritCache meritCache;
   private MeritCategory currentType = MeritCategory.Story;
   private String currentMerit = "";
@@ -51,13 +50,14 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   
   @Override
   public List<Merit> getMerits() {
-	  return new ArrayList<>(possessedMerits);
+	  return getEntries();
   }
   
   @Override
   public List<MeritOption> getCurrentMeritOptions() {
   	List<MeritOption> options = meritCache.getAllMeritOptions();
-  	options.removeIf(item -> item.getType() != currentType || !item.isHeroEligible(hero));
+  	options.removeIf(item -> item.getType() != currentType || !item.isHeroEligible(hero) ||
+  						(!item.allowsRepurchase() && hasMerit(item)));
   	return options;
   }
   
@@ -116,7 +116,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
   
   private boolean hasMerit(MeritOption option) {
-	  for (Merit merit : possessedMerits) {
+	  for (Merit merit : getEntries()) {
 		  if (merit.getBaseOption().equals(option)) {
 			  return true;
 		  }
@@ -136,10 +136,11 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 		return false;
 	}
 	MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);
-	if (baseMerit != null)
+	if (baseMerit != null) {
 		if (!baseMerit.isHeroEligible(hero) ||
 		    (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
-		return false;
+			return false;
+		}
 	}
     return true;
   }
