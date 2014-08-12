@@ -1,0 +1,317 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AllSeeingMasterProcurer": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Bureaucracy": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ConsumerEvaluatingGlance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BureauRectifyingMethod": {
+            "cost": "10m, 1wp", 
+            "duration": "One investigation", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpeedtheWheels"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BureauReformingKata": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BureauRectifyingMethod", 
+                "Solar.EnigmaticBureauUnderstanding"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ConsumerEvaluatingGlance": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FrugalMerchantMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DeftOfficialsWay": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Bureaucracy": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EclecticVerbiageofLaw": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SemanticArgumentTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EmpoweredBarterStance": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IrresistibleSalesmanSpirit"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EnigmaticBureauUnderstanding": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MeasuringGlance"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EnlightenedDiscourseMethod": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Bureaucracy": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeftOfficialsWay", 
+                "Solar.FrugalMerchantMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FoulAirofArgumentTechnique": {
+            "cost": "13m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IndolentOfficialCharm"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FrugalMerchantMethod": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.IllimitableMasterFence": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AllSeeingMasterProcurer"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.IndolentOfficialCharm": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeftOfficialsWay"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.InfinitelyEfficientRegister": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OmenSpawningBeast"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.InsightfulBuyerTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FrugalMerchantMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.IrresistibleSalesmanSpirit": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ConsumerEvaluatingGlance", 
+                "Solar.InsightfulBuyerTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MeasuringGlance": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeftOfficialsWay"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.OmenSpawningBeast": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoeCapturingWeb"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.OrderConferringAction": {
+            "cost": "10m, 1wp", 
+            "duration": "One week", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TabooInflictingDiatribe"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SemanticArgumentTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EnlightenedDiscourseMethod"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SoulSnaringPitch": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IrresistibleSalesmanSpirit"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SpeedtheWheels": {
+            "cost": "8m", 
+            "duration": "One task", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeftOfficialsWay"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SubjectHailingIdeology": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EclecticVerbiageofLaw"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TabooInflictingDiatribe": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FoulAirofArgumentTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UngovernedMarketAwareness": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IllimitableMasterFence"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WoeCapturingWeb": {
+            "cost": "--(Varies)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Bureaucracy": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BureauReformingKata"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Bureaucracy"
+}

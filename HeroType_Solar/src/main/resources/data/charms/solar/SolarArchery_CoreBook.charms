@@ -190,8 +190,8 @@
                 "Essence": 5
             }, 
             "prerequisiteCharms": [
-            	"Solar.ScourgingWindAttack",
-                "Solar.CrimsonStreamingIncineration"
+                "Solar.CrimsonStreamingIncineration", 
+                "Solar.ScourgingWindAttack"
             ], 
             "type": "Simple"
         }, 

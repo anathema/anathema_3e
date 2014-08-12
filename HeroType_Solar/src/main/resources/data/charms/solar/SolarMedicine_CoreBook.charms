@@ -1,161 +1,263 @@
 {
-  "category": "Solar",
-  "tree": "Medicine",
-  "charms": {
-    "Ailment-Rectifying Method": {
-      "cost": "3m",
-      "minimums": {
-        "Medicine": 1,
-        "Essence": 1
-      },
-      "type": "Simple",
-      "duration": "Instant"
-    },
-    "Plague-Banishing Incitation": {
-      "cost": "2m,1wp",
-      "minimums": {
-        "Medicine": 3,
-        "Essence": 1
-      },
-      "type": "Reflexive",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Ailment-Rectifying Method"]
-    },
-    "Contagion-Curing Touch": {
-      "minimums": {
-        "Medicine": 4,
-        "Essence": 2
-      },
-      "type": "Permanent",
-      "duration": "Permanent",
-      "prerequisiteCharms": ["Plague-Banishing Incitation"]
-    },
-    "Wound-Mending Care Technique": {
-      "cost": "5m,1wp",
-      "minimums": {
-        "Medicine": 3,
-        "Essence": 1
-      },
-      "type": "Simple",
-      "duration": "Instant"
-    },
-    "Instant Treatment Methodology": {
-      "cost": "10m",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 1
-      },
-      "type": "Simple",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Wound-Mending Care Technique"]
-    },
-    "Wound-Cleansing Meditation": {
-      "cost": "5m,1wp-or-5i,1wp",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 2
-      },
-      "type": "Reflexive",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Wound-Mending Care Technique"]
-    },
-    "Anointment of Miraculous Health": {
-      "cost": "10m",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Simple",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Instant Treatment Methodology"]
-    },
-    "Body-Sculpting Essence Method": {
-      "cost": "10m,1wp",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Simple",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Anointment of Miraculous Health"]
-    },
-    "Wholeness-Restoring Meditation": {
-      "cost": "10m,1wp",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Simple",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Anointment of Miraculous Health", "Wound-Cleansing Meditation"]
-    },
-    "Healing Trance Meditation": {
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Simple",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Contagion-Curing Touch", "Wholeness-Restoring Meditation"]
-    },
-    "Flawless Diagnosis Technique": {
-      "cost": "1m",
-      "minimums": {
-        "Medicine": 1,
-        "Essence": 1
-      },
-      "type": "Supplemental",
-      "duration": "Instant"
-    },
-    "Touch of Blissful Release": {
-      "cost": "5m",
-      "minimums": {
-        "Medicine": 3,
-        "Essence": 2
-      },
-      "type": "Reflexive",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Flawless Diagnosis Technique"]
-    },
-    "Feit of Imparted Nature": {
-      "cost": "10m",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Simple",
-      "duration": "Indefinite",
-      "prerequisiteCharms": ["Touch of Blissful Release"]
-    },
-    "Life-Exchanging Prana": {
-      "cost": "1lhl per 3m",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Reflexive",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Feit of Imparted Nature"]
-    },
-    "Body-Purifying Admonitions": {
-      "cost": "4m,1wp",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 2
-      },
-      "type": "Reflexive",
-      "duration": "Instant",
-      "prerequisiteCharms": ["Touch of Blissful Release"]
-    },
-    "Anodyne of Celestial Dreaming": {
-      "cost": "7m,1wp",
-      "minimums": {
-        "Medicine": 5,
-        "Essence": 3
-      },
-      "type": "Reflexive",
-      "duration": "One scene",
-      "prerequisiteCharms": ["Touch of Blissful Release"]
-    }
-  }
+    "category": "Solar", 
+    "charms": {
+        "Solar.AilmentRectifyingMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.AnodyneofCelestialDreaming": {
+            "cost": "7m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TouchofBlissfulRelease"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AnointmentofMiraculousHealth": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InstantTreatmentMethodology"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BenisonofCelestialHealing": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterChirurgeonMeditation"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.BodyPurifyingAdmonitions": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TouchofBlissfulRelease"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BodySculptingEssenceMethod": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AnointmentofMiraculousHealth"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ContagionCuringTouch": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Medicine": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PlagueBanishingIncitation"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FeitofImpartedNature": {
+            "cost": "10m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Medicine": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TouchofBlissfulRelease"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FlawlessDiagnosisTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.HealersUnerringHands": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LifeSculptingHandsTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HealingTranceMeditation": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ContagionCuringTouch", 
+                "Solar.WholenessRestoringMeditation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ImmaculateSolarPhysician": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 5, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HealersUnerringHands"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.InstantTreatmentMethodology": {
+            "cost": "5m, 1wp or 5i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoundCleansingMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LifeExchangingPrana": {
+            "cost": "1lhl per 3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FeitofImpartedNature"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LifeSculptingHandsTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BenisonofCelestialHealing"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.MasterChirurgeonMeditation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.PerfectCelestialChirurgeon": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 5, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HealersUnerringHands"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PlagueBanishingIncitation": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AilmentRectifyingMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TouchofBlissfulRelease": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Medicine": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessDiagnosisTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WholenessRestoringMeditation": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AnointmentofMiraculousHealth"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WoundCleansingMeditation": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoundMendingCareTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WoundMendingCareTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Medicine"
 }

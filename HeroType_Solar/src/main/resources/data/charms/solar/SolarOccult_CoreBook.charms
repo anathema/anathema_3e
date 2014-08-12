@@ -1,0 +1,433 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AllEncompassingSorcerersSight": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDetectingGlance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AllSoulsBenediction": {
+            "cost": "16m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MaterialExegesisPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.AncientTongueUnderstanding": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BreathDrinkerMethod": {
+            "cost": "4i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDrainingStance"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.BurningExorcismTechnique": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CarnalSpiritRending"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BurningEyeoftheDeliverer": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AllEncompassingSorcerersSight"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.CarnalSpiritRending": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GhostEatingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CelestialCircleSorcery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TerrestrialCircleSorcery"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DarkMindersObservances": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AncientTongueUnderstanding"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DemonCompellingNoose": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDrainingMudra"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EphemeralInductionTechnique": {
+            "cost": "20m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CarnalSpiritRending", 
+                "Solar.GloamingEyeUnderstanding", 
+                "Solar.WyldBindingPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.GhostEatingTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCuttingAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.GloamingEyeUnderstanding": {
+            "cost": "3m per Charm", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DarkMindersObservances"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ImmortalSoulVigil": {
+            "cost": "--(7m)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SoulProjectionMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.KeenUnnaturalEye": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UncannyPerceptionTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.MaterialExegesisPrana": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritManifestingWord"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.NineSpectersBan": {
+            "cost": "4m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritRepellingDiagram", 
+                "Solar.UncannyShroudDefense"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PhantomSeizingStrike": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GhostEatingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SolarCircleSorcery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 5, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CelestialCircleSorcery"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SorcerersBurningChakra": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BurningEyeoftheDeliverer"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SoulProjectionMethod": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BurningExorcismTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SpiritCagingMandala": {
+            "cost": "10m, 1wp", 
+            "duration": "Varies", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritRepellingDiagram"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SpiritCuttingAttack": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDetectingGlance"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SpiritDetectingGlance": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritDrainingMudra": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCagingMandala"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SpiritDrainingStance": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCuttingAttack"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SpiritDrawingOculus": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SorcerersBurningChakra"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritManifestingWord": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.SpiritRepellingDiagram": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCuttingAttack"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SpiritShreddingExorcism": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDrainingMudra"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritSlayingStance": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PhantomSeizingStrike"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SupernalControlMethod": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AncientTongueUnderstanding"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TerrestrialCircleSorcery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.UncannyPerceptionTechnique": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritDetectingGlance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UncannyShroudDefense": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCuttingAttack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WyldBindingPrana": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Occult": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritCagingMandala"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Occult"
+}

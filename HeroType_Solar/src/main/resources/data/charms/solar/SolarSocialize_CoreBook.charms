@@ -1,0 +1,556 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AspBitesItsTail": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AspersionsCastAside", 
+                "Solar.EffectiveCounterArgument"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AspersionsCastAside": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnimpeachableDiscourseTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AtYourService": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DrawtheCurtain", 
+                "Solar.KnowingtheSoulsPrice"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CultureHeroApproach": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasteryofSmallManners"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CunningInsightTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnimpeachableDiscourseTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DauntlessAssayerMethod": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MotiveDiscerningTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DeepEyedSoulGazing": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IntentTracingStare"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DiscretionaryGesture": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IntentTracingStare"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DoubtSowingContentionMethod": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CunningInsightTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DrawtheCurtain": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendMaskMethodology"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EasilyDiscardedPresenceMethod": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowOverDay"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EffectiveCounterArgument": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnimpeachableDiscourseTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ElusiveDreamDefense": {
+            "cost": "1m, 1wp", 
+            "duration": "One round", 
+            "minimums": {
+                "Essence": 4, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EvenTouchedProphet"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EndlessObsessionFeint": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WiseCounsel(FlashingSoulReform)"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EvenTouchedProphet": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnboundSocialMastery"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FaceCharmingPrana": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeenandSeeingMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FeteWatcherStance": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WiseEyedCourtierMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FriendofaFriendApproach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.FugueEmpoweredOther": {
+            "cost": "1 Limit", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DrawtheCurtain"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GuardedThoughtsMeditation": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowOverDay"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeartEclipsingShroud": {
+            "cost": "--(10m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InvertedEgoMask"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HumbleServantApproach": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MotiveDiscerningTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HundredFacedStranger": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HeartEclipsingShroud"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.IndecentProposalMethod": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnimpeachableDiscourseTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.IntentTracingStare": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MotiveDiscerningTechnique", 
+                "Solar.ShadowOverDay"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InvertedEgoMask": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PenumbraSelfMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.KnowingtheSoulsPrice": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeenandSeeingMethod", 
+                "Solar.WiseEyedCourtierMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.LegendMaskMethodology": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HundredFacedStranger"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.MasteryofSmallManners": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MotiveDiscerningTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.NightPassesOver": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PenumbraSelfMeditation": {
+            "cost": "3m per Intimacy", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GuardedThoughtsMeditation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PreeminentGalaKnife": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DauntlessAssayerMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.QuicksilverFalconsEye": {
+            "cost": "1m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MotiveDiscerningTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SeenandSeeingMethod": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeepEyedSoulGazing"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SelfsameMasterProcurer": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EasilyDiscardedPresenceMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowOverDay": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.NightPassesOver"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SoulReprisal": {
+            "cost": "16m, 1wp, 20xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FugueEmpoweredOther"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SoulVoidKata": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FaceCharmingPrana", 
+                "Solar.InvertedEgoMask"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UmbralEyesFocus": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.QuicksilverFalconsEye"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.UnboundSocialMastery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnderstandingtheCourt"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnderstandingtheCourt": {
+            "cost": "20m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CultureHeroApproach", 
+                "Solar.KnowingtheSoulsPrice"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnimpeachableDiscourseTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasteryofSmallManners"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.VenomousRumorsTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnderstandingtheCourt"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WiseCounsel(FlashingSoulReform)": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EffectiveCounterArgument"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WiseEyedCourtierMethod": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Socialize": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HumbleServantApproach"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Socialize"
+}

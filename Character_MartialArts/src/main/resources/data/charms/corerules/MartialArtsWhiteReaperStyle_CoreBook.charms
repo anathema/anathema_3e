@@ -1,0 +1,113 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.BleedingCrescentStrike": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.WhiteReaperForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.EnemiesLikeGrass": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.WhiteReaperForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.FallingScytheFlash": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.FlickeringCoronaBarrier": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.WhiteReaperForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.GreatestKillerAttitude": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.BleedingCrescentStrike"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.ImpenetrableWhiteShroud": {
+            "cost": "4m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FlickeringCoronaBarrier"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.RevolvingCrescentDefense": {
+            "cost": "4m, 1i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.SnowFollowsWinter": {
+            "cost": "-- (+1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EnemiesLikeGrass", 
+                "MartialArts.GreatestKillerAttitude", 
+                "MartialArts.ImpenetrableWhiteShroud"
+            ], 
+            "type": "Permanent"
+        }, 
+        "MartialArts.WhiteReaperForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FallingScytheFlash", 
+                "MartialArts.RevolvingCrescentDefense"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "WhiteReaperStyle"
+}

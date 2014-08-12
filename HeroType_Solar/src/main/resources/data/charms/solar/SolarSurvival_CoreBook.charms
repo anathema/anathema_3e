@@ -1,0 +1,292 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AmbushPredatorStyle": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FamiliarHoningInstruction"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BeastMasteringBehavior": {
+            "cost": "10m, 1wp", 
+            "duration": "One week", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritTiedPet"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BestialTraitsTechnique": {
+            "cost": "10m, 1wp, 2xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritTiedPet"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.CrimsonTalonVigor": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ForceBuildingPredatorStyle"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DeadlyOnslaughtCoordination": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BeastMasteringBehavior"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DeadlyPredatorMethod": {
+            "cost": "15m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CrimsonTalonVigor", 
+                "Solar.RedToothedExecutionOrder", 
+                "Solar.SagaBeastVirtue"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ElementResistingPrana": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HardshipSurvivingMendicantSpirit"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EyeDeceivingCamouflage": {
+            "cost": "6m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TracelessPassage"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FamiliarHoningInstruction": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritTiedPet"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FoodGatheringExercise": {
+            "cost": "3m", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 1, 
+                "Survival": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.ForceBuildingPredatorStyle": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AmbushPredatorStyle"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FriendshipwithAnimalsApproach": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Survival": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.GhostPantherSlinking": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BeastMasteringBehavior", 
+                "Solar.BestialTraitsTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HardshipSurvivingMendicantSpirit": {
+            "cost": "5m", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 1, 
+                "Survival": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HideHardeningPractice": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BestialTraitsTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.LifeoftheAurochs": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BestialTraitsTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PhantomRendingFangs": {
+            "cost": "3m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritHuntingHound"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RedToothedExecutionOrder": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeadlyOnslaughtCoordination"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SagaBeastVirtue": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HideHardeningPractice", 
+                "Solar.LifeoftheAurochs"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritHuntingHound": {
+            "cost": "1m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FamiliarHoningInstruction"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritTiedPet": {
+            "cost": "10m, 1wp, 1xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FriendshipwithAnimalsApproach"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TracelessPassage": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnshakeableBloodhoundTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TracklessRegionNavigation": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HardshipSurvivingMendicantSpirit"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnshakeableBloodhoundTechnique": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Survival": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TracklessRegionNavigation"
+            ], 
+            "type": "Supplemental"
+        }
+    }, 
+    "tree": "Survival"
+}

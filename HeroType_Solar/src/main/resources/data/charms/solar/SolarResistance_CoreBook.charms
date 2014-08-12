@@ -1,0 +1,323 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AdamantSkinTechnique": {
+            "cost": "8m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DiamondBodyPrana", 
+                "Solar.IronKettleBody"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AegisofInvincibleMight": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 5, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AdamantSkinTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ArmoredScoutsInvigoration": {
+            "cost": "4m or 6m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WhirlwindArmorDonningPrana"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BattleFuryFocus": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WillpowerEnhancingSpirit"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BloodthirstySwordDancerSpirit": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BattleFuryFocus"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BodyMendingMeditation": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OxBodyTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DiamondBodyPrana": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IronSkinConcentration"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DurabilityofOakMeditation": {
+            "cost": "3m", 
+            "duration": "One tick", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EssenceGatheringTemper": {
+            "cost": "1i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FrontLineWarriorsStamina": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OxBodyTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.GloriousSolarPlate": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HauberkSummoningGesture"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.GlorytotheMostHigh": {
+            "cost": "10m, 20i, 3a, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RoaroftheGodEmperor"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HauberkSummoningGesture": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WhirlwindArmorDonningPrana"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IllnessResistingMeditation": {
+            "cost": "4m", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PoisonResistingMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ImmunitytoEverythingTechnique": {
+            "cost": "6m, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IllnessResistingMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IronKettleBody": {
+            "cost": "6m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IronSkinConcentration"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IronSkinConcentration": {
+            "cost": "2m or 6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritStrengthenstheSkin"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OxBodyTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.PoisonResistingMeditation": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RoaroftheGodEmperor": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BloodthirstySwordDancerSpirit", 
+                "Solar.WoundKnittingExercise"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RuinAbasingShrug": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AdamantSkinTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpiritStrengthenstheSkin": {
+            "cost": "1m per damage die removed", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DurabilityofOakMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TigerWarriorsEndurance": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BodyMendingMeditation", 
+                "Solar.FrontLineWarriorsStamina"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnbreakableWarriorsMastery": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoundKnittingExercise"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WhirlwindArmorDonningPrana": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.WillpowerEnhancingSpirit": {
+            "cost": "2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Resistance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceGatheringTemper"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WoundKnittingExercise": {
+            "cost": "1m per -0 health level", 
+            "duration": "Until fully healed", 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TigerWarriorsEndurance"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Resistance"
+}

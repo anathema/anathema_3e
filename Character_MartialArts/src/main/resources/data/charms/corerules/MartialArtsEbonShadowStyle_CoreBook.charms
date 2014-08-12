@@ -1,0 +1,100 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.EbonShadowForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.NothingButShadows", 
+                "MartialArts.SevenPointsofWeaknessStrike"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.ElusiveFlickerEvasion": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EbonShadowForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.NothingButShadows": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.SevenPointsofWeaknessStrike": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.ShadowBodyDissolution": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.ElusiveFlickerEvasion"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.ShadowSteppingMotion": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EbonShadowForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.ThroatSlittingShadowAtemi": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.ShadowSteppingMotion"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.UmbraNooseExecution": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.ShadowBodyDissolution", 
+                "MartialArts.ThroatSlittingShadowAtemi"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "EbonShadowStyle"
+}

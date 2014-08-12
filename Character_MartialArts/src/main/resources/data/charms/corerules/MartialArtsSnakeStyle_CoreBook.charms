@@ -1,0 +1,126 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.ArmorPenetratingFangStrike": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SnakeForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.CountlessCoilsEvasion": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SnakeStrikestheHeel"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.CripplingPressurePointStrike": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SnakeForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.EssenceFangsandScalesTechnique": {
+            "cost": "-- (+1m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SnakeForm"
+            ], 
+            "type": "Permanent"
+        }, 
+        "MartialArts.EssenceVenomStrike": {
+            "cost": "6m, 3i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.ArmorPenetratingFangStrike", 
+                "MartialArts.CountlessCoilsEvasion", 
+                "MartialArts.CripplingPressurePointStrike", 
+                "MartialArts.UncoilingSerpentPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.SerpentineEvasion": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.SnakeForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SerpentineEvasion", 
+                "MartialArts.StrikingCobraTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.SnakeStrikestheHeel": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SnakeForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.StrikingCobraTechnique": {
+            "cost": "3m", 
+            "duration": "One round", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.UncoilingSerpentPrana": {
+            "cost": "7m, 3i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EssenceFangsandScalesTechnique"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "SnakeStyle"
+}

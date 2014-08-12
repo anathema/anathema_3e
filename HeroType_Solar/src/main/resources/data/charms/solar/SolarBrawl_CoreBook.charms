@@ -1,0 +1,553 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AdamantineFistsofBattle": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BurningFistBurial"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ApocalypseFlareAttack": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FireEatingFist"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.AscendantBattleVisage": {
+            "cost": "15m, 3a, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SupremacyofWarMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BladeRebukingWrath": {
+            "cost": "5m, 1i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WindandStonesDefense"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BurningFistBurial": {
+            "cost": "4m + 1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FerociousJab"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BurningProofofAuthority": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnbreakableGrasp"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CanceltheApocalypse": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.KnockoutBlow"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CrashingWaveThrow": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ViciousLunge"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DancingWithStrifeTechnique": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RecklessFuryDiscard"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DevilStranglingAttitude": {
+            "cost": "--(3m)", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ViciousLunge"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DragonCoilTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DevilStranglingAttitude"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FallingHammerStrike": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ThunderclapRushAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FerociousJab": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FireEatingFist": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InterceptingFurySmite"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FistsofIronTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FivefoldFuryOnslaught": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HammeronIronTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ForceRendingStrike": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FerociousJab"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HammeronIronTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FallingHammerStrike"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeavenThunderHammer": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FerociousJab"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IncarnatedFuryAttack": {
+            "cost": "10m, 3a, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AdamantineFistsofBattle"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.InevitableVictoryMeditation": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SuperiorViolentKnowledge"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.InterceptingFurySmite": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ForceRendingStrike"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.IronBattleFocus": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FistsofIronTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.KnockoutBlow": {
+            "cost": "5m, 1wp, +1m, 1i per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OxStunningBlow"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.LightningStrikesTwice": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CrashingWaveThrow", 
+                "Solar.HeavenThunderHammer"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OakCurlingClinch": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ViciousLunge"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OneWithViolence": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FallingHammerStrike"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.OrichalcumFistsofBattle": {
+            "cost": "8m, 3a, 1wp +1m per turn", 
+            "duration": "One scene", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AdamantineFistsofBattle"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.OxStunningBlow": {
+            "cost": "4m, 1i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FistsofIronTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RagingWrathRepeated": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TenCalamitiesTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RampageBerserkerAttack": {
+            "cost": "7m, 3i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FivefoldFuryOnslaught", 
+                "Solar.RampageBerserkerAttack"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RapturousCradle": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BurningProofofAuthority"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RecklessFuryDiscard": {
+            "cost": "3m, 1i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IronBattleFocus"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RiverBindingWrath": {
+            "cost": "2m or 4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OakCurlingClinch"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ShockwaveTechnique": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CrashingWaveThrow"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SledgehammerFistPunch": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HeavenThunderHammer"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.StrivingAftershockMethod": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.OneWithViolence"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SuperiorViolentKnowledge": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StrivingAftershockMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SupremacyofWarMeditation": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InevitableVictoryMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TenCalamitiesTechnique": {
+            "cost": "5m", 
+            "duration": "Until the grapple ends", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DragonCoilTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ThunderclapRushAttack": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TitanStraighteningMethod": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TenCalamitiesTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnbreakableGrasp": {
+            "cost": "2m per round preserved", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ViciousLunge"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ViciousLunge": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.WickedDissolveDust": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RiverBindingWrath", 
+                "Solar.InterceptingFurySmite"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WindandStonesDefense": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FerociousJab"
+            ], 
+            "type": "Supplemental"
+        }
+    }, 
+    "tree": "Brawl"
+}

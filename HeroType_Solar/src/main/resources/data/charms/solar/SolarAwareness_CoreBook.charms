@@ -1,7 +1,17 @@
 {
     "category": "Solar", 
     "charms": {
-        "Blink": {
+        "Solar.AwakeningEye": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Awareness": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.Blink": {
             "cost": "1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -9,11 +19,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Inner Eye Focus"
+                "Solar.InnerEyeFocus"
             ], 
             "type": "Reflexive"
         }, 
-        "Dedicated Unerring Ear": {
+        "Solar.DedicatedUnerringEar": {
             "cost": "3m per exchange", 
             "duration": "Indefinite", 
             "minimums": {
@@ -21,11 +31,11 @@
                 "Essence": 4
             }, 
             "prerequisiteCharms": [
-                "Unsurpassed Hearing and Touch Discipline"
+                "Solar.UnsurpassedHearingandTouchDiscipline"
             ], 
             "type": "Reflexive"
         }, 
-        "Eyeless Harbinger Awareness": {
+        "Solar.EyelessHarbingerAwareness": {
             "cost": "3m", 
             "duration": "One scene", 
             "minimums": {
@@ -33,11 +43,23 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Keen Hearing and Touch Technique"
+                "Solar.KeenHearingandTouchTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Foe-Scenting Method": {
+        "Solar.EyeoftheUnconqueredSun": {
+            "cost": "10m, 1wp", 
+            "duration": "One turn", 
+            "minimums": {
+                "Awareness": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AwakeningEye"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FoeScentingMethod": {
             "cost": "0m or 2m", 
             "duration": "Instant", 
             "minimums": {
@@ -45,11 +67,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Keen Taste and Smell Technique"
+                "Solar.KeenTasteandSmellTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Genius Palate Summation": {
+        "Solar.GeniusPalateSummation": {
             "cost": "2m", 
             "duration": "Instant", 
             "minimums": {
@@ -57,11 +79,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Keen Taste and Smell Technique"
+                "Solar.KeenTasteandSmellTechnique"
             ], 
             "type": "Simple"
         }, 
-        "Inner Eye Focus": {
+        "Solar.InnerEyeFocus": {
             "cost": "4m", 
             "duration": "Instant", 
             "minimums": {
@@ -69,11 +91,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Unswerving Eye Method"
+                "Solar.UnswervingEyeMethod"
             ], 
             "type": "Reflexive"
         }, 
-        "Keen Hearing and Touch Technique": {
+        "Solar.KeenHearingandTouchTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
             "minimums": {
@@ -81,11 +103,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Sensory Acuity Prana"
+                "Solar.SensoryAcuityPrana"
             ], 
             "type": "Simple"
         }, 
-        "Keen Sight Technique": {
+        "Solar.KeenSightTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
             "minimums": {
@@ -93,11 +115,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Sensory Acuity Prana"
+                "Solar.SensoryAcuityPrana"
             ], 
             "type": "Simple"
         }, 
-        "Keen Taste and Smell Technique": {
+        "Solar.KeenTasteandSmellTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
             "minimums": {
@@ -105,11 +127,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Sensory Acuity Prana"
+                "Solar.SensoryAcuityPrana"
             ], 
             "type": "Simple"
         }, 
-        "Knowing Beyond Silence": {
+        "Solar.KnowingBeyondSilence": {
             "cost": "2m", 
             "duration": "Instant", 
             "minimums": {
@@ -117,11 +139,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Studied Ear Espial"
+                "Solar.StudiedEarEspial"
             ], 
             "type": "Reflexive"
         }, 
-        "Living Pulse Perception": {
+        "Solar.LivingPulsePerception": {
             "cost": "--", 
             "duration": "Instant", 
             "minimums": {
@@ -129,11 +151,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Eyeless Harbinger Awareness"
+                "Solar.EyelessHarbingerAwareness"
             ], 
             "type": "Permanent"
         }, 
-        "Roused Dragon Detection": {
+        "Solar.RousedDragonDetection": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -141,12 +163,12 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Knowing Beyond Silence", 
-                "Living Pulse Perception"
+                "Solar.KnowingBeyondSilence", 
+                "Solar.LivingPulsePerception"
             ], 
             "type": "Reflexive"
         }, 
-        "Scent-Honing Prana": {
+        "Solar.ScentHoningPrana": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -154,11 +176,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Foe-Scenting Method"
+                "Solar.FoeScentingMethod"
             ], 
             "type": "Reflexive"
         }, 
-        "Sensory Acuity Prana": {
+        "Solar.SensoryAcuityPrana": {
             "cost": "5m", 
             "duration": "One scene", 
             "minimums": {
@@ -168,7 +190,7 @@
             "prerequisiteCharms": [], 
             "type": "Reflexive"
         }, 
-        "Studied Ear Espial": {
+        "Solar.StudiedEarEspial": {
             "cost": "1m", 
             "duration": "Instant", 
             "minimums": {
@@ -176,11 +198,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Keen Hearing and Touch Technique"
+                "Solar.KeenHearingandTouchTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Surprise Anticipation Method": {
+        "Solar.SurpriseAnticipationMethod": {
             "cost": "--", 
             "duration": "Instant", 
             "minimums": {
@@ -188,11 +210,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Sensory Acuity Prana"
+                "Solar.SensoryAcuityPrana"
             ], 
             "type": "Reflexive"
         }, 
-        "Unsurpassed Hearing and Touch Discipline": {
+        "Solar.UnsurpassedHearingandTouchDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -200,11 +222,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Keen Hearing and Touch Technique"
+                "Solar.KeenHearingandTouchTechnique"
             ], 
             "type": "Permanent"
         }, 
-        "Unsurpassed Sight Discipline": {
+        "Solar.UnsurpassedSightDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -212,11 +234,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Keen Sight Technique"
+                "Solar.KeenSightTechnique"
             ], 
             "type": "Permanent"
         }, 
-        "Unsurpassed Taste and Smell Discipline": {
+        "Solar.UnsurpassedTasteandSmellDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -224,11 +246,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Keen Taste and Smell Technique"
+                "Solar.KeenTasteandSmellTechnique"
             ], 
             "type": "Permanent"
         }, 
-        "Unswerving Eye Method": {
+        "Solar.UnswervingEyeMethod": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -236,7 +258,7 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Keen Sight Technique"
+                "Solar.KeenSightTechnique"
             ], 
             "type": "Reflexive"
         }

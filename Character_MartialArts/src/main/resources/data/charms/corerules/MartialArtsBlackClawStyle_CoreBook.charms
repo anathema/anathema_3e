@@ -1,0 +1,113 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.BlackClawForm": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FlexingtheEmeraldClaw"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.DoeEyesDefense": {
+            "cost": "4m, 1i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.BlackClawForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.FlexingtheEmeraldClaw": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.OpenPalmCaress", 
+                "MartialArts.TornLotusDefense"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.HeartRippingClaw": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.OutrageKindlingCry"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.OpenPalmCaress": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.OutrageKindlingCry": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DoeEyesDefense", 
+                "MartialArts.StormCalmingEmbrace", 
+                "MartialArts.TableTurningReversal"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.StormCalmingEmbrace": {
+            "cost": "2m, 1wp", 
+            "duration": "Until released", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.BlackClawForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.TableTurningReversal": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.BlackClawForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.TornLotusDefense": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "BlackClawStyle"
+}

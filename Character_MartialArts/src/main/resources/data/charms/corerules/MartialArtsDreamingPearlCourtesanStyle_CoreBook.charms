@@ -1,0 +1,111 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.DemureCarpFeint": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.DreamingPearlCourtesanForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DemureCarpFeint", 
+                "MartialArts.ElegantWeaponRepertoire", 
+                "MartialArts.PearlescentFiligreeDefense"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.ElegantWeaponRepertoire": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.FlurryofAugustLeaves": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DreamingPearlCourtesanForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.FragrantPetalFascinationKata": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DreamingPearlCourtesanForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.InvokingtheChimerasCoils": {
+            "cost": "-- (+8m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SevenStormsEscapePrana", 
+                "MartialArts.VindictiveConcubinesPillowBook"
+            ], 
+            "type": "Permanent"
+        }, 
+        "MartialArts.PearlescentFiligreeDefense": {
+            "cost": "1m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.SevenStormsEscapePrana": {
+            "cost": "4m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Martial Arts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FragrantPetalFascinationKata"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.VindictiveConcubinesPillowBook": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Martial Arts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FlurryofAugustLeaves"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "DreamingPearlCourtesanStyle"
+}

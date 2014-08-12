@@ -1,0 +1,432 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BattleAnthem(oftheSolarExalted)": {
+            "cost": "1m", 
+            "duration": "One song", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MoodInducingMusic"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BattleDancerMethod": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GracefulReedDancing"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CelestialBlissTrick": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ThousandCourtesanWays"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CunningMimicryTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.DemonWrackingShout": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.DogmaticContagionDiscipline": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FuryIncitingSpeech"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FuryIncitingSpeech": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImpassionedOratorTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.GracefulReedDancing": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.HeartCompellingMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectHarmonyTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeroismEncouragingBallad": {
+            "cost": "6m, 1wp", 
+            "duration": "One song", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BattleAnthem(oftheSolarExalted)"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ImpassionedOratorTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.InfectiousZealotryApproach": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DogmaticContagionDiscipline"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MasterThespianStyle": {
+            "cost": "1m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MasterfulPerformanceExercise": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MemoryReweavingDiscipline": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.MonkSeducingDemonDance": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ThousandCourtesanWays", 
+                "Solar.WindingSinuousMotion"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MoodInducingMusic": {
+            "cost": "1m", 
+            "duration": "One song", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectHarmonyTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MostExcellentMockingbird": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CunningMimicryTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PenultimateUnityofForm": {
+            "cost": "2m, 1wp", 
+            "duration": "One Performance Action", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TranceofFugueVision"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PerfectHarmonyTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.PhantomConjuringPerformance": {
+            "cost": "--(1m)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise", 
+                "Solar.RespectCommandingAttitude"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PivotalEncorePerformance": {
+            "cost": "1wp, 1 lethal health level", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SoulVoice"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PlectralHarbingersApproach": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MoodInducingMusic"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RespectCommandingAttitude": {
+            "cost": "5m", 
+            "duration": "One Performance action", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ShiningExpressionStyle": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GracefulReedDancing"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoulBracingMomentousPower": {
+            "cost": "Varies", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PenultimateUnityofForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SoulFiringPerformance": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoulStirringCantata": {
+            "cost": "1m", 
+            "duration": "One song", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HeartCompellingMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoulVoice": {
+            "cost": "1wp", 
+            "duration": "One Performance action", 
+            "minimums": {
+                "Essence": 5, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnmatchedShowmanshipStyle"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SplendidMagpieApproach": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.StillnessDrawingMeditation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ThousandCourtesanWays": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TranceofFugueVision": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StillnessDrawingMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnmatchedShowmanshipStyle": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TranceofFugueVision"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.VoiceHurlingMethod": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterfulPerformanceExercise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.WindingSinuousMotion": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Performance": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShiningExpressionStyle"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Performance"
+}
