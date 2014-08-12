@@ -23,17 +23,15 @@ public class TraitStateImpl implements TraitState {
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final List<CasteType> castes;
   private final boolean isRequiredFavored;
-  private final CasteChangedBehavior casteChangedBehavior;
   private final Hero hero;
 
   public TraitStateImpl(Hero hero, List<CasteType> castes, MappableTypeIncrementChecker<TraitStateType> checker,
-  		CasteChangedBehavior casteChangedBehavior, boolean requiredFavor) {
+  		boolean requiredFavor) {
     this.hero = hero;
     this.castes = castes;
     this.checker = checker;
     this.isRequiredFavored = requiredFavor;
     this.currentState = requiredFavor ? Favored : Default;
-    this.casteChangedBehavior = casteChangedBehavior;
     hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
 
@@ -153,15 +151,7 @@ public class TraitStateImpl implements TraitState {
     @Override
     public void changeOccurred(ChangeFlavor flavor) {
       if (FLAVOR_CASTE.equals(flavor)) {
-      	switch (casteChangedBehavior) {
-      	case CLEAR:
-      		clearCaste();
-      		break;
-      	case SET:
-          updateFavorableStateToCaste();
-          break;
-      	}
-        
+      	clearCaste();
       }
     }
 

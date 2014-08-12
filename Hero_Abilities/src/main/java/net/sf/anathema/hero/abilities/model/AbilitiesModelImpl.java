@@ -1,5 +1,10 @@
 package net.sf.anathema.hero.abilities.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
@@ -24,7 +29,6 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.state.CasteChangedBehavior;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
@@ -32,11 +36,6 @@ import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
@@ -101,16 +100,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     boolean requiredFavored = traitRules.isRequiredFavored();
     List<CasteType> castes = getCastesFor(trait.getType());
     return new TraitStateImpl(this.hero, castes, checker,
-    		getCasteChangedBehavior(), requiredFavored);
-  }
-  
-  private CasteChangedBehavior getCasteChangedBehavior() {
-  	for (CasteTraitTemplate casteTraits : template.casteAbilities) {
-  		if (casteTraits.traits.size() != template.casteCount) {
-  			return CasteChangedBehavior.CLEAR;
-  		}
-  	}
-  	return CasteChangedBehavior.SET;
+    		requiredFavored);
   }
 
   @Override
