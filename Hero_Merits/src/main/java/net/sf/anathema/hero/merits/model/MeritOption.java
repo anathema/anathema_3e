@@ -1,12 +1,18 @@
 package net.sf.anathema.hero.merits.model;
 
-import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.hero.traits.model.TraitType;
 
-public interface MeritOption extends Identifier {
+public interface MeritOption extends TraitType {
 
 	static int MAX_MERIT_RATING = 5;
 	
 	MeritCategory getType();
 
 	boolean allowsRepurchase();
+	
+	boolean isLegalValue(int value);
+	
+	int getMinimumValue();
+	
+	int getMaximumValue();
 }

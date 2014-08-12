@@ -7,6 +7,7 @@ import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -45,6 +46,7 @@ public class MeritsPresenter {
 
   private void addSubView(Merit merit) {
     MeritItemView subView = view.addMerit(merit.toString(), new BasicUi().getRemoveIconPath());
+    new TraitPresenter(merit, subView.getIntValueView()).initPresentation();
     viewsByEntry.put(merit, subView);
     subView.addButtonListener(() -> model.removeEntry(merit));
   }
@@ -79,8 +81,9 @@ public class MeritsPresenter {
 	ObjectSelectionView<MeritCategory> categories = allowSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
 	ObjectSelectionView<String> option = allowSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
 			model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
-    // TODO: There should be a much more elegant means to do this
-	((ComboBoxSelectionView)option).makeEditable();
+    
+	// We ideally want a text changed listener rather than an object change
+	option.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
 	categories.addObjectSelectionChangedListener(item -> option.setObjects(model.getCurrentMeritOptionLabels()));
 	selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentMerit);
@@ -95,6 +98,10 @@ public class MeritsPresenter {
     selection.setObjects(objects);
     selection.setSelectedObject(initial);
     selection.addObjectSelectionChangedListener(listener);
+ // TODO: There should be a much more elegant means to do this
+    if (objects[0].getClass().equals(String.class)) {
+    	((ComboBoxSelectionView<String>)selection).makeEditable();
+    }
     return selection;
   }
 

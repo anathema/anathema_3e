@@ -126,12 +126,13 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   protected Merit createEntry() {
-	  return new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true), currentDescription);
+	  return new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
+			  currentDescription, hero);
   }
 
   @Override
   protected boolean isEntryAllowed() {
-	if (!Strings.isNullOrEmpty(currentMerit)) {
+	if (Strings.isNullOrEmpty(currentMerit)) {
 		return false;
 	}
 	MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);

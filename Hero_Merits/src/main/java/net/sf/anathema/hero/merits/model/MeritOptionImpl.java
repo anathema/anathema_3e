@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.merits.model;
 
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
+import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class MeritOptionImpl implements MeritOption {
 	
@@ -52,6 +53,39 @@ public class MeritOptionImpl implements MeritOption {
 	@Override
 	public boolean allowsRepurchase() {
 		return allowRepurchase;
+	}
+
+	@Override
+	public void accept(ITraitTypeVisitor visitor) {
+		// TODO: Should we have a visitor?
+	}
+
+	@Override
+	public int getMinimumValue() {
+		for (int i = 0; i <= MAX_MERIT_RATING; i++) {
+			if (isLegalValue(i)) {
+				return i;
+			}
+		}
+		return 5;
+	}
+
+	@Override
+	public int getMaximumValue() {
+		for (int i = MAX_MERIT_RATING; i >= 0; i--) {
+			if (isLegalValue(i)) {
+				return i;
+			}
+		}
+		return 5;
+	}
+
+	@Override
+	public boolean isLegalValue(int value) {
+		if (value < 0 || value > MAX_MERIT_RATING) {
+			return false;
+		}
+		return legalValues[value];
 	}
 	
 	
