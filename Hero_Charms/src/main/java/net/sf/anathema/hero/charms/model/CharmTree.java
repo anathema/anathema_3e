@@ -10,8 +10,6 @@ public interface CharmTree extends Identifier {
 
   Collection<Charm> getAllCharms();
 
-  Collection<Charm> getCoreCharms();
-
   TreeReference getReference();
 
   boolean isCharmFromTree(Charm charm);

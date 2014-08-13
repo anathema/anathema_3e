@@ -26,7 +26,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
 
   private boolean isAnyCelestialMartialArtsGroupCompleted(Collection<CharmTree> groups) {
     return groups.stream().anyMatch(group -> {
-      Charm martialArtsCharm = group.getCoreCharms().iterator().next();
+      Charm martialArtsCharm = group.getAllCharms().iterator().next();
       return isCelestialStyle(martialArtsCharm) && isCompleted(group);
     });
   }
@@ -36,7 +36,7 @@ public class MartialArtsLearnModelImpl implements MartialArtsLearnModel {
   }
 
   private boolean isCompleted(CharmTree group) {
-    for (Charm charm : group.getCoreCharms()) {
+    for (Charm charm : group.getAllCharms()) {
       if (!charmModel.getLearningModel().isCurrentlyLearned(charm)) {
         return false;
       }

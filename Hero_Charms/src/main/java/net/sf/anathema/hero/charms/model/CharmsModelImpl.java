@@ -199,8 +199,6 @@ public class CharmsModelImpl implements CharmsModel {
     for (CharmTreeCategory category : options) {
       if (charmsRules.isAlienCategory(category.getReference())) {
         learningModel.forgetAll(category.getReference());
-      } else {
-        learningModel.forgetExclusives(category.getReference());
       }
     }
   }

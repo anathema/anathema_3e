@@ -18,7 +18,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import static net.sf.anathema.charm.data.CharmAttributeList.EXCLUSIVE_ATTRIBUTE;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.getCategory;
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 
@@ -79,7 +78,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     if (isAlienCharmsAllowedForHero()) {
       return allCharms;
     }
-    return collectCharmsThatAreNativeOrNotExclusive(allCharms);
+    return collectCharmsThatAreNative(allCharms);
   }
 
   @Override
@@ -95,12 +94,9 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     return charmsRule.getNativeCategories();
   }
 
-  private Collection<Charm> collectCharmsThatAreNativeOrNotExclusive(Collection<Charm> allCharms) {
+  private Collection<Charm> collectCharmsThatAreNative(Collection<Charm> allCharms) {
     List<Charm> charms = new ArrayList<>();
     for (Charm charm : allCharms) {
-      if (!charm.hasAttribute(EXCLUSIVE_ATTRIBUTE)) {
-        charms.add(charm);
-      }
       if (!charmsRule.isAlienCharm(charm)) {
         charms.add(charm);
       }
