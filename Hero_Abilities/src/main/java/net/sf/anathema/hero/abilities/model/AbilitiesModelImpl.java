@@ -1,11 +1,6 @@
 package net.sf.anathema.hero.abilities.model;
 
 import com.google.common.base.Functions;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
@@ -48,6 +43,7 @@ import java.util.Map;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
+  private final TraitStateTypes traitStateTypes = TraitStateTypes.withAllKnown();
   private IdentifiedTraitTypeList[] abilityTraitGroups;
   private Hero hero;
   private AbilitiesTemplate template;
@@ -92,10 +88,10 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     traitModel.addTraits(getAll());
   }
 
-  private List<CasteType> getCastesFor(TraitType traitType) {
+  private Castes getCastesFor(TraitType traitType) {
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
-    List<CasteType> casteTypes = new ArrayList<>();
+    Castes casteTypes = new Castes(hero);
     for (CasteTraitTemplate casteAbilitiesTemplate : template.casteAbilities) {
       if (casteAbilitiesTemplate.traits.contains(traitType.getId())) {
         casteTypes.add(casteCollection.getById(casteAbilitiesTemplate.caste));

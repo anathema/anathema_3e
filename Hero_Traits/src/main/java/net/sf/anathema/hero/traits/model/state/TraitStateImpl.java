@@ -10,6 +10,7 @@ import java.util.Arrays;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class TraitStateImpl implements TraitState {
 
@@ -53,21 +54,16 @@ public class TraitStateImpl implements TraitState {
 
   @SuppressWarnings("RedundantIfStatement")
   private boolean isLegalState(TraitStateType newState) {
-    if (newState == Caste && isRequiredFavored) {
-      throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
+    if (!requiredState.satisfiesRequirement(newState)) {
+      return false;
     }
     if (!currentState.countsAs(newState) && !checker.isValidIncrement(newState, 1)) {
       return false;
     }
-    if (newState.countsAs(Caste) && !isSupportedCasteType(getCurrentCaste())) {
+    if (newState.countsAs(Caste) && !traitCastes.isCurrentCasteSupported()) {
       return false;
     }
     return true;
-  }
-
-  @Override
-  public boolean isCheapened() {
-    return !currentState.equals(Default);
   }
 
   @Override
