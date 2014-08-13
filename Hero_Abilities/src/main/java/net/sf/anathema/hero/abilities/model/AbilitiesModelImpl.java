@@ -25,7 +25,6 @@ import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.Castes;
-import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NoRequiredState;
 import net.sf.anathema.hero.traits.model.state.RequiredFavored;
@@ -44,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
+import static net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker.NO_LIMIT;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
@@ -134,11 +134,11 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private MappableTypeIncrementChecker<TraitStateType> createStateIncrementChecker() {
     Map<TraitStateType, Integer> stateLimits = new HashMap<>();
     for (TraitStateType state : getAvailableTraitStates()) {
-      if (state == Default) {
-        stateLimits.put(state, MappableTypeIncrementChecker.NO_LIMIT);
-      } else {
-        stateLimits.put(state, getTraitPicksForState(state));
+      int picksForState = getTraitPicksForState(state);
+      if (picksForState == 0) {
+        picksForState = NO_LIMIT;
       }
+      stateLimits.put(state, picksForState);
     }
     return new StatePickIncrementChecker(stateLimits, traitStateMap);
   }
