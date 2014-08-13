@@ -18,16 +18,16 @@ public class PrintCharmsProvider implements PrintMagicProvider {
 
   @Override
   public void addPrintMagic(List<IMagicStats> printMagic) {
-    addNonGenericCharms(printMagic);
+    addCharms(printMagic);
   }
 
-  private void addNonGenericCharms(List<IMagicStats> printMagic) {
+  private void addCharms(List<IMagicStats> printMagic) {
     for (Charm charm: createContentHelper().getLearnedCharms()) {
-      addStatsForNonGenericCharm(printMagic, charm);
+      addStatsForCharm(printMagic, charm);
     }
   }
 
-  private void addStatsForNonGenericCharm(List<IMagicStats> printMagic, Charm charm) {
+  private void addStatsForCharm(List<IMagicStats> printMagic, Charm charm) {
     if (createContentHelper().isMultipleEffectCharm(charm)) {
       for (String effect : createContentHelper().getLearnedEffects(charm)) {
         printMagic.add(new MultipleEffectCharmStats(charm, effect));
