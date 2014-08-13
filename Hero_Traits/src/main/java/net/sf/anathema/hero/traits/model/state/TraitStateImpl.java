@@ -98,10 +98,6 @@ public class TraitStateImpl implements TraitState {
     return !state.equals(Default);
   }
 
-  private boolean isCaste() {
-    return currentState.countsAs(Caste);
-  }
-
   private void changeStateTo(TraitStateType state) {
     state = requiredState.overrideStateIfNecessary(state);
     if (isLegalState(state)) {
@@ -120,7 +116,7 @@ public class TraitStateImpl implements TraitState {
     }
 
     private void clearCaste() {
-      if (isCaste()) {
+      if (currentState.countsAs(Caste)) {
         changeStateTo(Default);
       }
     }
