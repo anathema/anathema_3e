@@ -10,7 +10,6 @@ import java.util.Arrays;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 
 public class TraitStateImpl implements TraitState {
 
@@ -81,14 +80,6 @@ public class TraitStateImpl implements TraitState {
   @Override
   public boolean isSelectableForCaste() {
     return traitCastes.isCurrentCasteSupported();
-  }
-
-  @SuppressWarnings("ConstantConditions")
-  public void setCaste(boolean caste) {
-    if (!caste && !isCaste()) {
-      return;
-    }
-    changeStateTo(caste ? Caste : (isCaste() ? Default : Favored));
   }
 
   @Override
