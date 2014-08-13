@@ -10,7 +10,7 @@ public class SpecialtyExperienceData {
     this.template = template;
   }
 
-  public int getSpecialtyCost(boolean favored) {
-    return template.experiencePoints;
+  public int getSpecialtyExperienceCost(boolean favored) {
+    return template.experiencePointCost;
   }
 }

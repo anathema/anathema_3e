@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.specialties.template;
 
-import net.sf.anathema.hero.traits.template.cost.TraitPointCalculationTemplate;
 
 public class SpecialtyPointsTemplate {
 
-  public int creationPoints = 0;
-  public int experiencePoints = 0;
-  public TraitPointCalculationTemplate standard = new TraitPointCalculationTemplate();
+	public int freebiePoints = 0;
+  public int bonusPointCost = 0;
+  public int experiencePointCost = 0;
 }

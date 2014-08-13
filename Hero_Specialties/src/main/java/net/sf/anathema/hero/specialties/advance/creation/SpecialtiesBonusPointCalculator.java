@@ -16,14 +16,14 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
 
   public SpecialtiesBonusPointCalculator(Hero hero, SpecialtyCreationData creationData) {
     this.hero = hero;
-    this.specialtyCalculator = new SpecialtyCalculator(creationData.getCreationDots());
+    this.specialtyCalculator = new SpecialtyCalculator(creationData);
   }
 
   @Override
   public void recalculate() {
     clear();
     List<Specialty> specialties = SpecialtiesModelFetcher.fetch(hero).getAllSpecialties();
-    specialtyDotSum = specialtyCalculator.getSpecialtyPointsSpent(specialties);
+    specialtyDotSum = specialtyCalculator.getFreebiePointsSpent(specialties);
     specialtyBonusPointCosts = specialtyCalculator.getSpecialtyCosts(specialties);
   }
 

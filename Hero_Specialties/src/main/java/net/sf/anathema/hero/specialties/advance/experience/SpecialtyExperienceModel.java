@@ -30,6 +30,6 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
   }
 
   private int getCostPerSpecialtyDot() {
-    return experienceData.getSpecialtyCost(false);
+    return experienceData.getSpecialtyExperienceCost(false);
   }
 }

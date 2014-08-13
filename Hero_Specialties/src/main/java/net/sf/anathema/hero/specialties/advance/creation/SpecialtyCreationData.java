@@ -1,10 +1,8 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
 import net.sf.anathema.hero.specialties.template.SpecialtyPointsTemplate;
-import net.sf.anathema.hero.traits.advance.TraitListCreationData;
-import net.sf.anathema.hero.traits.model.TraitType;
 
-public class SpecialtyCreationData implements TraitListCreationData {
+public class SpecialtyCreationData {
 
   private SpecialtyPointsTemplate template;
 
@@ -12,12 +10,11 @@ public class SpecialtyCreationData implements TraitListCreationData {
     this.template = template;
   }
 
-  @Override
-  public int getCalculationBase(TraitType type) {
-    return template.standard.calculationBase;
+  public int getFreebiePoints() {
+    return template.freebiePoints;
   }
 
-  public int getCreationDots() {
-    return template.creationPoints;
+  public int getBonusPointCostPerDot() {
+    return template.bonusPointCost;
   }
 }

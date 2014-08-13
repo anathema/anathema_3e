@@ -1,16 +1,19 @@
 package net.sf.anathema.hero.specialties.model;
 
 import com.google.common.base.Strings;
+
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -35,8 +38,21 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   }
 
   @Override
-  public void initializeListening(ChangeAnnouncer announcer) {
-  	// nothing to do
+  public void initializeListening(final ChangeAnnouncer announcer) {
+  	specialtiesChangedListener.addListener(new ISpecialtyListener()
+  	{
+
+			@Override
+			public void specialtyAdded(Specialty subTrait) {
+				announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
+			}
+
+			@Override
+			public void specialtyRemoved(Specialty subTrait) {
+				announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
+			}
+  	
+  	});
   }
 
   @Override

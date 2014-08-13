@@ -25,6 +25,6 @@ public class SpecialtyBonusModel extends AbstractSpendingModel {
 
   @Override
   public int getAllotment() {
-    return costTemplate.creationPoints;
+    return costTemplate.freebiePoints;
   }
 }

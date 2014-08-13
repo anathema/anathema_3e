@@ -1,6 +1,5 @@
 {
-  creationPoints: 4;
-  standard: {
-    calculationBase: 0
-  }
+  freebiePoints: 4,
+  bonusPointCost: 1,
+  experiencePointCost: 3
 }
