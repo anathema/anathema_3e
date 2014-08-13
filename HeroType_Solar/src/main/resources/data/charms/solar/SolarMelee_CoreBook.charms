@@ -367,6 +367,16 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.MeleeExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.MoonlightScatteredAshes": {
             "cost": "8m, 1wp", 
             "duration": "Instant", 

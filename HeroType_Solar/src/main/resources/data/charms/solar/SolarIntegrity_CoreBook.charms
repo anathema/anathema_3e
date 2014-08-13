@@ -21,6 +21,16 @@
             "prerequisiteCharms": [], 
             "type": "Reflexive"
         }, 
+        "Solar.IntegrityExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.IntegrityProtectingPrana": {
             "cost": "--(5m, 1wp)", 
             "duration": "Permanent", 

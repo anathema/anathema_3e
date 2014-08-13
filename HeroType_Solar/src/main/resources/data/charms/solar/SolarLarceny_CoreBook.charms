@@ -95,6 +95,16 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.LarcenyExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.LightningHandSleight": {
             "cost": "3m", 
             "duration": "Instant", 

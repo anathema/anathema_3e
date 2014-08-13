@@ -37,6 +37,16 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.AthleticsExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.BonfireAnimaWings": {
             "cost": "--", 
             "duration": "Permanent", 

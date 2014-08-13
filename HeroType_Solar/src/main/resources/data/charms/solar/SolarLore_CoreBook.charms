@@ -237,6 +237,16 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.LoreExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.LoreInducingConcentration": {
             "cost": "3m", 
             "duration": "Instant", 

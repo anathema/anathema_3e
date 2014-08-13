@@ -441,6 +441,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.SocializeExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.SoulReprisal": {
             "cost": "16m, 1wp, 20xp", 
             "duration": "Instant", 

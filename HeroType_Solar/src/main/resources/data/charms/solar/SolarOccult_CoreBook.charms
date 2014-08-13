@@ -206,6 +206,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.OccultExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.PhantomSeizingStrike": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 

@@ -222,6 +222,16 @@
             "prerequisiteCharms": [], 
             "type": "Reflexive"
         }, 
+        "Solar.ResistanceExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.RoaroftheGodEmperor": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 

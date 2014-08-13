@@ -188,6 +188,16 @@
             "prerequisiteCharms": [], 
             "type": "Permanent"
         }, 
+        "Solar.MedicineExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Medicine": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.PerfectCelestialChirurgeon": {
             "cost": "--", 
             "duration": "Permanent", 

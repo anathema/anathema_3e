@@ -236,6 +236,16 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.PerformanceExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.PhantomConjuringPerformance": {
             "cost": "--(1m)", 
             "duration": "Permanent", 

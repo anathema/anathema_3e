@@ -49,6 +49,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.BrawlExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Brawl": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.BurningFistBurial": {
             "cost": "4m + 1m per die", 
             "duration": "Instant", 

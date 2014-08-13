@@ -226,6 +226,16 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.SailExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.SaltyDogMethod": {
             "cost": "--", 
             "duration": "Permanent", 

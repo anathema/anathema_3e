@@ -11,6 +11,16 @@
             "prerequisiteCharms": [], 
             "type": "Supplemental"
         }, 
+        "Solar.AwarenessExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Awareness": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.Blink": {
             "cost": "1wp", 
             "duration": "Instant", 

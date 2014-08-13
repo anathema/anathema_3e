@@ -1,6 +1,16 @@
 {
     "category": "Solar", 
     "charms": {
+        "Solar.DodgeExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.DriftingLeafElusion": {
             "cost": "1m", 
             "duration": "Instant", 

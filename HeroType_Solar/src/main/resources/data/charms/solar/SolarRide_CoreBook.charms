@@ -239,6 +239,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.RideExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.RousingBacklashAssault": {
             "cost": "5m", 
             "duration": "Instant", 

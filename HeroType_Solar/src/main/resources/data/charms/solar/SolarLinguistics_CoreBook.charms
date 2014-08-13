@@ -107,6 +107,16 @@
             "prerequisiteCharms": [], 
             "type": "Simple"
         }, 
+        "Solar.LinguisticsExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.MindScribingMethod": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 

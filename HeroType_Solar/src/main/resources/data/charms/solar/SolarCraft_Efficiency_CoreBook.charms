@@ -48,6 +48,16 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.CraftExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.DragonSoulEmergence": {
             "cost": "--", 
             "duration": "Permanent", 

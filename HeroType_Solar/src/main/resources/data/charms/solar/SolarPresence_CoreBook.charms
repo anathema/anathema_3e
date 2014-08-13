@@ -194,6 +194,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.PresenceExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.ProphetUpliftingEvocation": {
             "cost": "4m, 1wp, 2xp", 
             "duration": "Instant", 

@@ -323,6 +323,16 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.ThrownExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.TripleDistanceAttackTechnique": {
             "cost": "1m", 
             "duration": "Instant", 

@@ -237,6 +237,16 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.StealthExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.SunSwallowingPractice": {
             "cost": "2m per anima level", 
             "duration": "Indefinite", 

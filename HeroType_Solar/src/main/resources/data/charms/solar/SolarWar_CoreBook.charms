@@ -192,6 +192,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.WarExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.WarGodDescendent": {
             "cost": "3m", 
             "duration": "Instant", 
