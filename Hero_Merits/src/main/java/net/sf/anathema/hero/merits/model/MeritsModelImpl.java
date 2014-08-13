@@ -129,7 +129,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @Override
   protected Merit createEntry() {
 	  MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
-			  currentDescription, hero);
+			  currentDescription, hero, isCharacterExperienced());
 	  merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
 	  return merit;
   }

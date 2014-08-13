@@ -4,23 +4,30 @@ import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
-public class MeritFreePointModel extends AbstractSpendingModel {
+public class MeritCreationModel extends AbstractSpendingModel {
 
 	private final MeritsModel model;
+	private final MeritCreationData creation;
 	
-	public MeritFreePointModel(String id, MeritsModel merits) {
+	public MeritCreationModel(String id, MeritsModel merits, MeritCreationData creation) {
 		super(id, id);
 		this.model = merits;
+		this.creation = creation;
 	}
 
 	@Override
 	public int getSpentBonusPoints() {
-		return 0;
+		int totalMeritDots = 0;
+		for (Merit merit : model.getMerits()) {
+			totalMeritDots += merit.getCurrentValue();
+		}
+		return creation.getBonusPointCost() * 
+				Math.max(totalMeritDots - creation.getFreebiePoints(), 0);
 	}
 
 	@Override
 	public int getAllotment() {
-		return MeritsBonusPointsModel.MERIT_POINTS;
+		return creation.getFreebiePoints();
 	}
 
 	@Override
@@ -29,7 +36,7 @@ public class MeritFreePointModel extends AbstractSpendingModel {
 		for (Merit merit : model.getMerits()) {
 			totalMeritDots += merit.getCurrentValue();
 		}
-		return Math.min(MeritsBonusPointsModel.MERIT_POINTS, totalMeritDots);
+		return Math.min(creation.getFreebiePoints(), totalMeritDots);
 	}
 
 }

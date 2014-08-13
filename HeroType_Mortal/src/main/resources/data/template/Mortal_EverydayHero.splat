@@ -19,6 +19,6 @@
         SpecialtiesPoints: MortalSpecialtyPoints,
         Equipment: '',
         Merits: '',
-        MeritPoints: ''
+        MeritPoints: 'MortalMeritPoints'
     }
 }

@@ -4,21 +4,26 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.merits.advance.calculator.MeritExperienceCalculator;
+import net.sf.anathema.hero.merits.advance.calculator.MeritsBonusPointCalculator;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
+import net.sf.anathema.hero.merits.template.MeritPointsTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
 
-public class MeritsBonusPointsModel implements HeroModel {
+public class MeritPointsModel implements HeroModel {
 
 	public static final Identifier ID = new SimpleIdentifier("MeritPoints");
-	// TODO: Character merits template
 
-	public static final int MERIT_POINTS = 7;
-	public static final int MERIT_BONUS_POINT_COST = 1;
+	private final MeritPointsTemplate template;
+	
+	public MeritPointsModel(MeritPointsTemplate template) {
+		this.template = template;
+	}
 	
 	@Override
 	public Identifier getId() {
@@ -27,21 +32,20 @@ public class MeritsBonusPointsModel implements HeroModel {
 	
 	@Override
 	public void initialize(HeroEnvironment environment, Hero hero) {
-		
 		initializeBonusPoints(hero);
+		initializeExperiencePoints(hero);
 	}
 	private void initializeBonusPoints(Hero hero) {
-		MeritsBonusPointCalculatorImpl meritCalculator = createCalculator(hero);
+		MeritsBonusPointCalculator meritCalculator = createCalculator(hero);
 		initializeBonusCalculator(hero, meritCalculator);
 		initializeBonusOverview(hero);
 	}
 	
-	private MeritsBonusPointCalculatorImpl createCalculator(Hero hero) {
-	    // TODO: Character merit template
-	    return new MeritsBonusPointCalculatorImpl(MeritsModelFetcher.fetch(hero));
+	private MeritsBonusPointCalculator createCalculator(Hero hero) {
+	    return new MeritsBonusPointCalculator(MeritsModelFetcher.fetch(hero), new MeritCreationData(template));
 	  }
 
-	private void initializeBonusCalculator(Hero hero, MeritsBonusPointCalculatorImpl calculator) {
+	private void initializeBonusCalculator(Hero hero, MeritsBonusPointCalculator calculator) {
 		PointsModel pointsModel = PointModelFetcher.fetch(hero);
 		pointsModel.addBonusPointCalculator(calculator);
 	}
@@ -50,9 +54,16 @@ public class MeritsBonusPointsModel implements HeroModel {
 		MeritsModel merits = MeritsModelFetcher.fetch(hero);
 		PointsModel pointsModel = PointModelFetcher.fetch(hero);
 		pointsModel.addBonusCategory(new WeightedCategory(300, "Merits"));
-		pointsModel.addToBonusOverview(new MeritFreePointModel("Merits", merits));
-
+		pointsModel.addToBonusOverview(new MeritCreationModel("Merits", merits, new MeritCreationData(template)));
 	}
+	
+	private void initializeExperiencePoints(Hero hero) {
+    PointsModel pointsModel = PointModelFetcher.fetch(hero);
+    MeritsModel merits = MeritsModelFetcher.fetch(hero);
+    MeritExperienceData experienceData = new MeritExperienceData(template);
+    MeritExperienceCalculator calculator = new MeritExperienceCalculator(experienceData);
+    pointsModel.addToExperienceOverview(new MeritExperienceModel("Merits", merits, calculator));
+  }
 
 	@Override
 	public void initializeListening(ChangeAnnouncer announcer) {

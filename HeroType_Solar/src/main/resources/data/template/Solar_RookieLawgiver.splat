@@ -22,6 +22,8 @@
         Specialties: '',
         SpecialtiesPoints: SolarSpecialtyPoints,
         SolarVirtueFlaw: '',
-        Equipment: ''
+        Equipment: '',
+        Merits: '',
+        MeritPoints: 'SolarMeritPoints_Rookie'
     }
 }

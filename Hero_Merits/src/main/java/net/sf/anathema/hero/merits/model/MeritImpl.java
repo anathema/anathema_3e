@@ -15,10 +15,16 @@ public class MeritImpl extends TraitImpl implements Merit {
 	private final MeritOption optionBase;
 	private final String description;
 	
-	public MeritImpl(MeritOption base, String description, Hero hero) {
+	public MeritImpl(MeritOption base, String description, Hero hero,
+			boolean isExperienced) {
 		super(hero, createTraitRules(base, hero));
 		this.optionBase = base;
 		this.description = description;
+		
+		if (isExperienced) {
+			this.setExperiencedValue(getCreationValue());
+			this.setUncheckedCreationValue(0);
+		}
 	}
 	
 	private static TraitRules createTraitRules(MeritOption base, Hero hero) {

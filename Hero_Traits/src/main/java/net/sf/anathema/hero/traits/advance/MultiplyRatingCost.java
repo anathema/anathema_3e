@@ -4,7 +4,7 @@ import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 import java.io.Serializable;
 
-public class MultiplyRatingCost extends ReflectionEqualsObject implements CurrentRatingCost, Serializable {
+public class MultiplyRatingCost extends ReflectionEqualsObject implements CurrentRatingCost, NewRatingCost, Serializable {
 
   private final int factor;
   private final int initalCost;
