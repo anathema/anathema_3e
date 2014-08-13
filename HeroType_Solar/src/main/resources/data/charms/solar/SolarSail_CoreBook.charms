@@ -1,0 +1,477 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BlackFathomsBlessed": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.BloodandSaltBondage": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HullTamingTransfusion"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BurningAnimaSails": {
+            "cost": "6m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BloodandSaltBondage", 
+                "Solar.ShipSustainingSpirit"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ChaosCuttingGalley": {
+            "cost": "10m, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HullPreservingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CurrentCuttingTechnique": {
+            "cost": "4m", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WindDefyingCourseTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DeadlyIchneumonAssault": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipBreakerMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DeckSweepingFusillade": {
+            "cost": "Varies", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FathomsFedSpirit": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SaltyDogMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HullPreservingTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipClaimingStance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HullTamingTransfusion": {
+            "cost": "2m, 3hls per 1hul", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HullPreservingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ImmortalMarinersAdvantage": {
+            "cost": "1 or 2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ImplacableSeaWolfSpirit": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IndomitableVoyagersPerseverance": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalMarinersAdvantage"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InvincibleAdmiralMethod": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.LegendaryCaptainsSignature": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalMarinersAdvantage"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.OceanConqueringAvatar": {
+            "cost": "1m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IndomitableVoyagersPerseverance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OrichalcumLettersofMarque": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipClaimingStance"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PerfectReckoningTechnique": {
+            "cost": "4m", 
+            "duration": "Until the hazard has passed", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SaltyDogMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RailStormingFervor": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DeadlyIchneumonAssault"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SailExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SaltyDogMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.SeaAmbushTechnique": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SeaDevilTrainingTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InvincibleAdmiralMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SeaSerpentFlash": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SuperiorPositioningTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ShipBreakerMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ShipClaimingStance": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.ShipImperiledVigor": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SaltyDogMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ShipLeaveningMeditation": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HullPreservingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ShipRazingRenewal": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipRollingJuggernautMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ShipRollingJuggernautMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImplacableSeaWolfSpirit"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShipSleekingTechnique": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipClaimingStance"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ShipSustainingSpirit": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipLeaveningMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShipwreckSurvivingStamina": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SaltyDogMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.StormWeatheringEssenceInfusion": {
+            "cost": "6m, 1wp", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CurrentCuttingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SuperiorPositioningTechnique": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryCaptainsSignature"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TideCarriedOmens": {
+            "cost": "7m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WeatherAnticipatingIntuition"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TideCuttingEssenceInfusion": {
+            "cost": "5m, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipSleekingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WaveRidingDiscipline": {
+            "cost": "5m, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShipSleekingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WeatherAnticipatingIntuition": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectReckoningTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WindDefyingCourseTechnique": {
+            "cost": "3m", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 2, 
+                "Sail": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalMarinersAdvantage"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Sail"
+}

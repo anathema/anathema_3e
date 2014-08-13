@@ -53,16 +53,21 @@ public class TraitStateImpl implements TraitState {
 
   @SuppressWarnings("RedundantIfStatement")
   private boolean isLegalState(TraitStateType newState) {
-    if (!requiredState.satisfiesRequirement(newState)) {
-      return false;
+    if (newState == Caste && isRequiredFavored) {
+      throw new IllegalStateException("Traits that are required to be favored must not be of any caste");
     }
     if (!currentState.countsAs(newState) && !checker.isValidIncrement(newState, 1)) {
       return false;
     }
-    if (newState.countsAs(Caste) && !traitCastes.isCurrentCasteSupported()) {
+    if (newState.countsAs(Caste) && !isSupportedCasteType(getCurrentCaste())) {
       return false;
     }
     return true;
+  }
+
+  @Override
+  public boolean isCheapened() {
+    return !currentState.equals(Default);
   }
 
   @Override
@@ -73,6 +78,14 @@ public class TraitStateImpl implements TraitState {
   @Override
   public boolean isSelectableForCaste() {
     return traitCastes.isCurrentCasteSupported();
+  }
+
+  @SuppressWarnings("ConstantConditions")
+  public void setCaste(boolean caste) {
+    if (!caste && !isCaste()) {
+      return;
+    }
+    changeStateTo(caste ? Caste : (isCaste() ? Default : Favored));
   }
 
   @Override

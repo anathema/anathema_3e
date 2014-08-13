@@ -1,0 +1,162 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.DestinyManifestingMethod": {
+            "cost": "--(3m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.EnduringMentalToughness": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IntegrityExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IntegrityProtectingPrana": {
+            "cost": "--(5m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.LegendSoulRevival": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DestinyManifestingMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PhoenixRenewalTactic": {
+            "cost": "--(Varies)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DestinyManifestingMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.RighteousLionDefense": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Integrity": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SteelHeartStance"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SpiritMaintainingManeuver": {
+            "cost": "5m per 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Integrity": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EnduringMentalToughness"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SteelHeartStance": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Integrity": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StubbornBoarDefense"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.StubbornBoarDefense": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Integrity": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.SunKingRadiance": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Integrity": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.TemptationResistingStance": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Integrity": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StubbornBoarDefense"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TranscendentHerosMeditation": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Integrity": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritMaintainingManeuver"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnhesitatingDedication": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Integrity": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RighteousLionDefense"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Integrity"
+}

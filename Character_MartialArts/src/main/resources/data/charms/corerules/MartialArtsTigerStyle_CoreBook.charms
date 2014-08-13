@@ -1,0 +1,138 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.AngryPredatorFrenzy": {
+            "cost": "-- (+5m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CelestialTigerHide", 
+                "MartialArts.PreyMaimingFrenzy", 
+                "MartialArts.SpineShatteringBite", 
+                "MartialArts.LeapFromCloakingShadows"
+            ], 
+            "type": "Permanent"
+        }, 
+        "MartialArts.CelestialTigerHide": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.TigerForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.CrimsonLeapingCatTechnique": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.IronClawGrip": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.TigerForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.LeapFromCloakingShadows": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.StalkingCatMovementMeditation"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.PreyMaimingFrenzy": {
+            "cost": "8m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.IronClawGrip"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.RagingTigerPounce": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.TigerForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.SpineShatteringBite": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.RagingTigerPounce"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.StalkingCatMovementMeditation": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.TigerForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.StrikingFuryClaws": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.TigerForm": {
+            "cost": "10m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CrimsonLeapingCatTechnique", 
+                "MartialArts.StrikingFuryClaws"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "TigerStyle"
+}

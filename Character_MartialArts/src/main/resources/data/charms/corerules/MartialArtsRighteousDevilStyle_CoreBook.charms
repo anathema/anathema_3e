@@ -1,0 +1,112 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.AzureAbacusMeditation": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.RighteousDevilForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.BlossomofInevitableDemise": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.BurningJudgmentHalo": {
+            "cost": "5m, 4i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.RighteousDevilForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.Caressof1000Hells": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.AzureAbacusMeditation", 
+                "MartialArts.BurningJudgmentHalo", 
+                "MartialArts.DancingDevilTriggerFinger"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.CloudofEbonDevils": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.DancingDevilTriggerFinger": {
+            "cost": "10m, 3i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.PhoenixFliesonGoldenWings"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.KissoftheSunConcentration": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.PhoenixFliesonGoldenWings": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.RighteousDevilForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.RighteousDevilForm": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.BlossomofInevitableDemise", 
+                "MartialArts.CloudofEbonDevils", 
+                "MartialArts.KissoftheSunConcentration"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "RighteousDevilStyle"
+}

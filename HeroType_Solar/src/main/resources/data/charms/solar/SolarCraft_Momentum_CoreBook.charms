@@ -1,0 +1,280 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BloodDiamondSweat": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TimeHealsNothing"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.BrassScalesFalling": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.BreachHealingMethod": {
+            "cost": "7m", 
+            "duration": "One task", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TimeHealsNothing"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CelestialReforgingTechnique": {
+            "cost": "10m, 1wp, 3xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DesignBeyondLimit"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ChainsFallAway": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RedAnvilsRinging"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ChaosResistancePreparation": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ObjectStrengtheningTouch"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CrackMendingTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.CraftsmanNeedsNoTools": {
+            "cost": "6m", 
+            "duration": "One task", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.DesignBeyondLimit": {
+            "cost": "10m, 1wp, 3xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CrackMendingTechnique", 
+                "Solar.CraftsmanNeedsNoTools"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DivineTranscendenceofCraft": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SupremePerfectionofCraft"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DurabilityEnhancingTechnique": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftsmanNeedsNoTools"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeroForgingGodWeapon": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DesignBeyondLimit"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ObjectStrengtheningTouch": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DurabilityEnhancingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PeerlessParagonofCraft": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ChainsFallAway", 
+                "Solar.CraftsmanNeedsNoTools"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.RealizingtheFormSupernal": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BreachHealingMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RedAnvilsRinging": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BrassScalesFalling"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ShatteringGrasp": {
+            "cost": "6m", 
+            "duration": "One task", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftsmanNeedsNoTools"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoulForgeTempering": {
+            "cost": "15m, 1wp, 4xp, 4wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HeroForgingGodWeapon"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SupremePerfectionofCraft": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PeerlessParagonofCraft", 
+                "Solar.SupremeCelestialFocus"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.TheArtofPermanence": {
+            "cost": "6m, 1wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ChaosResistancePreparation"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ThousandForgeHands": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftsmanNeedsNoTools"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TimeHealsNothing": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CrackMendingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WordsasWorkshopMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftsmanNeedsNoTools", 
+                "Solar.ViceMiracleTechnique"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Craft.Momentum"
+}

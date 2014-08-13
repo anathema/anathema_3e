@@ -2,7 +2,7 @@
   groups: [
     {
       id: "War",
-      traits: ["Archery", "Athletics", "Awareness", "Dodge", "Integrity", "MartialArts", "Melee", "Resistance", "Thrown", "War"]
+      traits: ["Archery", "Athletics", "Awareness", "Brawl", "Dodge", "Integrity", "MartialArts", "Melee", "Resistance", "Thrown", "War"]
     },
     {
       id: "Life",

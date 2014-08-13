@@ -1,0 +1,220 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.CraftyObservationMethod": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WatchmansInfallibleEye"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DauntlessInquisitorAttitude": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MiraculousStunningInsight"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DivineInductionTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftyObservationMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EmpathicRecallDiscipline": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EnlightenedTouchInsight"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EnlightenedTouchInsight": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnknownWisdomEpiphany"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EvidenceDiscerningMethod": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftyObservationMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EvidenceRestoringPrana": {
+            "cost": "--(6m)", 
+            "duration": "Varies", 
+            "minimums": {
+                "Essence": 3, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EvidenceDiscerningMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InquisitorsUnfailingNotice": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WatchmansInfallibleEye"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.InvestigationExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IrresistibleQuestioningTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.JudgesEarTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.JudgeGeneralsStance": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DauntlessInquisitorAttitude"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.JudgesEarTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CraftyObservationMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MindManseMeditation": {
+            "cost": "12m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EmpathicRecallDiscipline", 
+                "Solar.EvidenceRestoringPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MiraculousStunningInsight": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DivineInductionTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.TenMagistrateEyes": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EvidenceDiscerningMethod", 
+                "Solar.JudgesEarTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.UnknownWisdomEpiphany": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TenMagistrateEyes"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WatchfulJusticiarsEye": {
+            "cost": "--(4m, 1wp)", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Investigation": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EvidenceDiscerningMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WatchmansInfallibleEye": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Investigation"
+}

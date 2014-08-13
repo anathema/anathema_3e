@@ -1,0 +1,444 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BardLighteningPrana": {
+            "cost": "4m", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WhirlwindHorseArmoringPrana"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CoursingFireboltFlash": {
+            "cost": "3m or 4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WindRacingEssenceInfusion"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ElusiveMountTechnique": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlashingThunderboltSteed"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FierceChargersPulse": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpeedFuryFocus"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FlashingThunderboltSteed": {
+            "cost": "4m", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterHorsemansTechniques"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GrizzledCataphractsWay": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpeedFuryFocus"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HarmoniousTackingTechnique": {
+            "cost": "2m to 6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterHorsemansTechniques"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeroRidesAway": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterHorsemansTechniques"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HorseHealingTechnique": {
+            "cost": "4m, 1 health level", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MountPreservationMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HorseStealingLeap": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SaddleStayingCourses"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ImmortalChargersGallop": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WindRacingEssenceInfusion"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ImmortalRidersAdvantage": {
+            "cost": "Varies", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeasonedBeastRidersApproach"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InexhaustibleDestriersGait": {
+            "cost": "2m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalChargersGallop"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.IronSimhataStyle": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ResilienceoftheChosenMount"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MasterHorsemansTechniques": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.MountPreservationMethod": {
+            "cost": "1hl per three successes", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WorthyMountTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PhantomRidersApproach": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UntouchableHorsemansAttitude"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.PhantomSteed": {
+            "cost": "10m, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterHorsemansTechniques"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RapidCavalryApproach": {
+            "cost": "7m or 12m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CoursingFireboltFlash"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ResilienceoftheChosenMount": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoeandStormEvasion"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RideExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RousingBacklashAssault": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WorthyMountTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SaddleStayingCourses": {
+            "cost": "4m, 3i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SingleSpiritMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SeasonedBeastRidersApproach": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SevenCyclonesRearing": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RousingBacklashAssault"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SingleSpiritMethod": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MasterHorsemansTechniques"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SoaringPegasusStyle": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SometimesHorsesFlyApproach"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SometimesHorsesFlyApproach": {
+            "cost": "1m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CoursingFireboltFlash"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpeedFuryFocus": {
+            "cost": "--(3m)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalChargersGallop"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SupernalLashDiscipline": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalChargersGallop"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UntouchableHorsemansAttitude": {
+            "cost": "3m, 2i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ElusiveMountTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UntouchableSolarSteed": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalRidersAdvantage"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WhirlwindHorseArmoringPrana": {
+            "cost": "1m to 3m or 5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousTackingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WindRacingEssenceInfusion": {
+            "cost": "2m, 1wp or 4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlashingThunderboltSteed"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WoeandStormEvasion": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WorthyMountTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WorthyMountTechnique": {
+            "cost": "1i", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeasonedBeastRidersApproach"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WrathfulMountInvigoration": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Ride": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmortalRidersAdvantage"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Ride"
+}

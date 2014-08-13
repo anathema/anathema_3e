@@ -1,0 +1,348 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AngleTracingEdge": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PrecisionoftheStrikingRaptor"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CascadeofCuttingTerror": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TripleDistanceAttackTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CrimsonRazorWind": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ObserverDeceivingAttack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CuttingCircleofDestruction": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FallingIcicleStrike"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DreadTalonoftheInterceptor": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PrecisionoftheStrikingRaptor"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EmptyPalmTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ObserverDeceivingAttack"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FallenWeaponDeflection": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EmptyPalmTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FallingIcicleStrike": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MistGatheringPractice"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FierySolarChakram": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CascadeofCuttingTerror"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FlashingDrawMastery": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SteelStormDescending"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FlyingSteelRuse": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ObserverDeceivingAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.InnerSwarmAttack": {
+            "cost": "4m, 2i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShowerofDeadlyBlades"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.JointWoundingAttack": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PrecisionoftheStrikingRaptor"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MistGatheringPractice": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.JointWoundingAttack"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MistonWaterAttack": {
+            "cost": "2m per turn", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.JointWoundingAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ObserverDeceivingAttack": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.JointWoundingAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.PrecisionoftheStrikingRaptor": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.RetrievetheFallenWeapon": {
+            "cost": "1m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DreadTalonoftheInterceptor"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SavageWolfAttack": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FallenWeaponDeflection"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowThrustSpark": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SharpHandFeint"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowWindSlash(ShadowWindKill)": {
+            "cost": "2m or 1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SharpHandFeint"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SharpHandFeint": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ObserverDeceivingAttack"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ShowerofDeadlyBlades": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CascadeofCuttingTerror"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ShrikeSavingDiscretion": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SwarmCullingInstinct"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SpittingHandofJustice": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Thrown": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DreadTalonoftheInterceptor"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SteelStormDescending": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PrecisionoftheStrikingRaptor"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SwarmCullingInstinct": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Thrown": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlashingDrawMastery"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ThrownExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TripleDistanceAttackTechnique": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }
+    }, 
+    "tree": "Thrown"
+}

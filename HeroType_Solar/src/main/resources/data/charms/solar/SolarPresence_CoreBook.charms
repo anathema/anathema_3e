@@ -1,0 +1,304 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AuthorityRadiatingStance": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MajesticRadiantPresence"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.AwakenedCarnalDemiurge": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ThreefoldMagneticArdor"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.BlazingGloriousIcon": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MajesticRadiantPresence"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CountenanceofVastWrath": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 4, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TerrifyingApparitionofGlory"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CrownedKingofEternity": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AuthorityRadiatingStance", 
+                "Solar.FulminatingWord"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EmpoweringShout": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImpassionedDiscourseTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EnemyCastigatingSolarJudgment": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImpassionedDiscourseTechnique", 
+                "Solar.MajesticRadiantPresence"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ExcellentFriendApproach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousPresenceMeditation", 
+                "Solar.ListenerSwayingArgument"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FavorConferringPrana": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 4, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EmpoweringShout", 
+                "Solar.UnderlingPromotingTouch"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FulminatingWord": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImpassionedDiscourseTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HarmoniousPresenceMeditation": {
+            "cost": "5m or 7m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HypnoticTongueTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MindWipingGaze", 
+                "Solar.FulminatingWord"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ImpassionedDiscourseTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ListenerSwayingArgument"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ListenerSwayingArgument": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MajesticRadiantPresence": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousPresenceMeditation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MindWipingGaze": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlazingGloriousIcon"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PresenceExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ProphetUpliftingEvocation": {
+            "cost": "4m, 1wp, 2xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnderlingPromotingTouch"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RoseLippedSeductionStyle": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AwakenedCarnalDemiurge"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SheddingInfiniteRadiance": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ProphetUpliftingEvocation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TerrifyingApparitionofGlory": {
+            "cost": "7m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MajesticRadiantPresence"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ThreefoldMagneticArdor": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousPresenceMeditation", 
+                "Solar.ListenerSwayingArgument"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TigersDreadSymmetry": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnderlingPromotingTouch": {
+            "cost": "7m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MajesticRadiantPresence"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WorshipfulLackeyAcquisition": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Presence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnderlingPromotingTouch"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Presence"
+}

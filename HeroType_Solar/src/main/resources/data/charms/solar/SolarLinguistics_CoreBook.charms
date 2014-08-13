@@ -1,0 +1,354 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.CupBoilsOver": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MindSwallowingMissive", 
+                "Solar.VoiceCagingCalligraphy"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DiscerningSavantsEye": {
+            "cost": "1m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SagaciousReadingofIntent"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EssenceLadenMissive": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LetterWithinALetterTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ExcellentEmissarysTongue": {
+            "cost": "6m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SingleVoiceKata", 
+                "Solar.StrangeTongueUnderstanding"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlashingQuillAtemi": {
+            "cost": "1m", 
+            "duration": "One minute", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PowerSnaringImage"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlawlessBrushDiscipline": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WhirlingBrushMethod"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FlowingElegantHand": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.HeavenDrawingDiscipline": {
+            "cost": "8m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MindScribingMethod"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LetterWithinALetterTechnique": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.LinguisticsExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MindScribingMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectRecollectionDiscipline"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MindSwallowingMissive": {
+            "cost": "8m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceLadenMissive"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MingledTongueTechnique": {
+            "cost": "4m, 1wp, plus 3m per language", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MovingtheUnseenHand": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StolenVoiceTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PerfectCelestialAuthor": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlashingQuillAtemi"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PerfectRecollectionDiscipline": {
+            "cost": "1m per work", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DiscerningSavantsEye"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PoeticExpressionStyle": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StrangeTongueUnderstanding"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.PowerSnaringImage": {
+            "cost": "-- (1m, 1wp)", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StolenVoiceTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SagaciousReadingofIntent": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 4
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SingleVoiceKata": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MingledTongueTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.StolenVoiceTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessBrushDiscipline"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.StrangeTongueUnderstanding": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SubtleSpeechMethod": {
+            "cost": "3m", 
+            "duration": "One idea conveyed", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.SwiftSagesEye": {
+            "cost": "1m", 
+            "duration": "One text", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectRecollectionDiscipline"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TwistedWordsTechnique": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingElegantHand", 
+                "Solar.LetterWithinALetterTechnique", 
+                "Solar.SubtleSpeechMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnbreakableFascinationMethod": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TwistedWordsTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.VanishingImmersionStyle": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WordShieldInvocation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.VoiceCagingCalligraphy": {
+            "cost": "2m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceLadenMissive"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.WhirlingBrushMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WordShieldInvocation": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SagaciousReadingofIntent"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Linguistics"
+}

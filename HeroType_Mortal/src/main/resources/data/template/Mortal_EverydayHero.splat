@@ -17,6 +17,8 @@
         Intimacies: '',
         Specialties: '',
         SpecialtiesPoints: MortalSpecialtyPoints,
-        Equipment: ''
+        Equipment: '',
+        Merits: '',
+        MeritPoints: ''
     }
 }

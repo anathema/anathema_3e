@@ -13,6 +13,16 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ArcheryExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Archery": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.ArrowStormTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
@@ -190,8 +200,8 @@
                 "Essence": 5
             }, 
             "prerequisiteCharms": [
-            	"Solar.ScourgingWindAttack",
-                "Solar.CrimsonStreamingIncineration"
+                "Solar.CrimsonStreamingIncineration", 
+                "Solar.ScourgingWindAttack"
             ], 
             "type": "Simple"
         }, 

@@ -1,0 +1,513 @@
+{
+	"access": "all",
+	"merits": [
+		{
+			"name": "Allies",
+			"values": "1, 3, 5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Ambidextrous",
+			"values": "1-2",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Artifact",
+			"values": "2-5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Backing",
+			"values": "2-4",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Boundless Endurance",
+			"values": "2",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				 {
+				 	"requirementType": "group",
+				 	"requirements": [
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Stamina",
+				 			"rating":3
+				 		},
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Resistance",
+				 			"rating":3
+				 		}
+				 	]
+				 }
+			 ]
+		},
+		{
+			"name": "Command",
+			"values": "2-5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Contacts",
+			"values": "1, 3, 5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Cult",
+			"values": "1-5",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Danger Sense",
+			"values": "3",
+			"type": "Innate",
+			"repurchases": true,
+			"requirements": [
+				 {
+				 	"requirementType": "group",
+				 	"requirements": [
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Perception",
+				 			"rating":3
+				 		},
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Awareness",
+				 			"rating":3
+				 		}
+				 	]
+				 }
+			 ]
+		},
+		{
+			"name": "Demesne",
+			"values": "2, 4",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Direction Sense",
+			"values": "1",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Eidetic Memory",
+			"values": "2",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Familiar",
+			"values": "1-3",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Contacts",
+			"values": "1, 3, 5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Fast Reflexes",
+			"values": "3",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Wits",
+				 	"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Fleet of Foot",
+			"values": "4",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Dexterity",
+				 	"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Giant",
+			"values": "4",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Stamina",
+				 	"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Hearthstone",
+			"values": "2, 4",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Hideous",
+			"values": "0",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Influence",
+			"values": "1-5",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Iron Stomach",
+			"values": "1",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				 {
+				 	"requirementType": "group",
+				 	"requirements": [
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Stamina",
+				 			"rating":3
+				 		},
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Resistance",
+				 			"rating":3
+				 		}
+				 	]
+				 }
+			 ]
+		},
+		{
+			"name": "Language",
+			"values": "1",
+			"type": "Purchased",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Manse",
+			"values": "3-5",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Mentor",
+			"values": "1-3",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Mighty Thew",
+			"values": "1-3",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Strength",
+				 	"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Natural Immunity",
+			"values": "2",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Stamina",
+				 	"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Pain Tolerance",
+			"values": "4",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "trait",
+				 	"trait": "Resistance",
+				 	"rating": 4
+				}
+			 ]
+		},
+		{
+			"name": "Quick Draw",
+			"values": "1, 4",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "group",
+					"requirements": [
+						{
+							"requirementType": "trait",
+						 	"trait": "Archery",
+						 	"rating": 3
+						},
+						{
+							"requirementType": "trait",
+						 	"trait": "Brawl",
+						 	"rating": 3
+						},
+						{
+							"requirementType": "trait",
+						 	"trait": "Melee",
+						 	"rating": 3
+						},
+						{
+							"requirementType": "trait",
+						 	"trait": "Martial Arts",
+						 	"rating": 3
+						},
+						{
+							"requirementType": "trait",
+						 	"trait": "Thrown",
+						 	"rating": 3
+						}
+					]
+				}
+				
+			 ]
+		},
+		{
+			"name": "Retainer",
+			"values": "2-4",
+			"type": "Story",
+			"repurchases": true,
+			"requirements": [ ]
+		},
+		{
+			"name": "Resources",
+			"values": "1-5",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Selective Conception",
+			"values": "1",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Sorcerous Initiation",
+			"values": "5",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "mortal"
+				},
+				{
+					"requirementType": "trait",
+					"trait": "Occult",
+					"rating": 3
+				}
+			 ]
+		},
+		{
+			"name": "Tempered by the Elements",
+			"values": "2",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Toxin Resistance",
+			"values": "3",
+			"type": "Purchased",
+			"repurchases": false,
+			"requirements": [
+				 {
+				 	"requirementType": "group",
+				 	"requirements": [
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Stamina",
+				 			"rating":3
+				 		},
+				 		{
+				 			"requirementType": "trait",
+				 			"trait":"Resistance",
+				 			"rating":3
+				 		}
+				 	]
+				 }
+			 ]
+		},
+		
+		{
+			"name": "Chameleon",
+			"values": "3",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Claws",
+			"values": "1-4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Fangs",
+			"values": "1-4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Hooves",
+			"values": "1-4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Horns",
+			"values": "1-4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Enhanced Sense",
+			"values": "3",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Exalted Healing",
+			"values": "5",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "mortal"
+				} 
+			]
+		},
+		{
+			"name": "Extra Limbs",
+			"values": "3",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Gills",
+			"values": "0, 3",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Poisoned Body",
+			"values": "1, 2, 5",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Quills",
+			"values": "5",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Subtlety",
+			"values": "2",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "supernaturalMerits"
+				} 
+			]
+		},
+		{
+			"name": "Tail",
+			"values": "1-2",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Unusual Hide",
+			"values": "1-5",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Venemous",
+			"values": "3, 4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Wall Walking",
+			"values": "4",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		},
+		{
+			"name": "Wings",
+			"values": "3, 5",
+			"type": "Supernatural",
+			"repurchases": false,
+			"requirements": [ ]
+		}
+		
+	]
+}

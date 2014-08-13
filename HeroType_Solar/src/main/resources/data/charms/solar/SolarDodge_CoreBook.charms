@@ -1,0 +1,324 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.DodgeExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DriftingLeafElusion": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DriftingShadowFocus": {
+            "cost": "3m, 1wp", 
+            "duration": "One round", 
+            "minimums": {
+                "Dodge": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ReflexSidestepTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DustMotesWhirling": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ReedintheWind"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FleetDreamingImage": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DustMotesWhirling"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlowLikeBlood": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Dodge": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowOverWater"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ForceStealingFeint": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SearingQuicksilverFlight"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FourfoldShiverBinding": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Dodge": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DriftingLeafElusion"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HarmDismissingMeditation": {
+            "cost": "1m, 1wp", 
+            "duration": "One turn", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LivingBondsUnburdened"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HundredShadowWays": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.VaporousDivision"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LeapingDodgeMethod": {
+            "cost": "1m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ReflexSidestepTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LivingBondsUnburdened": {
+            "cost": "3m, 3i +1m, 1i per hl", 
+            "duration": "One scene", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.VaporousDivision"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ReedintheWind": {
+            "cost": "2i per 1 Evasion", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RefinementofFlowingShadows": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SevenShadowEvasion"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ReflexSidestepTechnique": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ReedintheWind"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RumorofForm": {
+            "cost": "3m per -1", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowOverWater"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SafetyBetweenHeartbeats": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ForceStealingFeint"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SearingQuicksilverFlight": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ReedintheWind"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SevenShadowEvasion": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ForceStealingFeint"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowDancerMethod": {
+            "cost": "--(1m)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DustMotesWhirling"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ShadowOverWater": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DriftingLeafElusion"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SunlightBleedingAway": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FleetDreamingImage"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ThousandStepsStillness": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SafetyBetweenHeartbeats"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnbowedWillowMeditation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ThousandStepsStillness"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnbridledShadeAttitude": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LivingBondsUnburdened"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.VaporousDivision": {
+            "cost": "4m per damage die removed", 
+            "duration": "Instant", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RumorofForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WayofWhispersTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Dodge": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RumorofForm"
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Dodge"
+}

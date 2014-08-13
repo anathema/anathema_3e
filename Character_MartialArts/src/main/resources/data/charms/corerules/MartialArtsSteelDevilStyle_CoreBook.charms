@@ -1,0 +1,162 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.DervishBladeFrenzy": {
+            "cost": "12m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EmptyMindStrike"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.DoubleAttackTechnique": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.NakedFangDraw"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.DualSlayingStance": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SteelDevilForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.EmptyMindStrike": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SteelDevilForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.IronLotusUnfurling": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.TwinBladeDefense"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.NakedFangDraw": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.SecondsBetweenStrife": {
+            "cost": "4m, 1c per success", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SteelDevilForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.SonicSlash": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SecondsBetweenStrife"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.SteelDevilForm": {
+            "cost": "7m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SteelDevilStrike"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.SteelDevilStrike": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DoubleAttackTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.TripleAttackTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DoubleAttackTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "MartialArts.TwinBladeDefense": {
+            "cost": "3m, 1c per success", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DualSlayingStance"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.WhirlingGuillotineDance": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.DervishBladeFrenzy", 
+                "MartialArts.IronLotusUnfurling", 
+                "MartialArts.SonicSlash"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "SteelDevilStyle"
+}

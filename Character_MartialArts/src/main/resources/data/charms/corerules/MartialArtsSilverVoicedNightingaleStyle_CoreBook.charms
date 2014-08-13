@@ -1,0 +1,139 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.AriaofVictory": {
+            "cost": "8m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FlashingBladeHarmony"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.FlashingBladeHarmony": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SilverVoicedNightingaleForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.HarmonyinOppositionStance": {
+            "cost": "4m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.HearingtheHeartsSong"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.HauntingHeartRendingMelody": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SilverVoicedNightingaleForm"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.HearingtheHeartsSong": {
+            "cost": "5m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SilverVoicedNightingaleForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.InspiringBattleHymn": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.VoiceoftheNightBird"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.ResoundingSongbirdsCry": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.HauntingHeartRendingMelody"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.ShatteringDiscordCacophony": {
+            "cost": "10m, 1wp", 
+            "duration": "Until the enemy's next turn", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.AriaofVictory", 
+                "MartialArts.HarmonyinOppositionStance", 
+                "MartialArts.ResoundingSongbirdsCry"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.SilverVoicedNightingaleForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.InspiringBattleHymn", 
+                "MartialArts.TerrifyingBattleShriek"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.TerrifyingBattleShriek": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.VoiceoftheNightBird"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.VoiceoftheNightBird": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "SilverVoicedNightingaleStyle"
+}

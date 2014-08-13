@@ -1,7 +1,7 @@
 {
     "category": "Solar", 
     "charms": {
-        "Aegis of Unstoppable Force": {
+        "Solar.AegisofUnstoppableForce": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -9,11 +9,11 @@
                 "Essence": 4
             }, 
             "prerequisiteCharms": [
-                "Legion Aurochs Method"
+                "Solar.LegionAurochsMethod"
             ], 
             "type": "Permanent"
         }, 
-        "Arete-Driven Marathon Stride": {
+        "Solar.AreteDrivenMarathonStride": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -21,11 +21,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Winning Stride Discipline"
+                "Solar.WinningStrideDiscipline"
             ], 
             "type": "Permanent"
         }, 
-        "Armor-Eating Strike": {
+        "Solar.ArmorEatingStrike": {
             "cost": "1m", 
             "duration": "Instant", 
             "minimums": {
@@ -33,11 +33,21 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Increasing Strength Exercise"
+                "Solar.IncreasingStrengthExercise"
             ], 
             "type": "Supplemental"
         }, 
-        "Bonfire Anima Wings": {
+        "Solar.AthleticsExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Athletics": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BonfireAnimaWings": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -45,12 +55,12 @@
                 "Essence": 4
             }, 
             "prerequisiteCharms": [
-                "Eagle-Wing Style", 
-                "Onrush Burst Method"
+                "Solar.EagleWingStyle", 
+                "Solar.OnrushBurstMethod"
             ], 
             "type": "Permanent"
         }, 
-        "Demon-Wasting Rush": {
+        "Solar.DemonWastingRush": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -58,11 +68,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Racing Hare Method"
+                "Solar.RacingHareMethod"
             ], 
             "type": "Supplemental"
         }, 
-        "Eagle-Wing Style": {
+        "Solar.EagleWingStyle": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
             "minimums": {
@@ -70,11 +80,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Mountain-Crossing Leap Technique"
+                "Solar.MountainCrossingLeapTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Feather Foot Style": {
+        "Solar.FeatherFootStyle": {
             "cost": "3m", 
             "duration": "Until the Exalt stops running", 
             "minimums": {
@@ -82,12 +92,12 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Graceful Crane Stance", 
-                "Lightning Speed"
+                "Solar.GracefulCraneStance", 
+                "Solar.LightningSpeed"
             ], 
             "type": "Reflexive"
         }, 
-        "Flashing Marlin Method": {
+        "Solar.FlashingMarlinMethod": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -97,7 +107,7 @@
             "prerequisiteCharms": [], 
             "type": "Permanent"
         }, 
-        "Foe-Vaulting Method": {
+        "Solar.FoeVaultingMethod": {
             "cost": "3i", 
             "duration": "Instant", 
             "minimums": {
@@ -105,12 +115,12 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Graceful Crane Stance", 
-                "Monkey Leap Technique"
+                "Solar.GracefulCraneStance", 
+                "Solar.MonkeyLeapTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Godspeed Steps": {
+        "Solar.GodspeedSteps": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -118,12 +128,12 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Arete-Driven Marathon Stride", 
-                "Racing Hare Method"
+                "Solar.AreteDrivenMarathonStride", 
+                "Solar.RacingHareMethod"
             ], 
             "type": "Reflexive"
         }, 
-        "Graceful Crane Stance": {
+        "Solar.GracefulCraneStance": {
             "cost": "3m", 
             "duration": "One scene", 
             "minimums": {
@@ -133,7 +143,7 @@
             "prerequisiteCharms": [], 
             "type": "Reflexive"
         }, 
-        "Hurricane Spirit Speed": {
+        "Solar.HurricaneSpiritSpeed": {
             "cost": "1i per success", 
             "duration": "Instant", 
             "minimums": {
@@ -141,11 +151,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Arete-Driven Marathon Stride"
+                "Solar.AreteDrivenMarathonStride"
             ], 
             "type": "Supplemental"
         }, 
-        "Increasing Strength Exercise": {
+        "Solar.IncreasingStrengthExercise": {
             "cost": "3m or 3i per dot", 
             "duration": "One scene", 
             "minimums": {
@@ -155,7 +165,7 @@
             "prerequisiteCharms": [], 
             "type": "Simple"
         }, 
-        "Leaping Tiger Attack": {
+        "Solar.LeapingTigerAttack": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -163,12 +173,12 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Graceful Crane Stance", 
-                "Lightning Speed"
+                "Solar.GracefulCraneStance", 
+                "Solar.LightningSpeed"
             ], 
             "type": "Supplemental"
         }, 
-        "Legion Aurochs Method": {
+        "Solar.LegionAurochsMethod": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -176,11 +186,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Power Suffusing Form Technique"
+                "Solar.PowerSuffusingFormTechnique"
             ], 
             "type": "Permanent"
         }, 
-        "Lightning Speed": {
+        "Solar.LightningSpeed": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -190,7 +200,7 @@
             "prerequisiteCharms": [], 
             "type": "Supplemental"
         }, 
-        "Living Wind Approach": {
+        "Solar.LivingWindApproach": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -198,11 +208,11 @@
                 "Essence": 5
             }, 
             "prerequisiteCharms": [
-                "One Extra Step"
+                "Solar.OneExtraStep"
             ], 
             "type": "Permanent"
         }, 
-        "Monkey Leap Technique": {
+        "Solar.MonkeyLeapTechnique": {
             "cost": "2m", 
             "duration": "Instant", 
             "minimums": {
@@ -212,7 +222,7 @@
             "prerequisiteCharms": [], 
             "type": "Supplemental"
         }, 
-        "Mountain-Crossing Leap Technique": {
+        "Solar.MountainCrossingLeapTechnique": {
             "cost": "7m, 1wp", 
             "duration": "Until she stops leaping", 
             "minimums": {
@@ -220,11 +230,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Unbound Eagle Approach"
+                "Solar.UnboundEagleApproach"
             ], 
             "type": "Simple"
         }, 
-        "Nine Aeons Thew": {
+        "Solar.NineAeonsThew": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -232,11 +242,11 @@
                 "Essence": 5
             }, 
             "prerequisiteCharms": [
-                "Aegis of Unstoppable Force"
+                "Solar.AegisofUnstoppableForce"
             ], 
             "type": "Supplemental"
         }, 
-        "One Extra Step": {
+        "Solar.OneExtraStep": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -244,11 +254,11 @@
                 "Essence": 4
             }, 
             "prerequisiteCharms": [
-                "Godspeed Steps"
+                "Solar.GodspeedSteps"
             ], 
             "type": "Permanent"
         }, 
-        "Onrush Burst Method": {
+        "Solar.OnrushBurstMethod": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -256,11 +266,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Lightning Speed"
+                "Solar.LightningSpeed"
             ], 
             "type": "Permanent"
         }, 
-        "Power Suffusing Form Technique": {
+        "Solar.PowerSuffusingFormTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
             "minimums": {
@@ -268,11 +278,11 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Thunder\u2019s Might"
+                "Solar.ThundersMight"
             ], 
             "type": "Supplemental"
         }, 
-        "Racing Hare Method": {
+        "Solar.RacingHareMethod": {
             "cost": "5m, 1wp", 
             "duration": "One hour", 
             "minimums": {
@@ -280,11 +290,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Lightning Speed"
+                "Solar.LightningSpeed"
             ], 
             "type": "Reflexive"
         }, 
-        "Soaring Crane Leap": {
+        "Solar.SoaringCraneLeap": {
             "cost": "3m", 
             "duration": "Instant", 
             "minimums": {
@@ -292,11 +302,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Monkey Leap Technique"
+                "Solar.MonkeyLeapTechnique"
             ], 
             "type": "Reflexive"
         }, 
-        "Spider Foot Style": {
+        "Solar.SpiderFootStyle": {
             "cost": "3m", 
             "duration": "(Essence +1) turns", 
             "minimums": {
@@ -304,11 +314,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Feather Foot Style"
+                "Solar.FeatherFootStyle"
             ], 
             "type": "Reflexive"
         }, 
-        "Ten Ox Meditation": {
+        "Solar.TenOxMeditation": {
             "cost": "2m, 3 successes per dot", 
             "duration": "One feat", 
             "minimums": {
@@ -316,11 +326,11 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Increasing Strength Exercise"
+                "Solar.IncreasingStrengthExercise"
             ], 
             "type": "Supplemental"
         }, 
-        "Thunderbolt Attack Prana": {
+        "Solar.ThunderboltAttackPrana": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
             "minimums": {
@@ -328,12 +338,12 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Increasing Strength Exercise", 
-                "Monkey Leap Technique"
+                "Solar.IncreasingStrengthExercise", 
+                "Solar.MonkeyLeapTechnique"
             ], 
             "type": "Supplemental"
         }, 
-        "Thunder\u2019s Might": {
+        "Solar.ThundersMight": {
             "cost": "5m", 
             "duration": "Instant", 
             "minimums": {
@@ -341,11 +351,11 @@
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Increasing Strength Exercise"
+                "Solar.IncreasingStrengthExercise"
             ], 
             "type": "Reflexive"
         }, 
-        "Triumph-Forged God-Body": {
+        "Solar.TriumphForgedGodBody": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -353,26 +363,26 @@
                 "Essence": 3
             }, 
             "prerequisiteCharms": [
-                "Arete-Driven Marathon Stride", 
-                "Flashing Marlin Method", 
-                "Ten Ox Meditation", 
-                "Unbound Eagle Approach"
+                "Solar.AreteDrivenMarathonStride", 
+                "Solar.FlashingMarlinMethod", 
+                "Solar.TenOxMeditation", 
+                "Solar.UnboundEagleApproach"
             ], 
             "type": "Permanent"
         }, 
-        "Unbound Eagle Approach": {
-            "cost": "\u2014(2m)", 
+        "Solar.UnboundEagleApproach": {
+            "cost": "--(2m)", 
             "duration": "Permanent", 
             "minimums": {
                 "Athletics": 4, 
                 "Essence": 2
             }, 
             "prerequisiteCharms": [
-                "Soaring Crane Leap"
+                "Solar.SoaringCraneLeap"
             ], 
             "type": "Permanent"
         }, 
-        "Winning Stride Discipline": {
+        "Solar.WinningStrideDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
             "minimums": {
@@ -380,7 +390,7 @@
                 "Essence": 1
             }, 
             "prerequisiteCharms": [
-                "Lightning Speed"
+                "Solar.LightningSpeed"
             ], 
             "type": "Permanent"
         }

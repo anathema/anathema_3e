@@ -1,0 +1,244 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AgesEchoingWisdom": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EfficientCraftsmanTechnique", 
+                "Solar.SublimeTransference"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.AreteShiftingPrana": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.ClayandBreathPractice": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CopperSpiderConception"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.CopperSpiderConception": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DragonSoulEmergence"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CraftExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DragonSoulEmergence": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AgesEchoingWisdom"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DualMagnusPrana": {
+            "cost": "30wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 5, 
+                "Occult": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TerrestrialCircleSorcery", 
+                "Solar.WonderForgingGenius"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EfficientCraftsmanTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TirelessWorkhorseMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ExegesisoftheDistilledForm": {
+            "cost": "25sxp, 15gxp, 10wxp + all remaining wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnwindingGyreMeditation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.GodForgeWithin": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritGatheringIndustry"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SpiritGatheringIndustry": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ClayandBreathPractice"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SpiritStokingElevation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ExegesisoftheDistilledForm"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SublimeTransference": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AreteShiftingPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SummitPiercingTouch": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AgesEchoingWisdom"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SunHeartTenacity": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GodForgeWithin"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SupremeCelestialFocus": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.AreteShiftingPrana"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.TirelessWorkhorseMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnwindingGyreMeditation": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpiritGatheringIndustry"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ViceMiracleTechnique": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SummitPiercingTouch"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WonderForgingGenius": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GodForgeWithin", 
+                "Solar.ViceMiracleTechnique"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Craft.Efficiency"
+}

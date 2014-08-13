@@ -1,0 +1,162 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BrightForgingPrana": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessHandiworkMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DivineInspirationTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FirstMovementoftheDemiurge", 
+                "Solar.SupremeMasterworkFocus"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EssenceForgingKata": {
+            "cost": "2m per mote, 1wp", 
+            "duration": "One day", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnbrokenImageFocus"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ExperientialConjuringoftheTrueVoid": {
+            "cost": "4m, 4s/g/wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessHandiworkMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FirstMovementoftheDemiurge": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ExperientialConjuringoftheTrueVoid"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FlawlessHandiworkMethod": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 1, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.HolisticMiracleUnderstanding": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DivineInspirationTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HorizonUnveilingInsight": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InspirationRenewingVision"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.InspirationRenewingVision": {
+            "cost": "12m, 1wp, 2wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceForgingKata", 
+                "Solar.SupremeMasterworkFocus"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MindExpandingMeditation": {
+            "cost": "1sxp per cap increase, 1wxp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceForgingKata"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SupremeMasterworkFocus": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessHandiworkMethod"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TriumphForgingEye": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Craft": 2, 
+                "Essence": 1
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessHandiworkMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.UnbrokenImageFocus": {
+            "cost": "3m + 1s/g/wxp per success", 
+            "duration": "Instant", 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ExperientialConjuringoftheTrueVoid"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Craft.Power"
+}

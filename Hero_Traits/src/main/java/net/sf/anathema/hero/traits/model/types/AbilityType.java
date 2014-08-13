@@ -4,6 +4,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 
 public enum AbilityType implements TraitType {
   Archery,
+  Brawl,
   MartialArts,
   Melee,
   Thrown,

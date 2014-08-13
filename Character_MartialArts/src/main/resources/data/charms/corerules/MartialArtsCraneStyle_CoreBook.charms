@@ -1,0 +1,126 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.CraneForm": {
+            "cost": "8m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.EmpoweringJusticeRedirection", 
+                "MartialArts.FlutteringCryofWarning"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.CrossedWingsDenial": {
+            "cost": "6m, 4i", 
+            "duration": "Until next turn", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CraneForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.EmpoweringJusticeRedirection": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.FeatherStirredArrowDeflection": {
+            "cost": "2m (+1wp)", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CrossedWingsDenial"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.FlutteringCryofWarning": {
+            "cost": "3m", 
+            "duration": "One round", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.HumblingEnlightenmentCommentary": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CraneForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.KindlySifusQuill": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.HumblingEnlightenmentCommentary"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.MournfulCranesCry": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.HumblingEnlightenmentCommentary"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.WingsSpreadtoSky": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.CrossedWingsDenial"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.WisdomoftheCelestialCrane": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FeatherStirredArrowDeflection", 
+                "MartialArts.KindlySifusQuill", 
+                "MartialArts.MournfulCranesCry", 
+                "MartialArts.WingsSpreadtoSky"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "CraneStyle"
+}

@@ -1,0 +1,288 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BlindingBattleFeint": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.BlurredFormStyle": {
+            "cost": "7m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InvisibleStatueSpirit"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DarkSentinelsWay": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GuardianFogApproach"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.EasilyOverlookedPresenceMethod": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.FalseImageFeint": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HiddenSnakeRecoil", 
+                "Solar.VanishingFromMindsEyeMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FivefoldShadowBurial": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SoundandScentBanishingAttitude"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.FlashEyedKillersInsight": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowVictorsRepose"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlashingNocturnePrana": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 4, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ShadowCrossingLeapTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GuardianFogApproach": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlindingBattleFeint"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HiddenSnakeRecoil": {
+            "cost": "1wp or 2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StalkingWolfAttitude"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InvisibleStatueSpirit": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectShadowStillness"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MentalInvisibilityTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EasilyOverlookedPresenceMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MindShroudMeditation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlashEyedKillersInsight"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PerfectShadowStillness": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowCrossingLeapTechnique": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SmokeandShadowCover"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowReplacementTechnique": {
+            "cost": "8m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DarkSentinelsWay"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShadowVictorsRepose": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlindingBattleFeint"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SmokeandShadowCover": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DarkSentinelsWay"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SoundandScentBanishingAttitude": {
+            "cost": "6m", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlurredFormStyle", 
+                "Solar.VanishingFromMindsEyeMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.StalkingWolfAttitude": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlindingBattleFeint"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.StealthExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SunSwallowingPractice": {
+            "cost": "2m per anima level", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BlurredFormStyle"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TenWhispersSilenceMeditation": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SoundandScentBanishingAttitude"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.VanishingFromMindsEyeMethod": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Stealth": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MentalInvisibilityTechnique"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Stealth"
+}

@@ -1,0 +1,344 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.CleverBanditsRook": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeasonedCriminalMethod"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.DoorEvadingTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LockOpeningTouch"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.DoubtSealingHeist": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.CleverBanditsRook"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FateShiftingSolarArete": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LightningHandSleight", 
+                "Solar.UnshakableRoguesSpirit"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlashingRusePrana": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlesslyImpenetrableDisguise"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FlawlessPickpocketingTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FlawlesslyImpenetrableDisguise": {
+            "cost": "6m", 
+            "duration": "Until the Exalt sleeps", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.IronWolvesGrasp": {
+            "cost": "3m, 4 Initiative", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StealingfromPlainSightSpirit", 
+                "Solar.ReversalofFortune"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LarcenyExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LightningHandSleight": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SwiftGamblersEye"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LivingShadowPreparedness": {
+            "cost": "4m, 1 wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LockOpeningTouch": {
+            "cost": "1m or 5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MagpiesInvisibleTalon": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.StealingfromPlainSightSpirit"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MasterPlanMeditation": {
+            "cost": "6m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.UnshakableRoguesSpirit"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.NightsEyeMeditation": {
+            "cost": "5m", 
+            "duration": "One turn", 
+            "minimums": {
+                "Essence": 5, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.NullAnimaGloves"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.NullAnimaGloves": {
+            "cost": "12m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 4, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IronWolvesGrasp", 
+                "Solar.ProofEatingPalm", 
+                "Solar.SkillfulReappropriation(PhantomStingSearch)"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PerfectMirror": {
+            "cost": "--(5m, 1wp)", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlesslyImpenetrableDisguise"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PhantomHoodTechnique": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PreyingonUncertaintyApproach"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PreyingonUncertaintyApproach": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SpuriousPresence"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ProofEatingPalm": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LightningHandSleight"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ReversalofFortune": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessPickpocketingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SeasonedCriminalMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.SkillfulReappropriation(PhantomStingSearch)": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MagpiesInvisibleTalon"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SplitDeceptionMethod": {
+            "cost": "5m per disguise", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 3, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PerfectMirror"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SpuriousPresence": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SeasonedCriminalMethod"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.StealingfromPlainSightSpirit": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlawlessPickpocketingTechnique"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.SwiftGamblersEye": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.UnbrokenDarknessApproach": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Larceny": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.NightsEyeMeditation"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnshakableRoguesSpirit": {
+            "cost": "-1 Initiative per success", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Larceny": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LivingShadowPreparedness"
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Larceny"
+}

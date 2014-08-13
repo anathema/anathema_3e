@@ -10,7 +10,7 @@
   groups: [
     {
       id: "War",
-      traits: ["Archery", "Athletics", "Awareness", "Dodge", "Integrity", "MartialArts", "Melee", "Resistance", "Thrown", "War"]
+      traits: ["Archery", "Athletics", "Awareness", "Brawl", "Dodge", "Integrity", "MartialArts", "Melee", "Resistance", "Thrown", "War"]
     },
     {
       id: "Life",
@@ -24,7 +24,7 @@
   casteAbilities: [
     {
       caste: "Dawn",
-      traits: [ "Archery", "Awareness", "Dodge", "MartialArts", "Melee", "Resistance", "Thrown", "War" ]
+      traits: [ "Archery", "Awareness", "Brawl", "Dodge", "MartialArts", "Melee", "Resistance", "Thrown", "War" ]
     },
     {
       caste: "Zenith",

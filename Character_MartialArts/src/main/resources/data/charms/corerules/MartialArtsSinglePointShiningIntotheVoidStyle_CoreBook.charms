@@ -1,0 +1,113 @@
+{
+    "category": "MartialArts", 
+    "charms": {
+        "MartialArts.BlindingNovaFlare": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.LiquidSteelFlow", 
+                "MartialArts.SixDemonScabbardBinding", 
+                "MartialArts.VoidSlicingWind"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.FatalStrokeFlash": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SinglePointShiningIntotheVoidForm"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.GatheringLightConcentration": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.HorizonSwallowedStarFlash": {
+            "cost": "8m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SinglePointShiningIntotheVoidForm"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.LiquidSteelFlow": {
+            "cost": "5m (+1wp)", 
+            "duration": "One round", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.FatalStrokeFlash"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.ShiningStarfallExecution": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "MartialArts": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "MartialArts.SinglePointShiningIntotheVoidForm": {
+            "cost": "10m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "MartialArts": 4
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.GatheringLightConcentration", 
+                "MartialArts.ShiningStarfallExecution"
+            ], 
+            "type": "Simple"
+        }, 
+        "MartialArts.SixDemonScabbardBinding": {
+            "cost": "1m, 1wp (or 4m)", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.HorizonSwallowedStarFlash"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "MartialArts.VoidSlicingWind": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "MartialArts": 5
+            }, 
+            "prerequisiteCharms": [
+                "MartialArts.SinglePointShiningIntotheVoidForm"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "SinglePointShiningIntotheVoidStyle"
+}

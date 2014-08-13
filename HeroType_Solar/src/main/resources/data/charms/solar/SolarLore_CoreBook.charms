@@ -1,0 +1,579 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BottomlessWellspringApproach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousAcademicMethodology"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ChaosRepellingPattern": {
+            "cost": "10m, 1wp", 
+            "duration": "One hour", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldDispellingPrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DemiurgicSuspiration": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldForgingFocus"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EssenceDrainingTouch": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.InjuryForcingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EssenceFontTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WillBolsteringMethod"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EssenceLendingMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.EssenceTwiningMethod": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceDrainingTouch"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FirstKnowledgesGrace": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HarmoniousAcademicMethodology"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlowingEssenceConversion": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ImmanentSolarGlory"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlowingMindPrana": {
+            "cost": "1xp+", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FirstKnowledgesGrace"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ForceDrainingWhisper": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceDrainingTouch"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GodKingsShrike(DogstarRuminations)": {
+            "cost": "30m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ProphetofSeventeenCycles"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HarmoniousAcademicMethodology": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.HeavenTurningCalculations": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TruthRenderingGaze"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HeroInductionMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldShapingTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HiddenWisdomBestowal": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingMindPrana"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ImmanentSolarGlory": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceFontTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.IncalculableFlowingMind": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SealofInfiniteWisdom"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InjuryForcingTechnique": {
+            "cost": "5m per health level, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WoundAcceptingTechnique"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.LegendaryScholarsCurriculum": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingMindPrana"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.LoreExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LoreInducingConcentration": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BottomlessWellspringApproach"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ManseRaisingMethod": {
+            "cost": "10m, 1wp, 10xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldCalledWeapon"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OrderAffirmingBlow": {
+            "cost": "15m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Simple"
+        }, 
+        "Solar.PowerAwardingPrana": {
+            "cost": "5m + 1m per 1xp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceFontTechnique", 
+                "Solar.SelfsameMasterInstructor"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PowerBeyondReason": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SevenfoldSavantMantle"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PowerRestoringInvocation": {
+            "cost": "2i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingEssenceConversion"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ProphetofSeventeenCycles": {
+            "cost": "12m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TruthRenderingGaze"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SacredRelicUnderstanding": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.TruthRenderingGaze"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SavantofNineGlories": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.DemiurgicSuspiration"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SealofInfiniteWisdom": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SurgingEssenceFlow"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SelfsameMasterInstructor": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LegendaryScholarsCurriculum"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SevenfoldSavantMantle": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldCauldronMastery"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SurgingEssenceFlow": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingEssenceConversion"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SurgingInnerFire": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.PowerRestoringInvocation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TirelessLearnerMethod": {
+            "cost": "1xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.FlowingMindPrana"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TomeRearingGesture": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldShapingTechnique", 
+                "Solar.MindScribingMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TruthRenderingGaze": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LoreInducingConcentration"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnstoppableMagnusApproach": {
+            "cost": "5m, 10i", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IncalculableFlowingMind", 
+                "Solar.SurgingInnerFire"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WaketheSleeper": {
+            "cost": "15m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.SacredRelicUnderstanding"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WillBolsteringMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.EssenceLendingMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WillShatteringIllusion": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ChaosRepellingPattern", 
+                "Solar.ForceDrainingWhisper"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WoundAcceptingTechnique": {
+            "cost": "3m per health level, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WillBolsteringMethod"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WyldCalledWeapon": {
+            "cost": "7m, 1wp, 8xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldShapingTechnique"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WyldCauldronMastery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldShapingTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WyldDispellingPrana": {
+            "cost": "5m, 1wp", 
+            "duration": "Varies", 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WyldForgingFocus": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WyldShapingTechnique"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WyldShapingTechnique": {
+            "cost": "15m, 1wp, 2xp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.ChaosRepellingPattern", 
+                "Solar.OrderAffirmingBlow", 
+                "Solar.TruthRenderingGaze"
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Lore"
+}

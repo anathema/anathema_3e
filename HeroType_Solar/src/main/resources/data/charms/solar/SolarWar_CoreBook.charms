@@ -1,0 +1,217 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BattlePathAscendant": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IdealBattleKnowledgePrana"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.BattleVisionarysForesight": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "minimums": {
+                "Essence": 3, 
+                "War": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GeneraloftheAllSeeingSun", 
+                "Solar.TranscendentWarlordsGenius"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FourGloriesMeditation": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "minimums": {
+                "Essence": 3, 
+                "War": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.GeneraloftheAllSeeingSun"
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.GeneraloftheAllSeeingSun": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RedoubtRaisingGesture"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.HolisticBattleUnderstanding": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WarGodDescendent"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.IdealBattleKnowledgePrana": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 2
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ImmortalCommandersPresence": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 2
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WarGodDescendent"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ImmortalWarlordsTactic": {
+            "cost": "4m, 4i, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.IdealBattleKnowledgePrana"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.LeagueofIronPreparation": {
+            "cost": "5m", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WarGodDescendent"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MagnanimityoftheUnstoppableIcon": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.RoutStemmingGesture"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MarchoftheReturner": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "War": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MagnanimityoftheUnstoppableIcon"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RedoubtRaisingGesture": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.HolisticBattleUnderstanding"
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.RoutStemmingGesture": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 3
+            }, 
+            "prerequisiteCharms": [
+                "Solar.WarGodDescendent"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SupremacyoftheDivineArmy": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "War": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.MarchoftheReturner"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.TigerWarriorTrainingTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Indefinite", 
+            "minimums": {
+                "Essence": 2, 
+                "War": 4
+            }, 
+            "prerequisiteCharms": [
+                "Solar.LeagueofIronPreparation"
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TranscendentWarlordsGenius": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 3, 
+                "War": 5
+            }, 
+            "prerequisiteCharms": [
+                "Solar.BattlePathAscendant"
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WarExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WarGodDescendent": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "minimums": {
+                "Essence": 1, 
+                "War": 1
+            }, 
+            "prerequisiteCharms": [], 
+            "type": "Supplemental"
+        }
+    }, 
+    "tree": "War"
+}
