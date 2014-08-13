@@ -20,13 +20,15 @@ public class TraitStateImpl implements TraitState {
   private final MappableTypeIncrementChecker<TraitStateType> checker;
   private final Castes traitCastes;
   private final RequiredTraitState requiredState;
+  private final TraitStateTypes types;
 
   public TraitStateImpl(Hero hero, Castes traitCastes, MappableTypeIncrementChecker<TraitStateType> checker,
-                        RequiredTraitState requiredState) {
+                        RequiredTraitState requiredState, TraitStateTypes traitStateTypes) {
     this.traitCastes = traitCastes;
     this.checker = checker;
     this.requiredState = requiredState;
     this.currentState = requiredState.overrideStateIfNecessary(Default);
+    this.types = traitStateTypes;
     hero.getChangeAnnouncer().addListener(new UpdateStateOnCasteChange());
   }
 
@@ -41,7 +43,6 @@ public class TraitStateImpl implements TraitState {
   }
 
   private TraitStateType getNextLegalState() {
-    TraitStateTypes types = TraitStateTypes.withAllKnown();
     final int stateCount = types.size();
     for (int i = 1; i < stateCount; i++) {
       TraitStateType nextState = types.getNext(currentState, i);
@@ -57,8 +58,14 @@ public class TraitStateImpl implements TraitState {
     if (!requiredState.satisfiesRequirement(newState)) {
       return false;
     }
-    if (!currentState.countsAs(newState) && !checker.isValidIncrement(newState, 1)) {
+    if (!checker.isValidIncrement(newState, 1)) {
       return false;
+    }
+    for (TraitStateType candidate : types) {
+      if (candidate.equals(currentState)) continue;
+      if (newState.countsAs(candidate) && !checker.isValidIncrement(candidate, 1)) {
+        return false;
+      }
     }
     if (newState.countsAs(Caste) && !traitCastes.isCurrentCasteSupported()) {
       return false;

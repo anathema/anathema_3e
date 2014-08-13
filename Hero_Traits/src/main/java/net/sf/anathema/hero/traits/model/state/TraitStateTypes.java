@@ -2,7 +2,7 @@ package net.sf.anathema.hero.traits.model.state;
 
 import com.google.common.collect.Lists;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +19,7 @@ public class TraitStateTypes implements Iterable<TraitStateType> {
     return new TraitStateTypes(allTypes);
   }
 
-  public static TraitStateTypes limitedTo(List<String> ids) {
+  public static TraitStateTypes limitedTo(Collection<String> ids) {
     List<TraitStateType> availableTypes = ids.stream().map(id -> {
       for (TraitStateType type : allTypes) {
         if (type.getId().equals(id)) {
