@@ -57,9 +57,6 @@ public class TraitStateImpl implements TraitState {
     if (!requiredState.satisfiesRequirement(newState)) {
       return false;
     }
-    if (!checker.isValidIncrement(newState, 1)) {
-      return false;
-    }
     for (TraitStateType candidate : types) {
       if (candidate.equals(currentState)) continue;
       if (newState.countsAs(candidate) && !checker.isValidIncrement(candidate, 1)) {

@@ -30,7 +30,6 @@ public class TraitStateFetcher {
 
       @Override
       public void visitAttribute(AttributeType type) {
-        // TODO: Check attribute favored state
         state[0] = DefaultTraitStateType.Default;
       }
 
