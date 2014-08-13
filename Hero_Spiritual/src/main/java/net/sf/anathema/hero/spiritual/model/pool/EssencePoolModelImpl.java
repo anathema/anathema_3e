@@ -15,7 +15,6 @@ import java.util.List;
 
 public class EssencePoolModelImpl implements EssencePoolModel, HeroModel {
 
-  private final AggregatedOverdrivePool overdrivePool = new AggregatedOverdrivePool();
   private EssencePoolStrategy poolStrategy = null;
   private List<IEssencePoolModifier> essencePoolModifiers = new ArrayList<>();
   private EssencePoolTemplate template;
