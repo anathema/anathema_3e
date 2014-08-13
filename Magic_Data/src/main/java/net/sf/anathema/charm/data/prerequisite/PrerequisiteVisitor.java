@@ -7,4 +7,6 @@ public interface PrerequisiteVisitor {
   void visit(DirectGroupCharmPrerequisite prerequisite);
 
   void visit(SimpleCharmPrerequisite prerequisite);
+  
+  void visit(TraitGroupCharmPrerequisite prerequisite);
 }

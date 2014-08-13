@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
@@ -45,6 +46,12 @@ public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
       prerequisiteCharms.addAll(collectPrerequisiteCharms(learnCharm, arbitrator));
       prerequisiteCharms.add(learnCharm);
     }
+  }
+  
+  @Override
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int count,
+  		int minimumEssence) {
+  	// nothing to do
   }
 
   private List<Charm> selectCharmsToLearn(CharmLearnArbitrator learnArbitrator, Charm[] prerequisites, int threshold) {

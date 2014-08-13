@@ -474,7 +474,14 @@
             }, 
             "prerequisiteCharms": [
                 "Solar.SacredRelicUnderstanding"
-            ], 
+            ],
+            "prerequisites": [
+            	{
+            		"type":"numberOfTraitCharms",
+            		"traits": [ "Lore" ],
+            		"count": 2
+            	}
+            ],
             "type": "Simple"
         }, 
         "Solar.WillBolsteringMethod": {

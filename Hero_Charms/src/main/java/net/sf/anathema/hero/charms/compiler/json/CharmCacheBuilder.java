@@ -45,6 +45,9 @@ public class CharmCacheBuilder {
         CharmImpl parent = charmList.get(new CharmName(nameString));
         parent.addChild(charm);
         charm.addCharmPrerequisite(new SimpleCharmPrerequisite(parent));
+        template.prerequisites.stream().forEach(prerequisite -> {
+    	  charm.addCharmPrerequisite(prerequisite.generate());
+        });
       });
     });
   }

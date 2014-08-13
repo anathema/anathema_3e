@@ -21,6 +21,7 @@ import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
@@ -73,6 +74,12 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 		  int threshold) {
 	throw new NotYetImplementedException();
   }
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
+			int threshold, int minimumEssence) {
+  	throw new NotYetImplementedException();
+	}
 
   @Override
   public Charm getCharmById(CharmName charmId) {

@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
@@ -17,6 +18,7 @@ import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
 import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
+import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.LearningModelImpl;
@@ -45,10 +47,13 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -264,6 +269,30 @@ public class CharmsModelImpl implements CharmsModel {
     }
     return false;
   }
+  
+
+	@Override
+	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
+			int threshold, int minimumEssence) {
+		int count = 0;
+		Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
+		Charms matchingLearnedCharms = learnedCharms.applyFilter(charm ->
+		requiredTraits.contains(charm.getPrerequisites().getPrimaryTraitType()));
+		for (Charm charm : matchingLearnedCharms) {
+			boolean meetsEssence = true;
+			for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
+				if (trait.type.equals(OtherTraitType.Essence.getId()) &&
+						traits.getTrait(OtherTraitType.Essence).getCurrentValue() < trait.minimalValue) {
+					meetsEssence = false;
+				}
+				if (meetsEssence && ++count >= threshold) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
 
   private boolean isExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();

@@ -2,11 +2,13 @@ package net.sf.anathema.hero.charms.display.node;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import static net.sf.anathema.charm.data.prerequisite.ProcessProcessor.process;
@@ -40,6 +42,14 @@ public class CharmNodeBuilder {
             handleDirectParent(groupCharms, charmNodesById, prerequisite);
           }
         }
+
+				@Override
+				public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
+						int threshold, int minimumEssence) {
+					String nodeIds = NodeIds.getNodeId(traits, threshold, minimumEssence);
+          IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
+          charmNodesById.put(nodeIds, parentNode);
+				}
       }));
     }
   }

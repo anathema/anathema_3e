@@ -1,33 +1,43 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
+import net.sf.anathema.charm.template.prerequisite.TraitGroupCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
+import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  private final TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class);
+  private final TemplateLoader<CharmListTemplate> charmsLoader;
   private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class);
   private final ObjectFactory objectFactory;
 
   @SuppressWarnings("UnusedParameters")
   public CharmCacheCompiler(ObjectFactory objectFactory) {
     this.objectFactory = objectFactory;
+    
+    //TODO: There should be a reflections based means to compile this
+    final RuntimeTypeAdapterFactory<CharmPrerequisiteTemplate> typeFactory = RuntimeTypeAdapterFactory
+            .of(CharmPrerequisiteTemplate.class, CharmPrerequisiteTemplate.getJsonField())
+            .registerSubtype(TraitGroupCharmPrerequisiteTemplate.class, TraitGroupCharmPrerequisiteTemplate.getJsonType());
+    
+    charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, typeFactory);
   }
 
   @Override

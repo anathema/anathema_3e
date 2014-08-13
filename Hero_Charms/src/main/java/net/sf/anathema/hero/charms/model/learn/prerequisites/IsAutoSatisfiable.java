@@ -1,8 +1,11 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
+import java.util.List;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
@@ -44,4 +47,10 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
     }
     this.satisfiable = false;
   }
+
+	@Override
+	public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int count,
+			int minimumEssence) {
+		this.satisfiable = false;
+	}
 }

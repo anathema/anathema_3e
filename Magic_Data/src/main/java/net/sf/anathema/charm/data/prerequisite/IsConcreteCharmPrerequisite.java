@@ -3,6 +3,7 @@ package net.sf.anathema.charm.data.prerequisite;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite> {
@@ -36,5 +37,11 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
     public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
       this.isConcrete = true;
     }
+
+	@Override
+	public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
+			int count, int minimumEssence) {
+	  this.isConcrete = false;
+	}
   }
 }

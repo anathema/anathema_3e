@@ -1,22 +1,26 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import com.google.common.collect.Lists;
+import static org.mockito.Mockito.when;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.Collection;
-import java.util.Collections;
-
-import static org.mockito.Mockito.when;
+import com.google.common.collect.Lists;
 
 public class AttributePrerequisiteSatisfiedTest {
 
@@ -93,7 +97,13 @@ public class AttributePrerequisiteSatisfiedTest {
 			}
 			return false;
 		}
-		  
+
+		@Override
+		public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
+				int threshold, int minimumEssence) {
+			// TODO: Way to represent current Essence in the test
+			return true;
+		}
 	  };
   }
 
