@@ -335,6 +335,22 @@
 			"requirements": [ ]
 		},
 		{
+			"name": "Sorcerous Initiation",
+			"values": "5",
+			"type": "Story",
+			"repurchases": false,
+			"requirements": [
+				{
+					"requirementType": "mortal"
+				},
+				{
+					"requirementType": "trait",
+					"trait": "Occult",
+					"rating": 3
+				}
+			 ]
+		},
+		{
 			"name": "Tempered by the Elements",
 			"values": "2",
 			"type": "Purchased",
