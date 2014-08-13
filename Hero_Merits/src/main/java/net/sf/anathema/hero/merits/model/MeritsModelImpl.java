@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -10,6 +11,11 @@ import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -48,6 +54,21 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     addModelChangeListener(new UnspecifiedChangeListener(announcer));
     addModelChangeListener((RemovableEntryListener) new RemovableEntryChangeAdapter<>(announcer));
     change = announcer;
+  }
+  
+  public List<Trait> getContingentTraits() {
+  	List<Trait> traits = new ArrayList<>();
+  	TraitTypeFinder typeFinder = new TraitTypeFinder();
+  	TraitModel traitModel = TraitModelFetcher.fetch(hero);
+  	for (MeritOption merit : meritCache.getAllMeritOptions()) {
+  		for (String typeLabel : merit.getContingentTraitTypes()) {
+  			Trait trait = traitModel.getTrait(typeFinder.getTrait(typeLabel));
+  			if (!traits.contains(trait)) {
+  				traits.add(trait);
+  			}
+  		}
+  	}
+  	return traits;
   }
   
   @Override

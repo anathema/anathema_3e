@@ -7,6 +7,8 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
+import net.sf.anathema.hero.merits.model.requirements.MeritTraitRequirement;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class MeritOptionImpl implements MeritOption {
@@ -52,6 +54,19 @@ public class MeritOptionImpl implements MeritOption {
 			assert (position >= 0 && position <= MAX_MERIT_RATING);
 			legalValues[position] = true;
 		}
+	}
+	
+	@Override
+	public List<String> getContingentTraitTypes() {
+		List<String> traits = new ArrayList<>();
+		for (MeritRequirement requirement : requirements) {
+			for (String trait : requirement.getContingentTraitTypes()) {
+				if (!traits.contains(trait)) {
+					traits.add(trait);
+				}
+			}
+		}
+		return traits;
 	}
 
 	@Override

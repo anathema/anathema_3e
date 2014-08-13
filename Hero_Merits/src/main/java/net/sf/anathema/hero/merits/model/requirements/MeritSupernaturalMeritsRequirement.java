@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
@@ -17,6 +20,11 @@ public class MeritSupernaturalMeritsRequirement implements MeritRequirement {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List<String> getContingentTraitTypes() {
+		return new ArrayList<String>();
 	}
 
 }

@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.merits.display;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
@@ -18,6 +20,7 @@ import net.sf.anathema.platform.taskbar.BasicUi;
 
 public class MeritsPresenter {
 
+	private ObjectSelectionView<String> meritBox;
   private MeritEntryView selectionView;
   private final MeritsView view;
   private final Resources resources;
@@ -40,6 +43,11 @@ public class MeritsPresenter {
       addSubView(merit);
     }
     reset(selectionView);
+    
+    List<Trait> meritTraits = model.getContingentTraits();
+    for (Trait trait : meritTraits) {
+    	trait.addCurrentValueListener(value -> refreshMeritList());
+    }
   }
 
   private void addSubView(Merit merit) {
@@ -73,16 +81,20 @@ public class MeritsPresenter {
       }
     });
   }
+  
+  private void refreshMeritList() {
+  	meritBox.setObjects(model.getCurrentMeritOptionLabels());
+  }
 
   private Tool initCreationViewListening(MeritEntryView selectionView) {
 	String labelText = resources.getString("Merits.DescriptionLabel");
-	ObjectSelectionView<MeritCategory> categories = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
-	ObjectSelectionView<String> option = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
+	ObjectSelectionView<MeritCategory> typeBox = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
+	meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
 			model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
     
 	// We ideally want a text changed listener rather than an object change
-	option.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
-	categories.addObjectSelectionChangedListener(item -> option.setObjects(model.getCurrentMeritOptionLabels()));
+	meritBox.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
+	typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
 	selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentDescription);
     Tool tool = selectionView.addTool();

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
@@ -20,6 +21,15 @@ public class MeritGroupRequirement implements MeritRequirement {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public List<String> getContingentTraitTypes() {
+		List<String> traits = new ArrayList<>();
+		for (MeritRequirement requirement : requirements) {
+			traits.addAll(requirement.getContingentTraitTypes());
+		}
+		return traits;
 	}
 
 }

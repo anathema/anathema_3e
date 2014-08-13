@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -19,6 +22,13 @@ public class MeritTraitRequirement implements MeritRequirement {
 	public boolean isSatisfied(Hero hero) {
 		TraitModel traitModel = TraitModelFetcher.fetch(hero);
 		return traitModel.getTrait(new TraitTypeFinder().getTrait(trait)).getCurrentValue() >= value;
+	}
+
+	@Override
+	public List<String> getContingentTraitTypes() {
+		List<String> traitList = new ArrayList<>();
+		traitList.add(trait);
+		return traitList;
 	}
 
 }
