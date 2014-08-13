@@ -26,7 +26,7 @@ public class CharmTraitRequirementCalculator {
   public int calculateMinimum(Charm charm, TraitType trait, int baseValue) {
     int requiredValue = baseValue;
     boolean requiredTraitIsEssence = trait.equals(OtherTraitType.Essence);
-    boolean primaryTraitIsSupernalAbility = stateFetcher.fetch(new TraitTypeUtils().getPrimaryTraitType(charm)) == Supernal;
+    boolean primaryTraitIsSupernalAbility = stateFetcher.fetch(new TraitTypeUtils().getPrimaryTraitType(charm)).countsAs(Supernal);
     if (requiredTraitIsEssence && primaryTraitIsSupernalAbility) {
       if (baseValue <= 5) {
         return 1;
