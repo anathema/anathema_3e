@@ -8,6 +8,10 @@ import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
 public class TraitPersister {
 
   private TraitStateMap stateMap;
+  
+  public TraitPersister() {
+  	// For non-favorable traits
+  }
 
   public TraitPersister(TraitStateMap stateMap) {
     this.stateMap = stateMap;
@@ -17,7 +21,9 @@ public class TraitPersister {
     saveTraitName(trait, pto);
     saveCreationValue(trait, pto);
     saveExperiencedValue(trait, pto);
-    saveFavoredValue(trait, pto);
+    if (stateMap != null) {
+    	saveFavoredValue(trait, pto);
+    }
   }
 
   private void saveFavoredValue(Trait trait, TraitPto pto) {
@@ -42,7 +48,9 @@ public class TraitPersister {
   public void load(Trait trait, TraitPto pto) {
     loadCreationValue(trait, pto);
     loadExperiencedValue(trait, pto);
-    loadFavoredValue(trait, pto);
+    if (stateMap != null) {
+    	loadFavoredValue(trait, pto);
+    }
   }
 
   private void loadCreationValue(Trait trait, TraitPto pto) {

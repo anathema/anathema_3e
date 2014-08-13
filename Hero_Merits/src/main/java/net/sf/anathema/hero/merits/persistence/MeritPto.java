@@ -6,6 +6,6 @@ public class MeritPto {
 
   public String meritOption;
   public String description;
-  TraitPto rating;
+  TraitPto rating = new TraitPto();
   
 }

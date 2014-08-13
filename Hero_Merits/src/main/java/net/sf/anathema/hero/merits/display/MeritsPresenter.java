@@ -84,7 +84,7 @@ public class MeritsPresenter {
 	option.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
 	categories.addObjectSelectionChangedListener(item -> option.setObjects(model.getCurrentMeritOptionLabels()));
 	selectionView.addDescriptionBox(labelText);
-    selectionView.addTextChangeListener(model::setCurrentMerit);
+    selectionView.addTextChangeListener(model::setCurrentDescription);
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setCommand(model::commitSelection);
