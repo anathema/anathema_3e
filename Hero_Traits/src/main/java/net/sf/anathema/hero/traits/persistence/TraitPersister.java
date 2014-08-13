@@ -56,7 +56,7 @@ public class TraitPersister {
   }
 
   private void loadFavoredValue(Trait trait, TraitPto pto) {
-    TraitStateType stateType = new TraitStateTypes().lookUp(pto.state);
+    TraitStateType stateType = TraitStateTypes.withAllKnown().lookUp(pto.state);
     stateMap.getState(trait).restore(stateType);
   }
 }

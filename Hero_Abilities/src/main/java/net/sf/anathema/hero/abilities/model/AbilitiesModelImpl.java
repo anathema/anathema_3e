@@ -43,6 +43,7 @@ import java.util.Map;
 
 public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesModel, HeroModel {
 
+  private final TraitStateTypes traitStateTypes = TraitStateTypes.withAllKnown();
   private IdentifiedTraitTypeList[] abilityTraitGroups;
   private Hero hero;
   private AbilitiesTemplate template;
@@ -153,7 +154,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   @Override
   public Iterable<TraitStateType> getAvailableTraitStates() {
-    return new TraitStateTypes();
+    return traitStateTypes;
   }
 
   @Override

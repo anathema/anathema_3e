@@ -40,7 +40,7 @@ public class TraitStateImpl implements TraitState {
   }
 
   private TraitStateType getNextLegalState() {
-    TraitStateTypes types = new TraitStateTypes();
+    TraitStateTypes types = TraitStateTypes.withAllKnown();
     final int stateCount = types.size();
     for (int i = 1; i < stateCount; i++) {
       TraitStateType nextState = types.getNext(currentState, i);
