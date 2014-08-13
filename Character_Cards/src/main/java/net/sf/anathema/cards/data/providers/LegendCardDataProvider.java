@@ -28,7 +28,6 @@ public class LegendCardDataProvider implements ICardDataProvider {
   public List<LegendEntry> traits = new ArrayList<>();
   public List<LegendEntry> characterTypes = new ArrayList<>();
   public List<LegendEntry> spellCircles = new ArrayList<>();
-  public List<LegendEntry> martialArtLevels = new ArrayList<>();
   public List<LegendEntry> martialArtStyles = new ArrayList<>();
   public List<LegendEntry> misc = new ArrayList<>();
 
@@ -41,7 +40,6 @@ public class LegendCardDataProvider implements ICardDataProvider {
     traits.clear();
     characterTypes.clear();
     spellCircles.clear();
-    martialArtLevels.clear();
     martialArtStyles.clear();
     misc.clear();
 
@@ -60,7 +58,6 @@ public class LegendCardDataProvider implements ICardDataProvider {
     entries.addAll(traits);
     entries.addAll(spellCircles);
     entries.addAll(characterTypes);
-    entries.addAll(martialArtLevels);
     entries.addAll(martialArtStyles);
 
     String legend = resources.getString("CardsReport.Legend");
@@ -103,10 +100,6 @@ public class LegendCardDataProvider implements ICardDataProvider {
           characterTypes.add(character);
         }
       } else {
-        LegendEntry level = new LegendEntry(resourceProvider.getCategoryIcon(charm), resourceProvider.getCategoryLabel(charm));
-        if (!martialArtLevels.contains(level)) {
-          martialArtLevels.add(level);
-        }
         Image styleIcon = resourceProvider.getTreeIcon(charm);
         if (styleIcon != null) {
           String styleString = resourceProvider.getTreeLabel(charm);
@@ -135,12 +128,6 @@ public class LegendCardDataProvider implements ICardDataProvider {
 
   private void cleanEntries() {
     // reshuffle some entries around to minimize card count
-
-    // if we only have one character type, deprioritize it
-    if (martialArtLevels.size() <= 1) {
-      misc.addAll(martialArtLevels);
-      martialArtLevels.clear();
-    }
 
     // if we only have one character type, don't bother to print it
     if (characterTypes.size() == 1) {
