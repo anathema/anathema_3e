@@ -59,4 +59,9 @@ public class IsSatisfied implements PrerequisiteProcessor {
 			(List<TraitType>)Lists.transform(traits, trait -> new TraitTypeFinder().getTrait(trait.type)),
 				threshold, minimumEssence);
   }
+
+	@Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		this.satisfied = arbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(threshold);
+	}
 }

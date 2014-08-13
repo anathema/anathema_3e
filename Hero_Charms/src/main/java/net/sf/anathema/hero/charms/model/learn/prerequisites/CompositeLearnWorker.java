@@ -35,6 +35,11 @@ public class CompositeLearnWorker implements CharmLearnWorker {
   		int threshold, int minimumEssence) {
   	return learnArbitrator.hasLearnedThresholdCharmsOfTrait(traits, threshold, minimumEssence);
   }
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+		return learnArbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(threshold);
+	}
 
   @Override
   public void forget(Charm charm) {

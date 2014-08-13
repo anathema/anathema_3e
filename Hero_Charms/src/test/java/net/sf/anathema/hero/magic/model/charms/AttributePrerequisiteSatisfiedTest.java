@@ -4,10 +4,13 @@ import static org.mockito.Mockito.when;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
@@ -79,31 +82,50 @@ public class AttributePrerequisiteSatisfiedTest {
   private CharmLearnArbitrator getLearnArbiter(Collection<Charm> charms) {
 	  return new CharmLearnArbitrator() {
 
-		@Override
-		public boolean isLearned(Charm charm) {
-			return charms.contains(charm);
-		}
-			
-		@Override
-		public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
-			int count = 0;
-			for (Charm charm : charms) {
-				if (charm.hasAttribute(attribute)) {
-					count++;
-				}
-				if (count >= threshold) {
-					return true;
-				}
+			@Override
+			public boolean isLearned(Charm charm) {
+				return charms.contains(charm);
 			}
-			return false;
-		}
+				
+			@Override
+			public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
+				int count = 0;
+				for (Charm charm : charms) {
+					if (charm.hasAttribute(attribute)) {
+						count++;
+					}
+					if (count >= threshold) {
+						return true;
+					}
+				}
+				return false;
+			}
+	
+			@Override
+			public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
+					int threshold, int minimumEssence) {
+				// TODO: Way to represent current Essence in the test
+				return false;
+			}
 
-		@Override
-		public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
-				int threshold, int minimumEssence) {
-			// TODO: Way to represent current Essence in the test
-			return true;
-		}
+			@Override
+			public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+				Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
+				
+				for (Charm charm : charms) {
+					RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
+					Integer currentCount = groupCounts.get(group);
+					if (currentCount == null) {
+						currentCount = 0;
+						groupCounts.put(group, currentCount);
+					}
+					if (++currentCount >= threshold) {
+						return true;
+					}
+				}
+				
+				return false;
+			}
 	  };
   }
 

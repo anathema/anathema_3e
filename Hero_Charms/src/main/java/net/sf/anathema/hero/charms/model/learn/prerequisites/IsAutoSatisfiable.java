@@ -53,4 +53,9 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
 			int minimumEssence) {
 		this.satisfiable = false;
 	}
+
+	@Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		this.satisfiable = false;
+	}
 }

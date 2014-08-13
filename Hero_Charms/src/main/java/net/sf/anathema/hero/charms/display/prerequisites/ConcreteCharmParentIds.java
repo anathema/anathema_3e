@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeId;
+import static net.sf.anathema.hero.charms.display.view.NodeIds.getNodeIdForAnyOneTrait;
 
 public class ConcreteCharmParentIds implements PrerequisiteProcessor {
 
@@ -40,6 +41,11 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
   @Override
   public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int count,
 		  int minimumEssence) {
-	nodeIds.add(getNodeId(traits, count, minimumEssence));
+		nodeIds.add(getNodeId(traits, count, minimumEssence));
   }
+
+	@Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		nodeIds.add(getNodeIdForAnyOneTrait(threshold));
+	}
 }

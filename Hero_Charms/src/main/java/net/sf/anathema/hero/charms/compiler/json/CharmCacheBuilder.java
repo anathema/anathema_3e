@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -10,6 +11,8 @@ import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import com.google.common.collect.Lists;
 
 public class CharmCacheBuilder {
 
@@ -39,14 +42,19 @@ public class CharmCacheBuilder {
   }
 
   private void linkCharms() {
+  	Map<CharmName, Charm> abstractCharmList = new HashMap<>();
+  	charmList.forEach((name, charm) -> abstractCharmList.put(name, charm));
     templateList.forEach((name, template) -> {
       CharmImpl charm = charmList.get(name);
       template.prerequisiteCharms.stream().forEach(nameString -> {
+      	// TODO; move simple charm prerequisites to template
         CharmImpl parent = charmList.get(new CharmName(nameString));
         parent.addChild(charm);
         charm.addCharmPrerequisite(new SimpleCharmPrerequisite(parent));
+        
+        // Begin actual prerequisite generation
         template.prerequisites.stream().forEach(prerequisite -> {
-    	  charm.addCharmPrerequisite(prerequisite.generate());
+    	  charm.addCharmPrerequisite(prerequisite.generate(abstractCharmList));
         });
       });
     });

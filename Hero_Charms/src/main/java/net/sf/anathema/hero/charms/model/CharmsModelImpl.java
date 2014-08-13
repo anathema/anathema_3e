@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -59,7 +60,9 @@ import org.jmock.example.announcer.Announcer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
 import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
@@ -291,6 +294,25 @@ public class CharmsModelImpl implements CharmsModel {
 			}
 		}
 
+		return false;
+	}
+	
+	@Override
+	public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+		Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
+		
+		for (Charm charm : getLearningModel().getCurrentlyLearnedCharms()) {
+			RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
+			Integer currentCount = groupCounts.get(group);
+			if (currentCount == null) {
+				currentCount = 0;
+				groupCounts.put(group, currentCount);
+			}
+			if (++currentCount >= threshold) {
+				return true;
+			}
+		}
+		
 		return false;
 	}
 

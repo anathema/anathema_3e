@@ -38,10 +38,15 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
       this.isConcrete = true;
     }
 
-	@Override
-	public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
-			int count, int minimumEssence) {
-	  this.isConcrete = false;
-	}
+		@Override
+		public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
+				int count, int minimumEssence) {
+		  this.isConcrete = false;
+		}
+
+		@Override
+		public void requiresCharmsOfAnyOneTrait(int threshold) {
+			this.isConcrete = false;
+		}
   }
 }

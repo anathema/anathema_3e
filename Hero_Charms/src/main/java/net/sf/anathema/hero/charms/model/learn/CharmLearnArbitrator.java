@@ -13,4 +13,6 @@ public interface CharmLearnArbitrator {
   boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold);
   
   boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits, int threshold, int minimumEssence);
+
+	boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold);
 }

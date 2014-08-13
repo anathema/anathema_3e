@@ -53,6 +53,11 @@ public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
   		int minimumEssence) {
   	// nothing to do
   }
+  
+  @Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		// nothing to do
+	}
 
   private List<Charm> selectCharmsToLearn(CharmLearnArbitrator learnArbitrator, Charm[] prerequisites, int threshold) {
     List<Charm> charmsToLearn = new ArrayList<>();

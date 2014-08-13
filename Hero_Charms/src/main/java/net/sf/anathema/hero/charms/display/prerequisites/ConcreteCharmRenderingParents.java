@@ -40,4 +40,9 @@ public class ConcreteCharmRenderingParents implements PrerequisiteProcessor {
 		  int minimumEssence) {
   	// nothing to do
   }
+
+	@Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		// nothing to do
+	}
 }

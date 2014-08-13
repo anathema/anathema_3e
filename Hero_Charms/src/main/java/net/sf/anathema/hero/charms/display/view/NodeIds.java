@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.view;
 import java.util.List;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
@@ -45,4 +46,13 @@ public class NodeIds {
   	}
   	return "Requirement." + label + "." + threshold;
   }
+  
+  public static String getNodeId(AnyOneTraitCharmPrerequisite prerequisite) {
+  	return "Requirement.Group." + prerequisite.getThreshold(); 
+  }
+  
+  public static String getNodeIdForAnyOneTrait(int threshold) {
+  	return "Requirement.Group." + threshold; 
+	}
+  
 }

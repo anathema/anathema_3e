@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.prerequisite.AnyOneTraitCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
+import net.sf.anathema.charm.template.prerequisite.SpecificGroupCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.prerequisite.TraitGroupCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
@@ -35,7 +37,9 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
     //TODO: There should be a reflections based means to compile this
     final RuntimeTypeAdapterFactory<CharmPrerequisiteTemplate> typeFactory = RuntimeTypeAdapterFactory
             .of(CharmPrerequisiteTemplate.class, CharmPrerequisiteTemplate.getJsonField())
-            .registerSubtype(TraitGroupCharmPrerequisiteTemplate.class, TraitGroupCharmPrerequisiteTemplate.getJsonType());
+            .registerSubtype(TraitGroupCharmPrerequisiteTemplate.class, TraitGroupCharmPrerequisiteTemplate.getJsonType())
+            .registerSubtype(AnyOneTraitCharmPrerequisiteTemplate.class, AnyOneTraitCharmPrerequisiteTemplate.getJsonType())
+            .registerSubtype(SpecificGroupCharmPrerequisiteTemplate.class, SpecificGroupCharmPrerequisiteTemplate.getJsonType());
     
     charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, typeFactory);
   }

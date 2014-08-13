@@ -80,6 +80,11 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 			int threshold, int minimumEssence) {
   	throw new NotYetImplementedException();
 	}
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+  	throw new NotYetImplementedException();
+	}
 
   @Override
   public Charm getCharmById(CharmName charmId) {

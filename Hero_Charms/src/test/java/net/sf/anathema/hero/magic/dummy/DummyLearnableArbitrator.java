@@ -34,6 +34,11 @@ public class DummyLearnableArbitrator implements IExtendedCharmLearnableArbitrat
 			int threshold, int minimumEssence) {
 		return false;
 	}
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+		return false;
+	}
 
   @Override
   public void addCharmLearnListener(ICharmLearnListener listener) {

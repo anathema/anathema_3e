@@ -32,4 +32,9 @@ public class NonCharmPrerequisiteId implements PrerequisiteProcessor {
 			int minimumEssence) {
 		this.id = NodeIds.getNodeId(traits, threshold, minimumEssence);
 	}
+
+	@Override
+	public void requiresCharmsOfAnyOneTrait(int threshold) {
+		this.id = NodeIds.getNodeIdForAnyOneTrait(threshold);
+	}
 }

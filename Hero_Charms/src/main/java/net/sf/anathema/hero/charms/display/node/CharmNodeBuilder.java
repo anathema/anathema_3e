@@ -50,6 +50,13 @@ public class CharmNodeBuilder {
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
 				}
+
+				@Override
+				public void requiresCharmsOfAnyOneTrait(int threshold) {
+					String nodeIds = NodeIds.getNodeIdForAnyOneTrait(threshold);
+          IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
+          charmNodesById.put(nodeIds, parentNode);
+				}
       }));
     }
   }
