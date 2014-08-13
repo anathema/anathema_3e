@@ -35,7 +35,9 @@ public class SpecialtiesPointsModel implements HeroModel {
     SpecialtyCreationData creationData = new SpecialtyCreationData(template);
     SpecialtiesBonusPointCalculator specialtiesBonusPointCalculator = new SpecialtiesBonusPointCalculator(hero, creationData);
     pointsModel.addBonusPointCalculator(specialtiesBonusPointCalculator);
-    pointsModel.addToBonusOverview(new SpecialtyBonusModel(specialtiesBonusPointCalculator, template));
+    if (creationData.getCreationDots() > 0) {
+    	pointsModel.addToBonusOverview(new SpecialtyBonusModel(specialtiesBonusPointCalculator, template));
+    }
     pointsModel.addToExperienceOverview(new SpecialtyExperienceModel(hero, new SpecialtyExperienceData(template)));
   }
 
