@@ -19,7 +19,9 @@ public class MeritCacheImpl implements MeritCache {
 	
 	@Override
 	public List<MeritOption> getAllMeritOptions() {
-		return new ArrayList<>(merits.values());
+		List<MeritOption> options = new ArrayList<>(merits.values());
+		options.sort((m1, m2) -> m1.getId().compareTo(m2.getId()));
+		return options;
 	}
 	
 	public MeritOption getMeritOptionByName(String name, boolean returnCustom) {
