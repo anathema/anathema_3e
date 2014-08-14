@@ -16,7 +16,6 @@ import net.sf.anathema.library.collection.IdentityMapping;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.library.view.RemovableEntryView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
 public class SpecialtiesConfigurationPresenter {

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.specialties.model;
 
-import com.google.common.base.Strings;
+import java.util.ArrayList;
+import java.util.List;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -16,12 +17,7 @@ import net.sf.anathema.library.identifier.Identifier;
 
 import org.jmock.example.announcer.Announcer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.google.common.base.Strings;
 
 public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
