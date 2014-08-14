@@ -4,13 +4,14 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
 import net.sf.anathema.library.identifier.Identifier;
 
 @SuppressWarnings("UnusedDeclaration")
 public class MeritPersister extends AbstractModelJsonPersister<MeritsPto, MeritsModel> {
 	
-	private final TraitPersister traitPersister = new TraitPersister();
+	private final TraitPersister traitPersister = new TraitPersister(new NullTraitStateMap());
 	
   public MeritPersister() {
     super("merits", MeritsPto.class);
