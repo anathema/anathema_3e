@@ -5,7 +5,7 @@ import net.sf.anathema.points.model.BonusPointCalculator;
 
 public interface AbilityCostCalculator extends BonusPointCalculator {
 
-  int getFreePointsSpent(boolean favored);
+  int getFreePointsSpent();
 
   int getPicksSpent(TraitStateType type);
 }

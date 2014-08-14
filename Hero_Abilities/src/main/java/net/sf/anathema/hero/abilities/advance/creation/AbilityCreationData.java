@@ -33,8 +33,4 @@ public class AbilityCreationData implements TraitListCreationData {
   public int getGeneralDotCount() {
     return template.generalDots;
   }
-
-  public int getFavoredDotCount() {
-    return template.favoredDots;
-  }
 }
