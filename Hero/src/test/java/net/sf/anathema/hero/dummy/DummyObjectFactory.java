@@ -22,4 +22,9 @@ public class DummyObjectFactory implements ObjectFactory {
   public <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter) {
     return new ArrayList<>();
   }
+
+	@Override
+	public <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass) {
+		return new ArrayList<>();
+	}
 }

@@ -38,6 +38,12 @@ public class InjectingObjectFactory implements ObjectFactory {
     Collection<T> implementers = original.instantiateAllImplementers(interfaceClass, parameter);
     return inject(implementers);
   }
+  
+  @Override
+	public <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass) {
+		// not applicable
+  	return new ArrayList<>();
+	}
 
   private <T> Collection<T> inject(Collection<T> implementers) {
     implementers.forEach(this::inject);

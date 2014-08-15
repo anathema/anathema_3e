@@ -1,6 +1,8 @@
 package net.sf.anathema.library.dummy;
 
 import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Lists;
+
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
@@ -35,4 +37,10 @@ public class ConfigurableDummyObjectFactory implements ObjectFactory {
   public void add(Class<?> interfaceClass, Object instance) {
     objectsForInterfaces.put(interfaceClass, instance);
   }
+
+	@Override
+	public <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass) {
+		Set<? extends T> objects = (Set<? extends T>) objectsForInterfaces.get(interfaceClass);
+    return (Collection<Class<? extends T>>) Lists.transform(new ArrayList(objects), object -> (Class<? extends T>)object.getClass());
+	}
 }

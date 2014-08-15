@@ -16,6 +16,8 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import com.google.common.collect.Lists;
+
 import static com.google.common.collect.Collections2.filter;
 import static java.text.MessageFormat.format;
 import static org.apache.commons.lang3.reflect.ConstructorUtils.invokeConstructor;
@@ -50,6 +52,12 @@ public class ReflectionObjectFactory implements ObjectFactory {
     Collection<Class<? extends T>> filteredClasses = findLegalImplementers(interfaceClass);
     return filteredClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
   }
+  
+  @Override
+	public <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass) {
+  	Collection<Class<? extends T>> filteredClasses = interfaceFinder.findAll(interfaceClass);
+  	return new ArrayList<Class<? extends T>>(filteredClasses);
+	}
 
   private <T> Collection<Class<? extends T>> findLegalImplementers(Class<T> interfaceClass) {
     Set<Class<? extends T>> classes = interfaceFinder.findAll(interfaceClass);

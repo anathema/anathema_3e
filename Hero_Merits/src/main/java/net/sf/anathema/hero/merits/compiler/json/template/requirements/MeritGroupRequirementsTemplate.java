@@ -6,8 +6,11 @@ import java.util.List;
 import net.sf.anathema.hero.merits.model.requirements.MeritGroupRequirement;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 
-public class MeritGroupRequirementsTemplate implements MeritRequirementsTemplate {
-	public static final String jsonLabel = "group";
+public class MeritGroupRequirementsTemplate extends MeritRequirementsTemplate {
+	
+	public static String getJsonType() {
+		return "group";
+	}
 	
 	public List<MeritRequirementsTemplate> requirements = new ArrayList<>();
 

@@ -10,4 +10,6 @@ public interface ObjectFactory {
   <T> Collection<T> instantiateAll(Class<? extends Annotation> annotation, Object... parameter) throws InitializationException;
 
   <T> Collection<T> instantiateAllImplementers(Class<T> interfaceClass, Object... parameter);
+  
+  <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass);
 }

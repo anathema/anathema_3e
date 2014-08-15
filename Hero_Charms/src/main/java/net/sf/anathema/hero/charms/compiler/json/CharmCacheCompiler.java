@@ -6,16 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.charm.template.CharmListTemplate;
-import net.sf.anathema.charm.template.prerequisite.AnyOneTraitCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
-import net.sf.anathema.charm.template.prerequisite.SpecificGroupCharmPrerequisiteTemplate;
-import net.sf.anathema.charm.template.prerequisite.TraitGroupCharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
+import net.sf.anathema.hero.individual.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -33,15 +31,11 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
   @SuppressWarnings("UnusedParameters")
   public CharmCacheCompiler(ObjectFactory objectFactory) {
     this.objectFactory = objectFactory;
+
+    RuntimeTypeAdapterFactory[] factories =
+    		PolymorphicTypeAdapterFactoryFactory.generateFactories(objectFactory, CharmPrerequisiteTemplate.class);
     
-    //TODO: There should be a reflections based means to compile this
-    final RuntimeTypeAdapterFactory<CharmPrerequisiteTemplate> typeFactory = RuntimeTypeAdapterFactory
-            .of(CharmPrerequisiteTemplate.class, CharmPrerequisiteTemplate.getJsonField())
-            .registerSubtype(TraitGroupCharmPrerequisiteTemplate.class, TraitGroupCharmPrerequisiteTemplate.getJsonType())
-            .registerSubtype(AnyOneTraitCharmPrerequisiteTemplate.class, AnyOneTraitCharmPrerequisiteTemplate.getJsonType())
-            .registerSubtype(SpecificGroupCharmPrerequisiteTemplate.class, SpecificGroupCharmPrerequisiteTemplate.getJsonType());
-    
-    charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, typeFactory);
+    charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, factories);
   }
 
   @Override
