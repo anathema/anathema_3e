@@ -26,7 +26,6 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   private final Multimap<Trait, FavorableTraitCost> costsByTrait = HashMultimap.create();
   private final Traits traits;
   private final Map<TraitStateType, Integer> statePicks = new HashMap<>();
-  private int favoredDotSum = 0;
   private int generalDotSum = 0;
 
   public AbilityCostCalculatorImpl(AbilitiesModel abilitiesModel, AbilityCreationData creationData) {
@@ -59,7 +58,6 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void clear() {
     clearStatePickCounter();
-    favoredDotSum = 0;
     generalDotSum = 0;
     costsByTrait.clear();
   }
@@ -98,18 +96,13 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     return creationData.getGeneralDotCount();
   }
 
-  private int getFavoredDotCount() {
-    return creationData.getFavoredDotCount();
-  }
-
   @Override
   public int getPicksSpent(TraitStateType type) {
     return statePicks.get(type);
   }
 
-  //TODO (Urs): Do we expect a character type with reserved dots for favored abilities ever again?
-  public int getFreePointsSpent(boolean favored) {
-    return favored ? favoredDotSum : generalDotSum;
+  public int getFreePointsSpent() {
+    return generalDotSum;
   }
 
   protected Traits getTraits() {
@@ -122,23 +115,17 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     int favoredDotsSpent = 0;
     int generalDotsSpent = 0;
     int bonusPointsSpent = 0;
-    if (getFreePointsSpent(true) < getFavoredDotCount()) {
-      int remainingFavoredPoints = getFavoredDotCount() - getFreePointsSpent(true);
-      favoredDotsSpent = Math.min(remainingFavoredPoints, freePointsToAdd);
-      increaseFavoredDotSum(favoredDotsSpent);
-      freePointsToAdd -= favoredDotsSpent;
-    }
     if (freePointsToAdd > 0) {
-      if (getFreePointsSpent(false) < getDefaultDotCount()) {
-        int remainingGeneralPoints = getDefaultDotCount() - getFreePointsSpent(false);
+      if (generalDotSum < getDefaultDotCount()) {
+        int remainingGeneralPoints = getDefaultDotCount() - generalDotSum;
         generalDotsSpent = Math.min(remainingGeneralPoints, freePointsToAdd);
         increaseGeneralDotSum(generalDotsSpent);
         freePointsToAdd -= generalDotsSpent;
       }
     }
     if (freePointsToAdd > 0) {
-      if (getFreePointsSpent(false) < getDefaultDotCount()) {
-        int remainingGeneralPoints = getDefaultDotCount() - getFreePointsSpent(false);
+      if (generalDotSum < getDefaultDotCount()) {
+        int remainingGeneralPoints = getDefaultDotCount() - generalDotSum;
         generalDotsSpent = Math.min(remainingGeneralPoints, freePointsToAdd);
         increaseGeneralDotSum(generalDotsSpent);
         freePointsToAdd -= generalDotsSpent;
@@ -162,8 +149,8 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     int freePointsToAdd = Math.min(getCalculationBase(trait), freeTraitMax);
     int generalDotsSpent = 0;
     int bonusPointsSpent = 0;
-    if (getFreePointsSpent(false) < getDefaultDotCount()) {
-      int remainingGeneralPoints = getDefaultDotCount() - getFreePointsSpent(false);
+    if (generalDotSum < getDefaultDotCount()) {
+      int remainingGeneralPoints = getDefaultDotCount() - generalDotSum;
       generalDotsSpent = Math.min(remainingGeneralPoints, freePointsToAdd);
 
       increaseGeneralDotSum(generalDotsSpent);
@@ -184,10 +171,6 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     List<FavorableTraitCost> allCosts = new ArrayList<>();
     allCosts.add(handleGeneralSingleTrait(trait, bonusPointCostFactor));
     return allCosts;
-  }
-
-  private void increaseFavoredDotSum(int favoredDotsSpent) {
-    favoredDotSum += favoredDotsSpent;
   }
 
   private void increasePicksForType(TraitStateType stateType) {

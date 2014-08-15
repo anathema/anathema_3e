@@ -14,7 +14,7 @@ public class DefaultAbilityBonusModel extends AbstractSpendingModel {
 
   @Override
   public Integer getValue() {
-    return abilityCalculator.getFreePointsSpent(false);
+    return abilityCalculator.getFreePointsSpent();
   }
 
   @Override

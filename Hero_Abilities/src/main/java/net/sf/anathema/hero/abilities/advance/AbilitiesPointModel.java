@@ -4,7 +4,6 @@ import net.sf.anathema.hero.abilities.advance.creation.AbilityCostCalculatorImpl
 import net.sf.anathema.hero.abilities.advance.creation.AbilityCreationData;
 import net.sf.anathema.hero.abilities.advance.creation.ConfigurableAbilityTraitPickModel;
 import net.sf.anathema.hero.abilities.advance.creation.DefaultAbilityBonusModel;
-import net.sf.anathema.hero.abilities.advance.creation.FavoredAbilityBonusModel;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalculator;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceData;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
@@ -59,7 +58,6 @@ public class AbilitiesPointModel implements HeroModel {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addBonusCategory(new WeightedCategory(200, "Abilities"));
     addOnlyModelWithAllotment(pointsModel, new DefaultAbilityBonusModel(abilityCalculator, getCreationData()));
-    addOnlyModelWithAllotment(pointsModel, new FavoredAbilityBonusModel(abilityCalculator, getCreationData()));
     for (TraitStateType state : abilities.getAvailableTraitStates()) {
       addOnlyModelWithAllotment(pointsModel,
               new ConfigurableAbilityTraitPickModel(abilityCalculator, abilities.getTraitPicksForState(state), state));
