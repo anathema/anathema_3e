@@ -28,7 +28,6 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
   private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class);
   private final ObjectFactory objectFactory;
 
-  @SuppressWarnings("UnusedParameters")
   public CharmCacheCompiler(ObjectFactory objectFactory) {
     this.objectFactory = objectFactory;
 

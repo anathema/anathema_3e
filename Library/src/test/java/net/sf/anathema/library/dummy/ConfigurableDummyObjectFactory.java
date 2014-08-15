@@ -1,8 +1,6 @@
 package net.sf.anathema.library.dummy;
 
 import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Lists;
-
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
