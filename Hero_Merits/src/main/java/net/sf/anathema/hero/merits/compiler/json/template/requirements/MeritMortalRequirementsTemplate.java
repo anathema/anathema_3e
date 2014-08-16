@@ -2,16 +2,13 @@ package net.sf.anathema.hero.merits.compiler.json.template.requirements;
 
 import net.sf.anathema.hero.merits.model.requirements.MeritMortalRequirements;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
+import net.sf.anathema.platform.persistence.JsonType;
 
-public class MeritMortalRequirementsTemplate extends MeritRequirementsTemplate {
+@JsonType("mortal")
+public class MeritMortalRequirementsTemplate implements MeritRequirementsTemplate {
 	
-	public static String getJsonType() {
-		return "mortal";
-	}
-
 	@Override
 	public MeritRequirement generate() {
 		return new MeritMortalRequirements();
 	}	
-	
 }

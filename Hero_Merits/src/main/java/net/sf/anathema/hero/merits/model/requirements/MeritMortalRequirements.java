@@ -16,5 +16,4 @@ public class MeritMortalRequirements implements MeritRequirement {
 	public List<String> getContingentTraitTypes() {
 		return new ArrayList<>();
 	}
-
 }

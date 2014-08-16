@@ -10,8 +10,8 @@ import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
-import net.sf.anathema.hero.individual.persistence.PolymorphicTypeAdapterFactoryFactory;
-import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
+import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
+import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritListTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.library.exception.PersistenceException;
@@ -44,7 +44,7 @@ public class MeritCacheCompiler implements ExtensibleDataSetCompiler {
 	@Override
 	public ExtensibleDataSet build() {
         RuntimeTypeAdapterFactory[] factories =
-              PolymorphicTypeAdapterFactoryFactory.generateFactories(finder, MeritRequirementsTemplate.class);
+              new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(MeritRequirementsTemplate.class);
         TemplateLoader<MeritListTemplate> meritsLoader = new GenericTemplateLoader<>(MeritListTemplate.class, factories);
 		MeritCacheBuilder meritsBuilder = new MeritCacheBuilder();
 	    resourceFiles.forEach(resourceFile -> meritsBuilder.addTemplate(loadTemplate(resourceFile, meritsLoader)));

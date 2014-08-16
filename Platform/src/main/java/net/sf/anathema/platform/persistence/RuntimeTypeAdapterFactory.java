@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.individual.persistence;
+package net.sf.anathema.platform.persistence;
 
 /*
  * Copyright (C) 2011 Google Inc.

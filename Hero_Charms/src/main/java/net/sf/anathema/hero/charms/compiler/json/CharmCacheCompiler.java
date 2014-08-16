@@ -14,8 +14,8 @@ import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
-import net.sf.anathema.hero.individual.persistence.PolymorphicTypeAdapterFactoryFactory;
-import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
+import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
+import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
@@ -50,7 +50,7 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
   @Override
   public ExtensibleDataSet build() {
     RuntimeTypeAdapterFactory[] factories =
-            PolymorphicTypeAdapterFactoryFactory.generateFactories(finder, CharmPrerequisiteTemplate.class);
+            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
     TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, factories);
     CharmCacheBuilder charmsBuilder = new CharmCacheBuilder();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
