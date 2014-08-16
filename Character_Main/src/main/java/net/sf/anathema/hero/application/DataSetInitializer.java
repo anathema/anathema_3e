@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.application;
 
 import net.sf.anathema.ProxySplashscreen;
+import net.sf.anathema.hero.application.environment.InjectingObjectFactory;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.library.initialization.InitializationException;
@@ -8,6 +9,7 @@ import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
 
 import java.util.Collection;
 import java.util.Set;
@@ -17,16 +19,18 @@ public class DataSetInitializer {
   private static final Logger logger = Logger.getLogger(DataSetInitializer.class);
   private final ResourceFileLoader resourceLoader;
   private final ObjectFactory objectFactory;
+  private InterfaceFinder interfaceFinder;
 
-  public DataSetInitializer(ResourceFileLoader resourceFileLoader, ObjectFactory objectFactory) {
+  public DataSetInitializer(ResourceFileLoader resourceFileLoader, ObjectFactory objectFactory, InterfaceFinder interfaceFinder) {
     this.resourceLoader = resourceFileLoader;
     this.objectFactory = objectFactory;
+    this.interfaceFinder = interfaceFinder;
   }
 
   public ExtensibleDataSetProvider initializeExtensibleResources() throws InitializationException {
     ExtensibleDataManager manager = new ExtensibleDataManager();
-    Collection<ExtensibleDataSetCompiler> compilers = objectFactory.instantiateOrdered(
-      net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler.class, objectFactory);
+    ObjectFactory injectingFactory = new InjectingObjectFactory(objectFactory, objectFactory, interfaceFinder);
+    Collection<ExtensibleDataSetCompiler> compilers = injectingFactory.instantiateOrdered(net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler.class);
     for (ExtensibleDataSetCompiler compiler : compilers) {
       try {
         ProxySplashscreen.getInstance().displayStatusMessage("Compiling " + compiler.getName() + "...");

@@ -5,32 +5,26 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.individual.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
-import net.sf.anathema.hero.merits.compiler.MeritCacheImpl;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritListTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.library.exception.PersistenceException;
-import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 public class MeritCacheCompiler implements ExtensibleDataSetCompiler {
 
 	private static final String Merit_File_Recognition_Pattern = ".+?\\.merits";
 	private final List<ResourceFile> resourceFiles = new ArrayList<>();
-	private final TemplateLoader<MeritListTemplate> meritsLoader;
-	
-	public MeritCacheCompiler(ObjectFactory objectFactory) {
-	    RuntimeTypeAdapterFactory[] factories =
-	    		PolymorphicTypeAdapterFactoryFactory.generateFactories(objectFactory, MeritRequirementsTemplate.class);
-	    
-	    meritsLoader = new GenericTemplateLoader<>(MeritListTemplate.class, factories);
-	  }
+    @Inject
+    public InterfaceFinder finder;
 	
 	@Override
 	public String getName() {
@@ -49,12 +43,12 @@ public class MeritCacheCompiler implements ExtensibleDataSetCompiler {
 
 	@Override
 	public ExtensibleDataSet build() {
+        RuntimeTypeAdapterFactory[] factories =
+              PolymorphicTypeAdapterFactoryFactory.generateFactories(finder, MeritRequirementsTemplate.class);
+        TemplateLoader<MeritListTemplate> meritsLoader = new GenericTemplateLoader<>(MeritListTemplate.class, factories);
 		MeritCacheBuilder meritsBuilder = new MeritCacheBuilder();
-	    resourceFiles.forEach(resourceFile -> {
-	      meritsBuilder.addTemplate(loadTemplate(resourceFile, meritsLoader));
-	    });
-	    MeritCacheImpl meritCache = meritsBuilder.createCache();
-	    return meritCache;
+	    resourceFiles.forEach(resourceFile -> meritsBuilder.addTemplate(loadTemplate(resourceFile, meritsLoader)));
+        return meritsBuilder.createCache();
 	}
 	
 	private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {

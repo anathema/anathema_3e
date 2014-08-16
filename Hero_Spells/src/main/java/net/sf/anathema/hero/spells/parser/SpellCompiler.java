@@ -6,7 +6,6 @@ import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.exception.PersistenceException;
-import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.IOException;
@@ -19,11 +18,6 @@ public class SpellCompiler implements ExtensibleDataSetCompiler {
   private final ListSpellCache cache = new ListSpellCache();
   private final TemplateLoader<SpellListTemplate> loader = new GenericTemplateLoader<>(SpellListTemplate.class);
   private final SpellBuilder spellBuilder = new SpellBuilder();
-
-  @SuppressWarnings("UnusedParameters")
-  public SpellCompiler(ObjectFactory objectFactory) {
-    //nothing to do
-  }
 
   @Override
   public String getName() {

@@ -3,6 +3,7 @@ package net.sf.anathema;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.DefaultAnathemaReflections;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.dependencies.ReflectionObjectFactory;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.exception.ConsoleExceptionHandler;
@@ -47,5 +48,10 @@ public class DummyEnvironment implements Environment {
   @Override
   public ObjectFactory getObjectFactory() {
     return factory;
+  }
+
+  @Override
+  public InterfaceFinder getInterfaceFinder() {
+    return finder;
   }
 }

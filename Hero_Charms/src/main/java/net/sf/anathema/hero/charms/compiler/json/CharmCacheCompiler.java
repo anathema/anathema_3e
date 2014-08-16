@@ -8,6 +8,7 @@ import java.util.List;
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
@@ -18,24 +19,18 @@ import net.sf.anathema.hero.individual.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.resources.ResourceFile;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  private final TemplateLoader<CharmListTemplate> charmsLoader;
   private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class);
-  private final ObjectFactory objectFactory;
-
-  public CharmCacheCompiler(ObjectFactory objectFactory) {
-    this.objectFactory = objectFactory;
-
-    RuntimeTypeAdapterFactory[] factories =
-    		PolymorphicTypeAdapterFactoryFactory.generateFactories(objectFactory, CharmPrerequisiteTemplate.class);
-    
-    charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, factories);
-  }
+  @Inject
+  public ObjectFactory objectFactory;
+  @Inject
+  public InterfaceFinder finder;
 
   @Override
   public String getName() {
@@ -54,6 +49,9 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
+    RuntimeTypeAdapterFactory[] factories =
+            PolymorphicTypeAdapterFactoryFactory.generateFactories(finder, CharmPrerequisiteTemplate.class);
+    TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, factories);
     CharmCacheBuilder charmsBuilder = new CharmCacheBuilder();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
     resourceFiles.forEach(resourceFile -> {

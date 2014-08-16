@@ -6,6 +6,7 @@ import net.sf.anathema.library.preferences.Preferences;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.platform.dependencies.InterfaceFinder;
 
 import java.util.Set;
 
@@ -15,14 +16,16 @@ public class ApplicationEnvironment implements Environment {
   private final ResourceFileLoader loader;
   private final ObjectFactory objectFactory;
   private final Preferences preferences;
+  private InterfaceFinder interfaceFinder;
 
   public ApplicationEnvironment(Resources resources, ExceptionHandler handler, ResourceFileLoader loader,
-                                ObjectFactory objectFactory, Preferences preferences) {
+                                ObjectFactory objectFactory, Preferences preferences, InterfaceFinder interfaceFinder) {
     this.resources = resources;
     this.handler = handler;
     this.loader = loader;
     this.objectFactory = objectFactory;
     this.preferences = preferences;
+    this.interfaceFinder = interfaceFinder;
   }
 
   @Override
@@ -58,5 +61,10 @@ public class ApplicationEnvironment implements Environment {
   @Override
   public ObjectFactory getObjectFactory() {
     return objectFactory;
+  }
+
+  @Override
+  public InterfaceFinder getInterfaceFinder() {
+    return interfaceFinder;
   }
 }

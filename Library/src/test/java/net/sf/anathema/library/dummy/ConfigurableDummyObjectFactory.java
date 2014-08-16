@@ -36,12 +36,4 @@ public class ConfigurableDummyObjectFactory implements ObjectFactory {
     objectsForInterfaces.put(interfaceClass, instance);
   }
 
-	@Override
-	public <T> Collection<Class<? extends T>> getAllImplementers(Class<T> interfaceClass) {
-      //This doesn't work with javac.
-      //TODO (Urs):  Remove method from interface and have clients operate directly on InterfaceFinders.
-      //Set<? extends T> objects = (Set<? extends T>) objectsForInterfaces.get(interfaceClass);
-      //return (Collection<Class<? extends T>>) Lists.transform(new ArrayList(objects), object -> (Class<? extends T>)object.getClass());
-      return new ArrayList<>();
-    }
 }

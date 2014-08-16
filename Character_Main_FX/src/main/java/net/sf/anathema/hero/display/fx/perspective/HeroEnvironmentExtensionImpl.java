@@ -20,7 +20,7 @@ public class HeroEnvironmentExtensionImpl implements HeroEnvironmentExtension, A
   }
 
   public void initialize(ApplicationModel model, Environment environment) {
-    ExtensibleDataSetProvider dataSetProvider = new DataSetInitializer(environment, environment.getObjectFactory()).initializeExtensibleResources();
+    ExtensibleDataSetProvider dataSetProvider = new DataSetInitializer(environment, environment.getObjectFactory(), environment.getInterfaceFinder()).initializeExtensibleResources();
     this.heroEnvironment = new HeroEnvironmentImpl(model, environment, dataSetProvider);
     new CharacterTemplateInitializer(this.heroEnvironment).addHeroSplats();
   }

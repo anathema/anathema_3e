@@ -32,7 +32,7 @@ public class EnvironmentFactory {
     ResourceFileLoader loader = createResourceLoaderForInternalAndCustomResources(exceptionHandler, reflections, preferences);
     ObjectFactory objectFactory = new ReflectionObjectFactory(reflections, reflections);
     LocaleResources resources = initResources(loader);
-    return new ApplicationEnvironment(resources, exceptionHandler, loader, objectFactory, preferences);
+    return new ApplicationEnvironment(resources, exceptionHandler, loader, objectFactory, preferences, reflections);
   }
 
   private LocaleResources initResources(ResourceFileLoader loader) {
