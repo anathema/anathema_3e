@@ -24,8 +24,8 @@ public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
   @Override
   public void visitStringValueModel(IValueModel<String> visitedModel) {
     OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
-    StyledValueView<String> casteView = overviewCategory.addStringValueView(getString(visitedModel.getId()));
-    updater.add(new StringSubPresenter(visitedModel, casteView, resources));
+    StyledValueView<String> view = overviewCategory.addStringValueView(getString(visitedModel.getId()));
+    updater.add(new StringSubPresenter(visitedModel, view, resources));
   }
 
   @Override
