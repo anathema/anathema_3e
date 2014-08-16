@@ -7,6 +7,7 @@ import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+import net.sf.anathema.hero.traits.model.state.CasteTraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
@@ -22,6 +23,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import static net.sf.anathema.hero.experience.model.ExperienceChange.FLAVOR_EXPERIENCE_STATE;
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 
 public class StatedTraitModelPresenter {
 
@@ -60,7 +62,7 @@ public class StatedTraitModelPresenter {
       boolean disabled = ExperienceModelFetcher.fetch(hero).isExperienced();
       boolean cheapened = model.getState(trait).isCheapened();
       setButtonState(view, cheapened, !disabled);
-      Style style = model.getState(trait).isSelectableForCaste() ? POSSIBLE_CASTE_BUTTON : STATE_SELECTION_BUTTON;
+      Style style = model.getState(trait).isSelectableForState(Caste) ? POSSIBLE_CASTE_BUTTON : STATE_SELECTION_BUTTON;
       view.setStyle(style);
     }
   }

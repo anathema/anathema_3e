@@ -52,7 +52,6 @@ public class TraitStateImpl implements TraitState {
     return currentState;
   }
 
-  @SuppressWarnings("RedundantIfStatement")
   private boolean isLegalState(TraitStateType newState) {
     if (!requiredState.satisfiesRequirement(newState)) {
       return false;
@@ -63,10 +62,7 @@ public class TraitStateImpl implements TraitState {
         return false;
       }
     }
-    if (newState.countsAs(Caste) && !traitCastes.isCurrentCasteSupported()) {
-      return false;
-    }
-    return true;
+    return isSelectableForState(newState);
   }
 
   @Override
@@ -75,8 +71,8 @@ public class TraitStateImpl implements TraitState {
   }
 
   @Override
-  public boolean isSelectableForCaste() {
-    return traitCastes.isCurrentCasteSupported();
+  public boolean isSelectableForState(TraitStateType state) {
+    return !state.countsAs(Caste) || traitCastes.isCurrentCasteSupported();
   }
 
   @Override

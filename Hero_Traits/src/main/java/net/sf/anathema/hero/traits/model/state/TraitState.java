@@ -14,5 +14,5 @@ public interface TraitState {
 
   boolean hasState(TraitStateType... type);
 
-  boolean isSelectableForCaste();
+  boolean isSelectableForState(TraitStateType type);
 }
