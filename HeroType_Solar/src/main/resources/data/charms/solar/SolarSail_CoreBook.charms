@@ -8,7 +8,15 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "options": [
+                        "Sail"
+                    ], 
+                    "threshold": 10, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Solar.BloodandSaltBondage": {

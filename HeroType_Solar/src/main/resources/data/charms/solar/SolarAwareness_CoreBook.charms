@@ -87,6 +87,13 @@
                 {
                     "id": "Solar.AwakeningEye", 
                     "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Awareness"
+                    ], 
+                    "threshold": 3, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Simple"

@@ -471,7 +471,15 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "options": [
+                        "Melee"
+                    ], 
+                    "threshold": 15, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Solar.OakRendingBlow": {

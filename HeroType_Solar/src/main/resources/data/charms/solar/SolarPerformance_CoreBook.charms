@@ -208,7 +208,16 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "minimumEssence": 2, 
+                    "options": [
+                        "Performance"
+                    ], 
+                    "threshold": 5, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Solar.MonkSeducingDemonDance": {

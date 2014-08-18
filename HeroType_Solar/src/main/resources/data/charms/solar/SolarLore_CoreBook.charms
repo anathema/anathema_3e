@@ -172,6 +172,13 @@
                 {
                     "id": "Solar.ProphetofSeventeenCycles", 
                     "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 3, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Simple"
@@ -197,6 +204,13 @@
                 {
                     "id": "Solar.TruthRenderingGaze", 
                     "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 2, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Permanent"
@@ -590,6 +604,13 @@
                 {
                     "id": "Solar.SacredRelicUnderstanding", 
                     "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 2, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Simple"

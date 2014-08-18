@@ -8,7 +8,12 @@
                 "Essence": 1, 
                 "Integrity": 1
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "threshold": 10, 
+                    "type": "anyOneTraitWithCountCharms"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Solar.EnduringMentalToughness": {
@@ -133,7 +138,17 @@
                 "Essence": 2, 
                 "Integrity": 5
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "options": [
+                        "Performance", 
+                        "Presence", 
+                        "Socialize"
+                    ], 
+                    "threshold": 5, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Solar.TemptationResistingStance": {

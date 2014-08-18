@@ -52,7 +52,7 @@ public class NodeIds {
   }
   
   public static String getNodeIdForAnyOneTrait(int threshold) {
-  	return "Requirement.Group." + threshold; 
+  	return "Requirement.AnyOneAbility." + threshold; 
 	}
   
 }

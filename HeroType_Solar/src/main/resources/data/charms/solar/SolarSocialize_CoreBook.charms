@@ -271,7 +271,16 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "minimumEssence": 3, 
+                    "options": [
+                        "Socialize"
+                    ], 
+                    "threshold": 4, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Solar.FugueEmpoweredOther": {

@@ -14,12 +14,12 @@ import java.util.Map;
 @JsonType("numberOfTraitCharms")
 public class TraitGroupCharmPrerequisiteTemplate implements CharmPrerequisiteTemplate {
 
-  public List<String> traits;
-  public int count;
+  public List<String> options;
+  public int threshold;
   public int minimumEssence = 1;
 
   @Override
   public CharmPrerequisite generate(Map<CharmName, Charm> charms) {
-    return new TraitGroupCharmPrerequisite(Lists.transform(traits, RequiredTraitType::new), count, minimumEssence);
+    return new TraitGroupCharmPrerequisite(Lists.transform(options, RequiredTraitType::new), threshold, minimumEssence);
   }
 }
