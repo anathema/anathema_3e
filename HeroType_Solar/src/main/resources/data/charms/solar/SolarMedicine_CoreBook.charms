@@ -185,7 +185,9 @@
                 "Essence": 4, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisiteCharms": [
+                "Solar.MedicineExcellency"
+            ], 
             "type": "Permanent"
         }, 
         "Solar.MedicineExcellency": {
