@@ -24,8 +24,8 @@ public class PolymorphicTypeAdapterFactoryFactory {
     return list.toArray(new RuntimeTypeAdapterFactory[list.size()]);
   }
 
-  private <T> RuntimeTypeAdapterFactory<T> generateFactory(Class<T> baseClass) {
-    String field = baseClass.getAnnotation(JsonField.class).value();
+  private <T> RuntimeTypeAdapterFactory<T> generateFactory(Class baseClass) {
+    String field = ((JsonField) baseClass.getAnnotation(JsonField.class)).value();
     RuntimeTypeAdapterFactory<T> factory = RuntimeTypeAdapterFactory.of(baseClass, field);
     Collection<Class<? extends T>> implementations = finder.findAll(baseClass);
     implementations.forEach(implementingClass -> {
