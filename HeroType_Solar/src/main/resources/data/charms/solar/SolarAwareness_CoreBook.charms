@@ -8,7 +8,17 @@
                 "Awareness": 4, 
                 "Essence": 1
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "options": [
+                        "Solar.KeenSightTechnique", 
+                        "Solar.KeenTasteandSmellTechnique", 
+                        "Solar.KeenHearingandTouchTechnique"
+                    ], 
+                    "threshold": 2, 
+                    "type": "charmsFromGroup"
+                }
+            ], 
             "type": "Supplemental"
         }, 
         "Solar.AwarenessExcellency": {
