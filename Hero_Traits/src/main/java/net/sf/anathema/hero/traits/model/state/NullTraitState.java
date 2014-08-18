@@ -35,7 +35,7 @@ public class NullTraitState implements TraitState {
   }
 
   @Override
-  public boolean isSelectableForCaste() {
+  public boolean isSelectableForState(TraitStateType type) {
     return false;
   }
 }
