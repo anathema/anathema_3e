@@ -8,8 +8,11 @@
                 "Essence": 1, 
                 "Investigation": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WatchmansInfallibleEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.WatchmansInfallibleEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MiraculousStunningInsight"
+            "prerequisites": [
+                {
+                    "id": "Solar.MiraculousStunningInsight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 1, 
                 "Investigation": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftyObservationMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftyObservationMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 4, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EnlightenedTouchInsight"
+            "prerequisites": [
+                {
+                    "id": "Solar.EnlightenedTouchInsight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -56,8 +68,11 @@
                 "Essence": 3, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnknownWisdomEpiphany"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnknownWisdomEpiphany", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -68,8 +83,11 @@
                 "Essence": 1, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftyObservationMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftyObservationMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -80,8 +98,11 @@
                 "Essence": 3, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EvidenceDiscerningMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EvidenceDiscerningMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -92,8 +113,11 @@
                 "Essence": 1, 
                 "Investigation": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.WatchmansInfallibleEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.WatchmansInfallibleEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -104,7 +128,7 @@
                 "Essence": 1, 
                 "Investigation": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.IrresistibleQuestioningTechnique": {
@@ -114,8 +138,11 @@
                 "Essence": 2, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.JudgesEarTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.JudgesEarTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -126,8 +153,11 @@
                 "Essence": 4, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DauntlessInquisitorAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.DauntlessInquisitorAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -138,8 +168,11 @@
                 "Essence": 1, 
                 "Investigation": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftyObservationMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftyObservationMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -150,9 +183,15 @@
                 "Essence": 5, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EmpathicRecallDiscipline", 
-                "Solar.EvidenceRestoringPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.EmpathicRecallDiscipline", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.EvidenceRestoringPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -163,8 +202,11 @@
                 "Essence": 2, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DivineInductionTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.DivineInductionTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -175,9 +217,15 @@
                 "Essence": 3, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EvidenceDiscerningMethod", 
-                "Solar.JudgesEarTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.EvidenceDiscerningMethod", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.JudgesEarTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -188,8 +236,11 @@
                 "Essence": 3, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TenMagistrateEyes"
+            "prerequisites": [
+                {
+                    "id": "Solar.TenMagistrateEyes", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -200,8 +251,11 @@
                 "Essence": 2, 
                 "Investigation": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EvidenceDiscerningMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EvidenceDiscerningMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -212,7 +266,7 @@
                 "Essence": 1, 
                 "Investigation": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }
     }, 

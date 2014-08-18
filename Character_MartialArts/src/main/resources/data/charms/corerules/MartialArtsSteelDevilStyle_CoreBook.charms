@@ -8,8 +8,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.EmptyMindStrike"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.EmptyMindStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.NakedFangDraw"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.NakedFangDraw", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SteelDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SteelDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SteelDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SteelDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -56,8 +68,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.TwinBladeDefense"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.TwinBladeDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -68,7 +83,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.SecondsBetweenStrife": {
@@ -78,8 +93,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SteelDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SteelDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SecondsBetweenStrife"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SecondsBetweenStrife", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -102,8 +123,11 @@
                 "Essence": 1, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SteelDevilStrike"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SteelDevilStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -114,8 +138,11 @@
                 "Essence": 1, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DoubleAttackTechnique"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DoubleAttackTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -126,8 +153,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DoubleAttackTechnique"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DoubleAttackTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -138,8 +168,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DualSlayingStance"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DualSlayingStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -150,10 +183,19 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DervishBladeFrenzy", 
-                "MartialArts.IronLotusUnfurling", 
-                "MartialArts.SonicSlash"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DervishBladeFrenzy", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.IronLotusUnfurling", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.SonicSlash", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

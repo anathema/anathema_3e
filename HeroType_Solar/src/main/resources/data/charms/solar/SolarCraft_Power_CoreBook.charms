@@ -8,8 +8,11 @@
                 "Craft": 3, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessHandiworkMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessHandiworkMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,9 +23,15 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.FirstMovementoftheDemiurge", 
-                "Solar.SupremeMasterworkFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.FirstMovementoftheDemiurge", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SupremeMasterworkFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -33,8 +42,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnbrokenImageFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnbrokenImageFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -45,8 +57,11 @@
                 "Craft": 3, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessHandiworkMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessHandiworkMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -57,8 +72,11 @@
                 "Craft": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExperientialConjuringoftheTrueVoid"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExperientialConjuringoftheTrueVoid", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -69,7 +87,7 @@
                 "Craft": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.HolisticMiracleUnderstanding": {
@@ -79,8 +97,11 @@
                 "Craft": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.DivineInspirationTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.DivineInspirationTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -91,8 +112,11 @@
                 "Craft": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.InspirationRenewingVision"
+            "prerequisites": [
+                {
+                    "id": "Solar.InspirationRenewingVision", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -103,9 +127,15 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceForgingKata", 
-                "Solar.SupremeMasterworkFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceForgingKata", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SupremeMasterworkFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -116,8 +146,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceForgingKata"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceForgingKata", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -128,8 +161,11 @@
                 "Craft": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessHandiworkMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessHandiworkMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -140,8 +176,11 @@
                 "Craft": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessHandiworkMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessHandiworkMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -152,8 +191,11 @@
                 "Craft": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExperientialConjuringoftheTrueVoid"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExperientialConjuringoftheTrueVoid", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MoodInducingMusic"
+            "prerequisites": [
+                {
+                    "id": "Solar.MoodInducingMusic", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.GracefulReedDancing"
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulReedDancing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.ThousandCourtesanWays"
+            "prerequisites": [
+                {
+                    "id": "Solar.ThousandCourtesanWays", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -56,7 +68,7 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.DogmaticContagionDiscipline": {
@@ -66,8 +78,11 @@
                 "Essence": 2, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FuryIncitingSpeech"
+            "prerequisites": [
+                {
+                    "id": "Solar.FuryIncitingSpeech", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -78,8 +93,11 @@
                 "Essence": 2, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImpassionedOratorTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImpassionedOratorTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -102,8 +123,11 @@
                 "Essence": 2, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectHarmonyTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectHarmonyTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -114,8 +138,11 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BattleAnthem(oftheSolarExalted)"
+            "prerequisites": [
+                {
+                    "id": "Solar.BattleAnthem(oftheSolarExalted)", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -126,8 +153,11 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -138,8 +168,11 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DogmaticContagionDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.DogmaticContagionDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -150,8 +183,11 @@
                 "Essence": 2, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -162,7 +198,7 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.MemoryReweavingDiscipline": {
@@ -172,7 +208,7 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.MonkSeducingDemonDance": {
@@ -182,9 +218,15 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ThousandCourtesanWays", 
-                "Solar.WindingSinuousMotion"
+            "prerequisites": [
+                {
+                    "id": "Solar.ThousandCourtesanWays", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.WindingSinuousMotion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -195,8 +237,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectHarmonyTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectHarmonyTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -207,8 +252,11 @@
                 "Essence": 1, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CunningMimicryTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.CunningMimicryTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -219,8 +267,11 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TranceofFugueVision"
+            "prerequisites": [
+                {
+                    "id": "Solar.TranceofFugueVision", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -231,8 +282,11 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -243,7 +297,7 @@
                 "Essence": 1, 
                 "Performance": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.PhantomConjuringPerformance": {
@@ -253,9 +307,15 @@
                 "Essence": 2, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise", 
-                "Solar.RespectCommandingAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.RespectCommandingAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -266,8 +326,11 @@
                 "Essence": 5, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SoulVoice"
+            "prerequisites": [
+                {
+                    "id": "Solar.SoulVoice", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -278,8 +341,11 @@
                 "Essence": 2, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MoodInducingMusic"
+            "prerequisites": [
+                {
+                    "id": "Solar.MoodInducingMusic", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -290,7 +356,7 @@
                 "Essence": 1, 
                 "Performance": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.ShiningExpressionStyle": {
@@ -300,8 +366,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.GracefulReedDancing"
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulReedDancing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -312,8 +381,11 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PenultimateUnityofForm"
+            "prerequisites": [
+                {
+                    "id": "Solar.PenultimateUnityofForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -324,8 +396,11 @@
                 "Essence": 1, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -336,8 +411,11 @@
                 "Essence": 2, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeartCompellingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeartCompellingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -348,8 +426,11 @@
                 "Essence": 5, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnmatchedShowmanshipStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnmatchedShowmanshipStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -360,8 +441,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -372,8 +456,11 @@
                 "Essence": 2, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -384,8 +471,11 @@
                 "Essence": 1, 
                 "Performance": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -396,8 +486,11 @@
                 "Essence": 3, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StillnessDrawingMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.StillnessDrawingMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -408,8 +501,11 @@
                 "Essence": 4, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TranceofFugueVision"
+            "prerequisites": [
+                {
+                    "id": "Solar.TranceofFugueVision", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -420,8 +516,11 @@
                 "Essence": 1, 
                 "Performance": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterfulPerformanceExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterfulPerformanceExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -432,8 +531,11 @@
                 "Essence": 2, 
                 "Performance": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShiningExpressionStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShiningExpressionStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

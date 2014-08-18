@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDetectingGlance"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDetectingGlance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MaterialExegesisPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.MaterialExegesisPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,7 +38,7 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.BreathDrinkerMethod": {
@@ -42,8 +48,11 @@
                 "Essence": 2, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDrainingStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDrainingStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -54,8 +63,11 @@
                 "Essence": 2, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CarnalSpiritRending"
+            "prerequisites": [
+                {
+                    "id": "Solar.CarnalSpiritRending", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -66,8 +78,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AllEncompassingSorcerersSight"
+            "prerequisites": [
+                {
+                    "id": "Solar.AllEncompassingSorcerersSight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -78,8 +93,11 @@
                 "Essence": 2, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GhostEatingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.GhostEatingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 3, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.TerrestrialCircleSorcery"
+            "prerequisites": [
+                {
+                    "id": "Solar.TerrestrialCircleSorcery", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -102,8 +123,11 @@
                 "Essence": 2, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.AncientTongueUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.AncientTongueUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -114,8 +138,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDrainingMudra"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDrainingMudra", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -126,10 +153,19 @@
                 "Essence": 5, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CarnalSpiritRending", 
-                "Solar.GloamingEyeUnderstanding", 
-                "Solar.WyldBindingPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.CarnalSpiritRending", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.GloamingEyeUnderstanding", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.WyldBindingPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -140,8 +176,11 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCuttingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCuttingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -152,8 +191,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DarkMindersObservances"
+            "prerequisites": [
+                {
+                    "id": "Solar.DarkMindersObservances", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -164,8 +206,11 @@
                 "Essence": 4, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SoulProjectionMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SoulProjectionMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -176,8 +221,11 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.UncannyPerceptionTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UncannyPerceptionTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -188,8 +236,11 @@
                 "Essence": 2, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritManifestingWord"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritManifestingWord", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -200,9 +251,15 @@
                 "Essence": 2, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritRepellingDiagram", 
-                "Solar.UncannyShroudDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritRepellingDiagram", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.UncannyShroudDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -213,7 +270,7 @@
                 "Essence": 1, 
                 "Occult": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.PhantomSeizingStrike": {
@@ -223,8 +280,11 @@
                 "Essence": 1, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.GhostEatingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.GhostEatingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -235,8 +295,11 @@
                 "Essence": 5, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CelestialCircleSorcery"
+            "prerequisites": [
+                {
+                    "id": "Solar.CelestialCircleSorcery", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -247,8 +310,11 @@
                 "Essence": 4, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BurningEyeoftheDeliverer"
+            "prerequisites": [
+                {
+                    "id": "Solar.BurningEyeoftheDeliverer", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -259,8 +325,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BurningExorcismTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.BurningExorcismTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -271,8 +340,11 @@
                 "Essence": 2, 
                 "Occult": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritRepellingDiagram"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritRepellingDiagram", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -283,8 +355,11 @@
                 "Essence": 1, 
                 "Occult": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDetectingGlance"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDetectingGlance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -295,7 +370,7 @@
                 "Essence": 1, 
                 "Occult": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SpiritDrainingMudra": {
@@ -305,8 +380,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCagingMandala"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCagingMandala", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -317,8 +395,11 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCuttingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCuttingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -329,8 +410,11 @@
                 "Essence": 5, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SorcerersBurningChakra"
+            "prerequisites": [
+                {
+                    "id": "Solar.SorcerersBurningChakra", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -341,7 +425,7 @@
                 "Essence": 1, 
                 "Occult": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.SpiritRepellingDiagram": {
@@ -351,8 +435,11 @@
                 "Essence": 2, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCuttingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCuttingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -363,8 +450,11 @@
                 "Essence": 4, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDrainingMudra"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDrainingMudra", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -375,8 +465,11 @@
                 "Essence": 1, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PhantomSeizingStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.PhantomSeizingStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -387,8 +480,11 @@
                 "Essence": 1, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AncientTongueUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.AncientTongueUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -399,7 +495,7 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.UncannyPerceptionTechnique": {
@@ -409,8 +505,11 @@
                 "Essence": 1, 
                 "Occult": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritDetectingGlance"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritDetectingGlance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -421,8 +520,11 @@
                 "Essence": 1, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCuttingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCuttingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -433,8 +535,11 @@
                 "Essence": 3, 
                 "Occult": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritCagingMandala"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritCagingMandala", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }

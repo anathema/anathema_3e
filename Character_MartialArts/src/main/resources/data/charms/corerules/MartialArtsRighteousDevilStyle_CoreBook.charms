@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.RighteousDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.RighteousDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -20,7 +23,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.BurningJudgmentHalo": {
@@ -30,8 +33,11 @@
                 "Essence": 3, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.RighteousDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.RighteousDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -42,10 +48,19 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.AzureAbacusMeditation", 
-                "MartialArts.BurningJudgmentHalo", 
-                "MartialArts.DancingDevilTriggerFinger"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.AzureAbacusMeditation", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.BurningJudgmentHalo", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.DancingDevilTriggerFinger", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -56,7 +71,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.DancingDevilTriggerFinger": {
@@ -66,8 +81,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.PhoenixFliesonGoldenWings"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.PhoenixFliesonGoldenWings", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -78,7 +96,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.PhoenixFliesonGoldenWings": {
@@ -88,8 +106,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.RighteousDevilForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.RighteousDevilForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -100,10 +121,19 @@
                 "Essence": 2, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.BlossomofInevitableDemise", 
-                "MartialArts.CloudofEbonDevils", 
-                "MartialArts.KissoftheSunConcentration"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.BlossomofInevitableDemise", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.CloudofEbonDevils", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.KissoftheSunConcentration", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

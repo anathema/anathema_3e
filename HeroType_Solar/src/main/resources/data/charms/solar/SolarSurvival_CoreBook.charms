@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "Survival": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.FamiliarHoningInstruction"
+            "prerequisites": [
+                {
+                    "id": "Solar.FamiliarHoningInstruction", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 2, 
                 "Survival": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritTiedPet"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritTiedPet", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 2, 
                 "Survival": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritTiedPet"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritTiedPet", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ForceBuildingPredatorStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.ForceBuildingPredatorStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -56,8 +68,11 @@
                 "Essence": 2, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BeastMasteringBehavior"
+            "prerequisites": [
+                {
+                    "id": "Solar.BeastMasteringBehavior", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -68,10 +83,19 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrimsonTalonVigor", 
-                "Solar.RedToothedExecutionOrder", 
-                "Solar.SagaBeastVirtue"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrimsonTalonVigor", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.RedToothedExecutionOrder", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SagaBeastVirtue", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -82,8 +106,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HardshipSurvivingMendicantSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.HardshipSurvivingMendicantSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -94,8 +121,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TracelessPassage"
+            "prerequisites": [
+                {
+                    "id": "Solar.TracelessPassage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -106,8 +136,11 @@
                 "Essence": 2, 
                 "Survival": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritTiedPet"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritTiedPet", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -118,7 +151,7 @@
                 "Essence": 1, 
                 "Survival": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.ForceBuildingPredatorStyle": {
@@ -128,8 +161,11 @@
                 "Essence": 3, 
                 "Survival": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.AmbushPredatorStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.AmbushPredatorStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -140,7 +176,7 @@
                 "Essence": 1, 
                 "Survival": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.GhostPantherSlinking": {
@@ -150,9 +186,15 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BeastMasteringBehavior", 
-                "Solar.BestialTraitsTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.BeastMasteringBehavior", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.BestialTraitsTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -163,7 +205,7 @@
                 "Essence": 1, 
                 "Survival": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.HideHardeningPractice": {
@@ -173,8 +215,11 @@
                 "Essence": 2, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BestialTraitsTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.BestialTraitsTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -185,8 +230,11 @@
                 "Essence": 2, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BestialTraitsTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.BestialTraitsTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -197,8 +245,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritHuntingHound"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritHuntingHound", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -209,8 +260,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeadlyOnslaughtCoordination"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeadlyOnslaughtCoordination", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -221,9 +275,15 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HideHardeningPractice", 
-                "Solar.LifeoftheAurochs"
+            "prerequisites": [
+                {
+                    "id": "Solar.HideHardeningPractice", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LifeoftheAurochs", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -234,8 +294,11 @@
                 "Essence": 2, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FamiliarHoningInstruction"
+            "prerequisites": [
+                {
+                    "id": "Solar.FamiliarHoningInstruction", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -246,8 +309,11 @@
                 "Essence": 2, 
                 "Survival": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.FriendshipwithAnimalsApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.FriendshipwithAnimalsApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -258,7 +324,7 @@
                 "Essence": 1, 
                 "Survival": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.TracelessPassage": {
@@ -268,8 +334,11 @@
                 "Essence": 3, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnshakeableBloodhoundTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnshakeableBloodhoundTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -280,8 +349,11 @@
                 "Essence": 2, 
                 "Survival": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.HardshipSurvivingMendicantSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.HardshipSurvivingMendicantSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -292,8 +364,11 @@
                 "Essence": 2, 
                 "Survival": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TracklessRegionNavigation"
+            "prerequisites": [
+                {
+                    "id": "Solar.TracklessRegionNavigation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }

@@ -8,8 +8,11 @@
                 "Athletics": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegionAurochsMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegionAurochsMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -20,8 +23,11 @@
                 "Athletics": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.WinningStrideDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.WinningStrideDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -32,8 +38,11 @@
                 "Athletics": 3, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.IncreasingStrengthExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.IncreasingStrengthExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -44,7 +53,7 @@
                 "Athletics": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.BonfireAnimaWings": {
@@ -54,9 +63,15 @@
                 "Athletics": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.EagleWingStyle", 
-                "Solar.OnrushBurstMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EagleWingStyle", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.OnrushBurstMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -67,8 +82,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.RacingHareMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.RacingHareMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -79,8 +97,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MountainCrossingLeapTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MountainCrossingLeapTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -91,9 +112,15 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.GracefulCraneStance", 
-                "Solar.LightningSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulCraneStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -104,7 +131,7 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.FoeVaultingMethod": {
@@ -114,9 +141,15 @@
                 "Athletics": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.GracefulCraneStance", 
-                "Solar.MonkeyLeapTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulCraneStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -127,9 +160,15 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AreteDrivenMarathonStride", 
-                "Solar.RacingHareMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteDrivenMarathonStride", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.RacingHareMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -140,7 +179,7 @@
                 "Athletics": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.HurricaneSpiritSpeed": {
@@ -150,8 +189,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AreteDrivenMarathonStride"
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteDrivenMarathonStride", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -162,7 +204,7 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.LeapingTigerAttack": {
@@ -172,9 +214,15 @@
                 "Athletics": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.GracefulCraneStance", 
-                "Solar.LightningSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulCraneStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -185,8 +233,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.PowerSuffusingFormTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PowerSuffusingFormTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -197,7 +248,7 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.LivingWindApproach": {
@@ -207,8 +258,11 @@
                 "Athletics": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.OneExtraStep"
+            "prerequisites": [
+                {
+                    "id": "Solar.OneExtraStep", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -219,7 +273,7 @@
                 "Athletics": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.MountainCrossingLeapTechnique": {
@@ -229,8 +283,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnboundEagleApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnboundEagleApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -241,8 +298,11 @@
                 "Athletics": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AegisofUnstoppableForce"
+            "prerequisites": [
+                {
+                    "id": "Solar.AegisofUnstoppableForce", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -253,8 +313,11 @@
                 "Athletics": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.GodspeedSteps"
+            "prerequisites": [
+                {
+                    "id": "Solar.GodspeedSteps", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -265,8 +328,11 @@
                 "Athletics": 3, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.LightningSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -277,8 +343,11 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ThundersMight"
+            "prerequisites": [
+                {
+                    "id": "Solar.ThundersMight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -289,8 +358,11 @@
                 "Athletics": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.LightningSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -301,8 +373,11 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.MonkeyLeapTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -313,8 +388,11 @@
                 "Athletics": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FeatherFootStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.FeatherFootStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -325,8 +403,11 @@
                 "Athletics": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.IncreasingStrengthExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.IncreasingStrengthExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -337,9 +418,15 @@
                 "Athletics": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.IncreasingStrengthExercise", 
-                "Solar.MonkeyLeapTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.IncreasingStrengthExercise", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -350,8 +437,11 @@
                 "Athletics": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.IncreasingStrengthExercise"
+            "prerequisites": [
+                {
+                    "id": "Solar.IncreasingStrengthExercise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -362,11 +452,23 @@
                 "Athletics": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AreteDrivenMarathonStride", 
-                "Solar.FlashingMarlinMethod", 
-                "Solar.TenOxMeditation", 
-                "Solar.UnboundEagleApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteDrivenMarathonStride", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.FlashingMarlinMethod", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.TenOxMeditation", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.UnboundEagleApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -377,8 +479,11 @@
                 "Athletics": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SoaringCraneLeap"
+            "prerequisites": [
+                {
+                    "id": "Solar.SoaringCraneLeap", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -389,8 +494,11 @@
                 "Athletics": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.LightningSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }

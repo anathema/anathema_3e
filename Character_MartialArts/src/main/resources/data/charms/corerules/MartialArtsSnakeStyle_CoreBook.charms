@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SnakeForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SnakeForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SnakeStrikestheHeel"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SnakeStrikestheHeel", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SnakeForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SnakeForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 3, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SnakeForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SnakeForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -56,11 +68,23 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.ArmorPenetratingFangStrike", 
-                "MartialArts.CountlessCoilsEvasion", 
-                "MartialArts.CripplingPressurePointStrike", 
-                "MartialArts.UncoilingSerpentPrana"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.ArmorPenetratingFangStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.CountlessCoilsEvasion", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.CripplingPressurePointStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.UncoilingSerpentPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -71,7 +95,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.SnakeForm": {
@@ -81,9 +105,15 @@
                 "Essence": 1, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SerpentineEvasion", 
-                "MartialArts.StrikingCobraTechnique"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SerpentineEvasion", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.StrikingCobraTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -94,8 +124,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SnakeForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SnakeForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -106,7 +139,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.UncoilingSerpentPrana": {
@@ -116,8 +149,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.EssenceFangsandScalesTechnique"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.EssenceFangsandScalesTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

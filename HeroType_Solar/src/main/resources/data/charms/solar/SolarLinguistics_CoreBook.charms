@@ -8,9 +8,15 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MindSwallowingMissive", 
-                "Solar.VoiceCagingCalligraphy"
+            "prerequisites": [
+                {
+                    "id": "Solar.MindSwallowingMissive", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.VoiceCagingCalligraphy", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -21,8 +27,11 @@
                 "Essence": 2, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SagaciousReadingofIntent"
+            "prerequisites": [
+                {
+                    "id": "Solar.SagaciousReadingofIntent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -33,8 +42,11 @@
                 "Essence": 2, 
                 "Linguistics": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LetterWithinALetterTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.LetterWithinALetterTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -45,9 +57,15 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SingleVoiceKata", 
-                "Solar.StrangeTongueUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.SingleVoiceKata", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.StrangeTongueUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -58,8 +76,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PowerSnaringImage"
+            "prerequisites": [
+                {
+                    "id": "Solar.PowerSnaringImage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -70,8 +91,11 @@
                 "Essence": 1, 
                 "Linguistics": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WhirlingBrushMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.WhirlingBrushMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -82,7 +106,7 @@
                 "Essence": 1, 
                 "Linguistics": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.HeavenDrawingDiscipline": {
@@ -92,8 +116,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MindScribingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.MindScribingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -104,7 +131,7 @@
                 "Essence": 1, 
                 "Linguistics": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.LinguisticsExcellency": {
@@ -114,7 +141,7 @@
                 "Essence": 1, 
                 "Linguistics": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.MindScribingMethod": {
@@ -124,8 +151,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectRecollectionDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectRecollectionDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -136,8 +166,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceLadenMissive"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceLadenMissive", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -148,7 +181,7 @@
                 "Essence": 1, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.MovingtheUnseenHand": {
@@ -158,8 +191,11 @@
                 "Essence": 2, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StolenVoiceTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.StolenVoiceTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -170,8 +206,11 @@
                 "Essence": 4, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashingQuillAtemi"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingQuillAtemi", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -182,8 +221,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DiscerningSavantsEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.DiscerningSavantsEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -194,8 +236,11 @@
                 "Essence": 1, 
                 "Linguistics": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.StrangeTongueUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.StrangeTongueUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -206,8 +251,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StolenVoiceTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.StolenVoiceTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -218,7 +266,7 @@
                 "Essence": 1, 
                 "Linguistics": 4
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SingleVoiceKata": {
@@ -228,8 +276,11 @@
                 "Essence": 2, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MingledTongueTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MingledTongueTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -240,8 +291,11 @@
                 "Essence": 2, 
                 "Linguistics": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessBrushDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessBrushDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -252,7 +306,7 @@
                 "Essence": 1, 
                 "Linguistics": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SubtleSpeechMethod": {
@@ -262,7 +316,7 @@
                 "Essence": 1, 
                 "Linguistics": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.SwiftSagesEye": {
@@ -272,8 +326,11 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectRecollectionDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectRecollectionDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -284,10 +341,19 @@
                 "Essence": 3, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingElegantHand", 
-                "Solar.LetterWithinALetterTechnique", 
-                "Solar.SubtleSpeechMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingElegantHand", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LetterWithinALetterTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SubtleSpeechMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -298,8 +364,11 @@
                 "Essence": 4, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TwistedWordsTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.TwistedWordsTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -310,8 +379,11 @@
                 "Essence": 2, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WordShieldInvocation"
+            "prerequisites": [
+                {
+                    "id": "Solar.WordShieldInvocation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -322,8 +394,11 @@
                 "Essence": 2, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceLadenMissive"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceLadenMissive", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -334,7 +409,7 @@
                 "Essence": 1, 
                 "Linguistics": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.WordShieldInvocation": {
@@ -344,8 +419,11 @@
                 "Essence": 1, 
                 "Linguistics": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SagaciousReadingofIntent"
+            "prerequisites": [
+                {
+                    "id": "Solar.SagaciousReadingofIntent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

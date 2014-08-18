@@ -8,7 +8,7 @@
                 "Essence": 1, 
                 "Integrity": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.EnduringMentalToughness": {
@@ -18,7 +18,7 @@
                 "Essence": 1, 
                 "Integrity": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.IntegrityExcellency": {
@@ -28,7 +28,7 @@
                 "Essence": 1, 
                 "Integrity": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.IntegrityProtectingPrana": {
@@ -38,7 +38,7 @@
                 "Essence": 1, 
                 "Integrity": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.LegendSoulRevival": {
@@ -48,8 +48,11 @@
                 "Essence": 1, 
                 "Integrity": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DestinyManifestingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.DestinyManifestingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -60,8 +63,11 @@
                 "Essence": 1, 
                 "Integrity": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DestinyManifestingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.DestinyManifestingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -72,8 +78,11 @@
                 "Essence": 2, 
                 "Integrity": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SteelHeartStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.SteelHeartStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -84,8 +93,11 @@
                 "Essence": 2, 
                 "Integrity": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EnduringMentalToughness"
+            "prerequisites": [
+                {
+                    "id": "Solar.EnduringMentalToughness", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -96,8 +108,11 @@
                 "Essence": 2, 
                 "Integrity": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.StubbornBoarDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.StubbornBoarDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -108,7 +123,7 @@
                 "Essence": 1, 
                 "Integrity": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.SunKingRadiance": {
@@ -118,7 +133,7 @@
                 "Essence": 2, 
                 "Integrity": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.TemptationResistingStance": {
@@ -128,8 +143,11 @@
                 "Essence": 2, 
                 "Integrity": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.StubbornBoarDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.StubbornBoarDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -140,8 +158,11 @@
                 "Essence": 3, 
                 "Integrity": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritMaintainingManeuver"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritMaintainingManeuver", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -152,8 +173,11 @@
                 "Essence": 3, 
                 "Integrity": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.RighteousLionDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.RighteousLionDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

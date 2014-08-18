@@ -8,10 +8,19 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.LiquidSteelFlow", 
-                "MartialArts.SixDemonScabbardBinding", 
-                "MartialArts.VoidSlicingWind"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.LiquidSteelFlow", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.SixDemonScabbardBinding", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.VoidSlicingWind", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -22,8 +31,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SinglePointShiningIntotheVoidForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SinglePointShiningIntotheVoidForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -34,7 +46,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.HorizonSwallowedStarFlash": {
@@ -44,8 +56,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SinglePointShiningIntotheVoidForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SinglePointShiningIntotheVoidForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -56,8 +71,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FatalStrokeFlash"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FatalStrokeFlash", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -68,7 +86,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.SinglePointShiningIntotheVoidForm": {
@@ -78,9 +96,15 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.GatheringLightConcentration", 
-                "MartialArts.ShiningStarfallExecution"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.GatheringLightConcentration", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.ShiningStarfallExecution", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -91,8 +115,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.HorizonSwallowedStarFlash"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.HorizonSwallowedStarFlash", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -103,8 +130,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SinglePointShiningIntotheVoidForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SinglePointShiningIntotheVoidForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

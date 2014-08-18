@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "Lore": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.HarmoniousAcademicMethodology"
+            "prerequisites": [
+                {
+                    "id": "Solar.HarmoniousAcademicMethodology", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 1, 
                 "Lore": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldDispellingPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldDispellingPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldForgingFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldForgingFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.InjuryForcingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.InjuryForcingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -56,8 +68,11 @@
                 "Essence": 2, 
                 "Lore": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.WillBolsteringMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.WillBolsteringMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -68,7 +83,7 @@
                 "Essence": 1, 
                 "Lore": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.EssenceTwiningMethod": {
@@ -78,8 +93,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceDrainingTouch"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceDrainingTouch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 1, 
                 "Lore": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.HarmoniousAcademicMethodology"
+            "prerequisites": [
+                {
+                    "id": "Solar.HarmoniousAcademicMethodology", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -102,8 +123,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImmanentSolarGlory"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImmanentSolarGlory", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -114,8 +138,11 @@
                 "Essence": 1, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FirstKnowledgesGrace"
+            "prerequisites": [
+                {
+                    "id": "Solar.FirstKnowledgesGrace", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -126,8 +153,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceDrainingTouch"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceDrainingTouch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -138,8 +168,11 @@
                 "Essence": 5, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ProphetofSeventeenCycles"
+            "prerequisites": [
+                {
+                    "id": "Solar.ProphetofSeventeenCycles", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -150,7 +183,7 @@
                 "Essence": 1, 
                 "Lore": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.HeavenTurningCalculations": {
@@ -160,8 +193,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TruthRenderingGaze"
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -172,8 +208,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldShapingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -184,8 +223,11 @@
                 "Essence": 2, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingMindPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -196,8 +238,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceFontTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceFontTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -208,8 +253,11 @@
                 "Essence": 5, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SealofInfiniteWisdom"
+            "prerequisites": [
+                {
+                    "id": "Solar.SealofInfiniteWisdom", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -220,8 +268,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WoundAcceptingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WoundAcceptingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -232,8 +283,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingMindPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -244,7 +298,7 @@
                 "Essence": 1, 
                 "Lore": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.LoreInducingConcentration": {
@@ -254,8 +308,11 @@
                 "Essence": 2, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BottomlessWellspringApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.BottomlessWellspringApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -266,8 +323,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldCalledWeapon"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldCalledWeapon", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -278,7 +338,7 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.PowerAwardingPrana": {
@@ -288,9 +348,15 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceFontTechnique", 
-                "Solar.SelfsameMasterInstructor"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceFontTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SelfsameMasterInstructor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -301,8 +367,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SevenfoldSavantMantle"
+            "prerequisites": [
+                {
+                    "id": "Solar.SevenfoldSavantMantle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -313,8 +382,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingEssenceConversion"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingEssenceConversion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -325,8 +397,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TruthRenderingGaze"
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -337,8 +412,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TruthRenderingGaze"
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -349,8 +427,11 @@
                 "Essence": 5, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DemiurgicSuspiration"
+            "prerequisites": [
+                {
+                    "id": "Solar.DemiurgicSuspiration", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -361,8 +442,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SurgingEssenceFlow"
+            "prerequisites": [
+                {
+                    "id": "Solar.SurgingEssenceFlow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -373,8 +457,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryScholarsCurriculum"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryScholarsCurriculum", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -385,8 +472,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldCauldronMastery"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldCauldronMastery", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -397,8 +487,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingEssenceConversion"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingEssenceConversion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -409,8 +502,11 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PowerRestoringInvocation"
+            "prerequisites": [
+                {
+                    "id": "Solar.PowerRestoringInvocation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -421,8 +517,11 @@
                 "Essence": 2, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlowingMindPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -434,9 +533,15 @@
                 "Linguistics": 5, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldShapingTechnique", 
-                "Solar.MindScribingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.MindScribingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -447,8 +552,11 @@
                 "Essence": 2, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LoreInducingConcentration"
+            "prerequisites": [
+                {
+                    "id": "Solar.LoreInducingConcentration", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -459,9 +567,15 @@
                 "Essence": 5, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IncalculableFlowingMind", 
-                "Solar.SurgingInnerFire"
+            "prerequisites": [
+                {
+                    "id": "Solar.IncalculableFlowingMind", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SurgingInnerFire", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -472,16 +586,12 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SacredRelicUnderstanding"
-            ],
             "prerequisites": [
-            	{
-            		"type":"numberOfTraitCharms",
-            		"traits": [ "Lore" ],
-            		"count": 2
-            	}
-            ],
+                {
+                    "id": "Solar.SacredRelicUnderstanding", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Solar.WillBolsteringMethod": {
@@ -491,8 +601,11 @@
                 "Essence": 1, 
                 "Lore": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.EssenceLendingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceLendingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -503,9 +616,15 @@
                 "Essence": 4, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ChaosRepellingPattern", 
-                "Solar.ForceDrainingWhisper"
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosRepellingPattern", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ForceDrainingWhisper", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -516,8 +635,11 @@
                 "Essence": 2, 
                 "Lore": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.WillBolsteringMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.WillBolsteringMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -528,8 +650,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldShapingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -540,8 +665,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldShapingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -552,7 +680,7 @@
                 "Essence": 1, 
                 "Lore": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.WyldForgingFocus": {
@@ -562,8 +690,11 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WyldShapingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -574,10 +705,19 @@
                 "Essence": 3, 
                 "Lore": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ChaosRepellingPattern", 
-                "Solar.OrderAffirmingBlow", 
-                "Solar.TruthRenderingGaze"
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosRepellingPattern", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.OrderAffirmingBlow", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

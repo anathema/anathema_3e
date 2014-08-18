@@ -8,8 +8,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ForceWithoutFire"
+            "prerequisites": [
+                {
+                    "id": "Solar.ForceWithoutFire", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,7 +23,7 @@
                 "Archery": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.ArrowStormTechnique": {
@@ -30,8 +33,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.TranceofUnhesitatingSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.TranceofUnhesitatingSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -42,8 +48,11 @@
                 "Archery": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.WiseArrow"
+            "prerequisites": [
+                {
+                    "id": "Solar.WiseArrow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -54,8 +63,11 @@
                 "Archery": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SightWithoutEyes"
+            "prerequisites": [
+                {
+                    "id": "Solar.SightWithoutEyes", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -66,9 +78,15 @@
                 "Archery": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeartEatingIncineration", 
-                "Solar.HeavensCrashDown"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeartEatingIncineration", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.HeavensCrashDown", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -79,8 +97,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FieryArrowAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.FieryArrowAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -91,8 +112,11 @@
                 "Archery": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SevenOmensShot"
+            "prerequisites": [
+                {
+                    "id": "Solar.SevenOmensShot", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -103,8 +127,11 @@
                 "Archery": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.PhantomArrowTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PhantomArrowTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -115,8 +142,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.HuntersSwiftAnswer"
+            "prerequisites": [
+                {
+                    "id": "Solar.HuntersSwiftAnswer", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -127,8 +157,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.TranceofUnhesitatingSpeed"
+            "prerequisites": [
+                {
+                    "id": "Solar.TranceofUnhesitatingSpeed", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -139,8 +172,11 @@
                 "Archery": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SightWithoutEyes"
+            "prerequisites": [
+                {
+                    "id": "Solar.SightWithoutEyes", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -151,8 +187,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SolarSpike"
+            "prerequisites": [
+                {
+                    "id": "Solar.SolarSpike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -163,8 +202,11 @@
                 "Archery": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.RevolvingBowDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.RevolvingBowDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -175,8 +217,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashingVengeanceDraw"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingVengeanceDraw", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -187,8 +232,11 @@
                 "Archery": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.PhantomArrowTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PhantomArrowTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -199,9 +247,15 @@
                 "Archery": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrimsonStreamingIncineration", 
-                "Solar.ScourgingWindAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrimsonStreamingIncineration", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ScourgingWindAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -212,7 +266,7 @@
                 "Archery": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.RainofFeatheredDeath": {
@@ -222,8 +276,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.PhantomArrowTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PhantomArrowTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -234,8 +291,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ArrowStormTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ArrowStormTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -246,8 +306,11 @@
                 "Archery": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SearingSunfireInterdiction"
+            "prerequisites": [
+                {
+                    "id": "Solar.SearingSunfireInterdiction", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -258,8 +321,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DazzlingFlareAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.DazzlingFlareAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -270,8 +336,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AccuracyWithoutDistance"
+            "prerequisites": [
+                {
+                    "id": "Solar.AccuracyWithoutDistance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -282,8 +351,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DazzlingFlareAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.DazzlingFlareAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -294,8 +366,11 @@
                 "Archery": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.WiseArrow"
+            "prerequisites": [
+                {
+                    "id": "Solar.WiseArrow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -306,8 +381,11 @@
                 "Archery": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DazzlingFlareAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.DazzlingFlareAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -318,8 +396,11 @@
                 "Archery": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FinishingSnipe"
+            "prerequisites": [
+                {
+                    "id": "Solar.FinishingSnipe", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -330,8 +411,11 @@
                 "Archery": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SightWithoutEyes"
+            "prerequisites": [
+                {
+                    "id": "Solar.SightWithoutEyes", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -342,8 +426,11 @@
                 "Archery": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.WiseArrow"
+            "prerequisites": [
+                {
+                    "id": "Solar.WiseArrow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -354,8 +441,11 @@
                 "Archery": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StreamingArrowStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.StreamingArrowStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -366,7 +456,7 @@
                 "Archery": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }
     }, 

@@ -8,9 +8,15 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AspersionsCastAside", 
-                "Solar.EffectiveCounterArgument"
+            "prerequisites": [
+                {
+                    "id": "Solar.AspersionsCastAside", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.EffectiveCounterArgument", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -21,8 +27,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnimpeachableDiscourseTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnimpeachableDiscourseTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -33,9 +42,15 @@
                 "Essence": 5, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DrawtheCurtain", 
-                "Solar.KnowingtheSoulsPrice"
+            "prerequisites": [
+                {
+                    "id": "Solar.DrawtheCurtain", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.KnowingtheSoulsPrice", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -46,8 +61,11 @@
                 "Essence": 2, 
                 "Socialize": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasteryofSmallManners"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasteryofSmallManners", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -58,8 +76,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnimpeachableDiscourseTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnimpeachableDiscourseTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -70,8 +91,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MotiveDiscerningTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MotiveDiscerningTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -82,8 +106,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IntentTracingStare"
+            "prerequisites": [
+                {
+                    "id": "Solar.IntentTracingStare", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -94,8 +121,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IntentTracingStare"
+            "prerequisites": [
+                {
+                    "id": "Solar.IntentTracingStare", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -106,8 +136,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CunningInsightTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.CunningInsightTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -118,8 +151,11 @@
                 "Essence": 4, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendMaskMethodology"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendMaskMethodology", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -130,8 +166,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowOverDay"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowOverDay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -142,8 +181,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnimpeachableDiscourseTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnimpeachableDiscourseTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -154,8 +196,11 @@
                 "Essence": 4, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EvenTouchedProphet"
+            "prerequisites": [
+                {
+                    "id": "Solar.EvenTouchedProphet", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -166,8 +211,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WiseCounsel(FlashingSoulReform)"
+            "prerequisites": [
+                {
+                    "id": "Solar.WiseCounsel(FlashingSoulReform)", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -178,8 +226,11 @@
                 "Essence": 4, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnboundSocialMastery"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnboundSocialMastery", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -190,8 +241,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SeenandSeeingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SeenandSeeingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -202,8 +256,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WiseEyedCourtierMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.WiseEyedCourtierMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -214,7 +271,7 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.FugueEmpoweredOther": {
@@ -224,8 +281,11 @@
                 "Essence": 5, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DrawtheCurtain"
+            "prerequisites": [
+                {
+                    "id": "Solar.DrawtheCurtain", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -236,8 +296,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowOverDay"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowOverDay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -248,8 +311,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.InvertedEgoMask"
+            "prerequisites": [
+                {
+                    "id": "Solar.InvertedEgoMask", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -260,8 +326,11 @@
                 "Essence": 1, 
                 "Socialize": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.MotiveDiscerningTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MotiveDiscerningTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -272,8 +341,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeartEclipsingShroud"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeartEclipsingShroud", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -284,8 +356,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnimpeachableDiscourseTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnimpeachableDiscourseTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -296,9 +371,15 @@
                 "Essence": 1, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MotiveDiscerningTechnique", 
-                "Solar.ShadowOverDay"
+            "prerequisites": [
+                {
+                    "id": "Solar.MotiveDiscerningTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ShadowOverDay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -309,8 +390,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PenumbraSelfMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.PenumbraSelfMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -321,9 +405,15 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SeenandSeeingMethod", 
-                "Solar.WiseEyedCourtierMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SeenandSeeingMethod", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.WiseEyedCourtierMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -334,8 +424,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HundredFacedStranger"
+            "prerequisites": [
+                {
+                    "id": "Solar.HundredFacedStranger", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -346,7 +439,7 @@
                 "Essence": 1, 
                 "Socialize": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.MotiveDiscerningTechnique": {
@@ -356,7 +449,7 @@
                 "Essence": 1, 
                 "Socialize": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.NightPassesOver": {
@@ -366,7 +459,7 @@
                 "Essence": 1, 
                 "Socialize": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.PenumbraSelfMeditation": {
@@ -376,8 +469,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GuardedThoughtsMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.GuardedThoughtsMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -388,8 +484,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DauntlessAssayerMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.DauntlessAssayerMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -400,8 +499,11 @@
                 "Essence": 1, 
                 "Socialize": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.MotiveDiscerningTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MotiveDiscerningTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -412,8 +514,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeepEyedSoulGazing"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeepEyedSoulGazing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -424,8 +529,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EasilyDiscardedPresenceMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EasilyDiscardedPresenceMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -436,8 +544,11 @@
                 "Essence": 1, 
                 "Socialize": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.NightPassesOver"
+            "prerequisites": [
+                {
+                    "id": "Solar.NightPassesOver", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -448,7 +559,7 @@
                 "Essence": 1, 
                 "Socialize": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SoulReprisal": {
@@ -458,8 +569,11 @@
                 "Essence": 5, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FugueEmpoweredOther"
+            "prerequisites": [
+                {
+                    "id": "Solar.FugueEmpoweredOther", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -470,9 +584,15 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FaceCharmingPrana", 
-                "Solar.InvertedEgoMask"
+            "prerequisites": [
+                {
+                    "id": "Solar.FaceCharmingPrana", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.InvertedEgoMask", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -483,8 +603,11 @@
                 "Essence": 1, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.QuicksilverFalconsEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.QuicksilverFalconsEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -495,8 +618,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnderstandingtheCourt"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnderstandingtheCourt", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -507,9 +633,15 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CultureHeroApproach", 
-                "Solar.KnowingtheSoulsPrice"
+            "prerequisites": [
+                {
+                    "id": "Solar.CultureHeroApproach", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.KnowingtheSoulsPrice", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -520,8 +652,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasteryofSmallManners"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasteryofSmallManners", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -532,8 +667,11 @@
                 "Essence": 4, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnderstandingtheCourt"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnderstandingtheCourt", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -544,8 +682,11 @@
                 "Essence": 3, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EffectiveCounterArgument"
+            "prerequisites": [
+                {
+                    "id": "Solar.EffectiveCounterArgument", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -556,8 +697,11 @@
                 "Essence": 2, 
                 "Socialize": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HumbleServantApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.HumbleServantApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

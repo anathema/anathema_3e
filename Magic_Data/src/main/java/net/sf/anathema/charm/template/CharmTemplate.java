@@ -10,7 +10,6 @@ import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 public class CharmTemplate {
 
   public Map<String, Integer> minimums = new HashMap<>();
-  public List<String> prerequisiteCharms = new ArrayList<>();
   public List<CharmPrerequisiteTemplate> prerequisites = new ArrayList<>();
   public String duration;
   public String cost;

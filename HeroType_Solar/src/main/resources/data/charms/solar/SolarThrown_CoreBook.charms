@@ -8,8 +8,11 @@
                 "Essence": 1, 
                 "Thrown": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.PrecisionoftheStrikingRaptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.PrecisionoftheStrikingRaptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 1, 
                 "Thrown": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.TripleDistanceAttackTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.TripleDistanceAttackTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ObserverDeceivingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ObserverDeceivingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 4, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FallingIcicleStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.FallingIcicleStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -56,8 +68,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PrecisionoftheStrikingRaptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.PrecisionoftheStrikingRaptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -68,8 +83,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ObserverDeceivingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ObserverDeceivingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -80,8 +98,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EmptyPalmTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.EmptyPalmTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -92,8 +113,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MistGatheringPractice"
+            "prerequisites": [
+                {
+                    "id": "Solar.MistGatheringPractice", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -104,8 +128,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CascadeofCuttingTerror"
+            "prerequisites": [
+                {
+                    "id": "Solar.CascadeofCuttingTerror", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -116,8 +143,11 @@
                 "Essence": 1, 
                 "Thrown": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SteelStormDescending"
+            "prerequisites": [
+                {
+                    "id": "Solar.SteelStormDescending", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -128,8 +158,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ObserverDeceivingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ObserverDeceivingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -140,8 +173,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShowerofDeadlyBlades"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShowerofDeadlyBlades", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -152,8 +188,11 @@
                 "Essence": 1, 
                 "Thrown": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.PrecisionoftheStrikingRaptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.PrecisionoftheStrikingRaptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -164,8 +203,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.JointWoundingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.JointWoundingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -176,8 +218,11 @@
                 "Essence": 2, 
                 "Thrown": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.JointWoundingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.JointWoundingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -188,8 +233,11 @@
                 "Essence": 2, 
                 "Thrown": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.JointWoundingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.JointWoundingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -200,7 +248,7 @@
                 "Essence": 1, 
                 "Thrown": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.RetrievetheFallenWeapon": {
@@ -210,8 +258,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DreadTalonoftheInterceptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.DreadTalonoftheInterceptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -222,8 +273,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FallenWeaponDeflection"
+            "prerequisites": [
+                {
+                    "id": "Solar.FallenWeaponDeflection", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -234,8 +288,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SharpHandFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.SharpHandFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -246,8 +303,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SharpHandFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.SharpHandFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -258,8 +318,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ObserverDeceivingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ObserverDeceivingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -270,8 +333,11 @@
                 "Essence": 2, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CascadeofCuttingTerror"
+            "prerequisites": [
+                {
+                    "id": "Solar.CascadeofCuttingTerror", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -282,8 +348,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SwarmCullingInstinct"
+            "prerequisites": [
+                {
+                    "id": "Solar.SwarmCullingInstinct", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -294,8 +363,11 @@
                 "Essence": 3, 
                 "Thrown": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DreadTalonoftheInterceptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.DreadTalonoftheInterceptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -306,8 +378,11 @@
                 "Essence": 1, 
                 "Thrown": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.PrecisionoftheStrikingRaptor"
+            "prerequisites": [
+                {
+                    "id": "Solar.PrecisionoftheStrikingRaptor", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -318,8 +393,11 @@
                 "Essence": 2, 
                 "Thrown": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashingDrawMastery"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingDrawMastery", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -330,7 +408,7 @@
                 "Essence": 1, 
                 "Thrown": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.TripleDistanceAttackTechnique": {
@@ -340,7 +418,7 @@
                 "Essence": 1, 
                 "Thrown": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }
     }, 

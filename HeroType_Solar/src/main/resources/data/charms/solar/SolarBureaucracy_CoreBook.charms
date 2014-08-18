@@ -8,8 +8,11 @@
                 "Bureaucracy": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ConsumerEvaluatingGlance"
+            "prerequisites": [
+                {
+                    "id": "Solar.ConsumerEvaluatingGlance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,8 +23,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpeedtheWheels"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpeedtheWheels", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,9 +38,15 @@
                 "Bureaucracy": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.BureauRectifyingMethod", 
-                "Solar.EnigmaticBureauUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.BureauRectifyingMethod", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.EnigmaticBureauUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -45,7 +57,7 @@
                 "Bureaucracy": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.ConsumerEvaluatingGlance": {
@@ -55,8 +67,11 @@
                 "Bureaucracy": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FrugalMerchantMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FrugalMerchantMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -67,7 +82,7 @@
                 "Bureaucracy": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.EclecticVerbiageofLaw": {
@@ -77,8 +92,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SemanticArgumentTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.SemanticArgumentTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -89,8 +107,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.IrresistibleSalesmanSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.IrresistibleSalesmanSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -101,8 +122,11 @@
                 "Bureaucracy": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.MeasuringGlance"
+            "prerequisites": [
+                {
+                    "id": "Solar.MeasuringGlance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -113,9 +137,15 @@
                 "Bureaucracy": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeftOfficialsWay", 
-                "Solar.FrugalMerchantMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeftOfficialsWay", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.FrugalMerchantMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -126,8 +156,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.IndolentOfficialCharm"
+            "prerequisites": [
+                {
+                    "id": "Solar.IndolentOfficialCharm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -138,7 +171,7 @@
                 "Bureaucracy": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.IllimitableMasterFence": {
@@ -148,8 +181,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.AllSeeingMasterProcurer"
+            "prerequisites": [
+                {
+                    "id": "Solar.AllSeeingMasterProcurer", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -160,8 +196,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeftOfficialsWay"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeftOfficialsWay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -172,8 +211,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.OmenSpawningBeast"
+            "prerequisites": [
+                {
+                    "id": "Solar.OmenSpawningBeast", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -184,8 +226,11 @@
                 "Bureaucracy": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FrugalMerchantMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FrugalMerchantMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -196,9 +241,15 @@
                 "Bureaucracy": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ConsumerEvaluatingGlance", 
-                "Solar.InsightfulBuyerTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ConsumerEvaluatingGlance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.InsightfulBuyerTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -209,8 +260,11 @@
                 "Bureaucracy": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeftOfficialsWay"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeftOfficialsWay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -221,8 +275,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WoeCapturingWeb"
+            "prerequisites": [
+                {
+                    "id": "Solar.WoeCapturingWeb", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -233,8 +290,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TabooInflictingDiatribe"
+            "prerequisites": [
+                {
+                    "id": "Solar.TabooInflictingDiatribe", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -245,8 +305,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.EnlightenedDiscourseMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EnlightenedDiscourseMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -257,8 +320,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.IrresistibleSalesmanSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.IrresistibleSalesmanSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -269,8 +335,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeftOfficialsWay"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeftOfficialsWay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -281,8 +350,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.EclecticVerbiageofLaw"
+            "prerequisites": [
+                {
+                    "id": "Solar.EclecticVerbiageofLaw", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -293,8 +365,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FoulAirofArgumentTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FoulAirofArgumentTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -305,8 +380,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.IllimitableMasterFence"
+            "prerequisites": [
+                {
+                    "id": "Solar.IllimitableMasterFence", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -317,8 +395,11 @@
                 "Bureaucracy": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.BureauReformingKata"
+            "prerequisites": [
+                {
+                    "id": "Solar.BureauReformingKata", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }

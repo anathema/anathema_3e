@@ -8,7 +8,7 @@
                 "Essence": 1, 
                 "Medicine": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.AnodyneofCelestialDreaming": {
@@ -18,8 +18,11 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TouchofBlissfulRelease"
+            "prerequisites": [
+                {
+                    "id": "Solar.TouchofBlissfulRelease", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -30,8 +33,11 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.InstantTreatmentMethodology"
+            "prerequisites": [
+                {
+                    "id": "Solar.InstantTreatmentMethodology", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -42,8 +48,11 @@
                 "Essence": 4, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MasterChirurgeonMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.MasterChirurgeonMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -54,8 +63,11 @@
                 "Essence": 2, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.TouchofBlissfulRelease"
+            "prerequisites": [
+                {
+                    "id": "Solar.TouchofBlissfulRelease", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -66,8 +78,11 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AnointmentofMiraculousHealth"
+            "prerequisites": [
+                {
+                    "id": "Solar.AnointmentofMiraculousHealth", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -78,8 +93,11 @@
                 "Essence": 2, 
                 "Medicine": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.PlagueBanishingIncitation"
+            "prerequisites": [
+                {
+                    "id": "Solar.PlagueBanishingIncitation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 2, 
                 "Medicine": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.TouchofBlissfulRelease"
+            "prerequisites": [
+                {
+                    "id": "Solar.TouchofBlissfulRelease", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -102,7 +123,7 @@
                 "Essence": 1, 
                 "Medicine": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.HealersUnerringHands": {
@@ -112,8 +133,11 @@
                 "Essence": 4, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LifeSculptingHandsTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.LifeSculptingHandsTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -124,9 +148,15 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ContagionCuringTouch", 
-                "Solar.WholenessRestoringMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.ContagionCuringTouch", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.WholenessRestoringMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -137,8 +167,11 @@
                 "Essence": 5, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HealersUnerringHands"
+            "prerequisites": [
+                {
+                    "id": "Solar.HealersUnerringHands", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -149,8 +182,11 @@
                 "Essence": 2, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WoundCleansingMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.WoundCleansingMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -161,8 +197,11 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FeitofImpartedNature"
+            "prerequisites": [
+                {
+                    "id": "Solar.FeitofImpartedNature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -173,8 +212,11 @@
                 "Essence": 4, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BenisonofCelestialHealing"
+            "prerequisites": [
+                {
+                    "id": "Solar.BenisonofCelestialHealing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -185,8 +227,11 @@
                 "Essence": 4, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MedicineExcellency"
+            "prerequisites": [
+                {
+                    "id": "Solar.MedicineExcellency", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -197,7 +242,7 @@
                 "Essence": 1, 
                 "Medicine": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.PerfectCelestialChirurgeon": {
@@ -207,8 +252,11 @@
                 "Essence": 5, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HealersUnerringHands"
+            "prerequisites": [
+                {
+                    "id": "Solar.HealersUnerringHands", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -219,8 +267,11 @@
                 "Essence": 1, 
                 "Medicine": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AilmentRectifyingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.AilmentRectifyingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -231,8 +282,11 @@
                 "Essence": 2, 
                 "Medicine": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessDiagnosisTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessDiagnosisTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -243,8 +297,11 @@
                 "Essence": 3, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.AnointmentofMiraculousHealth"
+            "prerequisites": [
+                {
+                    "id": "Solar.AnointmentofMiraculousHealth", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -255,8 +312,11 @@
                 "Essence": 1, 
                 "Medicine": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WoundMendingCareTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WoundMendingCareTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -267,7 +327,7 @@
                 "Essence": 1, 
                 "Medicine": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }
     }, 

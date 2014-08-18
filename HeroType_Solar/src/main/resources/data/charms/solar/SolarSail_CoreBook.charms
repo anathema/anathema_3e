@@ -8,7 +8,7 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.BloodandSaltBondage": {
@@ -18,8 +18,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HullTamingTransfusion"
+            "prerequisites": [
+                {
+                    "id": "Solar.HullTamingTransfusion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -30,9 +33,15 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BloodandSaltBondage", 
-                "Solar.ShipSustainingSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.BloodandSaltBondage", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ShipSustainingSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -43,8 +52,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HullPreservingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.HullPreservingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -55,8 +67,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WindDefyingCourseTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.WindDefyingCourseTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -67,8 +82,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipBreakerMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipBreakerMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -79,8 +97,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -91,8 +112,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SaltyDogMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SaltyDogMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -103,8 +127,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipClaimingStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipClaimingStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -115,8 +142,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HullPreservingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.HullPreservingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -127,7 +157,7 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.ImplacableSeaWolfSpirit": {
@@ -137,8 +167,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -149,8 +182,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImmortalMarinersAdvantage"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImmortalMarinersAdvantage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -161,8 +197,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -173,8 +212,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImmortalMarinersAdvantage"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImmortalMarinersAdvantage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -185,8 +227,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IndomitableVoyagersPerseverance"
+            "prerequisites": [
+                {
+                    "id": "Solar.IndomitableVoyagersPerseverance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -197,8 +242,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipClaimingStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipClaimingStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -209,8 +257,11 @@
                 "Essence": 1, 
                 "Sail": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SaltyDogMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SaltyDogMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -221,8 +272,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DeadlyIchneumonAssault"
+            "prerequisites": [
+                {
+                    "id": "Solar.DeadlyIchneumonAssault", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -233,7 +287,7 @@
                 "Essence": 1, 
                 "Sail": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SaltyDogMethod": {
@@ -243,7 +297,7 @@
                 "Essence": 1, 
                 "Sail": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.SeaAmbushTechnique": {
@@ -253,8 +307,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -265,8 +322,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.InvincibleAdmiralMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.InvincibleAdmiralMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -277,8 +337,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SuperiorPositioningTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.SuperiorPositioningTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -289,8 +352,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -301,7 +367,7 @@
                 "Essence": 1, 
                 "Sail": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.ShipImperiledVigor": {
@@ -311,8 +377,11 @@
                 "Essence": 2, 
                 "Sail": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SaltyDogMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SaltyDogMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -323,8 +392,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HullPreservingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.HullPreservingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -335,8 +407,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipRollingJuggernautMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipRollingJuggernautMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -347,8 +422,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImplacableSeaWolfSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImplacableSeaWolfSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -359,8 +437,11 @@
                 "Essence": 1, 
                 "Sail": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipClaimingStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipClaimingStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -371,8 +452,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipLeaveningMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipLeaveningMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -383,8 +467,11 @@
                 "Essence": 1, 
                 "Sail": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SaltyDogMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SaltyDogMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -395,8 +482,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CurrentCuttingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.CurrentCuttingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -407,8 +497,11 @@
                 "Essence": 1, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LegendaryCaptainsSignature"
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryCaptainsSignature", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -419,8 +512,11 @@
                 "Essence": 3, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.WeatherAnticipatingIntuition"
+            "prerequisites": [
+                {
+                    "id": "Solar.WeatherAnticipatingIntuition", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -431,8 +527,11 @@
                 "Essence": 2, 
                 "Sail": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipSleekingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipSleekingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -443,8 +542,11 @@
                 "Essence": 2, 
                 "Sail": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShipSleekingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShipSleekingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -455,8 +557,11 @@
                 "Essence": 2, 
                 "Sail": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectReckoningTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectReckoningTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -467,8 +572,11 @@
                 "Essence": 2, 
                 "Sail": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ImmortalMarinersAdvantage"
+            "prerequisites": [
+                {
+                    "id": "Solar.ImmortalMarinersAdvantage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

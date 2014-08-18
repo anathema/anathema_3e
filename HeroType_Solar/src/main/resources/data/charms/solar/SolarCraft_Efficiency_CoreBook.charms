@@ -8,9 +8,15 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.EfficientCraftsmanTechnique", 
-                "Solar.SublimeTransference"
+            "prerequisites": [
+                {
+                    "id": "Solar.EfficientCraftsmanTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SublimeTransference", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -21,7 +27,7 @@
                 "Craft": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.ClayandBreathPractice": {
@@ -31,8 +37,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.CopperSpiderConception"
+            "prerequisites": [
+                {
+                    "id": "Solar.CopperSpiderConception", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -43,8 +52,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DragonSoulEmergence"
+            "prerequisites": [
+                {
+                    "id": "Solar.DragonSoulEmergence", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -55,7 +67,7 @@
                 "Craft": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.DragonSoulEmergence": {
@@ -65,8 +77,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.AgesEchoingWisdom"
+            "prerequisites": [
+                {
+                    "id": "Solar.AgesEchoingWisdom", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -78,9 +93,15 @@
                 "Essence": 5, 
                 "Occult": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.TerrestrialCircleSorcery", 
-                "Solar.WonderForgingGenius"
+            "prerequisites": [
+                {
+                    "id": "Solar.TerrestrialCircleSorcery", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.WonderForgingGenius", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -91,8 +112,11 @@
                 "Craft": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.TirelessWorkhorseMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.TirelessWorkhorseMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -103,8 +127,11 @@
                 "Craft": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnwindingGyreMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnwindingGyreMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -115,8 +142,11 @@
                 "Craft": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritGatheringIndustry"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritGatheringIndustry", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -127,8 +157,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ClayandBreathPractice"
+            "prerequisites": [
+                {
+                    "id": "Solar.ClayandBreathPractice", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -139,8 +172,11 @@
                 "Craft": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExegesisoftheDistilledForm"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExegesisoftheDistilledForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -151,8 +187,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.AreteShiftingPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteShiftingPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -163,8 +202,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.AgesEchoingWisdom"
+            "prerequisites": [
+                {
+                    "id": "Solar.AgesEchoingWisdom", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -175,8 +217,11 @@
                 "Craft": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GodForgeWithin"
+            "prerequisites": [
+                {
+                    "id": "Solar.GodForgeWithin", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -187,8 +232,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.AreteShiftingPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteShiftingPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -199,7 +247,7 @@
                 "Craft": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.UnwindingGyreMeditation": {
@@ -209,8 +257,11 @@
                 "Craft": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpiritGatheringIndustry"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpiritGatheringIndustry", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -221,8 +272,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SummitPiercingTouch"
+            "prerequisites": [
+                {
+                    "id": "Solar.SummitPiercingTouch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -233,9 +287,15 @@
                 "Craft": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GodForgeWithin", 
-                "Solar.ViceMiracleTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.GodForgeWithin", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ViceMiracleTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

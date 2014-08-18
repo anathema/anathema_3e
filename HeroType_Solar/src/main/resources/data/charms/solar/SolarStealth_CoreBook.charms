@@ -8,7 +8,7 @@
                 "Essence": 1, 
                 "Stealth": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.BlurredFormStyle": {
@@ -18,8 +18,11 @@
                 "Essence": 2, 
                 "Stealth": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.InvisibleStatueSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.InvisibleStatueSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -30,8 +33,11 @@
                 "Essence": 2, 
                 "Stealth": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.GuardianFogApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.GuardianFogApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -42,7 +48,7 @@
                 "Essence": 1, 
                 "Stealth": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.FalseImageFeint": {
@@ -52,9 +58,15 @@
                 "Essence": 4, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HiddenSnakeRecoil", 
-                "Solar.VanishingFromMindsEyeMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.HiddenSnakeRecoil", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.VanishingFromMindsEyeMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -65,8 +77,11 @@
                 "Essence": 4, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SoundandScentBanishingAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.SoundandScentBanishingAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -77,8 +92,11 @@
                 "Essence": 2, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowVictorsRepose"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowVictorsRepose", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -89,8 +107,11 @@
                 "Essence": 4, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowCrossingLeapTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowCrossingLeapTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -101,8 +122,11 @@
                 "Essence": 1, 
                 "Stealth": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.BlindingBattleFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.BlindingBattleFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -113,8 +137,11 @@
                 "Essence": 2, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StalkingWolfAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.StalkingWolfAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -125,8 +152,11 @@
                 "Essence": 1, 
                 "Stealth": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectShadowStillness"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectShadowStillness", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -137,8 +167,11 @@
                 "Essence": 2, 
                 "Stealth": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.EasilyOverlookedPresenceMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.EasilyOverlookedPresenceMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -149,8 +182,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashEyedKillersInsight"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashEyedKillersInsight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -161,7 +197,7 @@
                 "Essence": 1, 
                 "Stealth": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.ShadowCrossingLeapTechnique": {
@@ -171,8 +207,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SmokeandShadowCover"
+            "prerequisites": [
+                {
+                    "id": "Solar.SmokeandShadowCover", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -183,8 +222,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DarkSentinelsWay"
+            "prerequisites": [
+                {
+                    "id": "Solar.DarkSentinelsWay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -195,8 +237,11 @@
                 "Essence": 2, 
                 "Stealth": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.BlindingBattleFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.BlindingBattleFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -207,8 +252,11 @@
                 "Essence": 2, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DarkSentinelsWay"
+            "prerequisites": [
+                {
+                    "id": "Solar.DarkSentinelsWay", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -219,9 +267,15 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BlurredFormStyle", 
-                "Solar.VanishingFromMindsEyeMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.BlurredFormStyle", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.VanishingFromMindsEyeMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -232,8 +286,11 @@
                 "Essence": 1, 
                 "Stealth": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.BlindingBattleFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.BlindingBattleFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -244,7 +301,7 @@
                 "Essence": 1, 
                 "Stealth": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SunSwallowingPractice": {
@@ -254,8 +311,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BlurredFormStyle"
+            "prerequisites": [
+                {
+                    "id": "Solar.BlurredFormStyle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -266,8 +326,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SoundandScentBanishingAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.SoundandScentBanishingAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -278,8 +341,11 @@
                 "Essence": 3, 
                 "Stealth": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MentalInvisibilityTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.MentalInvisibilityTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

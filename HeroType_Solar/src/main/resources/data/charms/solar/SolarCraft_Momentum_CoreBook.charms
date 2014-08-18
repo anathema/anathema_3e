@@ -8,8 +8,11 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.TimeHealsNothing"
+            "prerequisites": [
+                {
+                    "id": "Solar.TimeHealsNothing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -20,7 +23,7 @@
                 "Craft": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.BreachHealingMethod": {
@@ -30,8 +33,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.TimeHealsNothing"
+            "prerequisites": [
+                {
+                    "id": "Solar.TimeHealsNothing", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -42,8 +48,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DesignBeyondLimit"
+            "prerequisites": [
+                {
+                    "id": "Solar.DesignBeyondLimit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -54,8 +63,11 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.RedAnvilsRinging"
+            "prerequisites": [
+                {
+                    "id": "Solar.RedAnvilsRinging", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -66,8 +78,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ObjectStrengtheningTouch"
+            "prerequisites": [
+                {
+                    "id": "Solar.ObjectStrengtheningTouch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -78,7 +93,7 @@
                 "Craft": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.CraftsmanNeedsNoTools": {
@@ -88,7 +103,7 @@
                 "Craft": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.DesignBeyondLimit": {
@@ -98,9 +113,15 @@
                 "Craft": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrackMendingTechnique", 
-                "Solar.CraftsmanNeedsNoTools"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrackMendingTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -111,8 +132,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SupremePerfectionofCraft"
+            "prerequisites": [
+                {
+                    "id": "Solar.SupremePerfectionofCraft", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -123,8 +147,11 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftsmanNeedsNoTools"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -135,8 +162,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DesignBeyondLimit"
+            "prerequisites": [
+                {
+                    "id": "Solar.DesignBeyondLimit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -147,8 +177,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.DurabilityEnhancingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.DurabilityEnhancingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -159,9 +192,15 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ChainsFallAway", 
-                "Solar.CraftsmanNeedsNoTools"
+            "prerequisites": [
+                {
+                    "id": "Solar.ChainsFallAway", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -172,8 +211,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.BreachHealingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.BreachHealingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -184,8 +226,11 @@
                 "Craft": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.BrassScalesFalling"
+            "prerequisites": [
+                {
+                    "id": "Solar.BrassScalesFalling", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -196,8 +241,11 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftsmanNeedsNoTools"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -208,8 +256,11 @@
                 "Craft": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeroForgingGodWeapon"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeroForgingGodWeapon", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -220,9 +271,15 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.PeerlessParagonofCraft", 
-                "Solar.SupremeCelestialFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.PeerlessParagonofCraft", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SupremeCelestialFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -233,8 +290,11 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ChaosResistancePreparation"
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosResistancePreparation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -245,8 +305,11 @@
                 "Craft": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftsmanNeedsNoTools"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -257,8 +320,11 @@
                 "Craft": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrackMendingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrackMendingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -269,9 +335,15 @@
                 "Craft": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.CraftsmanNeedsNoTools", 
-                "Solar.ViceMiracleTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ViceMiracleTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

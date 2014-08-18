@@ -8,8 +8,11 @@
                 "Essence": 1, 
                 "Larceny": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SeasonedCriminalMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SeasonedCriminalMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LockOpeningTouch"
+            "prerequisites": [
+                {
+                    "id": "Solar.LockOpeningTouch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 2, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.CleverBanditsRook"
+            "prerequisites": [
+                {
+                    "id": "Solar.CleverBanditsRook", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -44,9 +53,15 @@
                 "Essence": 3, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.LightningHandSleight", 
-                "Solar.UnshakableRoguesSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningHandSleight", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.UnshakableRoguesSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -57,8 +72,11 @@
                 "Essence": 3, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlesslyImpenetrableDisguise"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlesslyImpenetrableDisguise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -69,7 +87,7 @@
                 "Essence": 1, 
                 "Larceny": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.FlawlesslyImpenetrableDisguise": {
@@ -79,7 +97,7 @@
                 "Essence": 1, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.IronWolvesGrasp": {
@@ -89,9 +107,15 @@
                 "Essence": 3, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StealingfromPlainSightSpirit", 
-                "Solar.ReversalofFortune"
+            "prerequisites": [
+                {
+                    "id": "Solar.StealingfromPlainSightSpirit", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ReversalofFortune", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -102,7 +126,7 @@
                 "Essence": 1, 
                 "Larceny": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.LightningHandSleight": {
@@ -112,8 +136,11 @@
                 "Essence": 1, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SwiftGamblersEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.SwiftGamblersEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -124,7 +151,7 @@
                 "Essence": 2, 
                 "Larceny": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.LockOpeningTouch": {
@@ -134,7 +161,7 @@
                 "Essence": 1, 
                 "Larceny": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.MagpiesInvisibleTalon": {
@@ -144,8 +171,11 @@
                 "Essence": 2, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.StealingfromPlainSightSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.StealingfromPlainSightSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -156,8 +186,11 @@
                 "Essence": 2, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnshakableRoguesSpirit"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnshakableRoguesSpirit", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -168,8 +201,11 @@
                 "Essence": 5, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.NullAnimaGloves"
+            "prerequisites": [
+                {
+                    "id": "Solar.NullAnimaGloves", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -180,10 +216,19 @@
                 "Essence": 4, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IronWolvesGrasp", 
-                "Solar.ProofEatingPalm", 
-                "Solar.SkillfulReappropriation(PhantomStingSearch)"
+            "prerequisites": [
+                {
+                    "id": "Solar.IronWolvesGrasp", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ProofEatingPalm", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SkillfulReappropriation(PhantomStingSearch)", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -194,8 +239,11 @@
                 "Essence": 2, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlesslyImpenetrableDisguise"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlesslyImpenetrableDisguise", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -206,8 +254,11 @@
                 "Essence": 2, 
                 "Larceny": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.PreyingonUncertaintyApproach"
+            "prerequisites": [
+                {
+                    "id": "Solar.PreyingonUncertaintyApproach", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -218,8 +269,11 @@
                 "Essence": 1, 
                 "Larceny": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SpuriousPresence"
+            "prerequisites": [
+                {
+                    "id": "Solar.SpuriousPresence", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -230,8 +284,11 @@
                 "Essence": 2, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LightningHandSleight"
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningHandSleight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -242,8 +299,11 @@
                 "Essence": 3, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessPickpocketingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessPickpocketingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -254,7 +314,7 @@
                 "Essence": 1, 
                 "Larceny": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Solar.SkillfulReappropriation(PhantomStingSearch)": {
@@ -264,8 +324,11 @@
                 "Essence": 3, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MagpiesInvisibleTalon"
+            "prerequisites": [
+                {
+                    "id": "Solar.MagpiesInvisibleTalon", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -276,8 +339,11 @@
                 "Essence": 3, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PerfectMirror"
+            "prerequisites": [
+                {
+                    "id": "Solar.PerfectMirror", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -288,8 +354,11 @@
                 "Essence": 1, 
                 "Larceny": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SeasonedCriminalMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.SeasonedCriminalMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -300,8 +369,11 @@
                 "Essence": 2, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlawlessPickpocketingTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlawlessPickpocketingTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -312,7 +384,7 @@
                 "Essence": 1, 
                 "Larceny": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.UnbrokenDarknessApproach": {
@@ -322,8 +394,11 @@
                 "Essence": 5, 
                 "Larceny": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.NightsEyeMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.NightsEyeMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -334,8 +409,11 @@
                 "Essence": 2, 
                 "Larceny": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LivingShadowPreparedness"
+            "prerequisites": [
+                {
+                    "id": "Solar.LivingShadowPreparedness", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

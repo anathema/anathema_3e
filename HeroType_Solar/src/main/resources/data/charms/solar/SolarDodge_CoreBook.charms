@@ -8,7 +8,7 @@
                 "Dodge": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.DriftingLeafElusion": {
@@ -18,7 +18,7 @@
                 "Dodge": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.DriftingShadowFocus": {
@@ -28,8 +28,11 @@
                 "Dodge": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ReflexSidestepTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ReflexSidestepTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -40,8 +43,11 @@
                 "Dodge": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ReedintheWind"
+            "prerequisites": [
+                {
+                    "id": "Solar.ReedintheWind", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -52,8 +58,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.DustMotesWhirling"
+            "prerequisites": [
+                {
+                    "id": "Solar.DustMotesWhirling", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -64,8 +73,11 @@
                 "Dodge": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowOverWater"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowOverWater", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -76,8 +88,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.SearingQuicksilverFlight"
+            "prerequisites": [
+                {
+                    "id": "Solar.SearingQuicksilverFlight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -88,8 +103,11 @@
                 "Dodge": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.DriftingLeafElusion"
+            "prerequisites": [
+                {
+                    "id": "Solar.DriftingLeafElusion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -100,8 +118,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.LivingBondsUnburdened"
+            "prerequisites": [
+                {
+                    "id": "Solar.LivingBondsUnburdened", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -112,8 +133,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.VaporousDivision"
+            "prerequisites": [
+                {
+                    "id": "Solar.VaporousDivision", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -124,8 +148,11 @@
                 "Dodge": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ReflexSidestepTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.ReflexSidestepTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -136,8 +163,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.VaporousDivision"
+            "prerequisites": [
+                {
+                    "id": "Solar.VaporousDivision", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -148,7 +178,7 @@
                 "Dodge": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.RefinementofFlowingShadows": {
@@ -158,8 +188,11 @@
                 "Dodge": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SevenShadowEvasion"
+            "prerequisites": [
+                {
+                    "id": "Solar.SevenShadowEvasion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -170,8 +203,11 @@
                 "Dodge": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ReedintheWind"
+            "prerequisites": [
+                {
+                    "id": "Solar.ReedintheWind", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -182,8 +218,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ShadowOverWater"
+            "prerequisites": [
+                {
+                    "id": "Solar.ShadowOverWater", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -194,8 +233,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ForceStealingFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.ForceStealingFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -206,8 +248,11 @@
                 "Dodge": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ReedintheWind"
+            "prerequisites": [
+                {
+                    "id": "Solar.ReedintheWind", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -218,8 +263,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ForceStealingFeint"
+            "prerequisites": [
+                {
+                    "id": "Solar.ForceStealingFeint", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -230,8 +278,11 @@
                 "Dodge": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.DustMotesWhirling"
+            "prerequisites": [
+                {
+                    "id": "Solar.DustMotesWhirling", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -242,8 +293,11 @@
                 "Dodge": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.DriftingLeafElusion"
+            "prerequisites": [
+                {
+                    "id": "Solar.DriftingLeafElusion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -254,8 +308,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.FleetDreamingImage"
+            "prerequisites": [
+                {
+                    "id": "Solar.FleetDreamingImage", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -266,8 +323,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SafetyBetweenHeartbeats"
+            "prerequisites": [
+                {
+                    "id": "Solar.SafetyBetweenHeartbeats", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -278,8 +338,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ThousandStepsStillness"
+            "prerequisites": [
+                {
+                    "id": "Solar.ThousandStepsStillness", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -290,8 +353,11 @@
                 "Dodge": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.LivingBondsUnburdened"
+            "prerequisites": [
+                {
+                    "id": "Solar.LivingBondsUnburdened", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -302,8 +368,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.RumorofForm"
+            "prerequisites": [
+                {
+                    "id": "Solar.RumorofForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -314,8 +383,11 @@
                 "Dodge": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.RumorofForm"
+            "prerequisites": [
+                {
+                    "id": "Solar.RumorofForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }

@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.WhiteReaperForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.WhiteReaperForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.WhiteReaperForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.WhiteReaperForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,7 +38,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.FlickeringCoronaBarrier": {
@@ -42,8 +48,11 @@
                 "Essence": 2, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.WhiteReaperForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.WhiteReaperForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -54,8 +63,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.BleedingCrescentStrike"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.BleedingCrescentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -66,8 +78,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FlickeringCoronaBarrier"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FlickeringCoronaBarrier", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -78,7 +93,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.SnowFollowsWinter": {
@@ -88,10 +103,19 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.EnemiesLikeGrass", 
-                "MartialArts.GreatestKillerAttitude", 
-                "MartialArts.ImpenetrableWhiteShroud"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.EnemiesLikeGrass", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.GreatestKillerAttitude", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.ImpenetrableWhiteShroud", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -102,9 +126,15 @@
                 "Essence": 1, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FallingScytheFlash", 
-                "MartialArts.RevolvingCrescentDefense"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FallingScytheFlash", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.RevolvingCrescentDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

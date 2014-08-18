@@ -8,8 +8,11 @@
                 "Essence": 2, 
                 "War": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.IdealBattleKnowledgePrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.IdealBattleKnowledgePrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,9 +23,15 @@
                 "Essence": 3, 
                 "War": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GeneraloftheAllSeeingSun", 
-                "Solar.TranscendentWarlordsGenius"
+            "prerequisites": [
+                {
+                    "id": "Solar.GeneraloftheAllSeeingSun", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.TranscendentWarlordsGenius", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -33,8 +42,11 @@
                 "Essence": 3, 
                 "War": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GeneraloftheAllSeeingSun"
+            "prerequisites": [
+                {
+                    "id": "Solar.GeneraloftheAllSeeingSun", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -45,8 +57,11 @@
                 "Essence": 2, 
                 "War": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.RedoubtRaisingGesture"
+            "prerequisites": [
+                {
+                    "id": "Solar.RedoubtRaisingGesture", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -57,8 +72,11 @@
                 "Essence": 1, 
                 "War": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.WarGodDescendent"
+            "prerequisites": [
+                {
+                    "id": "Solar.WarGodDescendent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -69,7 +87,7 @@
                 "Essence": 1, 
                 "War": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.ImmortalCommandersPresence": {
@@ -79,8 +97,11 @@
                 "Essence": 1, 
                 "War": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.WarGodDescendent"
+            "prerequisites": [
+                {
+                    "id": "Solar.WarGodDescendent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -91,8 +112,11 @@
                 "Essence": 2, 
                 "War": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.IdealBattleKnowledgePrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.IdealBattleKnowledgePrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -103,8 +127,11 @@
                 "Essence": 1, 
                 "War": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WarGodDescendent"
+            "prerequisites": [
+                {
+                    "id": "Solar.WarGodDescendent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -115,8 +142,11 @@
                 "Essence": 2, 
                 "War": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.RoutStemmingGesture"
+            "prerequisites": [
+                {
+                    "id": "Solar.RoutStemmingGesture", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -127,8 +157,11 @@
                 "Essence": 3, 
                 "War": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MagnanimityoftheUnstoppableIcon"
+            "prerequisites": [
+                {
+                    "id": "Solar.MagnanimityoftheUnstoppableIcon", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -139,8 +172,11 @@
                 "Essence": 2, 
                 "War": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.HolisticBattleUnderstanding"
+            "prerequisites": [
+                {
+                    "id": "Solar.HolisticBattleUnderstanding", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -151,8 +187,11 @@
                 "Essence": 1, 
                 "War": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.WarGodDescendent"
+            "prerequisites": [
+                {
+                    "id": "Solar.WarGodDescendent", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -163,8 +202,11 @@
                 "Essence": 3, 
                 "War": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MarchoftheReturner"
+            "prerequisites": [
+                {
+                    "id": "Solar.MarchoftheReturner", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -175,8 +217,11 @@
                 "Essence": 2, 
                 "War": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.LeagueofIronPreparation"
+            "prerequisites": [
+                {
+                    "id": "Solar.LeagueofIronPreparation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -187,8 +232,11 @@
                 "Essence": 3, 
                 "War": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BattlePathAscendant"
+            "prerequisites": [
+                {
+                    "id": "Solar.BattlePathAscendant", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -199,7 +247,7 @@
                 "Essence": 1, 
                 "War": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.WarGodDescendent": {
@@ -209,7 +257,7 @@
                 "Essence": 1, 
                 "War": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }
     }, 

@@ -8,7 +8,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.DreamingPearlCourtesanForm": {
@@ -18,10 +18,19 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DemureCarpFeint", 
-                "MartialArts.ElegantWeaponRepertoire", 
-                "MartialArts.PearlescentFiligreeDefense"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DemureCarpFeint", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.ElegantWeaponRepertoire", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.PearlescentFiligreeDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,7 +41,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.FlurryofAugustLeaves": {
@@ -42,8 +51,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DreamingPearlCourtesanForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DreamingPearlCourtesanForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -54,8 +66,11 @@
                 "Essence": 2, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DreamingPearlCourtesanForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DreamingPearlCourtesanForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -66,9 +81,15 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.SevenStormsEscapePrana", 
-                "MartialArts.VindictiveConcubinesPillowBook"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.SevenStormsEscapePrana", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.VindictiveConcubinesPillowBook", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -79,7 +100,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.SevenStormsEscapePrana": {
@@ -89,8 +110,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FragrantPetalFascinationKata"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FragrantPetalFascinationKata", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -101,8 +125,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FlurryofAugustLeaves"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FlurryofAugustLeaves", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

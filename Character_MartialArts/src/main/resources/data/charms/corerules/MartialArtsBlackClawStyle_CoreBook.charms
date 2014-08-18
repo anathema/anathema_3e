@@ -8,8 +8,11 @@
                 "Essence": 1, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.FlexingtheEmeraldClaw"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.FlexingtheEmeraldClaw", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.BlackClawForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.BlackClawForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -32,9 +38,15 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.OpenPalmCaress", 
-                "MartialArts.TornLotusDefense"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.OpenPalmCaress", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.TornLotusDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -45,8 +57,11 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.OutrageKindlingCry"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.OutrageKindlingCry", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -57,7 +72,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.OutrageKindlingCry": {
@@ -67,10 +82,19 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.DoeEyesDefense", 
-                "MartialArts.StormCalmingEmbrace", 
-                "MartialArts.TableTurningReversal"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.DoeEyesDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.StormCalmingEmbrace", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.TableTurningReversal", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -81,8 +105,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.BlackClawForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.BlackClawForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -93,8 +120,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.BlackClawForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.BlackClawForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -105,7 +135,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }
     }, 

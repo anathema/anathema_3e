@@ -8,7 +8,7 @@
                 "Awareness": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.AwarenessExcellency": {
@@ -18,7 +18,7 @@
                 "Awareness": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.Blink": {
@@ -28,8 +28,11 @@
                 "Awareness": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.InnerEyeFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.InnerEyeFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -40,8 +43,11 @@
                 "Awareness": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnsurpassedHearingandTouchDiscipline"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnsurpassedHearingandTouchDiscipline", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -52,8 +58,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenHearingandTouchTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenHearingandTouchTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -64,8 +73,11 @@
                 "Awareness": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.AwakeningEye"
+            "prerequisites": [
+                {
+                    "id": "Solar.AwakeningEye", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -76,8 +88,11 @@
                 "Awareness": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenTasteandSmellTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenTasteandSmellTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -88,8 +103,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenTasteandSmellTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenTasteandSmellTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -100,8 +118,11 @@
                 "Awareness": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnswervingEyeMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnswervingEyeMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -112,8 +133,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SensoryAcuityPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.SensoryAcuityPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -124,8 +148,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SensoryAcuityPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.SensoryAcuityPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -136,8 +163,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SensoryAcuityPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.SensoryAcuityPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -148,8 +178,11 @@
                 "Awareness": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.StudiedEarEspial"
+            "prerequisites": [
+                {
+                    "id": "Solar.StudiedEarEspial", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -160,8 +193,11 @@
                 "Awareness": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.EyelessHarbingerAwareness"
+            "prerequisites": [
+                {
+                    "id": "Solar.EyelessHarbingerAwareness", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -172,9 +208,15 @@
                 "Awareness": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.KnowingBeyondSilence", 
-                "Solar.LivingPulsePerception"
+            "prerequisites": [
+                {
+                    "id": "Solar.KnowingBeyondSilence", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LivingPulsePerception", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -185,8 +227,11 @@
                 "Awareness": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FoeScentingMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FoeScentingMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -197,7 +242,7 @@
                 "Awareness": 2, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.StudiedEarEspial": {
@@ -207,8 +252,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenHearingandTouchTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenHearingandTouchTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -219,8 +267,11 @@
                 "Awareness": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.SensoryAcuityPrana"
+            "prerequisites": [
+                {
+                    "id": "Solar.SensoryAcuityPrana", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -231,8 +282,11 @@
                 "Awareness": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenHearingandTouchTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenHearingandTouchTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -243,8 +297,11 @@
                 "Awareness": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenSightTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenSightTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -255,8 +312,11 @@
                 "Awareness": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenTasteandSmellTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenTasteandSmellTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -267,8 +327,11 @@
                 "Awareness": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.KeenSightTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.KeenSightTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }

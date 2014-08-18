@@ -46,16 +46,8 @@ public class CharmCacheBuilder {
   	charmList.forEach((name, charm) -> abstractCharmList.put(name, charm));
     templateList.forEach((name, template) -> {
       CharmImpl charm = charmList.get(name);
-      template.prerequisiteCharms.stream().forEach(nameString -> {
-      	// TODO; move simple charm prerequisites to template
-        CharmImpl parent = charmList.get(new CharmName(nameString));
-        parent.addChild(charm);
-        charm.addCharmPrerequisite(new SimpleCharmPrerequisite(parent));
-        
-        // Begin actual prerequisite generation
-        template.prerequisites.stream().forEach(prerequisite -> {
+      template.prerequisites.stream().forEach(prerequisite -> {
     	  charm.addCharmPrerequisite(prerequisite.generate(abstractCharmList));
-        });
       });
     });
   }

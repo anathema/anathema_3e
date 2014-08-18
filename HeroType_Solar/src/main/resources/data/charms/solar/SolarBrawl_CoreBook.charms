@@ -8,8 +8,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.BurningFistBurial"
+            "prerequisites": [
+                {
+                    "id": "Solar.BurningFistBurial", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -20,8 +23,11 @@
                 "Brawl": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FireEatingFist"
+            "prerequisites": [
+                {
+                    "id": "Solar.FireEatingFist", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -32,8 +38,11 @@
                 "Brawl": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SupremacyofWarMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.SupremacyofWarMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -44,8 +53,11 @@
                 "Brawl": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.WindandStonesDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.WindandStonesDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -56,7 +68,7 @@
                 "Brawl": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.BurningFistBurial": {
@@ -66,8 +78,11 @@
                 "Brawl": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FerociousJab"
+            "prerequisites": [
+                {
+                    "id": "Solar.FerociousJab", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -78,8 +93,11 @@
                 "Brawl": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnbreakableGrasp"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnbreakableGrasp", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -90,8 +108,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.KnockoutBlow"
+            "prerequisites": [
+                {
+                    "id": "Solar.KnockoutBlow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -102,8 +123,11 @@
                 "Brawl": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ViciousLunge"
+            "prerequisites": [
+                {
+                    "id": "Solar.ViciousLunge", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -114,8 +138,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.RecklessFuryDiscard"
+            "prerequisites": [
+                {
+                    "id": "Solar.RecklessFuryDiscard", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -126,8 +153,11 @@
                 "Brawl": 5, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ViciousLunge"
+            "prerequisites": [
+                {
+                    "id": "Solar.ViciousLunge", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -138,8 +168,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DevilStranglingAttitude"
+            "prerequisites": [
+                {
+                    "id": "Solar.DevilStranglingAttitude", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -150,8 +183,11 @@
                 "Brawl": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ThunderclapRushAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ThunderclapRushAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -162,7 +198,7 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.FireEatingFist": {
@@ -172,8 +208,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.InterceptingFurySmite"
+            "prerequisites": [
+                {
+                    "id": "Solar.InterceptingFurySmite", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -184,7 +223,7 @@
                 "Brawl": 1, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.FivefoldFuryOnslaught": {
@@ -194,8 +233,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.HammeronIronTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.HammeronIronTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -206,8 +248,11 @@
                 "Brawl": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FerociousJab"
+            "prerequisites": [
+                {
+                    "id": "Solar.FerociousJab", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -218,8 +263,11 @@
                 "Brawl": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FallingHammerStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.FallingHammerStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -230,8 +278,11 @@
                 "Brawl": 5, 
                 "Essence": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.RampageBerserkerAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.RampageBerserkerAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -242,8 +293,11 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FerociousJab"
+            "prerequisites": [
+                {
+                    "id": "Solar.FerociousJab", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -254,8 +308,11 @@
                 "Brawl": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.AdamantineFistsofBattle"
+            "prerequisites": [
+                {
+                    "id": "Solar.AdamantineFistsofBattle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -266,8 +323,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SuperiorViolentKnowledge"
+            "prerequisites": [
+                {
+                    "id": "Solar.SuperiorViolentKnowledge", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -278,8 +338,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ForceRendingStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.ForceRendingStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -290,8 +353,11 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FistsofIronTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FistsofIronTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -302,8 +368,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.OxStunningBlow"
+            "prerequisites": [
+                {
+                    "id": "Solar.OxStunningBlow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -314,9 +383,15 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrashingWaveThrow", 
-                "Solar.HeavenThunderHammer"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrashingWaveThrow", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.HeavenThunderHammer", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -327,8 +402,11 @@
                 "Brawl": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ViciousLunge"
+            "prerequisites": [
+                {
+                    "id": "Solar.ViciousLunge", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -339,8 +417,11 @@
                 "Brawl": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FallingHammerStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.FallingHammerStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -351,8 +432,11 @@
                 "Brawl": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.AdamantineFistsofBattle"
+            "prerequisites": [
+                {
+                    "id": "Solar.AdamantineFistsofBattle", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -363,8 +447,11 @@
                 "Brawl": 3, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.FistsofIronTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.FistsofIronTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -375,8 +462,11 @@
                 "Brawl": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.TenCalamitiesTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.TenCalamitiesTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -387,8 +477,11 @@
                 "Brawl": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FivefoldFuryOnslaught"
+            "prerequisites": [
+                {
+                    "id": "Solar.FivefoldFuryOnslaught", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -399,8 +492,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.BurningProofofAuthority"
+            "prerequisites": [
+                {
+                    "id": "Solar.BurningProofofAuthority", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -411,8 +507,11 @@
                 "Brawl": 5, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.IronBattleFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.IronBattleFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -423,8 +522,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.OakCurlingClinch"
+            "prerequisites": [
+                {
+                    "id": "Solar.OakCurlingClinch", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -435,8 +537,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.CrashingWaveThrow"
+            "prerequisites": [
+                {
+                    "id": "Solar.CrashingWaveThrow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -447,8 +552,11 @@
                 "Brawl": 4, 
                 "Essence": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeavenThunderHammer"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeavenThunderHammer", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -459,8 +567,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.OneWithViolence"
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWithViolence", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -471,8 +582,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.StrivingAftershockMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.StrivingAftershockMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -483,8 +597,11 @@
                 "Brawl": 5, 
                 "Essence": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.InevitableVictoryMeditation"
+            "prerequisites": [
+                {
+                    "id": "Solar.InevitableVictoryMeditation", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -495,8 +612,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DragonCoilTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.DragonCoilTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -507,7 +627,7 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.TitanStraighteningMethod": {
@@ -517,8 +637,11 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.TenCalamitiesTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.TenCalamitiesTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -529,8 +652,11 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.ViciousLunge"
+            "prerequisites": [
+                {
+                    "id": "Solar.ViciousLunge", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -541,7 +667,7 @@
                 "Brawl": 3, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.WickedDissolveDust": {
@@ -551,9 +677,15 @@
                 "Brawl": 5, 
                 "Essence": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.RiverBindingWrath", 
-                "Solar.InterceptingFurySmite"
+            "prerequisites": [
+                {
+                    "id": "Solar.RiverBindingWrath", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.InterceptingFurySmite", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -564,8 +696,11 @@
                 "Brawl": 4, 
                 "Essence": 1
             }, 
-            "prerequisiteCharms": [
-                "Solar.FerociousJab"
+            "prerequisites": [
+                {
+                    "id": "Solar.FerociousJab", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }

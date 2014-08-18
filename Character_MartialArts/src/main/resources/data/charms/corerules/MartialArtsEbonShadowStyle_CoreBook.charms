@@ -8,9 +8,15 @@
                 "Essence": 1, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.NothingButShadows", 
-                "MartialArts.SevenPointsofWeaknessStrike"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.NothingButShadows", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.SevenPointsofWeaknessStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -21,8 +27,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.EbonShadowForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.EbonShadowForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -33,7 +42,7 @@
                 "Essence": 1, 
                 "MartialArts": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "MartialArts.SevenPointsofWeaknessStrike": {
@@ -43,7 +52,7 @@
                 "Essence": 1, 
                 "MartialArts": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "MartialArts.ShadowBodyDissolution": {
@@ -53,8 +62,11 @@
                 "Essence": 2, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.ElusiveFlickerEvasion"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.ElusiveFlickerEvasion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -65,8 +77,11 @@
                 "Essence": 2, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.EbonShadowForm"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.EbonShadowForm", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -77,8 +92,11 @@
                 "Essence": 3, 
                 "MartialArts": 4
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.ShadowSteppingMotion"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.ShadowSteppingMotion", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -89,9 +107,15 @@
                 "Essence": 3, 
                 "MartialArts": 5
             }, 
-            "prerequisiteCharms": [
-                "MartialArts.ShadowBodyDissolution", 
-                "MartialArts.ThroatSlittingShadowAtemi"
+            "prerequisites": [
+                {
+                    "id": "MartialArts.ShadowBodyDissolution", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "MartialArts.ThroatSlittingShadowAtemi", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }

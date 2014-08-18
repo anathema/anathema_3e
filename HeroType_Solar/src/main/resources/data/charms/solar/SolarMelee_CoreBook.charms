@@ -8,8 +8,11 @@
                 "Essence": 4, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SplitMotionAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SplitMotionAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -20,8 +23,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashingDisarmMethod"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingDisarmMethod", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -32,8 +38,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CoronaofRadiance"
+            "prerequisites": [
+                {
+                    "id": "Solar.CoronaofRadiance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -44,8 +53,11 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DippingSwallowDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -56,7 +68,7 @@
                 "Essence": 1, 
                 "Melee": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.CalmandReadyFocus": {
@@ -66,8 +78,11 @@
                 "Essence": 2, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FavoredLionStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.FavoredLionStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -78,8 +93,11 @@
                 "Essence": 4, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.UnassailableGuardianPosture"
+            "prerequisites": [
+                {
+                    "id": "Solar.UnassailableGuardianPosture", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -90,8 +108,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.EdgeofMorningSunlight"
+            "prerequisites": [
+                {
+                    "id": "Solar.EdgeofMorningSunlight", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -102,7 +123,7 @@
                 "Essence": 1, 
                 "Melee": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.EdgeofMorningSunlight": {
@@ -112,8 +133,11 @@
                 "Essence": 2, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.SandstormWindAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SandstormWindAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -124,7 +148,7 @@
                 "Essence": 1, 
                 "Melee": 2
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.FavoredLionStance": {
@@ -134,8 +158,11 @@
                 "Essence": 1, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.DippingSwallowDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -146,8 +173,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FlashingEdgeofDawn"
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingEdgeofDawn", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -158,8 +188,11 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -170,8 +203,11 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.MoonlightScatteredAshes"
+            "prerequisites": [
+                {
+                    "id": "Solar.MoonlightScatteredAshes", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -182,8 +218,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BulwarkStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.BulwarkStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -194,7 +233,7 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Solar.FlashingEdgeofDawn": {
@@ -204,9 +243,15 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.OneWeapon,TwoBlows", 
-                "Solar.SolarCounterattack"
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SolarCounterattack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -217,8 +262,11 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.RedReavingOnslaught"
+            "prerequisites": [
+                {
+                    "id": "Solar.RedReavingOnslaught", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -229,8 +277,11 @@
                 "Essence": 2, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.SummoningtheLoyalSteel"
+            "prerequisites": [
+                {
+                    "id": "Solar.SummoningtheLoyalSteel", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -241,8 +292,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IronRaptorTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.IronRaptorTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -253,8 +307,11 @@
                 "Essence": 1, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FavoredLionStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.FavoredLionStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -265,8 +322,11 @@
                 "Essence": 2, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.DippingSwallowDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -277,8 +337,11 @@
                 "Essence": 4, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.InvincibleFuryoftheDawn"
+            "prerequisites": [
+                {
+                    "id": "Solar.InvincibleFuryoftheDawn", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -289,8 +352,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.BulwarkStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.BulwarkStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -301,8 +367,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FavoredLionStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.FavoredLionStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -313,8 +382,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.RisingSunSlash"
+            "prerequisites": [
+                {
+                    "id": "Solar.RisingSunSlash", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -325,8 +397,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GloriousSolarSaber"
+            "prerequisites": [
+                {
+                    "id": "Solar.GloriousSolarSaber", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -337,8 +412,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IronWhirlwindAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.IronWhirlwindAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -349,9 +427,15 @@
                 "Essence": 2, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.CalltheBlade", 
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -362,8 +446,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.PeonyBlossomTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.PeonyBlossomTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -374,7 +461,7 @@
                 "Essence": 1, 
                 "Melee": 1
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.MoonlightScatteredAshes": {
@@ -384,7 +471,7 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Solar.OakRendingBlow": {
@@ -394,8 +481,11 @@
                 "Essence": 4, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.RisingSunSlash"
+            "prerequisites": [
+                {
+                    "id": "Solar.RisingSunSlash", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -406,8 +496,11 @@
                 "Essence": 1, 
                 "Melee": 2
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -418,8 +511,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FerventBlow"
+            "prerequisites": [
+                {
+                    "id": "Solar.FerventBlow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -430,8 +526,11 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.OneWeapon,TwoBlows"
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -442,9 +541,15 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.DippingSwallowDefense", 
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -455,8 +560,11 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.HeavenlyGuardianDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.HeavenlyGuardianDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -467,8 +575,11 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -479,8 +590,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SolarCounterattack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SolarCounterattack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -491,8 +605,11 @@
                 "Essence": 5, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.OakRendingBlow"
+            "prerequisites": [
+                {
+                    "id": "Solar.OakRendingBlow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -503,8 +620,11 @@
                 "Essence": 2, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FireandStonesStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.FireandStonesStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -515,9 +635,15 @@
                 "Essence": 2, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.CalltheBlade", 
-                "Solar.ExcellentStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -528,9 +654,15 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.GroundingStrike", 
-                "Solar.ShatteringThrow"
+            "prerequisites": [
+                {
+                    "id": "Solar.GroundingStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ShatteringThrow", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -541,8 +673,11 @@
                 "Essence": 1, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.FireandStonesStrike"
+            "prerequisites": [
+                {
+                    "id": "Solar.FireandStonesStrike", 
+                    "type": "charm"
+                }
             ], 
             "type": "Supplemental"
         }, 
@@ -553,8 +688,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.SandstormWindAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.SandstormWindAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -565,8 +703,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CoronaofRadiance"
+            "prerequisites": [
+                {
+                    "id": "Solar.CoronaofRadiance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -577,8 +718,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.IronRaptorTechnique"
+            "prerequisites": [
+                {
+                    "id": "Solar.IronRaptorTechnique", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -589,8 +733,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.OneWeapon,TwoBlows"
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }
             ], 
             "type": "Permanent"
         }, 
@@ -601,8 +748,11 @@
                 "Essence": 1, 
                 "Melee": 4
             }, 
-            "prerequisiteCharms": [
-                "Solar.DippingSwallowDefense"
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -613,8 +763,11 @@
                 "Essence": 3, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.CalmandReadyFocus"
+            "prerequisites": [
+                {
+                    "id": "Solar.CalmandReadyFocus", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -625,8 +778,11 @@
                 "Essence": 1, 
                 "Melee": 3
             }, 
-            "prerequisiteCharms": [
-                "Solar.CalltheBlade"
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }
             ], 
             "type": "Simple"
         }, 
@@ -637,8 +793,11 @@
                 "Essence": 2, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.FavoredLionStance"
+            "prerequisites": [
+                {
+                    "id": "Solar.FavoredLionStance", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }, 
@@ -649,8 +808,11 @@
                 "Essence": 4, 
                 "Melee": 5
             }, 
-            "prerequisiteCharms": [
-                "Solar.ArmRendingAttack"
+            "prerequisites": [
+                {
+                    "id": "Solar.ArmRendingAttack", 
+                    "type": "charm"
+                }
             ], 
             "type": "Reflexive"
         }
