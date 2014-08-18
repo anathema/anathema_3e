@@ -184,8 +184,11 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.ImmortalMarinersAdvantage", 
-                    "type": "charm"
+                    "options": [
+                        "Solar.ImmortalMarinersAdvantage", 
+                        "Solar.SaltyDogMethod"
+                    ], 
+                    "type": "charmsFromGroup"
                 }
             ], 
             "type": "Reflexive"
@@ -574,8 +577,11 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.ImmortalMarinersAdvantage", 
-                    "type": "charm"
+                    "options": [
+                        "Solar.ImmortalMarinersAdvantage", 
+                        "Solar.SaltyDogMethod"
+                    ], 
+                    "type": "charmsFromGroup"
                 }
             ], 
             "type": "Reflexive"
