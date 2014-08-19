@@ -13,7 +13,7 @@ public class TraitCapModifierCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     TraitCapModifier dto = overallDto.traitCapModifier;
     return new TraitCapModifyingCharm(new CharmName(overallDto.charmId), traitTypeFinder.getTrait(dto.trait), dto.modifier);
   }

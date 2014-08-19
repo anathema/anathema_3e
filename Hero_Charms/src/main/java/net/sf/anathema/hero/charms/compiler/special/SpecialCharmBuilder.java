@@ -5,7 +5,7 @@ import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 
 public interface SpecialCharmBuilder {
 
-  ISpecialCharm readCharm(SpecialCharmTemplate dto);
+  ISpecialCharm readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory);
 
   boolean supports(SpecialCharmTemplate dto);
 }

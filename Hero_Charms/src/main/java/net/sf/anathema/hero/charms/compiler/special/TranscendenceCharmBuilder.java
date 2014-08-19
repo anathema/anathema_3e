@@ -13,7 +13,7 @@ public class TranscendenceCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     TraitType trait = traitTypeFinder.getTrait(overallDto.transcendence.trait);
     int modifier = overallDto.transcendence.modifier;
     return new PrerequisiteModifyingCharm(new CharmName(overallDto.charmId), trait, modifier);

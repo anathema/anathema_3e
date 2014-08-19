@@ -1,7 +1,13 @@
 package net.sf.anathema.charm.template.special;
 
-public class TraitRepurchase {
+import net.sf.anathema.platform.persistence.JsonType;
+
+@JsonType("trait")
+public class TraitRepurchase implements Repurchase {
   public String limitingTrait;
-  public int modifier = 0;
-  public int absoluteMax;
+
+	@Override
+	public void visit(RepurchaseVisitor visitor) {
+		visitor.visitTraitRepurchase(this);
+	}
 }

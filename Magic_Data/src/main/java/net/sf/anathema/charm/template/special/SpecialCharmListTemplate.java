@@ -1,9 +1,9 @@
 package net.sf.anathema.charm.template.special;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SpecialCharmListTemplate {
 
-  public List<SpecialCharmTemplate> specialCharms = new ArrayList<>();
+  public Map<String, SpecialCharmTemplate> charms = new HashMap<>();
 }

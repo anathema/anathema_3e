@@ -10,7 +10,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharm;
 public class SubEffectCharmBuilder implements SpecialCharmBuilder {
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     SubEffect subEffect = overallDto.subEffect;
     String[] effects = subEffect.subEffects.toArray(new String[subEffect.subEffects.size()]);
     return new SubEffectCharm(new CharmName(overallDto.charmId), effects, subEffect.cost);

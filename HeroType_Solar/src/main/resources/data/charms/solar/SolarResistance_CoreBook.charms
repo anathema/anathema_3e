@@ -258,6 +258,10 @@
                 "Resistance": 1
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "limitingTrait": "Resistance", 
+                "type": "trait"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.PoisonResistingMeditation": {

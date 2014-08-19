@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.model.special.paintolerance.StaticPainToleran
 @SuppressWarnings("UnusedDeclaration")
 public class PainToleranceCharmBuilder implements SpecialCharmBuilder {
 
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     return new StaticPainToleranceCharm(new CharmName(overallDto.charmId), overallDto.painTolerance);
   }
 

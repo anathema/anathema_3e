@@ -18,7 +18,7 @@ public class ReflectionSpecialCharmBuilderTest {
     SpecialCharmTemplate dto = new SpecialCharmTemplate();
     ISpecialCharm charm = mock(ISpecialCharm.class);
     registerBuilderForDtoYieldingCharm(dto, charm);
-    ISpecialCharm specialCharm = new ReflectionSpecialCharmBuilder(factory).readCharm(dto);
+    ISpecialCharm specialCharm = new ReflectionSpecialCharmBuilder(factory).readCharm(dto, null);
     assertThat(specialCharm, is(charm));
   }
 

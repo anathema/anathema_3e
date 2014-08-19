@@ -10,7 +10,7 @@ public class ConfigurableDummySpecialCharmBuilder implements SpecialCharmBuilder
   private ISpecialCharm charm;
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate dto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory) {
     if (dto.equals(this.dto)){
       return charm;
     }

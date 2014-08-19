@@ -5,11 +5,14 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
+import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
+import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
@@ -26,7 +29,7 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  private final TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class);
+  
   @Inject
   public ObjectFactory objectFactory;
   @Inject
@@ -49,14 +52,19 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
-    RuntimeTypeAdapterFactory[] factories =
+    RuntimeTypeAdapterFactory[] charmFactories =
             new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
-    TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, factories);
-    CharmCacheBuilder charmsBuilder = new CharmCacheBuilder();
+    RuntimeTypeAdapterFactory[] specialFactories =
+        new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
+    TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
+    TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
+    CharmCacheBuilderImpl charmsBuilder = new CharmCacheBuilderImpl();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
     resourceFiles.forEach(resourceFile -> {
-      charmsBuilder.addTemplate(loadTemplate(resourceFile, charmsLoader));
-      specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader));
+    	CharmListTemplate charmTemplate = loadTemplate(resourceFile, charmsLoader);
+      charmsBuilder.addTemplate(charmTemplate);
+      specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader),
+      		new AdditionalCharmFactory(charmsBuilder, charmTemplate));
     });
     CharmCacheImpl charmCache = charmsBuilder.createCache();
     specialBuilder.addToCache(charmCache);

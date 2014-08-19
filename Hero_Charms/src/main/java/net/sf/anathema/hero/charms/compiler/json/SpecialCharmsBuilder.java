@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.compiler.json;
 
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
+import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.library.initialization.ObjectFactory;
@@ -18,8 +19,14 @@ public class SpecialCharmsBuilder {
     this.builder = new ReflectionSpecialCharmBuilder(objectFactory);
   }
 
-  public void addTemplate(SpecialCharmListTemplate listTemplate) {
-    listTemplate.specialCharms.forEach(template -> specialCharms.add(builder.readCharm(template)));
+  public void addTemplate(SpecialCharmListTemplate listTemplate, AdditionalCharmFactory factory) {
+    listTemplate.charms.forEach((name, template) -> {
+    	template.charmId = name;
+    	ISpecialCharm special = builder.readCharm(template, factory);
+    	if (special != null) {
+    		specialCharms.add(special);
+    	}
+    });
   }
 
   public void addToCache(CharmCacheImpl cache) {

@@ -1,8 +1,8 @@
 package net.sf.anathema.charm.template.special;
 
-public class Repurchase {
-  public boolean isEssenceRepurchase = false;
-  public TraitRepurchase traitRepurchase;
-  public StaticRepurchase staticRepurchase;
-  public TierRepurchase tierRepurchase;
+import net.sf.anathema.platform.persistence.JsonField;
+
+@JsonField("type")
+public interface Repurchase {
+	void visit(RepurchaseVisitor visitor);
 }

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
 public class SingleCharmCharmCacheBuilderTest {
 
   public static final String CHARM_NAME = "AnyName";
-  private CharmCacheBuilder builder = new CharmCacheBuilder();
+  private CharmCacheBuilderImpl builder = new CharmCacheBuilderImpl();
   private CharmListTemplate template = new CharmListTemplate();
   private CharmTemplate charmTemplate = new CharmTemplate();
 

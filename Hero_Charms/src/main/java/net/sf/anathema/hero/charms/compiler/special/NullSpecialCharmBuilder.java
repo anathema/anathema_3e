@@ -7,7 +7,7 @@ import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 @DoNotInstantiateAutomatically
 public class NullSpecialCharmBuilder implements SpecialCharmBuilder {
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate dto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory) {
     return null;
   }
 

@@ -13,6 +13,14 @@ public class SimpleCharmPrerequisiteTemplate implements CharmPrerequisiteTemplat
 
 	public String id;
 	
+	public SimpleCharmPrerequisiteTemplate() {
+		
+	}
+	
+	public SimpleCharmPrerequisiteTemplate(String id) {
+		this.id = id;
+	}
+	
 	@Override
 	public CharmPrerequisite generate(Map<CharmName, Charm> charms) {
 		return new SimpleCharmPrerequisite(charms.get(new CharmName(id)));

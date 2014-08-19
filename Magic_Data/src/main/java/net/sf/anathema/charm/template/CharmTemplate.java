@@ -16,4 +16,16 @@ public class CharmTemplate {
   public List<String> keywords = new ArrayList<>();
   public List<String> internalTags = new ArrayList<>();
   public List<String> sources = new ArrayList<>();
+  
+  public CharmTemplate clone() {
+  	CharmTemplate clone = new CharmTemplate();
+  	clone.minimums.putAll(minimums);
+  	clone.prerequisites.addAll(prerequisites);
+  	clone.duration = duration;
+  	clone.cost = cost;
+  	clone.keywords.addAll(keywords);
+  	clone.internalTags.addAll(internalTags);
+  	clone.sources.addAll(sources);
+  	return clone;
+  }
 }

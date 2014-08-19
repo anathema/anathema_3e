@@ -10,7 +10,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.ComplexMultipleEffec
 public class MultiEffectCharmBuilder implements SpecialCharmBuilder {
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     MultiEffect multiEffect = overallDto.multiEffect;
     String[] effects = multiEffect.effects.toArray(new String[multiEffect.effects.size()]);
     return new ComplexMultipleEffectCharm(new CharmName(overallDto.charmId), effects, multiEffect.prerequisiteEffectMap);

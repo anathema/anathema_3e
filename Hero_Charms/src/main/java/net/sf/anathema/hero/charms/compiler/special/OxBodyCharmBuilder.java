@@ -28,7 +28,7 @@ public class OxBodyCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     return createSpecialCharm(new CharmName(overallDto.charmId), overallDto.oxBodyTechnique);
   }
 

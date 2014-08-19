@@ -17,7 +17,7 @@ public class UpgradableCharmBuilder implements SpecialCharmBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto) {
+  public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     Upgradable dto = overallDto.upgradable;
     return new UpgradableCharm(new CharmName(overallDto.charmId), createUpgrades(dto), dto.requiresBase, dto.bpCostsByName,
             dto.xpCostsByName, dto.essenceMinimumsByName, dto.traitMinimumsByName, createTraitsMap(dto));
