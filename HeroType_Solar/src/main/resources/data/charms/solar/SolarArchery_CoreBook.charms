@@ -131,6 +131,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.FieryArrowAttack": {
@@ -221,6 +234,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.HuntersSwiftAnswer": {
@@ -325,6 +351,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Simple"
         }, 
         "Solar.SearingSunfireInterdiction": {
@@ -340,6 +379,51 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 6
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 6
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Simple"
         }, 
         "Solar.SevenOmensShot": {

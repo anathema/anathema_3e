@@ -11,6 +11,7 @@ import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.RepurchaseVisitor;
 import net.sf.anathema.charm.template.special.Requirement;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.charm.template.special.StaticRepurchase;
 import net.sf.anathema.charm.template.special.Tier;
 import net.sf.anathema.charm.template.special.TierRepurchase;
 import net.sf.anathema.charm.template.special.TraitRepurchase;
@@ -54,6 +55,15 @@ public class RepurchaseCharmBuilder implements SpecialCharmBuilder {
 			@Override
 			public void visitTierRepurchase(TierRepurchase repurchase) {
 				factory.generateCharms(overallDto.charmId, repurchase.tiers);
+			}
+
+			@Override
+			public void visitStaticRepurchase(StaticRepurchase repurchase) {
+				List<Tier> tiers = new ArrayList<>();
+				for (int i = 0; i != repurchase.limit; i++) {
+					tiers.add(new Tier());
+				}
+				factory.generateCharms(overallDto.charmId, tiers);
 			}
   		
   	});
