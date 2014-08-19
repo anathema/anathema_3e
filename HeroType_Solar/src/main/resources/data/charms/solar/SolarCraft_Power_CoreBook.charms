@@ -29,7 +29,7 @@
                     "type": "charm"
                 }, 
                 {
-                    "id": "Solar.SupremeMasterworkFocus", 
+                    "id": "Solar.SupremeMasterworkFocus.x2", 
                     "type": "charm"
                 }
             ], 
@@ -146,7 +146,7 @@
                     "type": "charm"
                 }, 
                 {
-                    "id": "Solar.SupremeMasterworkFocus", 
+                    "id": "Solar.SupremeMasterworkFocus.x2", 
                     "type": "charm"
                 }
             ], 

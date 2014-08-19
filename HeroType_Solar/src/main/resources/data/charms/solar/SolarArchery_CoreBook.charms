@@ -347,7 +347,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.SearingSunfireInterdiction", 
+                    "id": "Solar.SearingSunfireInterdiction.x3", 
                     "type": "charm"
                 }
             ], 

@@ -438,7 +438,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.AdamantineFistsofBattle", 
+                    "id": "Solar.AdamantineFistsofBattle.x2", 
                     "type": "charm"
                 }
             ], 

@@ -10,7 +10,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.SplitMotionAttack", 
+                    "id": "Solar.SplitMotionAttack.x2", 
                     "type": "charm"
                 }
             ], 
@@ -25,7 +25,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.FlashingDisarmMethod", 
+                    "id": "Solar.FlashingDisarmMethod.x2", 
                     "type": "charm"
                 }
             ], 
@@ -95,7 +95,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.UnassailableGuardianPosture", 
+                    "id": "Solar.UnassailableGuardianPosture.x2", 
                     "type": "charm"
                 }
             ], 
