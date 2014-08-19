@@ -107,6 +107,35 @@
                 "Linguistics": 3
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Linguistics", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Linguistics", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.HeavenDrawingDiscipline": {
@@ -122,6 +151,27 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.LetterWithinALetterTechnique": {

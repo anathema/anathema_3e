@@ -157,6 +157,10 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "limit": 3, 
+                "type": "static"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.EasilyDiscardedPresenceMethod": {
@@ -459,6 +463,35 @@
                 "Socialize": 3
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Socialize", 
+                                "traitValue": 4
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 1
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Socialize", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 1
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.NightPassesOver": {
@@ -529,6 +562,27 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.SelfsameMasterProcurer": {

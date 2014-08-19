@@ -63,6 +63,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.FlashingRusePrana": {

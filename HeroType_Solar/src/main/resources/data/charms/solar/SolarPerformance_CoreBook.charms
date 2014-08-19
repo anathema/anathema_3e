@@ -218,6 +218,27 @@
                     "type": "numberOfTraitCharms"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Simple"
         }, 
         "Solar.MonkSeducingDemonDance": {

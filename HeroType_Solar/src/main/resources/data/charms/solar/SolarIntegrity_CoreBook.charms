@@ -24,6 +24,35 @@
                 "Integrity": 1
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Integrity", 
+                                "traitValue": 3
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 1
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Integrity", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.IntegrityExcellency": {
@@ -74,6 +103,23 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Integrity", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 1
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.RighteousLionDefense": {
@@ -89,6 +135,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.SpiritMaintainingManeuver": {

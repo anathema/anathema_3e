@@ -24,6 +24,10 @@
                 "Essence": 1
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "limit": 1, 
+                "type": "static"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.BreachHealingMethod": {
@@ -326,6 +330,19 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Simple"
         }, 
         "Solar.WordsasWorkshopMethod": {

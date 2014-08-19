@@ -59,6 +59,10 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "limit": 3, 
+                "type": "static"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.DeadlyOnslaughtCoordination": {
@@ -236,6 +240,10 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "limit": 5, 
+                "type": "static"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.PhantomRendingFangs": {

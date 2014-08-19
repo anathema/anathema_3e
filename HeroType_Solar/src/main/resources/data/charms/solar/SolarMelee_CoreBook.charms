@@ -234,6 +234,23 @@
                 "Melee": 3
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Melee", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 2
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.FlashingEdgeofDawn": {
@@ -343,6 +360,27 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.HeavenlyGuardianDefense": {
@@ -373,6 +411,10 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "limit": 1, 
+                "type": "static"
+            }, 
             "type": "Permanent"
         }, 
         "Solar.HungryTigerTechnique": {
@@ -777,6 +819,27 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 4
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Reflexive"
         }, 
         "Solar.SummoningtheLoyalSteel": {

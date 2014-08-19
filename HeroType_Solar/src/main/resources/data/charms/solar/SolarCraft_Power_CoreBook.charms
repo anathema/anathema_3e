@@ -88,6 +88,19 @@
                 "Essence": 1
             }, 
             "prerequisites": [], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.HolisticMiracleUnderstanding": {
@@ -167,6 +180,35 @@
                     "type": "charm"
                 }
             ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Craft", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 2
+                            }
+                        ]
+                    }, 
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Craft", 
+                                "traitValue": 5
+                            }, 
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
             "type": "Supplemental"
         }, 
         "Solar.TriumphForgingEye": {
