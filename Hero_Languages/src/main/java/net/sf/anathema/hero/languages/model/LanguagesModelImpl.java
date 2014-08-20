@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -31,8 +33,10 @@ import com.google.common.collect.Lists;
 public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> implements LanguagesModel {
 
   private static final int barbarianLanguagesPerPoint = 4;
+  private static final String OLD_REALM_ID = "OldRealm";
+  
   private final List<Identifier> languages = Lists.newArrayList(
-          new SimpleIdentifier("HighRealm"), new SimpleIdentifier("LowRealm"), new SimpleIdentifier("OldRealm"),
+          new SimpleIdentifier("HighRealm"), new SimpleIdentifier("LowRealm"), new SimpleIdentifier(OLD_REALM_ID),
           new SimpleIdentifier("Riverspeak"), new SimpleIdentifier("Skytongue"), new SimpleIdentifier("Flametongue"),
           new SimpleIdentifier("Seatongue"), new SimpleIdentifier("Foresttongue"), new SimpleIdentifier("GuildCant"),
           new SimpleIdentifier("ClawSpeak"), new SimpleIdentifier("HighHolySpeech"), new SimpleIdentifier("Pelagial"));
@@ -87,7 +91,17 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   @Override
   public boolean isEntryAllowed() {
-    return selection != null && !getEntries().contains(selection);
+  	if (selection == null) {
+  		return false;
+  	}
+  	if (selection.toString().equals(OLD_REALM_ID)) {
+  		AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
+  		if (abilities.getTrait(AbilityType.Occult).getCurrentValue() == 0 &&
+  				abilities.getTrait(AbilityType.Lore).getCurrentValue() == 0) {
+  			return false;
+  		}
+  	}
+    return !getEntries().contains(selection);
   }
 
   @Override
