@@ -1,6 +1,6 @@
 dependencies {
   compile project(':Hero')
-  compile project(':Hero_Abilities')
+  compile project(':Hero_Merits')
   compile project(':Hero_Points')
   compile project(':Hero_Sheet')
   compile project(':Library_FX')

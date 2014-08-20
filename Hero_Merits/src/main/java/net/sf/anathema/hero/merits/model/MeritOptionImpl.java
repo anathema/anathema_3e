@@ -7,8 +7,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
-import net.sf.anathema.hero.merits.model.requirements.MeritTraitRequirement;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class MeritOptionImpl implements MeritOption {
@@ -125,5 +123,13 @@ public class MeritOptionImpl implements MeritOption {
 			return false;
 		}
 		return legalValues[value];
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof MeritOption) {
+			return ((MeritOption)obj).getId().equals(getId());
+		}
+		return false;
 	}
 }

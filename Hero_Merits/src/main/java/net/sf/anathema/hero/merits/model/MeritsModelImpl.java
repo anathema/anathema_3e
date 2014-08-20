@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.merits.model;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,6 @@ import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -74,6 +75,11 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @Override
   public List<Merit> getMerits() {
 	  return getEntries();
+  }
+  
+  @Override
+  public List<Merit> getMeritsOfOption(MeritOption option) {
+  	return getEntries().stream().filter(merit -> merit.getBaseOption().equals(option)).collect(toList());
   }
   
   @Override

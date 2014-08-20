@@ -1,15 +1,18 @@
 package net.sf.anathema.hero.languages.model;
 
-import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
-import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
-import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.merits.model.CustomMeritOption;
+import net.sf.anathema.hero.merits.model.Merit;
+import net.sf.anathema.hero.merits.model.MeritOption;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.event.ChangeListener;
@@ -17,11 +20,13 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
+
 import org.jmock.example.announcer.Announcer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.google.common.base.Objects;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 
 public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> implements LanguagesModel {
 
@@ -52,16 +57,16 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
   public void initializeListening(final ChangeAnnouncer announcer) {
     addModelChangeListener(new RemovableEntryChangeAdapter<>(announcer));
     announcer.addListener(flavor -> {
-      if (TraitChangeFlavor.changes(flavor, AbilityType.Linguistics)) {
         updateLanguagePointAllowance();
-      }
     });
   }
 
   private void updateLanguagePointAllowance() {
     int currentPoints = languagePointsAllowed;
-    Trait linguistics = AbilitiesModelFetcher.fetch(hero).getTrait(AbilityType.Linguistics);
-    languagePointsAllowed = linguistics.getCurrentValue() + 1;
+    MeritOption languageMeritOption = new CustomMeritOption("Language");
+    MeritsModel merits = MeritsModelFetcher.fetch(hero);
+    List<Merit> languageMerits = merits.getMeritsOfOption(languageMeritOption);
+    languagePointsAllowed = languageMerits.size() + 1;
     if (currentPoints != languagePointsAllowed) {
       pointControl.announce().changeOccurred();
     }
