@@ -8,6 +8,7 @@ import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
@@ -270,6 +271,22 @@ public class CharmsModelImpl implements CharmsModel {
     }
     return false;
   }
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
+			TreeReference tree, MagicAttribute attribute, int threshold) {
+  	int count = 0;
+    for (Charm charm : learningModel.getCurrentlyLearnedCharms().applyFilter(charm ->
+    	charm.getTreeReference().equals(tree))) {
+      if (charm.hasAttribute(attribute)) {
+        count++;
+      }
+      if (count >= threshold) {
+        return true;
+      }
+    }
+    return false;
+	}
   
 
 	@Override

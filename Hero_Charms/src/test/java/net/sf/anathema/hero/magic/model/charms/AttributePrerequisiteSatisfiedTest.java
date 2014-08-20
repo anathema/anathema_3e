@@ -2,6 +2,7 @@ package net.sf.anathema.hero.magic.model.charms;
 
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -11,6 +12,7 @@ import java.util.Map;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied;
@@ -91,6 +93,23 @@ public class AttributePrerequisiteSatisfiedTest {
 			public boolean hasLearnedThresholdCharmsWithKeyword(MagicAttribute attribute, int threshold) {
 				int count = 0;
 				for (Charm charm : charms) {
+					if (charm.hasAttribute(attribute)) {
+						count++;
+					}
+					if (count >= threshold) {
+						return true;
+					}
+				}
+				return false;
+			}
+			
+			@Override
+			public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
+					TreeReference tree, MagicAttribute attribute, int threshold) {
+				int count = 0;
+				List<Charm> validCharms = new ArrayList<>(charms);
+				validCharms.removeIf(charm -> !charm.getTreeReference().equals(tree));
+				for (Charm charm : validCharms) {
 					if (charm.hasAttribute(attribute)) {
 						count++;
 					}

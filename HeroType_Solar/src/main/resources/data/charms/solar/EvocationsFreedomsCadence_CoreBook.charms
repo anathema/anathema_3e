@@ -1,0 +1,142 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.ClearPathDefense": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SnowGatheringElusion", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.DestinationHuntingImpulse": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SteppingThroughStrife", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.FallingStarPercussion": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DestinationHuntingImpulse", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.ObjectiveShiftingWeave": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DestinationHuntingImpulse", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.PoundtheDrums": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.SifusGracefulAccord": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FallingStarPercussion", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.SnowGatheringElusion": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.SteppingThroughStrife": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Permanent"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 2, 
+    "sapphireRequiredForAdamant": 2, 
+    "tree": "FreedomsCadence"
+}

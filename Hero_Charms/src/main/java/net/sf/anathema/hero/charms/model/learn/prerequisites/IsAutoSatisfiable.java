@@ -6,6 +6,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
@@ -28,6 +29,12 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     this.satisfiable = false;
   }
+  
+  @Override
+	public void requiresMagicAttributesFromTree(TreeReference tree,
+			MagicAttribute attribute, int count) {
+		this.satisfiable = false;
+	}
 
   @Override
   public void requiresCharm(Charm prerequisite) {

@@ -6,7 +6,6 @@ import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CascadePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.environment.Environment;
@@ -15,7 +14,6 @@ public class CharmCascadesPresenterImpl {
   private final CascadePresenter cascadePresenter;
   private final CharmCache cache;
   private final ObjectFactory objectFactory;
-  private final HeroTypes heroTypes;
   private final CharmView view;
   private final CharmTreeMap identifierMap;
 
@@ -27,7 +25,6 @@ public class CharmCascadesPresenterImpl {
     this.cache = heroEnvironment.getDataSet(CharmCache.class);
     this.cascadePresenter = new CascadePresenter(environment, cache, magicDescriptionProvider);
     this.objectFactory = environment.getObjectFactory();
-    this.heroTypes = heroEnvironment.getHeroTypes();
   }
 
   public void initPresentation() {
@@ -35,11 +32,11 @@ public class CharmCascadesPresenterImpl {
     CharmDisplayPropertiesMap charmDisplayPropertiesMap = new CharmDisplayPropertiesMap(objectFactory);
     CascadeCharmGroupChangeListener selectionListener = new CascadeCharmGroupChangeListener(specialCharmSet, charmDisplayPropertiesMap);
     cascadePresenter.setCharmTreeCollectionMap(identifierMap);
-    cascadePresenter.setCategoryCollection(new CascadeCategoryCollection(heroTypes, cache));
+    cascadePresenter.setCategoryCollection(new CascadeCategoryCollection(cache));
     cascadePresenter.setChangeListener(selectionListener);
     cascadePresenter.setView(view);
     cascadePresenter.setCharmDye(new ConfigurableCharmDye(selectionListener, new CascadeColoringStrategy()));
-    cascadePresenter.setCharmTrees(new CascadeGroupCollection(cache, heroTypes, identifierMap));
+    cascadePresenter.setCharmTrees(new CascadeGroupCollection(cache, identifierMap));
     cascadePresenter.setSpecialCharmSet(specialCharmSet);
     cascadePresenter.initPresentation();
   }

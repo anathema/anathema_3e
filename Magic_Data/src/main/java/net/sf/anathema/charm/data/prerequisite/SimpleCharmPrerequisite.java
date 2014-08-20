@@ -28,4 +28,8 @@ public class SimpleCharmPrerequisite implements CharmPrerequisite {
     }
     return false;
   }
+  
+  public Charm getParentCharm() {
+  	return prerequisite;
+  }
 }

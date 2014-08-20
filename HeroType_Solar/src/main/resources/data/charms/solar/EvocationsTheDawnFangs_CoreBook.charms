@@ -1,0 +1,200 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.DualStunningStrike": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LeapingTigersBite", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.StalkingJaguarsStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.FoeSpillingTalons": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LeapingTigersBite", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.StalkingJaguarsStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.FoeStaggeringFrenzy": {
+            "cost": "2m, 2i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DualStunningStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SavageBattlePressingLunge", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.LeapingTigersBite": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.RagingFangOffensive", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.RagingFangOffensive": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "options": [
+                        "Evocations.RelentlessKillingClaws", 
+                        "Evocations.FallingHammerStrike"
+                    ], 
+                    "type": "charmsFromGroup"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.RelentlessKillingClaws": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.RippingSlashTechnique": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FoeSpillingTalons", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SavageBattlePressingLunge", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.SavageBattlePressingLunge": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LeapingTigersBite", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.StalkingJaguarsStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.StalkingJaguarsStrike": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.RagingFangOffensive", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.TwoFangsKillasOne": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FoeStaggeringFrenzy", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.RippingSlashTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 3, 
+    "sapphireRequiredForAdamant": 3, 
+    "tree": "TheDawnFangs"
+}

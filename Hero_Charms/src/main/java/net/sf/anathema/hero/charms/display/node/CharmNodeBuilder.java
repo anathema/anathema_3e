@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.node;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
@@ -30,6 +31,14 @@ public class CharmNodeBuilder {
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
         }
+        
+        @Override
+				public void requiresMagicAttributesFromTree(TreeReference tree,
+						MagicAttribute attribute, int count) {
+        	String nodeIds = NodeIds.getNodeId(attribute, count);
+          IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
+          charmNodesById.put(nodeIds, parentNode);
+				}
 
         @Override
         public void requiresCharm(Charm prerequisite) {

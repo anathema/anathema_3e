@@ -48,4 +48,8 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   public void addCharmPrerequisite(CharmPrerequisite prerequisite) {
     charmPrerequisites.add(prerequisite);
   }
+
+	public void clearPrerequisites() {
+		charmPrerequisites.clear();
+	}
 }

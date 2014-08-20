@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.prerequisites;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
@@ -25,6 +26,12 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     nodeIds.add(getNodeId(attribute, count));
   }
+  
+  @Override
+	public void requiresMagicAttributesFromTree(TreeReference tree,
+			MagicAttribute attribute, int count) {
+  	nodeIds.add(getNodeId(attribute, count));
+	}
 
   @Override
   public void requiresCharm(Charm prerequisite) {

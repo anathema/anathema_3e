@@ -1,0 +1,126 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.ArmyShatteringProwess": {
+            "cost": "\u2014(2m+)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DaredevilBravadoDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.ChampionsFatalStrike": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.TasteofVictoryRhythm", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.DaredevilBravadoDefense": {
+            "cost": "6m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ChampionsFatalStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FearlessWarriorsRevival", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.FearlessWarriorsRevival": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.TasteofVictoryRhythm", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.PoundingHeartTriumph": {
+            "cost": "3m, 1i", 
+            "duration": "One scene", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.TasteofVictoryRhythm": {
+            "cost": "2m per successful attack", 
+            "duration": "Until next turn", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.PoundingHeartTriumph", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.UnyieldingHerosDefiance": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DaredevilBravadoDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 2, 
+    "sapphireRequiredForAdamant": 3, 
+    "tree": "Dauntless"
+}

@@ -6,7 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.evocations.EvocationArtifactTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
@@ -58,16 +60,20 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
         new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
     TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
     TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
+    TemplateLoader<EvocationArtifactTemplate> evocationLoader = new GenericTemplateLoader<>(EvocationArtifactTemplate.class);
     CharmCacheBuilderImpl charmsBuilder = new CharmCacheBuilderImpl();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
+    EvocationsBuilder evocationBuilder = new EvocationsBuilder();
     resourceFiles.forEach(resourceFile -> {
     	CharmListTemplate charmTemplate = loadTemplate(resourceFile, charmsLoader);
       charmsBuilder.addTemplate(charmTemplate);
       specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader),
       		new AdditionalCharmFactory(charmsBuilder, charmTemplate));
+      evocationBuilder.addTemplate(loadTemplate(resourceFile, evocationLoader));
     });
     CharmCacheImpl charmCache = charmsBuilder.createCache();
     specialBuilder.addToCache(charmCache);
+    evocationBuilder.addToCache(charmCache);
     return charmCache;
   }
 

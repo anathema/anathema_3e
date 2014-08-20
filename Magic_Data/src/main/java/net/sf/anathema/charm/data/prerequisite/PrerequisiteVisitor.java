@@ -13,4 +13,6 @@ public interface PrerequisiteVisitor {
   void visit(SpecificGroupCharmPrerequisite prerequisite);
   
   void visit(TraitGroupCharmPrerequisite prerequisite);
+  
+  void visit(EvocationTierPrerequisite prerequisite);
 }

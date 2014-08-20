@@ -1,0 +1,295 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.ArrowHedgeNest": {
+            "cost": "4m", 
+            "duration": "Indefinite", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.GlitteringRubyEyes", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.CloudBlendingCamouflage": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.GlitteringRubyEyes", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.CrimsonArrowStrike": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.GlitteringRubyEyes", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.OrichalcumWingsElevation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.DriftingHawkTactics": {
+            "cost": "\u2014(2m)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.OrichalcumWingsElevation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.FloatingHawkEvasion": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.OrichalcumWingsElevation", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.RendingTalonAttack", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.GildedNestRenewal": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.HedgeCultivatingMeasure", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SunGildedHawkSoul", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.GlitteringRubyEyes": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Permanent"
+        }, 
+        "Evocations.HedgeCultivatingMeasure": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ArrowHedgeNest", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.NeedleNestEruption": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ArrowHedgeNest", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.OrichalcumWingsElevation": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.RedSwarmUnbound": {
+            "cost": "6m, plus 1m per round", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ScreamingArrow", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.RendingTalonAttack": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WingBuffetRetreat", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.ScreamingArrow": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.CrimsonArrowStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.SunGildedHawkSoul": {
+            "cost": "5m, 3a, 1wp", 
+            "duration": "Indefinite", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FloatingHawkEvasion", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.RedSwarmUnbound", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.SunShrikeAssault": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SolarSpike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SunGildedHawkSoul", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.WingBuffetRetreat": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.GlitteringRubyEyes", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 4, 
+    "sapphireRequiredForAdamant": 4, 
+    "tree": "OrichalcumHuntingHawk"
+}

@@ -1,0 +1,367 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.AllCreationTurnstoAsh": {
+            "cost": "15m, 5i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.MagmaBurial", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.PyroclasticHolocaustJudgment", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.BonesandHopetoAshesandFlame": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EarthPyreAnticipation", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.LostSoulConflagration", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.DragonTongueRetrieval": {
+            "cost": "\u2014 (+3m)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WaketheFlame", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.EarthFountainCremation": {
+            "cost": "1m per point", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EarthPyreAnticipation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.EarthPyreAnticipation": {
+            "cost": "1m", 
+            "duration": "Indefinite", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DragonTongueRetrieval", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.GrandEruption", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.EarthsShatteringRoar": {
+            "cost": "\u2014 (+2m, 1wp)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.MoltenRageCore", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.FlameFeedingRequiem": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SoulPyreCommitment", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.FlameSpiritAwakening": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EarthPyreAnticipation", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.LingeringFlameShroud", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.FleshandBoneIgnition": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SearingBrand", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.GrandEruption": {
+            "cost": "5m, 4i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WaketheFlame", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.LingeringFlameShroud": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DragonTongueRetrieval", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.LostSoulConflagration": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SoulPyreCommitment", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.MagmaBurial": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EarthFountainCremation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.MoltenRageCore": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.GrandEruption", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.PyroclasticHolocaustJudgment": {
+            "cost": "10m, 5i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WorldSplittingFlame", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.SearingBrand": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SeethingEarthEdge", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.SeethingEarthEdge": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WaketheFlame", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.SoulPyreCommitment": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FleshandBoneIgnition", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.WaketheFlame": {
+            "cost": "5m, 1i or 5m, 1i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.WorldSplittingFlame": {
+            "cost": "8m, 3i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EarthsShatteringRoar", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SearingBrand", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 4, 
+    "sapphireRequiredForAdamant": 4, 
+    "tree": "VolcanoCutter"
+}

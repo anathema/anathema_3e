@@ -1,0 +1,75 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.DawnofaHundredRebukes": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LuminousSoulWarden", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.FoestoMothsProvocation": {
+            "cost": "5m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DawnofaHundredRebukes", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.UnconqueredGuardianDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.LuminousSoulWarden": {
+            "cost": "1m per anima level", 
+            "duration": "One scene", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Evocations.UnconqueredGuardianDefense": {
+            "cost": "4m or 4i, or 0m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LuminousSoulWarden", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 1, 
+    "sapphireRequiredForAdamant": 2, 
+    "tree": "BrilliantSentinel"
+}

@@ -1,0 +1,251 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.BedeckedinDeathandBeauty": {
+            "cost": "5m, 2i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DelicateCrimsonExecution", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.WhirlingPetalStorm", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.DeadlyFlowersBlooming": {
+            "cost": "1m, 1i", 
+            "duration": "One scene", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SheddingFeverDreams", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.DelicateCrimsonExecution": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DeadlyFlowersBlooming", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.EssenceBlossomEscape": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SwirlingPetalDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.FieldofCrimsonDeath": {
+            "cost": "10m, 3i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.BedeckedinDeathandBeauty", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FlyingPetalTempest", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.FlyingPetalTempest": {
+            "cost": "6m, 1wp", 
+            "duration": "Until end of next turn", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.WhirlingPetalStorm", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.HowlingLotusStrike": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.PoisonLeechingRapport": {
+            "cost": "4m, 1wp", 
+            "duration": "Indefinite", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Evocations.SevenWidowsVenom": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SheddingFeverDreams", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.VenomIntensifyingStroke", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.SheddingFeverDreams": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SwirlingPetalDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.VenomIntensifyingStroke", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.SpiritDrinkingBlossoms": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DelicateCrimsonExecution", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.SwirlingPetalDefense": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.VenomIntensifyingStroke": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.HowlingLotusStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.WhirlingPetalStorm": {
+            "cost": "6m, 1wp", 
+            "duration": "Until end of next turn", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.EssenceBlossomEscape", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.HowlingLotusStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 4, 
+    "sapphireRequiredForAdamant": 4, 
+    "tree": "SpringRazor"
+}

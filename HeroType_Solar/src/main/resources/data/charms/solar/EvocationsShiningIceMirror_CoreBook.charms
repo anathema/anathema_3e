@@ -1,0 +1,163 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.ColdMoonSlash": {
+            "cost": "6m, 2i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Evocations.FlameDrinkingStance": {
+            "cost": "2m, 1i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ShiningIceGuardianTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.FrostPhantomStrike": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ColdMoonSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.FrostReapingAttitude": {
+            "cost": "4m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ColdMoonSlash", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.ShiningIceGuardianTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.FrozenFlameEvasion": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FlameDrinkingStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FrostReapingAttitude", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.HeartFreezingCrescent": {
+            "cost": "\u2014", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ColdMoonSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.KillingMirrorStroke": {
+            "cost": "\u2014(3m)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.FrostPhantomStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Evocations.KillingMoonRebuke": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.KillingMirrorStroke", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.ShiningIceGuardianTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.ShiningIceGuardianTechnique": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 3, 
+    "sapphireRequiredForAdamant": 3, 
+    "tree": "ShiningIceMirror"
+}

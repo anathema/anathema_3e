@@ -95,7 +95,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.UnassailableGuardianPosture.x2", 
+                    "id": "Solar.UnassailableGuardianPosture", 
                     "type": "charm"
                 }
             ], 

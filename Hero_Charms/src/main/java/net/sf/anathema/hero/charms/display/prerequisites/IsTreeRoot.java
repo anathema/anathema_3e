@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.DirectGroupCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.SpecificGroupCharmPrerequisite;
@@ -24,6 +25,11 @@ public class IsTreeRoot implements PrerequisiteVisitor {
   public void visit(AttributeKnownCharmPrerequisite prerequisite) {
     isRoot = false;
   }
+  
+  @Override
+	public void visit(EvocationTierPrerequisite prerequisite) {
+		isRoot = false;
+	}
 
   @Override
   public void visit(DirectGroupCharmPrerequisite prerequisite) {

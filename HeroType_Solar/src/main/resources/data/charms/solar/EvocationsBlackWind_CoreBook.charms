@@ -1,0 +1,168 @@
+{
+    "category": "Evocations", 
+    "charms": {
+        "Evocations.AwakenedBloodBlade": {
+            "cost": "5m, 1wp, 5 blades", 
+            "duration": "One scene", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ErrantOrbitScythe", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.RedReaperAegis", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.BloodReapingSlash": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.ErrantOrbitScythe": {
+            "cost": "5m, 1wp, 1+ blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SevenTraumasTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Evocations.LifeDrinkingResurgence": {
+            "cost": "2m, 1+ blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.BloodReapingSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.RedReaperAegis": {
+            "cost": "4m, 1+ blade", 
+            "duration": "Higher of (Essence) or three rounds", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LifeDrinkingResurgence", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SanguineHammer", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Evocations.SanguineHammer": {
+            "cost": "2m, 1+ blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.BloodReapingSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.SavageBloodSwarm": {
+            "cost": "3m, 1+ blood blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Adamant"
+            ], 
+            "minimums": {
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.AwakenedBloodBlade", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.SanguineHammer", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.SevenTraumasTechnique": {
+            "cost": "3m, 1+ blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Emerald"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LifeDrinkingResurgence", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Evocations.StolenLifeDetonation": {
+            "cost": "3m, 1+ blade", 
+            "duration": "Instant", 
+            "keywords": [
+                "Sapphire"
+            ], 
+            "minimums": {
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Evocations.RedReaperAegis", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "emeraldRequiredForSapphire": 3, 
+    "sapphireRequiredForAdamant": 3, 
+    "tree": "BlackWind"
+}

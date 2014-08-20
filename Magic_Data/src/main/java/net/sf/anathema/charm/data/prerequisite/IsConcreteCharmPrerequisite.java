@@ -1,10 +1,11 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
-
 import java.util.List;
 import java.util.function.Predicate;
+
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite> {
 
@@ -46,6 +47,12 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
 
 		@Override
 		public void requiresCharmsOfAnyOneTrait(int threshold) {
+			this.isConcrete = false;
+		}
+
+		@Override
+		public void requiresMagicAttributesFromTree(TreeReference tree,
+				MagicAttribute attribute, int count) {
 			this.isConcrete = false;
 		}
   }

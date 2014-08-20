@@ -96,4 +96,8 @@ public class CharmImpl extends AbstractMagic implements Charm {
   public void addCharmPrerequisite(CharmPrerequisite prerequisite) {
     prerequisiteList.addCharmPrerequisite(prerequisite);
   }
+  
+  public void clearPrerequisites() {
+  	prerequisiteList.clearPrerequisites();
+  }
 }

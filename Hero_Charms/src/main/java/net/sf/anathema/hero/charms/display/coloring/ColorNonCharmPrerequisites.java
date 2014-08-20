@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.coloring;
 import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.DirectGroupCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.SpecificGroupCharmPrerequisite;
@@ -21,6 +22,12 @@ public class ColorNonCharmPrerequisites implements PrerequisiteVisitor {
     String nodeId = getNodeId(prerequisite);
     coloring.colorNonCharmPrerequisite(nodeId, prerequisite);
   }
+  
+  @Override
+	public void visit(EvocationTierPrerequisite prerequisite) {
+  	String nodeId = getNodeId(prerequisite);
+    coloring.colorNonCharmPrerequisite(nodeId, prerequisite);
+	}
 
   @Override
   public void visit(DirectGroupCharmPrerequisite prerequisite) {
@@ -48,6 +55,5 @@ public class ColorNonCharmPrerequisites implements PrerequisiteVisitor {
 	public void visit(SpecificGroupCharmPrerequisite prerequisite) {
 		// nothing to do
 	}
-  
   
 }

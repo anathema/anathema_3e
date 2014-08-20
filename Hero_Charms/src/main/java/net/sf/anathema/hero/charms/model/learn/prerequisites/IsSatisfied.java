@@ -8,6 +8,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -32,6 +33,12 @@ public class IsSatisfied implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     this.satisfied = arbitrator.hasLearnedThresholdCharmsWithKeyword(attribute, count);
   }
+  
+  @Override
+	public void requiresMagicAttributesFromTree(TreeReference tree,
+			MagicAttribute attribute, int count) {
+		this.satisfied = arbitrator.hasLearnedThresholdCharmsWithKeywordFromTree(tree, attribute, count);
+	}
 
   @Override
   public void requiresCharm(Charm prerequisite) {

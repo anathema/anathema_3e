@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
@@ -74,6 +75,12 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
 		  int threshold) {
 	throw new NotYetImplementedException();
   }
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
+			TreeReference tree, MagicAttribute attribute, int threshold) {
+  throw new NotYetImplementedException();
+	}
   
   @Override
 	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,

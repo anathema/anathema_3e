@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnWorker;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -29,6 +30,12 @@ public class CompositeLearnWorker implements CharmLearnWorker {
   		int threshold) {
   	return learnArbitrator.hasLearnedThresholdCharmsWithKeyword(attribute, threshold);
   }
+  
+  @Override
+	public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
+			TreeReference tree, MagicAttribute attribute, int threshold) {
+		return learnArbitrator.hasLearnedThresholdCharmsWithKeywordFromTree(tree,  attribute, threshold);
+	}
   
   @Override
   public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,

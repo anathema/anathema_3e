@@ -5,6 +5,7 @@ import java.util.List;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
+import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -14,6 +15,12 @@ import net.sf.anathema.magic.data.attribute.MagicAttribute;
 public class NodeIds {
 
   public static String getNodeId(AttributeKnownCharmPrerequisite prerequisite) {
+    NonCharmPrerequisiteId id = new NonCharmPrerequisiteId();
+    prerequisite.process(id);
+    return id.id;
+  }
+  
+  public static String getNodeId(EvocationTierPrerequisite prerequisite) {
     NonCharmPrerequisiteId id = new NonCharmPrerequisiteId();
     prerequisite.process(id);
     return id.id;
