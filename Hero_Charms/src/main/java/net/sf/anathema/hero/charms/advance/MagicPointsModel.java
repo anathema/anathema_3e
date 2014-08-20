@@ -60,14 +60,19 @@ public class MagicPointsModel implements HeroModel {
   }
 
   private void initializeExperience(Hero hero) {
-    CharmExperienceCostCalculator calculator = createExperienceCalculator();
-    initExperienceOverview(hero, calculator);
+	// TODO: Should be able to cope with null charms model
+  	if (CharmsModelFetcher.fetch(hero) != null) {
+  		CharmExperienceCostCalculator calculator = createExperienceCalculator();
+  		initExperienceOverview(hero, calculator);
+  	}
   }
 
   private void initCreation(Hero hero) {
-    MagicCreationCostCalculator calculator = createBonusCalculator(hero);
-    initBonusCalculation(hero, calculator);
-    initBonusOverview(hero, calculator);
+  	if (CharmsModelFetcher.fetch(hero) != null) {
+  		MagicCreationCostCalculator calculator = createBonusCalculator(hero);
+    	initBonusCalculation(hero, calculator);
+    	initBonusOverview(hero, calculator);
+  	}
   }
 
   private void initBonusCalculation(Hero hero, MagicCreationCostCalculator calculator) {

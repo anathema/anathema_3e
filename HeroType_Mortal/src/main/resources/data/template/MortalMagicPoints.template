@@ -1,0 +1,8 @@
+{
+    generalExperiencePoints: {
+         costs: 10
+    };
+    favoredExperiencePoints: {
+        costs: 8
+    }
+}

@@ -72,17 +72,19 @@ public class SpellPresenter {
     spellConfiguration.addChangeListener(() -> refreshSpellListsInView(magicLearnView));
     refreshSpellListsInView(magicLearnView);
     updateCircleInView(circleModel.getSelectedCircle(), view);
-    charmsModel.addCharmLearnListener(new CharmLearnAdapter() {
-      @Override
-      public void charmLearned(Charm charm) {
-        learnPresenter.updateButtons();
-      }
+    if (charmsModel != null) {
+    	charmsModel.addCharmLearnListener(new CharmLearnAdapter() {
+    		@Override
+    		public void charmLearned(Charm charm) {
+    			learnPresenter.updateButtons();
+    		}
 
-      @Override
-      public void charmForgotten(Charm charm) {
-        learnPresenter.updateButtons();
-      }
-    });
+    		@Override
+    		public void charmForgotten(Charm charm) {
+    			learnPresenter.updateButtons();
+    		}
+    	});
+    }
   }
 
   private void updateCircleInView(CircleType newValue, SpellView view) {

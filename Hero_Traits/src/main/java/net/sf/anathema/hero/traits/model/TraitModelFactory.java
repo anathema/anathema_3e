@@ -4,8 +4,10 @@ import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
+import net.sf.anathema.hero.individual.persistence.NullTemplateModel;
 
 @SuppressWarnings("UnusedDeclaration")
+@NullTemplateModel
 public class TraitModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public TraitModelFactory() {

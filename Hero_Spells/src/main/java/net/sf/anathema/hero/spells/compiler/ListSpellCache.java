@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.parser;
+package net.sf.anathema.hero.spells.compiler;
 
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;

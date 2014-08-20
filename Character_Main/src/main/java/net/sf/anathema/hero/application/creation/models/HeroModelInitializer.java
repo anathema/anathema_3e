@@ -6,6 +6,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
+import net.sf.anathema.hero.individual.persistence.NullTemplateModel;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 
@@ -40,7 +41,10 @@ public class HeroModelInitializer {
     for (ConfiguredModel configuredModel : sortedRelevantModelIds) {
       factoryMap.assertContainsRequiredModel(configuredModel.modelId.getId());
       HeroModelFactory factory = factoryMap.get(configuredModel.modelId.getId());
-      modelList.add(factory.create(templateFactory, configuredModel.modelTemplateId));
+      if (configuredModel.modelTemplateId != null ||
+      		factory.getClass().getAnnotationsByType(NullTemplateModel.class).length > 0) {
+      	modelList.add(factory.create(templateFactory, configuredModel.modelTemplateId));
+      }
     }
     return modelList;
   }

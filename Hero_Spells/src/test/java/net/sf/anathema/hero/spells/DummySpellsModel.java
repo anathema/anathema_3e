@@ -134,16 +134,6 @@ public class DummySpellsModel implements SpellsModel {
   }
 
   @Override
-  public boolean canLearnNecromancy() {
-    return false;
-  }
-
-  @Override
-  public Collection<CircleType> getNecromancyCircles() {
-    return Collections.emptyList();
-  }
-
-  @Override
   public Collection<CircleType> getSorceryCircles() {
     return Collections.emptyList();
   }

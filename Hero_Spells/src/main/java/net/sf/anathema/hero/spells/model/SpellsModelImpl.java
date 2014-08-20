@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.spells.model;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
-import net.sf.anathema.charm.data.reference.CharmName;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
@@ -16,10 +17,10 @@ import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
+import net.sf.anathema.hero.spells.compiler.SpellCache;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
-import net.sf.anathema.hero.spells.parser.SpellCache;
 import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -27,11 +28,13 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
+
 import org.jmock.example.announcer.Announcer;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
+import static java.util.stream.Collectors.toList;
 
 public class SpellsModelImpl implements SpellsModel {
 
@@ -40,6 +43,7 @@ public class SpellsModelImpl implements SpellsModel {
   private final List<Spell> experiencedLearnedList = new ArrayList<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final Multimap<CircleType, Spell> spellsByCircle = ArrayListMultimap.create();
+  private SorceryInitiationEvaluator initiationEvaluator;
   private CharmsModel charms;
   private ExperienceModel experience;
   private SpellsTemplate template;
@@ -57,9 +61,12 @@ public class SpellsModelImpl implements SpellsModel {
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.charms = CharmsModelFetcher.fetch(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
-    charms.addCheapenedChecker(new IsFavoredSpell(hero));
+    this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template);
+    if (charms != null) {
+      charms.addCheapenedChecker(new IsFavoredSpell(hero));
+      initializeCharmsModel(hero);
+    }
     initializeSpellsByCircle(environment);
-    initializeCharmsModel(hero);
     initializeExperience(hero);
   }
 
@@ -159,13 +166,15 @@ public class SpellsModelImpl implements SpellsModel {
   @SuppressWarnings("SimplifiableIfStatement")
   @Override
   public boolean isSpellAllowed(Spell spell, boolean experienced) {
-    boolean alreadyKnowsSpell = creationLearnedList.contains(spell) || (experienced && experiencedLearnedList.contains(
+    if (spell == null) {
+    	return false;
+    }
+  	boolean alreadyKnowsSpell = creationLearnedList.contains(spell) || (experienced && experiencedLearnedList.contains(
             spell));
     if (alreadyKnowsSpell) {
       return false;
     }
-    String initiationCharm = getInitiation(spell.getCircleType());
-    return charms.isLearned(new CharmName(initiationCharm));
+    return initiationEvaluator.isInitiated(spell.getCircleType());
   }
 
   @Override
@@ -237,34 +246,19 @@ public class SpellsModelImpl implements SpellsModel {
 
   @Override
   public boolean canLearnSorcery() {
-    return !template.sorcery.isEmpty();
-  }
-
-  @Override
-  public boolean canLearnNecromancy() {
-    return !template.necromancy.isEmpty();
-  }
-
-  @Override
-  public Collection<CircleType> getNecromancyCircles() {
-    return template.necromancy.keySet();
+    return !(template.meritInitiations.isEmpty() && template.charmInitiations.isEmpty());
   }
 
   @Override
   public Collection<CircleType> getSorceryCircles() {
-    return template.sorcery.keySet();
+    List<CircleType> circles = new ArrayList<>();
+    circles.addAll(template.meritInitiations.keySet());
+    circles.addAll(template.charmInitiations.keySet());
+    return circles.stream().distinct().collect(toList());
   }
 
   @Override
   public TraitType getFavoringTraitType() {
     return new TraitTypeFinder().getTrait(template.favoringTrait);
-  }
-
-  private String getInitiation(CircleType type) {
-    String charmId = template.necromancy.get(type);
-    if (charmId == null) {
-      charmId = template.sorcery.get(type);
-    }
-    return charmId;
   }
 }

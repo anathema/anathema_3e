@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.parser;
+package net.sf.anathema.hero.spells.compiler;
 
 import java.util.HashMap;
 import java.util.Map;

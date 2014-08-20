@@ -7,10 +7,4 @@ public interface ICircleTypeVisitor {
   void visitCelestial(CircleType type);
 
   void visitSolar(CircleType type);
-
-  void visitShadowland(CircleType type);
-
-  void visitLabyrinth(CircleType type);
-
-  void visitVoid(CircleType type);
 }

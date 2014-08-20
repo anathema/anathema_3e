@@ -117,8 +117,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
     for (Spell spell : spells) {
 
       String circleString;
-      String circleFullString = spell.getCircleType().isSorceryCircle() ? resources.getString("CardsReport.Legend.Sorcery") :
-                                resources.getString("CardsReport.Legend.Necromancy");
+      String circleFullString = resources.getString("CardsReport.Legend.Sorcery");
       circleString = format(circleFullString, resources.getString(spell.getCircleType().getId()));
       LegendEntry circle = new LegendEntry(resourceProvider.getSpellIcon(spell.getCircleType()), circleString);
       if (!spellCircles.contains(circle)) {

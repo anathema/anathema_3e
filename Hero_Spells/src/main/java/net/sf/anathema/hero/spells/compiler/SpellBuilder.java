@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.parser;
+package net.sf.anathema.hero.spells.compiler;
 
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.data.reference.SpellName;

@@ -1,12 +1,17 @@
 {
   favoringTrait: Occult,
-  sorcery: {
-     Terrestrial: Solar.TerrestrialCircleSorcery,
-     Celestial: Solar.CelestialCircleSorcery,
-     Solar: Solar.SolarCircleSorcery
-  },
-  necromancy: {
-     Shadowlands: Solar.ShadowlandsCircleNecromancy,
-     Labyrinth: Solar.LabyrinthCircleNecromancy
+  charmInitiations: {
+     Terrestrial: {
+     	type: charm,
+     	charmId: Solar.TerrestrialCircleSorcery
+     },
+     Celestial: {
+     	type: charm,
+     	charmId: Solar.CelestialCircleSorcery
+     },
+     Solar: {
+     	type: charm,
+     	charmId: Solar.SolarCircleSorcery
+     }
   }
 }
