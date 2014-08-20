@@ -3,6 +3,6 @@
     standardLevel: Celestial;
     highLevelAtCreation: false
   };
-  nativeCategories: [ "Solar", "MartialArts"];
+  nativeCategories: [ "Solar", "MartialArts", "Evocations" ];
   alienCharmCastes: [ "Eclipse" ]
 }
