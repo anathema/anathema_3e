@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.charms.model;
 
+import java.util.Collection;
+
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
@@ -16,8 +17,6 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.magic.data.Magic;
-
-import java.util.Collection;
 
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
         SpecialCharmLearnArbitrator, PrintMagicProvider {
@@ -41,8 +40,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   Collection<CharmTree> getTreesFor(CategoryReference type);
 
   Collection<CharmTree> getAllTrees();
-
-  MartialArtsLevel getStandardMartialArtsLevel();
 
   MagicCreationCostEvaluator getMagicCostEvaluator();
 

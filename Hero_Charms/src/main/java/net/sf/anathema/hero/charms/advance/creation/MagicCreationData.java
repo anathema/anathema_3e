@@ -1,24 +1,23 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import java.util.HashMap;
+import java.util.Map;
+
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.advance.costs.MagicCosts;
 import net.sf.anathema.hero.charms.advance.costs.MagicPointsStrategy;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.magic.data.Magic;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MagicCreationData implements MagicCosts {
 
   private Map<Boolean, MagicPointsStrategy> strategyByFavored = new HashMap<>();
   private MagicPointsTemplate template;
 
-  public MagicCreationData(MagicPointsTemplate template, MartialArtsLevel standardMartialArtsLevel) {
+  public MagicCreationData(MagicPointsTemplate template) {
     this.template = template;
-    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredCreationPoints, standardMartialArtsLevel));
-    strategyByFavored.put(false, new MagicPointsStrategy(template.generalCreationPoints, standardMartialArtsLevel));
+    strategyByFavored.put(true, new MagicPointsStrategy(template.favoredCreationPoints));
+    strategyByFavored.put(false, new MagicPointsStrategy(template.generalCreationPoints));
   }
 
   @Override

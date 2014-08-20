@@ -1,16 +1,17 @@
 package net.sf.anathema.cards.data.providers;
 
 import com.itextpdf.text.Image;
+
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.LegendCardData;
 import net.sf.anathema.cards.data.LegendEntry;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.martial.MartialArtUtilities;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
@@ -90,7 +91,7 @@ public class LegendCardDataProvider implements ICardDataProvider {
 
   private void buildCharmEntries(ICardReportResourceProvider resourceProvider, Charms charms) {
     for (Charm charm : charms) {
-      if (!MartialArtsUtilities.isMartialArts(charm)) {
+      if (!MartialArtUtilities.isMartialArts(charm)) {
         LegendEntry trait = new LegendEntry(resourceProvider.getTreeIcon(charm), resourceProvider.getTreeLabel(charm));
         if (!traits.contains(trait)) {
           traits.add(trait);

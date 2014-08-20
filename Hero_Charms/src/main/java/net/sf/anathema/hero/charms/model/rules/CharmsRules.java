@@ -16,8 +16,6 @@ public interface CharmsRules {
 
   boolean isAlienCategory(CategoryReference category);
 
-  MartialArtsRules getMartialArtsRules();
-
   List<CategoryReference> getNativeCategories();
 
   boolean isCompulsiveCharm(Charm charm);

@@ -20,11 +20,6 @@ public class CharmsRulesImpl implements CharmsRules {
   }
 
   @Override
-  public MartialArtsRules getMartialArtsRules() {
-    return new MartialArtsRulesImpl(template.martialArts);
-  }
-
-  @Override
   public List<CategoryReference> getNativeCategories() {
     List<CategoryReference> references = new ArrayList<>();
     for (String categoryText : template.nativeCategories) {

@@ -1,7 +1,11 @@
 package net.sf.anathema.hero.magic.dummy;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -28,11 +32,6 @@ import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class DummyCharmsModel implements CharmsModel, CharmOptions {
 
@@ -186,11 +185,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   @Override
   public CharmOptions getOptions() {
     return this;
-  }
-
-  @Override
-  public MartialArtsLevel getStandardMartialArtsLevel() {
-    return MartialArtsLevel.Mortal;
   }
 
   @Override

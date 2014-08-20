@@ -1,24 +1,20 @@
 package net.sf.anathema.hero.charms.advance.costs;
 
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import java.util.HashMap;
+import java.util.Map;
+
 import net.sf.anathema.hero.charms.template.advance.KeywordMagicTemplate;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsCategoryTemplate;
 import net.sf.anathema.magic.data.Magic;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class MagicPointsStrategy {
 
-
-  private MartialArtsLevel standardMartialArtsLevel;
   private MagicPointsCategoryTemplate template;
   private final MagicKeywordCosts keywordCosts;
 
-  public MagicPointsStrategy(MagicPointsCategoryTemplate template, MartialArtsLevel standardMartialArtsLevel) {
+  public MagicPointsStrategy(MagicPointsCategoryTemplate template) {
     this.template = template;
     this.keywordCosts = createKeywordCosts(template);
-    this.standardMartialArtsLevel = standardMartialArtsLevel;
   }
 
   private MagicKeywordCosts createKeywordCosts(MagicPointsCategoryTemplate template) {
@@ -33,14 +29,6 @@ public class MagicPointsStrategy {
     if (keywordCosts.hasCostFor(magic.getAttributes())) {
       return keywordCosts.getCostFor(magic.getAttributes());
     }
-    return getCharmCosts(analyzer.getMartialArtsLevel(magic));
-  }
-
-  private int getCharmCosts(MartialArtsLevel level) {
-    return isHighLevelMartialArts(level) ? template.highMartialArtsCosts : template.costs;
-  }
-
-  private boolean isHighLevelMartialArts(MartialArtsLevel martialArtsLevel) {
-    return martialArtsLevel != null && (standardMartialArtsLevel.compareTo(martialArtsLevel) < 0 || martialArtsLevel == MartialArtsLevel.Sidereal);
+    return template.costs;
   }
 }

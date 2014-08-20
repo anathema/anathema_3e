@@ -16,8 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static java.text.MessageFormat.format;
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.getLevel;
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
+import static net.sf.anathema.hero.martial.MartialArtUtilities.isMartialArts;
 
 public class DemocritusCardResourceProvider implements ICardReportResourceProvider {
 
@@ -65,14 +64,16 @@ public class DemocritusCardResourceProvider implements ICardReportResourceProvid
 
   @Override
   public Image getCategoryIcon(Charm charm) {
-    String category = isMartialArts(charm) ? ("MA_" + getLevel(charm).getId()) : charm.getTreeReference().category.text;
+  	// TODO: New icons as we no longer have different MA levels
+    String category = isMartialArts(charm) ? ("MA_" + "Celestial") : charm.getTreeReference().category.text;
     return getImage("icons/categories/" + category + ".png");
   }
 
   @Override
   public String getCategoryLabel(Charm charm) {
     if (isMartialArts(charm)) {
-      return format(resources.getString("CardsReport.Legend.MartialArt"), resources.getString(getLevel(charm).getId()));
+    	// TODO: New icons as we no longer have different MA levels
+      return format(resources.getString("CardsReport.Legend.MartialArt"), resources.getString("Celestial"));
     }
     return  resources.getString(charm.getTreeReference().category.text);
   }

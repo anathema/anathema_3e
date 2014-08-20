@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.DefaultMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.FavoredMagicModel;
@@ -27,7 +26,6 @@ public class MagicPointsModel implements HeroModel {
 
   public static final SimpleIdentifier ID = new SimpleIdentifier("MagicPoints");
   private MagicPointsTemplate template;
-  private MartialArtsLevel standardMartialArtsLevel;
 
   public MagicPointsModel(MagicPointsTemplate template) {
     this.template = template;
@@ -40,7 +38,6 @@ public class MagicPointsModel implements HeroModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    this.standardMartialArtsLevel = CharmsModelFetcher.fetch(hero).getStandardMartialArtsLevel();
     initializeBonusPoints(hero);
   }
 
@@ -50,11 +47,11 @@ public class MagicPointsModel implements HeroModel {
   }
 
   public MagicExperienceData getExperienceCost() {
-    return new MagicExperienceData(template, standardMartialArtsLevel);
+    return new MagicExperienceData(template);
   }
 
   private MagicCreationData getMagicCreationData() {
-    return new MagicCreationData(template, standardMartialArtsLevel);
+    return new MagicCreationData(template);
   }
 
   private void initializeBonusPoints(Hero hero) {

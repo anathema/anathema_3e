@@ -18,7 +18,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.getCategory;
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 
 public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOptions {
@@ -61,7 +60,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   private ISpecialCharm[] getAllSpecialCharms() {
-    CategoryReference preferredCategory = getCategory(NativeCharacterType.get(hero));
+    CategoryReference preferredCategory = new CategoryReference(NativeCharacterType.get(hero).getId());
     SpecialCharmSet set = new SpecialCharmSet();
     for (CategoryReference type : charmProvider.getAllCategories()) {
       set.addAll(charmProvider.getSpecialCharms(type));

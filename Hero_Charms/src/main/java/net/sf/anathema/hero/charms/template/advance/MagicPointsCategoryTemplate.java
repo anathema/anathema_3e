@@ -6,6 +6,5 @@ import java.util.List;
 public class MagicPointsCategoryTemplate {
 
   public int costs = 0;
-  public int highMartialArtsCosts = 0;
   public List<KeywordMagicTemplate> keywordMagic = new ArrayList<>();
 }

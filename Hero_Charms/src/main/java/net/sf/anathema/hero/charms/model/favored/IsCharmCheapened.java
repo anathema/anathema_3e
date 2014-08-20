@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.charms.model.favored;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -9,9 +8,6 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.magic.data.Magic;
-
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
-import static net.sf.anathema.hero.traits.model.types.AbilityType.MartialArts;
 
 public class IsCharmCheapened implements CheapenedChecker {
   private Hero hero;
@@ -28,12 +24,7 @@ public class IsCharmCheapened implements CheapenedChecker {
   @Override
   public boolean isCheapened(Magic magic) {
     Charm charm = (Charm) magic;
-    return isCheapened(charm) || isPrimaryTraitCheapened(charm);
-  }
-
-  private boolean isCheapened(Charm charm) {
-    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
-    return isMartialArts(charm) && abilities.getState(MartialArts).isCheapened();
+    return isPrimaryTraitCheapened(charm);
   }
 
   private boolean isPrimaryTraitCheapened(Charm charm) {

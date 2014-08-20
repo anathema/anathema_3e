@@ -1,8 +1,17 @@
 package net.sf.anathema.hero.charms.model;
 
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
@@ -25,8 +34,6 @@ import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.LearningModelImpl;
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
-import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModel;
-import net.sf.anathema.hero.charms.model.learn.MartialArtsLearnModelImpl;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
@@ -57,20 +64,6 @@ import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import org.jmock.example.announcer.Announcer;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static net.sf.anathema.charm.data.martial.MartialArtsLevel.Sidereal;
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.hasLevel;
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isFormMagic;
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.isMartialArts;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 
 public class CharmsModelImpl implements CharmsModel {
 
@@ -238,16 +231,6 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    if (isMartialArts(charm)) {
-      boolean isSiderealFormCharm = isFormMagic(charm) && hasLevel(Sidereal, charm);
-      MartialArtsLearnModel martialArtsConfiguration = new MartialArtsLearnModelImpl(this);
-      if (isSiderealFormCharm && !martialArtsConfiguration.isAnyCelestialStyleCompleted()) {
-        return false;
-      }
-      if (!charmsRules.getMartialArtsRules().isCharmAllowed(charm, isExperienced())) {
-        return false;
-      }
-    }
     for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
       if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {
         return false;
@@ -402,10 +385,6 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public final boolean isCompulsiveCharm(Charm charm) {
     return charmsRules.isCompulsiveCharm(charm);
-  }
-
-  public MartialArtsLevel getStandardMartialArtsLevel() {
-    return charmsRules.getMartialArtsRules().getStandardLevel();
   }
 
   @Override

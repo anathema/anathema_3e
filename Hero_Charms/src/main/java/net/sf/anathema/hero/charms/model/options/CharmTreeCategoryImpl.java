@@ -1,16 +1,5 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.martial.MartialArtsUtilities;
-import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.data.reference.TreeName;
-import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.hero.charms.compiler.CharmProvider;
-import net.sf.anathema.hero.charms.model.CharmTree;
-import net.sf.anathema.hero.charms.model.CharmTreeImpl;
-import net.sf.anathema.hero.individual.splat.HeroType;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -19,21 +8,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static net.sf.anathema.charm.data.martial.MartialArtsUtilities.MARTIAL_ARTS;
+import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.charm.data.reference.TreeName;
+import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.hero.charms.compiler.CharmProvider;
+import net.sf.anathema.hero.charms.model.CharmTree;
+import net.sf.anathema.hero.charms.model.CharmTreeImpl;
 
 public final class CharmTreeCategoryImpl implements CharmTreeCategory {
-
-  public static CharmTreeCategory ForMartialArts(CharmOptionCheck check, CharmProvider provider) {
-    CategoryReference categoryReference = MartialArtsUtilities.getCategory(MARTIAL_ARTS);
-    Collection<Charm> charms = provider.getCharms(categoryReference);
-    return new CharmTreeCategoryImpl(check, charms, categoryReference);
-  }
-
-  public static CharmTreeCategory ForNonMartialArts(CharmOptionCheck check, CharmProvider provider, HeroType heroType) {
-    CategoryReference categoryReference = MartialArtsUtilities.getCategory(heroType);
-    Collection<Charm> charms = provider.getCharms(categoryReference);
-    return new CharmTreeCategoryImpl(check, charms, categoryReference);
-  }
 
   public static CharmTreeCategory CreateFor(CharmOptionCheck check, CharmProvider provider, CategoryReference reference) {
     Collection<Charm> charms = provider.getCharms(reference);

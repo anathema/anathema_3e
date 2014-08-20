@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import com.google.common.base.Preconditions;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
@@ -8,8 +10,7 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.common.base.Preconditions;
 
 public class CharmTooltipBuilderImpl implements CharmTooltipBuilder {
   private final List<MagicTooltipContributor> builders = new ArrayList<>();
@@ -19,7 +20,6 @@ public class CharmTooltipBuilderImpl implements CharmTooltipBuilder {
     builders.add(new ScreenDisplayInfoContributor(resources));
     builders.add(new CharmDurationContributor(resources));
     builders.add(new CharmTypeContributor(resources));
-    builders.add(new MartialArtsCharmContributor(resources));
     builders.add(new CharmKeywordsContributor(resources));
     builders.add(new CharmPrerequisitesContributor(resources));
     builders.add(new SpecialCharmContributor(resources));

@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.charm.data.martial.MartialArtsLevel;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
@@ -17,12 +19,9 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.magic.data.Magic;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 
 public class CharmCostCalculatorTest {
 
@@ -44,7 +43,7 @@ public class CharmCostCalculatorTest {
     template.favoredCreationPoints.freePicks = 2;
     template.favoredCreationPoints.costs = 4;
     MagicCreationCostEvaluator magicCostEvaluator = charmModel.getMagicCostEvaluator();
-    MagicCreationData creationData = new MagicCreationData(template, MartialArtsLevel.Celestial);
+    MagicCreationData creationData = new MagicCreationData(template);
     calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new CostAnalyzerImpl(hero));
   }
 
