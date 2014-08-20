@@ -29,7 +29,7 @@ public class DataSetInitializer {
 
   public ExtensibleDataSetProvider initializeExtensibleResources() throws InitializationException {
     ExtensibleDataManager manager = new ExtensibleDataManager();
-    ObjectFactory injectingFactory = new InjectingObjectFactory(objectFactory, objectFactory, interfaceFinder);
+    ObjectFactory injectingFactory = new InjectingObjectFactory(objectFactory, objectFactory, interfaceFinder, manager);
     Collection<ExtensibleDataSetCompiler> compilers = injectingFactory.instantiateOrdered(net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler.class);
     for (ExtensibleDataSetCompiler compiler : compilers) {
       try {

@@ -1,19 +1,20 @@
-package net.sf.anathema.hero.charms.compiler.json;
+package net.sf.anathema.hero.evocations.compiler;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.charm.template.CharmListTemplate;
+import net.sf.anathema.charm.template.evocations.EvocationArtifactTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.Repurchase;
-import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.application.environment.Inject;
+import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
-import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
+import net.sf.anathema.hero.charms.evocations.json.EvocationsBuilder;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
+import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
@@ -25,8 +26,8 @@ import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
-@Weight(weight = 50)
-public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
+@Weight(weight = 100)
+public class EvocationCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
@@ -35,10 +36,12 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
   public ObjectFactory objectFactory;
   @Inject
   public InterfaceFinder finder;
+  @Inject
+  public ExtensibleDataSetProvider cacheProvider;
 
   @Override
   public String getName() {
-    return "Charms";
+    return "Evocations";
   }
 
   @Override
@@ -57,19 +60,13 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
             new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
     RuntimeTypeAdapterFactory[] specialFactories =
         new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
-    TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
-    TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
-    CharmCacheBuilderImpl charmsBuilder = new CharmCacheBuilderImpl();
-    SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
+    TemplateLoader<EvocationArtifactTemplate> evocationLoader = new GenericTemplateLoader<>(EvocationArtifactTemplate.class);
+    EvocationsBuilder evocationBuilder = new EvocationsBuilder();
     resourceFiles.forEach(resourceFile -> {
-    	CharmListTemplate charmTemplate = loadTemplate(resourceFile, charmsLoader);
-      charmsBuilder.addTemplate(charmTemplate);
-      specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader),
-      		new AdditionalCharmFactory(charmsBuilder, charmTemplate));
+      evocationBuilder.addTemplate(loadTemplate(resourceFile, evocationLoader));
     });
-    CharmCacheImpl charmCache = charmsBuilder.createCache();
-    specialBuilder.addToCache(charmCache);
-    return charmCache;
+    evocationBuilder.apply((CharmCacheImpl)cacheProvider.getDataSet(CharmCache.class));
+    return new EvocationsCache();
   }
 
   private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
