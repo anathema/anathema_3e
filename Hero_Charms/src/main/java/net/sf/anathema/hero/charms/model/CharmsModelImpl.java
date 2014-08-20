@@ -226,8 +226,9 @@ public class CharmsModelImpl implements CharmsModel {
       CasteType casteType = HeroConceptFetcher.fetch(hero).getCaste().getType();
       if (!(charmsRules.isAllowedAlienCharms(casteType))) {
         return false;
+      } else if (!charm.hasAttribute(CharmAttributeList.ECLIPSE_ATTRIBUTE)) {
+        return false;
       }
-      // TODO: Check for Eclipse keyword here
     }
     for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
       if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {
