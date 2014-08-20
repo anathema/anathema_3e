@@ -1,5 +1,6 @@
 package net.sf.anathema.magic.data.source;
 
+
 public class SourceListImpl implements SourceList {
 
   private SourceBook primarySource;

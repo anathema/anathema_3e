@@ -19,7 +19,7 @@ public class SpellBuilder {
       CostList costList = new CostParser().parse(template.cost);
       SourceListImpl sourceList = new SourceListImpl();
       template.source.forEach(source -> sourceList.addSource(new SourceBookImpl(source)));
-      spells.add(new SpellImpl(new SpellName(name), template.circle, costList, sourceList, template.target));
+      spells.add(new SpellImpl(new SpellName(name), template.circle, costList, sourceList, ""));
     });
     return spells;
   }

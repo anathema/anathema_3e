@@ -6,6 +6,7 @@ import net.sf.anathema.magic.data.AbstractMagic;
 import net.sf.anathema.magic.data.source.SourceBook;
 import net.sf.anathema.magic.data.source.SourceList;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -41,6 +42,9 @@ public class SpellImpl extends AbstractMagic implements Spell {
 
   @Override
   public List<SourceBook> getSources() {
+  	if (source.getPrimarySource() == null) {
+  		return new ArrayList<>();
+  	}
     return Collections.singletonList(source.getPrimarySource());
   }
 

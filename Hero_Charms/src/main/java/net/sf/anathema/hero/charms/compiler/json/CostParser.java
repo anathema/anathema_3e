@@ -24,11 +24,11 @@ public class CostParser {
   public static final String NO_COST = "0";
 
   public CostList parse(String costString) {
-    Cost essence = parseCost(costString, "m");
+    Cost sorcerousMotes = parseCost(costString, "sm");
     Cost willpower = parseCost(costString, "wp");
     HealthCost health = parseHealthCost(costString);
     Cost xp = parseCost(costString, "xp", true);
-    return new CostListImpl(essence, willpower, health, xp);
+    return new CostListImpl(sorcerousMotes, willpower, health, xp);
   }
 
   public Cost parseCost(String costString, String unit) {

@@ -45,6 +45,9 @@ public class SpellTooltipBuilder {
   }
 
   private String getSourceValue(Spell spell) {
+  	if (spell.getSources().isEmpty()) {
+  		return "";
+  	}
     return new MagicSourceContributor<Spell>(resources).createSourceString(spell);
   }
 

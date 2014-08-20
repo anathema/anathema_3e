@@ -1,22 +1,136 @@
 {
     spells:{
-        Terrestrial.ImpenetrableFrostBarrier: {
+        Terrestrial.CirrusSkiff: {
             circle:Terrestrial,
-            cost:20m,
-            target:Area1015feet,
-            source:[SecondEdition,p253]
+            cost:"15sm, 1wp",
+            duration:"Until ended"
+        },
+        Terrestrial.CorruptedWords: {
+            circle:Terrestrial,
+            cost:"15sm, 1wp",
+            keywords: [ "Psyche" ],
+            duration:Instant
+        },
+        Terrestrial.DeathOfObsidianButterflies: {
+            circle:Terrestrial,
+            cost:"7sm, 1wp",
+            keywords: [ "Decisive-only" ],
+            duration:Instant
+        },
+        Terrestrial.DemonOfTheFirstCircle: {
+            circle:Terrestrial,
+            cost:"Ritual, 1wp",
+            duration:Instant
+        },
+        Terrestrial.FlightOfTheBrilliantRaptor: {
+            circle:Terrestrial,
+            cost:"15sm, 1wp",
+            keywords: [ "Decisive-only" ],
+            duration:Instant
+        },
+        Terrestrial.InfallibleMessenger: {
+            circle:Terrestrial,
+            cost:"5sm",
+            duration:Instant
+        },
+        Terrestrial.InvulnerableSkinOfBronze: {
+            circle:Terrestrial,
+            cost:"20sm, 1wp",
+            duration:"One day"
+        },
+        Terrestrial.MistsOfEventide: {
+            circle:Terrestrial,
+            cost:"5sm",
+            keywords: [ "Poison" ],
+            duration:"Three rounds"
+        },
+        Terrestrial.SilentWordsOfDreamsAndNightmares: {
+            circle:Terrestrial,
+            cost:"Ritual, 1wp",
+            duration:Permanent
+        },
+        Terrestrial.StormwindRider: {
+            circle:Terrestrial,
+            cost:"15sm, 1wp",
+            duration:"One hour"
+        },
+        Terrestrial.SummonElemental: {
+            circle:Terrestrial,
+            cost:"Ritual, 1wp",
+            duration:Instant
+        },
+        Terrestrial.WoodDragonsClaw: {
+            circle:Terrestrial,
+            cost:"5sm",
+            duration:"Until dismissed"
+        },
+        Celestial.CantataOfEmptyVoices:{
+            circle:Celestial,
+            cost:"15sm, 2wp",
+            keywords: [ "Perilous" ],
+            duration:"Instant or until ended"
+        },
+        Celestial.DemonOfTheSecondCircle:{
+            circle:Celestial,
+            cost:"Ritual, 2wp",
+            duration:"Instant"
+        },
+        Celestial.ImpenetrableVeilOfNight:{
+            circle:Celestial,
+            cost:"30sm, 2wp",
+            duration:"One Day"
         },
         Celestial.IncomparableBodyArsenal:{
             circle:Celestial,
-            cost:30m,
-            target:Caster,
-            source:[SecondEdition,p255]
+            cost:"30sm, 2wp",
+            duration:"(Essence) hours"
         },
-        Solar.RuneSingularHate:{
+        Celestial.IvoryOrchidPavilion:{
+            circle:Celestial,
+            cost:"Ritual, 1wp",
+            duration:"One day"
+        },
+        Celestial.MagmaKraken:{
+            circle:Celestial,
+            cost:"30sm, 1wp",
+            duration:"One scene"
+        },
+        Celestial.ShadowsOfTheAncientPast:{
+            circle:Celestial,
+            cost:"10sm, 2wp",
+            duration:"One scene"
+        },
+        Celestial.TravelWithoutDistance:{
+            circle:Celestial,
+            cost:"25sm, 2wp",
+            duration:"Instant"
+        },
+        Solar.BenedictionOfArchgenesis:{
             circle:Solar,
-            cost:10m,
-            target:Person,
-            source:[WhiteTreatise,p95]
+            cost:"Ritual, 3wp",
+            duration:"Instant"
+        },
+        Solar.DeathRay:{
+            circle:Solar,
+            cost:"25sm, 2wp",
+            keywords: [ "Aggravated", "Decisive-only" ],
+            duration:"Instant or until ended"
+        },
+        Solar.DemonOfTheThirdCircle:{
+            circle:Solar,
+            cost:"Ritual, 3wp",
+            duration:"Instant"
+        },
+        Solar.RainOfDoom:{
+            circle:Solar,
+            cost:"30sm, 3wp",
+            keywords: [ "Aggravated" ],
+            duration:"Until sunrise"
+        },
+        Solar.UnityOfTheClosedFist:{
+            circle:Solar,
+            cost:"20sm, 2wp",
+            duration:"One scene"
         }
     }
 }
