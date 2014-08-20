@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.charm.template.evocations.EvocationArtifactTemplate;
-import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
-import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
@@ -22,8 +20,6 @@ import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
-import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
-import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 @Weight(weight = 100)
@@ -56,10 +52,6 @@ public class EvocationCompiler implements ExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
-    RuntimeTypeAdapterFactory[] charmFactories =
-            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
-    RuntimeTypeAdapterFactory[] specialFactories =
-        new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
     TemplateLoader<EvocationArtifactTemplate> evocationLoader = new GenericTemplateLoader<>(EvocationArtifactTemplate.class);
     EvocationsBuilder evocationBuilder = new EvocationsBuilder();
     resourceFiles.forEach(resourceFile -> {
