@@ -1,5 +1,9 @@
 package net.sf.anathema.hero.concept.sheet.personal.content;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.model.description.HeroDescription;
@@ -10,10 +14,6 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.resources.Resources;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class PersonalInfoContent extends AbstractSubContent implements SubBoxContent, Iterable<PersonalInfoRow> {
 
@@ -46,8 +46,7 @@ public class PersonalInfoContent extends AbstractSubContent implements SubBoxCon
 
   private PersonalInfoRow createSecondRow() {
     TitledInfo sexInfo = new TitledInfo(getLabel("Sex"), description.getSex().getText());
-    TitledInfo ageInfo = new TitledInfo(getLabel("Age"), getAge());
-    return new PersonalInfoRow(sexInfo, ageInfo);
+    return new PersonalInfoRow(sexInfo);
   }
 
   private PersonalInfoRow createThirdRow() {
@@ -60,10 +59,6 @@ public class PersonalInfoContent extends AbstractSubContent implements SubBoxCon
   private PersonalInfoRow createAnimaRow() {
     TitledInfo animaInfo = new TitledInfo(getLabel("Anima"), description.getAnima().getText(), 3);
     return new PersonalInfoRow(animaInfo);
-  }
-
-  private String getAge() {
-    return String.valueOf(HeroConceptFetcher.fetch(hero).getAge().getValue());
   }
 
   private HeroType getCharacterType() {

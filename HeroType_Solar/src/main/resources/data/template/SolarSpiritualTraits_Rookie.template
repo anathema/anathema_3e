@@ -13,15 +13,6 @@
     minimumValue = 1;
     modificationType: "RaiseOnly";
     limitation: {
-      type: "Age";
-      value: 10
-    }
-  };
-  virtues: {
-    startValue: 1;
-    minimumValue = 1;
-    modificationType: "RaiseOnly";
-    limitation: {
       type: "Static";
       value: 5
     }

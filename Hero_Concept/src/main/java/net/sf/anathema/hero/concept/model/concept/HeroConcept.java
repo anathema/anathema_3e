@@ -12,6 +12,4 @@ public interface HeroConcept extends HeroModel {
   CasteSelection getCaste();
 
   CasteCollection getCasteCollection();
-
-  IntegerModel getAge();
 }

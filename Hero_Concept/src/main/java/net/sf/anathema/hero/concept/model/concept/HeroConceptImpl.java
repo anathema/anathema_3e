@@ -1,20 +1,15 @@
 package net.sf.anathema.hero.concept.model.concept;
 
+import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.AnnounceChangeListener;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.IntegerModel;
-import net.sf.anathema.library.model.IntegerModelImpl;
-
-import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_AGE;
-import static net.sf.anathema.hero.concept.model.concept.ConceptChange.FLAVOR_CASTE;
 
 public class HeroConceptImpl implements HeroConcept, HeroModel {
 
-  private final IntegerModel age = new IntegerModelImpl(0);
   private CasteModelImpl casteModel;
 
   public HeroConceptImpl(CasteModelImpl casteModel) {
@@ -33,7 +28,6 @@ public class HeroConceptImpl implements HeroConcept, HeroModel {
   @Override
   public void initializeListening(ChangeAnnouncer announcer) {
     casteModel.getSelection().addChangeListener(new AnnounceChangeListener(announcer, FLAVOR_CASTE));
-    age.addChangeListener(new AnnounceChangeListener(announcer, FLAVOR_AGE));
   }
 
   @Override
@@ -44,10 +38,5 @@ public class HeroConceptImpl implements HeroConcept, HeroModel {
   @Override
   public CasteCollection getCasteCollection() {
     return casteModel.getCollection();
-  }
-
-  @Override
-  public IntegerModel getAge() {
-    return age;
   }
 }

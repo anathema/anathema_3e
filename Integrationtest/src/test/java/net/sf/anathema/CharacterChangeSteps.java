@@ -1,10 +1,7 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
@@ -17,8 +14,11 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.google.inject.Inject;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class CharacterChangeSteps {
 
@@ -85,11 +85,6 @@ public class CharacterChangeSteps {
   public void the_character_as_intimacies() throws Throwable {
     IntimaciesModel model = IntimaciesModelFetcher.fetch(character.getHero());
     assertThat(model.getEntries().size(), is(MANY));
-  }
-
-  @And("^she has been exalted for (\\d+) years$")
-  public void she_is_older_than_years(int age) throws Throwable {
-    HeroConceptFetcher.fetch(character.getHero()).getAge().setValue(age);
   }
 
   @Then("^she has (\\d+) dots in Essence$")

@@ -23,7 +23,6 @@ public class ConceptPersister extends AbstractModelJsonPersister<ConceptPto, Her
   @Override
   protected void loadModelFromPto(Hero hero, HeroConcept model, ConceptPto pto) {
     loadCaste(pto, model);
-    model.getAge().setValue(pto.age);
   }
 
   private void loadCaste(ConceptPto pto, HeroConcept model) throws PersistenceException {
@@ -39,7 +38,6 @@ public class ConceptPersister extends AbstractModelJsonPersister<ConceptPto, Her
   protected ConceptPto saveModelToPto(HeroConcept model) {
     ConceptPto pto = new ConceptPto();
     pto.caste = model.getCaste().getType().getId();
-    pto.age = model.getAge().getValue();
     return pto;
   }
 }
