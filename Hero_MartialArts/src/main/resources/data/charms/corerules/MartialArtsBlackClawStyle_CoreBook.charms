@@ -4,6 +4,9 @@
         "MartialArts.BlackClawForm": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4
@@ -19,6 +22,11 @@
         "MartialArts.DoeEyesDefense": {
             "cost": "4m, 1i", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -34,6 +42,9 @@
         "MartialArts.FlexingtheEmeraldClaw": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -53,6 +64,12 @@
         "MartialArts.HeartRippingClaw": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Aggravated", 
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -68,6 +85,9 @@
         "MartialArts.OpenPalmCaress": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -78,6 +98,10 @@
         "MartialArts.OutrageKindlingCry": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Counterattack"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -101,6 +125,10 @@
         "MartialArts.StormCalmingEmbrace": {
             "cost": "2m, 1wp", 
             "duration": "Until released", 
+            "keywords": [
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -116,6 +144,10 @@
         "MartialArts.TableTurningReversal": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -131,6 +163,12 @@
         "MartialArts.TornLotusDefense": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Counterattack", 
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3

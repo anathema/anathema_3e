@@ -4,6 +4,10 @@
         "MartialArts.DemureCarpFeint": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -14,6 +18,9 @@
         "MartialArts.DreamingPearlCourtesanForm": {
             "cost": "8m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -37,6 +44,10 @@
         "MartialArts.ElegantWeaponRepertoire": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -47,6 +58,9 @@
         "MartialArts.FlurryofAugustLeaves": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -62,6 +76,7 @@
         "MartialArts.FragrantPetalFascinationKata": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 3
@@ -77,6 +92,10 @@
         "MartialArts.InvokingtheChimerasCoils": {
             "cost": "-- (+8m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Celestial", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -96,6 +115,9 @@
         "MartialArts.PearlescentFiligreeDefense": {
             "cost": "1m", 
             "duration": "One scene", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -106,6 +128,9 @@
         "MartialArts.SevenStormsEscapePrana": {
             "cost": "4m, 2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -121,6 +146,10 @@
         "MartialArts.VindictiveConcubinesPillowBook": {
             "cost": "7m", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5

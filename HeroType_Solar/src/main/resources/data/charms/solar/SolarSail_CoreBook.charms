@@ -4,6 +4,7 @@
         "Solar.BlackFathomsBlessed": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -22,6 +23,7 @@
         "Solar.BloodandSaltBondage": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -37,6 +39,7 @@
         "Solar.BurningAnimaSails": {
             "cost": "6m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -56,6 +59,7 @@
         "Solar.ChaosCuttingGalley": {
             "cost": "10m, 1wp", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -71,6 +75,7 @@
         "Solar.CurrentCuttingTechnique": {
             "cost": "4m", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -86,6 +91,9 @@
         "Solar.DeadlyIchneumonAssault": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -101,6 +109,9 @@
         "Solar.DeckSweepingFusillade": {
             "cost": "Varies", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -116,6 +127,7 @@
         "Solar.FathomsFedSpirit": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -131,6 +143,7 @@
         "Solar.HullPreservingTechnique": {
             "cost": "5m, 1wp", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -146,6 +159,7 @@
         "Solar.HullTamingTransfusion": {
             "cost": "2m, 3hls per 1hul", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -161,6 +175,7 @@
         "Solar.ImmortalMarinersAdvantage": {
             "cost": "1 or 2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -171,6 +186,9 @@
         "Solar.ImplacableSeaWolfSpirit": {
             "cost": "4m", 
             "duration": "One scene", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -186,6 +204,7 @@
         "Solar.IndomitableVoyagersPerseverance": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -204,6 +223,7 @@
         "Solar.InvincibleAdmiralMethod": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -219,6 +239,9 @@
         "Solar.LegendaryCaptainsSignature": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -234,6 +257,7 @@
         "Solar.OceanConqueringAvatar": {
             "cost": "1m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -249,6 +273,7 @@
         "Solar.OrichalcumLettersofMarque": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -264,6 +289,7 @@
         "Solar.PerfectReckoningTechnique": {
             "cost": "4m", 
             "duration": "Until the hazard has passed", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 3
@@ -279,6 +305,9 @@
         "Solar.RailStormingFervor": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -294,6 +323,7 @@
         "Solar.SailExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 1
@@ -304,6 +334,7 @@
         "Solar.SaltyDogMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 3
@@ -314,6 +345,9 @@
         "Solar.SeaAmbushTechnique": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -329,6 +363,7 @@
         "Solar.SeaDevilTrainingTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -344,6 +379,9 @@
         "Solar.SeaSerpentFlash": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -359,6 +397,9 @@
         "Solar.ShipBreakerMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -374,6 +415,7 @@
         "Solar.ShipClaimingStance": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 3
@@ -384,6 +426,7 @@
         "Solar.ShipImperiledVigor": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 4
@@ -399,6 +442,7 @@
         "Solar.ShipLeaveningMeditation": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5
@@ -414,6 +458,9 @@
         "Solar.ShipRazingRenewal": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -429,6 +476,9 @@
         "Solar.ShipRollingJuggernautMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -444,6 +494,7 @@
         "Solar.ShipSleekingTechnique": {
             "cost": "4m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 3
@@ -459,6 +510,9 @@
         "Solar.ShipSustainingSpirit": {
             "cost": "4m", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -474,6 +528,7 @@
         "Solar.ShipwreckSurvivingStamina": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 3
@@ -489,6 +544,9 @@
         "Solar.StormWeatheringEssenceInfusion": {
             "cost": "6m, 1wp", 
             "duration": "One hour", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -504,6 +562,9 @@
         "Solar.SuperiorPositioningTechnique": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Pilot"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Sail": 5
@@ -519,6 +580,7 @@
         "Solar.TideCarriedOmens": {
             "cost": "7m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Sail": 5
@@ -534,6 +596,7 @@
         "Solar.TideCuttingEssenceInfusion": {
             "cost": "5m, 1wp", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 4
@@ -549,6 +612,7 @@
         "Solar.WaveRidingDiscipline": {
             "cost": "5m, 1wp", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 4
@@ -564,6 +628,7 @@
         "Solar.WeatherAnticipatingIntuition": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 4
@@ -579,6 +644,7 @@
         "Solar.WindDefyingCourseTechnique": {
             "cost": "3m", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Sail": 5

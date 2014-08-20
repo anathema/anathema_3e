@@ -4,6 +4,10 @@
         "MartialArts.DervishBladeFrenzy": {
             "cost": "12m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -19,6 +23,10 @@
         "MartialArts.DoubleAttackTechnique": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -34,6 +42,10 @@
         "MartialArts.DualSlayingStance": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial", 
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -49,6 +61,9 @@
         "MartialArts.EmptyMindStrike": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -64,6 +79,9 @@
         "MartialArts.IronLotusUnfurling": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -79,6 +97,7 @@
         "MartialArts.NakedFangDraw": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -89,6 +108,7 @@
         "MartialArts.SecondsBetweenStrife": {
             "cost": "4m, 1c per success", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -104,6 +124,10 @@
         "MartialArts.SonicSlash": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -119,6 +143,9 @@
         "MartialArts.SteelDevilForm": {
             "cost": "7m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 5
@@ -134,6 +161,10 @@
         "MartialArts.SteelDevilStrike": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4
@@ -149,6 +180,11 @@
         "MartialArts.TripleAttackTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Celestial", 
+                "Mastery", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -164,6 +200,7 @@
         "MartialArts.TwinBladeDefense": {
             "cost": "3m, 1c per success", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -179,6 +216,10 @@
         "MartialArts.WhirlingGuillotineDance": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [
+                "Form", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5

@@ -110,7 +110,7 @@
             ], 
             "type": "Permanent"
         }, 
-        "Evocations.GhostEatingTechnique": {
+        "Evocations.GhostEatingTechnique.": {
             "cost": "3m", 
             "duration": "Instant", 
             "keywords": [

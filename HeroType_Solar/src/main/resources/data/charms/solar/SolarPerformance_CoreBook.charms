@@ -4,6 +4,7 @@
         "Solar.BattleAnthem(oftheSolarExalted)": {
             "cost": "1m", 
             "duration": "One song", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 5
@@ -19,6 +20,7 @@
         "Solar.BattleDancerMethod": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -34,6 +36,9 @@
         "Solar.CelestialBlissTrick": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -49,6 +54,9 @@
         "Solar.CunningMimicryTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -64,6 +72,7 @@
         "Solar.DemonWrackingShout": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -74,6 +83,7 @@
         "Solar.DogmaticContagionDiscipline": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 5
@@ -89,6 +99,7 @@
         "Solar.FuryIncitingSpeech": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 4
@@ -104,6 +115,7 @@
         "Solar.GracefulReedDancing": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -119,6 +131,9 @@
         "Solar.HeartCompellingMethod": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 4
@@ -134,6 +149,7 @@
         "Solar.HeroismEncouragingBallad": {
             "cost": "6m, 1wp", 
             "duration": "One song", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -149,6 +165,7 @@
         "Solar.ImpassionedOratorTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -164,6 +181,7 @@
         "Solar.InfectiousZealotryApproach": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -179,6 +197,7 @@
         "Solar.MasterThespianStyle": {
             "cost": "1m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 4
@@ -194,6 +213,9 @@
         "Solar.MasterfulPerformanceExercise": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -204,6 +226,9 @@
         "Solar.MemoryReweavingDiscipline": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -244,6 +269,9 @@
         "Solar.MonkSeducingDemonDance": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -263,6 +291,7 @@
         "Solar.MoodInducingMusic": {
             "cost": "1m", 
             "duration": "One song", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -278,6 +307,7 @@
         "Solar.MostExcellentMockingbird": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 5
@@ -293,6 +323,7 @@
         "Solar.PenultimateUnityofForm": {
             "cost": "2m, 1wp", 
             "duration": "One Performance Action", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -308,6 +339,7 @@
         "Solar.PerfectHarmonyTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -323,6 +355,7 @@
         "Solar.PerformanceExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 1
@@ -333,6 +366,7 @@
         "Solar.PhantomConjuringPerformance": {
             "cost": "--(1m)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 4
@@ -352,6 +386,7 @@
         "Solar.PivotalEncorePerformance": {
             "cost": "1wp, 1 lethal health level", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Performance": 5
@@ -367,6 +402,7 @@
         "Solar.PlectralHarbingersApproach": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 5
@@ -382,6 +418,7 @@
         "Solar.RespectCommandingAttitude": {
             "cost": "5m", 
             "duration": "One Performance action", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 2
@@ -392,6 +429,7 @@
         "Solar.ShiningExpressionStyle": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -407,6 +445,7 @@
         "Solar.SoulBracingMomentousPower": {
             "cost": "Varies", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -422,6 +461,7 @@
         "Solar.SoulFiringPerformance": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 5
@@ -437,6 +477,7 @@
         "Solar.SoulStirringCantata": {
             "cost": "1m", 
             "duration": "One song", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 5
@@ -452,6 +493,7 @@
         "Solar.SoulVoice": {
             "cost": "1wp", 
             "duration": "One Performance action", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Performance": 5
@@ -467,6 +509,7 @@
         "Solar.SplendidMagpieApproach": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -482,6 +525,7 @@
         "Solar.StillnessDrawingMeditation": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 4
@@ -497,6 +541,7 @@
         "Solar.ThousandCourtesanWays": {
             "cost": "5m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 3
@@ -512,6 +557,7 @@
         "Solar.TranceofFugueVision": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Performance": 5
@@ -527,6 +573,9 @@
         "Solar.UnmatchedShowmanshipStyle": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Performance": 5
@@ -542,6 +591,9 @@
         "Solar.VoiceHurlingMethod": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Performance": 4
@@ -557,6 +609,9 @@
         "Solar.WindingSinuousMotion": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Performance": 5

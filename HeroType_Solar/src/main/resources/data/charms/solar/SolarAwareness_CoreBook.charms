@@ -4,6 +4,7 @@
         "Solar.AwakeningEye": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 4, 
                 "Essence": 1
@@ -24,6 +25,7 @@
         "Solar.AwarenessExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 1, 
                 "Essence": 1
@@ -34,6 +36,7 @@
         "Solar.Blink": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 3
@@ -49,6 +52,7 @@
         "Solar.DedicatedUnerringEar": {
             "cost": "3m per exchange", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 4
@@ -64,6 +68,7 @@
         "Solar.EyelessHarbingerAwareness": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -79,6 +84,7 @@
         "Solar.EyeoftheUnconqueredSun": {
             "cost": "10m, 1wp", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 4
@@ -101,6 +107,7 @@
         "Solar.FoeScentingMethod": {
             "cost": "0m or 2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 4, 
                 "Essence": 1
@@ -116,6 +123,7 @@
         "Solar.GeniusPalateSummation": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -131,6 +139,7 @@
         "Solar.InnerEyeFocus": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 2
@@ -146,6 +155,7 @@
         "Solar.KeenHearingandTouchTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -161,6 +171,7 @@
         "Solar.KeenSightTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -176,6 +187,7 @@
         "Solar.KeenTasteandSmellTechnique": {
             "cost": "3m or 6m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -191,6 +203,7 @@
         "Solar.KnowingBeyondSilence": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 4, 
                 "Essence": 2
@@ -206,6 +219,7 @@
         "Solar.LivingPulsePerception": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 4, 
                 "Essence": 2
@@ -221,6 +235,7 @@
         "Solar.RousedDragonDetection": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 2
@@ -240,6 +255,7 @@
         "Solar.ScentHoningPrana": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 2
@@ -255,6 +271,7 @@
         "Solar.SensoryAcuityPrana": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 2, 
                 "Essence": 1
@@ -265,6 +282,7 @@
         "Solar.StudiedEarEspial": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -280,6 +298,7 @@
         "Solar.SurpriseAnticipationMethod": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 3, 
                 "Essence": 1
@@ -295,6 +314,7 @@
         "Solar.UnsurpassedHearingandTouchDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 3
@@ -310,6 +330,7 @@
         "Solar.UnsurpassedSightDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 3
@@ -325,6 +346,7 @@
         "Solar.UnsurpassedTasteandSmellDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 5, 
                 "Essence": 3
@@ -340,6 +362,7 @@
         "Solar.UnswervingEyeMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Awareness": 4, 
                 "Essence": 1

@@ -4,6 +4,9 @@
         "Solar.AngleTracingEdge": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 4
@@ -19,6 +22,9 @@
         "Solar.CascadeofCuttingTerror": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 4
@@ -34,6 +40,10 @@
         "Solar.CrimsonRazorWind": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -49,6 +59,7 @@
         "Solar.CuttingCircleofDestruction": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Thrown": 5
@@ -64,6 +75,9 @@
         "Solar.DreadTalonoftheInterceptor": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -79,6 +93,7 @@
         "Solar.EmptyPalmTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -94,6 +109,7 @@
         "Solar.FallenWeaponDeflection": {
             "cost": "3m, 2i", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -113,6 +129,9 @@
         "Solar.FallingIcicleStrike": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -128,6 +147,9 @@
         "Solar.FierySolarChakram": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -143,6 +165,7 @@
         "Solar.FlashingDrawMastery": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 3
@@ -158,6 +181,9 @@
         "Solar.FlyingSteelRuse": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -173,6 +199,9 @@
         "Solar.InnerSwarmAttack": {
             "cost": "4m, 2i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -188,6 +217,11 @@
         "Solar.JointWoundingAttack": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Crippling", 
+                "Decisive-only", 
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 3
@@ -203,6 +237,9 @@
         "Solar.MistGatheringPractice": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -218,6 +255,10 @@
         "Solar.MistonWaterAttack": {
             "cost": "2m per turn", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 4
@@ -233,6 +274,10 @@
         "Solar.ObserverDeceivingAttack": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 4
@@ -248,6 +293,9 @@
         "Solar.PrecisionoftheStrikingRaptor": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 1
@@ -258,6 +306,7 @@
         "Solar.RetrievetheFallenWeapon": {
             "cost": "1m, 2i", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -273,6 +322,9 @@
         "Solar.SavageWolfAttack": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -288,6 +340,7 @@
         "Solar.ShadowThrustSpark": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -303,6 +356,10 @@
         "Solar.ShadowWindSlash(ShadowWindKill)": {
             "cost": "2m or 1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -318,6 +375,9 @@
         "Solar.SharpHandFeint": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -333,6 +393,9 @@
         "Solar.ShowerofDeadlyBlades": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 5
@@ -348,6 +411,7 @@
         "Solar.ShrikeSavingDiscretion": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -363,6 +427,7 @@
         "Solar.SpittingHandofJustice": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Thrown": 5
@@ -378,6 +443,9 @@
         "Solar.SteelStormDescending": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 2
@@ -393,6 +461,9 @@
         "Solar.SwarmCullingInstinct": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Thrown": 4
@@ -408,6 +479,7 @@
         "Solar.ThrownExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 1
@@ -418,6 +490,9 @@
         "Solar.TripleDistanceAttackTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Thrown": 3

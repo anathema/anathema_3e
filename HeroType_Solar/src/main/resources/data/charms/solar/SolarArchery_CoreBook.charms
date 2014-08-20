@@ -4,6 +4,9 @@
         "Solar.AccuracyWithoutDistance": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -32,6 +35,7 @@
         "Solar.ArcheryExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 1, 
                 "Essence": 1
@@ -42,6 +46,9 @@
         "Solar.ArrowStormTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -57,6 +64,10 @@
         "Solar.BlindArrow": {
             "cost": "2m, 3i", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Archery": 3, 
                 "Essence": 1
@@ -72,6 +83,9 @@
         "Solar.BloodWithoutBalance": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 4, 
                 "Essence": 1
@@ -87,6 +101,9 @@
         "Solar.CrimsonStreamingIncineration": {
             "cost": "4m, 1wp + Variable", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 4
@@ -106,6 +123,9 @@
         "Solar.DazzlingFlareAttack": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -121,6 +141,9 @@
         "Solar.DustandAshesSleight": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 4
@@ -149,6 +172,9 @@
         "Solar.FieryArrowAttack": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 4, 
                 "Essence": 1
@@ -164,6 +190,9 @@
         "Solar.FinishingSnipe": {
             "cost": "7m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -179,6 +208,7 @@
         "Solar.FlashingVengeanceDraw": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -194,6 +224,9 @@
         "Solar.ForceWithoutFire": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Archery": 4, 
                 "Essence": 1
@@ -209,6 +242,9 @@
         "Solar.HeartEatingIncineration": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -224,6 +260,11 @@
         "Solar.HeavensCrashDown": {
             "cost": "6m, 2i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Perilous", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 4
@@ -252,6 +293,9 @@
         "Solar.HuntersSwiftAnswer": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -267,6 +311,7 @@
         "Solar.ImmaculateGoldenBow": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 4, 
                 "Essence": 2
@@ -282,6 +327,10 @@
         "Solar.NovaArrow": {
             "cost": "25m, 25i", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 5
@@ -301,6 +350,7 @@
         "Solar.PhantomArrowTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 3, 
                 "Essence": 1
@@ -311,6 +361,9 @@
         "Solar.RainofFeatheredDeath": {
             "cost": "3m per duplicate, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -326,6 +379,10 @@
         "Solar.RevolvingBowDiscipline": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -341,6 +398,10 @@
         "Solar.ScourgingWindAttack": {
             "cost": "10m, 3i, 3a, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 5
@@ -369,6 +430,9 @@
         "Solar.SearingSunfireInterdiction": {
             "cost": "4m, 1i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -429,6 +493,9 @@
         "Solar.SevenOmensShot": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -444,6 +511,9 @@
         "Solar.ShadowSeekingArrow": {
             "cost": "3m, 2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -459,6 +529,7 @@
         "Solar.SightWithoutEyes": {
             "cost": "1m", 
             "duration": "One tick", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 3, 
                 "Essence": 1
@@ -474,6 +545,9 @@
         "Solar.SolarSpike": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 3
@@ -489,6 +563,7 @@
         "Solar.StreamingArrowStance": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 4
@@ -504,6 +579,9 @@
         "Solar.ThereIsNoWind": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 2
@@ -519,6 +597,9 @@
         "Solar.TranceofUnhesitatingSpeed": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Archery": 3, 
                 "Essence": 1
@@ -534,6 +615,9 @@
         "Solar.WhisperedPrayerofJudgment": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Archery": 5, 
                 "Essence": 5
@@ -549,6 +633,9 @@
         "Solar.WiseArrow": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Archery": 2, 
                 "Essence": 1

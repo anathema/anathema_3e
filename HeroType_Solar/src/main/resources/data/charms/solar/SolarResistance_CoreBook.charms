@@ -4,6 +4,9 @@
         "Solar.AdamantSkinTechnique": {
             "cost": "8m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 5
@@ -23,6 +26,10 @@
         "Solar.AegisofInvincibleMight": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Dual", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Resistance": 5
@@ -38,6 +45,7 @@
         "Solar.ArmoredScoutsInvigoration": {
             "cost": "4m or 6m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
@@ -53,6 +61,7 @@
         "Solar.BattleFuryFocus": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 5
@@ -68,6 +77,7 @@
         "Solar.BloodthirstySwordDancerSpirit": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 5
@@ -83,6 +93,9 @@
         "Solar.BodyMendingMeditation": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 2
@@ -98,6 +111,9 @@
         "Solar.DiamondBodyPrana": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 4
@@ -113,6 +129,9 @@
         "Solar.DurabilityofOakMeditation": {
             "cost": "3m", 
             "duration": "One tick", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 2
@@ -123,6 +142,10 @@
         "Solar.EssenceGatheringTemper": {
             "cost": "1i", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
@@ -133,6 +156,9 @@
         "Solar.FrontLineWarriorsStamina": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
@@ -148,6 +174,7 @@
         "Solar.GloriousSolarPlate": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 4
@@ -163,6 +190,7 @@
         "Solar.GlorytotheMostHigh": {
             "cost": "10m, 20i, 3a, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Resistance": 5
@@ -178,6 +206,7 @@
         "Solar.HauberkSummoningGesture": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 3
@@ -193,6 +222,7 @@
         "Solar.IllnessResistingMeditation": {
             "cost": "4m", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 4
@@ -208,6 +238,7 @@
         "Solar.ImmunitytoEverythingTechnique": {
             "cost": "6m, 1wp", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 5
@@ -223,6 +254,9 @@
         "Solar.IronKettleBody": {
             "cost": "6m", 
             "duration": "One turn", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 4
@@ -238,6 +272,9 @@
         "Solar.IronSkinConcentration": {
             "cost": "2m or 6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
@@ -253,6 +290,9 @@
         "Solar.OxBodyTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 1
@@ -267,6 +307,7 @@
         "Solar.PoisonResistingMeditation": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
@@ -277,6 +318,7 @@
         "Solar.ResistanceExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 1
@@ -287,6 +329,7 @@
         "Solar.RoaroftheGodEmperor": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Resistance": 5
@@ -306,6 +349,9 @@
         "Solar.RuinAbasingShrug": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 5
@@ -321,6 +367,9 @@
         "Solar.SpiritStrengthenstheSkin": {
             "cost": "1m per damage die removed", 
             "duration": "Instant", 
+            "keywords": [
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 2
@@ -336,6 +385,7 @@
         "Solar.TigerWarriorsEndurance": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 5
@@ -355,6 +405,7 @@
         "Solar.UnbreakableWarriorsMastery": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 5
@@ -370,6 +421,7 @@
         "Solar.WhirlwindArmorDonningPrana": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 1
@@ -380,6 +432,10 @@
         "Solar.WillpowerEnhancingSpirit": {
             "cost": "2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Resistance": 4
@@ -395,6 +451,7 @@
         "Solar.WoundKnittingExercise": {
             "cost": "1m per -0 health level", 
             "duration": "Until fully healed", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Resistance": 5

@@ -4,6 +4,9 @@
         "Solar.AmbushPredatorStyle": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 3
@@ -19,6 +22,7 @@
         "Solar.BeastMasteringBehavior": {
             "cost": "10m, 1wp", 
             "duration": "One week", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 4
@@ -34,6 +38,7 @@
         "Solar.BestialTraitsTechnique": {
             "cost": "10m, 1wp, 2xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 4
@@ -49,6 +54,7 @@
         "Solar.CrimsonTalonVigor": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -68,6 +74,7 @@
         "Solar.DeadlyOnslaughtCoordination": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 5
@@ -83,6 +90,7 @@
         "Solar.DeadlyPredatorMethod": {
             "cost": "15m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -106,6 +114,7 @@
         "Solar.ElementResistingPrana": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -121,6 +130,7 @@
         "Solar.EyeDeceivingCamouflage": {
             "cost": "6m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -136,6 +146,9 @@
         "Solar.FamiliarHoningInstruction": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 3
@@ -151,6 +164,7 @@
         "Solar.FoodGatheringExercise": {
             "cost": "3m", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Survival": 1
@@ -161,6 +175,7 @@
         "Solar.ForceBuildingPredatorStyle": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 4
@@ -176,6 +191,7 @@
         "Solar.FriendshipwithAnimalsApproach": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Survival": 2
@@ -186,6 +202,7 @@
         "Solar.GhostPantherSlinking": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -205,6 +222,7 @@
         "Solar.HardshipSurvivingMendicantSpirit": {
             "cost": "5m", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Survival": 3
@@ -215,6 +233,9 @@
         "Solar.HideHardeningPractice": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 5
@@ -230,6 +251,9 @@
         "Solar.LifeoftheAurochs": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 5
@@ -249,6 +273,7 @@
         "Solar.PhantomRendingFangs": {
             "cost": "3m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -264,6 +289,9 @@
         "Solar.RedToothedExecutionOrder": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -279,6 +307,7 @@
         "Solar.SagaBeastVirtue": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -298,6 +327,7 @@
         "Solar.SpiritHuntingHound": {
             "cost": "1m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 5
@@ -313,6 +343,7 @@
         "Solar.SpiritTiedPet": {
             "cost": "10m, 1wp, 1xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 3
@@ -328,6 +359,7 @@
         "Solar.SurvivalExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Survival": 1
@@ -338,6 +370,7 @@
         "Solar.TracelessPassage": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Survival": 5
@@ -353,6 +386,7 @@
         "Solar.TracklessRegionNavigation": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 4
@@ -368,6 +402,7 @@
         "Solar.UnshakeableBloodhoundTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Survival": 5

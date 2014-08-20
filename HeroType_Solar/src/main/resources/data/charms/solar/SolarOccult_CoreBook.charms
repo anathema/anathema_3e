@@ -4,6 +4,7 @@
         "Solar.AllEncompassingSorcerersSight": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 5
@@ -19,6 +20,7 @@
         "Solar.AllSoulsBenediction": {
             "cost": "16m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -34,6 +36,7 @@
         "Solar.AncientTongueUnderstanding": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -44,6 +47,9 @@
         "Solar.BreathDrinkerMethod": {
             "cost": "4i", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 4
@@ -59,6 +65,7 @@
         "Solar.BurningExorcismTechnique": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 5
@@ -74,6 +81,7 @@
         "Solar.BurningEyeoftheDeliverer": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -89,6 +97,7 @@
         "Solar.CarnalSpiritRending": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 5
@@ -104,6 +113,7 @@
         "Solar.CelestialCircleSorcery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 4
@@ -119,6 +129,7 @@
         "Solar.DarkMindersObservances": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 4
@@ -134,6 +145,7 @@
         "Solar.DemonCompellingNoose": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -149,6 +161,9 @@
         "Solar.EphemeralInductionTechnique": {
             "cost": "20m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Occult": 5
@@ -172,6 +187,9 @@
         "Solar.GhostEatingTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -187,6 +205,9 @@
         "Solar.GloamingEyeUnderstanding": {
             "cost": "3m per Charm", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -202,6 +223,7 @@
         "Solar.ImmortalSoulVigil": {
             "cost": "--(7m)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Occult": 5
@@ -217,6 +239,7 @@
         "Solar.KeenUnnaturalEye": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -232,6 +255,7 @@
         "Solar.MaterialExegesisPrana": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 4
@@ -247,6 +271,7 @@
         "Solar.NineSpectersBan": {
             "cost": "4m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 4
@@ -266,6 +291,7 @@
         "Solar.OccultExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 1
@@ -276,6 +302,9 @@
         "Solar.PhantomSeizingStrike": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 4
@@ -291,6 +320,7 @@
         "Solar.SolarCircleSorcery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Occult": 5
@@ -306,6 +336,7 @@
         "Solar.SorcerersBurningChakra": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Occult": 5
@@ -321,6 +352,7 @@
         "Solar.SoulProjectionMethod": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -336,6 +368,7 @@
         "Solar.SpiritCagingMandala": {
             "cost": "10m, 1wp", 
             "duration": "Varies", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 4
@@ -351,6 +384,9 @@
         "Solar.SpiritCuttingAttack": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 2
@@ -366,6 +402,7 @@
         "Solar.SpiritDetectingGlance": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 1
@@ -376,6 +413,7 @@
         "Solar.SpiritDrainingMudra": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5
@@ -391,6 +429,7 @@
         "Solar.SpiritDrainingStance": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -406,6 +445,7 @@
         "Solar.SpiritDrawingOculus": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Occult": 5
@@ -421,6 +461,7 @@
         "Solar.SpiritManifestingWord": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 2
@@ -431,6 +472,7 @@
         "Solar.SpiritRepellingDiagram": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Occult": 3
@@ -446,6 +488,7 @@
         "Solar.SpiritShreddingExorcism": {
             "cost": "7m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Occult": 5
@@ -461,6 +504,7 @@
         "Solar.SpiritSlayingStance": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 5
@@ -476,6 +520,7 @@
         "Solar.SupernalControlMethod": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 5
@@ -491,6 +536,7 @@
         "Solar.TerrestrialCircleSorcery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -501,6 +547,7 @@
         "Solar.UncannyPerceptionTechnique": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 2
@@ -516,6 +563,7 @@
         "Solar.UncannyShroudDefense": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Occult": 3
@@ -531,6 +579,7 @@
         "Solar.WyldBindingPrana": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Occult": 5

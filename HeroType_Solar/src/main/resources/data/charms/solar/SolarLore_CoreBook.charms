@@ -4,6 +4,7 @@
         "Solar.BottomlessWellspringApproach": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 4
@@ -19,6 +20,7 @@
         "Solar.ChaosRepellingPattern": {
             "cost": "10m, 1wp", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 3
@@ -34,6 +36,7 @@
         "Solar.DemiurgicSuspiration": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -49,6 +52,7 @@
         "Solar.EssenceDrainingTouch": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -64,6 +68,7 @@
         "Solar.EssenceFontTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 4
@@ -79,6 +84,7 @@
         "Solar.EssenceLendingMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 1
@@ -89,6 +95,9 @@
         "Solar.EssenceTwiningMethod": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -104,6 +113,7 @@
         "Solar.FirstKnowledgesGrace": {
             "cost": "4m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 3
@@ -119,6 +129,9 @@
         "Solar.FlowingEssenceConversion": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -134,6 +147,7 @@
         "Solar.FlowingMindPrana": {
             "cost": "1xp+", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 5
@@ -149,6 +163,10 @@
         "Solar.ForceDrainingWhisper": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -164,6 +182,7 @@
         "Solar.GodKingsShrike(DogstarRuminations)": {
             "cost": "30m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Lore": 5
@@ -186,6 +205,7 @@
         "Solar.HarmoniousAcademicMethodology": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 3
@@ -196,6 +216,7 @@
         "Solar.HeavenTurningCalculations": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -218,6 +239,7 @@
         "Solar.HeroInductionMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -233,6 +255,9 @@
         "Solar.HiddenWisdomBestowal": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 5
@@ -248,6 +273,7 @@
         "Solar.ImmanentSolarGlory": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -263,6 +289,7 @@
         "Solar.IncalculableFlowingMind": {
             "cost": "7m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Lore": 5
@@ -278,6 +305,9 @@
         "Solar.InjuryForcingTechnique": {
             "cost": "5m per health level, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -293,6 +323,7 @@
         "Solar.LegendaryScholarsCurriculum": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -308,6 +339,7 @@
         "Solar.LoreExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 1
@@ -318,6 +350,7 @@
         "Solar.LoreInducingConcentration": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 5
@@ -333,6 +366,7 @@
         "Solar.ManseRaisingMethod": {
             "cost": "10m, 1wp, 10xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -348,6 +382,7 @@
         "Solar.OrderAffirmingBlow": {
             "cost": "15m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -358,6 +393,10 @@
         "Solar.PowerAwardingPrana": {
             "cost": "5m + 1m per 1xp", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Mute", 
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -377,6 +416,7 @@
         "Solar.PowerBeyondReason": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -405,6 +445,9 @@
         "Solar.PowerRestoringInvocation": {
             "cost": "2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -420,6 +463,7 @@
         "Solar.ProphetofSeventeenCycles": {
             "cost": "12m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -435,6 +479,7 @@
         "Solar.SacredRelicUnderstanding": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -450,6 +495,7 @@
         "Solar.SavantofNineGlories": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Lore": 5
@@ -465,6 +511,7 @@
         "Solar.SealofInfiniteWisdom": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -480,6 +527,7 @@
         "Solar.SelfsameMasterInstructor": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -495,6 +543,7 @@
         "Solar.SevenfoldSavantMantle": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -510,6 +559,7 @@
         "Solar.SurgingEssenceFlow": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -525,6 +575,7 @@
         "Solar.SurgingInnerFire": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -540,6 +591,7 @@
         "Solar.TirelessLearnerMethod": {
             "cost": "1xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 5
@@ -555,6 +607,7 @@
         "Solar.TomeRearingGesture": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5, 
@@ -575,6 +628,9 @@
         "Solar.TruthRenderingGaze": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 5
@@ -590,6 +646,9 @@
         "Solar.UnstoppableMagnusApproach": {
             "cost": "5m, 10i", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Lore": 5
@@ -609,6 +668,7 @@
         "Solar.WaketheSleeper": {
             "cost": "15m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -631,6 +691,7 @@
         "Solar.WillBolsteringMethod": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 2
@@ -646,6 +707,9 @@
         "Solar.WillShatteringIllusion": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Lore": 5
@@ -665,6 +729,7 @@
         "Solar.WoundAcceptingTechnique": {
             "cost": "3m per health level, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Lore": 4
@@ -680,6 +745,7 @@
         "Solar.WyldCalledWeapon": {
             "cost": "7m, 1wp, 8xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -695,6 +761,7 @@
         "Solar.WyldCauldronMastery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -710,6 +777,7 @@
         "Solar.WyldDispellingPrana": {
             "cost": "5m, 1wp", 
             "duration": "Varies", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Lore": 2
@@ -720,6 +788,7 @@
         "Solar.WyldForgingFocus": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5
@@ -735,6 +804,7 @@
         "Solar.WyldShapingTechnique": {
             "cost": "15m, 1wp, 2xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Lore": 5

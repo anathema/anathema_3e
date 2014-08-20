@@ -4,6 +4,10 @@
         "MartialArts.ArmorPenetratingFangStrike": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -19,6 +23,11 @@
         "MartialArts.CountlessCoilsEvasion": {
             "cost": "7m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -34,6 +43,10 @@
         "MartialArts.CripplingPressurePointStrike": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -49,6 +62,9 @@
         "MartialArts.EssenceFangsandScalesTechnique": {
             "cost": "-- (+1m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 4
@@ -64,6 +80,12 @@
         "MartialArts.EssenceVenomStrike": {
             "cost": "6m, 3i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Aggravated", 
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -91,6 +113,10 @@
         "MartialArts.SerpentineEvasion": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -101,6 +127,9 @@
         "MartialArts.SnakeForm": {
             "cost": "8m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4
@@ -120,6 +149,11 @@
         "MartialArts.SnakeStrikestheHeel": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Clash", 
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -135,6 +169,10 @@
         "MartialArts.StrikingCobraTechnique": {
             "cost": "3m", 
             "duration": "One round", 
+            "keywords": [
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -145,6 +183,10 @@
         "MartialArts.UncoilingSerpentPrana": {
             "cost": "7m, 3i", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4

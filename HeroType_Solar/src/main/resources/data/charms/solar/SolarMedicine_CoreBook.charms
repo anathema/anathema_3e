@@ -4,6 +4,7 @@
         "Solar.AilmentRectifyingMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 1
@@ -14,6 +15,7 @@
         "Solar.AnodyneofCelestialDreaming": {
             "cost": "7m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -29,6 +31,7 @@
         "Solar.AnointmentofMiraculousHealth": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -44,6 +47,7 @@
         "Solar.BenisonofCelestialHealing": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Medicine": 5
@@ -59,6 +63,7 @@
         "Solar.BodyPurifyingAdmonitions": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Medicine": 5
@@ -74,6 +79,7 @@
         "Solar.BodySculptingEssenceMethod": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -89,6 +95,7 @@
         "Solar.ContagionCuringTouch": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Medicine": 4
@@ -104,6 +111,7 @@
         "Solar.FeitofImpartedNature": {
             "cost": "10m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Medicine": 4
@@ -119,6 +127,7 @@
         "Solar.FlawlessDiagnosisTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 1
@@ -129,6 +138,9 @@
         "Solar.HealersUnerringHands": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Medicine": 5
@@ -144,6 +156,7 @@
         "Solar.HealingTranceMeditation": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -163,6 +176,7 @@
         "Solar.ImmaculateSolarPhysician": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Medicine": 5
@@ -178,6 +192,7 @@
         "Solar.InstantTreatmentMethodology": {
             "cost": "5m, 1wp or 5i, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Medicine": 5
@@ -193,6 +208,7 @@
         "Solar.LifeExchangingPrana": {
             "cost": "1lhl per 3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -208,6 +224,7 @@
         "Solar.LifeSculptingHandsTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Medicine": 5
@@ -223,6 +240,7 @@
         "Solar.MasterChirurgeonMeditation": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Medicine": 5
@@ -238,6 +256,7 @@
         "Solar.MedicineExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 1
@@ -248,6 +267,7 @@
         "Solar.PerfectCelestialChirurgeon": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Medicine": 5
@@ -263,6 +283,7 @@
         "Solar.PlagueBanishingIncitation": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 3
@@ -278,6 +299,7 @@
         "Solar.TouchofBlissfulRelease": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Medicine": 3
@@ -293,6 +315,7 @@
         "Solar.WholenessRestoringMeditation": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Medicine": 5
@@ -308,6 +331,7 @@
         "Solar.WoundCleansingMeditation": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 5
@@ -323,6 +347,7 @@
         "Solar.WoundMendingCareTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Medicine": 3

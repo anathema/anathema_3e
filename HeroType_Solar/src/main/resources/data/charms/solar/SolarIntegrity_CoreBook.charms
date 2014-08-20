@@ -4,6 +4,9 @@
         "Solar.DestinyManifestingMethod": {
             "cost": "--(3m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 1
@@ -19,6 +22,7 @@
         "Solar.EnduringMentalToughness": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 1
@@ -58,6 +62,7 @@
         "Solar.IntegrityExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 1
@@ -68,6 +73,7 @@
         "Solar.IntegrityProtectingPrana": {
             "cost": "--(5m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 3
@@ -78,6 +84,7 @@
         "Solar.LegendSoulRevival": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 3
@@ -93,6 +100,7 @@
         "Solar.PhoenixRenewalTactic": {
             "cost": "--(Varies)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 3
@@ -125,6 +133,7 @@
         "Solar.RighteousLionDefense": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Integrity": 5
@@ -153,6 +162,7 @@
         "Solar.SpiritMaintainingManeuver": {
             "cost": "5m per 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Integrity": 5
@@ -168,6 +178,7 @@
         "Solar.SteelHeartStance": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Integrity": 4
@@ -183,6 +194,7 @@
         "Solar.StubbornBoarDefense": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Integrity": 2
@@ -193,6 +205,7 @@
         "Solar.SunKingRadiance": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Integrity": 5
@@ -213,6 +226,7 @@
         "Solar.TemptationResistingStance": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Integrity": 4
@@ -228,6 +242,7 @@
         "Solar.TranscendentHerosMeditation": {
             "cost": "7m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Integrity": 5
@@ -243,6 +258,7 @@
         "Solar.UnhesitatingDedication": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Integrity": 5

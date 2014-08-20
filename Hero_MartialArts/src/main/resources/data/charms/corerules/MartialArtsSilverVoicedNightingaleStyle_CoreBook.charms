@@ -4,6 +4,10 @@
         "MartialArts.AriaofVictory": {
             "cost": "8m, 1wp", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -19,6 +23,10 @@
         "MartialArts.FlashingBladeHarmony": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -34,6 +42,9 @@
         "MartialArts.HarmonyinOppositionStance": {
             "cost": "4m, 1wp", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -49,6 +60,9 @@
         "MartialArts.HauntingHeartRendingMelody": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -64,6 +78,11 @@
         "MartialArts.HearingtheHeartsSong": {
             "cost": "5m, 2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Perilous", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 3
@@ -79,6 +98,9 @@
         "MartialArts.InspiringBattleHymn": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -94,6 +116,9 @@
         "MartialArts.ResoundingSongbirdsCry": {
             "cost": "3m, 2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -109,6 +134,11 @@
         "MartialArts.ShatteringDiscordCacophony": {
             "cost": "10m, 1wp", 
             "duration": "Until the enemy's next turn", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -132,6 +162,9 @@
         "MartialArts.SilverVoicedNightingaleForm": {
             "cost": "8m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4
@@ -151,6 +184,9 @@
         "MartialArts.TerrifyingBattleShriek": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -166,6 +202,9 @@
         "MartialArts.VoiceoftheNightBird": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2

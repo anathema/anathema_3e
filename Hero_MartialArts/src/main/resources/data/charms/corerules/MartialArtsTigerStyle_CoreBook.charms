@@ -4,6 +4,10 @@
         "MartialArts.AngryPredatorFrenzy": {
             "cost": "-- (+5m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Celestial", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -31,6 +35,9 @@
         "MartialArts.CelestialTigerHide": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -46,6 +53,10 @@
         "MartialArts.CrimsonLeapingCatTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -56,6 +67,9 @@
         "MartialArts.IronClawGrip": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -71,6 +85,11 @@
         "MartialArts.LeapFromCloakingShadows": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -86,6 +105,9 @@
         "MartialArts.PreyMaimingFrenzy": {
             "cost": "8m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -101,6 +123,10 @@
         "MartialArts.RagingTigerPounce": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -116,6 +142,10 @@
         "MartialArts.SpineShatteringBite": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -131,6 +161,9 @@
         "MartialArts.StalkingCatMovementMeditation": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -146,6 +179,10 @@
         "MartialArts.StrikingFuryClaws": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -156,6 +193,10 @@
         "MartialArts.TigerForm": {
             "cost": "10m", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial", 
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4

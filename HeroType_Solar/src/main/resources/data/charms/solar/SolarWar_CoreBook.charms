@@ -4,6 +4,7 @@
         "Solar.BattlePathAscendant": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 4
@@ -19,6 +20,7 @@
         "Solar.BattleVisionarysForesight": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "War": 5
@@ -38,6 +40,7 @@
         "Solar.FourGloriesMeditation": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "War": 5
@@ -53,6 +56,7 @@
         "Solar.GeneraloftheAllSeeingSun": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 4
@@ -68,6 +72,7 @@
         "Solar.HolisticBattleUnderstanding": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 2
@@ -83,6 +88,7 @@
         "Solar.IdealBattleKnowledgePrana": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 2
@@ -93,6 +99,7 @@
         "Solar.ImmortalCommandersPresence": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 2
@@ -108,6 +115,7 @@
         "Solar.ImmortalWarlordsTactic": {
             "cost": "4m, 4i, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 4
@@ -123,6 +131,7 @@
         "Solar.LeagueofIronPreparation": {
             "cost": "5m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 3
@@ -138,6 +147,7 @@
         "Solar.MagnanimityoftheUnstoppableIcon": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 4
@@ -153,6 +163,7 @@
         "Solar.MarchoftheReturner": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "War": 5
@@ -168,6 +179,7 @@
         "Solar.RedoubtRaisingGesture": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 3
@@ -183,6 +195,7 @@
         "Solar.RoutStemmingGesture": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 3
@@ -198,6 +211,7 @@
         "Solar.SupremacyoftheDivineArmy": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "War": 5
@@ -213,6 +227,7 @@
         "Solar.TigerWarriorTrainingTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "War": 4
@@ -228,6 +243,7 @@
         "Solar.TranscendentWarlordsGenius": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "War": 5
@@ -243,6 +259,7 @@
         "Solar.WarExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 1
@@ -253,6 +270,7 @@
         "Solar.WarGodDescendent": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "War": 1

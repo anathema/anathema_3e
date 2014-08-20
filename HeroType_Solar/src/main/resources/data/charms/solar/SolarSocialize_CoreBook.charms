@@ -4,6 +4,10 @@
         "Solar.AspBitesItsTail": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -23,6 +27,9 @@
         "Solar.AspersionsCastAside": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -38,6 +45,9 @@
         "Solar.AtYourService": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Socialize": 5
@@ -57,6 +67,7 @@
         "Solar.CultureHeroApproach": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 4
@@ -72,6 +83,7 @@
         "Solar.CunningInsightTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -87,6 +99,9 @@
         "Solar.DauntlessAssayerMethod": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -102,6 +117,7 @@
         "Solar.DeepEyedSoulGazing": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -117,6 +133,7 @@
         "Solar.DiscretionaryGesture": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -132,6 +149,7 @@
         "Solar.DoubtSowingContentionMethod": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -147,6 +165,7 @@
         "Solar.DrawtheCurtain": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Socialize": 5
@@ -166,6 +185,9 @@
         "Solar.EasilyDiscardedPresenceMethod": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -181,6 +203,9 @@
         "Solar.EffectiveCounterArgument": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -196,6 +221,7 @@
         "Solar.ElusiveDreamDefense": {
             "cost": "1m, 1wp", 
             "duration": "One round", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Socialize": 5
@@ -211,6 +237,7 @@
         "Solar.EndlessObsessionFeint": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -226,6 +253,7 @@
         "Solar.EvenTouchedProphet": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Socialize": 5
@@ -241,6 +269,7 @@
         "Solar.FaceCharmingPrana": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -256,6 +285,7 @@
         "Solar.FeteWatcherStance": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -271,6 +301,7 @@
         "Solar.FriendofaFriendApproach": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -290,6 +321,7 @@
         "Solar.FugueEmpoweredOther": {
             "cost": "1 Limit", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Socialize": 5
@@ -305,6 +337,7 @@
         "Solar.GuardedThoughtsMeditation": {
             "cost": "4m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -320,6 +353,9 @@
         "Solar.HeartEclipsingShroud": {
             "cost": "--(10m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -335,6 +371,7 @@
         "Solar.HumbleServantApproach": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 4
@@ -350,6 +387,7 @@
         "Solar.HundredFacedStranger": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -365,6 +403,9 @@
         "Solar.IndecentProposalMethod": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -380,6 +421,9 @@
         "Solar.IntentTracingStare": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 5
@@ -399,6 +443,7 @@
         "Solar.InvertedEgoMask": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -414,6 +459,7 @@
         "Solar.KnowingtheSoulsPrice": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -433,6 +479,7 @@
         "Solar.LegendMaskMethodology": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -448,6 +495,7 @@
         "Solar.MasteryofSmallManners": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 3
@@ -458,6 +506,9 @@
         "Solar.MotiveDiscerningTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 3
@@ -497,6 +548,7 @@
         "Solar.NightPassesOver": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 3
@@ -507,6 +559,9 @@
         "Solar.PenumbraSelfMeditation": {
             "cost": "3m per Intimacy", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -522,6 +577,7 @@
         "Solar.PreeminentGalaKnife": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -537,6 +593,7 @@
         "Solar.QuicksilverFalconsEye": {
             "cost": "1m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 3
@@ -552,6 +609,7 @@
         "Solar.SeenandSeeingMethod": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -588,6 +646,9 @@
         "Solar.SelfsameMasterProcurer": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -603,6 +664,9 @@
         "Solar.ShadowOverDay": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 4
@@ -618,6 +682,7 @@
         "Solar.SocializeExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 1
@@ -628,6 +693,7 @@
         "Solar.SoulReprisal": {
             "cost": "16m, 1wp, 20xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Socialize": 5
@@ -643,6 +709,7 @@
         "Solar.SoulVoidKata": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -662,6 +729,9 @@
         "Solar.UmbralEyesFocus": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Socialize": 5
@@ -677,6 +747,7 @@
         "Solar.UnboundSocialMastery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -692,6 +763,7 @@
         "Solar.UnderstandingtheCourt": {
             "cost": "20m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -711,6 +783,7 @@
         "Solar.UnimpeachableDiscourseTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5
@@ -726,6 +799,7 @@
         "Solar.VenomousRumorsTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Socialize": 5
@@ -741,6 +815,7 @@
         "Solar.WiseCounsel(FlashingSoulReform)": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Socialize": 5
@@ -756,6 +831,7 @@
         "Solar.WiseEyedCourtierMethod": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Socialize": 5

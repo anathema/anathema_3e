@@ -4,6 +4,7 @@
         "Solar.AegisRevolver": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Melee": 5
@@ -19,6 +20,9 @@
         "Solar.ArmRendingAttack": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -34,6 +38,9 @@
         "Solar.BlazingSolarBolt": {
             "cost": "5m, 2i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -49,6 +56,7 @@
         "Solar.BulwarkStance": {
             "cost": "5m", 
             "duration": "Until next turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -64,6 +72,7 @@
         "Solar.CalltheBlade": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 1
@@ -74,6 +83,7 @@
         "Solar.CalmandReadyFocus": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 4
@@ -89,6 +99,9 @@
         "Solar.CelestialAegisInnervation": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Melee": 5
@@ -104,6 +117,7 @@
         "Solar.CoronaofRadiance": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -119,6 +133,7 @@
         "Solar.DippingSwallowDefense": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 1
@@ -129,6 +144,9 @@
         "Solar.EdgeofMorningSunlight": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 4
@@ -144,6 +162,9 @@
         "Solar.ExcellentStrike": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 2
@@ -154,6 +175,7 @@
         "Solar.FavoredLionStance": {
             "cost": "2m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 4
@@ -169,6 +191,10 @@
         "Solar.FerventBlow": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -184,6 +210,9 @@
         "Solar.FireandStonesStrike": {
             "cost": "1m per die or success", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -199,6 +228,7 @@
         "Solar.FirstLightofDawn": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Melee": 5
@@ -214,6 +244,7 @@
         "Solar.FivefoldBulwarkStance": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -229,6 +260,9 @@
         "Solar.FlashingDisarmMethod": {
             "cost": "3m, 1i", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -256,6 +290,10 @@
         "Solar.FlashingEdgeofDawn": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -275,6 +313,7 @@
         "Solar.FoeCleavingFocus": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Melee": 5
@@ -290,6 +329,7 @@
         "Solar.GloriousSolarSaber": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 3
@@ -305,6 +345,9 @@
         "Solar.GroundingStrike": {
             "cost": "--(3m)", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -320,6 +363,7 @@
         "Solar.GuardBreakingTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 5
@@ -335,6 +379,7 @@
         "Solar.HailShatteringPractice": {
             "cost": "1m per success", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 3
@@ -350,6 +395,9 @@
         "Solar.HeavenSwordFlash": {
             "cost": "7m, 4i, 1wp, +2m per hit", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Melee": 5
@@ -386,6 +434,10 @@
         "Solar.HeavenlyGuardianDefense": {
             "cost": "1i per success +4m or 4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -401,6 +453,7 @@
         "Solar.HundredHandsDefense": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -420,6 +473,9 @@
         "Solar.HungryTigerTechnique": {
             "cost": "3m, 2i", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -435,6 +491,7 @@
         "Solar.ImmortalBladeTriumphant": {
             "cost": "10m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -450,6 +507,7 @@
         "Solar.InvincibleFuryoftheDawn": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -465,6 +523,9 @@
         "Solar.IronRaptorTechnique": {
             "cost": "7m, 3i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 4
@@ -484,6 +545,9 @@
         "Solar.IronWhirlwindAttack": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -499,6 +563,7 @@
         "Solar.MeleeExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 1
@@ -509,6 +574,9 @@
         "Solar.MoonlightScatteredAshes": {
             "cost": "8m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Melee": 5
@@ -527,6 +595,9 @@
         "Solar.OakRendingBlow": {
             "cost": "4m, 1i", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Melee": 5
@@ -542,6 +613,7 @@
         "Solar.OneWeapon,TwoBlows": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 2
@@ -557,6 +629,7 @@
         "Solar.OverandUnderMethod": {
             "cost": "--(7m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -572,6 +645,7 @@
         "Solar.PeonyBlossomTechnique": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -587,6 +661,7 @@
         "Solar.PerfectStrikeDiscipline": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -606,6 +681,9 @@
         "Solar.ProtectionofCelestialBliss": {
             "cost": "--(4m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Melee": 5
@@ -621,6 +699,9 @@
         "Solar.QuickenedBlow": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -636,6 +717,10 @@
         "Solar.ReadyinEightDirectionsStance": {
             "cost": "5m", 
             "duration": "Until next turn", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -651,6 +736,9 @@
         "Solar.RedReavingOnslaught": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Melee": 5
@@ -666,6 +754,9 @@
         "Solar.RisingSunSlash": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 4
@@ -681,6 +772,9 @@
         "Solar.SandstormWindAttack": {
             "cost": "6m, 3i", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 4
@@ -700,6 +794,9 @@
         "Solar.ScreamingAnimaBurst": {
             "cost": "--(1 anima)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -719,6 +816,9 @@
         "Solar.SearingJudgmentStrike": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 4
@@ -734,6 +834,9 @@
         "Solar.SeethingSpiritSlash": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -749,6 +852,7 @@
         "Solar.SharpLightofJudgmentStance": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -764,6 +868,9 @@
         "Solar.ShatteringThrow": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -779,6 +886,7 @@
         "Solar.ShearingFocusStrike": {
             "cost": "--(3m)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -794,6 +902,10 @@
         "Solar.SolarCounterattack": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 4
@@ -809,6 +921,7 @@
         "Solar.SplitMotionAttack": {
             "cost": "4m, 1i", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -845,6 +958,7 @@
         "Solar.SummoningtheLoyalSteel": {
             "cost": "1m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Melee": 3
@@ -860,6 +974,7 @@
         "Solar.UnassailableGuardianPosture": {
             "cost": "1m, 1wp", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Melee": 5
@@ -875,6 +990,9 @@
         "Solar.VanishingBlow": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Melee": 5

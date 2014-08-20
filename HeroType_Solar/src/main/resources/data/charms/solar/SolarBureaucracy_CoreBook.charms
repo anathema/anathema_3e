@@ -4,6 +4,7 @@
         "Solar.AllSeeingMasterProcurer": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 4, 
                 "Essence": 1
@@ -19,6 +20,7 @@
         "Solar.BureauRectifyingMethod": {
             "cost": "10m, 1wp", 
             "duration": "One investigation", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 1
@@ -34,6 +36,7 @@
         "Solar.BureauReformingKata": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 2
@@ -53,6 +56,7 @@
         "Solar.BureaucracyExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 1, 
                 "Essence": 1
@@ -63,6 +67,7 @@
         "Solar.ConsumerEvaluatingGlance": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 3, 
                 "Essence": 1
@@ -78,6 +83,7 @@
         "Solar.DeftOfficialsWay": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 1, 
                 "Essence": 1
@@ -88,6 +94,7 @@
         "Solar.EclecticVerbiageofLaw": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -103,6 +110,7 @@
         "Solar.EmpoweredBarterStance": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -118,6 +126,7 @@
         "Solar.EnigmaticBureauUnderstanding": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 4, 
                 "Essence": 1
@@ -133,6 +142,7 @@
         "Solar.EnlightenedDiscourseMethod": {
             "cost": "4m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 3, 
                 "Essence": 1
@@ -152,6 +162,7 @@
         "Solar.FoulAirofArgumentTechnique": {
             "cost": "13m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -167,6 +178,7 @@
         "Solar.FrugalMerchantMethod": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 1, 
                 "Essence": 1
@@ -177,6 +189,7 @@
         "Solar.IllimitableMasterFence": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 1
@@ -192,6 +205,9 @@
         "Solar.IndolentOfficialCharm": {
             "cost": "5m", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 2
@@ -207,6 +223,7 @@
         "Solar.InfinitelyEfficientRegister": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -222,6 +239,7 @@
         "Solar.InsightfulBuyerTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 3, 
                 "Essence": 1
@@ -237,6 +255,7 @@
         "Solar.IrresistibleSalesmanSpirit": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 2
@@ -256,6 +275,7 @@
         "Solar.MeasuringGlance": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 2, 
                 "Essence": 1
@@ -271,6 +291,7 @@
         "Solar.OmenSpawningBeast": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -286,6 +307,7 @@
         "Solar.OrderConferringAction": {
             "cost": "10m, 1wp", 
             "duration": "One week", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 5
@@ -301,6 +323,7 @@
         "Solar.SemanticArgumentTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 2
@@ -316,6 +339,10 @@
         "Solar.SoulSnaringPitch": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Psyche"
+            ], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3
@@ -331,6 +358,7 @@
         "Solar.SpeedtheWheels": {
             "cost": "8m", 
             "duration": "One task", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 1
@@ -346,6 +374,7 @@
         "Solar.SubjectHailingIdeology": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 4
@@ -361,6 +390,9 @@
         "Solar.TabooInflictingDiatribe": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 4
@@ -376,6 +408,7 @@
         "Solar.UngovernedMarketAwareness": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 2
@@ -391,6 +424,7 @@
         "Solar.WoeCapturingWeb": {
             "cost": "--(Varies)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Bureaucracy": 5, 
                 "Essence": 3

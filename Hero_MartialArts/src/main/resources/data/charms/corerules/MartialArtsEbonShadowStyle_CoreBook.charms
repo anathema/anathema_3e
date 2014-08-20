@@ -4,6 +4,10 @@
         "MartialArts.EbonShadowForm": {
             "cost": "8m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 4
@@ -23,6 +27,11 @@
         "MartialArts.ElusiveFlickerEvasion": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -38,6 +47,10 @@
         "MartialArts.NothingButShadows": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -48,6 +61,10 @@
         "MartialArts.SevenPointsofWeaknessStrike": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -58,6 +75,11 @@
         "MartialArts.ShadowBodyDissolution": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -73,6 +95,10 @@
         "MartialArts.ShadowSteppingMotion": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -88,6 +114,10 @@
         "MartialArts.ThroatSlittingShadowAtemi": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 4
@@ -103,6 +133,11 @@
         "MartialArts.UmbraNooseExecution": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5

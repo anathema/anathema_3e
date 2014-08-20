@@ -4,6 +4,7 @@
         "Solar.BardLighteningPrana": {
             "cost": "4m", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -19,6 +20,7 @@
         "Solar.CoursingFireboltFlash": {
             "cost": "3m or 4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -34,6 +36,7 @@
         "Solar.ElusiveMountTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 3
@@ -49,6 +52,7 @@
         "Solar.FierceChargersPulse": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -64,6 +68,7 @@
         "Solar.FlashingThunderboltSteed": {
             "cost": "4m", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 2
@@ -79,6 +84,7 @@
         "Solar.GrizzledCataphractsWay": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -94,6 +100,7 @@
         "Solar.HarmoniousTackingTechnique": {
             "cost": "2m to 6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 3
@@ -109,6 +116,7 @@
         "Solar.HeroRidesAway": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -124,6 +132,7 @@
         "Solar.HorseHealingTechnique": {
             "cost": "4m, 1 health level", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -139,6 +148,7 @@
         "Solar.HorseStealingLeap": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -154,6 +164,7 @@
         "Solar.ImmortalChargersGallop": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 4
@@ -169,6 +180,7 @@
         "Solar.ImmortalRidersAdvantage": {
             "cost": "Varies", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 3
@@ -184,6 +196,7 @@
         "Solar.InexhaustibleDestriersGait": {
             "cost": "2m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -199,6 +212,7 @@
         "Solar.IronSimhataStyle": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -214,6 +228,7 @@
         "Solar.MasterHorsemansTechniques": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 1
@@ -224,6 +239,7 @@
         "Solar.MountPreservationMethod": {
             "cost": "1hl per three successes", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 3
@@ -239,6 +255,7 @@
         "Solar.PhantomRidersApproach": {
             "cost": "7m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -254,6 +271,7 @@
         "Solar.PhantomSteed": {
             "cost": "10m, 1wp", 
             "duration": "One day", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -269,6 +287,9 @@
         "Solar.RapidCavalryApproach": {
             "cost": "7m or 12m", 
             "duration": "One scene", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -284,6 +305,7 @@
         "Solar.ResilienceoftheChosenMount": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -299,6 +321,7 @@
         "Solar.RideExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 1
@@ -309,6 +332,10 @@
         "Solar.RousingBacklashAssault": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 4
@@ -324,6 +351,7 @@
         "Solar.SaddleStayingCourses": {
             "cost": "4m, 3i, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 4
@@ -339,6 +367,7 @@
         "Solar.SeasonedBeastRidersApproach": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 2
@@ -349,6 +378,10 @@
         "Solar.SevenCyclonesRearing": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -364,6 +397,7 @@
         "Solar.SingleSpiritMethod": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 3
@@ -379,6 +413,7 @@
         "Solar.SoaringPegasusStyle": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -394,6 +429,7 @@
         "Solar.SometimesHorsesFlyApproach": {
             "cost": "1m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -409,6 +445,7 @@
         "Solar.SpeedFuryFocus": {
             "cost": "--(3m)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -424,6 +461,9 @@
         "Solar.SupernalLashDiscipline": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 5
@@ -439,6 +479,9 @@
         "Solar.UntouchableHorsemansAttitude": {
             "cost": "3m, 2i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 4
@@ -454,6 +497,7 @@
         "Solar.UntouchableSolarSteed": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -469,6 +513,7 @@
         "Solar.WhirlwindHorseArmoringPrana": {
             "cost": "1m to 3m or 5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 5
@@ -484,6 +529,7 @@
         "Solar.WindRacingEssenceInfusion": {
             "cost": "2m, 1wp or 4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 3
@@ -499,6 +545,7 @@
         "Solar.WoeandStormEvasion": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Ride": 4
@@ -514,6 +561,7 @@
         "Solar.WorthyMountTechnique": {
             "cost": "1i", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Ride": 3
@@ -529,6 +577,7 @@
         "Solar.WrathfulMountInvigoration": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Ride": 4

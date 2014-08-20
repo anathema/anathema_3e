@@ -4,6 +4,7 @@
         "Solar.CleverBanditsRook": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 3
@@ -19,6 +20,7 @@
         "Solar.DoorEvadingTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 4
@@ -34,6 +36,7 @@
         "Solar.DoubtSealingHeist": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 4
@@ -49,6 +52,7 @@
         "Solar.FateShiftingSolarArete": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 5
@@ -81,6 +85,9 @@
         "Solar.FlashingRusePrana": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 5
@@ -96,6 +103,9 @@
         "Solar.FlawlessPickpocketingTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 2
@@ -106,6 +116,7 @@
         "Solar.FlawlesslyImpenetrableDisguise": {
             "cost": "6m", 
             "duration": "Until the Exalt sleeps", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 4
@@ -116,6 +127,7 @@
         "Solar.IronWolvesGrasp": {
             "cost": "3m, 4 Initiative", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 5
@@ -135,6 +147,7 @@
         "Solar.LarcenyExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 1
@@ -145,6 +158,7 @@
         "Solar.LightningHandSleight": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 4
@@ -160,6 +174,7 @@
         "Solar.LivingShadowPreparedness": {
             "cost": "4m, 1 wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 3
@@ -170,6 +185,7 @@
         "Solar.LockOpeningTouch": {
             "cost": "1m or 5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 2
@@ -180,6 +196,7 @@
         "Solar.MagpiesInvisibleTalon": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 5
@@ -195,6 +212,7 @@
         "Solar.MasterPlanMeditation": {
             "cost": "6m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 5
@@ -210,6 +228,7 @@
         "Solar.NightsEyeMeditation": {
             "cost": "5m", 
             "duration": "One turn", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Larceny": 5
@@ -225,6 +244,7 @@
         "Solar.NullAnimaGloves": {
             "cost": "12m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Larceny": 5
@@ -248,6 +268,9 @@
         "Solar.PerfectMirror": {
             "cost": "--(5m, 1wp)", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 5
@@ -263,6 +286,7 @@
         "Solar.PhantomHoodTechnique": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 3
@@ -278,6 +302,7 @@
         "Solar.PreyingonUncertaintyApproach": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 3
@@ -293,6 +318,7 @@
         "Solar.ProofEatingPalm": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 4
@@ -308,6 +334,7 @@
         "Solar.ReversalofFortune": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 4
@@ -323,6 +350,7 @@
         "Solar.SeasonedCriminalMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 1
@@ -333,6 +361,7 @@
         "Solar.SkillfulReappropriation(PhantomStingSearch)": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 5
@@ -348,6 +377,7 @@
         "Solar.SplitDeceptionMethod": {
             "cost": "5m per disguise", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Larceny": 5
@@ -363,6 +393,7 @@
         "Solar.SpuriousPresence": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 2
@@ -378,6 +409,9 @@
         "Solar.StealingfromPlainSightSpirit": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 4
@@ -393,6 +427,7 @@
         "Solar.SwiftGamblersEye": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Larceny": 3
@@ -403,6 +438,9 @@
         "Solar.UnbrokenDarknessApproach": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 5, 
                 "Larceny": 5
@@ -418,6 +456,7 @@
         "Solar.UnshakableRoguesSpirit": {
             "cost": "-1 Initiative per success", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Larceny": 4

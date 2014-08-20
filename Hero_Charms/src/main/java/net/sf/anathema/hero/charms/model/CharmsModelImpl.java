@@ -227,9 +227,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (!(charmsRules.isAllowedAlienCharms(casteType))) {
         return false;
       }
-      if (charm.hasAttribute(CharmAttributeList.NATIVE)) {
-        return false;
-      }
+      // TODO: Check for Eclipse keyword here
     }
     for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
       if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {

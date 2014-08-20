@@ -4,6 +4,11 @@
         "MartialArts.BlindingNovaFlare": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Melee": 5
@@ -27,6 +32,11 @@
         "MartialArts.FatalStrokeFlash": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -42,6 +52,10 @@
         "MartialArts.GatheringLightConcentration": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -52,6 +66,12 @@
         "MartialArts.HorizonSwallowedStarFlash": {
             "cost": "8m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Clash", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -67,6 +87,11 @@
         "MartialArts.LiquidSteelFlow": {
             "cost": "5m (+1wp)", 
             "duration": "One round", 
+            "keywords": [
+                "Celestial", 
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -82,6 +107,10 @@
         "MartialArts.ShiningStarfallExecution": {
             "cost": "6m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -92,6 +121,11 @@
         "MartialArts.SinglePointShiningIntotheVoidForm": {
             "cost": "10m", 
             "duration": "One scene", 
+            "keywords": [
+                "Celestial", 
+                "Form", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -111,6 +145,11 @@
         "MartialArts.SixDemonScabbardBinding": {
             "cost": "1m, 1wp (or 4m)", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Clash", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -126,6 +165,10 @@
         "MartialArts.VoidSlicingWind": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5

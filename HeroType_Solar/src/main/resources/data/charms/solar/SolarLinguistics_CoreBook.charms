@@ -4,6 +4,9 @@
         "Solar.CupBoilsOver": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Written-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -23,6 +26,7 @@
         "Solar.DiscerningSavantsEye": {
             "cost": "1m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 5
@@ -38,6 +42,10 @@
         "Solar.EssenceLadenMissive": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 4
@@ -53,6 +61,7 @@
         "Solar.ExcellentEmissarysTongue": {
             "cost": "6m", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -72,6 +81,7 @@
         "Solar.FlashingQuillAtemi": {
             "cost": "1m", 
             "duration": "One minute", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -87,6 +97,7 @@
         "Solar.FlawlessBrushDiscipline": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 3
@@ -102,6 +113,10 @@
         "Solar.FlowingElegantHand": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Written-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 3
@@ -141,6 +156,9 @@
         "Solar.HeavenDrawingDiscipline": {
             "cost": "8m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -177,6 +195,9 @@
         "Solar.LetterWithinALetterTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 3
@@ -187,6 +208,7 @@
         "Solar.LinguisticsExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 1
@@ -197,6 +219,9 @@
         "Solar.MindScribingMethod": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -212,6 +237,9 @@
         "Solar.MindSwallowingMissive": {
             "cost": "8m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -227,6 +255,7 @@
         "Solar.MingledTongueTechnique": {
             "cost": "4m, 1wp, plus 3m per language", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 5
@@ -237,6 +266,9 @@
         "Solar.MovingtheUnseenHand": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 5
@@ -252,6 +284,7 @@
         "Solar.PerfectCelestialAuthor": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Linguistics": 5
@@ -267,6 +300,7 @@
         "Solar.PerfectRecollectionDiscipline": {
             "cost": "1m per work", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -282,6 +316,7 @@
         "Solar.PoeticExpressionStyle": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 4
@@ -297,6 +332,7 @@
         "Solar.PowerSnaringImage": {
             "cost": "-- (1m, 1wp)", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -312,6 +348,7 @@
         "Solar.SagaciousReadingofIntent": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 4
@@ -322,6 +359,7 @@
         "Solar.SingleVoiceKata": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 5
@@ -337,6 +375,7 @@
         "Solar.StolenVoiceTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 4
@@ -352,6 +391,7 @@
         "Solar.StrangeTongueUnderstanding": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 3
@@ -362,6 +402,9 @@
         "Solar.SubtleSpeechMethod": {
             "cost": "3m", 
             "duration": "One idea conveyed", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 3
@@ -372,6 +415,9 @@
         "Solar.SwiftSagesEye": {
             "cost": "1m", 
             "duration": "One text", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -387,6 +433,9 @@
         "Solar.TwistedWordsTechnique": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Linguistics": 5
@@ -410,6 +459,9 @@
         "Solar.UnbreakableFascinationMethod": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "Linguistics": 5
@@ -425,6 +477,7 @@
         "Solar.VanishingImmersionStyle": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 5
@@ -440,6 +493,10 @@
         "Solar.VoiceCagingCalligraphy": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Psyche"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Linguistics": 5
@@ -455,6 +512,9 @@
         "Solar.WhirlingBrushMethod": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 1
@@ -465,6 +525,7 @@
         "Solar.WordShieldInvocation": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Linguistics": 5

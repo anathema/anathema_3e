@@ -4,6 +4,7 @@
         "Solar.AegisofUnstoppableForce": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 4
@@ -19,6 +20,7 @@
         "Solar.AreteDrivenMarathonStride": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 2
@@ -34,6 +36,9 @@
         "Solar.ArmorEatingStrike": {
             "cost": "1m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 2
@@ -49,6 +54,7 @@
         "Solar.AthleticsExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 1, 
                 "Essence": 1
@@ -59,6 +65,7 @@
         "Solar.BonfireAnimaWings": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 4
@@ -78,6 +85,7 @@
         "Solar.DemonWastingRush": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -93,6 +101,7 @@
         "Solar.EagleWingStyle": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -108,6 +117,9 @@
         "Solar.FeatherFootStyle": {
             "cost": "3m", 
             "duration": "Until the Exalt stops running", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -127,6 +139,7 @@
         "Solar.FlashingMarlinMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -137,6 +150,7 @@
         "Solar.FoeVaultingMethod": {
             "cost": "3i", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 2, 
                 "Essence": 1
@@ -156,6 +170,7 @@
         "Solar.GodspeedSteps": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -175,6 +190,7 @@
         "Solar.GracefulCraneStance": {
             "cost": "3m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 1, 
                 "Essence": 1
@@ -185,6 +201,7 @@
         "Solar.HurricaneSpiritSpeed": {
             "cost": "1i per success", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -200,6 +217,7 @@
         "Solar.IncreasingStrengthExercise": {
             "cost": "3m or 3i per dot", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -210,6 +228,9 @@
         "Solar.LeapingTigerAttack": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 2
@@ -229,6 +250,7 @@
         "Solar.LegionAurochsMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -244,6 +266,7 @@
         "Solar.LightningSpeed": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -254,6 +277,7 @@
         "Solar.LivingWindApproach": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 5
@@ -269,6 +293,7 @@
         "Solar.MonkeyLeapTechnique": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 2, 
                 "Essence": 1
@@ -279,6 +304,7 @@
         "Solar.MountainCrossingLeapTechnique": {
             "cost": "7m, 1wp", 
             "duration": "Until she stops leaping", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -294,6 +320,7 @@
         "Solar.NineAeonsThew": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 5
@@ -309,6 +336,7 @@
         "Solar.OneExtraStep": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 4
@@ -324,6 +352,7 @@
         "Solar.OnrushBurstMethod": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 2
@@ -339,6 +368,7 @@
         "Solar.PowerSuffusingFormTechnique": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -354,6 +384,7 @@
         "Solar.RacingHareMethod": {
             "cost": "5m, 1wp", 
             "duration": "One hour", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 4, 
                 "Essence": 2
@@ -369,6 +400,7 @@
         "Solar.SoaringCraneLeap": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -384,6 +416,9 @@
         "Solar.SpiderFootStyle": {
             "cost": "3m", 
             "duration": "(Essence +1) turns", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Athletics": 4, 
                 "Essence": 1
@@ -399,6 +434,7 @@
         "Solar.TenOxMeditation": {
             "cost": "2m, 3 successes per dot", 
             "duration": "One feat", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 1
@@ -414,6 +450,9 @@
         "Solar.ThunderboltAttackPrana": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Athletics": 3, 
                 "Essence": 1
@@ -433,6 +472,7 @@
         "Solar.ThundersMight": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 2
@@ -448,6 +488,7 @@
         "Solar.TriumphForgedGodBody": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 5, 
                 "Essence": 3
@@ -475,6 +516,7 @@
         "Solar.UnboundEagleApproach": {
             "cost": "--(2m)", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 4, 
                 "Essence": 2
@@ -490,6 +532,7 @@
         "Solar.WinningStrideDiscipline": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Athletics": 4, 
                 "Essence": 1

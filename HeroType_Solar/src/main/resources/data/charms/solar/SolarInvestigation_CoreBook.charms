@@ -4,6 +4,9 @@
         "Solar.CraftyObservationMethod": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 3
@@ -19,6 +22,9 @@
         "Solar.DauntlessInquisitorAttitude": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Investigation": 5
@@ -34,6 +40,9 @@
         "Solar.DivineInductionTechnique": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 4
@@ -49,6 +58,7 @@
         "Solar.EmpathicRecallDiscipline": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Investigation": 5
@@ -64,6 +74,7 @@
         "Solar.EnlightenedTouchInsight": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Investigation": 5
@@ -79,6 +90,7 @@
         "Solar.EvidenceDiscerningMethod": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 5
@@ -94,6 +106,7 @@
         "Solar.EvidenceRestoringPrana": {
             "cost": "--(6m)", 
             "duration": "Varies", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Investigation": 5
@@ -109,6 +122,7 @@
         "Solar.InquisitorsUnfailingNotice": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 2
@@ -124,6 +138,7 @@
         "Solar.InvestigationExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 1
@@ -134,6 +149,9 @@
         "Solar.IrresistibleQuestioningTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Investigation": 5
@@ -149,6 +167,7 @@
         "Solar.JudgeGeneralsStance": {
             "cost": "10m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Investigation": 5
@@ -164,6 +183,7 @@
         "Solar.JudgesEarTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 4
@@ -179,6 +199,7 @@
         "Solar.MindManseMeditation": {
             "cost": "12m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 5, 
                 "Investigation": 5
@@ -198,6 +219,9 @@
         "Solar.MiraculousStunningInsight": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "Investigation": 5
@@ -213,6 +237,9 @@
         "Solar.TenMagistrateEyes": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Investigation": 5
@@ -232,6 +259,7 @@
         "Solar.UnknownWisdomEpiphany": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Investigation": 5
@@ -247,6 +275,7 @@
         "Solar.WatchfulJusticiarsEye": {
             "cost": "--(4m, 1wp)", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Investigation": 5
@@ -262,6 +291,7 @@
         "Solar.WatchmansInfallibleEye": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Investigation": 1

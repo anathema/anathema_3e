@@ -4,6 +4,7 @@
         "Solar.AuthorityRadiatingStance": {
             "cost": "5m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -19,6 +20,7 @@
         "Solar.AwakenedCarnalDemiurge": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 5
@@ -34,6 +36,7 @@
         "Solar.BlazingGloriousIcon": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -49,6 +52,7 @@
         "Solar.CountenanceofVastWrath": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Presence": 5
@@ -64,6 +68,7 @@
         "Solar.CrownedKingofEternity": {
             "cost": "--", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Presence": 5
@@ -83,6 +88,7 @@
         "Solar.EmpoweringShout": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 5
@@ -98,6 +104,7 @@
         "Solar.EnemyCastigatingSolarJudgment": {
             "cost": "3m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -117,6 +124,7 @@
         "Solar.ExcellentFriendApproach": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Presence": 5
@@ -136,6 +144,7 @@
         "Solar.FavorConferringPrana": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 4, 
                 "Presence": 5
@@ -155,6 +164,7 @@
         "Solar.FulminatingWord": {
             "cost": "1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -170,6 +180,7 @@
         "Solar.HarmoniousPresenceMeditation": {
             "cost": "5m or 7m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Presence": 2
@@ -180,6 +191,10 @@
         "Solar.HypnoticTongueTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Psyche", 
+                "Mute"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -199,6 +214,7 @@
         "Solar.ImpassionedDiscourseTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 4
@@ -214,6 +230,7 @@
         "Solar.ListenerSwayingArgument": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Presence": 3
@@ -224,6 +241,7 @@
         "Solar.MajesticRadiantPresence": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 4
@@ -239,6 +257,7 @@
         "Solar.MindWipingGaze": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -254,6 +273,7 @@
         "Solar.PresenceExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Presence": 1
@@ -264,6 +284,7 @@
         "Solar.ProphetUpliftingEvocation": {
             "cost": "4m, 1wp, 2xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -279,6 +300,7 @@
         "Solar.RoseLippedSeductionStyle": {
             "cost": "2m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -294,6 +316,9 @@
         "Solar.SheddingInfiniteRadiance": {
             "cost": "5m", 
             "duration": "Indefinite", 
+            "keywords": [
+                "Stackable"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -309,6 +334,7 @@
         "Solar.TerrifyingApparitionofGlory": {
             "cost": "7m, 1wp", 
             "duration": "One scene", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5
@@ -324,6 +350,7 @@
         "Solar.ThreefoldMagneticArdor": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 4
@@ -343,6 +370,7 @@
         "Solar.TigersDreadSymmetry": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 1, 
                 "Presence": 3
@@ -353,6 +381,7 @@
         "Solar.UnderlingPromotingTouch": {
             "cost": "7m, 1wp", 
             "duration": "Indefinite", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "Presence": 5
@@ -368,6 +397,7 @@
         "Solar.WorshipfulLackeyAcquisition": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Essence": 3, 
                 "Presence": 5

@@ -4,6 +4,7 @@
         "Solar.BloodDiamondSweat": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -19,6 +20,7 @@
         "Solar.BrassScalesFalling": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 3, 
                 "Essence": 1
@@ -33,6 +35,7 @@
         "Solar.BreachHealingMethod": {
             "cost": "7m", 
             "duration": "One task", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 2
@@ -48,6 +51,7 @@
         "Solar.CelestialReforgingTechnique": {
             "cost": "10m, 1wp, 3xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3
@@ -63,6 +67,7 @@
         "Solar.ChainsFallAway": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -78,6 +83,7 @@
         "Solar.ChaosResistancePreparation": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 2
@@ -93,6 +99,7 @@
         "Solar.CrackMendingTechnique": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 3, 
                 "Essence": 1
@@ -103,6 +110,9 @@
         "Solar.CraftsmanNeedsNoTools": {
             "cost": "6m", 
             "duration": "One task", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Craft": 3, 
                 "Essence": 1
@@ -113,6 +123,7 @@
         "Solar.DesignBeyondLimit": {
             "cost": "10m, 1wp, 3xp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 4, 
                 "Essence": 2
@@ -132,6 +143,7 @@
         "Solar.DivineTranscendenceofCraft": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3
@@ -147,6 +159,7 @@
         "Solar.DurabilityEnhancingTechnique": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -162,6 +175,7 @@
         "Solar.HeroForgingGodWeapon": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3
@@ -177,6 +191,9 @@
         "Solar.ObjectStrengtheningTouch": {
             "cost": "6m", 
             "duration": "One scene", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 2
@@ -192,6 +209,7 @@
         "Solar.PeerlessParagonofCraft": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -211,6 +229,7 @@
         "Solar.RealizingtheFormSupernal": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3
@@ -226,6 +245,7 @@
         "Solar.RedAnvilsRinging": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 4, 
                 "Essence": 1
@@ -241,6 +261,9 @@
         "Solar.ShatteringGrasp": {
             "cost": "6m", 
             "duration": "One task", 
+            "keywords": [
+                "Mute"
+            ], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -256,6 +279,7 @@
         "Solar.SoulForgeTempering": {
             "cost": "15m, 1wp, 4xp, 4wxp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 4
@@ -271,6 +295,7 @@
         "Solar.SupremePerfectionofCraft": {
             "cost": "--", 
             "duration": "Permanent", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 2
@@ -290,6 +315,7 @@
         "Solar.TheArtofPermanence": {
             "cost": "6m, 1wxp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3
@@ -305,6 +331,7 @@
         "Solar.ThousandForgeHands": {
             "cost": "10m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 2
@@ -320,6 +347,7 @@
         "Solar.TimeHealsNothing": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 1
@@ -348,6 +376,10 @@
         "Solar.WordsasWorkshopMethod": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Stackable"
+            ], 
             "minimums": {
                 "Craft": 5, 
                 "Essence": 3

@@ -4,6 +4,9 @@
         "MartialArts.CraneForm": {
             "cost": "8m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -23,6 +26,10 @@
         "MartialArts.CrossedWingsDenial": {
             "cost": "6m, 4i", 
             "duration": "Until next turn", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -38,6 +45,10 @@
         "MartialArts.EmpoweringJusticeRedirection": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -48,6 +59,10 @@
         "MartialArts.FeatherStirredArrowDeflection": {
             "cost": "2m (+1wp)", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -63,6 +78,10 @@
         "MartialArts.FlutteringCryofWarning": {
             "cost": "3m", 
             "duration": "One round", 
+            "keywords": [
+                "Mastery", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -73,6 +92,11 @@
         "MartialArts.HumblingEnlightenmentCommentary": {
             "cost": "1m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -88,6 +112,10 @@
         "MartialArts.KindlySifusQuill": {
             "cost": "5m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -103,6 +131,9 @@
         "MartialArts.MournfulCranesCry": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -118,6 +149,9 @@
         "MartialArts.WingsSpreadtoSky": {
             "cost": "4m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -133,6 +167,11 @@
         "MartialArts.WisdomoftheCelestialCrane": {
             "cost": "7m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 4, 
                 "MartialArts": 5

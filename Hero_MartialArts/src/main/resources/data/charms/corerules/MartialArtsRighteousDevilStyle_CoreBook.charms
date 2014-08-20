@@ -4,6 +4,10 @@
         "MartialArts.AzureAbacusMeditation": {
             "cost": "4m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Withering-only"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 5
@@ -19,6 +23,10 @@
         "MartialArts.BlossomofInevitableDemise": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Uniform"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 3
@@ -29,6 +37,10 @@
         "MartialArts.BurningJudgmentHalo": {
             "cost": "5m, 4i", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 4
@@ -44,6 +56,11 @@
         "MartialArts.Caressof1000Hells": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Aggravated", 
+                "Celestial", 
+                "Decisive-only"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -67,6 +84,9 @@
         "MartialArts.CloudofEbonDevils": {
             "cost": "2m", 
             "duration": "Instant", 
+            "keywords": [
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -77,6 +97,11 @@
         "MartialArts.DancingDevilTriggerFinger": {
             "cost": "10m, 3i, 1wp", 
             "duration": "Instant", 
+            "keywords": [
+                "Celestial", 
+                "Decisive-only", 
+                "Perilous"
+            ], 
             "minimums": {
                 "Essence": 3, 
                 "MartialArts": 5
@@ -92,6 +117,10 @@
         "MartialArts.KissoftheSunConcentration": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual", 
+                "Mastery"
+            ], 
             "minimums": {
                 "Essence": 1, 
                 "MartialArts": 2
@@ -102,6 +131,9 @@
         "MartialArts.PhoenixFliesonGoldenWings": {
             "cost": "3m", 
             "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4
@@ -117,6 +149,9 @@
         "MartialArts.RighteousDevilForm": {
             "cost": "5m", 
             "duration": "One scene", 
+            "keywords": [
+                "Form"
+            ], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 3
