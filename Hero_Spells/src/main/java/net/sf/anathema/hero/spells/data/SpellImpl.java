@@ -15,19 +15,22 @@ public class SpellImpl extends AbstractMagic implements Spell {
   private final CircleType circleType;
   private final CostList temporaryCost;
   private SourceList source;
-  private final String target;
+  private final String duration;
+  private final List<String> keywords;
 
-  public SpellImpl(SpellName name, CircleType circleType, CostList temporaryCost, SourceList source, String target) {
+  public SpellImpl(SpellName name, CircleType circleType, CostList temporaryCost, SourceList source,
+  		String duration, List<String> keywords) {
     this.name = name;
     this.circleType = circleType;
     this.temporaryCost = temporaryCost;
     this.source = source;
-    this.target = target;
+    this.duration = duration;
+    this.keywords = keywords;
   }
 
   @Override
-  public String getTarget() {
-    return target;
+  public String getDuration() {
+    return duration;
   }
 
   @Override
@@ -38,6 +41,11 @@ public class SpellImpl extends AbstractMagic implements Spell {
   @Override
   public CircleType getCircleType() {
     return circleType;
+  }
+  
+  @Override
+  public List<String> getKeywords() {
+    return keywords;
   }
 
   @Override

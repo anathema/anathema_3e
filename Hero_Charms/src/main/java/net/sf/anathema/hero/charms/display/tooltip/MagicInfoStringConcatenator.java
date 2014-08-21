@@ -11,9 +11,10 @@ public class MagicInfoStringConcatenator {
     this.resources = resources;
   }
 
-  public String buildCostString(String essenceCost, String willpowerCost, String healthCost, String xpCost) {
+  public String buildCostString(String essenceCost, String sorcerousMoteCost, String willpowerCost, String healthCost, String xpCost) {
     StringBuilder builder = new StringBuilder();
     appendToString(builder, essenceCost);
+    appendToString(builder, sorcerousMoteCost);
     appendToString(builder, willpowerCost);
     appendToString(builder, healthCost);
     appendToString(builder, xpCost);

@@ -10,6 +10,7 @@ public class ScreenDisplayInfoContributor extends MagicInfoStringBuilder impleme
 
   public ScreenDisplayInfoContributor(Resources resources) {
     super(resources, new CostStringBuilder(resources, "CharmTreeView.ToolTip.Mote", "CharmTreeView.ToolTip.Motes"),
+    				new CostStringBuilder(resources, "CharmTreeView.ToolTip.SorcerousMote", "CharmTreeView.ToolTip.SorcerousMotes"),
             new CostStringBuilder(resources, "WillpowerType.Name"),
             new HealthCostStringBuilder(resources, "CharmTreeView.ToolTip.HealthLevel", "CharmTreeView.ToolTip.HealthLevels"),
             new CostStringBuilder(resources, "CharmTreeView.ToolTip.ExperiencePoint", "CharmTreeView.ToolTip.ExperiencePoints"));

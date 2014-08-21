@@ -13,10 +13,11 @@ public abstract class AbstractMagicStats<T extends Magic> implements IMagicStats
 
   public static MagicInfoStringBuilder createMagicInfoStringBuilder(Resources resources) {
     CostStringBuilder essenceBuilder = new CostStringBuilder(resources, "CharacterSheet.Charm.Mote");
+    CostStringBuilder sorcerousMoteBuilder = new CostStringBuilder(resources, "CharacterSheet.Charm.SorcerousMote");
     CostStringBuilder willpowerBuilder = new CostStringBuilder(resources, "CharacterSheet.Charm.Willpower");
     HealthCostStringBuilder healthBuilder = new HealthCostStringBuilder(resources, "CharacterSheet.Charm.HealthLevel");
     CostStringBuilder experienceBuilder = new CostStringBuilder(resources, "CharacterSheet.Charm.ExperiencePoints");
-    return new MagicInfoStringBuilder(resources, essenceBuilder, willpowerBuilder, healthBuilder, experienceBuilder);
+    return new MagicInfoStringBuilder(resources, essenceBuilder, sorcerousMoteBuilder, willpowerBuilder, healthBuilder, experienceBuilder);
   }
 
   private final T magic;

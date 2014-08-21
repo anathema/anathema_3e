@@ -8,6 +8,8 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
+import com.google.common.base.Joiner;
+
 public class SpellTooltipBuilder {
 
   private final Resources resources;
@@ -24,12 +26,21 @@ public class SpellTooltipBuilder {
     tooltip.appendTitleLine(resources.getString(spell.getName().text));
     tooltip.appendLine(properties.getCircleLabel(), getCircleValue(spell));
     tooltip.appendLine(getCostLabel(), getCostValue(spell));
-    tooltip.appendLine(getTargetLabel(), getTargetValue(spell));
+    tooltip.appendLine(getKeywordsLabel(), getKeywords(spell));
+    tooltip.appendLine(getDurationLabel(), getDurationValue(spell));
     tooltip.appendLine(getSourceLabel(), getSourceValue(spell));
     new MagicDescriptionContributor(magicDescriptionProvider).buildStringForMagicWithoutSpecials(tooltip, spell);
   }
 
-  private String getCircleValue(Spell spell) {
+  private String getKeywords(Spell spell) {
+  	if (spell.getKeywords().isEmpty()) {
+  		return resources.getString("Keyword.None");
+  	}
+		return Joiner.on(", ").join(spell.getKeywords().stream().map(keyword ->
+			resources.getString("Keyword." + keyword)).iterator());
+	}
+
+	private String getCircleValue(Spell spell) {
     return resources.getString(spell.getCircleType().getId());
   }
 
@@ -37,11 +48,11 @@ public class SpellTooltipBuilder {
     return new ScreenDisplayInfoContributor(resources).createCostString(spell);
   }
 
-  private String getTargetValue(Spell spell) {
-    if (spell.getTarget() == null) {
+  private String getDurationValue(Spell spell) {
+    if (spell.getDuration() == null) {
       return getUndefinedString();
     }
-    return resources.getString("Spells.Target." + spell.getTarget());
+    return resources.getString("Spells.Duration." + spell.getDuration());
   }
 
   private String getSourceValue(Spell spell) {
@@ -55,8 +66,12 @@ public class SpellTooltipBuilder {
     return resources.getString("CardView.CharmConfiguration.Spells.Target.Undefined");
   }
 
-  private String getTargetLabel() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Target");
+  private String getDurationLabel() {
+    return resources.getString("CardView.CharmConfiguration.Spells.Duration");
+  }
+  
+  private String getKeywordsLabel() {
+    return resources.getString("CardView.CharmConfiguration.Spells.Keywords");
   }
 
   private String getSourceLabel() {

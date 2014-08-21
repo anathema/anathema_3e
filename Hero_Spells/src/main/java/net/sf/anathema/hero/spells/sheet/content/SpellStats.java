@@ -43,9 +43,9 @@ public class SpellStats extends AbstractMagicStats<Spell> {
   }
 
   protected Collection<String> getDetailKeys() {
-    String target = getMagic().getTarget();
-    if (target != null) {
-      return Lists.newArrayList("Spells.Target." + target);
+    String duration = getMagic().getDuration();
+    if (duration != null) {
+      return Lists.newArrayList("Spells.Duration." + duration);
     }
     return new ArrayList<>();
   }

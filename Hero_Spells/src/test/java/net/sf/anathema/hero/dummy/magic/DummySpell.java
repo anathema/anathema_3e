@@ -47,8 +47,13 @@ public class DummySpell implements Spell {
     return false;
   }
 
-  @Override
-  public String getTarget() {
-    throw new NotYetImplementedException();
-  }
+	@Override
+	public String getDuration() {
+		throw new NotYetImplementedException();
+	}
+	
+	@Override
+	public List<String> getKeywords() {
+		throw new NotYetImplementedException();
+	}
 }

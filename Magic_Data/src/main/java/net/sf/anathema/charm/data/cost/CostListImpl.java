@@ -3,13 +3,15 @@ package net.sf.anathema.charm.data.cost;
 public class CostListImpl implements CostList {
 
   private final Cost essence;
+  private final Cost sorcerousMotes;
   private final Cost willpower;
   private final HealthCost health;
   private final Cost xp;
 
-  public CostListImpl(Cost essence, Cost willpower, HealthCost health, Cost xp) {
+  public CostListImpl(Cost essence, Cost sorcerousMotes, Cost willpower, HealthCost health, Cost xp) {
     this.xp = xp;
     this.essence = essence;
+    this.sorcerousMotes = sorcerousMotes;
     this.willpower = willpower;
     this.health = health;
   }
@@ -33,4 +35,9 @@ public class CostListImpl implements CostList {
   public Cost getWillpowerCost() {
     return willpower != null ? willpower : CostImpl.NULL_COST;
   }
+
+	@Override
+	public Cost getSorcerousMotesCost() {
+		return sorcerousMotes != null ? sorcerousMotes : CostImpl.NULL_COST;
+	}
 }
