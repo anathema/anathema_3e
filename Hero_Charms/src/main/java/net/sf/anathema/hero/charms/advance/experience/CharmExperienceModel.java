@@ -3,15 +3,13 @@ package net.sf.anathema.hero.charms.advance.experience;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
-
-import java.util.HashSet;
-import java.util.Set;
 
 public class CharmExperienceModel extends AbstractIntegerValueModel {
 
@@ -36,14 +34,14 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
     }
     
     int experienceCosts = 0;
-    Set<Charm> charmsCalculated = new HashSet<>();
     for (Charm charm : charmsModel.getLearningModel().getCharmsLearnedWithExperience()) {
-      int charmCosts = calculateCharmCost(charmsModel, charm);
-      if (charmsModel.isAlienCharm(charm)) {
-        charmCosts *= 2;
-      }
-      experienceCosts += charmCosts;
-      charmsCalculated.add(charm);
+    	if (!charm.hasAttribute(CommonMagicAttributes.NO_COST)) {
+    		int charmCosts = calculateCharmCost(charmsModel, charm);
+    		if (charmsModel.isAlienCharm(charm)) {
+    			charmCosts *= 2;
+    		}
+    		experienceCosts += charmCosts;
+    	}
     }
     return experienceCosts;
   }

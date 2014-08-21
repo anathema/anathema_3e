@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
+import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.WeightedMagic;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.points.model.BonusPointCalculator;
@@ -54,7 +55,9 @@ public class MagicCreationCostCalculator implements BonusPointCalculator {
     List<Magic> weightedMagics = magics.map(magic -> new WeightedMagic(magic, getMagicCosts(magic))).sorted(
             reverseOrder()).map(WeightedMagic::getValue).collect(toList());
     for (Magic magic : weightedMagics) {
-      handleMagic(magic);
+    	if (!magic.hasAttribute(CommonMagicAttributes.NO_COST)) {
+    		handleMagic(magic);
+    	}
     }
   }
 
