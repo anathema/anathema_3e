@@ -18,7 +18,7 @@ import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
+import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
@@ -33,7 +33,6 @@ import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.learn.LearningModelImpl;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
@@ -79,7 +78,6 @@ public class CharmsModelImpl implements CharmsModel {
   private Hero hero;
   private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
-  private final List<MagicLearner> magicLearners = new ArrayList<>();
   private final IsCheapenedMagic isCheapenedMagic = new IsCheapenedMagic();
 
   public CharmsModelImpl(CharmsTemplate template) {
@@ -102,7 +100,7 @@ public class CharmsModelImpl implements CharmsModel {
     initSpecialCharms();
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
-    addLearnProvider(new CharmLearner(this));
+    MagicPointsModelFetcher.fetch(hero).registerMagicLearner(new CharmLearner(this));
   }
 
   @Override
@@ -357,18 +355,8 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public void addLearnProvider(MagicLearner provider) {
-    magicLearners.add(provider);
-  }
-
-  @Override
   public LearningModel getLearningModel() {
     return learningModel;
-  }
-
-  @Override
-  public MagicCreationCostEvaluator getMagicCostEvaluator() {
-    return new MagicCreationCostEvaluator(magicLearners);
   }
 
   @Override

@@ -4,11 +4,9 @@ import java.util.Collection;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
@@ -29,8 +27,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   void addLearnableListener(ChangeListener listener);
 
-  void addLearnProvider(MagicLearner provider);
-
   CharmSpecialsModel getCharmSpecialsModel(Charm charm);
 
   LearningModel getLearningModel();
@@ -40,8 +36,6 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
   Collection<CharmTree> getTreesFor(CategoryReference type);
 
   Collection<CharmTree> getAllTrees();
-
-  MagicCreationCostEvaluator getMagicCostEvaluator();
 
   CharmOptions getOptions();
 

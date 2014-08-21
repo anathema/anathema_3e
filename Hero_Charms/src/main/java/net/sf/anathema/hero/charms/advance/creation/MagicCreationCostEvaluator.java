@@ -8,10 +8,10 @@ import java.util.List;
 
 public class MagicCreationCostEvaluator {
 
-  private List<MagicLearner> magicLearners;
-
-  public MagicCreationCostEvaluator(List<MagicLearner> magicLearners) {
-    this.magicLearners = magicLearners;
+  private final List<MagicLearner> magicLearners = new ArrayList<>();
+  
+  public void registerMagicLearner(MagicLearner learner) {
+  	magicLearners.add(learner);
   }
 
   public List<Magic> compileCompleteMagicList() {

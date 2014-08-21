@@ -4,12 +4,12 @@ import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.DefaultMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.FavoredMagicModel;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
+import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceCostCalculator;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceModel;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
+import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -26,6 +26,7 @@ public class MagicPointsModel implements HeroModel {
 
   public static final SimpleIdentifier ID = new SimpleIdentifier("MagicPoints");
   private MagicPointsTemplate template;
+  private MagicCreationCostEvaluator creationEvaluator = new MagicCreationCostEvaluator();
 
   public MagicPointsModel(MagicPointsTemplate template) {
     this.template = template;
@@ -60,19 +61,18 @@ public class MagicPointsModel implements HeroModel {
   }
 
   private void initializeExperience(Hero hero) {
-	// TODO: Should be able to cope with null charms model
-  	if (CharmsModelFetcher.fetch(hero) != null) {
-  		CharmExperienceCostCalculator calculator = createExperienceCalculator();
-  		initExperienceOverview(hero, calculator);
-  	}
+  	CharmExperienceCostCalculator calculator = createExperienceCalculator();
+  	// TODO: Should suppress the overview entry if learning pure charms is not
+  	// possible for the template; CharmsModel is not yet loaded, however.s
+  	initExperienceOverview(hero, calculator);
   }
 
   private void initCreation(Hero hero) {
-  	if (CharmsModelFetcher.fetch(hero) != null) {
-  		MagicCreationCostCalculator calculator = createBonusCalculator(hero);
-    	initBonusCalculation(hero, calculator);
+  	MagicCreationCostCalculator calculator = createBonusCalculator(hero);
+    initBonusCalculation(hero, calculator);
+    if (getMagicCreationData().getGeneralMagicPicks() > 0) {
     	initBonusOverview(hero, calculator);
-  	}
+    }
   }
 
   private void initBonusCalculation(Hero hero, MagicCreationCostCalculator calculator) {
@@ -89,8 +89,7 @@ public class MagicPointsModel implements HeroModel {
   }
 
   private MagicCreationCostCalculator createBonusCalculator(Hero hero) {
-    CharmsModel model = CharmsModelFetcher.fetch(hero);
-    return new MagicCreationCostCalculator(model.getMagicCostEvaluator(), getMagicCreationData(), new CostAnalyzerImpl(hero));
+    return new MagicCreationCostCalculator(creationEvaluator, getMagicCreationData(), new CostAnalyzerImpl(hero));
   }
 
   private CharmExperienceCostCalculator createExperienceCalculator() {
@@ -101,4 +100,8 @@ public class MagicPointsModel implements HeroModel {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
     pointsModel.addToExperienceOverview(new CharmExperienceModel(calculator, hero));
   }
+
+	public void registerMagicLearner(MagicLearner learner) {
+		creationEvaluator.registerMagicLearner(learner);
+	}
 }

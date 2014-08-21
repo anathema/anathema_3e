@@ -11,6 +11,7 @@ import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
 import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.charms.model.learn.CharmLearner;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
@@ -31,7 +32,6 @@ public class CharmCostCalculatorTest {
 
   @Before
   public void setUp() throws Exception {
-    spells.initializeMagicModel(charmModel);
     CharmHeroObjectMother objectMother = new CharmHeroObjectMother();
     CreationTraitValueStrategy valueStrategy = new CreationTraitValueStrategy();
     DummyHero hero = objectMother.createModelContextWithEssence2(valueStrategy);
@@ -42,7 +42,8 @@ public class CharmCostCalculatorTest {
     template.generalCreationPoints.costs = 5;
     template.favoredCreationPoints.freePicks = 2;
     template.favoredCreationPoints.costs = 4;
-    MagicCreationCostEvaluator magicCostEvaluator = charmModel.getMagicCostEvaluator();
+    MagicCreationCostEvaluator magicCostEvaluator = new MagicCreationCostEvaluator();
+    magicCostEvaluator.registerMagicLearner(new CharmLearner(charmModel));
     MagicCreationData creationData = new MagicCreationData(template);
     calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new CostAnalyzerImpl(hero));
   }

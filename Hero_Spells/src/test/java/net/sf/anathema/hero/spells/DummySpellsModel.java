@@ -1,7 +1,10 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -14,12 +17,6 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.magic.data.Magic;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
 
 public class DummySpellsModel implements SpellsModel {
 
@@ -141,29 +138,5 @@ public class DummySpellsModel implements SpellsModel {
   @Override
   public TraitType getFavoringTraitType() {
     return AbilityType.Occult;
-  }
-
-  public void initializeMagicModel(CharmsModel charmsModel) {
-    charmsModel.addLearnProvider(new MagicLearner() {
-      @Override
-      public boolean handlesMagic(Magic magic) {
-        return magic instanceof Spell;
-      }
-
-      @Override
-      public int getAdditionalBonusPoints(Magic magic) {
-        return 0;
-      }
-
-      @Override
-      public int getCreationLearnCount(Magic magic) {
-        return 1;
-      }
-
-      @Override
-      public Collection<? extends Magic> getLearnedMagic(boolean experienced) {
-        return getLearnedSpells(experienced).asList();
-      }
-    });
   }
 }

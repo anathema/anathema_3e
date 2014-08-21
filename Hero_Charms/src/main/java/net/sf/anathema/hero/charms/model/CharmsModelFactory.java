@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
+import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplateLoader;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
@@ -21,7 +22,7 @@ public class CharmsModelFactory extends SimpleModelTreeEntry implements HeroMode
 
   public CharmsModelFactory() {
     super(CharmsModel.ID, EssencePoolModel.ID, AttributeModel.ID, AbilitiesModel.ID, SpiritualTraitModel.ID, TraitModel.ID, ExperienceModel.ID,
-            HeroConcept.ID, HealthModel.ID, PointsModel.ID);
+            HeroConcept.ID, HealthModel.ID, MagicPointsModel.ID, PointsModel.ID);
   }
 
   @SuppressWarnings("unchecked")

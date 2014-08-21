@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplateLoader;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
@@ -12,7 +11,7 @@ import net.sf.anathema.points.model.PointsModel;
 public class MagicPointsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public MagicPointsModelFactory() {
-    super(MagicPointsModel.ID, CharmsModel.ID, PointsModel.ID);
+    super(MagicPointsModel.ID, PointsModel.ID);
   }
 
   @SuppressWarnings("unchecked")

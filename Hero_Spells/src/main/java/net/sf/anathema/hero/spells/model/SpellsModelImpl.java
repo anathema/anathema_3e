@@ -1,9 +1,12 @@
 package net.sf.anathema.hero.spells.model;
 
+import static java.util.stream.Collectors.toList;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
@@ -33,8 +36,6 @@ import org.jmock.example.announcer.Announcer;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-
-import static java.util.stream.Collectors.toList;
 
 public class SpellsModelImpl implements SpellsModel {
 
@@ -88,7 +89,8 @@ public class SpellsModelImpl implements SpellsModel {
       return;
     }
     charmsModel.addPrintProvider(new PrintSpellsProvider(hero));
-    charmsModel.addLearnProvider(new SpellsLearner(this));
+    MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
+    pointsModel.registerMagicLearner(new SpellsLearner(this));
   }
 
   @Override
