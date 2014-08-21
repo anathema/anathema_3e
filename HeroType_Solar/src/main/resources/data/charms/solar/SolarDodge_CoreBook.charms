@@ -4,6 +4,11 @@
         "Solar.DodgeExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
             "keywords": [], 
             "minimums": {
                 "Dodge": 1, 

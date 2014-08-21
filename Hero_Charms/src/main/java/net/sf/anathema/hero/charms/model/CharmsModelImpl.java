@@ -21,6 +21,7 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
+import net.sf.anathema.hero.charms.model.additional.AdditionalCharmRules;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
@@ -53,6 +54,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -79,9 +81,11 @@ public class CharmsModelImpl implements CharmsModel {
   private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final IsCheapenedMagic isCheapenedMagic = new IsCheapenedMagic();
+  private final CharmsTemplate template;
 
   public CharmsModelImpl(CharmsTemplate template) {
     this.charmsRules = new CharmsRulesImpl(template);
+    this.template = template;
   }
 
   @Override
@@ -101,6 +105,11 @@ public class CharmsModelImpl implements CharmsModel {
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     MagicPointsModelFetcher.fetch(hero).registerMagicLearner(new CharmLearner(this));
+    
+    Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
+    		.instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
+    additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
+    	.forEach(rules -> rules.initialize());;
   }
 
   @Override
@@ -273,9 +282,10 @@ public class CharmsModelImpl implements CharmsModel {
 	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
 			int threshold, int minimumEssence) {
 		int count = 0;
+		TraitTypeFinder finder = new TraitTypeFinder();
 		Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
 		Charms matchingLearnedCharms = learnedCharms.applyFilter(charm ->
-		requiredTraits.contains(charm.getPrerequisites().getPrimaryTraitType()));
+		requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)));
 		for (Charm charm : matchingLearnedCharms) {
 			boolean meetsEssence = true;
 			for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {

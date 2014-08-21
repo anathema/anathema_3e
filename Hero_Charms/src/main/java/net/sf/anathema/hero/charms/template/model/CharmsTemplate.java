@@ -8,4 +8,5 @@ public class CharmsTemplate {
   public List<String> nativeCategories = new ArrayList<>();
   public List<String> alienCharmCastes = new ArrayList<>();
   public List<String> compulsiveCharms = new ArrayList<>();
+  public List<String> additionalCharmRules = new ArrayList<>();
 }

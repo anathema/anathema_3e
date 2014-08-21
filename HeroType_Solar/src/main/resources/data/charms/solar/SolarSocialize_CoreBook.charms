@@ -682,6 +682,11 @@
         "Solar.SocializeExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
             "keywords": [], 
             "minimums": {
                 "Essence": 1, 

@@ -1,4 +1,6 @@
 {
   nativeCategories: [ "Solar", "MartialArts", "Evocations" ];
-  alienCharmCastes: [ "Eclipse" ]
+  alienCharmCastes: [ "Eclipse" ],
+  additionalCharmRules: [ "LearnsExcellencyForLearnedFavoredTraits",
+  	"LearnsExcellencyWithOtherCharm" ]
 }

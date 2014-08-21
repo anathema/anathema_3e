@@ -25,6 +25,11 @@
         "Solar.AwarenessExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
             "keywords": [], 
             "minimums": {
                 "Awareness": 1, 

@@ -67,6 +67,11 @@
         "Solar.CraftExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
             "keywords": [], 
             "minimums": {
                 "Craft": 1, 

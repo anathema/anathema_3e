@@ -54,6 +54,11 @@
         "Solar.AthleticsExcellency": {
             "cost": "1m per die", 
             "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
             "keywords": [], 
             "minimums": {
                 "Athletics": 1, 
