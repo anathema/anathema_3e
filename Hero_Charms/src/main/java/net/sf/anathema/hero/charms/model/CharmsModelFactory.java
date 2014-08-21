@@ -11,7 +11,6 @@ import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
-import net.sf.anathema.hero.magic.dummy.DummyCharmsModel;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -28,10 +27,7 @@ public class CharmsModelFactory extends SimpleModelTreeEntry implements HeroMode
   @SuppressWarnings("unchecked")
   @Override
   public CharmsModel create(TemplateFactory templateFactory, String templateId) {
-  	if (templateId != null) {
-  		CharmsTemplate charmsTemplate = CharmsTemplateLoader.loadTemplate(templateFactory, templateId);
-    	return new CharmsModelImpl(charmsTemplate);
-  	}
-  	return new DummyCharmsModel();
+  	CharmsTemplate charmsTemplate = CharmsTemplateLoader.loadTemplate(templateFactory, templateId);
+    return new CharmsModelImpl(charmsTemplate);
   }
 }
