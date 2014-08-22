@@ -3,7 +3,7 @@
         Terrestrial.CirrusSkiff: {
             circle:Terrestrial,
             cost:"15sm, 1wp",
-            duration:"Until ended"
+            duration:"UntilEnded"
         },
         Terrestrial.CorruptedWords: {
             circle:Terrestrial,
@@ -36,13 +36,13 @@
         Terrestrial.InvulnerableSkinOfBronze: {
             circle:Terrestrial,
             cost:"20sm, 1wp",
-            duration:"One day"
+            duration:"OneDay"
         },
         Terrestrial.MistsOfEventide: {
             circle:Terrestrial,
             cost:"5sm",
             keywords: [ "Poison" ],
-            duration:"Three rounds"
+            duration:"ThreeRounds"
         },
         Terrestrial.SilentWordsOfDreamsAndNightmares: {
             circle:Terrestrial,
@@ -52,7 +52,7 @@
         Terrestrial.StormwindRider: {
             circle:Terrestrial,
             cost:"15sm, 1wp",
-            duration:"One hour"
+            duration:"OneHour"
         },
         Terrestrial.SummonElemental: {
             circle:Terrestrial,
@@ -62,13 +62,13 @@
         Terrestrial.WoodDragonsClaw: {
             circle:Terrestrial,
             cost:"5sm",
-            duration:"Until dismissed"
+            duration:"UntilDismissed"
         },
         Celestial.CantataOfEmptyVoices:{
             circle:Celestial,
             cost:"15sm, 2wp",
             keywords: [ "Perilous" ],
-            duration:"Instant or until ended"
+            duration:"InstantOrUntilEnded"
         },
         Celestial.DemonOfTheSecondCircle:{
             circle:Celestial,
@@ -78,27 +78,27 @@
         Celestial.ImpenetrableVeilOfNight:{
             circle:Celestial,
             cost:"30sm, 2wp",
-            duration:"One Day"
+            duration:"OneDay"
         },
         Celestial.IncomparableBodyArsenal:{
             circle:Celestial,
             cost:"30sm, 2wp",
-            duration:"(Essence) hours"
+            duration:"EssenceHours"
         },
         Celestial.IvoryOrchidPavilion:{
             circle:Celestial,
             cost:"Ritual, 1wp",
-            duration:"One day"
+            duration:"OneDay"
         },
         Celestial.MagmaKraken:{
             circle:Celestial,
             cost:"30sm, 1wp",
-            duration:"One scene"
+            duration:"OneScene"
         },
         Celestial.ShadowsOfTheAncientPast:{
             circle:Celestial,
             cost:"10sm, 2wp",
-            duration:"One scene"
+            duration:"OneScene"
         },
         Celestial.TravelWithoutDistance:{
             circle:Celestial,
@@ -114,7 +114,7 @@
             circle:Solar,
             cost:"25sm, 2wp",
             keywords: [ "Aggravated", "Decisive-only" ],
-            duration:"Instant or until ended"
+            duration:"InstantOrUntilEnded"
         },
         Solar.DemonOfTheThirdCircle:{
             circle:Solar,
@@ -125,12 +125,12 @@
             circle:Solar,
             cost:"30sm, 3wp",
             keywords: [ "Aggravated" ],
-            duration:"Until sunrise"
+            duration:"UntilSunrise"
         },
         Solar.UnityOfTheClosedFist:{
             circle:Solar,
             cost:"20sm, 2wp",
-            duration:"One scene"
+            duration:"OneScene"
         }
     }
 }

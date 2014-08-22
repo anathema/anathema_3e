@@ -22,10 +22,11 @@ public class CostParser {
 
   // todo sandra parse permanent and text (e.g. (optional))
   public static final String NO_COST = "0";
+  public static final String RITUAL_COST = "Ritual";
 
   public CostList parse(String costString) {
     Cost essence = parseCost(costString, "m");
-    Cost sorcerousMotes = parseCost(costString, "sm");
+    Cost sorcerousMotes = parseSorcerousCost(costString, "sm");
     Cost willpower = parseCost(costString, "wp");
     HealthCost health = parseHealthCost(costString);
     Cost xp = parseCost(costString, "xp", true);
@@ -51,12 +52,27 @@ public class CostParser {
   private String parseCostText(String costString, String unit) {
     for (String costPart : costString.split(",")) {
       String pattern = "(\\d+)" + unit;
-      Matcher matcher = Pattern.compile(pattern).matcher(costPart);
+      Matcher matcher = Pattern.compile(pattern).matcher(costPart.trim());
       if (matcher.matches()) {
         return matcher.group(1);
       }
     }
     return NO_COST;
+  }
+  
+  private Cost parseSorcerousCost(String costString, String unit) {
+    for (String costPart : costString.split(",")) {
+      String pattern = "(\\d+)" + unit;
+      Matcher matcher = Pattern.compile(pattern).matcher(costPart.trim());
+      if (matcher.matches()) {
+      	String costTest = matcher.group(1);
+        return new CostImpl(costTest, null, false);
+      }
+      if (costPart.trim().contains(RITUAL_COST)) {
+      	return new CostImpl(RITUAL_COST, null, false);
+      }
+    }
+    return NULL_COST;
   }
 
   public HealthCost parseHealthCost(String costString) {
