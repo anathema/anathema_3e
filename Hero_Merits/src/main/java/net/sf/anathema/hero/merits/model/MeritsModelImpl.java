@@ -91,6 +91,14 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
   
   @Override
+	public List<MeritOption> getCurrentMeritOptionsOfAllTypes() {
+  	List<MeritOption> options = meritCache.getAllMeritOptions();
+  	options.removeIf(item -> !item.isHeroEligible(hero) ||
+  						(!item.allowsRepurchase() && hasMerit(item)));
+  	return options;
+	}
+  
+  @Override
   public List<String> getCurrentMeritOptionLabels() {
   	return Lists.transform(getCurrentMeritOptions(), option -> option.getId());
   }

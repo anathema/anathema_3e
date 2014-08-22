@@ -132,4 +132,9 @@ public class MeritOptionImpl implements MeritOption {
 		}
 		return false;
 	}
+	
+	@Override
+	public String toString() {
+		return getId();
+	}
 }
