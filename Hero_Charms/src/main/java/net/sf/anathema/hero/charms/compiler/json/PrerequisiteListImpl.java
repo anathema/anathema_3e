@@ -23,6 +23,7 @@ public class PrerequisiteListImpl implements PrerequisiteList {
     if (!template.minimums.containsKey(ESSENCE_ID)) {
       traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(ESSENCE_ID), 1));
     }
+    traitPrerequisites.sort((trait, otherTrait) -> (otherTrait.type.type.equals(ESSENCE_ID) ? -1 : trait.type.type.compareTo(otherTrait.type.type)));
   }
 
   @Override

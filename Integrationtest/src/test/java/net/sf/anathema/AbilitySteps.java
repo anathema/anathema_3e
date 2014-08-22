@@ -33,6 +33,14 @@ public class AbilitySteps {
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
   }
+  
+  @When("^I caste her (.*)$")
+  public void caste_her(String abilityName) {
+    Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
+    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
+    stateMap.getState(ability).advanceState();
+    stateMap.getState(ability).advanceState();
+  }
 
   @Then("^she has (\\d+) dots in ability (.*)$")
   public void she_has_dots_in_Ability(int amount, String abilityName) throws Throwable {
