@@ -15,7 +15,6 @@ import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
-import net.sf.anathema.hero.traits.model.event.TraitChangeFlavor;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -101,7 +100,7 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
   			return false;
   		}
   	}
-    return !getEntries().contains(selection);
+    return getLanguagePointsSpent() < getLanguagePointsAllowed() && !getEntries().contains(selection);
   }
 
   @Override
