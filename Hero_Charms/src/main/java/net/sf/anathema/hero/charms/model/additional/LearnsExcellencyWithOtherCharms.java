@@ -44,20 +44,28 @@ public class LearnsExcellencyWithOtherCharms extends ExcellencyAdditionalRules {
 		@Override
 		public void charmLearned(Charm charm) {
 			CharmName excellencyName = new CharmName(getStringForExcellency(charm.getPrerequisites().getPrimaryTraitType().type));
-			Charm excellency = charms.getCharmById(excellencyName);
-			if (!charms.isLearned(excellency) &&
-					hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
-				charms.getLearningModel().learnCharm(excellency, false);
+			try {
+				Charm excellency = charms.getCharmById(excellencyName);
+				if (!charms.isLearned(excellency) &&
+						hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
+					charms.getLearningModel().learnCharm(excellency, false);
+				} 
+			} catch (IllegalArgumentException e) {
+				// corresponding excellency does not exist for this character
 			}
 		}
 
 		@Override
 		public void charmForgotten(Charm charm) {
 			CharmName excellencyName = new CharmName(getStringForExcellency(charm.getPrerequisites().getPrimaryTraitType().type));
-			Charm excellency = charms.getCharmById(excellencyName);
-			if (charms.isLearned(excellency) &&
-					hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
-				charms.getLearningModel().forgetCharm(excellency, false);
+			try {
+				Charm excellency = charms.getCharmById(excellencyName);
+				if (excellency != null && charms.isLearned(excellency) &&
+						hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
+					charms.getLearningModel().forgetCharm(excellency, false);
+				}
+			} catch (IllegalArgumentException e) {
+				// corresponding excellency does not exist for this character
 			}
 		}
 
