@@ -65,3 +65,14 @@ Feature: Characters can learn Sorcery circles
     And she goes experienced
     And she learns the Spell Terrestrial.CirrusSkiff
     Then she has spent 8 xp points
+    
+  Scenario: A regular Mortal cannot learn sorcery
+    Given any Mortal
+    When I set her Occult to 5
+    Then she can not learn the Spell Terrestrial.CirrusSkiff
+    
+  Scenario: An initiated Mortal can learn sorcery
+    Given any Mortal
+    When I set her Occult to 5
+    And she earns the Sorcerous Initiation merit
+    Then she can learn the Spell Terrestrial.CirrusSkiff
