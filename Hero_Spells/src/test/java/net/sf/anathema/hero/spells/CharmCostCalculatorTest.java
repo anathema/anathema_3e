@@ -18,6 +18,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.magic.DummySpell;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
+import net.sf.anathema.hero.spells.model.SpellsLearner;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.magic.data.Magic;
 
@@ -44,6 +45,7 @@ public class CharmCostCalculatorTest {
     template.favoredCreationPoints.costs = 4;
     MagicCreationCostEvaluator magicCostEvaluator = new MagicCreationCostEvaluator();
     magicCostEvaluator.registerMagicLearner(new CharmLearner(charmModel));
+    magicCostEvaluator.registerMagicLearner(new SpellsLearner(spells));
     MagicCreationData creationData = new MagicCreationData(template);
     calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new CostAnalyzerImpl(hero));
   }
