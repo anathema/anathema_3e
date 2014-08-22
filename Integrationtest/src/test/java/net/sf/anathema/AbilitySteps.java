@@ -1,9 +1,9 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -11,9 +11,11 @@ import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.google.inject.Inject;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class AbilitySteps {
 
@@ -34,12 +36,17 @@ public class AbilitySteps {
     stateMap.getState(ability).advanceState();
   }
   
-  @When("^I caste her (.*)$")
+  @When("^I Caste her (.*)$")
   public void caste_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
+    int currentValue = ability.getCurrentValue();
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
     stateMap.getState(ability).advanceState();
+    // Awkward workaround for having to traverse through Favored state
+    if (currentValue == 0) {
+    	ability.setCurrentValue(0);
+    }
   }
 
   @Then("^she has (\\d+) dots in ability (.*)$")

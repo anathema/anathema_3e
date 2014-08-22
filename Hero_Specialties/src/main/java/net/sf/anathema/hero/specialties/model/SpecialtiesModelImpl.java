@@ -97,19 +97,25 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
   @Override
   public void setCurrentTrait(TraitType newValue) {
-    this.currentType = newValue;
-    control.announce().changeOccurred();
+  	if (getAllEligibleParentTraits().contains(newValue)) {
+  		this.currentType = newValue;
+    	control.announce().changeOccurred();
+  	}
   }
   
-  public void addSpecialty(Hero hero, TraitType trait, String name, boolean isCreationLearned) {
-  	Specialty specialty = new SpecialtyImpl(hero, trait, name, isCreationLearned);
-  	specialties.add(specialty);
-  	specialtiesChangedListener.announce().specialtyAdded(specialty);
+  public Specialty addSpecialty(Hero hero, TraitType trait, String name, boolean isCreationLearned) {
+  	if (getAllEligibleParentTraits().contains(trait)) {
+  		Specialty specialty = new SpecialtyImpl(hero, trait, name, isCreationLearned);
+  		specialties.add(specialty);
+  		specialtiesChangedListener.announce().specialtyAdded(specialty);
+  		return specialty;
+  	}
+  	return null;
   }
 
   @Override
-  public void commitSelection() {
-  	addSpecialty(hero, currentType, currentName, !isExperienced());
+  public boolean commitSelection() {
+  	return addSpecialty(hero, currentType, currentName, !isExperienced()) != null;
   }
 
   @Override

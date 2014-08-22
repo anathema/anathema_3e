@@ -24,7 +24,7 @@ public interface SpecialtiesModel extends HeroModel {
 
   void setCurrentSpecialtyName(String newSpecialtyName);
 
-  void commitSelection();
+  boolean commitSelection();
 
   void clear();
 
