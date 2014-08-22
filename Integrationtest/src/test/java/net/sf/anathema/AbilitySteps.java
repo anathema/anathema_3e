@@ -1,6 +1,5 @@
 package net.sf.anathema;
 
-import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

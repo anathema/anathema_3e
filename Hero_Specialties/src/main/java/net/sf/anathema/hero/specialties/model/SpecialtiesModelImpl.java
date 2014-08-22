@@ -70,6 +70,9 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
 	@Override
 	public boolean removeSpecialty(Specialty specialty) {
+		if (specialty.isLearnedAtCreation() && isExperienced()) {
+			return false;
+		}
 		specialtiesChangedListener.announce().specialtyRemoved(specialty);
 		return specialties.remove(specialty);
 	}

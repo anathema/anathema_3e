@@ -8,6 +8,7 @@ import java.util.List;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 import com.google.inject.Inject;
@@ -34,6 +35,19 @@ public class SpecialtySteps {
   	model.setCurrentTrait(AbilityType.valueOf(id));
   	boolean learned = model.commitSelection();
     assertThat(learned, is(true));
+  }
+  
+  @When("^she forgets a Specialty in (.*)$")
+  public void she_forgets_a_specialty_in(String id) throws Throwable {
+  	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
+  	TraitType ability = AbilityType.valueOf(id);
+  	Specialty toForget = model.getAllSpecialties().stream().filter(specialty -> specialty.getBasicTraitType().equals(ability))
+  		.findFirst().get();
+  	if (toForget != null) {
+  		model.removeSpecialty(toForget);
+  	}
+  	boolean success = toForget != null;
+    assertThat(success, is(true));
   }
 
   @Then("^she can learn a Specialty in (.*)$")
