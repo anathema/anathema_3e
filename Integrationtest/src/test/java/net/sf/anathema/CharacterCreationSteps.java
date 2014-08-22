@@ -46,6 +46,12 @@ public class CharacterCreationSteps {
     HeroItemData heroItemData = characterFactory.createCharacter("Solar", "RookieLawgiver");
     holder.setCharacter(heroItemData);
   }
+  
+  @Given("^any Mortal$")
+  public void I_create_any_Molar() throws Throwable {
+    HeroItemData heroItemData = characterFactory.createCharacter("Mortal", "EverydayHero");
+    holder.setCharacter(heroItemData);
+  }
 
   @Given("^any Solar with Caste (.*)$")
   public void I_create_any_Solar_with_Caste(String caste) throws Throwable {
