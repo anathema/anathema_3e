@@ -54,6 +54,9 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
     updateLanguagePointAllowance();
+    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
+    abilities.getTrait(AbilityType.Lore).addCurrentValueListener(value -> fireEntryChanged());
+    abilities.getTrait(AbilityType.Occult).addCurrentValueListener(value -> fireEntryChanged());
   }
 
   @Override
