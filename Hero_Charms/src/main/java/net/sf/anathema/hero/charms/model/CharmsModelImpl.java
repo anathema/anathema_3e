@@ -285,7 +285,8 @@ public class CharmsModelImpl implements CharmsModel {
 		TraitTypeFinder finder = new TraitTypeFinder();
 		Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
 		Charms matchingLearnedCharms = learnedCharms.applyFilter(charm ->
-		requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)));
+			!charm.hasAttribute(CommonMagicAttributes.NO_MANUAL_CONTROL) &&
+			requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)));
 		for (Charm charm : matchingLearnedCharms) {
 			boolean meetsEssence = true;
 			for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
@@ -320,10 +321,6 @@ public class CharmsModelImpl implements CharmsModel {
 		
 		return false;
 	}
-
-  private boolean isExperienced() {
-    return ExperienceModelFetcher.fetch(hero).isExperienced();
-  }
 
   private PrerequisiteModifyingCharms getPrerequisiteModifyingCharms() {
     if (prerequisiteModifyingCharms == null) {
