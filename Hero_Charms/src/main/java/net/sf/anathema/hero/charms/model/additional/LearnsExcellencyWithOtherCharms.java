@@ -60,8 +60,8 @@ public class LearnsExcellencyWithOtherCharms extends ExcellencyAdditionalRules {
 			CharmName excellencyName = new CharmName(getStringForExcellency(charm.getPrerequisites().getPrimaryTraitType().type));
 			try {
 				Charm excellency = charms.getCharmById(excellencyName);
-				if (excellency != null && charms.isLearned(excellency) &&
-						hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
+				if (charms.isLearned(excellency) &&
+						!hasOtherCharmsOfTrait(charm.getPrerequisites().getPrimaryTraitType().type)) {
 					charms.getLearningModel().forgetCharm(excellency, false);
 				}
 			} catch (IllegalArgumentException e) {
