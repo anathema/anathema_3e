@@ -36,9 +36,11 @@ public class LearnsExcellencyForFavoredTraits extends ExcellencyAdditionalRules 
 	public void initialize() {
 		// TODO: Favorable traits other than abilities
 		AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
-		abilities.getAll().forEach(trait -> abilities.getState(trait).addTraitStateChangedListener(
-				new ExcellencyMonitor(trait, abilities.getState(trait))));
-		abilities.getAll().forEach(trait -> trait.addCurrentValueListener(new ExcellencyMonitor(trait, abilities.getState(trait))));
+		abilities.getAll().forEach(trait -> {
+			ExcellencyMonitor monitor = new ExcellencyMonitor(trait, abilities.getState(trait));
+			abilities.getState(trait).addTraitStateChangedListener(monitor);
+			trait.addCurrentValueListener(monitor);
+		});
 	}
 	
 	private class ExcellencyMonitor implements TraitStateChangedListener, IntegerChangedListener {
