@@ -3,12 +3,14 @@ package net.sf.anathema.hero.dummy;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
+import net.sf.anathema.hero.individual.persistence.NullTemplateModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
 import java.util.ArrayList;
 
 @DoNotInstantiateAutomatically
+@NullTemplateModel
 public class DummyModelFactory implements HeroModelFactory {
   private final Identifier id;
   private final ArrayList<Identifier> requirements = new ArrayList<>();
