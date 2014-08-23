@@ -30,8 +30,10 @@ public class IsCharmCheapened implements CheapenedChecker {
   private boolean isPrimaryTraitCheapened(Charm charm) {
     // todo (sandra) remodel that primary traits might not be abilities
     TraitType traitType = new TraitTypeUtils().getPrimaryTraitType(charm);
-    Trait primaryTrait = getTrait(traitType);
-    return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCheapened();
+    if (AbilitiesModelFetcher.fetch(hero).contains(traitType)) {
+    	return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCheapened();
+    }
+    return false;
   }
 
   private Trait getTrait(TraitType traitType) {

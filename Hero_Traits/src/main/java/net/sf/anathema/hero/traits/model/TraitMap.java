@@ -7,6 +7,8 @@ public interface TraitMap {
   Trait getTrait(TraitType traitType);
 
   Traits getTraits(TraitType... traitType);
+  
+  boolean contains(TraitType traitType);
 
   Traits getAll();
 }
