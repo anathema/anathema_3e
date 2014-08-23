@@ -45,14 +45,14 @@ public class AggregatedCascadeTest {
   @Test
   public void forwardsColoringToContainer() throws Exception {
     when(child.hasNode("X")).thenReturn(true);
-    cascade.colorNode("X", RGBColor.Pink);
-    verify(child).colorNode("X", RGBColor.Pink);
+    cascade.colorNode("X", RGBColor.Pink, RGBColor.Black);
+    verify(child).colorNode("X", RGBColor.Pink, RGBColor.Black);
   }
 
   @Test
   public void doesNotForwardColoringToDifferentChild() throws Exception {
-    cascade.colorNode("X", RGBColor.Pink);
-    verify(child, never()).colorNode("X", RGBColor.Pink);
+    cascade.colorNode("X", RGBColor.Pink, RGBColor.Black);
+    verify(child, never()).colorNode("X", RGBColor.Pink, RGBColor.Black);
   }
 
   @Test

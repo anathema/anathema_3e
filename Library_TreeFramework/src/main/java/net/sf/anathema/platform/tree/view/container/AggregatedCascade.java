@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.tree.view.container;
 
 import com.google.common.collect.Lists;
+
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
@@ -10,12 +11,12 @@ import java.util.List;
 
 public class AggregatedCascade implements Cascade {
   private final List<ContainerCascade> cascades = Lists.newArrayList();
-
+  
   @Override
-  public void colorNode(String nodeId, RGBColor fillColor) {
+  public void colorNode(String nodeId, RGBColor fillColor, RGBColor borderColor) {
     for (ContainerCascade cascade : cascades) {
       if (cascade.hasNode(nodeId)) {
-        cascade.colorNode(nodeId, fillColor);
+        cascade.colorNode(nodeId, fillColor, borderColor);
       }
     }
   }

@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.model;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
@@ -11,6 +12,7 @@ import net.sf.anathema.hero.concept.model.concept.CasteSelection;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
 import java.util.List;
@@ -18,10 +20,13 @@ import java.util.List;
 public class CharmDisplayModel {
   private Hero hero;
   private MagicDescriptionProvider magicDescriptionProvider;
+  private CharmBorderColorEvaluator evaluator;
 
-  public CharmDisplayModel(Hero hero, MagicDescriptionProvider magicDescriptionProvider) {
+  public CharmDisplayModel(Hero hero, CharmBorderColorEvaluator evaluator,
+  		MagicDescriptionProvider magicDescriptionProvider) {
     this.hero = hero;
     this.magicDescriptionProvider = magicDescriptionProvider;
+    this.evaluator = evaluator;
   }
 
   public boolean isAllowedAlienCharms() {
@@ -34,6 +39,10 @@ public class CharmDisplayModel {
 
   public CharmsModel getCharmModel() {
     return CharmsModelFetcher.fetch(hero);
+  }
+  
+  public RGBColor getBorderColorForCharm(Charm charm) {
+  	return evaluator.getBorderColorForCharm(charm);
   }
 
   private CasteSelection getCaste() {

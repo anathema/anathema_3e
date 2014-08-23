@@ -11,10 +11,10 @@ public class ProxyCascade implements Cascade {
   public void setDelegate(Cascade cascade) {
     this.delegate = cascade;
   }
-
+  
   @Override
-  public void colorNode(String nodeId, RGBColor fillColor) {
-    delegate.colorNode(nodeId, fillColor);
+  public void colorNode(String nodeId, RGBColor fillColor, RGBColor borderColor) {
+    delegate.colorNode(nodeId, fillColor, borderColor);
   }
 
   @Override

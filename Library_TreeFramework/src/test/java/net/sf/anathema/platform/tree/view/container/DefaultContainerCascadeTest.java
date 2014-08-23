@@ -66,25 +66,25 @@ public class DefaultContainerCascadeTest {
 
   @Test
   public void fillsNodeWithId() throws Exception {
-    container.colorNode("X", RGBColor.Blue);
+    container.colorNode("X", RGBColor.Blue, RGBColor.Black);
     verify(polygon1).fill(RGBColor.Blue);
   }
 
   @Test
   public void doesNotFillNodeWithDifferentId() throws Exception {
-    container.colorNode("Y", RGBColor.Blue);
+    container.colorNode("Y", RGBColor.Blue, RGBColor.Black);
     verify(polygon1, never()).fill(Matchers.any(RGBColor.class));
   }
 
   @Test
   public void alphasNodeWithId() throws Exception {
-    container.colorNode("X", new RGBColor(Black, 111));
+    container.colorNode("X", new RGBColor(Black, 111), RGBColor.Black);
     verify(polygon1).setAlpha(111);
   }
 
   @Test
   public void doesNotAlphaNodeWithDifferentId() throws Exception {
-    container.colorNode("Y", new RGBColor(Black, 111));
+    container.colorNode("Y", new RGBColor(Black, 111), RGBColor.Black);
     verify(polygon1, never()).setAlpha(anyInt());
   }
 

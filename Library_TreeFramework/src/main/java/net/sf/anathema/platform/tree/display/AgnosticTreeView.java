@@ -32,8 +32,8 @@ public class AgnosticTreeView implements TreeView {
   }
 
   @Override
-  public void colorNode(String nodeId, RGBColor color) {
-    cascade.colorNode(nodeId, color);
+  public void colorNode(String nodeId, RGBColor color, RGBColor border) {
+    cascade.colorNode(nodeId, color, border);
     polygonPanel.refresh();
   }
 

@@ -26,16 +26,16 @@ public class AgnosticTreeViewTest {
   @Test
   public void setsBackgroundColorOnCorrespondingNode() throws Exception {
     treeView.loadCascade(cascade, true);
-    treeView.colorNode("ID", RGBColor.White);
-    verify(cascade).colorNode("ID", RGBColor.White);
+    treeView.colorNode("ID", RGBColor.White, RGBColor.Black);
+    verify(cascade).colorNode("ID", RGBColor.White, RGBColor.Black);
   }
 
   @Test
   public void triggersRepaintAfterColoring() throws Exception {
     treeView.loadCascade(cascade, true);
-    treeView.colorNode("ID", RGBColor.White);
+    treeView.colorNode("ID", RGBColor.White, RGBColor.Black);
     InOrder inOrder = inOrder(cascade, panel);
-    inOrder.verify(cascade).colorNode(anyString(), Matchers.any(RGBColor.class));
+    inOrder.verify(cascade).colorNode(anyString(), Matchers.any(RGBColor.class), RGBColor.Black);
     inOrder.verify(panel).refresh();
   }
 
@@ -94,7 +94,7 @@ public class AgnosticTreeViewTest {
     treeView.loadCascade(cascade, true);
     treeView.clear();
     reset(cascade);
-    treeView.colorNode("X", RGBColor.Black);
+    treeView.colorNode("X", RGBColor.Black, RGBColor.Black);
     verifyZeroInteractions(cascade);
   }
 

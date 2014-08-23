@@ -29,14 +29,14 @@ public class CharacterColoringStrategy implements CharmColoring {
     String id = charm.getName().text;
     RGBColor color = getCharmModel().getLearningModel().isCurrentlyLearned(charm) ? characterColor : UNSELECTED_COLOR;
     int opacity = getCharmModel().isLearnable(charm) ? MAXIMUM_OPACITY : REDUCED_OPACITY;
-    treeView.colorNode(id, new RGBColor(color, opacity));
+    treeView.colorNode(id, new RGBColor(color, opacity), model.getBorderColorForCharm(charm));
   }
 
   @Override
   public void colorNonCharmPrerequisite(String nodeId, CharmPrerequisite prerequisite) {
     boolean fulfilled = isSatisfied(prerequisite, getCharmModel());
     RGBColor color = fulfilled ? characterColor.brighter() : UNSELECTED_COLOR;
-    treeView.colorNode(nodeId, new RGBColor(color, MAXIMUM_OPACITY));
+    treeView.colorNode(nodeId, new RGBColor(color, MAXIMUM_OPACITY), RGBColor.Black);
   }
 
   @Override

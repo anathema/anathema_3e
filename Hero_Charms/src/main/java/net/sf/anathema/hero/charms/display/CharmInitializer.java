@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.display;
 
 import net.sf.anathema.hero.charms.compiler.CharmCache;
+import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
@@ -17,7 +18,6 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
-
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
 
 @RegisteredInitializer(Magic)
@@ -33,7 +33,8 @@ public class CharmInitializer implements HeroModelInitializer {
   @Override
   public void initialize(SectionView sectionView, Hero hero) {
     MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(environment);
-    CharmDisplayModel model = new CharmDisplayModel(hero, provider);
+    CharmBorderColorEvaluator evaluator = new CharmBorderColorEvaluator(environment.getObjectFactory());
+    CharmDisplayModel model = new CharmDisplayModel(hero, evaluator, provider);
     HeroType heroType = hero.getSplat().getTemplateType().getHeroType();
     CharmDisplayPropertiesMap propertiesMap = new CharmDisplayPropertiesMap(environment.getObjectFactory());
     TreePresentationProperties presentationProperties = propertiesMap.getDisplayProperties(heroType);

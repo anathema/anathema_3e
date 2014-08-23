@@ -12,12 +12,13 @@ public class FilledPolygon implements InteractiveGraphicsElement, AgnosticPolygo
   private final Polygon polygon = new Polygon();
   private RGBColor fill = RGBColor.Transparent;
   private RGBColor stroke = RGBColor.Black;
+  private RGBColor border = RGBColor.Black;
   private final TextWriter textWriter = new TextWriter(polygon);
 
   @Override
   public void paint(Canvas graphics) {
     new ShapeFiller(polygon, fill).fill(graphics);
-    new ShapeDrawer(polygon, stroke).draw(graphics);
+    new ShapeDrawer(polygon, border).draw(graphics);
     textWriter.write(graphics);
   }
 
@@ -66,4 +67,9 @@ public class FilledPolygon implements InteractiveGraphicsElement, AgnosticPolygo
     this.stroke = stroke;
     textWriter.setStroke(stroke);
   }
+
+	@Override
+	public void setBorderColor(RGBColor borderColor) {
+		this.border = borderColor;
+	}
 }

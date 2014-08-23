@@ -6,10 +6,11 @@ import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
 
 public class NullCascade implements Cascade {
+  
   @Override
-  public void colorNode(String nodeId, RGBColor fillColor) {
-    //nothing to do
-  }
+	public void colorNode(String nodeId, RGBColor fillColor, RGBColor borderColor) {
+		// TODO Auto-generated method stub
+	}
 
   @Override
   public void addTo(PolygonPanel panel) {

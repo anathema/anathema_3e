@@ -6,7 +6,7 @@ import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
 
 public interface Cascade {
-  void colorNode(String nodeId, RGBColor fillColor);
+  void colorNode(String nodeId, RGBColor fillColor, RGBColor borderColor);
 
   void addTo(PolygonPanel panel);
 

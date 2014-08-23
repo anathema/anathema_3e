@@ -1,6 +1,7 @@
 package net.sf.anathema.cascades.presenter;
 
 import net.sf.anathema.hero.charms.compiler.CharmCache;
+import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.coloring.ConfigurableCharmDye;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CascadePresenter;
@@ -35,7 +36,7 @@ public class CharmCascadesPresenterImpl {
     cascadePresenter.setCategoryCollection(new CascadeCategoryCollection(cache));
     cascadePresenter.setChangeListener(selectionListener);
     cascadePresenter.setView(view);
-    cascadePresenter.setCharmDye(new ConfigurableCharmDye(selectionListener, new CascadeColoringStrategy()));
+    cascadePresenter.setCharmDye(new ConfigurableCharmDye(selectionListener, new CascadeColoringStrategy(new CharmBorderColorEvaluator(objectFactory))));
     cascadePresenter.setCharmTrees(new CascadeGroupCollection(cache, identifierMap));
     cascadePresenter.setSpecialCharmSet(specialCharmSet);
     cascadePresenter.initPresentation();

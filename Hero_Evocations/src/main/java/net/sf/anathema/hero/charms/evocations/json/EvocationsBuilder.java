@@ -22,6 +22,7 @@ import net.sf.anathema.charm.template.evocations.EvocationTier;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.json.CharmImpl;
+import net.sf.anathema.hero.charms.evocations.utilities.EvocationUtilities;
 
 public class EvocationsBuilder {
   private List<EvocationArtifactTemplate> evocationCascades = new ArrayList<>();
@@ -41,29 +42,19 @@ public class EvocationsBuilder {
   		charm.getTreeReference().name.text.equals(evocation.tree));
 
   	charmsForEvocation.forEach(charm -> {
-  		if (getTier(charm) == EvocationTier.Sapphire && needsEvocationPrerequisites(charm, EvocationTier.Sapphire, evocation.emeraldRequiredForSapphire)) {
+  		if (EvocationUtilities.getTier(charm) == EvocationTier.Sapphire && needsEvocationPrerequisites(charm, EvocationTier.Sapphire, evocation.emeraldRequiredForSapphire)) {
   			if (oldParentsNotRequired(charm, EvocationTier.Emerald, evocation.emeraldRequiredForSapphire )) {
   				clearOldPrerequisites(charm);
   			}
   			setEvocationPrerequisite(charm, EvocationTier.Emerald, evocation.emeraldRequiredForSapphire);
   		}
-  		if (getTier(charm) == EvocationTier.Adamant && needsEvocationPrerequisites(charm, EvocationTier.Adamant, evocation.sapphireRequiredForAdamant)) {
+  		if (EvocationUtilities.getTier(charm) == EvocationTier.Adamant && needsEvocationPrerequisites(charm, EvocationTier.Adamant, evocation.sapphireRequiredForAdamant)) {
   			if (oldParentsNotRequired(charm, EvocationTier.Sapphire, evocation.sapphireRequiredForAdamant)) {
   				clearOldPrerequisites(charm);
   			}
   			setEvocationPrerequisite(charm, EvocationTier.Sapphire, evocation.sapphireRequiredForAdamant);
   		}
   	});
-  }
-  
-  private EvocationTier getTier(Charm charm) {
-  	if (charm.hasAttribute(EvocationTier.Sapphire)) {
-  		return EvocationTier.Sapphire;
-  	}
-  	if (charm.hasAttribute(EvocationTier.Adamant)) {
-  		return EvocationTier.Adamant;
-  	}
-  	return EvocationTier.Emerald;
   }
   
   private boolean oldParentsNotRequired(Charm rootCharm, EvocationTier target, int count) {
@@ -96,7 +87,7 @@ public class EvocationsBuilder {
 				@Override
 				public void visit(SimpleCharmPrerequisite prerequisite) {
 					Charm parentCharm = prerequisite.getParentCharm();
-					if (getTier(parentCharm).compareTo(target) < 0) {
+					if (EvocationUtilities.getTier(parentCharm).compareTo(target) < 0) {
 						hasImmediatePreviousTierParents[0] = true;
 					}
 				}
@@ -143,9 +134,9 @@ public class EvocationsBuilder {
   				@Override
   				public void visit(SimpleCharmPrerequisite prerequisite) {
   					Charm parent = prerequisite.getParentCharm();
-  					if (getTier(parent).compareTo(target) <= 0) {
+  					if (EvocationUtilities.getTier(parent).compareTo(target) <= 0) {
   						charmQueue.add(parent);
-  						if (getTier(parent).compareTo(target) < 0) {
+  						if (EvocationUtilities.getTier(parent).compareTo(target) < 0) {
   							ancestorsOfTier[0]++;
   						}
   					}

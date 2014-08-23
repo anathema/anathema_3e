@@ -1,12 +1,14 @@
 package net.sf.anathema.platform.tree.view.container;
 
 import com.google.common.collect.Lists;
+
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 import net.sf.anathema.platform.tree.view.draw.InteractiveGraphicsElement;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.List;
@@ -31,9 +33,10 @@ public class DefaultContainerCascade implements ContainerCascade {
   }
 
   @Override
-  public void colorNode(String nodeId, RGBColor fillColor) {
+  public void colorNode(String nodeId, RGBColor fillColor, RGBColor borderColor) {
     for (IdentifiedPolygon node : nodes) {
       if (node.id.equals(nodeId)) {
+      	node.element.setBorderColor(borderColor);
         node.element.fill(fillColor);
         node.element.setAlpha(fillColor.alpha);
       }

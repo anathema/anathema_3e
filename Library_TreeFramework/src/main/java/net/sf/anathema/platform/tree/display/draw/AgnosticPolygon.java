@@ -8,6 +8,8 @@ public interface AgnosticPolygon {
 
   void fill(RGBColor fillColor);
 
+  void setBorderColor(RGBColor borderColor);
+  
   void setAlpha(int alpha);
 
   void setText(String id);
