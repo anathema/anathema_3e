@@ -22,4 +22,14 @@ public class SimpleHeroType implements HeroType {
   public String getId() {
     return id;
   }
+  
+  @Override
+  public String toString() {
+  	return id;
+  }
+  
+  @Override
+	public int compareTo(HeroType o) {
+		return getId().compareTo(o.getId());
+	}
 }

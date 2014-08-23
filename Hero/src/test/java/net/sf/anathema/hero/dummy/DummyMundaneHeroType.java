@@ -22,4 +22,9 @@ public class DummyMundaneHeroType implements HeroType {
   public boolean equals(Object other) {
     return other instanceof DummyMundaneHeroType;
   }
+  
+  @Override
+	public int compareTo(HeroType o) {
+		return getId().compareTo(o.getId());
+	}
 }

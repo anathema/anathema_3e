@@ -28,7 +28,6 @@ public class HeroCreationPresenter {
     view.setTitle(properties.getTitle());
     ToggleButtonPanel panel = view.addToggleButtonPanel();
     List<HeroType> heroTypes = model.getAvailableHeroTypes();
-    heroTypes.sort((h1, h2) -> h1.getId().compareTo(h2.getId()));
     for (HeroType type : heroTypes) {
       ToggleTool button = panel.addButton(properties.getTypeString(type));
       button.setIcon(properties.getTypeIcon(type));

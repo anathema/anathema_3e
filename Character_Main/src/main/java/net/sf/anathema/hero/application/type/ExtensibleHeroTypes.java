@@ -13,6 +13,7 @@ public class ExtensibleHeroTypes implements HeroTypes {
 
   public void add(HeroType type) {
     types.add(type);
+    types.sort(null);
   }
   
   @Override
