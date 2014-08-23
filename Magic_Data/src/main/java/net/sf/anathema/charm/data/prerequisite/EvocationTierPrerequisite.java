@@ -17,7 +17,7 @@ public class EvocationTierPrerequisite implements CharmPrerequisite {
 
 	@Override
 	public void process(PrerequisiteProcessor processor) {
-		processor.requiresMagicAttributesFromTree(tree, new MagicAttributeImpl(priorTier.toString(), true),
+		processor.requiresMagicAttributesFromTree(tree, new MagicAttributeImpl("Additional" + priorTier.toString(), true),
 				priorTierQuantity);
 	}
 

@@ -43,26 +43,28 @@ public class EvocationsBuilder {
 
   	charmsForEvocation.forEach(charm -> {
   		if (EvocationUtilities.getTier(charm) == EvocationTier.Sapphire && needsEvocationPrerequisites(charm, EvocationTier.Sapphire, evocation.emeraldRequiredForSapphire)) {
+  			int emeraldRequired = evocation.emeraldRequiredForSapphire - countPriorTierAncestors(charm, EvocationTier.Sapphire);
   			if (oldParentsNotRequired(charm, EvocationTier.Emerald, evocation.emeraldRequiredForSapphire )) {
   				clearOldPrerequisites(charm);
   			}
-  			setEvocationPrerequisite(charm, EvocationTier.Emerald, evocation.emeraldRequiredForSapphire);
+  			setEvocationPrerequisite(charm, EvocationTier.Emerald, emeraldRequired);
   		}
   		if (EvocationUtilities.getTier(charm) == EvocationTier.Adamant && needsEvocationPrerequisites(charm, EvocationTier.Adamant, evocation.sapphireRequiredForAdamant)) {
   			if (oldParentsNotRequired(charm, EvocationTier.Sapphire, evocation.sapphireRequiredForAdamant)) {
   				clearOldPrerequisites(charm);
   			}
-  			setEvocationPrerequisite(charm, EvocationTier.Sapphire, evocation.sapphireRequiredForAdamant);
+  			setEvocationPrerequisite(charm, EvocationTier.Sapphire, evocation.sapphireRequiredForAdamant -
+  					countPriorTierAncestors(charm, EvocationTier.Sapphire));
   		}
   	});
   }
   
   private boolean oldParentsNotRequired(Charm rootCharm, EvocationTier target, int count) {
-  	return countAncestorsOfTier(rootCharm, target) >= count;
+  	return countPriorTierAncestors(rootCharm, target) >= count;
   }
   
   private boolean needsEvocationPrerequisites(Charm rootCharm, EvocationTier target, int count) {
-  	return hasPreviousTierParents(rootCharm, target) && countAncestorsOfTier(rootCharm, target) < count;
+  	return hasPreviousTierParents(rootCharm, target) && countPriorTierAncestors(rootCharm, target) < count;
   }
   
   private boolean hasPreviousTierParents(Charm charm, EvocationTier target) {
@@ -109,7 +111,7 @@ public class EvocationsBuilder {
   	return hasImmediatePreviousTierParents[0];
   }
   
-  private int countAncestorsOfTier(Charm rootCharm, EvocationTier target) {
+  private int countPriorTierAncestors(Charm rootCharm, EvocationTier target) {
   	int[] ancestorsOfTier = new int[1];
   	ancestorsOfTier[0] = 0;
   	Queue<Charm> charmQueue = new LinkedList<>();
