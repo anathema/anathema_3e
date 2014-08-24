@@ -6,6 +6,7 @@ import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
+import net.sf.anathema.points.model.overview.IValueModel;
 
 import com.google.inject.Inject;
 
@@ -70,7 +71,11 @@ public class MeritSteps {
     assertThat(canEarn, is(false));
   }
   
-  
+  @Then("^she has spent (\\d+) merit points$")
+  public void she_has_merit_points(int points) throws Throwable {
+  	IValueModel<Integer> model = bonusModel.findBonusModel(MeritsModel.ID.toString(), MeritsModel.ID.toString());
+  	assertThat(model.getValue() == points, is(true));
+  }
   
   
 }
