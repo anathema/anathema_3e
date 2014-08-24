@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class CustomMeritOption implements MeritOption {
@@ -65,6 +66,11 @@ public class CustomMeritOption implements MeritOption {
 			return ((MeritOption)obj).getId().equals(getId());
 		}
 		return false;
+	}
+
+	@Override
+	public List<MeritMechanicalDetail> getMechanics() {
+		return new ArrayList<>();
 	}
 
 }

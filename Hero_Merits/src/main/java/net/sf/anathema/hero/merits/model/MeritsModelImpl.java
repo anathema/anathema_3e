@@ -7,12 +7,14 @@ import java.util.List;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
+import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
+import net.sf.anathema.hero.merits.model.mechanics.MeritHealthProvider;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -47,6 +49,9 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
     this.meritCache = environment.getDataSet(MeritCache.class);
+    MeritHealthProvider healthProvider = new MeritHealthProvider(this);
+    HealthModelFetcher.fetch(hero).addHealthLevelProvider(healthProvider);
+    HealthModelFetcher.fetch(hero).addPainToleranceProvider(healthProvider);
   }
 
   @SuppressWarnings("unchecked")

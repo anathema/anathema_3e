@@ -3,6 +3,7 @@ package net.sf.anathema.hero.merits.model;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 public interface MeritOption extends TraitType {
@@ -18,6 +19,8 @@ public interface MeritOption extends TraitType {
 	boolean isLegalValue(int value);
 	
 	List<String> getContingentTraitTypes();
+	
+	List<MeritMechanicalDetail> getMechanics();
 	
 	int getMinimumValue();
 	

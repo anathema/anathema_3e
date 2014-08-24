@@ -6,6 +6,8 @@ import java.util.List;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
+import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
+import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
@@ -16,6 +18,7 @@ public class MeritOptionImpl implements MeritOption {
 	private final boolean allowRepurchase;
 	private final boolean[] legalValues = new boolean[MAX_MERIT_RATING + 1];
 	private final List<MeritRequirement> requirements = new ArrayList<>();
+	private final List<MeritMechanicalDetail> mechanics = new ArrayList<>();
 	
 	public MeritOptionImpl(MeritTemplate template) {
 		this.name = template.name;
@@ -24,6 +27,7 @@ public class MeritOptionImpl implements MeritOption {
 		
 		parseLegalValues(template.values);
 		parseRequirements(template.requirements);
+		parseMechanics(template.mechanics);
 	}
 	
 	private void parseRequirements(List<MeritRequirementsTemplate> templateRequirements) {
@@ -52,6 +56,10 @@ public class MeritOptionImpl implements MeritOption {
 			assert (position >= 0 && position <= MAX_MERIT_RATING);
 			legalValues[position] = true;
 		}
+	}
+	
+	private void parseMechanics(List<MeritMechanicalDetailTemplate> mechanicTemplates) {
+		mechanicTemplates.forEach(mechanic -> mechanics.add(mechanic.generate()));
 	}
 	
 	@Override
@@ -136,5 +144,10 @@ public class MeritOptionImpl implements MeritOption {
 	@Override
 	public String toString() {
 		return getId();
+	}
+
+	@Override
+	public List<MeritMechanicalDetail> getMechanics() {
+		return mechanics;
 	}
 }

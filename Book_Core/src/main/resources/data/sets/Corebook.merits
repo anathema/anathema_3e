@@ -168,7 +168,13 @@
 				 	"trait": "Stamina",
 				 	"rating": 3
 				}
-			 ]
+			 ],
+			"mechanics": [
+				{
+					"type": "AddsHealthLevels",
+					"levels": [ -0 ]
+				}
+			]
 		},
 		{
 			"name": "Hearthstone",
