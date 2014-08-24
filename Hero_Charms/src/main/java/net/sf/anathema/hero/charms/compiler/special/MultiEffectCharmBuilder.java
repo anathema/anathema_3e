@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.template.special.MultiEffect;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.charms.model.special.subeffects.ComplexMultipleEffectCharm;
+import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharm;
 
 @SuppressWarnings("UnusedDeclaration")
 public class MultiEffectCharmBuilder implements SpecialCharmBuilder {
@@ -13,7 +13,7 @@ public class MultiEffectCharmBuilder implements SpecialCharmBuilder {
   public ISpecialCharm readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
     MultiEffect multiEffect = overallDto.multiEffect;
     String[] effects = multiEffect.effects.toArray(new String[multiEffect.effects.size()]);
-    return new ComplexMultipleEffectCharm(new CharmName(overallDto.charmId), effects, multiEffect.prerequisiteEffectMap);
+    return new MultipleEffectCharm(new CharmName(overallDto.charmId), effects);
   }
 
   @Override

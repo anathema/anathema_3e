@@ -10,12 +10,9 @@ import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnCharmSpeci
 import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecials;
 import net.sf.anathema.hero.charms.model.special.paintolerance.IPainToleranceCharm;
-import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModifyingCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
-import net.sf.anathema.hero.charms.model.special.traitcap.ITraitCapModifyingCharm;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharm;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.tree.display.CategorizedSpecialNodeView;
 import net.sf.anathema.platform.tree.display.SpecialNodeView;
@@ -81,11 +78,6 @@ public class AgnosticSpecialCharmViewBuilder implements SpecialCharmViewBuilder 
       createMultipleEffectCharmView(visited);
     }
 
-    @Override
-    public void visitUpgradableCharm(IUpgradableCharm visited) {
-      createMultipleEffectCharmView(visited);
-    }
-
     private void createMultipleEffectCharmView(IMultipleEffectCharm visitedCharm) {
       ToggleButtonSpecialNodeView view = createBooleanView(visitedCharm);
       MultipleEffectCharmSpecials model = getModelFromCharm(visitedCharm);
@@ -95,16 +87,6 @@ public class AgnosticSpecialCharmViewBuilder implements SpecialCharmViewBuilder 
 
     @Override
     public void visitPainToleranceCharm(IPainToleranceCharm charm) {
-      // Nothing to do
-    }
-
-    @Override
-    public void visitPrerequisiteModifyingCharm(IPrerequisiteModifyingCharm charm) {
-      // Nothing to do
-    }
-
-    @Override
-    public void visitTraitCapModifyingCharm(ITraitCapModifyingCharm charm) {
       // Nothing to do
     }
 

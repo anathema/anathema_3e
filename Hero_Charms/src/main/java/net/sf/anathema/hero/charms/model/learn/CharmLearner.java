@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import java.util.Collection;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
 import net.sf.anathema.magic.data.Magic;
-
-import java.util.Collection;
 
 public class CharmLearner implements MagicLearner {
   private CharmsModel charms;
@@ -25,9 +24,6 @@ public class CharmLearner implements MagicLearner {
   @Override
   public int getAdditionalBonusPoints(Magic magic) {
     CharmSpecialsModel specialCharmConfiguration = charms.getCharmSpecialsModel((Charm) magic);
-    if (specialCharmConfiguration instanceof IUpgradableCharmConfiguration) {
-      return ((IUpgradableCharmConfiguration) specialCharmConfiguration).getUpgradeBPCost();
-    }
     if (!(specialCharmConfiguration instanceof SubEffectCharmSpecials)) {
       return 0;
     }
@@ -49,9 +45,6 @@ public class CharmLearner implements MagicLearner {
   private int handleSpecialCharm(Charm charm) {
     CharmSpecialsModel specialCharmConfiguration = charms.getCharmSpecialsModel(charm);
     if (specialCharmConfiguration != null) {
-      if (specialCharmConfiguration instanceof IUpgradableCharmConfiguration) {
-        return 1;
-      }
       return specialCharmConfiguration.getCreationLearnCount();
     }
     return 1;

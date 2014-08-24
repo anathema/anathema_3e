@@ -43,7 +43,6 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmManager;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmManager;
-import net.sf.anathema.hero.charms.model.special.prerequisite.PrerequisiteModifyingCharms;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.PrintCharmsProvider;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
@@ -76,7 +75,6 @@ public class CharmsModelImpl implements CharmsModel {
   private final Announcer<ChangeListener> control = Announcer.to(ChangeListener.class);
   private ExperienceModel experience;
   private TraitModel traits;
-  private PrerequisiteModifyingCharms prerequisiteModifyingCharms;
   private Hero hero;
   private CharmOptionsImpl options;
   private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
@@ -243,7 +241,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-    		new CharmTraitRequirementCalculator(getPrerequisiteModifyingCharms(), this, new TraitStateFetcher(hero)), traits);
+    		new CharmTraitRequirementCalculator(this, new TraitStateFetcher(hero)), traits);
     return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
@@ -321,13 +319,6 @@ public class CharmsModelImpl implements CharmsModel {
 		
 		return false;
 	}
-
-  private PrerequisiteModifyingCharms getPrerequisiteModifyingCharms() {
-    if (prerequisiteModifyingCharms == null) {
-      this.prerequisiteModifyingCharms = new PrerequisiteModifyingCharms(options.getSpecialCharms());
-    }
-    return prerequisiteModifyingCharms;
-  }
 
   @Override
   public boolean isLearned(CharmName charmId) {

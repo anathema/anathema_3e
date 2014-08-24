@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.charms.model.special;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.CharmsModel;
@@ -12,24 +15,16 @@ import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueArbitratorImpl;
 import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.paintolerance.IPainToleranceCharm;
-import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModifyingCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecialsImpl;
-import net.sf.anathema.hero.charms.model.special.traitcap.ITraitCapModifyingCharm;
-import net.sf.anathema.hero.charms.model.special.traitcap.TraitCapModifyingCharmConfiguration;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharm;
-import net.sf.anathema.hero.charms.model.special.upgradable.UpgradableCharmConfiguration;
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.IPainToleranceProvider;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SpecialCharmManager implements ISpecialCharmManager {
   private final Map<Charm, CharmSpecialsModel> specialConfigurationsByCharm = new HashMap<>();
@@ -72,21 +67,6 @@ public class SpecialCharmManager implements ISpecialCharmManager {
       public void visitSubEffectCharm(ISubEffectCharm visitedCharm) {
         registerSubEffectCharm(visitedCharm, charm, learningModel);
       }
-
-      @Override
-      public void visitUpgradableCharm(IUpgradableCharm visitedCharm) {
-        registerUpgradableCharm(visitedCharm, charm, learningModel);
-      }
-
-      @Override
-      public void visitPrerequisiteModifyingCharm(IPrerequisiteModifyingCharm visitedCharm) {
-        // do nothing
-      }
-
-      @Override
-      public void visitTraitCapModifyingCharm(ITraitCapModifyingCharm visitedCharm) {
-        registerTraitCapModifyingCharm(visitedCharm, charm, learningModel);
-      }
     });
   }
 
@@ -95,22 +75,10 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     return specialConfigurationsByCharm.get(charm);
   }
 
-  private void registerTraitCapModifyingCharm(ITraitCapModifyingCharm specialCharm, Charm charm, LearningModel group) {
-    TraitCapModifyingCharmConfiguration configuration = new TraitCapModifyingCharmConfiguration(specialist, charmsModel,
-      charm, specialCharm);
-    addSpecialCharmConfiguration(charm, group, configuration, true, true);
-  }
-
   private void registerEffectMultilearnableCharm(IMultipleEffectCharm visited, Charm charm, LearningModel group) {
     MultipleEffectCharmSpecialsImpl configuration = new MultipleEffectCharmSpecialsImpl(specialist, charm, visited,
       arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
-  }
-
-  private void registerUpgradableCharm(IUpgradableCharm visited, Charm charm, LearningModel group) {
-    UpgradableCharmConfiguration configuration = new UpgradableCharmConfiguration(specialist, charm, visited,
-      arbitrator);
-    addSpecialCharmConfiguration(charm, group, configuration, visited.requiresBase(), false);
   }
 
   private void registerMultiLearnableCharm(IMultiLearnableCharm visitedCharm, Charm charm, LearningModel group) {

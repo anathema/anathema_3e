@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.charms.persistence.special;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmMap;
@@ -11,19 +14,12 @@ import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm
 import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
 import net.sf.anathema.hero.charms.model.special.paintolerance.IPainToleranceCharm;
-import net.sf.anathema.hero.charms.model.special.prerequisite.IPrerequisiteModifyingCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
-import net.sf.anathema.hero.charms.model.special.traitcap.ITraitCapModifyingCharm;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharm;
 import net.sf.anathema.hero.charms.persistence.CharmListPto;
 import net.sf.anathema.hero.charms.persistence.special.effect.MultipleEffectCharmPersister;
 import net.sf.anathema.hero.charms.persistence.special.learn.MultiLearnCharmPersister;
 import net.sf.anathema.hero.charms.persistence.special.oxbody.OxBodyTechniquePersister;
-import net.sf.anathema.hero.charms.persistence.special.traitcap.TraitCapModifyingCharmPersister;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class SpecialCharmListPersister {
 
@@ -56,21 +52,6 @@ public class SpecialCharmListPersister {
         @Override
         public void visitMultipleEffectCharm(IMultipleEffectCharm charm) {
           persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultipleEffectCharmPersister());
-        }
-
-        @Override
-        public void visitUpgradableCharm(IUpgradableCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultipleEffectCharmPersister());
-        }
-
-        @Override
-        public void visitPrerequisiteModifyingCharm(IPrerequisiteModifyingCharm charm) {
-          // Nothing to do
-        }
-
-        @Override
-        public void visitTraitCapModifyingCharm(ITraitCapModifyingCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new TraitCapModifyingCharmPersister());
         }
       });
     }

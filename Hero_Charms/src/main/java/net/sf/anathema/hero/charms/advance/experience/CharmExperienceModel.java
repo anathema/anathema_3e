@@ -7,7 +7,6 @@ import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
-import net.sf.anathema.hero.charms.model.special.upgradable.IUpgradableCharmConfiguration;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
@@ -53,11 +52,6 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
     if (specialCharm != null) {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();
       int specialCharmCost = timesLearnedWithExperience * charmCost;
-      if (specialCharm instanceof IUpgradableCharmConfiguration) {
-        IUpgradableCharmConfiguration upgradableSpecial = (IUpgradableCharmConfiguration) specialCharm;
-        return (learnModel.isLearnedWithExperience(
-          charm) ? charmCost : 0) + upgradableSpecial.getUpgradeXPCost();
-      }
       if (!(specialCharm instanceof SubEffectCharmSpecials)) {
         return specialCharmCost;
       }
