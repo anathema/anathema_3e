@@ -1,6 +1,6 @@
 {
     generalCreationPoints: {
-        freePicks: 10;
+        freePicks: 20;
         costs: 4
     };
     favoredCreationPoints: {

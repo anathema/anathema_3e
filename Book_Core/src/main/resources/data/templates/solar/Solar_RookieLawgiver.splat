@@ -3,7 +3,7 @@
     template: RookieLawgiver;
     models: {
         Description:'',
-        Points: SolarPoints,
+        Points: SolarPoints_Rookie,
         Concept: SolarCastes,
         SpiritualTraits:SolarSpiritualTraits_Rookie,
         SpiritualPoints:SolarSpiritualPoints_Rookie,
@@ -16,7 +16,7 @@
         Charms: SolarCharms,
         Combos: '',
         Spells: SolarSpells,
-        MagicPoints: SolarMagicPoints,
+        MagicPoints: SolarMagicPoints_BigDamn,
         Languages: '',
         Intimacies: '',
         Specialties: '',

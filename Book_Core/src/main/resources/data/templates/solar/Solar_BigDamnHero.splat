@@ -3,7 +3,7 @@
     template: BigDamnHero;
     models: {
         Description:'',
-        Points: SolarPoints,
+        Points: SolarPoints_BigDamn,
         Concept: SolarCastes,
         SpiritualTraits:SolarSpiritualTraits_BigDamn,
         SpiritualPoints:SolarSpiritualPoints_BigDamn,
@@ -16,7 +16,7 @@
         Charms: SolarCharms,
         Combos: '',
         Spells: SolarSpells,
-        MagicPoints: SolarMagicPoints,
+        MagicPoints: SolarMagicPoints_BigDamn,
         Languages: '',
         Intimacies: '',
         Specialties: '',
