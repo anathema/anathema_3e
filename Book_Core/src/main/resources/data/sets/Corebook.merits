@@ -278,6 +278,12 @@
 				 	"trait": "Resistance",
 				 	"rating": 4
 				}
+			 ],
+			 "mechanics": [
+			 	{
+			 		"type": "AddsPainTolerance",
+			 		"tolerance": 1
+			 	}
 			 ]
 		},
 		{
