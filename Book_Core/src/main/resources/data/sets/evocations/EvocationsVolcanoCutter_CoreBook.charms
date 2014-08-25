@@ -362,6 +362,13 @@
         }
     }, 
     "emeraldRequiredForSapphire": 4, 
+    "innateOnAdamant": [
+        "Evocations.DragonTongueRetrieval", 
+        "Evocations.EarthPyreAnticipation"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.GrandEruption"
+    ], 
     "sapphireRequiredForAdamant": 4, 
     "tree": "VolcanoCutter"
 }

@@ -246,6 +246,12 @@
         }
     }, 
     "emeraldRequiredForSapphire": 4, 
+    "innateOnAdamant": [
+        "Evocations.HowlingLotusStrike"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.PoisonLeechingRapport"
+    ], 
     "sapphireRequiredForAdamant": 4, 
     "tree": "SpringRazor"
 }

@@ -110,7 +110,7 @@
             ], 
             "type": "Permanent"
         }, 
-        "Evocations.GhostEatingTechnique.": {
+        "Evocations.GhostEatingTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
             "keywords": [
@@ -310,6 +310,13 @@
         }
     }, 
     "emeraldRequiredForSapphire": 4, 
+    "innateOnAdamant": [
+        "Evocations.BurningSkyCorona", 
+        "Evocations.InfiniteSunFlameSlash"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.InnerDivinityBlaze"
+    ], 
     "sapphireRequiredForAdamant": 4, 
     "tree": "Heartflame"
 }

@@ -158,6 +158,14 @@
         }
     }, 
     "emeraldRequiredForSapphire": 3, 
+    "innateOnAdamant": [
+        "Evocations.FrostReapingAttitude", 
+        "Evocations.FrostPhantomStrike"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.ShiningIceGuardianTechnique", 
+        "Evocations.ColdMoonSlash"
+    ], 
     "sapphireRequiredForAdamant": 3, 
     "tree": "ShiningIceMirror"
 }

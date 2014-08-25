@@ -290,6 +290,13 @@
         }
     }, 
     "emeraldRequiredForSapphire": 4, 
+    "innateOnAdamant": [
+        "Evocations.CrimsonArrowStrike"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.OrichalcumWingsElevation", 
+        "Evocations.CloudBlendingCamouflage"
+    ], 
     "sapphireRequiredForAdamant": 4, 
     "tree": "OrichalcumHuntingHawk"
 }

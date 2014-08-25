@@ -195,6 +195,14 @@
         }
     }, 
     "emeraldRequiredForSapphire": 3, 
+    "innateOnAdamant": [
+        "Evocations.LeapingTigersBite", 
+        "Evocations.StalkingJaguarsStrike"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.RelentlessKillingClaws", 
+        "Evocations.RagingFangOffensive"
+    ], 
     "sapphireRequiredForAdamant": 3, 
     "tree": "TheDawnFangs"
 }

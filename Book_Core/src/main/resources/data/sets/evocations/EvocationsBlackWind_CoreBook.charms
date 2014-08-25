@@ -163,6 +163,13 @@
         }
     }, 
     "emeraldRequiredForSapphire": 3, 
+    "innateOnAdamant": [
+        "Evocations.SevenTraumasTechnique", 
+        "Evocations.ErrantOrbitScythe"
+    ], 
+    "innateOnSapphire": [
+        "Evocations.BloodReapingSlash"
+    ], 
     "sapphireRequiredForAdamant": 3, 
     "tree": "BlackWind"
 }
