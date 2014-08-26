@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.magic.dummy;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
@@ -37,7 +38,7 @@ public class DummyLearnableArbitrator implements IExtendedCharmLearnableArbitrat
 	}
   
   @Override
-	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
+	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits, CategoryReference category,
 			int threshold, int minimumEssence) {
 		return false;
 	}

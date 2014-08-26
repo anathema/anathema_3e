@@ -89,7 +89,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
 					}
 
 					@Override
-					public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
+					public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
 							int threshold, int minimumEssence) {
 					}
 

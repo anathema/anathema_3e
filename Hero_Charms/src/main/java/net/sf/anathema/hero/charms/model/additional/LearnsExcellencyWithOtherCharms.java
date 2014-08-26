@@ -38,7 +38,7 @@ public class LearnsExcellencyWithOtherCharms extends ExcellencyAdditionalRules {
 			TraitType traitType = new TraitTypeFinder().getTrait(trait);
 			List<TraitType> traitTypes = new ArrayList<>();
 			traitTypes.add(traitType);
-			return charms.hasLearnedThresholdCharmsOfTrait(traitTypes, 1, 1);
+			return charms.hasLearnedThresholdCharmsOfTrait(traitTypes, null, 1, 1);
 		}
 		
 		@Override

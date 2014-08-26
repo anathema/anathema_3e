@@ -5,6 +5,7 @@ import java.util.List;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
@@ -35,9 +36,9 @@ public class NonCharmPrerequisiteId implements PrerequisiteProcessor {
   }
 
 	@Override
-	public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int threshold,
+	public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold,
 			int minimumEssence) {
-		this.id = NodeIds.getNodeId(traits, threshold, minimumEssence);
+		this.id = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
 	}
 
 	@Override

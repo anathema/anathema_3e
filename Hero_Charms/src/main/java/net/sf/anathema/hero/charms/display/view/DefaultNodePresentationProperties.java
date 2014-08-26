@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.charms.display.view;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
@@ -9,7 +11,6 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
-
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.hero.charms.display.view.NodeIds.toCharmName;
 
@@ -47,11 +48,13 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
     String[] strings = requirementWithCount.split("\\.");
     int requirementCount = Integer.parseInt(strings[strings.length - 1]);
     String essenceMinimum = "";
+    // what is this case for?
     if (strings[1].startsWith("Essence")) {
     	int minimum = Integer.parseInt(strings[1].replaceFirst("Essence", ""));
     	essenceMinimum = resources.getString("Essence") + " " + minimum + "+ ";
     }
-    String requirementName = resources.getString(FunctionalNodeProperties.REQUIREMENT + "." + strings[0]);
+    String requirementNameKey = requirementWithCount.replace("." + requirementCount, "");
+    String requirementName = resources.getString(FunctionalNodeProperties.REQUIREMENT + "." + requirementNameKey);
     String charmString = resources.getString(requirementCount == 1 ? "Charms.Charm.Single" : "Charms.Charm.Multiple");
     return resources.getString("Requirement.Message", requirementCount, essenceMinimum, requirementName, charmString);
   }

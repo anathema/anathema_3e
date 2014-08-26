@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.node;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
@@ -53,9 +54,9 @@ public class CharmNodeBuilder {
         }
 
 				@Override
-				public void requiresCharmsOfTraits(List<RequiredTraitType> traits,
+				public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
 						int threshold, int minimumEssence) {
-					String nodeIds = NodeIds.getNodeId(traits, threshold, minimumEssence);
+					String nodeIds = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
 				}

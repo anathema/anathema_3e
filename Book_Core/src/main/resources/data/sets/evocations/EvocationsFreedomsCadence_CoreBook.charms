@@ -69,6 +69,14 @@
                 {
                     "id": "Evocations.ClearPathDefense", 
                     "type": "charm"
+                }, 
+                {
+                    "category": "Sidereal", 
+                    "options": [
+                        "Athletics"
+                    ], 
+                    "threshold": 1, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Reflexive"

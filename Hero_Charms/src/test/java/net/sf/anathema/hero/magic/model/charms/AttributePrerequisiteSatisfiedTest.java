@@ -12,6 +12,7 @@ import java.util.Map;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
@@ -122,7 +123,7 @@ public class AttributePrerequisiteSatisfiedTest {
 	
 			@Override
 			public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits,
-					int threshold, int minimumEssence) {
+					CategoryReference category, int threshold, int minimumEssence) {
 				// TODO: Way to represent current Essence in the test
 				return false;
 			}

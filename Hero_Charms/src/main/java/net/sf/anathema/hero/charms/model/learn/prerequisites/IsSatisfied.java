@@ -8,6 +8,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -60,11 +61,11 @@ public class IsSatisfied implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int threshold,
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold,
 		  int minimumEssence) {
 	  this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(
 			(List<TraitType>)Lists.transform(traits, trait -> new TraitTypeFinder().getTrait(trait.type)),
-				threshold, minimumEssence);
+				category, threshold, minimumEssence);
   }
 
 	@Override

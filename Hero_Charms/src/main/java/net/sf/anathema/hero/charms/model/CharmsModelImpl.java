@@ -278,13 +278,14 @@ public class CharmsModelImpl implements CharmsModel {
 
 	@Override
 	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
-			int threshold, int minimumEssence) {
+			CategoryReference category, int threshold, int minimumEssence) {
 		int count = 0;
 		TraitTypeFinder finder = new TraitTypeFinder();
 		Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
 		Charms matchingLearnedCharms = learnedCharms.applyFilter(charm ->
 			!charm.hasAttribute(CommonMagicAttributes.NO_MANUAL_CONTROL) &&
-			requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)));
+			requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)) &&
+			(category == null || category.equals(charm.getTreeReference().category)));
 		for (Charm charm : matchingLearnedCharms) {
 			boolean meetsEssence = true;
 			for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {

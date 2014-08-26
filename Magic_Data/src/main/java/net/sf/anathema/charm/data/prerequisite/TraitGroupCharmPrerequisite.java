@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
 public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implements CharmPrerequisite {
@@ -11,16 +12,18 @@ public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implemen
 	private final List<RequiredTraitType> traits;
 	private final int threshold;
 	private final int minimumEssence;
+	private final CategoryReference category;
 	
-	public TraitGroupCharmPrerequisite(List<RequiredTraitType> traits, int count, int minimumEssence) {
+	public TraitGroupCharmPrerequisite(List<RequiredTraitType> traits, CategoryReference category, int count, int minimumEssence) {
 		this.traits = traits;
 		this.threshold = count;
 		this.minimumEssence = minimumEssence;
+		this.category = category;
 	}
 	
 	@Override
 	public void process(PrerequisiteProcessor processor) {
-		processor.requiresCharmsOfTraits(traits, threshold, minimumEssence);
+		processor.requiresCharmsOfTraits(traits, category, threshold, minimumEssence);
 	}
 
 	@Override
@@ -44,12 +47,7 @@ public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implemen
 		return minimumEssence;
 	}
 	
-	public String getLabel() {
-		String label = "";
-		for (RequiredTraitType trait : traits) {
-			label += trait.type;
-		}
-		return label;
+	public CategoryReference getCategory() {
+		return category;
 	}
-
 }

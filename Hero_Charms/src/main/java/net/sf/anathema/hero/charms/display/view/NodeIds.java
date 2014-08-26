@@ -8,6 +8,7 @@ import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.prerequisites.NonCharmPrerequisiteId;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
@@ -39,13 +40,17 @@ public class NodeIds {
   }
   
   public static String getNodeId(TraitGroupCharmPrerequisite prerequisite) {
-  	return getNodeId(prerequisite.getTraits(), prerequisite.getThreshold(), prerequisite.getEssenceMinimum());
+  	return getNodeId(prerequisite.getTraits(), prerequisite.getCategory(), prerequisite.getThreshold(), prerequisite.getEssenceMinimum());
   }
   
-  public static String getNodeId(List<RequiredTraitType> traits, int threshold, int minimumEssence) {
+  public static String getNodeId(List<RequiredTraitType> traits, CategoryReference category, int threshold, int minimumEssence) {
   	String label = "";
   	for (RequiredTraitType trait : traits) {
   		label += trait.type;
+  	}
+  	
+  	if (category != null) {
+  		label = category.text + '.' + label;
   	}
   	
   	if (minimumEssence > 1) {

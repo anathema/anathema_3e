@@ -57,7 +57,7 @@ public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
   }
   
   @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, int count,
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
   		int minimumEssence) {
   	// nothing to do
   }
