@@ -51,9 +51,7 @@ public class UrsVertexOrderer extends AbstractVertexOrderer {
     ISimpleNode[] lowerLayer = graph.getNodesByLayer(upperLayerIndex + 1);
     WeightedNode[] weightedLowerLayerNodes = getWeightedLowerLayerNodes(upperLayer, lowerLayer);
     for (int nodeIndex = 0; nodeIndex + 1 < weightedLowerLayerNodes.length; nodeIndex++) {
-      Double firstNodeWeight = weightedLowerLayerNodes[nodeIndex].getWeight();
-      Double secondNodeWeight = weightedLowerLayerNodes[nodeIndex + 1].getWeight();
-      if (firstNodeWeight != null && secondNodeWeight != null && firstNodeWeight.equals(secondNodeWeight)) {
+      if (weightedLowerLayerNodes[nodeIndex].hasSameWeightAs(weightedLowerLayerNodes[nodeIndex + 1])) {
         exchangeNodes(weightedLowerLayerNodes, nodeIndex);
         reorderLayer(upperLayerIndex + 1, weightedLowerLayerNodes);
         sortLayerByOutgoingEdgeBarycenter(upperLayerIndex);
@@ -70,9 +68,7 @@ public class UrsVertexOrderer extends AbstractVertexOrderer {
     ISimpleNode[] lowerLayer = graph.getNodesByLayer(upperLayerIndex + 1);
     WeightedNode[] weightedUpperLayerNodes = getWeightedUpperLayerNodes(upperLayer, lowerLayer);
     for (int nodeIndex = 0; nodeIndex + 1 < weightedUpperLayerNodes.length; nodeIndex++) {
-      Double firstNodeWeight = weightedUpperLayerNodes[nodeIndex].getWeight();
-      Double secondNodeWeight = weightedUpperLayerNodes[nodeIndex + 1].getWeight();
-      if (firstNodeWeight != null && secondNodeWeight != null && firstNodeWeight.equals(secondNodeWeight)) {
+      if (weightedUpperLayerNodes[nodeIndex].hasSameWeightAs(weightedUpperLayerNodes[nodeIndex + 1])) {
         exchangeNodes(weightedUpperLayerNodes, nodeIndex);
         reorderLayer(upperLayerIndex, weightedUpperLayerNodes);
         sortLayerByIncomingEdgeBarycenter(upperLayerIndex + 1);

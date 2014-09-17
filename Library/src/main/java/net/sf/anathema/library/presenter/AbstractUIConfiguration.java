@@ -6,7 +6,7 @@ import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 public class AbstractUIConfiguration<T> implements AgnosticUIConfiguration<T> {
   @Override
   public RelativePath getIconsRelativePath(T value) {
-    if(value == null) {
+    if (value == null) {
       return NO_ICON;
     }
     return iconForExistingValue(value);

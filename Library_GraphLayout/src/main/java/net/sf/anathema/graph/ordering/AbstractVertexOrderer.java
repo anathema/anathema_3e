@@ -3,21 +3,19 @@ package net.sf.anathema.graph.ordering;
 import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.WeightedNode;
-import net.sf.anathema.graph.nodes.WeightedNodeComparator;
 import net.sf.anathema.graph.util.BarycenterCalculator;
 import net.sf.anathema.graph.util.IncidentMatrixUtilities;
 import net.sf.anathema.library.collection.MultiEntryMap;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public abstract class AbstractVertexOrderer implements IVertexOrderer {
 
   protected final IProperHierarchicalGraph graph;
-  private final Comparator<WeightedNode> comparator = new WeightedNodeComparator();
 
   public AbstractVertexOrderer(IProperHierarchicalGraph graph) {
     this.graph = graph;
@@ -57,7 +55,7 @@ public abstract class AbstractVertexOrderer implements IVertexOrderer {
     ISimpleNode[] upperLayer = graph.getNodesByLayer(layerIndex - 1);
     ISimpleNode[] lowerLayer = graph.getNodesByLayer(layerIndex);
     WeightedNode[] weightedLowerLayerNodes = getNodesWeightedByIncomingEdges(upperLayer, lowerLayer);
-    Arrays.sort(weightedLowerLayerNodes, comparator);
+    Arrays.sort(weightedLowerLayerNodes);
     setLayerOrder(layerIndex, weightedLowerLayerNodes);
   }
 
@@ -65,7 +63,7 @@ public abstract class AbstractVertexOrderer implements IVertexOrderer {
     ISimpleNode[] upperLayer = graph.getNodesByLayer(layerIndex);
     ISimpleNode[] lowerLayer = graph.getNodesByLayer(layerIndex + 1);
     WeightedNode[] weightedUpperLayerNodes = getNodesWeightedByOutgoingEdges(upperLayer, lowerLayer);
-    Arrays.sort(weightedUpperLayerNodes, comparator);
+    Arrays.sort(weightedUpperLayerNodes);
     setLayerOrder(layerIndex, weightedUpperLayerNodes);
   }
 
@@ -92,9 +90,9 @@ public abstract class AbstractVertexOrderer implements IVertexOrderer {
   protected MultiEntryMap<Double, Integer> getWeightSeparation(WeightedNode[] weightedLayerNodes) {
     MultiEntryMap<Double, Integer> nodeIndicesByWeight = new MultiEntryMap<>();
     for (int index = 0; index < weightedLayerNodes.length; index++) {
-      Double weight = weightedLayerNodes[index].getWeight();
-      if (weight != null) {
-        nodeIndicesByWeight.add(weight, index);
+      Optional<Double> weight = weightedLayerNodes[index].getWeight();
+      if (weight.isPresent()) {
+        nodeIndicesByWeight.add(weight.get(), index);
       }
       else {
         nodeIndicesByWeight.add(Double.NaN, index);

@@ -1,12 +1,12 @@
 package net.sf.anathema.library.fx.view;
 
-import com.google.common.collect.Iterables;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.identifier.Identifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.LinkedHashMap;
+import java.util.Optional;
 
 public class FxStack {
 
@@ -28,10 +28,12 @@ public class FxStack {
   }
 
   public void showFirst() {
-    Identifier first = Iterables.getFirst(namedNodes.keySet(), null);
-    if (first == null) {
-      throw new IllegalStateException("No perspectives found");
-    }
+    Identifier first = findFirstKey();
     show(first);
+  }
+
+  private Identifier findFirstKey() {
+    Optional<Identifier> first = namedNodes.keySet().stream().findFirst();
+    return first.orElseThrow(() -> new IllegalStateException("No perspectives found"));
   }
 }

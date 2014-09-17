@@ -6,14 +6,14 @@ import java.util.Arrays;
 
 import static org.junit.Assert.assertTrue;
 
-public class WeightedNodeComparatorTest {
+public class WeightedNodeComparationTest {
 
   @Test
   public void testLowerWeightFirst() throws Exception {
     WeightedNode node1 = new WeightedNode(null, (double) 1);
     WeightedNode node2 = new WeightedNode(null, (double) 2);
     WeightedNode[] nodes = new WeightedNode[]{node2, node1};
-    Arrays.sort(nodes, new WeightedNodeComparator());
+    Arrays.sort(nodes);
     assertTrue(Arrays.equals(new WeightedNode[]{node1, node2}, nodes));
   }
 
@@ -22,7 +22,7 @@ public class WeightedNodeComparatorTest {
     WeightedNode node1 = new WeightedNode(null, (double) 1);
     WeightedNode node2 = new WeightedNode(null, null);
     WeightedNode[] nodes = new WeightedNode[]{node2, node1};
-    Arrays.sort(nodes, new WeightedNodeComparator());
+    Arrays.sort(nodes);
     assertTrue(Arrays.equals(new WeightedNode[]{node2, node1}, nodes));
   }
 
@@ -31,7 +31,7 @@ public class WeightedNodeComparatorTest {
     WeightedNode node1 = new WeightedNode(null, null);
     WeightedNode node2 = new WeightedNode(null, (double) 1);
     WeightedNode[] nodes = new WeightedNode[]{node2, node1};
-    Arrays.sort(nodes, new WeightedNodeComparator());
+    Arrays.sort(nodes);
     assertTrue(Arrays.equals(new WeightedNode[]{node2, node1}, nodes));
   }
 }

@@ -8,7 +8,6 @@ import net.sf.anathema.graph.layering.ILayerer;
 import net.sf.anathema.graph.layering.LongestPathLayerer;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.graph.nodes.ISimpleNode;
-import net.sf.anathema.graph.ordering.IVertexOrderer;
 import net.sf.anathema.graph.ordering.IVertexOrdererFactory;
 import net.sf.anathema.graph.ordering.LeafStructureOptimizer;
 import net.sf.anathema.graph.ordering.SandraVertexOrderer;
@@ -98,24 +97,9 @@ public class SugiyamaLayout {
 
   private List<IVertexOrdererFactory> populateVertexOrdererFactoryList() {
     List<IVertexOrdererFactory> list = new ArrayList<>();
-    list.add(new IVertexOrdererFactory() {
-      @Override
-      public IVertexOrderer createVertexOrderer(IProperHierarchicalGraph graph) {
-        return new SugiyamaVertexOrderer(graph);
-      }
-    });
-    list.add(new IVertexOrdererFactory() {
-      @Override
-      public IVertexOrderer createVertexOrderer(IProperHierarchicalGraph graph) {
-        return new UrsVertexOrderer(graph);
-      }
-    });
-    list.add(new IVertexOrdererFactory() {
-      @Override
-      public IVertexOrderer createVertexOrderer(IProperHierarchicalGraph graph) {
-        return new SandraVertexOrderer(graph);
-      }
-    });
+    list.add(SugiyamaVertexOrderer::new);
+    list.add(UrsVertexOrderer::new);
+    list.add(SandraVertexOrderer::new);
     return list;
   }
 }

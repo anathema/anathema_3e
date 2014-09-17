@@ -4,6 +4,8 @@ import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.WeightedNode;
 
+import java.util.Optional;
+
 public class SugiyamaVertexOrderer extends AbstractVertexOrderer {
 
   public SugiyamaVertexOrderer(IProperHierarchicalGraph graph) {
@@ -47,12 +49,11 @@ public class SugiyamaVertexOrderer extends AbstractVertexOrderer {
   private boolean isMonoton(WeightedNode[] weightedLowerLayerNodes) {
     Double weight = (double) Integer.MIN_VALUE;
     for (WeightedNode node : weightedLowerLayerNodes) {
-      Double currentWeight = node.getWeight();
-      if (currentWeight == null) {
-        continue;
-      }
-      if (currentWeight < weight) {
-        return false;
+      Optional<Double> currentWeight = node.getWeight();
+      if (currentWeight.isPresent()) {
+        if (currentWeight.get() < weight) {
+          return false;
+        }
       }
     }
     return true;
