@@ -4,7 +4,7 @@ import net.sf.anathema.character.equipment.creation.presenter.IWeaponTag;
 
 public enum WeaponTag implements IWeaponTag {
 
-  Light, Medium, Heavy, Lethal, Bashing, Artifact, Shield, Balanced, Archery, Thrown, CloseRange, ShortRange, MediumRange, LongRange, Flame, Natural;
+  Light, Medium, Heavy, Lethal, Bashing, Artifact, Shield, Balanced, Archery, Thrown, CloseRange, ShortRange, MediumRange, LongRange, Flame, Natural, Smashing, Piercing;
 
   @Override
   public String getId() {
