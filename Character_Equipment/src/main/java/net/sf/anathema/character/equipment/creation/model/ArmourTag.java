@@ -3,7 +3,7 @@ package net.sf.anathema.character.equipment.creation.model;
 import net.sf.anathema.library.identifier.Identifier;
 
 public enum ArmourTag implements Identifier {
-  Light, Medium, Heavy, Artifact;
+  Light, Medium, Heavy, Artifact, Flexible, Silent;
 
   @Override
   public String getId() {
