@@ -18,7 +18,10 @@ allprojects {
 }
 
 apply plugin: 'idea'
-idea { project { languageLevel = '1.8' } }
+idea { project { 
+    languageLevel = '1.8'
+    vcs = 'Git'
+} }
 
 subprojects {
     apply from: "../gradle/subprojectPresets.gradle"
