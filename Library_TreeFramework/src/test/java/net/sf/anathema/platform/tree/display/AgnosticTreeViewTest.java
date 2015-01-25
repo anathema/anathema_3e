@@ -10,6 +10,7 @@ import org.mockito.InOrder;
 import org.mockito.Matchers;
 
 import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
@@ -35,7 +36,7 @@ public class AgnosticTreeViewTest {
     treeView.loadCascade(cascade, true);
     treeView.colorNode("ID", RGBColor.White, RGBColor.Black);
     InOrder inOrder = inOrder(cascade, panel);
-    inOrder.verify(cascade).colorNode(anyString(), Matchers.any(RGBColor.class), RGBColor.Black);
+    inOrder.verify(cascade).colorNode(anyString(), Matchers.any(RGBColor.class), eq(RGBColor.Black));
     inOrder.verify(panel).refresh();
   }
 
