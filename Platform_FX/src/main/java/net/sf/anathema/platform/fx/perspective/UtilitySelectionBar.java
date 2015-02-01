@@ -3,8 +3,10 @@ package net.sf.anathema.platform.fx.perspective;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.ToolBar;
+import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.fx.tool.FxToggleTool;
 import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.utility.UtilityToggle;
 
@@ -40,5 +42,11 @@ public class UtilitySelectionBar {
 
   public void selectFirstButton() {
     perspectiveStack.showFirst();
+  }
+  
+  public Tool addTool() {
+    FxButtonTool tool = FxButtonTool.ForToolbar();
+    toolbar.getItems().add(tool.getNode());
+    return tool;
   }
 }
