@@ -1,10 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
-import net.miginfocom.layout.AC;
-import net.miginfocom.layout.LC;
+import javafx.scene.layout.HBox;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.CharacterGridView;
@@ -13,28 +11,19 @@ import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
-import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static javafx.scene.control.ScrollPane.ScrollBarPolicy.AS_NEEDED;
-import static javafx.scene.control.ScrollPane.ScrollBarPolicy.NEVER;
-
 public class CharacterGridFxView implements CharacterGridView {
-  private final ScrollPane scrollPane = new ScrollPane();
   private final ToggleGroup toggleGroup = new ToggleGroup();
-  private final MigPane gridPane = new MigPane(new LC().insets("0").gridGap("0", "2"),
-          new AC().grow().fill());
+  private final HBox gridPane = new HBox();
   private final Map<CharacterIdentifier, CharacterGridButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
 
   public CharacterGridFxView(DialogFactory dialogFactory) {
     this.dialogFactory = dialogFactory;
-    scrollPane.setContent(gridPane);
-    scrollPane.setHbarPolicy(AS_NEEDED);
-    scrollPane.setVbarPolicy(NEVER);
-    new Stylesheet("skin/character/characternavigation.css").applyToParent(scrollPane);
+    new Stylesheet("skin/character/characternavigation.css").applyToParent(gridPane);
   }
 
   @Override
@@ -64,12 +53,11 @@ public class CharacterGridFxView implements CharacterGridView {
     characterGridButton.setToggleGroup(toggleGroup);
     buttonsByIdentifier.put(dto.identifier, characterGridButton);
     gridPane.getChildren().add(0, characterGridButton.getNode());
-    scrollPane.setVvalue(0);
     return characterGridButton;
   }
 
 
   public Node getNode() {
-    return scrollPane;
+    return gridPane;
   }
 }

@@ -2,19 +2,19 @@
     -fx-background-color: white
 }
 
-.character-grid-button .dirty {
-    -fx-fill: orchid;
+.dirty {
+    -fx-font-weight: bold;
 }
 
-.character-grid-button .clean {
-    -fx-fill: black;
+.clean {
+    -fx-font-weight: normal;
 }
 
 .character-grid-button {
-    -fx-alignment: baseline-left;
     -fx-background-color: white;
     -fx-cursor: hand;
     -fx-font-family: "Helvetica";
+    -fx-font-size: 12px;
 }
 
 .character-grid-button:hover {
@@ -26,11 +26,8 @@
     -fx-cursor: default;
 }
 
-.character-grid-button .name {
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-
-.character-grid-button .detail {
-    -fx-font-size: 12px;
+.character-grid-button .image {
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
 }
