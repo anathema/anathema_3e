@@ -1,14 +1,12 @@
 package net.sf.anathema.platform.tree.view.container;
 
 import com.google.common.collect.Lists;
-
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 import net.sf.anathema.platform.tree.view.draw.InteractiveGraphicsElement;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
-
 import org.jmock.example.announcer.Announcer;
 
 import java.util.List;
@@ -20,12 +18,7 @@ public class DefaultContainerCascade implements ContainerCascade {
 
   public void add(final IdentifiedPolygon node) {
     nodes.add(node);
-    node.element.whenToggledDo(new Runnable() {
-      @Override
-      public void run() {
-        listeners.announce().toggled(node.id);
-      }
-    });
+    node.element.whenToggledDo(() -> listeners.announce().toggled(node.id));
   }
 
   public void add(FlexibleArrow element) {
