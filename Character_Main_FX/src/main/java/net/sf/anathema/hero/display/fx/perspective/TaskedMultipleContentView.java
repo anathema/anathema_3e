@@ -38,7 +38,7 @@ public class TaskedMultipleContentView implements MultipleContentView {
     stack.add(containerId, fxContainer);
     Hyperlink trigger = new Hyperlink(name);
     trigger.getStyleClass().add("character-subview-selector");
-    trigger.setOnAction(actionEvent -> new SwitchToView(containerId, stack).execute());
+    trigger.setOnAction(actionEvent -> stack.show(containerId));
     contentPane.add(trigger);
     isEmpty = false;
   }

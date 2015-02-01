@@ -9,7 +9,6 @@ import net.sf.anathema.hero.application.perspective.CharacterGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
-import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 
 import java.util.HashMap;
@@ -23,7 +22,6 @@ public class CharacterGridFxView implements CharacterGridView {
 
   public CharacterGridFxView(DialogFactory dialogFactory) {
     this.dialogFactory = dialogFactory;
-    new Stylesheet("skin/character/characternavigation.css").applyToParent(gridPane);
   }
 
   @Override
@@ -55,7 +53,6 @@ public class CharacterGridFxView implements CharacterGridView {
     gridPane.getChildren().add(0, characterGridButton.getNode());
     return characterGridButton;
   }
-
 
   public Node getNode() {
     return gridPane;

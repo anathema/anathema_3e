@@ -11,7 +11,7 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class CharacterSystemView {
 
-  private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1).debug(1));
+  private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1));
   private final StackView stackView = new StackView();
   private final FxCharacterNavigation navigation;
 

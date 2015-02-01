@@ -9,6 +9,7 @@ import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.CharacterGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.fx.tool.FxToggleTool;
@@ -23,8 +24,8 @@ import org.tbee.javafx.scene.layout.MigPane;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCharacterNavigation implements InteractionView, CharacterGridView {
-  private MigPane content = new MigPane(withoutInsets().gridGap("0", "2"), new AC().grow().fill(), new AC().fill());
-  private MigPane navigation = new MigPane(withoutInsets().gridGap("0", "2"), new AC().grow().fill(), new AC().fill());
+  private MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
+  private MigPane navigation = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
   private ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
   private final CharacterGridFxView gridView;
@@ -32,8 +33,10 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
   public FxCharacterNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
     this.gridView = new CharacterGridFxView(uiEnvironment);
+    new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
     content.add(navigation, new CC().push().grow());
     content.add(toolBar, new CC().dockEast());
+    content.getStyleClass().add("selection-pane");
     navigation.add(gridView.getNode(), new CC().push());
   }
 

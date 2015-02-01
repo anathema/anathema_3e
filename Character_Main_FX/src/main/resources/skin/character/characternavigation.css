@@ -1,19 +1,19 @@
-.root {
-    -fx-background-color: white
+.selection-pane {
+    -fx-background-color: linear-gradient(to bottom, crimson, #4d0815)
 }
 
 .dirty {
-    -fx-text-fill: red;
+    -fx-text-fill: #40C4FF;
 }
 
 .clean {
-    -fx-text-fill: black;
+    -fx-text-fill: whitesmoke;
 }
 
 .character-grid-button {
     -fx-alignment: top-center;
     -fx-content-display: top;
-    -fx-background-color: white;
+    -fx-background-color: transparent;
     -fx-cursor: hand;
     -fx-font-size: 12px;
     -fx-wrap-text: true;
@@ -25,16 +25,18 @@
 }
 
 .character-grid-button:hover {
-    -fx-background-color: derive(white, -30%);
+    -fx-background-color: linear-gradient(to bottom, derive(crimson, -10%), black);
 }
 
 .character-grid-button:selected {
-    -fx-background-color: derive(white, -20%);
+    -fx-background-color: linear-gradient(to bottom, crimson, black);
     -fx-cursor: default;
 }
 
 .character-grid-button .image {
-    -fx-border-color: black;
     -fx-border-width: 1px;
-    -fx-border-radius: 10px;
+    -fx-border-color: black;
+    -fx-background-color: whitesmoke;
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
 }
