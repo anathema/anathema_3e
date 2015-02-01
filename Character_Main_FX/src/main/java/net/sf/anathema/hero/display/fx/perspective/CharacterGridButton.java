@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
@@ -31,8 +30,7 @@ public class CharacterGridButton {
     imageBorder.getChildren().add(imageView);
     imageBorder.setMargin(imageView, new Insets(2));
     imageBorder.getStyleClass().add("image");
-    text.setWrapText(true);
-    text.setAlignment(Pos.TOP_CENTER);
+    text.getStyleClass().add("hero-name");
     MigPane buttonGraphic = new MigPane(LayoutUtils.withoutInsets().wrapAfter(1).gridGap("0","2"));
     buttonGraphic.add(imageBorder, new CC().alignX("center"));
     buttonGraphic.add(text, new CC().alignX("center"));

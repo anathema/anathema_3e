@@ -37,6 +37,7 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
     content.add(navigation, new CC().push().grow());
     content.add(toolBar, new CC().dockEast());
     content.getStyleClass().add("selection-pane");
+    toolBar.getStyleClass().add("toolbox");
     navigation.add(gridView.getNode(), new CC().push());
   }
 

@@ -2,6 +2,10 @@
     -fx-background-color: linear-gradient(to bottom, crimson, #4d0815)
 }
 
+.toolbox{
+    -fx-background-color: transparent;
+}
+
 .dirty {
     -fx-text-fill: #40C4FF;
 }
@@ -39,4 +43,9 @@
     -fx-background-color: whitesmoke;
     -fx-background-radius: 5px;
     -fx-border-radius: 5px;
+}
+
+.character-grid-button .hero-name{
+    -fx-wrap-text: true;
+    -fx-alignment: top-center;
 }
