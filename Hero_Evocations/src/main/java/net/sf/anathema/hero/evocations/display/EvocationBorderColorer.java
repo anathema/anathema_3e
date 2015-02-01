@@ -5,6 +5,8 @@ import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorer;
 import net.sf.anathema.hero.charms.evocations.utilities.EvocationUtilities;
 import net.sf.anathema.library.presenter.RGBColor;
 
+import static net.sf.anathema.charm.template.evocations.EvocationTier.None;
+
 public class EvocationBorderColorer implements CharmBorderColorer {
 
 	public static final String EVOCATION_CATEGORY = "Evocations";
@@ -15,7 +17,7 @@ public class EvocationBorderColorer implements CharmBorderColorer {
 	
 	@Override
 	public boolean handlesCharm(Charm charm) {
-		return EvocationUtilities.getTier(charm) != null;
+		return EvocationUtilities.getTier(charm) != None;
 	}
 
 	@Override
