@@ -17,7 +17,7 @@ import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class TaskedMultipleContentView implements MultipleContentView {
-  private final MigPane contentPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1));
+  private final MigPane contentPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1).gridGap("0","0"));
   private final String header;
   private final MigPane paneContainer;
   private final FxStack stack;
