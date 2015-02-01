@@ -1,21 +1,24 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
+import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.perspective.CharacterGridView;
 import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
-import net.sf.anathema.platform.fx.perspective.PerspectivePane;
+import org.tbee.javafx.scene.layout.MigPane;
+
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class CharacterSystemView {
 
-  private final PerspectivePane pane = new PerspectivePane();
+  private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1).debug(1));
   private final StackView stackView = new StackView();
   private final FxCharacterNavigation navigation;
 
   public CharacterSystemView(UiEnvironment uiEnvironment) {
     this.navigation = new FxCharacterNavigation(uiEnvironment);
-    pane.setNavigationComponent(navigation.getNode());
-    pane.setContentComponent(stackView.getComponent());
+    contentPane.add(navigation.getNode(), new CC().growX());
+    contentPane.add(stackView.getComponent(), new CC().grow());
   }
 
   public InteractionView getInteractionView() {
@@ -31,6 +34,6 @@ public class CharacterSystemView {
   }
 
   public Node getNode() {
-    return pane.getNode();
+    return contentPane;
   }
 }
