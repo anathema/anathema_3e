@@ -1,8 +1,8 @@
-package net.sf.anathema.platform.perspective;
+package net.sf.anathema.platform.utility;
 
 import net.sf.anathema.library.resources.RelativePath;
 
-public interface PerspectiveToggle {
+public interface UtilityToggle {
 
   void setIcon(RelativePath relativePath);
 

@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.fx.perspective;
+package net.sf.anathema.platform.fx.utility;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.AC;
@@ -7,11 +7,11 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.Stylesheet;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class PerspectivePane {
+public class UtilityPane {
 
   private final MigPane content = new MigPane(new LC().fill(), new AC().index(1).shrink().shrinkPrio(200));
 
-  public PerspectivePane(final String... styleSheetPaths) {
+  public UtilityPane(final String... styleSheetPaths) {
     for (String sheetPath : styleSheetPaths) {
       new Stylesheet(sheetPath).applyToParent(content);
     }

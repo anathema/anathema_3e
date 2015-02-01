@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.perspective;
+package net.sf.anathema.platform.utility;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -7,5 +7,5 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface PerspectiveAutoCollector {
+public @interface UtilityAutoCollector {
 }

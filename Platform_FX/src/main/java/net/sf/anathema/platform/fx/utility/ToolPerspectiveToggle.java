@@ -1,11 +1,11 @@
-package net.sf.anathema.platform.fx.perspective;
+package net.sf.anathema.platform.fx.utility;
 
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.perspective.PerspectiveToggle;
+import net.sf.anathema.platform.utility.UtilityToggle;
 
-public class ToolPerspectiveToggle implements PerspectiveToggle {
+public class ToolPerspectiveToggle implements UtilityToggle {
 
   private Tool action;
   private Resources resources;

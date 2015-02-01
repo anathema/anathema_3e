@@ -14,13 +14,13 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
-import net.sf.anathema.platform.fx.perspective.PerspectivePane;
+import net.sf.anathema.platform.fx.utility.UtilityPane;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxNameGeneratorView implements NameGeneratorView {
 
-  private final PerspectivePane pane = new PerspectivePane();
+  private final UtilityPane pane = new UtilityPane();
   private final MigPane navigation = new MigPane(new LC().wrapAfter(1));
   private final ToggleGroup nameGeneratorTypeGroup = new ToggleGroup();
   private final TextArea resultView = new TextArea();

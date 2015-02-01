@@ -17,7 +17,7 @@ import net.sf.anathema.platform.frame.ApplicationView;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.exception.FxDialogExceptionHandler;
 import net.sf.anathema.platform.fx.menu.AnathemaCoreMenu;
-import net.sf.anathema.platform.fx.perspective.PerspectivePaneFactory;
+import net.sf.anathema.platform.fx.utility.UtilityPaneFactory;
 
 public class GuiInitializer extends Initializer {
 
@@ -51,7 +51,7 @@ public class GuiInitializer extends Initializer {
   protected ApplicationFrameView initView(Environment environment, ApplicationModel anathemaModel, ObjectFactory objectFactory) {
     displayMessage("Building View...");
     AnathemaViewProperties viewProperties = new AnathemaViewProperties(environment);
-    PerspectivePaneFactory factory = new PerspectivePaneFactory(anathemaModel, environment, objectFactory, uiEnvironment);
+    UtilityPaneFactory factory = new UtilityPaneFactory(anathemaModel, environment, objectFactory, uiEnvironment);
     return new FxApplicationFrame(stage, viewProperties, factory);
   }
 

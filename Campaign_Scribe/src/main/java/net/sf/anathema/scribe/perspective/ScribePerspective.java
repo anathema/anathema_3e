@@ -5,21 +5,21 @@ import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
-import net.sf.anathema.platform.fx.perspective.Container;
-import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.fx.utility.Container;
+import net.sf.anathema.platform.fx.utility.UtilityPerspective;
 import net.sf.anathema.platform.messaging.MessageCategory;
-import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
-import net.sf.anathema.platform.perspective.PerspectiveToggle;
+import net.sf.anathema.platform.utility.UtilityAutoCollector;
+import net.sf.anathema.platform.utility.UtilityToggle;
 import net.sf.anathema.scribe.perspective.model.ScribeModel;
 import net.sf.anathema.scribe.perspective.presenter.ScribePresenter;
 import net.sf.anathema.scribe.perspective.view.ScribeView;
 
-@PerspectiveAutoCollector
+@UtilityAutoCollector
 @Weight(weight = 200)
-public class ScribePerspective implements Perspective {
+public class ScribePerspective implements UtilityPerspective {
 
   @Override
-  public void configureToggle(PerspectiveToggle toggle) {
+  public void configureToggle(UtilityToggle toggle) {
     toggle.setIcon(new RelativePath("icons/Scroll20.png"));
     toggle.setTooltip("Scribe.Perspective.Name");
   }
@@ -29,7 +29,7 @@ public class ScribePerspective implements Perspective {
     ScribeView view = new ScribeView(uiEnvironment);
     ScribeModel scribeModel = new ScribeModel(applicationModel);
     new ScribePresenter(scribeModel, view, environment).initPresentation();
-    container.setContent(view.perspectivePane.getNode());
+    container.setContent(view.utilityPane.getNode());
   }
 
   @Override

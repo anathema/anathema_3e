@@ -12,18 +12,18 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
-import net.sf.anathema.platform.fx.perspective.Container;
-import net.sf.anathema.platform.fx.perspective.Perspective;
+import net.sf.anathema.platform.fx.utility.Container;
+import net.sf.anathema.platform.fx.utility.UtilityPerspective;
 import net.sf.anathema.platform.messaging.MessageCategory;
-import net.sf.anathema.platform.perspective.PerspectiveAutoCollector;
-import net.sf.anathema.platform.perspective.PerspectiveToggle;
+import net.sf.anathema.platform.utility.UtilityAutoCollector;
+import net.sf.anathema.platform.utility.UtilityToggle;
 
-@PerspectiveAutoCollector
+@UtilityAutoCollector
 @Weight(weight = 5000)
-public class EquipmentPerspective implements Perspective {
+public class EquipmentPerspective implements UtilityPerspective {
 
   @Override
-  public void configureToggle(PerspectiveToggle toggle) {
+  public void configureToggle(UtilityToggle toggle) {
     toggle.setIcon(new RelativePath("icons/EquipmentPerspective.png"));
     toggle.setTooltip("EquipmentDatabase.Perspective.Name");
   }
@@ -42,7 +42,7 @@ public class EquipmentPerspective implements Perspective {
   private void initInFx(Container container, Resources resources, IEquipmentDatabaseManagement databaseManagement, UiEnvironment uiEnvironment) {
     FxEquipmentDatabaseView view = new FxEquipmentDatabaseView(uiEnvironment);
     new EquipmentDatabasePresenter(resources, databaseManagement, view.view).initPresentation();
-    container.setContent(view.perspectivePane.getNode());
+    container.setContent(view.utilityPane.getNode());
   }
 
   private IEquipmentDatabaseManagement createDatabaseManagement(ApplicationModel model) {

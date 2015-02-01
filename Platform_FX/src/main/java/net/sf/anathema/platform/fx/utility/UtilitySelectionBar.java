@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.fx.perspective;
+package net.sf.anathema.platform.fx.utility;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
@@ -6,30 +6,30 @@ import javafx.scene.control.ToolBar;
 import net.sf.anathema.library.fx.tool.FxToggleTool;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.platform.perspective.PerspectiveToggle;
+import net.sf.anathema.platform.utility.UtilityToggle;
 
-public class PerspectiveSelectionBar {
+public class UtilitySelectionBar {
   private final ToolBar toolbar = new ToolBar();
   private final ToggleGroup buttonGroup = new ToggleGroup();
-  private final PerspectiveStack perspectiveStack;
+  private final UtilityStack utilityStack;
 
-  public PerspectiveSelectionBar(PerspectiveStack perspectiveStack) {
-    this.perspectiveStack = perspectiveStack;
+  public UtilitySelectionBar(UtilityStack utilityStack) {
+    this.utilityStack = utilityStack;
   }
 
-  public void addPerspective(Perspective perspective, Resources resources) {
+  public void addPerspective(UtilityPerspective perspective, Resources resources) {
     FxToggleTool tool = FxToggleTool.create();
     Command command = createCommand(perspective, tool);
     tool.setCommand(command);
-    PerspectiveToggle toggle = new ToolPerspectiveToggle(tool, resources);
+    UtilityToggle toggle = new ToolPerspectiveToggle(tool, resources);
     perspective.configureToggle(toggle);
     toolbar.getItems().add(tool.getNode());
     tool.registerWithGroup(buttonGroup);
   }
 
-  private Command createCommand(Perspective perspective, FxToggleTool tool) {
+  private Command createCommand(UtilityPerspective perspective, FxToggleTool tool) {
       return () -> {
-        perspectiveStack.show(perspective);
+        utilityStack.show(perspective);
         tool.select();
       };
   }
@@ -39,6 +39,6 @@ public class PerspectiveSelectionBar {
   }
 
   public void selectFirstButton() {
-    perspectiveStack.showFirst();
+    utilityStack.showFirst();
   }
 }
