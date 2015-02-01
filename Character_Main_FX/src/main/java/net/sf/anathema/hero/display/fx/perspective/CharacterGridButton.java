@@ -1,9 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.OverrunStyle;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
@@ -20,22 +17,14 @@ public class CharacterGridButton {
 
   public static final int IMAGE_SIZE = 40;
   private final ImageView imageView = new ImageView();
-  private final HBox imageBox = new HBox();
-  private final ToggleButton button = new ToggleButton("", imageBox);
+  private final ToggleButton button = new ToggleButton();
 
   public CharacterGridButton() {
-    button.setMinHeight(90);
-    button.setMaxHeight(90);
-    button.setMaxWidth(70);
-    button.setMinWidth(70);
-    button.setContentDisplay(ContentDisplay.TOP);
-    button.setAlignment(Pos.TOP_CENTER);
-    imageBox.setAlignment(Pos.TOP_CENTER);
+    HBox imageBox = new HBox();
     imageBox.getChildren().add(imageView);
     imageBox.getStyleClass().add("image");
     button.getStyleClass().add("character-grid-button");
-    button.setWrapText(true);
-    button.setTextOverrun(OverrunStyle.WORD_ELLIPSIS);
+    button.setGraphic(imageBox);
   }
 
   public void initContent(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {

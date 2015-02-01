@@ -3,18 +3,26 @@
 }
 
 .dirty {
-    -fx-font-weight: bold;
+    #-fx-font-weight: normal;
 }
 
 .clean {
-    -fx-font-weight: normal;
+    #-fx-font-weight: normal;
 }
 
 .character-grid-button {
+    -fx-alignment: top-center;
+    -fx-content-display: top;
     -fx-background-color: white;
     -fx-cursor: hand;
     -fx-font-family: "Helvetica";
     -fx-font-size: 12px;
+    -fx-wrap-text: true;
+    -fx-text-overrun: word-ellipsis;
+    -fx-max-height: 90px;
+    -fx-min-height: 90px;
+    -fx-min-width: 70px;
+    -fx-max-width: 70px;
 }
 
 .character-grid-button:hover {
