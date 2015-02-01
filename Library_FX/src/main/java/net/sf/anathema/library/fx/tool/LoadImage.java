@@ -10,9 +10,15 @@ import static net.sf.anathema.library.presenter.AgnosticUIConfiguration.NO_ICON;
 
 public class LoadImage {
   private final RelativePath relativePath;
+  private final double targetSize;
 
   public LoadImage(RelativePath relativePath) {
+    this(relativePath, 0d);
+  }
+
+  public LoadImage(RelativePath relativePath, double targetSize) {
     this.relativePath = relativePath;
+    this.targetSize = targetSize;
   }
 
   public ImageContainer run() {
@@ -21,6 +27,6 @@ public class LoadImage {
     }
     ResourceLoader resourceLoader = new ResourceLoader();
     InputStream imageStream = resourceLoader.loadResource(relativePath);
-    return new DefaultImageContainer(new Image(imageStream));
+    return new DefaultImageContainer(new Image(imageStream, targetSize, targetSize, true, true));
   }
 }

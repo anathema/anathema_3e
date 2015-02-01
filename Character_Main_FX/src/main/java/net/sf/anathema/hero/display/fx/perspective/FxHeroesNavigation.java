@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.HBox;
 import net.miginfocom.layout.AC;
@@ -70,7 +71,7 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   }
   
   public Tool createLeaveTool() {
-    FxMenuButtonTool tool = FxMenuButtonTool.ForToolbar();
+    HeroGridTool tool = HeroGridTool.createTool(new Button());
     toolbox.getChildren().add(tool.getNode());
     return tool;
   }

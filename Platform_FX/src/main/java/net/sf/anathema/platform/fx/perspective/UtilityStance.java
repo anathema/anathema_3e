@@ -5,6 +5,7 @@ import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
@@ -56,5 +57,6 @@ public class UtilityStance implements Stance {
   @Override
   public void configureEnterTool(Tool tool) {
     tool.setText("Editors & Settings");
+    tool.setIcon(new RelativePath("icons/preferences.png"));
   }
 }

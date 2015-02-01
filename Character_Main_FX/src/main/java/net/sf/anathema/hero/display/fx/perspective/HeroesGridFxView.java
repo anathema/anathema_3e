@@ -17,7 +17,7 @@ import java.util.Map;
 public class HeroesGridFxView implements HeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
-  private final Map<CharacterIdentifier, CharacterGridButton> buttonsByIdentifier = new HashMap<>();
+  private final Map<CharacterIdentifier, HeroGridButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
 
   public HeroesGridFxView(DialogFactory dialogFactory) {
@@ -44,14 +44,14 @@ public class HeroesGridFxView implements HeroesGridView {
     return new FxHeroSplatCreator(dialogFactory);
   }
 
-  private CharacterGridButton createGridButton(CharacterButtonDto dto,
+  private HeroGridButton createGridButton(CharacterButtonDto dto,
                                                Selector<CharacterIdentifier> characterSelector) {
-    CharacterGridButton characterGridButton = new CharacterGridButton();
-    characterGridButton.initContent(dto, characterSelector);
-    characterGridButton.setToggleGroup(toggleGroup);
-    buttonsByIdentifier.put(dto.identifier, characterGridButton);
-    gridPane.getChildren().add(0, characterGridButton.getNode());
-    return characterGridButton;
+    HeroGridButton heroGridButton = new HeroGridButton();
+    heroGridButton.initContent(dto, characterSelector);
+    heroGridButton.setToggleGroup(toggleGroup);
+    buttonsByIdentifier.put(dto.identifier, heroGridButton);
+    gridPane.getChildren().add(0, heroGridButton.getNode());
+    return heroGridButton;
   }
 
   public Node getNode() {
