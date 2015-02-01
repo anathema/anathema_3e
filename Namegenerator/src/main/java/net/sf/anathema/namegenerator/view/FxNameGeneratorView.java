@@ -14,7 +14,7 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
-import net.sf.anathema.platform.fx.utility.UtilityPane;
+import net.sf.anathema.platform.fx.perspective.UtilityPane;
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.fx.utility;
+package net.sf.anathema.platform.fx.perspective;
 
 import javafx.scene.Node;
 

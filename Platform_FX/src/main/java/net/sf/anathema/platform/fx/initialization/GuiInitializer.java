@@ -17,7 +17,7 @@ import net.sf.anathema.platform.frame.ApplicationView;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.exception.FxDialogExceptionHandler;
 import net.sf.anathema.platform.fx.menu.AnathemaCoreMenu;
-import net.sf.anathema.platform.fx.utility.UtilityPaneFactory;
+import net.sf.anathema.platform.fx.perspective.UtilityPaneFactory;
 
 public class GuiInitializer extends Initializer {
 

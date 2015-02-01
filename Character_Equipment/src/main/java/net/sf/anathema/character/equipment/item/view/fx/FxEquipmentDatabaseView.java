@@ -3,7 +3,7 @@ package net.sf.anathema.character.equipment.item.view.fx;
 import net.sf.anathema.character.equipment.item.view.AgnosticEquipmentDatabaseView;
 import net.sf.anathema.library.fx.selection.ComboBoxSelectionFactory;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
-import net.sf.anathema.platform.fx.utility.UtilityPane;
+import net.sf.anathema.platform.fx.perspective.UtilityPane;
 
 public class FxEquipmentDatabaseView {
 
@@ -20,7 +20,7 @@ public class FxEquipmentDatabaseView {
   }
 
   private void initializePerspective() {
-    utilityPane.addStyleSheetClass("equipment-utility");
+    utilityPane.addStyleSheetClass("equipment-perspective");
     utilityPane.setNavigationComponent(navigation.getNode());
     utilityPane.setContentComponent(details.getNode());
   }

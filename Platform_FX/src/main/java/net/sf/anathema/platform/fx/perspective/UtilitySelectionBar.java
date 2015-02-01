@@ -1,4 +1,4 @@
-package net.sf.anathema.platform.fx.utility;
+package net.sf.anathema.platform.fx.perspective;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
@@ -11,17 +11,17 @@ import net.sf.anathema.platform.utility.UtilityToggle;
 public class UtilitySelectionBar {
   private final ToolBar toolbar = new ToolBar();
   private final ToggleGroup buttonGroup = new ToggleGroup();
-  private final UtilityStack utilityStack;
+  private final PerspectiveStack perspectiveStack;
 
-  public UtilitySelectionBar(UtilityStack utilityStack) {
-    this.utilityStack = utilityStack;
+  public UtilitySelectionBar(PerspectiveStack perspectiveStack) {
+    this.perspectiveStack = perspectiveStack;
   }
 
   public void addPerspective(UtilityPerspective perspective, Resources resources) {
     FxToggleTool tool = FxToggleTool.create();
     Command command = createCommand(perspective, tool);
     tool.setCommand(command);
-    UtilityToggle toggle = new ToolPerspectiveToggle(tool, resources);
+    UtilityToggle toggle = new UtilityPerspectiveToggle(tool, resources);
     perspective.configureToggle(toggle);
     toolbar.getItems().add(tool.getNode());
     tool.registerWithGroup(buttonGroup);
@@ -29,7 +29,7 @@ public class UtilitySelectionBar {
 
   private Command createCommand(UtilityPerspective perspective, FxToggleTool tool) {
       return () -> {
-        utilityStack.show(perspective);
+        perspectiveStack.show(perspective);
         tool.select();
       };
   }
@@ -39,6 +39,6 @@ public class UtilitySelectionBar {
   }
 
   public void selectFirstButton() {
-    utilityStack.showFirst();
+    perspectiveStack.showFirst();
   }
 }
