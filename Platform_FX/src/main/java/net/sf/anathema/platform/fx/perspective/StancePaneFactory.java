@@ -5,6 +5,7 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.view.ViewFactory;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
@@ -38,10 +39,22 @@ public class StancePaneFactory implements ViewFactory {
     linkStances(new ArrayList<>(sortedStances));
     final MigPane contentPanel = new MigPane(LayoutUtils.fillWithoutInsets());
     contentPanel.add(perspectiveStack.getContent(), new CC().push().grow());
+    perspectiveStack.showFirst();
     return contentPanel;
   }
 
   private void linkStances(List<Stance> sortedStances) {
-    // todo linking
+    if (sortedStances.size()< 2) {
+      return;
+    }
+    List<Stance> loopList = new ArrayList<>(sortedStances);
+    loopList.add(sortedStances.get(0));
+    for (int index = 0; index < loopList.size() - 1; index++) {
+      Stance stance = loopList.get(index);
+      Stance followUpStance = loopList.get(index + 1);
+      Tool leaveStanceTool = stance.createLeaveTool();
+      leaveStanceTool.setCommand(() -> perspectiveStack.show(followUpStance));
+      followUpStance.configureEnterTool(leaveStanceTool);
+    }
   }
 }

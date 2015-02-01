@@ -9,9 +9,9 @@ public class CharacterButtonPresenter {
   private Resources resources;
   private Selector<CharacterIdentifier> selector;
   private CharacterItemModel character;
-  private CharacterGridView view;
+  private HeroesGridView view;
 
-  public CharacterButtonPresenter(Resources resources, Selector<CharacterIdentifier> selector, CharacterItemModel character, CharacterGridView view) {
+  public CharacterButtonPresenter(Resources resources, Selector<CharacterIdentifier> selector, CharacterItemModel character, HeroesGridView view) {
     this.resources = resources;
     this.selector = selector;
     this.character = character;

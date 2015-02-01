@@ -3,7 +3,7 @@ package net.sf.anathema.hero.application.perspective;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 
-public interface CharacterGridView {
+public interface HeroesGridView {
 
   void addButton(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector);
 

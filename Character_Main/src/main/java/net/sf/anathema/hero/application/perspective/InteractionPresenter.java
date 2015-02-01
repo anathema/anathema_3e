@@ -12,11 +12,11 @@ public class InteractionPresenter {
   private ItemSelectionModel model;
   private InteractionView view;
   private final Environment environment;
-  private CharacterGridView gridView;
+  private HeroesGridView gridView;
   private Selector<CharacterIdentifier> selector;
   private final SingleFileChooser fileChooser;
 
-  public InteractionPresenter(ItemSelectionModel model, InteractionView view, Environment environment, CharacterGridView gridView,
+  public InteractionPresenter(ItemSelectionModel model, InteractionView view, Environment environment, HeroesGridView gridView,
                               Selector<CharacterIdentifier> selector, SingleFileChooser fileChooser) {
     this.model = model;
     this.view = view;

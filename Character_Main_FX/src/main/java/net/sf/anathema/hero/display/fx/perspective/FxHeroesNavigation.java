@@ -2,11 +2,12 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToolBar;
+import javafx.scene.layout.HBox;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
-import net.sf.anathema.hero.application.perspective.CharacterGridView;
+import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.library.fx.Stylesheet;
@@ -23,19 +24,21 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
-public class FxCharacterNavigation implements InteractionView, CharacterGridView {
+public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   private MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
   private MigPane navigation = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
   private ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
-  private final CharacterGridFxView gridView;
+  private final HeroesGridFxView gridView;
+  private final HBox toolbox = new HBox();
 
-  public FxCharacterNavigation(UiEnvironment uiEnvironment) {
+  public FxHeroesNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
-    this.gridView = new CharacterGridFxView(uiEnvironment);
+    this.gridView = new HeroesGridFxView(uiEnvironment);
     new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
     content.add(navigation, new CC().push().grow());
-    content.add(toolBar, new CC().dockEast());
+    content.add(toolbox, new CC().dockEast());
+    toolbox.getChildren().add(toolBar);
     content.getStyleClass().add("selection-pane");
     toolBar.getStyleClass().add("toolbox");
     navigation.add(gridView.getNode(), new CC().push());
@@ -65,7 +68,12 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
     toolBar.getItems().add(fxButtonTool.getNode());
     fxButtonTool.registerHotkeyIn(acceleratorMap);
   }
-
+  
+  public Tool createLeaveTool() {
+    FxMenuButtonTool tool = FxMenuButtonTool.ForToolbar();
+    toolbox.getChildren().add(tool.getNode());
+    return tool;
+  }
 
   @Override
   public void addButton(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {

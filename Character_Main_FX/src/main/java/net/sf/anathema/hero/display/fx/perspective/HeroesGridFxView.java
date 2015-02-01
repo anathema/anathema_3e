@@ -5,7 +5,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
-import net.sf.anathema.hero.application.perspective.CharacterGridView;
+import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
@@ -14,13 +14,13 @@ import net.sf.anathema.platform.fx.environment.DialogFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CharacterGridFxView implements CharacterGridView {
+public class HeroesGridFxView implements HeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
   private final Map<CharacterIdentifier, CharacterGridButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
 
-  public CharacterGridFxView(DialogFactory dialogFactory) {
+  public HeroesGridFxView(DialogFactory dialogFactory) {
     this.dialogFactory = dialogFactory;
   }
 

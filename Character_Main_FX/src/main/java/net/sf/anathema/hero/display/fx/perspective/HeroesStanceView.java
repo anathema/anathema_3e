@@ -2,21 +2,22 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.application.perspective.CharacterGridView;
+import net.sf.anathema.hero.application.perspective.HeroesGridView;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
-public class CharacterSystemView {
+public class HeroesStanceView {
 
   private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1));
   private final StackView stackView = new StackView();
-  private final FxCharacterNavigation navigation;
+  private final FxHeroesNavigation navigation;
 
-  public CharacterSystemView(UiEnvironment uiEnvironment) {
-    this.navigation = new FxCharacterNavigation(uiEnvironment);
+  public HeroesStanceView(UiEnvironment uiEnvironment) {
+    this.navigation = new FxHeroesNavigation(uiEnvironment);
     contentPane.add(navigation.getNode(), new CC().growX());
     contentPane.add(stackView.getComponent(), new CC().grow().push());
   }
@@ -25,7 +26,7 @@ public class CharacterSystemView {
     return navigation;
   }
 
-  public CharacterGridView getGridView() {
+  public HeroesGridView getGridView() {
     return navigation;
   }
 
@@ -35,5 +36,9 @@ public class CharacterSystemView {
 
   public Node getNode() {
     return contentPane;
+  }
+
+  public Tool createLeaveTool() {
+    return navigation.createLeaveTool();
   }
 }
