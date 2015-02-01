@@ -1,15 +1,19 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.resources.ResourceLoader;
+import org.tbee.javafx.scene.layout.MigPane;
 
 import java.io.InputStream;
 
@@ -18,13 +22,18 @@ public class CharacterGridButton {
   public static final int IMAGE_SIZE = 40;
   private final ImageView imageView = new ImageView();
   private final ToggleButton button = new ToggleButton();
+  private final Label text = new Label();
 
   public CharacterGridButton() {
-    HBox imageBox = new HBox();
-    imageBox.getChildren().add(imageView);
-    imageBox.getStyleClass().add("image");
+    HBox imageBorder = new HBox();
+    imageBorder.getChildren().add(imageView);
+    imageBorder.getStyleClass().add("image");
+    text.setWrapText(true);
+    MigPane buttonGraphic = new MigPane(LayoutUtils.withoutInsets().wrapAfter(1));
+    buttonGraphic.add(imageBorder, new CC().alignX("center"));
+    buttonGraphic.add(text, new CC().alignX("center"));
     button.getStyleClass().add("character-grid-button");
-    button.setGraphic(imageBox);
+    button.setGraphic(buttonGraphic);
   }
 
   public void initContent(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {
@@ -33,14 +42,14 @@ public class CharacterGridButton {
   }
 
   public void setContent(CharacterButtonDto dto) {
-    button.setText(dto.text);
+    text.setText(dto.text);
     imageView.setImage(createImage(dto));
     if (dto.isDirty) {
-      button.getStyleClass().add("dirty");
-      button.getStyleClass().remove("clean");
+      text.getStyleClass().add("dirty");
+      text.getStyleClass().remove("clean");
     } else {
-      button.getStyleClass().add("clean");
-      button.getStyleClass().remove("dirty");
+      text.getStyleClass().add("clean");
+      text.getStyleClass().remove("dirty");
     }
   }
 
