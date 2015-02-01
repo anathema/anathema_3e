@@ -3,11 +3,11 @@
 }
 
 .dirty {
-    #-fx-font-weight: normal;
+    -fx-text-fill: red;
 }
 
 .clean {
-    #-fx-font-weight: normal;
+    -fx-text-fill: black;
 }
 
 .character-grid-button {
@@ -15,7 +15,6 @@
     -fx-content-display: top;
     -fx-background-color: white;
     -fx-cursor: hand;
-    -fx-font-family: "Helvetica";
     -fx-font-size: 12px;
     -fx-wrap-text: true;
     -fx-text-overrun: word-ellipsis;
