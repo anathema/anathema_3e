@@ -23,8 +23,8 @@ import org.tbee.javafx.scene.layout.MigPane;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCharacterNavigation implements InteractionView, CharacterGridView {
-  private MigPane pane = new MigPane(withoutInsets().gridGap("0", "2").wrapAfter(1), new AC().grow().fill(), new AC().fill());
-  private MigPane navigation = new MigPane(withoutInsets().gridGap("0", "2").wrapAfter(1), new AC().grow().fill(), new AC().fill());
+  private MigPane content = new MigPane(withoutInsets().gridGap("0", "2"), new AC().grow().fill(), new AC().fill());
+  private MigPane navigation = new MigPane(withoutInsets().gridGap("0", "2"), new AC().grow().fill(), new AC().fill());
   private ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
   private final CharacterGridFxView gridView;
@@ -32,9 +32,9 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
   public FxCharacterNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
     this.gridView = new CharacterGridFxView(uiEnvironment);
-    pane.add(toolBar, new CC().width("100%").grow());
-    pane.add(navigation, new CC().push());
-    addContainerToNavigation(gridView.getNode());
+    content.add(navigation, new CC().push().grow());
+    content.add(toolBar, new CC().dockEast());
+    navigation.add(gridView.getNode(), new CC().push());
   }
 
   public Tool addTool() {
@@ -43,15 +43,10 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
     return fxButtonTool;
   }
 
-  @SuppressWarnings("UnusedDeclaration")  //Used by subclasses
   public ToggleTool addToggleTool() {
-    final FxToggleTool fxToggleTool = FxToggleTool.create();
+    FxToggleTool fxToggleTool = FxToggleTool.create();
     addTool(fxToggleTool);
     return fxToggleTool;
-  }
-
-  protected void addContainerToNavigation(Node element) {
-    navigation.add(element, new CC().push());
   }
 
   public void clear() {
@@ -59,7 +54,7 @@ public class FxCharacterNavigation implements InteractionView, CharacterGridView
   }
 
   public Node getNode() {
-    return pane;
+    return content;
   }
 
   protected void addTool(FxBaseTool fxButtonTool) {

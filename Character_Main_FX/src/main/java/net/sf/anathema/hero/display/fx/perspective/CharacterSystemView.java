@@ -18,7 +18,7 @@ public class CharacterSystemView {
   public CharacterSystemView(UiEnvironment uiEnvironment) {
     this.navigation = new FxCharacterNavigation(uiEnvironment);
     contentPane.add(navigation.getNode(), new CC().growX());
-    contentPane.add(stackView.getComponent(), new CC().grow());
+    contentPane.add(stackView.getComponent(), new CC().grow().push());
   }
 
   public InteractionView getInteractionView() {

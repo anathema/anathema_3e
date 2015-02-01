@@ -18,12 +18,13 @@ import org.tbee.javafx.scene.layout.MigPane;
 import java.util.HashMap;
 import java.util.Map;
 
+import static javafx.scene.control.ScrollPane.ScrollBarPolicy.AS_NEEDED;
 import static javafx.scene.control.ScrollPane.ScrollBarPolicy.NEVER;
 
 public class CharacterGridFxView implements CharacterGridView {
   private final ScrollPane scrollPane = new ScrollPane();
   private final ToggleGroup toggleGroup = new ToggleGroup();
-  private final MigPane gridPane = new MigPane(new LC().insets("0").gridGap("0", "2").wrapAfter(1),
+  private final MigPane gridPane = new MigPane(new LC().insets("0").gridGap("0", "2"),
           new AC().grow().fill());
   private final Map<CharacterIdentifier, CharacterGridButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
@@ -31,7 +32,8 @@ public class CharacterGridFxView implements CharacterGridView {
   public CharacterGridFxView(DialogFactory dialogFactory) {
     this.dialogFactory = dialogFactory;
     scrollPane.setContent(gridPane);
-    scrollPane.setHbarPolicy(NEVER);
+    scrollPane.setHbarPolicy(AS_NEEDED);
+    scrollPane.setVbarPolicy(NEVER);
     new Stylesheet("skin/character/characternavigation.css").applyToParent(scrollPane);
   }
 
