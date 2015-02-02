@@ -12,7 +12,7 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class HeroesStanceView {
 
-  private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1));
+  private final MigPane contentPane = new MigPane(fillWithoutInsets().wrapAfter(1).gridGap("0", "0"));
   private final StackView stackView = new StackView();
   private final FxHeroesNavigation navigation;
 

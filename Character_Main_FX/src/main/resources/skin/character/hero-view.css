@@ -1,0 +1,8 @@
+.hero-link-bar {
+  -fx-background-color: linear-gradient(to bottom, black, black)
+}
+
+.hero-link-button {
+  -fx-background-color: transparent;
+  -fx-text-fill: whitesmoke;
+}

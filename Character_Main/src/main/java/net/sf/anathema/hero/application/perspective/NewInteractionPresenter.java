@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.application.perspective.model.ItemSelectionModel;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.environment.Environment;
@@ -13,10 +13,10 @@ public class NewInteractionPresenter {
   private final Tool interaction;
   private final Environment environment;
   private HeroesGridView view;
-  private Selector<CharacterIdentifier> selector;
+  private Selector<HeroIdentifier> selector;
 
   public NewInteractionPresenter(ItemSelectionModel model, Tool interaction, Environment environment, HeroesGridView view,
-                                 Selector<CharacterIdentifier> selector) {
+                                 Selector<HeroIdentifier> selector) {
     this.model = model;
     this.interaction = interaction;
     this.environment = environment;

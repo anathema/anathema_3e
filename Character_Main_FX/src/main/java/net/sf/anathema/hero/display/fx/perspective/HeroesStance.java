@@ -2,9 +2,9 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
-import net.sf.anathema.hero.application.perspective.CharacterSystemModel;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.HeroStackPresenter;
+import net.sf.anathema.hero.application.perspective.HeroSystemModel;
 import net.sf.anathema.hero.application.perspective.HeroSystemPresenter;
 import net.sf.anathema.hero.application.perspective.InteractionPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
@@ -30,15 +30,15 @@ public class HeroesStance implements Stance {
     new HeroSystemInitializer(model, environment).initializeCharacterSystem();
     characterMessaging.setDelegate(model.getMessaging());
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
-    CharacterSystemModel heroSystem = new CharacterSystemModel(model);
+    HeroSystemModel heroSystem = new HeroSystemModel(model);
     HeroesStanceView view = new HeroesStanceView(uiEnvironment);
     container.setContent(view.getNode());
     HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment);
     HeroStackBridge bridge = new HeroStackFxBridge(viewFactory, view.getStackView());
     HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem);
     ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
-    HeroSystemPresenter gridPresenter = new HeroSystemPresenter(heroSystem, view.getGridView(), showOnSelect, environment);
-    gridPresenter.initPresentation();
+    HeroSystemPresenter systemPresenter = new HeroSystemPresenter(heroSystem, view.getGridView(), showOnSelect, environment);
+    systemPresenter.initPresentation();
     this.stanceView = view;
     new InteractionPresenter(heroSystem, view.getInteractionView(), environment, view.getGridView(), showOnSelect, uiEnvironment).initPresentation();
   }

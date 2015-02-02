@@ -8,7 +8,7 @@ public interface ItemSystemModel extends ItemSelectionModel {
 
   Collection<CharacterItemModel> collectAllExistingCharacters();
 
-  Item loadItem(CharacterIdentifier identifier);
+  Item loadItem(HeroIdentifier identifier);
 
-  void setCurrentCharacter(CharacterIdentifier identifier);
+  void setCurrentCharacter(HeroIdentifier identifier);
 }

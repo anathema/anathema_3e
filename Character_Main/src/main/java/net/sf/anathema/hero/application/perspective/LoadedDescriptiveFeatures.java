@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.item.Item;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -10,10 +10,10 @@ import net.sf.anathema.library.identifier.Identifier;
 
 public class LoadedDescriptiveFeatures implements DescriptiveFeatures {
 
-  private CharacterIdentifier identifier;
+  private HeroIdentifier identifier;
   private Item characterItem;
 
-  public LoadedDescriptiveFeatures(CharacterIdentifier identifier, Item characterItem) {
+  public LoadedDescriptiveFeatures(HeroIdentifier identifier, Item characterItem) {
     this.identifier = identifier;
     this.characterItem = characterItem;
   }
@@ -24,7 +24,7 @@ public class LoadedDescriptiveFeatures implements DescriptiveFeatures {
   }
 
   @Override
-  public CharacterIdentifier getIdentifier() {
+  public HeroIdentifier getIdentifier() {
     return identifier;
   }
 

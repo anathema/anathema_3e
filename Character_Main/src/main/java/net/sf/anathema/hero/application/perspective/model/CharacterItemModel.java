@@ -19,7 +19,7 @@ public class CharacterItemModel {
     this.descriptiveFeatures = descriptiveFeatures;
   }
 
-  public CharacterItemModel(CharacterIdentifier identifier, Item item) {
+  public CharacterItemModel(HeroIdentifier identifier, Item item) {
     setItem(identifier, item);
   }
 
@@ -28,11 +28,11 @@ public class CharacterItemModel {
   }
 
   public void setItem(Item item) {
-    CharacterIdentifier identifier = descriptiveFeatures.getIdentifier();
+    HeroIdentifier identifier = descriptiveFeatures.getIdentifier();
     setItem(identifier, item);
   }
 
-  private void setItem(CharacterIdentifier identifier, Item item) {
+  private void setItem(HeroIdentifier identifier, Item item) {
     this.item = item;
     this.descriptiveFeatures = new LoadedDescriptiveFeatures(identifier, item);
     Hero hero = (Hero) item.getItemData();

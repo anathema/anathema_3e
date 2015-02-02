@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.perspective;
 
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 
-public class ShowOnSelect implements Selector<CharacterIdentifier> {
+public class ShowOnSelect implements Selector<HeroIdentifier> {
   private final CharacterMessaging messaging;
   private final HeroStackPresenter characterStack;
 
@@ -12,7 +12,7 @@ public class ShowOnSelect implements Selector<CharacterIdentifier> {
   }
 
   @Override
-  public void selected(CharacterIdentifier identifier) {
+  public void selected(HeroIdentifier identifier) {
     messaging.showMessagesFor(identifier);
     characterStack.showCharacter(identifier);
   }

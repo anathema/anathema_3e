@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.application.perspective;
 
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.platform.messaging.CategorizedMessaging;
 import net.sf.anathema.platform.messaging.MessageCategory;
 
@@ -10,7 +10,7 @@ public class CharacterMessaging {
   private CategorizedMessaging messaging;
   private MessageCategory activeCharacterCategory = Default_Message_Category;
 
-  public void showMessagesFor(CharacterIdentifier identifier) {
+  public void showMessagesFor(HeroIdentifier identifier) {
     this.activeCharacterCategory = new MessageCategory(identifier.getId());
     messaging.activateCategory(activeCharacterCategory);
   }

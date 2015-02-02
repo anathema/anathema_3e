@@ -7,8 +7,8 @@ import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.persistence.HeroItemPersister;
 import net.sf.anathema.hero.application.persistence.RepositoryItemPersister;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterPersistenceModel;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.display.fx.perspective.HeroSystemInitializer;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
@@ -44,7 +44,7 @@ public class CharacterFactory {
     HeroItem heroItem = new HeroItem(heroItemData);
     persistenceModel.save(heroItem);
     String repositoryId = heroItem.getRepositoryLocation().getId();
-    Item loadItem = persistenceModel.loadItem(new CharacterIdentifier(repositoryId));
+    Item loadItem = persistenceModel.loadItem(new HeroIdentifier(repositoryId));
     return (HeroItemData) loadItem.getItemData();
   }
 

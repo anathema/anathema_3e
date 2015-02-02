@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.application.perspective;
 
 import com.google.common.base.Function;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.hero.individual.view.HeroUI;
@@ -21,7 +21,7 @@ public class ToCharacterButtonDto implements Function<DescriptiveFeatures, Chara
   @Override
   public CharacterButtonDto apply(DescriptiveFeatures input) {
     String text = input.getPrintName();
-    CharacterIdentifier identifier = input.getIdentifier();
+    HeroIdentifier identifier = input.getIdentifier();
     SplatType splatType = input.getTemplateType();
     Identifier casteType = input.getCasteType();
     String details = getDetails(splatType);

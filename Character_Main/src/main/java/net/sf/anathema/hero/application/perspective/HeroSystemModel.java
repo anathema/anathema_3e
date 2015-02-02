@@ -7,10 +7,10 @@ import net.sf.anathema.hero.application.item.HeroReferenceScanner;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.persistence.HeroItemPersister;
 import net.sf.anathema.hero.application.persistence.RepositoryItemPersister;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterItemModel;
 import net.sf.anathema.hero.application.perspective.model.CharacterPersistenceModel;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.hero.application.perspective.model.NewCharacterListener;
 import net.sf.anathema.hero.application.perspective.model.ReportRegister;
@@ -35,14 +35,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CharacterSystemModel implements ItemSystemModel {
+public class HeroSystemModel implements ItemSystemModel {
 
-  private final Map<CharacterIdentifier, CharacterItemModel> modelsByIdentifier = new HashMap<>();
+  private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new HashMap<>();
   private Announcer<ChangeListener> getsSelectionListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesExperiencedListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesInexperiencedListener = Announcer.to(ChangeListener.class);
   private Announcer<NewCharacterListener> characterAddedListener = Announcer.to(NewCharacterListener.class);
-  private CharacterIdentifier currentCharacter;
+  private HeroIdentifier currentCharacter;
   private Announcer<ChangeListener> becomesDirtyAnnouncer = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesCleanAnnouncer = Announcer.to(ChangeListener.class);
   private ChangeListener dirtyListener = this::notifyDirtyListeners;
@@ -50,11 +50,11 @@ public class CharacterSystemModel implements ItemSystemModel {
   private ApplicationModel model;
   private int newCharacterCount = 0;
 
-  public CharacterSystemModel(ApplicationModel model) {
+  public HeroSystemModel(ApplicationModel model) {
     this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model);
   }
 
-  public CharacterSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
+  public HeroSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
     this.persistenceModel = persistenceModel;
     this.model = model;
   }
@@ -83,7 +83,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   }
 
   @Override
-  public Item loadItem(CharacterIdentifier identifier) {
+  public Item loadItem(HeroIdentifier identifier) {
     CharacterItemModel character = modelsByIdentifier.get(identifier);
     if (character.isLoaded()) {
       return character.getItem();
@@ -142,7 +142,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   @Override
   public void createNew(CharacterTemplateCreator factory, Environment environment) {
     ItemReceiver receiver = item -> {
-      CharacterIdentifier identifier = new CharacterIdentifier("InternalNewCharacter" + newCharacterCount++);
+      HeroIdentifier identifier = new HeroIdentifier("InternalNewCharacter" + newCharacterCount++);
       initCharacterListening(item);
       CharacterItemModel character = new CharacterItemModel(identifier, item);
       modelsByIdentifier.put(identifier, character);
@@ -173,7 +173,7 @@ public class CharacterSystemModel implements ItemSystemModel {
   }
 
   @Override
-  public void setCurrentCharacter(CharacterIdentifier identifier) {
+  public void setCurrentCharacter(HeroIdentifier identifier) {
     this.currentCharacter = identifier;
     notifyDirtyListeners();
     notifyGetSelectionListeners();

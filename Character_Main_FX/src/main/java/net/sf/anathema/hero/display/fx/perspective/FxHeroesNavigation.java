@@ -10,7 +10,7 @@ import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
@@ -77,12 +77,12 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   }
 
   @Override
-  public void addButton(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {
+  public void addButton(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
     gridView.addButton(dto, characterSelector);
   }
 
   @Override
-  public void selectButton(CharacterIdentifier identifier) {
+  public void selectButton(HeroIdentifier identifier) {
     gridView.selectButton(identifier);
   }
 

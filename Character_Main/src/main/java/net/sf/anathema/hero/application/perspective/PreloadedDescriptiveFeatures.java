@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.item.HeroReferenceScanner;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterReference;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -22,9 +22,9 @@ public class PreloadedDescriptiveFeatures implements DescriptiveFeatures {
   }
 
   @Override
-  public CharacterIdentifier getIdentifier() {
+  public HeroIdentifier getIdentifier() {
     String repositoryId = reference.repositoryId.getStringRepresentation();
-    return new CharacterIdentifier(repositoryId);
+    return new HeroIdentifier(repositoryId);
   }
 
   @Override

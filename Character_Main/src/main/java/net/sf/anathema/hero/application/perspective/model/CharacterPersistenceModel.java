@@ -38,7 +38,7 @@ public class CharacterPersistenceModel {
     return access.collectAllItemReferences();
   }
 
-  public Item loadItem(CharacterIdentifier identifier) {
+  public Item loadItem(HeroIdentifier identifier) {
     RepositoryReadAccess readAccess = createReadAccess(identifier.getId());
     RepositoryItemPersister persister = findPersister();
     return persister.load(readAccess);

@@ -5,7 +5,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.Selector;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 
 public class HeroGridButton {
 
@@ -16,7 +16,7 @@ public class HeroGridButton {
     this.tool = HeroGridTool.createTool(button);
    }
 
-  public void initContent(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {
+  public void initContent(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
     button.setOnAction(new CharacterSelected(characterSelector, dto.identifier));
     setContent(dto);
   }

@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.application.perspective;
 
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.hero.application.perspective.model.CharacterItemModel;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.library.resources.Resources;
 
 public class CharacterButtonPresenter {
 
   private Resources resources;
-  private Selector<CharacterIdentifier> selector;
+  private Selector<HeroIdentifier> selector;
   private CharacterItemModel character;
   private HeroesGridView view;
 
-  public CharacterButtonPresenter(Resources resources, Selector<CharacterIdentifier> selector, CharacterItemModel character, HeroesGridView view) {
+  public CharacterButtonPresenter(Resources resources, Selector<HeroIdentifier> selector, CharacterItemModel character, HeroesGridView view) {
     this.resources = resources;
     this.selector = selector;
     this.character = character;

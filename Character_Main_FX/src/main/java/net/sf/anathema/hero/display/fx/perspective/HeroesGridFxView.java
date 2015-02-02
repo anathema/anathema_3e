@@ -7,7 +7,7 @@ import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 
@@ -17,7 +17,7 @@ import java.util.Map;
 public class HeroesGridFxView implements HeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
-  private final Map<CharacterIdentifier, HeroGridButton> buttonsByIdentifier = new HashMap<>();
+  private final Map<HeroIdentifier, HeroGridButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
 
   public HeroesGridFxView(DialogFactory dialogFactory) {
@@ -25,12 +25,12 @@ public class HeroesGridFxView implements HeroesGridView {
   }
 
   @Override
-  public void addButton(CharacterButtonDto dto, Selector<CharacterIdentifier> characterSelector) {
+  public void addButton(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
     createGridButton(dto, characterSelector);
   }
 
   @Override
-  public void selectButton(CharacterIdentifier identifier) {
+  public void selectButton(HeroIdentifier identifier) {
     buttonsByIdentifier.get(identifier).setSelected(true);
   }
 
@@ -45,7 +45,7 @@ public class HeroesGridFxView implements HeroesGridView {
   }
 
   private HeroGridButton createGridButton(CharacterButtonDto dto,
-                                               Selector<CharacterIdentifier> characterSelector) {
+                                               Selector<HeroIdentifier> characterSelector) {
     HeroGridButton heroGridButton = new HeroGridButton();
     heroGridButton.initContent(dto, characterSelector);
     heroGridButton.setToggleGroup(toggleGroup);

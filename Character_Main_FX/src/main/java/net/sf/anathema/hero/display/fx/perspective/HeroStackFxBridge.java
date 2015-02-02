@@ -2,7 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
-import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
+import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.library.fx.NodeHolder;
 
 public class HeroStackFxBridge implements HeroStackBridge {
@@ -16,13 +16,13 @@ public class HeroStackFxBridge implements HeroStackBridge {
   }
 
   @Override
-  public void addViewForCharacter(CharacterIdentifier identifier, HeroItemData heroItemData) {
+  public void addViewForHero(HeroIdentifier identifier, HeroItemData heroItemData) {
     NodeHolder itemView = viewFactory.createView(heroItemData);
     stackView.addView(identifier, itemView);
   }
 
   @Override
-  public void showCharacterView(CharacterIdentifier identifier) {
+  public void showHeroView(HeroIdentifier identifier) {
     stackView.showView(identifier);
   }
 }
