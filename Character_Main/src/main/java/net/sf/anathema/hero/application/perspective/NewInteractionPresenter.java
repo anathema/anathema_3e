@@ -15,7 +15,8 @@ public class NewInteractionPresenter {
   private HeroesGridView view;
   private Selector<HeroIdentifier> selector;
 
-  public NewInteractionPresenter(ItemSelectionModel model, Tool interaction, Environment environment, HeroesGridView view,
+  public NewInteractionPresenter(ItemSelectionModel model, Tool interaction, Environment environment,
+                                 HeroesGridView view,
                                  Selector<HeroIdentifier> selector) {
     this.model = model;
     this.interaction = interaction;
@@ -42,7 +43,7 @@ public class NewInteractionPresenter {
 
   private void initializeCommand() {
     interaction.setCommand(() -> {
-      CharacterTemplateCreator creator = view.createNewCharacter();
+      CharacterTemplateCreator creator = view.createNewCharacter(interaction);
       creator.useEnvironment(environment);
       model.createNew(creator, environment);
     });

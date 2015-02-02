@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.perspective;
 
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
+import net.sf.anathema.library.interaction.model.Tool;
 
 public interface HeroesGridView {
 
@@ -11,5 +12,5 @@ public interface HeroesGridView {
 
   void updateButton(CharacterButtonDto dto);
 
-  CharacterTemplateCreator createNewCharacter();
+  CharacterTemplateCreator createNewCharacter(Tool caller);
 }

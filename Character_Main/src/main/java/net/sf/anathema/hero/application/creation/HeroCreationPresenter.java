@@ -2,9 +2,7 @@ package net.sf.anathema.hero.application.creation;
 
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.HeroType;
-import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,57 +23,23 @@ public class HeroCreationPresenter {
   }
 
   public void initPresentation() {
-    view.setTitle(properties.getTitle());
-    ToggleButtonPanel panel = view.addToggleButtonPanel();
+    ButtonPanel panel = view.addToggleButtonPanel();
     List<HeroType> heroTypes = model.getAvailableHeroTypes();
     for (HeroType type : heroTypes) {
-      ToggleTool button = panel.addButton(properties.getTypeString(type));
-      button.setIcon(properties.getTypeIcon(type));
-      button.setCommand(() -> model.setCharacterType(type));
-      model.addListener(() -> updateButtonChoice(type, button));
-      updateButtonChoice(type, button);
-    }
-    final VetoableObjectSelectionView<HeroSplat> list = view.addObjectSelectionList();
-    list.setCellRenderer(properties.getTemplateUI());
-    list.addObjectSelectionChangedListener(newValue -> {
-      if (newValue == null) {
-        return;
+      List<HeroSplat> availableTemplates = model.getAvailableTemplates(type);
+      Collections.sort(availableTemplates,
+              (o1, o2) -> getTemplateResource(o1).compareTo(getTemplateResource(o2)));
+      for (HeroSplat splat : availableTemplates) {
+        Tool button = panel.addButton(properties.getTemplateUI().getLabel(splat));
+        button.setIcon(properties.getTypeIcon(type));
+        button.setCommand(() -> {
+          view.close();
+          operator.operate(splat);
+        });
       }
-      model.setSelectedTemplate(newValue);
-    });
-    initButtons();
-    model.addListener(() -> refreshList(list));
-    refreshList(list);
+    }
     view.show();
   }
-
-  private void updateButtonChoice(HeroType type, ToggleTool button) {
-    if (type.equals(model.getSelectedTemplate().getTemplateType().getHeroType())) {
-      button.select();
-    } else {
-      button.deselect();
-    }
-  }
-
-  private void initButtons() {
-    Tool ok = view.addButton();
-    ok.setText(properties.getOkButtonString());
-    ok.setCommand(() -> {
-      view.close();
-      operator.operate(model.getSelectedTemplate());
-    });
-    Tool cancel = view.addButton();
-    cancel.setText(properties.getCancelButtonString());
-    cancel.setCommand(view::close);
-  }
-
-  protected void refreshList(VetoableObjectSelectionView<HeroSplat> list) {
-    List<HeroSplat> availableTemplates = model.getAvailableTemplates();
-    Collections.<HeroSplat>sort(availableTemplates, (o1, o2) -> getTemplateResource(o1).compareTo(getTemplateResource(o2)));
-    list.setObjects(availableTemplates);
-    list.setSelectedObject(model.getSelectedTemplate());
-  }
-
 
   private String getTemplateResource(HeroSplat o1) {
     return properties.getTemplateUI().getLabel(o1);

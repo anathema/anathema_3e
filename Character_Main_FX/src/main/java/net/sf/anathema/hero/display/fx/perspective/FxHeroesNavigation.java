@@ -94,8 +94,8 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   }
 
   @Override
-  public CharacterTemplateCreator createNewCharacter() {
-    return gridView.createNewCharacter();
+  public CharacterTemplateCreator createNewCharacter(Tool caller) {
+    return gridView.createNewCharacter(caller);
   }
 
   @Override

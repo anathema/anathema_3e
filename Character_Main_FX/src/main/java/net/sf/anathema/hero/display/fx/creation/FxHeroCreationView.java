@@ -1,69 +1,40 @@
 package net.sf.anathema.hero.display.fx.creation;
 
-import javafx.scene.control.ScrollPane;
+import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
+import net.sf.anathema.hero.application.creation.ButtonPanel;
 import net.sf.anathema.hero.application.creation.CharacterCreationView;
-import net.sf.anathema.hero.application.creation.ToggleButtonPanel;
-import net.sf.anathema.hero.individual.splat.HeroSplat;
-import net.sf.anathema.library.fx.selection.ListSelectionView;
-import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.view.VetoableObjectSelectionView;
-import net.sf.anathema.platform.fx.environment.DialogFactory;
-import org.controlsfx.dialog.Dialog;
+import org.controlsfx.control.PopOver;
 import org.tbee.javafx.scene.layout.MigPane;
-
-import static javafx.scene.control.ScrollPane.ScrollBarPolicy.AS_NEEDED;
-import static javafx.scene.control.ScrollPane.ScrollBarPolicy.NEVER;
 
 public class FxHeroCreationView implements CharacterCreationView {
 
-  public static final String NO_TITLE = "";
   private final MigPane component = new MigPane(new LC().gridGapX("10").gridGapY("10").wrapAfter(2));
-  private final Dialog dialog;
+  private final PopOver dialog;
+  private Node parent;
 
-  public FxHeroCreationView(DialogFactory factory) {
-    this.dialog = factory.createDialog(NO_TITLE);
+  public FxHeroCreationView(Node parent) {
+    this.parent = parent;
+    this.dialog = new PopOver(parent);
   }
 
   @Override
-  public ToggleButtonPanel addToggleButtonPanel() {
-    FxToggleButtonPanel panel = new FxToggleButtonPanel();
+  public ButtonPanel addToggleButtonPanel() {
+    FxButtonPanel panel = new FxButtonPanel();
     component.add(panel.getNode(), new CC().grow().pushY());
     return panel;
   }
 
   @Override
-  public VetoableObjectSelectionView<HeroSplat> addObjectSelectionList() {
-    ListSelectionView<HeroSplat> view = new ListSelectionView<>();
-    ScrollPane scrollPane = new ScrollPane();
-    scrollPane.setHbarPolicy(NEVER);
-    scrollPane.setVbarPolicy(AS_NEEDED);
-    scrollPane.setContent(view.getNode());
-    component.add(scrollPane, new CC().grow().push());
-    return view;
-  }
-
-  @Override
   public void show() {
-    dialog.setContent(component);
-    dialog.show();
+    dialog.setArrowLocation(PopOver.ArrowLocation.TOP_CENTER);
+    dialog.setContentNode(component);
+    dialog.show(parent);
   }
 
   @Override
   public void close() {
     dialog.hide();
-  }
-
-  @Override
-  public Tool addButton() {
-    ControlsFxTool tool = new ControlsFxTool();
-    dialog.getActions().add(tool.getAction());
-    return tool;
-  }
-
-  @Override
-  public void setTitle(String title) {
-    dialog.setTitle(title);
   }
 }

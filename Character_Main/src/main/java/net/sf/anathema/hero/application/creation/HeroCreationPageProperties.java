@@ -17,27 +17,11 @@ public class HeroCreationPageProperties {
     this.iconProvider = new HeroUI();
   }
 
-  public String getTitle() {
-    return resources.getString("CharacterDialog.Title");
-  }
-
-  public String getTypeString(HeroType type) {
-    return new CharacterTypeUi(resources).getLabel(type);
-  }
-
   public RelativePath getTypeIcon(HeroType type) {
     return iconProvider.getSmallTypeIconPath(type);
   }
 
   public AgnosticUIConfiguration<HeroSplat> getTemplateUI() {
     return new TemplateTypeUiConfiguration(resources);
-  }
-
-  public String getCancelButtonString() {
-    return resources.getString("CharacterDialog.Cancel");
-  }
-
-  public String getOkButtonString() {
-    return resources.getString("CharacterDialog.OK");
   }
 }

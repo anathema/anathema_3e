@@ -9,6 +9,8 @@ import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
+import net.sf.anathema.library.fx.tool.FxBaseTool;
+import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 
 import java.util.HashMap;
@@ -40,12 +42,12 @@ public class HeroesGridFxView implements HeroesGridView {
   }
 
   @Override
-  public CharacterTemplateCreator createNewCharacter() {
-    return new FxHeroSplatCreator(dialogFactory);
+  public CharacterTemplateCreator createNewCharacter(Tool caller) {
+    return new FxHeroSplatCreator(((FxBaseTool) caller).getNode());
   }
 
   private HeroGridButton createGridButton(CharacterButtonDto dto,
-                                               Selector<HeroIdentifier> characterSelector) {
+                                          Selector<HeroIdentifier> characterSelector) {
     HeroGridButton heroGridButton = new HeroGridButton();
     heroGridButton.initContent(dto, characterSelector);
     heroGridButton.setToggleGroup(toggleGroup);
