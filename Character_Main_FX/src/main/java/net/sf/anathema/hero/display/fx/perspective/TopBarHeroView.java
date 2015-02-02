@@ -17,14 +17,15 @@ import java.util.Collection;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
-public class GroupedHeroView implements HeroView, NodeHolder {
+public class TopBarHeroView implements HeroView, NodeHolder {
 
   private final TaskedHeroPane taskedHeroPane = new TaskedHeroPane();
   private MigPane content;
   private final SubViewRegistry subViewFactory;
   private final Collection<Stylesheet> stylesheets;
+  private final MigPane navigationBar = new MigPane(withoutInsets().gridGap("10", "0"));
 
-  public GroupedHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets) {
+  public TopBarHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets) {
     this.subViewFactory = viewFactory;
     this.stylesheets = stylesheets;
   }
@@ -47,15 +48,14 @@ public class GroupedHeroView implements HeroView, NodeHolder {
   }
 
   private Node createNavigationBar() {
-    MigPane bar = new MigPane(withoutInsets().gridGap("10", "0"));
-    bar.getStyleClass().add("hero-link-bar");
-    bar.getChildren().add(createNavigationLabel("Background"));
-    bar.getChildren().add(createNavigationLabel("Mundane"));
-    bar.getChildren().add(createNavigationLabel("Spiritual"));
-    bar.getChildren().add(createNavigationLabel("Charms"));
-    bar.getChildren().add(createNavigationLabel("Sorcery"));
-    bar.getChildren().add(createNavigationLabel("Panoply"));
-    return bar;
+    navigationBar.getStyleClass().add("hero-link-bar");
+    navigationBar.getChildren().add(createNavigationLabel("Background"));
+    navigationBar.getChildren().add(createNavigationLabel("Mundane"));
+    navigationBar.getChildren().add(createNavigationLabel("Spiritual"));
+    navigationBar.getChildren().add(createNavigationLabel("Charms"));
+    navigationBar.getChildren().add(createNavigationLabel("Sorcery"));
+    navigationBar.getChildren().add(createNavigationLabel("Panoply"));
+    return navigationBar;
   }
 
   private Node createNavigationLabel(String text) {

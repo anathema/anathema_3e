@@ -12,7 +12,6 @@ import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.view.FxStack;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
-import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -31,14 +30,13 @@ public class TaskedMultipleContentView implements MultipleContentView {
   }
 
   @Override
-  public void addView(NodeHolder view, ContentProperties tabProperties) {
-    String name = tabProperties.getName();
+  public void addView(NodeHolder view, ContentProperties properties) {
+    String name = properties.getName();
     Node fxContainer = createContainer(view, name);
-    Identifier containerId = new SimpleIdentifier(name);
-    stack.add(containerId, fxContainer);
+    stack.add(new SimpleIdentifier(name), fxContainer);
     Hyperlink trigger = new Hyperlink(name);
     trigger.getStyleClass().add("character-subview-selector");
-    trigger.setOnAction(actionEvent -> stack.show(containerId));
+    trigger.setOnAction(actionEvent -> stack.show(new SimpleIdentifier(name)));
     contentPane.add(trigger);
     isEmpty = false;
   }
