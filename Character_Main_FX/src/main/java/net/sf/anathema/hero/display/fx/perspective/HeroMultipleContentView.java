@@ -11,20 +11,17 @@ import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.view.FxStack;
-import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class TaskedMultipleContentView implements MultipleContentView {
-  private final MigPane contentPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1).gridGap("0","0"));
-  private final String header;
-  private final MigPane paneContainer;
+public class HeroMultipleContentView implements MultipleContentView {
+  private final MigPane contentPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1).gridGap("0", "0"));
+  private MultipleContentInitializer[] initializers;
   private final FxStack stack;
   private boolean isEmpty = true;
 
-  public TaskedMultipleContentView(String header, MigPane paneContainer, MigPane viewPanel) {
-    this.header = header;
-    this.paneContainer = paneContainer;
+  public HeroMultipleContentView(MigPane viewPanel, MultipleContentInitializer... initializers) {
+    this.initializers = initializers;
     this.stack = new FxStack(viewPanel);
     new Stylesheet("skin/character/charactersubview.css").applyToParent(contentPane);
   }
@@ -46,8 +43,9 @@ public class TaskedMultipleContentView implements MultipleContentView {
     if (isEmpty) {
       return;
     }
-    Node styledPane = StyledTitledPane.Create(header, contentPane);
-    paneContainer.add(styledPane, new CC().push().grow());
+    for (MultipleContentInitializer initializer : initializers) {
+      initializer.finishInitialization(contentPane);
+    }
   }
 
   private Node createContainer(NodeHolder content, String name) {

@@ -21,7 +21,8 @@ public class TaskedHeroPane implements HeroPane {
 
   @Override
   public MultipleContentView addMultipleContentView(String header) {
-    return new TaskedMultipleContentView(header, paneContainer, viewPanel);
+    TaskedPaneMultipleContentInitializer initializer = new TaskedPaneMultipleContentInitializer(header, paneContainer);
+    return new HeroMultipleContentView(viewPanel, initializer);
   }
 
   public Node getNode() {
