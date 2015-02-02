@@ -9,25 +9,23 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
-public class CharacterViewFactory {
+public class HeroViewFactory {
   private final HeroEnvironment environment;
 
-  public CharacterViewFactory(HeroEnvironment environment) {
+  public HeroViewFactory(HeroEnvironment environment) {
     this.environment = environment;
   }
 
   public NodeHolder createView(HeroItemData hero) {
     SubViewRegistry viewFactory = new SubViewMap(environment.getObjectFactory());
     Collection<Stylesheet> stylesheets = createStylesheets(hero);
-    TaskedHeroView characterView = new TaskedHeroView(viewFactory, stylesheets);
-    new HeroPresenter(hero, characterView, environment).initPresentation();
+    TaskedHeroView heroView = new TaskedHeroView(viewFactory, stylesheets);
+    new HeroPresenter(hero, heroView, environment).initPresentation();
     hero.getChangeManagement().setClean();
-    return characterView;
+    return heroView;
   }
 
   private Collection<Stylesheet> createStylesheets(Hero hero) {

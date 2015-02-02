@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
-import net.sf.anathema.hero.display.fx.CharacterViewSection;
+import net.sf.anathema.hero.display.fx.HeroViewSection;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -17,7 +17,7 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class TaskedHeroView implements HeroView, NodeHolder {
 
-  private final TaskedCharacterPane characterPane = new TaskedCharacterPane();
+  private final TaskedHeroPane taskedHeroPane = new TaskedHeroPane();
   private MigPane content;
   private final SubViewRegistry subViewFactory;
   private final Collection<Stylesheet> stylesheets;
@@ -29,7 +29,7 @@ public class TaskedHeroView implements HeroView, NodeHolder {
 
   @Override
   public SectionView addSection(String title) {
-    return new CharacterViewSection(characterPane, title, subViewFactory);
+    return new HeroViewSection(taskedHeroPane, title, subViewFactory);
   }
 
   @Override
@@ -37,7 +37,7 @@ public class TaskedHeroView implements HeroView, NodeHolder {
     if (content == null) {
       content = new MigPane(fillWithoutInsets(), new AC().index(0).shrink().shrinkPrio(200));
       stylesheets.forEach(sheet -> sheet.applyToParent(content));
-      content.add(characterPane.getNode(), new CC().grow().push());
+      content.add(taskedHeroPane.getNode(), new CC().grow().push());
     }
     return content;
   }

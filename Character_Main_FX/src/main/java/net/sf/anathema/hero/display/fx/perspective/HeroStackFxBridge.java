@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.item.HeroItemData;
-import net.sf.anathema.hero.application.perspective.CharacterStackBridge;
+import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.model.CharacterIdentifier;
 import net.sf.anathema.library.fx.NodeHolder;
 
-public class CharacterStackFxBridge implements CharacterStackBridge {
+public class HeroStackFxBridge implements HeroStackBridge {
 
   private final StackView stackView;
-  private final CharacterViewFactory viewFactory;
+  private final HeroViewFactory viewFactory;
 
-  public CharacterStackFxBridge(CharacterViewFactory viewFactory, StackView stackView) {
+  public HeroStackFxBridge(HeroViewFactory viewFactory, StackView stackView) {
     this.viewFactory = viewFactory;
     this.stackView = stackView;
   }

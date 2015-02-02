@@ -4,13 +4,13 @@ import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 
-public class CharacterViewSection implements SectionView {
+public class HeroViewSection implements SectionView {
 
   private final MultipleContentView view;
   private final SubViewRegistry subViewFactory;
 
-  public CharacterViewSection(CharacterPane characterPane, String title, SubViewRegistry subViewFactory) {
-    this.view = characterPane.addMultipleContentView(title);
+  public HeroViewSection(HeroPane heroPane, String title, SubViewRegistry subViewFactory) {
+    this.view = heroPane.addMultipleContentView(title);
     this.subViewFactory = subViewFactory;
   }
 

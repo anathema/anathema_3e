@@ -8,12 +8,12 @@ import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterStackPresenter {
+public class HeroStackPresenter {
   private final List<CharacterIdentifier> knownCharacters = new ArrayList<>();
   private final ItemSystemModel model;
-  private final CharacterStackBridge bridge;
+  private final HeroStackBridge bridge;
 
-  public CharacterStackPresenter(CharacterStackBridge bridge, ItemSystemModel model) {
+  public HeroStackPresenter(HeroStackBridge bridge, ItemSystemModel model) {
     this.bridge = bridge;
     this.model = model;
   }
