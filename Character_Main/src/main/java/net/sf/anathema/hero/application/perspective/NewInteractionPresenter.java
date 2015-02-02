@@ -35,7 +35,8 @@ public class NewInteractionPresenter {
   }
 
   private void initializeAppearance() {
-    interaction.setTooltip(environment.getString("AnathemaCore.Tools.New.Name"));
+    interaction.setTooltip(environment.getString("CharacterSystem.Tools.New.Name"));
+    interaction.setText(environment.getString("CharacterSystem.Tools.New.Name"));
     interaction.setIcon(new BasicUi().getNewIconPathForTaskbar());
   }
 

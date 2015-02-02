@@ -26,23 +26,25 @@ import org.tbee.javafx.scene.layout.MigPane;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxHeroesNavigation implements InteractionView, HeroesGridView {
-  private MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
-  private MigPane navigation = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
-  private ToolBar toolBar = new ToolBar();
+  private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill(), new AC().fill());
+  private final MigPane heroes = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
+  private final HBox frontTools = new HBox();
+  private final HBox backTools = new HBox();
+  private final ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
   private final HeroesGridFxView gridView;
-  private final HBox toolbox = new HBox();
 
   public FxHeroesNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
     this.gridView = new HeroesGridFxView(uiEnvironment);
     new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
-    content.add(navigation, new CC().push().grow());
-    content.add(toolbox, new CC().dockEast());
-    toolbox.getChildren().add(toolBar);
+    content.add(heroes);
+    content.add(frontTools, new CC().push().grow());
+    content.add(backTools, new CC().dockEast());
+    backTools.getChildren().add(toolBar);
     content.getStyleClass().add("selection-pane");
     toolBar.getStyleClass().add("toolbox");
-    navigation.add(gridView.getNode(), new CC().push());
+    heroes.add(gridView.getNode(), new CC().push());
   }
 
   public Tool addTool() {
@@ -58,7 +60,7 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   }
 
   public void clear() {
-    navigation.getChildren().clear();
+    heroes.getChildren().clear();
   }
 
   public Node getNode() {
@@ -70,9 +72,9 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
     fxButtonTool.registerHotkeyIn(acceleratorMap);
   }
   
-  public Tool createLeaveTool() {
+  public Tool createBigToolAtTheEnd() {
     HeroGridTool tool = HeroGridTool.createTool(new Button());
-    toolbox.getChildren().add(tool.getNode());
+    backTools.getChildren().add(tool.getNode());
     return tool;
   }
 
@@ -101,5 +103,9 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
     FxMenuButtonTool tool = FxMenuButtonTool.ForToolbar();
     addTool(tool);
     return tool;
+  }
+
+  public InteractionView getFrontInteraction() {
+    return new HeroInteraction(frontTools);
   }
 }

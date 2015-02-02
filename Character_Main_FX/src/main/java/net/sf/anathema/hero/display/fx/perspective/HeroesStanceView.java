@@ -22,8 +22,12 @@ public class HeroesStanceView {
     contentPane.add(stackView.getComponent(), new CC().grow().push());
   }
 
-  public InteractionView getInteractionView() {
+  public InteractionView getBackInteractionView() {
     return navigation;
+  }
+
+  public InteractionView getFrontInteractionView() {
+    return navigation.getFrontInteraction();
   }
 
   public HeroesGridView getGridView() {
@@ -39,6 +43,6 @@ public class HeroesStanceView {
   }
 
   public Tool createLeaveTool() {
-    return navigation.createLeaveTool();
+    return navigation.createBigToolAtTheEnd();
   }
 }

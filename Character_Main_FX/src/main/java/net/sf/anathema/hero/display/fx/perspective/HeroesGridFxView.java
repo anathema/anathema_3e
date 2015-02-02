@@ -50,7 +50,7 @@ public class HeroesGridFxView implements HeroesGridView {
     heroGridButton.initContent(dto, characterSelector);
     heroGridButton.setToggleGroup(toggleGroup);
     buttonsByIdentifier.put(dto.identifier, heroGridButton);
-    gridPane.getChildren().add(0, heroGridButton.getNode());
+    gridPane.getChildren().add(heroGridButton.getNode());
     return heroGridButton;
   }
 

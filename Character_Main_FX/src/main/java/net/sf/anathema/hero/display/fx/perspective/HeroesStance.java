@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
+import net.sf.anathema.hero.application.perspective.BackInteractionPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.HeroStackPresenter;
 import net.sf.anathema.hero.application.perspective.HeroSystemModel;
 import net.sf.anathema.hero.application.perspective.HeroSystemPresenter;
-import net.sf.anathema.hero.application.perspective.InteractionPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
@@ -40,7 +40,8 @@ public class HeroesStance implements Stance {
     HeroSystemPresenter systemPresenter = new HeroSystemPresenter(heroSystem, view.getGridView(), showOnSelect, environment);
     systemPresenter.initPresentation();
     this.stanceView = view;
-    new InteractionPresenter(heroSystem, view.getInteractionView(), environment, view.getGridView(), showOnSelect, uiEnvironment).initPresentation();
+    new FrontInteractionPresenter(heroSystem, view.getFrontInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
+    new BackInteractionPresenter(heroSystem, view.getBackInteractionView(), environment, uiEnvironment).initPresentation();
   }
 
   @Override
