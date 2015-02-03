@@ -10,7 +10,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxHeroCreationView implements CharacterCreationView {
 
-  private final MigPane component = new MigPane(new LC().gridGapX("10").gridGapY("10").wrapAfter(2));
+  private final MigPane component = new MigPane(new LC().insets("5").gridGapY("10"));
   private final PopOver dialog;
   private Node parent;
 
