@@ -5,7 +5,6 @@ import javafx.scene.control.Button;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
-import net.sf.anathema.hero.display.fx.HeroViewSection;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;

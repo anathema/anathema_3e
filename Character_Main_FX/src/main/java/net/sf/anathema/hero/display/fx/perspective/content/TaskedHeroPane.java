@@ -3,8 +3,6 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
-import net.sf.anathema.hero.display.fx.HeroPane;
-import net.sf.anathema.hero.display.fx.MultipleContentView;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import org.tbee.javafx.scene.layout.MigPane;
 

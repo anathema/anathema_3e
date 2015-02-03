@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx;
+package net.sf.anathema.hero.display.fx.perspective.content;
 
 import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.individual.view.SectionView;
