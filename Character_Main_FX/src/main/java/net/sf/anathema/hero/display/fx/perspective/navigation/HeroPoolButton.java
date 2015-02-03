@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToggleButton;
@@ -6,14 +6,15 @@ import javafx.scene.control.ToggleGroup;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
+import net.sf.anathema.hero.display.fx.perspective.CharacterSelected;
 
-public class HeroGridButton {
+public class HeroPoolButton {
 
-  private final HeroGridTool tool;
+  private final HeroPoolTool tool;
   private final ToggleButton button = new ToggleButton();
 
-  public HeroGridButton() {
-    this.tool = HeroGridTool.createTool(button);
+  public HeroPoolButton() {
+    this.tool = HeroPoolTool.createTool(button);
    }
 
   public void initContent(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {

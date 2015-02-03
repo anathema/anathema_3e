@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -11,6 +11,7 @@ import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
+import net.sf.anathema.hero.display.fx.perspective.FxMenuButtonTool;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
@@ -25,18 +26,18 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
-public class FxHeroesNavigation implements InteractionView, HeroesGridView {
+public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
   private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill(), new AC().fill());
   private final MigPane heroes = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
   private final HBox frontTools = new HBox();
   private final HBox backTools = new HBox();
   private final ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
-  private final HeroesGridFxView gridView;
+  private final HeroPoolFxView gridView;
 
-  public FxHeroesNavigation(UiEnvironment uiEnvironment) {
+  public FxHeroPoolNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
-    this.gridView = new HeroesGridFxView(uiEnvironment);
+    this.gridView = new HeroPoolFxView(uiEnvironment);
     new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
     content.add(heroes);
     content.add(frontTools, new CC().push().grow());
@@ -73,7 +74,7 @@ public class FxHeroesNavigation implements InteractionView, HeroesGridView {
   }
   
   public Tool createBigToolAtTheEnd() {
-    HeroGridTool tool = HeroGridTool.createTool(new Button());
+    HeroPoolTool tool = HeroPoolTool.createTool(new Button());
     backTools.getChildren().add(tool.getNode());
     return tool;
   }

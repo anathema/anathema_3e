@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
@@ -16,13 +16,13 @@ import net.sf.anathema.platform.fx.environment.DialogFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class HeroesGridFxView implements HeroesGridView {
+public class HeroPoolFxView implements HeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
-  private final Map<HeroIdentifier, HeroGridButton> buttonsByIdentifier = new HashMap<>();
+  private final Map<HeroIdentifier, HeroPoolButton> buttonsByIdentifier = new HashMap<>();
   private final DialogFactory dialogFactory;
 
-  public HeroesGridFxView(DialogFactory dialogFactory) {
+  public HeroPoolFxView(DialogFactory dialogFactory) {
     this.dialogFactory = dialogFactory;
   }
 
@@ -46,9 +46,9 @@ public class HeroesGridFxView implements HeroesGridView {
     return new FxHeroSplatCreator(((FxBaseTool) caller).getNode());
   }
 
-  private HeroGridButton createGridButton(CharacterButtonDto dto,
+  private HeroPoolButton createGridButton(CharacterButtonDto dto,
                                           Selector<HeroIdentifier> characterSelector) {
-    HeroGridButton heroGridButton = new HeroGridButton();
+    HeroPoolButton heroGridButton = new HeroPoolButton();
     heroGridButton.initContent(dto, characterSelector);
     heroGridButton.setToggleGroup(toggleGroup);
     buttonsByIdentifier.put(dto.identifier, heroGridButton);

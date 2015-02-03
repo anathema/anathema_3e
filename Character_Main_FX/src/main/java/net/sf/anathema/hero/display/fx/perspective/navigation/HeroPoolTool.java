@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.ButtonBase;
@@ -13,19 +13,19 @@ import net.sf.anathema.library.fx.tool.LoadImage;
 import net.sf.anathema.library.resources.RelativePath;
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class HeroGridTool extends FxBaseTool {
+public class HeroPoolTool extends FxBaseTool {
   public static final int IMAGE_SIZE = 40;
 
-  public static HeroGridTool createTool(ButtonBase button) {
-    HeroGridTool heroGridTool = new HeroGridTool(button);
-    heroGridTool.markAsClean();
-    return heroGridTool;
+  public static HeroPoolTool createTool(ButtonBase button) {
+    HeroPoolTool heroPoolTool = new HeroPoolTool(button);
+    heroPoolTool.markAsClean();
+    return heroPoolTool;
   }
 
   private final ImageView imageView = new ImageView();
   private final Label text = new Label();
 
-  public HeroGridTool(ButtonBase button) {
+  public HeroPoolTool(ButtonBase button) {
     super(button, new ImageView());
     HBox imageBorder = new HBox();
     imageBorder.getChildren().add(imageView);

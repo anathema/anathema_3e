@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
@@ -16,7 +16,7 @@ public class HeroInteraction implements InteractionView {
 
   @Override
   public Tool addTool() {
-    HeroGridTool tool = HeroGridTool.createTool(new Button());
+    HeroPoolTool tool = HeroPoolTool.createTool(new Button());
     tools.getChildren().add(tool.getNode());
     return tool;
   }
