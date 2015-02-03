@@ -1,15 +1,17 @@
 package net.sf.anathema.hero.display.fx.perspective.content;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBase;
+import javafx.scene.control.Hyperlink;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
-import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
+import net.sf.anathema.library.fx.view.FxStack;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;
@@ -19,22 +21,29 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class TopBarHeroView implements HeroView, NodeHolder {
 
-  private final TaskedHeroNavigation taskedHeroNavigation = new TaskedHeroNavigation();
   private MigPane content = new MigPane(fillWithoutInsets().wrapAfter(1), new AC().index(0).shrink().shrinkPrio(200));
   private final SubViewRegistry subViewFactory;
   private final MigPane navigationBar = new MigPane(withoutInsets().gridGap("10", "0"));
+  private final MigPane stackContainer = new MigPane();
+  private final FxStack stack = new FxStack(stackContainer);
 
   public TopBarHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets) {
     this.subViewFactory = viewFactory;
     stylesheets.forEach(sheet -> sheet.applyToParent(content));
     new Stylesheet("skin/character/hero-view.css").applyToParent(content);
-    content.add(createNavigationBar(), new CC().growX());
-    content.add(taskedHeroNavigation.getNode(), new CC().grow().push());
+    navigationBar.getStyleClass().add("hero-link-bar");
+    content.add(navigationBar, new CC().growX());
+    content.add(stackContainer, new CC().grow().push());
   }
 
   @Override
   public SectionView addSection(String title) {
-    return new HeroViewSection(taskedHeroNavigation, title, subViewFactory);
+    RasterSectionView rasterSectionView = new RasterSectionView(subViewFactory, () -> {
+      Node navigationLabel = createNavigationLabel(title);
+      navigationBar.getChildren().add(navigationLabel);
+    });
+    stack.add(new SimpleIdentifier(title), rasterSectionView.getNode());
+    return rasterSectionView;
   }
 
   @Override
@@ -42,17 +51,10 @@ public class TopBarHeroView implements HeroView, NodeHolder {
     return content;
   }
 
-  private Node createNavigationBar() {
-    navigationBar.getStyleClass().add("hero-link-bar");
-    for (HeroModelGroup group : HeroModelGroup.values()) {
-      navigationBar.getChildren().add(createNavigationLabel(group.name()));
-    }
-    return navigationBar;
-  }
-
   private Node createNavigationLabel(String text) {
-    Button button = new Button(text);
+    ButtonBase button = new Hyperlink(text);
     button.getStyleClass().add("hero-link-button");
+    button.setOnAction(actionEvent -> stack.show(new SimpleIdentifier(text)));
     return button;
   }
 }

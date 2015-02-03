@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective.content;
 
 import net.sf.anathema.hero.application.SubViewMap;
-import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.presenter.HeroPresenter;
 import net.sf.anathema.hero.display.fx.perspective.CssSkinner;
@@ -21,9 +20,9 @@ public class HeroViewFactory {
   }
 
   public NodeHolder createView(HeroItemData hero) {
-    SubViewRegistry viewFactory = new SubViewMap(environment.getObjectFactory());
+    SubViewMap viewFactory = new SubViewMap(environment.getObjectFactory());
     Collection<Stylesheet> stylesheets = createStylesheets(hero);
-    TaskedHeroView heroView = new TaskedHeroView(viewFactory, stylesheets);
+    TopBarHeroView heroView = new TopBarHeroView(viewFactory, stylesheets);
     new HeroPresenter(hero, heroView, environment).initPresentation();
     hero.getChangeManagement().setClean();
     return heroView;

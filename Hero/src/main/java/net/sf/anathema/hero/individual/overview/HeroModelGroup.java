@@ -2,5 +2,5 @@ package net.sf.anathema.hero.individual.overview;
 
 public enum HeroModelGroup {
 
-  Outline, NaturalTraits, SpiritualTraits, Magic, Miscellaneous
+  Background, Outline, NaturalTraits, SpiritualTraits, Charms, Sorcery, Magic, Miscellaneous, Panoply
 }
