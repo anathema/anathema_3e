@@ -12,7 +12,7 @@ import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
 
-@RegisteredInitializer(HeroModelGroup.SpiritualTraits)
+@RegisteredInitializer(HeroModelGroup.Spiritual)
 @Weight(weight = 200)
 public class SolarVirtueFlawInitializer implements HeroModelInitializer {
 

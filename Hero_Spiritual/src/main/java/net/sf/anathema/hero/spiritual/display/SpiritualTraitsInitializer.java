@@ -8,9 +8,9 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.SpiritualTraits;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Spiritual;
 
-@RegisteredInitializer(SpiritualTraits)
+@RegisteredInitializer(Spiritual)
 @Weight(weight = 0)
 public class SpiritualTraitsInitializer implements HeroModelInitializer {
   private HeroEnvironment environment;

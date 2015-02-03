@@ -10,7 +10,7 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.NaturalTraits)
+@RegisteredInitializer(HeroModelGroup.Mundane)
 @Weight(weight = 300)
 public class SpecialtiesInitializer implements HeroModelInitializer {
 

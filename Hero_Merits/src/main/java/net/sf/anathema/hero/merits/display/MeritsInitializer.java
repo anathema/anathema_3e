@@ -10,7 +10,7 @@ import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.Miscellaneous)
+@RegisteredInitializer(HeroModelGroup.Background)
 @Weight(weight = 300)
 public class MeritsInitializer implements HeroModelInitializer {
 

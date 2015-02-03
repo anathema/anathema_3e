@@ -18,9 +18,10 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
 
-@RegisteredInitializer(Magic)
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Charms;
+
+@RegisteredInitializer(Charms)
 @Weight(weight = 0)
 public class CharmInitializer implements HeroModelInitializer {
 

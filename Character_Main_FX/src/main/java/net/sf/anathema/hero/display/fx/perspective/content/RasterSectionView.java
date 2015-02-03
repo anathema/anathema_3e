@@ -1,6 +1,9 @@
 package net.sf.anathema.hero.display.fx.perspective.content;
 
 import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
+import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -25,7 +28,7 @@ public class RasterSectionView implements SectionView, NodeHolder {
     this.isEmpty = false;
     T newView = subViewFactory.get(viewClass);
     NodeHolder viewToAdd = (NodeHolder) newView;
-    migPane.add(viewToAdd.getNode());
+    migPane.add(createContainer(viewToAdd, title), new CC().alignY("t"));
     return newView;
   }
 
@@ -40,5 +43,17 @@ public class RasterSectionView implements SectionView, NodeHolder {
   @Override
   public Node getNode() {
     return migPane;
+  }
+
+  private Node createContainer(NodeHolder content, String name) {
+    MigPane viewComponent = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1));
+    MigPane titlePane = new MigPane(LayoutUtils.fillWithoutInsets());
+    Label title = new Label(name);
+    title.setStyle("-fx-font-weight: bold");
+    titlePane.add(title);
+    titlePane.add(new Separator(), new CC().pushX().growX());
+    viewComponent.add(titlePane, new CC().pushX().growX());
+    viewComponent.add(content.getNode(), new CC().push().grow());
+    return viewComponent;
   }
 }

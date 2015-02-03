@@ -10,7 +10,7 @@ import net.sf.anathema.hero.languages.model.LanguagesModel;
 import net.sf.anathema.hero.languages.model.LanguagesModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.NaturalTraits)
+@RegisteredInitializer(HeroModelGroup.Mundane)
 @Weight(weight = 400)
 public class LanguagesInitializer implements HeroModelInitializer {
 

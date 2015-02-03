@@ -10,9 +10,9 @@ import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Sorcery;
 
-@RegisteredInitializer(Magic)
+@RegisteredInitializer(Sorcery)
 @Weight(weight = 200)
 public class SorceryInitializer implements HeroModelInitializer {
 

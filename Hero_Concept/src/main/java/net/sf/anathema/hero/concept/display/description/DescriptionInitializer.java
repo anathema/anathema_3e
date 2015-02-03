@@ -12,9 +12,9 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Outline;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Background;
 
-@RegisteredInitializer(Outline)
+@RegisteredInitializer(Background)
 @Weight(weight = 0)
 public class DescriptionInitializer implements HeroModelInitializer {
 

@@ -7,13 +7,12 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
+import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Magic;
-
-@RegisteredInitializer(Magic)
+@RegisteredInitializer(HeroModelGroup.Miscellaneous)
 @Weight(weight = 100)
 public class ComboInitializer implements HeroModelInitializer {
 

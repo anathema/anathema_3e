@@ -10,7 +10,7 @@ import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.Miscellaneous)
+@RegisteredInitializer(HeroModelGroup.Panoply)
 @Weight(weight = 200)
 public class EquipmentInitializer implements HeroModelInitializer {
   private HeroEnvironment environment;

@@ -9,9 +9,9 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.dot.GroupedStatedDotsView;
 import net.sf.anathema.library.initialization.Weight;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.NaturalTraits;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Mundane;
 
-@RegisteredInitializer(NaturalTraits)
+@RegisteredInitializer(Mundane)
 @Weight(weight = 0)
 public class AttributesInitializer implements HeroModelInitializer {
 
