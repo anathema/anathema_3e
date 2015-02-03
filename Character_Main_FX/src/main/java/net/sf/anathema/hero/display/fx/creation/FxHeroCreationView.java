@@ -29,6 +29,8 @@ public class FxHeroCreationView implements CharacterCreationView {
   @Override
   public void show() {
     dialog.setArrowLocation(PopOver.ArrowLocation.TOP_CENTER);
+    dialog.setAutoHide(true);
+    dialog.setAutoFix(true);
     dialog.setContentNode(component);
     dialog.show(parent);
   }
