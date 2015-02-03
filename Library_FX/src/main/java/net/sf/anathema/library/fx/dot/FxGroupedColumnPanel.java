@@ -15,7 +15,7 @@ public class FxGroupedColumnPanel implements DotViewPanel {
 
   public FxGroupedColumnPanel(MigPane pane, ColumnCount columnCount) {
     for (int i = 0; i < columnCount.getColumnCount(); i++) {
-      columns.add(new MigPane(LayoutUtils.withoutInsets().wrapAfter(3)));
+      columns.add(new MigPane(LayoutUtils.withoutInsets().gridGap("2", "2").wrapAfter(3)));
     }
     addColumnsToContainer(pane);
   }

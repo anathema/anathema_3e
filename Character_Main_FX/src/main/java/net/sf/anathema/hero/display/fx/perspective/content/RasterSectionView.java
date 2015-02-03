@@ -15,7 +15,7 @@ public class RasterSectionView implements SectionView, NodeHolder {
 
   private SubViewRegistry subViewFactory;
   private Command initializationCommand;
-  private MigPane migPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(3));
+  private MigPane migPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(3).gridGap("5", "0"));
   private boolean isEmpty = true;
 
   public RasterSectionView(SubViewRegistry subViewFactory, Command initializationCommand) {

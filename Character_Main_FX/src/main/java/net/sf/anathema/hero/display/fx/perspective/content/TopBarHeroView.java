@@ -5,6 +5,7 @@ import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Hyperlink;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
+import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
@@ -16,15 +17,14 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;
 
-import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class TopBarHeroView implements HeroView, NodeHolder {
 
-  private MigPane content = new MigPane(fillWithoutInsets().wrapAfter(1), new AC().index(0).shrink().shrinkPrio(200));
+  private MigPane content = new MigPane(withoutInsets().wrapAfter(1), new AC().index(0).shrink().shrinkPrio(200));
   private final SubViewRegistry subViewFactory;
   private final MigPane navigationBar = new MigPane(withoutInsets().gridGap("10", "0"));
-  private final MigPane stackContainer = new MigPane();
+  private final MigPane stackContainer = new MigPane(new LC().insets("0", "5", "0", "5"));
   private final FxStack stack = new FxStack(stackContainer);
 
   public TopBarHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets) {
