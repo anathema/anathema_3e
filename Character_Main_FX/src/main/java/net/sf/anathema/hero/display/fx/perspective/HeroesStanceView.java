@@ -3,6 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
+import net.sf.anathema.hero.display.fx.perspective.content.StackView;
 import net.sf.anathema.hero.display.fx.perspective.navigation.FxHeroPoolNavigation;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;

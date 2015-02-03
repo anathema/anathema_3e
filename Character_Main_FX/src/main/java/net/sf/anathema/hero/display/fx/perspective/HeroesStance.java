@@ -3,11 +3,14 @@ package net.sf.anathema.hero.display.fx.perspective;
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.BackInteractionPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
+import net.sf.anathema.hero.application.perspective.HeroPoolModel;
+import net.sf.anathema.hero.application.perspective.HeroPoolPresenter;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.HeroStackPresenter;
-import net.sf.anathema.hero.application.perspective.HeroSystemModel;
-import net.sf.anathema.hero.application.perspective.HeroSystemPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
+import net.sf.anathema.hero.display.fx.perspective.content.HeroStackFxBridge;
+import net.sf.anathema.hero.display.fx.perspective.content.HeroViewFactory;
+import net.sf.anathema.hero.display.fx.perspective.navigation.FrontInteractionPresenter;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -27,17 +30,17 @@ public class HeroesStance implements Stance {
 
   @Override
   public void initContent(Container container, ApplicationModel model, Environment environment, UiEnvironment uiEnvironment) {
-    new HeroSystemInitializer(model, environment).initializeCharacterSystem();
+    new HeroPoolInitializer(model, environment).initializeCharacterSystem();
     characterMessaging.setDelegate(model.getMessaging());
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
-    HeroSystemModel heroSystem = new HeroSystemModel(model);
+    HeroPoolModel heroSystem = new HeroPoolModel(model);
     HeroesStanceView view = new HeroesStanceView(uiEnvironment);
     container.setContent(view.getNode());
     HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment);
     HeroStackBridge bridge = new HeroStackFxBridge(viewFactory, view.getStackView());
     HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem);
     ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
-    HeroSystemPresenter systemPresenter = new HeroSystemPresenter(heroSystem, view.getGridView(), showOnSelect, environment);
+    HeroPoolPresenter systemPresenter = new HeroPoolPresenter(heroSystem, view.getGridView(), showOnSelect, environment);
     systemPresenter.initPresentation();
     this.stanceView = view;
     new FrontInteractionPresenter(heroSystem, view.getFrontInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();

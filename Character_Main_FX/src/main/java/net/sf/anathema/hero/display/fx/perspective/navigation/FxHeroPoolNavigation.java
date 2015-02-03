@@ -11,7 +11,6 @@ import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
-import net.sf.anathema.hero.display.fx.perspective.FxMenuButtonTool;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.tool.FxButtonTool;

@@ -6,7 +6,6 @@ import javafx.scene.control.ToggleGroup;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
-import net.sf.anathema.hero.display.fx.perspective.CharacterSelected;
 
 public class HeroPoolButton {
 
@@ -18,7 +17,7 @@ public class HeroPoolButton {
    }
 
   public void initContent(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
-    button.setOnAction(new CharacterSelected(characterSelector, dto.identifier));
+    button.setOnAction(new HeroSelected(characterSelector, dto.identifier));
     setContent(dto);
   }
 

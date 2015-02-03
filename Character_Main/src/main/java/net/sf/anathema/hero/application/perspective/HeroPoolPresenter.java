@@ -5,15 +5,15 @@ import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.library.resources.Resources;
 
-public class HeroSystemPresenter {
+public class HeroPoolPresenter {
 
   private final ItemSystemModel model;
   private final HeroesGridView view;
   private final Selector<HeroIdentifier> selector;
   private final Resources resources;
 
-  public HeroSystemPresenter(ItemSystemModel model, HeroesGridView view, Selector<HeroIdentifier> selector,
-                             Resources resources) {
+  public HeroPoolPresenter(ItemSystemModel model, HeroesGridView view, Selector<HeroIdentifier> selector,
+                           Resources resources) {
     this.model = model;
     this.view = view;
     this.selector = selector;

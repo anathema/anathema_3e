@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.content;
 
 import javafx.scene.Node;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;

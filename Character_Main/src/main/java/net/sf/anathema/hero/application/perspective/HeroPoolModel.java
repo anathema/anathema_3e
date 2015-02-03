@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HeroSystemModel implements ItemSystemModel {
+public class HeroPoolModel implements ItemSystemModel {
 
   private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new HashMap<>();
   private Announcer<ChangeListener> getsSelectionListener = Announcer.to(ChangeListener.class);
@@ -50,11 +50,11 @@ public class HeroSystemModel implements ItemSystemModel {
   private ApplicationModel model;
   private int newCharacterCount = 0;
 
-  public HeroSystemModel(ApplicationModel model) {
+  public HeroPoolModel(ApplicationModel model) {
     this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model);
   }
 
-  public HeroSystemModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
+  public HeroPoolModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
     this.persistenceModel = persistenceModel;
     this.model = model;
   }

@@ -1,9 +1,10 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.content;
 
 import net.sf.anathema.hero.application.SubViewMap;
 import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.presenter.HeroPresenter;
+import net.sf.anathema.hero.display.fx.perspective.CssSkinner;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.fx.NodeHolder;

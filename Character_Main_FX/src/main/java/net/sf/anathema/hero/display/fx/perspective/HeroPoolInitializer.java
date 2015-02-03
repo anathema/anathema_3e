@@ -4,11 +4,11 @@ import net.sf.anathema.hero.application.environment.HeroEnvironmentExtension;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 
-public class HeroSystemInitializer {
+public class HeroPoolInitializer {
   private final ApplicationModel model;
   private final Environment environment;
 
-  public HeroSystemInitializer(ApplicationModel model, Environment environment) {
+  public HeroPoolInitializer(ApplicationModel model, Environment environment) {
     this.model = model;
     this.environment = environment;
   }

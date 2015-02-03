@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.content;
 
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;

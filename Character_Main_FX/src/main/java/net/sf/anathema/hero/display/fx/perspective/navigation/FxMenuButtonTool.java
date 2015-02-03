@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.display.fx.perspective;
+package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.ImageView;
