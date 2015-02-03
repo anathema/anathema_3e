@@ -26,7 +26,7 @@ public class FxConfigurableView implements ConfigurableCharacterView, NodeHolder
   @Override
   public MultiComponentLine addMultiComponentLine() {
     FxMultiComponentLine line = new FxMultiComponentLine();
-    pane.add(line.getNode(), new CC().spanX().wrap());
+    pane.add(line.getNode(), new CC().growX().wrap());
     return line;
   }
 

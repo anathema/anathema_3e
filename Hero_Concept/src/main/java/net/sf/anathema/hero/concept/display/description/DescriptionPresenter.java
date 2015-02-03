@@ -59,8 +59,7 @@ public class DescriptionPresenter {
     addField(basicLooks, "CharacterDescription.Label.Hair", description.getHair(), presentation);
     addField(basicLooks, "CharacterDescription.Label.Skin", description.getSkin(), presentation);
     addField(basicLooks, "CharacterDescription.Label.Eyes", description.getEyes(), presentation);
-    MultiComponentLine sex = descriptionView.addMultiComponentLine();
-    addField(sex, "CharacterDescription.Label.Sex", description.getSex(), presentation);
+    addField(basicLooks, "CharacterDescription.Label.Sex", description.getSex(), presentation);
   }
 
   private void addField(MultiComponentLine componentLine, String label, ITextualDescription description, TextualPresentation presentation) {
