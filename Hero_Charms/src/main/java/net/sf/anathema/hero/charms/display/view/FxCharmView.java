@@ -8,7 +8,6 @@ import net.sf.anathema.hero.charms.display.special.CategorizedSpecialView;
 import net.sf.anathema.hero.charms.display.special.ToggleButtonSpecialNodeView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
-import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.tree.display.AgnosticPolygonPanel;
@@ -32,7 +31,7 @@ public class FxCharmView implements CharmView, NodeHolder {
   private final AgnosticTreeView treeView = new AgnosticTreeView(new AgnosticPolygonPanel(viewComponent));
 
   public FxCharmView() {
-    content.add(selectionPanel, new CC().growX().pushX().minHeight("44"));
+    content.add(selectionPanel, new CC().growX().pushX());
     content.add(viewComponent.getNode(), new CC().grow().push());
   }
 
@@ -46,8 +45,7 @@ public class FxCharmView implements CharmView, NodeHolder {
     final BorderPane borderPane = new BorderPane();
     ComboBoxSelectionView<T> selectionView = new ComboBoxSelectionView<>(title, uiConfig);
     borderPane.centerProperty().set(selectionView.getNode());
-    final Node titledBorder = StyledTitledPane.Create(title, borderPane);
-    selectionPanel.add(titledBorder);
+    selectionPanel.add(borderPane);
     return selectionView;
   }
 

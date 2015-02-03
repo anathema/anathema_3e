@@ -45,8 +45,6 @@ public class CharmInitializer implements HeroModelInitializer {
     CharacterCharmTreePresenter treePresenter = new CharacterCharmTreePresenter(environment.getResources(), charmView,
       model, presentationProperties, charmCache, provider);
     treePresenter.initPresentation();
-    //MagicDetailPresenter detailPresenter = createMagicDetailPresenter();
-    //new MagicAndDetailPresenter(detailPresenter, treePresenter).initPresentation();
   }
 
   @Override

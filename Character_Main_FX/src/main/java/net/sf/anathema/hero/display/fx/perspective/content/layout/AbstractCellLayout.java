@@ -14,7 +14,7 @@ public abstract class AbstractCellLayout implements CellLayout {
   protected abstract CC createCellConstraint();
 
   protected final CC createDefaultCellConstraints() {
-    return new CC().alignY("t");
+    return new CC().alignY("t").grow().push();
   }
 }
 

@@ -26,7 +26,7 @@ public class TopBarHeroView implements HeroView, NodeHolder {
   private final SubViewRegistry subViewFactory;
   private final RasterLayoutMap layoutMap;
   private final MigPane navigationBar = new MigPane(withoutInsets().gridGap("10", "0"));
-  private final MigPane stackContainer = new MigPane(new LC().insets("0", "5", "0", "5"));
+  private final MigPane stackContainer = new MigPane(new LC().insets("0", "5", "0", "5").fill());
   private final FxStack stack = new FxStack(stackContainer);
 
   public TopBarHeroView(SubViewRegistry viewFactory, Collection<Stylesheet> stylesheets, RasterLayoutMap layoutMap) {
