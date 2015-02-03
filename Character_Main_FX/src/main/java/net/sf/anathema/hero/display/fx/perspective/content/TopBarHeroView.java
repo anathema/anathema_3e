@@ -18,7 +18,7 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class TopBarHeroView implements HeroView, NodeHolder {
 
-  private final TaskedHeroPane taskedHeroPane = new TaskedHeroPane();
+  private final TaskedHeroNavigation taskedHeroNavigation = new TaskedHeroNavigation();
   private MigPane content;
   private final SubViewRegistry subViewFactory;
   private final Collection<Stylesheet> stylesheets;
@@ -31,7 +31,7 @@ public class TopBarHeroView implements HeroView, NodeHolder {
 
   @Override
   public SectionView addSection(String title) {
-    return new HeroViewSection(taskedHeroPane, title, subViewFactory);
+    return new HeroViewSection(taskedHeroNavigation, title, subViewFactory);
   }
 
   @Override
@@ -41,7 +41,7 @@ public class TopBarHeroView implements HeroView, NodeHolder {
       stylesheets.forEach(sheet -> sheet.applyToParent(content));
       new Stylesheet("skin/character/hero-view.css").applyToParent(content);
       content.add(createNavigationBar(), new CC().growX());
-      content.add(taskedHeroPane.getNode(), new CC().grow().push());
+      content.add(taskedHeroNavigation.getNode(), new CC().grow().push());
     }
     return content;
   }

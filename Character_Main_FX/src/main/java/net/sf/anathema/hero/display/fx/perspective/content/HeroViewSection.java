@@ -9,8 +9,8 @@ public class HeroViewSection implements SectionView {
   private final MultipleContentView view;
   private final SubViewRegistry subViewFactory;
 
-  public HeroViewSection(HeroPane heroPane, String title, SubViewRegistry subViewFactory) {
-    this.view = heroPane.addMultipleContentView(title);
+  public HeroViewSection(HeroNavigation heroNavigation, String title, SubViewRegistry subViewFactory) {
+    this.view = heroNavigation.addMultipleContentView(title);
     this.subViewFactory = subViewFactory;
   }
 

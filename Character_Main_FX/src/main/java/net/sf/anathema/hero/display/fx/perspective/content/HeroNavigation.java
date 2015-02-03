@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective.content;
 
-public interface HeroPane {
+public interface HeroNavigation {
 
   MultipleContentView addMultipleContentView(String header);
 }
