@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
+import net.sf.anathema.hero.display.fx.perspective.content.layout.RasterLayout;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
@@ -13,12 +14,15 @@ import org.tbee.javafx.scene.layout.MigPane;
 
 public class RasterSectionView implements SectionView, NodeHolder {
 
-  private SubViewRegistry subViewFactory;
-  private Command initializationCommand;
-  private MigPane migPane = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(3).gridGap("5", "0"));
+  private final SubViewRegistry subViewFactory;
+  private final Command initializationCommand;
+  private final MigPane content = new MigPane();
   private boolean isEmpty = true;
+  private final RasterLayout rasterLayout;
 
-  public RasterSectionView(SubViewRegistry subViewFactory, Command initializationCommand) {
+  public RasterSectionView(SubViewRegistry subViewFactory, Command initializationCommand, RasterLayout rasterLayout) {
+    this.rasterLayout = rasterLayout;
+    this.rasterLayout.setLayoutConstraints(content);
     this.subViewFactory = subViewFactory;
     this.initializationCommand = initializationCommand;
   }
@@ -28,7 +32,8 @@ public class RasterSectionView implements SectionView, NodeHolder {
     this.isEmpty = false;
     T newView = subViewFactory.get(viewClass);
     NodeHolder viewToAdd = (NodeHolder) newView;
-    migPane.add(createContainer(viewToAdd, title), new CC().alignY("t"));
+    Node container = createContainer(viewToAdd, title);
+    rasterLayout.addNext(content, container);
     return newView;
   }
 
@@ -42,7 +47,7 @@ public class RasterSectionView implements SectionView, NodeHolder {
 
   @Override
   public Node getNode() {
-    return migPane;
+    return content;
   }
 
   private Node createContainer(NodeHolder content, String name) {
