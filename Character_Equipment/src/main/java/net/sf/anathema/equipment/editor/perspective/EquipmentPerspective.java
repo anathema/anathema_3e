@@ -19,7 +19,7 @@ import net.sf.anathema.platform.utility.UtilityAutoCollector;
 import net.sf.anathema.platform.utility.UtilityToggle;
 
 @UtilityAutoCollector
-@Weight(weight = 5000)
+@Weight(weight = 100)
 public class EquipmentPerspective implements UtilityPerspective {
 
   @Override
