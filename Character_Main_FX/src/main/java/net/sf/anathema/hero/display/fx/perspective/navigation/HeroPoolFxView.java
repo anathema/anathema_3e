@@ -3,6 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.TilePane;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroesGridView;
@@ -53,5 +54,9 @@ public class HeroPoolFxView implements HeroesGridView {
 
   public Node getNode() {
     return gridPane;
+  }
+
+  public void clear() {
+    gridPane.getChildren().clear();
   }
 }

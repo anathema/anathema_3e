@@ -27,24 +27,21 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
   private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill(), new AC().fill());
-  private final MigPane heroes = new MigPane(withoutInsets().gridGap("2", "0"), new AC().grow().fill(), new AC().fill());
+  private final HeroPoolFxView heroes = new HeroPoolFxView();
   private final HBox frontTools = new HBox();
   private final HBox backTools = new HBox();
   private final ToolBar toolBar = new ToolBar();
   private final AcceleratorMap acceleratorMap;
-  private final HeroPoolFxView gridView;
 
   public FxHeroPoolNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
-    this.gridView = new HeroPoolFxView();
     new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
-    content.add(heroes);
+    content.add(heroes.getNode());
     content.add(frontTools, new CC().push().grow());
     content.add(backTools, new CC().dockEast());
     backTools.getChildren().add(toolBar);
     content.getStyleClass().add("selection-pane");
     toolBar.getStyleClass().add("toolbox");
-    heroes.add(gridView.getNode(), new CC().push());
   }
 
   public Tool addTool() {
@@ -60,7 +57,7 @@ public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
   }
 
   public void clear() {
-    heroes.getChildren().clear();
+    heroes.clear();
   }
 
   public Node getNode() {
@@ -80,22 +77,22 @@ public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
 
   @Override
   public void addButton(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
-    gridView.addButton(dto, characterSelector);
+    heroes.addButton(dto, characterSelector);
   }
 
   @Override
   public void selectButton(HeroIdentifier identifier) {
-    gridView.selectButton(identifier);
+    heroes.selectButton(identifier);
   }
 
   @Override
   public void updateButton(CharacterButtonDto dto) {
-    gridView.updateButton(dto);
+    heroes.updateButton(dto);
   }
 
   @Override
   public CharacterTemplateCreator createNewCharacter(Tool caller) {
-    return gridView.createNewCharacter(caller);
+    return heroes.createNewCharacter(caller);
   }
 
   @Override
