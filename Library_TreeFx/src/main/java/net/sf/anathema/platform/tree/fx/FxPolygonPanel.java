@@ -10,6 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Transform;
+import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.tooltip.StatefulFxTooltip;
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.library.presenter.RGBColor;
@@ -41,6 +42,7 @@ import static javafx.scene.input.MouseButton.SECONDARY;
 import static javafx.scene.input.MouseEvent.MOUSE_CLICKED;
 import static javafx.scene.input.MouseEvent.MOUSE_DRAGGED;
 import static javafx.scene.input.MouseEvent.MOUSE_PRESSED;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.clipToSize;
 import static net.sf.anathema.platform.tree.fx.FxColorUtils.toFxColor;
 import static net.sf.anathema.platform.tree.fx.FxTransformer.convert;
 import static net.sf.anathema.platform.tree.view.interaction.MouseButton.Other;
@@ -58,12 +60,10 @@ public class FxPolygonPanel implements DisplayPolygonPanel {
   private AgnosticTransform transform = new AgnosticTransform();
 
   public FxPolygonPanel() {
-    Rectangle clippingRectangle = new Rectangle(0, 0);
     sizeLikeContentPane(background);
     sizeLikeContentPane(glasspane);
-    sizeLikeContentPane(clippingRectangle);
+    clipToSize(content);
     glasspane.setFill(Color.TRANSPARENT);
-    content.setClip(clippingRectangle);
     canvas.setManaged(false);
     content.getChildren().addAll(background, canvas, glasspane);
     setBackground(RGBColor.White);

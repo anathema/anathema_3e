@@ -26,7 +26,7 @@ import org.tbee.javafx.scene.layout.MigPane;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
-  private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill(), new AC().fill());
+  private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill().shrinkPrio(200), new AC().fill());
   private final HeroPoolFxView heroes = new HeroPoolFxView();
   private final HBox frontTools = new HBox();
   private final HBox backTools = new HBox();
