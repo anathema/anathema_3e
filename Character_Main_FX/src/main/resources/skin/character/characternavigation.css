@@ -50,3 +50,9 @@
     -fx-alignment: top-center;
     -fx-text-alignment: center;
 }
+
+.new-hero-splat-selector{
+    -fx-background-color: transparent;
+    -fx-content-display: left;
+    -fx-cursor: hand;
+}
