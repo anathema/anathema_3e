@@ -20,11 +20,6 @@ public class HeroPoolFxView implements HeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
   private final Map<HeroIdentifier, HeroPoolButton> buttonsByIdentifier = new HashMap<>();
-  private final DialogFactory dialogFactory;
-
-  public HeroPoolFxView(DialogFactory dialogFactory) {
-    this.dialogFactory = dialogFactory;
-  }
 
   @Override
   public void addButton(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {

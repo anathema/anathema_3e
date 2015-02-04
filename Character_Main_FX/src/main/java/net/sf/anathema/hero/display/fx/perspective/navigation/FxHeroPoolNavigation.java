@@ -36,7 +36,7 @@ public class FxHeroPoolNavigation implements InteractionView, HeroesGridView {
 
   public FxHeroPoolNavigation(UiEnvironment uiEnvironment) {
     this.acceleratorMap = uiEnvironment;
-    this.gridView = new HeroPoolFxView(uiEnvironment);
+    this.gridView = new HeroPoolFxView();
     new Stylesheet("skin/character/characternavigation.css").applyToParent(content);
     content.add(heroes);
     content.add(frontTools, new CC().push().grow());
