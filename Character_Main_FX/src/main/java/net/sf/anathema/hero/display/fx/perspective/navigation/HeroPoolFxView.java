@@ -3,25 +3,21 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.TilePane;
-import javafx.scene.shape.Rectangle;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
-import net.sf.anathema.hero.application.perspective.HeroesGridView;
 import net.sf.anathema.hero.application.perspective.Selector;
+import net.sf.anathema.hero.application.perspective.UpdatingHeroesGridView;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.display.fx.creation.FxHeroSplatCreator;
-import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.platform.fx.environment.DialogFactory;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.clipToSize;
 
-public class HeroPoolFxView implements HeroesGridView {
+public class HeroPoolFxView implements UpdatingHeroesGridView {
   private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
   private final Map<HeroIdentifier, HeroPoolButton> buttonsByIdentifier = new HashMap<>();

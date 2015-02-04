@@ -2,7 +2,8 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.application.perspective.HeroesGridView;
+import net.sf.anathema.hero.application.perspective.HeroRoster;
+import net.sf.anathema.hero.application.perspective.UpdatingHeroesGridView;
 import net.sf.anathema.hero.display.fx.perspective.content.StackView;
 import net.sf.anathema.hero.display.fx.perspective.navigation.FxHeroPoolNavigation;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -28,11 +29,15 @@ public class HeroesStanceView {
     return navigation;
   }
 
+  public InteractionView getCenterInteractionView() {
+    return navigation.getCenterInteraction();
+  }
+
   public InteractionView getFrontInteractionView() {
     return navigation.getFrontInteraction();
   }
 
-  public HeroesGridView getGridView() {
+  public UpdatingHeroesGridView getGridView() {
     return navigation;
   }
 
@@ -46,5 +51,11 @@ public class HeroesStanceView {
 
   public Tool createLeaveTool() {
     return navigation.createBigToolAtTheEnd();
+  }
+
+  public HeroRoster createHeroRoster() {
+    FxHeroRoster roster = new FxHeroRoster();
+    stackView.addView(roster.getIdentifier(), roster);
+    return roster;
   }
 }

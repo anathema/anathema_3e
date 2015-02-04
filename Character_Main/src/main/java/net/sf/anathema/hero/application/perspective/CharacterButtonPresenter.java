@@ -21,14 +21,9 @@ public class CharacterButtonPresenter {
   public void initPresentation() {
     CharacterButtonDto dto = extractButtonDto();
     view.addButton(dto, selector);
-    initDescriptiveFeatureListening();
   }
 
-  private void initDescriptiveFeatureListening() {
-    character.whenFeaturesChange(() -> view.updateButton(extractButtonDto()));
-  }
-
-  private CharacterButtonDto extractButtonDto() {
+  protected CharacterButtonDto extractButtonDto() {
     return new ToCharacterButtonDto(resources).apply(character.getDescriptiveFeatures());
   }
 }

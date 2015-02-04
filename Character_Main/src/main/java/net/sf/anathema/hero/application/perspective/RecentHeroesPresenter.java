@@ -5,15 +5,15 @@ import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.library.resources.Resources;
 
-public class HeroPoolPresenter {
+public class RecentHeroesPresenter {
 
   private final ItemSystemModel model;
-  private final HeroesGridView view;
+  private final UpdatingHeroesGridView view;
   private final Selector<HeroIdentifier> selector;
   private final Resources resources;
 
-  public HeroPoolPresenter(ItemSystemModel model, HeroesGridView view, Selector<HeroIdentifier> selector,
-                           Resources resources) {
+  public RecentHeroesPresenter(ItemSystemModel model, UpdatingHeroesGridView view, Selector<HeroIdentifier> selector,
+                               Resources resources) {
     this.model = model;
     this.view = view;
     this.selector = selector;
@@ -21,12 +21,12 @@ public class HeroPoolPresenter {
   }
 
   public void initPresentation() {
-    for (final CharacterItemModel character : model.collectAllExistingCharacters()) {
+    for (CharacterItemModel character : model.collectAllExistingCharacters()) {
       initPresentation(character);
     }
   }
 
-  private void initPresentation(final CharacterItemModel character) {
-    new CharacterButtonPresenter(resources, selector, character, view).initPresentation();
+  private void initPresentation(CharacterItemModel character) {
+    new CharacterButtonPresenterWithFeatureListening(resources, selector, character, view).initPresentation();
   }
 }
