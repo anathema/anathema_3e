@@ -36,7 +36,7 @@ public class HeroRosterPresenter {
   }
 
   private void showAllHeroesInRoster(HeroRoster roster) {
-    for (CharacterItemModel character : model.collectAllExistingCharacters()) {
+    for (CharacterItemModel character : model.getAllKnownHeroes()) {
       addHeroToRoster(roster, character);
     }
   }

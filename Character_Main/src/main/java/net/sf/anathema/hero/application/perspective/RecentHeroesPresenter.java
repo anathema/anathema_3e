@@ -21,7 +21,7 @@ public class RecentHeroesPresenter {
   }
 
   public void initPresentation() {
-    for (CharacterItemModel character : model.collectAllExistingCharacters()) {
+    for (CharacterItemModel character : model.getAllKnownHeroes()) {
       initPresentation(character);
     }
   }

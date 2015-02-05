@@ -29,15 +29,14 @@ import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class HeroPoolModel implements ItemSystemModel {
 
-  private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new HashMap<>();
+  private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new LinkedHashMap<>();
   private Announcer<ChangeListener> getsSelectionListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesExperiencedListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesInexperiencedListener = Announcer.to(ChangeListener.class);
@@ -60,16 +59,18 @@ public class HeroPoolModel implements ItemSystemModel {
   }
 
   @Override
-  public Collection<CharacterItemModel> collectAllExistingCharacters() {
+  public void collectAllExistingHeroes() {
     Collection<CharacterReference> references = persistenceModel.collectCharacters();
-    List<CharacterItemModel> characters = new ArrayList<>();
     for (CharacterReference reference : references) {
       PreloadedDescriptiveFeatures features = new PreloadedDescriptiveFeatures(createFileScanner(), reference);
       CharacterItemModel character = new CharacterItemModel(features);
       modelsByIdentifier.put(features.getIdentifier(), character);
-      characters.add(character);
     }
-    return characters;
+  }
+
+  @Override
+  public Collection<CharacterItemModel> getAllKnownHeroes() {
+    return modelsByIdentifier.values();
   }
 
   private HeroReferenceScanner createFileScanner() {
