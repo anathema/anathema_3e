@@ -12,10 +12,6 @@
     -fx-max-width: 70px;
 }
 
-.character-grid-button:hover {
-    -fx-background-color: linear-gradient(to bottom, derive(crimson, -10%), black);
-}
-
 .character-grid-button:selected {
     -fx-background-color: linear-gradient(to bottom, crimson, black);
     -fx-cursor: default;

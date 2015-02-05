@@ -19,3 +19,7 @@
 .clean {
     -fx-text-fill: whitesmoke;
 }
+
+.character-grid-button:hover {
+    -fx-background-color: linear-gradient(to bottom, derive(crimson, -10%), black);
+}

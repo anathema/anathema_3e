@@ -5,3 +5,7 @@
 .clean {
     -fx-text-fill: black;
 }
+
+.character-grid-button:hover {
+    -fx-background-color: linear-gradient(to bottom, black, derive(crimson, -10%) 80%);
+}
