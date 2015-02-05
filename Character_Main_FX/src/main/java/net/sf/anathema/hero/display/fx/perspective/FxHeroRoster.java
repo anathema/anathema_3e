@@ -18,6 +18,7 @@ public class FxHeroRoster implements HeroRoster, NodeHolder {
   public FxHeroRoster() {
     tiles.setPrefRows(1);
     new Stylesheet("skin/character/charactergridbutton.css").applyToParent(tiles);
+    new Stylesheet("skin/character/heroroster.css").applyToParent(tiles);
   }
 
   @Override

@@ -6,7 +6,9 @@ import java.util.Collection;
 
 public interface ItemSystemModel extends ItemSelectionModel {
 
-  Collection<CharacterItemModel> collectAllExistingCharacters();
+  void collectAllExistingHeroes();
+
+  Collection<CharacterItemModel> getAllKnownHeroes();
 
   Item loadItem(HeroIdentifier identifier);
 

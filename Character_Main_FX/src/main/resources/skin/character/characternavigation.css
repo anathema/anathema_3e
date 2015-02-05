@@ -11,3 +11,11 @@
     -fx-content-display: left;
     -fx-cursor: hand;
 }
+
+.dirty {
+    -fx-text-fill: #40C4FF;
+}
+
+.clean {
+    -fx-text-fill: whitesmoke;
+}

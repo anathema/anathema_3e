@@ -34,11 +34,3 @@
     -fx-alignment: top-center;
     -fx-text-alignment: center;
 }
-
-.dirty {
-    -fx-text-fill: #40C4FF;
-}
-
-.clean {
-    -fx-text-fill: whitesmoke;
-}

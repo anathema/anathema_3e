@@ -1,0 +1,7 @@
+.dirty {
+    -fx-text-fill: darkcyan;
+}
+
+.clean {
+    -fx-text-fill: black;
+}

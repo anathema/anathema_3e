@@ -34,6 +34,7 @@ public class HeroesStance implements Stance {
     characterMessaging.setDelegate(model.getMessaging());
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
     HeroPoolModel heroSystem = new HeroPoolModel(model);
+    heroSystem.collectAllExistingHeroes();
     this.view = new HeroesStanceView(uiEnvironment);
     container.setContent(view.getNode());
     HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment);
