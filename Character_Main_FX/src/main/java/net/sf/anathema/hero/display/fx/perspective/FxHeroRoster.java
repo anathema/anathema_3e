@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.TilePane;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
 import net.sf.anathema.hero.application.perspective.HeroRoster;
