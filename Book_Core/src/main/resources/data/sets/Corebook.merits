@@ -513,7 +513,7 @@
 			"requirements": [ ]
 		},
 		{
-			"name": "Venemous",
+			"name": "Venomous",
 			"values": "3, 4",
 			"type": "Supernatural",
 			"repurchases": false,
