@@ -347,6 +347,19 @@
 			"requirements": [ ]
 		},
 		{
+		    "name": "Strong Lungs",
+		    "values": "1",
+		    "type": "Purchased",
+		    "repurchases": false,
+		    "requirements": [
+                {
+            		"requirementType": "trait",
+            	    "trait": "Athletics",
+            		"rating": 3
+            	}
+            ],
+		}
+		{
 			"name": "Sorcerous Initiation",
 			"values": "5",
 			"type": "Story",
