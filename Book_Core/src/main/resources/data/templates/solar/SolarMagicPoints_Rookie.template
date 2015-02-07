@@ -1,10 +1,10 @@
 {
     generalCreationPoints: {
         freePicks: 15;
-        costs: 4
+        costs: 5
     };
     favoredCreationPoints: {
-        costs: 3
+        costs: 4
     };
     generalExperiencePoints: {
          costs: 10
