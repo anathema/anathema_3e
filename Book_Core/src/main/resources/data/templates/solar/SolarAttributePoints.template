@@ -3,7 +3,7 @@
     calculationBase: 1
   };
   bonusPoints: {
-    primary: 5;
+    primary: 4;
     secondary: 4;
     tertiary: 3
   };
