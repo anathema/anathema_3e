@@ -491,7 +491,7 @@
 			"name": "Subtlety",
 			"values": "2",
 			"type": "Supernatural",
-			"repurchases": false,
+			"repurchases": true,
 			"requirements": [
 				{
 					"requirementType": "supernaturalMerits"
