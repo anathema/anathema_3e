@@ -415,28 +415,28 @@
 		},
 		{
 			"name": "Claws",
-			"values": "1-4",
+			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
 			"requirements": [ ]
 		},
 		{
 			"name": "Fangs",
-			"values": "1-4",
+			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
 			"requirements": [ ]
 		},
 		{
 			"name": "Hooves",
-			"values": "1-4",
+			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
 			"requirements": [ ]
 		},
 		{
 			"name": "Horns",
-			"values": "1-4",
+			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
 			"requirements": [ ]
