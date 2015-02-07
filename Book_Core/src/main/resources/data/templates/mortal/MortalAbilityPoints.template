@@ -1,5 +1,5 @@
 {
-  generalDots: 25;
+  generalDots: 28;
   maximalFreebieRank: 3;
   standard: {
     calculation: {
