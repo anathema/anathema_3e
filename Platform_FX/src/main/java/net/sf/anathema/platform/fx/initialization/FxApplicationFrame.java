@@ -35,6 +35,7 @@ public class FxApplicationFrame implements ApplicationFrameView {
     Parent contentPane = createContentPane();
     notificationPane.setContent(contentPane);
     Scene scene = new Scene(notificationPane);
+    scene.getStylesheets().add("skin/platform/anathema.css");
     stage.setScene(scene);
   }
 
