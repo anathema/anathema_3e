@@ -51,8 +51,8 @@ public class RasterSectionView implements SectionView, NodeHolder {
   }
 
   private Node createContainer(NodeHolder content, String name) {
-    MigPane viewComponent = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1));
-    MigPane titlePane = new MigPane(LayoutUtils.fillWithoutInsets());
+    MigPane viewComponent = new MigPane(LayoutUtils.fillWithoutInsets().wrapAfter(1).gridGap("2", "0"));
+    MigPane titlePane = new MigPane(LayoutUtils.fillWithoutInsets().gridGap("3", "2"));
     Label title = new Label(name);
     title.setStyle("-fx-font-weight: bold");
     titlePane.add(title);

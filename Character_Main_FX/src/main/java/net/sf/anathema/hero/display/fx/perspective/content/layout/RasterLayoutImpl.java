@@ -21,7 +21,7 @@ public class RasterLayoutImpl implements RasterLayout {
 
   @Override
   public void setLayoutConstraints(MigPane pane) {
-    LC layoutConstraints = LayoutUtils.fillWithoutInsets().wrapAfter(columnCount).gridGap("5", "0");
+    LC layoutConstraints = LayoutUtils.fillWithoutInsets().wrapAfter(columnCount).gridGap("15", "4");
     pane.setLayoutConstraints(layoutConstraints);
   }
 
