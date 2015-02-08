@@ -58,5 +58,6 @@ public class UtilityStance implements Stance {
   public void configureEnterTool(Tool tool) {
     tool.setText("Editors & Settings");
     tool.setIcon(new RelativePath("icons/preferences.png"));
+    tool.setTooltip("Edit equipment and settings");
   }
 }
