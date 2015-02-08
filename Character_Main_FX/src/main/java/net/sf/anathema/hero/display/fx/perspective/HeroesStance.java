@@ -58,5 +58,6 @@ public class HeroesStance implements Stance {
   @Override
   public void configureEnterTool(Tool tool) {
     tool.setText("Heroes");
+    tool.setTooltip("Create and advance heroes");
   }
 }

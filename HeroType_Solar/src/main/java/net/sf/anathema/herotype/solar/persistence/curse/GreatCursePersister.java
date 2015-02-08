@@ -23,16 +23,13 @@ public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPt
     }
     if (model.getLimitBreak() instanceof DescriptiveLimitBreak) {
       DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) model.getLimitBreak();
-      virtueFlaw.getLimitBreak().setText(pto.limitBreak);
-      virtueFlaw.getDescription().setText(pto.description);
+      virtueFlaw.getLimitTrigger().setText(pto.limitTrigger);
     }
-    model.getLimitBreak().getName().setText(pto.name);
   }
 
   @Override
   protected VirtueFlawPto saveModelToPto(LimitBreakModel heroModel) {
     VirtueFlawPto pto = new VirtueFlawPto();
-    pto.name = heroModel.getLimitBreak().getName().getText();
     pto.limit.creationValue = heroModel.getLimitBreak().getLimitTrait().getCreationValue();
     int experienceValue = heroModel.getLimitBreak().getLimitTrait().getExperiencedValue();
     if (experienceValue >= 0) {
@@ -40,8 +37,7 @@ public class GreatCursePersister extends AbstractModelJsonPersister<VirtueFlawPt
     }
     if (heroModel.getLimitBreak() instanceof DescriptiveLimitBreak) {
       DescriptiveLimitBreak virtueFlaw = (DescriptiveLimitBreak) heroModel.getLimitBreak();
-      pto.limitBreak = virtueFlaw.getLimitBreak().getText();
-      pto.description = virtueFlaw.getDescription().getText();
+      pto.limitTrigger = virtueFlaw.getLimitTrigger().getText();
     }
     return pto;
   }
