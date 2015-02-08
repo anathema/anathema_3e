@@ -357,8 +357,8 @@
             	    "trait": "Athletics",
             		"rating": 3
             	}
-            ],
-		}
+            ]
+		},
 		{
 			"name": "Sorcerous Initiation",
 			"values": "5",
