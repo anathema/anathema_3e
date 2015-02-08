@@ -6,8 +6,6 @@ import net.sf.anathema.herotype.solar.model.curse.LimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.LimitBreakModel;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
-import net.sf.anathema.library.text.ITextView;
-import net.sf.anathema.library.text.TextualPresentation;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
 import net.sf.anathema.library.view.IntValueView;
 
@@ -25,7 +23,6 @@ public class VirtueFlawPresenter implements Presenter {
 
   @Override
   public void initPresentation() {
-    initBasicPresentation();
     initAdditionalPresentation();
     initLimitPresentation(model.getLimitBreak());
   }
@@ -34,22 +31,11 @@ public class VirtueFlawPresenter implements Presenter {
     // Nothing to do
   }
 
-  protected void initBasicPresentation() {
-    LimitBreak limitBreak = model.getLimitBreak();
-    initNamePresentation(limitBreak);
-  }
-
   protected void initLimitPresentation(LimitBreak limitBreak) {
     Trait trait = limitBreak.getLimitTrait();
     IntValueView traitView =
             view.addDotSelector(getResources().getString(trait.getType().getId()), trait.getMaximalValue());
     new TraitPresenter(trait, traitView).initPresentation();
-  }
-
-  protected ITextView initNamePresentation(LimitBreak limitBreak) {
-    ITextView titleView = view.addLineView(resources.getString("VirtueFlaw.Name.Name"));
-    new TextualPresentation().initView(titleView, limitBreak.getName());
-    return titleView;
   }
 
   protected final Resources getResources() {

@@ -32,8 +32,7 @@ public class DescriptiveLimitBreakModelImpl extends AbstractLimitBreakModel impl
   public void addChangeListener(ChangeListener listener) {
     super.addChangeListener(listener);
     GlobalChangeAdapter<String> changeAdapter = new GlobalChangeAdapter<>(listener);
-    virtueFlaw.getDescription().addTextChangedListener(changeAdapter);
-    virtueFlaw.getLimitBreak().addTextChangedListener(changeAdapter);
+    virtueFlaw.getLimitTrigger().addTextChangedListener(changeAdapter);
   }
 
   @Override

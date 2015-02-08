@@ -41,14 +41,12 @@ public class VirtueFlawEncoder extends AbstractContentEncoder<VirtueFlawContent>
 
   private void encodeNameAndConditionDefined(SheetGraphics graphics, VirtueFlawContent content, Bounds textBounds) throws DocumentException {
     Phrase phrase = new Phrase();
-    phrase.add(new Chunk(content.getVirtueFlawName() + ": ", createNameFont(graphics)));
-    phrase.add(new Chunk(content.getLimitBreakCondition(), createConditionFont(graphics)));
+    phrase.add(new Chunk(content.getLimitTrigger(), createConditionFont(graphics)));
     graphics.createSimpleColumn(textBounds).withLeading(REDUCED_LINE_HEIGHT).andTextPart(phrase).encode();
   }
 
   private void encodeOnlyNameDefined(SheetGraphics graphics, Bounds bounds, VirtueFlawContent content, Bounds textBounds) throws DocumentException {
     Phrase phrase = new Phrase();
-    phrase.add(new Chunk(content.getVirtueFlawName(), createNameFont(graphics)));
     float baseLine = graphics.createSimpleColumn(textBounds).withLeading(REDUCED_LINE_HEIGHT).andTextPart(phrase).encode().getYLine();
     encodeLines(graphics, bounds, REDUCED_LINE_HEIGHT, baseLine);
   }
@@ -59,7 +57,7 @@ public class VirtueFlawEncoder extends AbstractContentEncoder<VirtueFlawContent>
     undefinedFont.setStyle(Font.UNDERLINE);
     phrase.add(new Chunk("                                          : ", undefinedFont));
     phrase.add(new Chunk(": ", createNameFont(graphics)));
-    phrase.add(new Chunk(content.getLimitBreakCondition(), createConditionFont(graphics)));
+    phrase.add(new Chunk(content.getLimitTrigger(), createConditionFont(graphics)));
     graphics.createSimpleColumn(textBounds).withLeading(REDUCED_LINE_HEIGHT).andTextPart(phrase).encode();
   }
 

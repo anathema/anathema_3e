@@ -6,7 +6,6 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreak;
 import net.sf.anathema.herotype.solar.model.curse.DescriptiveLimitBreakModel;
 import net.sf.anathema.herotype.solar.model.curse.GreatCurseFetcher;
-import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.resources.Resources;
 
 public class VirtueFlawContent extends AbstractSubBoxContent {
@@ -23,24 +22,20 @@ public class VirtueFlawContent extends AbstractSubBoxContent {
     return "GreatCurse.Solar";
   }
 
-  public String getVirtueFlawName() {
-    return getVirtueFlawModel().getName().getText();
-  }
-
   public int getLimitValue() {
     return getVirtueFlawModel().getLimitTrait().getCurrentValue();
   }
 
-  public String getLimitBreakCondition() {
-    return getVirtueFlawModel().getLimitBreak().getText();
+  public String getLimitTrigger() {
+    return getVirtueFlawModel().getLimitTrigger().getText();
   }
 
   public boolean isNameDefined() {
-    return !StringUtilities.isNullOrTrimmedEmpty(getVirtueFlawName());
+    return false;
   }
 
   public boolean isConditionDefined() {
-    return !Strings.isNullOrEmpty(getLimitBreakCondition());
+    return !Strings.isNullOrEmpty(getLimitTrigger());
   }
 
   private DescriptiveLimitBreak getVirtueFlawModel() {
