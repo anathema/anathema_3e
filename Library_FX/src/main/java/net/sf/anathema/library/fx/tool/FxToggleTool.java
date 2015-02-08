@@ -27,7 +27,7 @@ public class FxToggleTool extends FxBaseTool implements ToggleTool {
 
   @Override
   public void setCommand(Command command) {
-    Command deselectAndProcess = new DeselectToggleButtonAndProcess(command);
+    Command deselectAndProcess = new DeselectToggleButtonAndProcess(this, command);
     super.setCommand(deselectAndProcess);
   }
 
@@ -54,19 +54,5 @@ public class FxToggleTool extends FxBaseTool implements ToggleTool {
     button.getStyleClass().remove(this.style.style);
     button.getStyleClass().add(style.style);
     this.style = style;
-  }
-
-  private class DeselectToggleButtonAndProcess implements Command {
-    private Command command;
-
-    public DeselectToggleButtonAndProcess(Command command) {
-      this.command = command;
-    }
-
-    @Override
-    public void execute() {
-      deselect();
-      command.execute();
-    }
   }
 }

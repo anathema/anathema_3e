@@ -2,11 +2,11 @@
     -fx-background-color: linear-gradient(to bottom, crimson, #4d0815)
 }
 
-.toolbox{
+.toolbox {
     -fx-background-color: transparent;
 }
 
-.new-hero-splat-selector{
+.new-hero-splat-selector {
     -fx-background-color: transparent;
     -fx-content-display: left;
     -fx-cursor: hand;
@@ -22,4 +22,8 @@
 
 .character-grid-button:hover {
     -fx-background-color: linear-gradient(to bottom, derive(crimson, -10%), black);
+}
+
+.tool {
+    -fx-text-fill: whitesmoke;
 }

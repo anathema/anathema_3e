@@ -26,6 +26,7 @@ public class ExperiencedInteractionPresenter {
   private void initializeAppearance() {
     interaction.setIcon(new RelativePath("icons/ToolXp.png"));
     interaction.setTooltip(resources.getString("CharacterTool.ToExperienced.Tooltip"));
+    interaction.setText(resources.getString("CharacterTool.ToExperienced.Text"));
   }
 
   private void initializeEnabling() {

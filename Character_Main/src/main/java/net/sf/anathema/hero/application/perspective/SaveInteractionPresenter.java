@@ -30,6 +30,7 @@ public class SaveInteractionPresenter {
 
   private void initializeAppearance() {
     interaction.setTooltip(resources.getString("AnathemaPersistence.SaveAction.Tooltip"));
+    interaction.setText(resources.getString("AnathemaPersistence.SaveAction.Name"));
     interaction.setIcon(new RelativePath("icons/TaskBarSave24.png"));
   }
 

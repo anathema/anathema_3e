@@ -29,4 +29,5 @@
     -fx-wrap-text: true;
     -fx-alignment: top-center;
     -fx-text-alignment: center;
+    -fx-text-fill: inherit;
 }

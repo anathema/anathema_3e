@@ -34,7 +34,7 @@ public class HeroesStanceView {
   }
 
   public InteractionView getFrontInteractionView() {
-    return navigation.getFrontInteraction();
+    return navigation.getWestInteraction();
   }
 
   public UpdatingHeroesGridView getGridView() {
@@ -50,7 +50,7 @@ public class HeroesStanceView {
   }
 
   public Tool createLeaveTool() {
-    return navigation.createBigToolAtTheEnd();
+    return navigation.createBigToolAtEastSide();
   }
 
   public HeroRoster createHeroRoster() {
