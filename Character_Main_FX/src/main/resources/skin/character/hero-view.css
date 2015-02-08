@@ -14,6 +14,7 @@
 .split-menu-button > .label {
   -fx-text-fill: whitesmoke;
   -fx-background-color: transparent;
+  -fx-padding: 0.333333em 0 0.333333em 0; /* 4 8 4 8 */
 }
 
 .split-menu-button > .label:hover {
@@ -24,4 +25,5 @@
 .split-menu-button > .arrow-button {
   -fx-background-color: transparent;
   -fx-cursor: hand;
+  -fx-padding: 0.333333em 0.333333em 0.333333em 0.333333em; /* 4 8 4 8 */
 }
