@@ -41,10 +41,6 @@ public class FxToggleTool extends FxBaseTool implements ToggleTool {
     button.setSelected(false);
   }
 
-  private void setStyleClass(String styleClass) {
-    button.getStyleClass().setAll(styleClass);
-  }
-
   public void registerWithGroup(ToggleGroup group) {
     group.getToggles().add(button);
   }

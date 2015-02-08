@@ -3,6 +3,8 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 import javafx.scene.Node;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.SplitMenuButton;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
@@ -14,8 +16,7 @@ import net.sf.anathema.hero.individual.view.HeroView;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
-import net.sf.anathema.library.fx.tool.FxButtonTool;
-import net.sf.anathema.library.fx.tool.FxToggleTool;
+import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.view.FxStack;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.interaction.AcceleratorMap;
@@ -70,7 +71,8 @@ public class TopBarHeroView implements HeroView, NodeHolder {
     return new InteractionView() {
       @Override
       public Tool addTool() {
-        FxButtonTool tool = FxButtonTool.ForToolbar();
+        FxBaseTool tool = new FxBaseTool(new Hyperlink(), new ImageView());
+        tool.getNode().getStyleClass().add("hero-link-button");
         interactionBar.getChildren().add(tool.getNode());
         tool.registerHotkeyIn(acceleratorMap);
         return tool;
@@ -78,7 +80,8 @@ public class TopBarHeroView implements HeroView, NodeHolder {
 
       @Override
       public ToggleTool addToggleTool() {
-        FxToggleTool tool = FxToggleTool.create();
+        HyperlinkToggleTool tool = new HyperlinkToggleTool();
+        tool.getNode().getStyleClass().add("hero-link-button");
         interactionBar.getChildren().add(tool.getNode());
         tool.registerHotkeyIn(acceleratorMap);
         return tool;
@@ -86,7 +89,9 @@ public class TopBarHeroView implements HeroView, NodeHolder {
 
       @Override
       public MenuTool addMenuTool() {
-        FxMenuButtonTool tool = FxMenuButtonTool.ForToolbar();
+        SplitMenuButton menuButton = new SplitMenuButton();
+        FxMenuButtonTool tool = new FxMenuButtonTool(menuButton, new ImageView());
+        tool.getNode().getStyleClass().add("hero-link-button");
         interactionBar.getChildren().add(tool.getNode());
         tool.registerHotkeyIn(acceleratorMap);
         return tool;

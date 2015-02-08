@@ -30,6 +30,7 @@ public class PrintInteractionPresenter {
   private void initializeAppearance() {
     interaction.setIcon(new RelativePath("icons/TaskBarPDF24.png"));
     interaction.setTooltip(environment.getString("Anathema.Reporting.Menu.PrintItem.Name"));
+    interaction.setText(environment.getString("Anathema.Reporting.Menu.PrintItem.Name"));
   }
 
   private void initializeEnabling() {
