@@ -36,7 +36,7 @@ public class NewInteractionPresenter {
   }
 
   private void initializeAppearance() {
-    interaction.setTooltip(environment.getString("CharacterSystem.Tools.New.Name"));
+    interaction.setTooltip(environment.getString("CharacterSystem.Tools.New.Tooltip"));
     interaction.setText(environment.getString("CharacterSystem.Tools.New.Name"));
     interaction.setIcon(new BasicUi().getNewIconPathForTaskbar());
   }
