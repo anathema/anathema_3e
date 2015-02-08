@@ -8,7 +8,6 @@ import net.sf.anathema.hero.display.fx.perspective.content.StackView;
 import net.sf.anathema.hero.display.fx.perspective.navigation.FxHeroPoolNavigation;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;
-import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
@@ -19,14 +18,10 @@ public class HeroesStanceView {
   private final StackView stackView = new StackView();
   private final FxHeroPoolNavigation navigation;
 
-  public HeroesStanceView(UiEnvironment uiEnvironment) {
-    this.navigation = new FxHeroPoolNavigation(uiEnvironment);
+  public HeroesStanceView() {
+    this.navigation = new FxHeroPoolNavigation();
     contentPane.add(navigation.getNode(), new CC().growX());
     contentPane.add(stackView.getComponent(), new CC().grow().push());
-  }
-
-  public InteractionView getBackInteractionView() {
-    return navigation;
   }
 
   public InteractionView getCenterInteractionView() {

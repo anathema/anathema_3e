@@ -5,14 +5,14 @@ import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
 
-public class EastInteractionPresenter {
+public class HeroInteractionPresenter {
 
   private ItemSelectionModel model;
   private InteractionView view;
   private final Environment environment;
   private final SingleFileChooser fileChooser;
 
-  public EastInteractionPresenter(ItemSelectionModel model, InteractionView view, Environment environment,
+  public HeroInteractionPresenter(ItemSelectionModel model, InteractionView view, Environment environment,
                                   SingleFileChooser fileChooser) {
     this.model = model;
     this.view = view;

@@ -2,7 +2,6 @@ package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
-import net.sf.anathema.hero.application.perspective.EastInteractionPresenter;
 import net.sf.anathema.hero.application.perspective.HeroPoolModel;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.HeroStackPresenter;
@@ -35,16 +34,15 @@ public class HeroesStance implements Stance {
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
     HeroPoolModel heroSystem = new HeroPoolModel(model);
     heroSystem.collectAllExistingHeroes();
-    this.view = new HeroesStanceView(uiEnvironment);
+    this.view = new HeroesStanceView();
     container.setContent(view.getNode());
-    HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment.getObjectFactory());
+    HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment.getObjectFactory(), uiEnvironment);
     HeroStackBridge bridge = new HeroStackFxBridge(viewFactory, view.getStackView());
-    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem, heroEnvironment);
+    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem, heroEnvironment, environment, uiEnvironment);
     ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
     new RecentHeroesPresenter(heroSystem, view.getGridView(), showOnSelect, environment).initPresentation();
     new HeroRosterPresenter(heroSystem, view, showOnSelect, environment).initPresentation();
     new WestInteractionPresenter(heroSystem, view.getCenterInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
-    new EastInteractionPresenter(heroSystem, view.getBackInteractionView(), environment, uiEnvironment).initPresentation();
   }
 
   @Override

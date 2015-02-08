@@ -10,6 +10,7 @@ import net.sf.anathema.hero.display.fx.perspective.content.layout.SpanCell;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.fx.Stylesheet;
 import net.sf.anathema.library.initialization.ObjectFactory;
+import net.sf.anathema.library.interaction.AcceleratorMap;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
@@ -17,15 +18,17 @@ import java.util.stream.Collectors;
 public class HeroViewFactory {
 
   private ObjectFactory objectFactory;
+  private AcceleratorMap acceleratorMap;
 
-  public HeroViewFactory(ObjectFactory objectFactory) {
+  public HeroViewFactory(ObjectFactory objectFactory, AcceleratorMap acceleratorMap) {
     this.objectFactory = objectFactory;
+    this.acceleratorMap = acceleratorMap;
   }
 
   public TopBarHeroView createView(HeroItemData hero) {
     SubViewMap viewFactory = new SubViewMap(objectFactory);
     Collection<Stylesheet> stylesheets = createStylesheets(hero);
-    return new TopBarHeroView(viewFactory, stylesheets, createRasterLayoutMap());
+    return new TopBarHeroView(viewFactory, stylesheets, createRasterLayoutMap(), acceleratorMap);
   }
 
   private RasterLayoutMap createRasterLayoutMap() {
