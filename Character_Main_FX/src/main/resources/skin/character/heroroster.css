@@ -1,5 +1,5 @@
 .dirty {
-    -fx-text-fill: darkcyan;
+    -fx-text-fill: #40C4FF;
 }
 
 .clean {
@@ -7,5 +7,6 @@
 }
 
 .character-grid-button:hover {
-    -fx-background-color: linear-gradient(to bottom, black, derive(crimson, -10%) 80%);
+    -fx-background-color: linear-gradient(to bottom, black, derive(crimson, -10%));
+    -fx-text-fill: whitesmoke;
 }
