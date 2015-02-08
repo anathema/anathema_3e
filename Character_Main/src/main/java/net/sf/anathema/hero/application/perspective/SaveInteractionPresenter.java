@@ -12,12 +12,12 @@ import java.io.IOException;
 public class SaveInteractionPresenter {
 
   private final ItemSelectionModel model;
-  private final Tool interaction;
+  private final Tool tool;
   private Resources resources;
 
-  public SaveInteractionPresenter(ItemSelectionModel model, Tool interaction, Resources resources) {
+  public SaveInteractionPresenter(ItemSelectionModel model, Tool tool, Resources resources) {
     this.model = model;
-    this.interaction = interaction;
+    this.tool = tool;
     this.resources = resources;
   }
 
@@ -25,23 +25,23 @@ public class SaveInteractionPresenter {
     initializeAppearance();
     initializeEnabling();
     initializeCommand();
-    interaction.setHotkey(new Hotkey('s'));
+    tool.setHotkey(new Hotkey('s'));
   }
 
   private void initializeAppearance() {
-    interaction.setTooltip(resources.getString("AnathemaPersistence.SaveAction.Tooltip"));
-    interaction.setText(resources.getString("AnathemaPersistence.SaveAction.Name"));
-    interaction.setIcon(new RelativePath("icons/TaskBarSave24.png"));
+    tool.setTooltip(resources.getString("AnathemaPersistence.SaveAction.Tooltip"));
+    tool.setText(resources.getString("AnathemaPersistence.SaveAction.Name"));
+    tool.setIcon(new RelativePath("icons/TaskBarSave24.png"));
   }
 
   private void initializeEnabling() {
-    model.whenCurrentSelectionBecomesDirty(new EnableInteraction(interaction));
-    model.whenCurrentSelectionBecomesClean(new DisableInteraction(interaction));
-    interaction.disable();
+    model.whenCurrentSelectionBecomesDirty(new EnableInteraction(tool));
+    model.whenCurrentSelectionBecomesClean(new DisableInteraction(tool));
+    tool.disable();
   }
 
   private void initializeCommand() {
-    interaction.setCommand(new SaveCurrent());
+    tool.setCommand(new SaveCurrent());
   }
 
   private class SaveCurrent implements Command {

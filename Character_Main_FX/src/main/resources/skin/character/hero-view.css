@@ -6,3 +6,22 @@
   -fx-background-color: transparent;
   -fx-text-fill: whitesmoke;
 }
+
+.split-menu-button {
+  -fx-background-color: transparent;
+}
+
+.split-menu-button > .label {
+  -fx-text-fill: whitesmoke;
+  -fx-background-color: transparent;
+}
+
+.split-menu-button > .label:hover {
+  -fx-underline: true;
+  -fx-cursor: hand;
+}
+
+.split-menu-button > .arrow-button {
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+}
