@@ -24,6 +24,7 @@ public class HeroPresenter {
   }
 
   public void initPresentation() {
+    //TODO: Sandra, which of these are still relevant?
     initializeSection("CardView.Background.Title", Background);
     initializeSection("CardView.Outline.Title", Outline);
     initializeSection("CardView.Mundane.Title", Mundane);

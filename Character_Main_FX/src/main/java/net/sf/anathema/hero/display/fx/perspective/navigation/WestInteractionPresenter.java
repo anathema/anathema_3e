@@ -8,15 +8,15 @@ import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.platform.environment.Environment;
 
-public class FrontInteractionPresenter {
+public class WestInteractionPresenter {
   private final HeroPoolModel system;
   private final InteractionView view;
   private final Environment environment;
   private final UpdatingHeroesGridView gridView;
   private final Selector<HeroIdentifier> selector;
 
-  public FrontInteractionPresenter(HeroPoolModel system, InteractionView view, Environment environment,
-                                   UpdatingHeroesGridView gridView, Selector<HeroIdentifier> selector) {
+  public WestInteractionPresenter(HeroPoolModel system, InteractionView view, Environment environment,
+                                  UpdatingHeroesGridView gridView, Selector<HeroIdentifier> selector) {
     this.system = system;
     this.view = view;
     this.environment = environment;

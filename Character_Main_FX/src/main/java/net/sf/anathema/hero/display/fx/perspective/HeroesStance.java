@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
-import net.sf.anathema.hero.application.perspective.BackInteractionPresenter;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
+import net.sf.anathema.hero.application.perspective.EastInteractionPresenter;
 import net.sf.anathema.hero.application.perspective.HeroPoolModel;
-import net.sf.anathema.hero.application.perspective.RecentHeroesPresenter;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.HeroStackPresenter;
+import net.sf.anathema.hero.application.perspective.RecentHeroesPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.display.fx.perspective.content.HeroStackFxBridge;
 import net.sf.anathema.hero.display.fx.perspective.content.HeroViewFactory;
-import net.sf.anathema.hero.display.fx.perspective.navigation.FrontInteractionPresenter;
+import net.sf.anathema.hero.display.fx.perspective.navigation.WestInteractionPresenter;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -37,14 +37,14 @@ public class HeroesStance implements Stance {
     heroSystem.collectAllExistingHeroes();
     this.view = new HeroesStanceView(uiEnvironment);
     container.setContent(view.getNode());
-    HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment);
+    HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment.getObjectFactory());
     HeroStackBridge bridge = new HeroStackFxBridge(viewFactory, view.getStackView());
-    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem);
+    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem, heroEnvironment);
     ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
     new RecentHeroesPresenter(heroSystem, view.getGridView(), showOnSelect, environment).initPresentation();
     new HeroRosterPresenter(heroSystem, view, showOnSelect, environment).initPresentation();
-    new FrontInteractionPresenter(heroSystem, view.getCenterInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
-    new BackInteractionPresenter(heroSystem, view.getBackInteractionView(), environment, uiEnvironment).initPresentation();
+    new WestInteractionPresenter(heroSystem, view.getCenterInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
+    new EastInteractionPresenter(heroSystem, view.getBackInteractionView(), environment, uiEnvironment).initPresentation();
   }
 
   @Override

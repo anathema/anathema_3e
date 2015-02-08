@@ -3,7 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.application.perspective.HeroStackBridge;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
-import net.sf.anathema.library.fx.NodeHolder;
+import net.sf.anathema.hero.individual.view.HeroView;
 
 public class HeroStackFxBridge implements HeroStackBridge {
 
@@ -16,9 +16,10 @@ public class HeroStackFxBridge implements HeroStackBridge {
   }
 
   @Override
-  public void addViewForHero(HeroIdentifier identifier, HeroItemData heroItemData) {
-    NodeHolder itemView = viewFactory.createView(heroItemData);
-    stackView.addView(identifier, itemView);
+  public HeroView addViewForHero(HeroIdentifier identifier, HeroItemData hero) {
+    TopBarHeroView heroView = viewFactory.createView(hero);
+    stackView.addView(identifier, heroView);
+    return heroView;
   }
 
   @Override
