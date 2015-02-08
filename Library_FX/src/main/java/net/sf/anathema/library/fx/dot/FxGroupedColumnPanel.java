@@ -15,7 +15,7 @@ public class FxGroupedColumnPanel implements DotViewPanel {
 
   public FxGroupedColumnPanel(MigPane pane, ColumnCount columnCount) {
     for (int i = 0; i < columnCount.getColumnCount(); i++) {
-      columns.add(new MigPane(LayoutUtils.withoutInsets().gridGap("2", "2").wrapAfter(3)));
+      columns.add(new MigPane(LayoutUtils.withoutInsets().gridGap("2", "0").wrapAfter(3)));
     }
     addColumnsToContainer(pane);
   }
@@ -37,7 +37,7 @@ public class FxGroupedColumnPanel implements DotViewPanel {
   public void startNewGroup(final String groupLabel) {
     increaseColumnIndex();
     if (groupLabel != null) {
-      getCurrentColumn().add(new Label(groupLabel), new CC().gapTop("5").spanX().growX().pushX());
+      getCurrentColumn().add(new Label(groupLabel), new CC().gapTop("3").spanX().growX().pushX());
     }
   }
 
