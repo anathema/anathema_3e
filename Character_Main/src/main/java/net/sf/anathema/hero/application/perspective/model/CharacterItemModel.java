@@ -53,6 +53,10 @@ public class CharacterItemModel {
     featuresChangeAnnouncer.addListener(listener);
   }
 
+  public void stopListeningForFeatureChange(ChangeListener listener) {
+    featuresChangeAnnouncer.removeListener(listener);
+  }
+
   private class AnnouncingChangeListener implements ChangeListener {
     @Override
     public void changeOccurred() {

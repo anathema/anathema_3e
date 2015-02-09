@@ -7,6 +7,7 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class RecentHeroesPresenter {
 
@@ -14,6 +15,7 @@ public class RecentHeroesPresenter {
   private final UpdatingHeroesGridView view;
   private final Selector<HeroIdentifier> selector;
   private final Resources resources;
+  private final List<CharacterButtonPresenterWithFeatureListening> activePresenters = new ArrayList<>();
 
   public RecentHeroesPresenter(ItemSystemModel model, UpdatingHeroesGridView view, Selector<HeroIdentifier> selector,
                                Resources resources) {
@@ -34,14 +36,15 @@ public class RecentHeroesPresenter {
   }
 
   private void showAllHeroes() {
+    activePresenters.forEach(CharacterButtonPresenterWithFeatureListening::stopPresentation);
+    activePresenters.clear();
     view.clearAllButtons();
-    for (CharacterItemModel character : model.getMostRecentHeroes()) {
-      initPresentation(character);
-    }
+    model.getMostRecentHeroes().forEach(this::present);
   }
 
-  private void initPresentation(CharacterItemModel character) {
+  private void present(CharacterItemModel character) {
     CharacterButtonPresenterWithFeatureListening presenter = new CharacterButtonPresenterWithFeatureListening(resources, selector, character, view);
     presenter.initPresentation();
+    activePresenters.add(presenter);
   }
 }
