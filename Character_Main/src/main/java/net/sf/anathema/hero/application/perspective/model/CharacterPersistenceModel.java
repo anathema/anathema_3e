@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.application.perspective.model;
 
-import net.sf.anathema.hero.application.item.HeroItemTypeRetrieval;
 import net.sf.anathema.hero.application.item.HeroRepositoryData;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.application.item.ItemRepositoryLocation;
@@ -9,7 +8,6 @@ import net.sf.anathema.hero.application.persistence.RepositoryItemPersister;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.platform.frame.ApplicationModel;
-import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.repository.Repository;
 import net.sf.anathema.platform.repository.RepositoryIdData;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
@@ -24,8 +22,8 @@ import static net.sf.anathema.hero.application.item.HeroItemTypeRetrieval.retrie
 
 public class CharacterPersistenceModel {
 
-  private ApplicationModel model;
-  private HeroEnvironment heroEnvironment;
+  private final ApplicationModel model;
+  private final HeroEnvironment heroEnvironment;
 
   public CharacterPersistenceModel(ApplicationModel model, HeroEnvironment environment) {
     this.model = model;
@@ -62,7 +60,7 @@ public class CharacterPersistenceModel {
   }
 
   private RepositoryWriteAccess createWriteAccessFor(Item item) {
-    return model.getRepository().createWriteAccess(HeroItemTypeRetrieval.retrieveCharacterItemType(), item.getRepositoryLocation().getId());
+    return model.getRepository().createWriteAccess(retrieveCharacterItemType(), item.getRepositoryLocation().getId());
   }
 
   private RepositoryItemPersister findPersister() {
@@ -72,10 +70,6 @@ public class CharacterPersistenceModel {
 
   private RepositoryReadAccess createReadAccess(String repositoryId) {
     Repository repository = model.getRepository();
-    return repository.openReadAccess(getCharacterItemType(), repositoryId);
-  }
-
-  private IItemType getCharacterItemType() {
-    return retrieveCharacterItemType();
+    return repository.openReadAccess(retrieveCharacterItemType(), repositoryId);
   }
 }

@@ -237,10 +237,7 @@ public class HeroPoolModel implements ItemSystemModel {
 
   @Override
   public void saveCurrent() throws IOException {
-    save(getCurrentItem());
-  }
-
-  private void save(Item item) throws IOException {
+    Item item = getCurrentItem();
     persistenceModel.save(item);
     item.getItemData().getChangeManagement().setClean();
   }
