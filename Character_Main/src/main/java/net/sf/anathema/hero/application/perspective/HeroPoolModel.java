@@ -183,7 +183,7 @@ public class HeroPoolModel implements ItemSystemModel {
   @Override
   public void setCurrentCharacter(HeroIdentifier identifier) {
     this.currentCharacter = identifier;
-    this.recentHeroes.add(modelsByIdentifier.get(identifier));
+    recentHeroes.add(modelsByIdentifier.get(identifier));
     notifyDirtyListeners();
     notifyGetSelectionListeners();
     notifyExperiencedListeners();

@@ -1,21 +1,21 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import net.sf.anathema.hero.application.perspective.CharacterButtonPresenter;
-import net.sf.anathema.hero.application.perspective.HeroPoolModel;
 import net.sf.anathema.hero.application.perspective.HeroRoster;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.application.perspective.model.CharacterItemModel;
+import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 
 public class HeroRosterPresenter {
-  private final HeroPoolModel model;
+  private final ItemSystemModel model;
   private final HeroesStanceView view;
   private final ShowOnSelect selector;
   private final Resources resources;
 
-  public HeroRosterPresenter(HeroPoolModel model, HeroesStanceView view, ShowOnSelect selector, Resources resources) {
+  public HeroRosterPresenter(ItemSystemModel model, HeroesStanceView view, ShowOnSelect selector, Resources resources) {
     this.model = model;
     this.view = view;
     this.selector = selector;
