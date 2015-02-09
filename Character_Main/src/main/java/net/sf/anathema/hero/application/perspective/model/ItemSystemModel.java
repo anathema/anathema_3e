@@ -13,4 +13,6 @@ public interface ItemSystemModel extends ItemSelectionModel {
   Item loadItem(HeroIdentifier identifier);
 
   void setCurrentCharacter(HeroIdentifier identifier);
+
+  HeroIdentifier getSelection();
 }

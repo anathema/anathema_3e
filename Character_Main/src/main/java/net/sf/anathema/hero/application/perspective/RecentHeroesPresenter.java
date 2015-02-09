@@ -24,8 +24,13 @@ public class RecentHeroesPresenter {
   }
 
   public void initPresentation() {
-    model.whenGetsSelection(this::showAllHeroes);
+    model.whenGetsSelection(this::showAllHeroesAndSelect);
     showAllHeroes();
+  }
+  
+  private void showAllHeroesAndSelect(){
+    showAllHeroes();
+    view.selectButton(model.getSelection());
   }
 
   private void showAllHeroes() {

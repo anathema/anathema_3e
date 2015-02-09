@@ -189,6 +189,11 @@ public class HeroPoolModel implements ItemSystemModel {
     notifyExperiencedListeners();
   }
 
+  @Override
+  public HeroIdentifier getSelection() {
+    return currentCharacter;
+  }
+
   private void notifyExperiencedListeners() {
     Hero hero = getCurrentCharacter();
     if (ExperienceModelFetcher.fetch(hero).isExperienced()) {
