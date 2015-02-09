@@ -11,4 +11,6 @@ public interface UpdatingHeroesGridView extends HeroesGridView {
   void updateButton(CharacterButtonDto dto);
 
   CharacterTemplateCreator createNewCharacter(Tool caller);
+
+  void clearAllButtons();
 }

@@ -20,6 +20,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.collection.RotatingSet;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.SingleFileChooser;
@@ -30,12 +31,12 @@ import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class HeroPoolModel implements ItemSystemModel {
 
+  private static final int MAXIMUM_RECENT_HEROES = 5;
   private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new LinkedHashMap<>();
   private Announcer<ChangeListener> getsSelectionListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesExperiencedListener = Announcer.to(ChangeListener.class);
@@ -48,6 +49,7 @@ public class HeroPoolModel implements ItemSystemModel {
   private final CharacterPersistenceModel persistenceModel;
   private ApplicationModel model;
   private int newCharacterCount = 0;
+  private RotatingSet<CharacterItemModel> recentHeroes = new RotatingSet<>(MAXIMUM_RECENT_HEROES);
 
   public HeroPoolModel(ApplicationModel model) {
     this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model);
@@ -58,19 +60,24 @@ public class HeroPoolModel implements ItemSystemModel {
     this.model = model;
   }
 
-  @Override
   public void collectAllExistingHeroes() {
     Collection<CharacterReference> references = persistenceModel.collectCharacters();
     for (CharacterReference reference : references) {
       PreloadedDescriptiveFeatures features = new PreloadedDescriptiveFeatures(createFileScanner(), reference);
       CharacterItemModel character = new CharacterItemModel(features);
       modelsByIdentifier.put(features.getIdentifier(), character);
+      recentHeroes.add(character);
     }
   }
 
   @Override
   public Collection<CharacterItemModel> getAllKnownHeroes() {
     return modelsByIdentifier.values();
+  }
+
+  @Override
+  public Collection<CharacterItemModel> getMostRecentHeroes() {
+    return recentHeroes;
   }
 
   private HeroReferenceScanner createFileScanner() {
@@ -176,6 +183,7 @@ public class HeroPoolModel implements ItemSystemModel {
   @Override
   public void setCurrentCharacter(HeroIdentifier identifier) {
     this.currentCharacter = identifier;
+    this.recentHeroes.add(modelsByIdentifier.get(identifier));
     notifyDirtyListeners();
     notifyGetSelectionListeners();
     notifyExperiencedListeners();

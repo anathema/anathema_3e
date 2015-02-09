@@ -5,6 +5,9 @@ import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.library.resources.Resources;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecentHeroesPresenter {
 
   private final ItemSystemModel model;
@@ -21,12 +24,19 @@ public class RecentHeroesPresenter {
   }
 
   public void initPresentation() {
-    for (CharacterItemModel character : model.getAllKnownHeroes()) {
+    model.whenGetsSelection(this::showAllHeroes);
+    showAllHeroes();
+  }
+
+  private void showAllHeroes() {
+    view.clearAllButtons();
+    for (CharacterItemModel character : model.getMostRecentHeroes()) {
       initPresentation(character);
     }
   }
 
   private void initPresentation(CharacterItemModel character) {
-    new CharacterButtonPresenterWithFeatureListening(resources, selector, character, view).initPresentation();
+    CharacterButtonPresenterWithFeatureListening presenter = new CharacterButtonPresenterWithFeatureListening(resources, selector, character, view);
+    presenter.initPresentation();
   }
 }

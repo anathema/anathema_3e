@@ -69,6 +69,11 @@ public class FxHeroPoolNavigation implements UpdatingHeroesGridView {
     return heroes.createNewCharacter(caller);
   }
 
+  @Override
+  public void clearAllButtons() {
+    heroes.clearAllButtons();
+  }
+
   public InteractionView getCenterInteraction() {
     return new HeroInteraction(centerTools);
   }

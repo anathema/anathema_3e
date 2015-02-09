@@ -29,7 +29,11 @@ public class HeroPoolFxView implements UpdatingHeroesGridView {
 
   @Override
   public void addButton(CharacterButtonDto dto, Selector<HeroIdentifier> characterSelector) {
-    createGridButton(dto, characterSelector);
+    HeroPoolButton heroGridButton = new HeroPoolButton();
+    heroGridButton.initContent(dto, characterSelector);
+    heroGridButton.setToggleGroup(toggleGroup);
+    buttonsByIdentifier.put(dto.identifier, heroGridButton);
+    gridPane.getChildren().add(heroGridButton.getNode());
   }
 
   @Override
@@ -47,14 +51,9 @@ public class HeroPoolFxView implements UpdatingHeroesGridView {
     return new FxHeroSplatCreator(((FxBaseTool) caller).getNode());
   }
 
-  private HeroPoolButton createGridButton(CharacterButtonDto dto,
-                                          Selector<HeroIdentifier> characterSelector) {
-    HeroPoolButton heroGridButton = new HeroPoolButton();
-    heroGridButton.initContent(dto, characterSelector);
-    heroGridButton.setToggleGroup(toggleGroup);
-    buttonsByIdentifier.put(dto.identifier, heroGridButton);
-    gridPane.getChildren().add(heroGridButton.getNode());
-    return heroGridButton;
+  @Override
+  public void clearAllButtons() {
+    gridPane.getChildren().clear();
   }
 
   public Node getNode() {

@@ -8,6 +8,8 @@ public interface ItemSystemModel extends ItemSelectionModel {
 
   Collection<CharacterItemModel> getAllKnownHeroes();
 
+  Collection<CharacterItemModel> getMostRecentHeroes();
+
   Item loadItem(HeroIdentifier identifier);
 
   void setCurrentCharacter(HeroIdentifier identifier);
