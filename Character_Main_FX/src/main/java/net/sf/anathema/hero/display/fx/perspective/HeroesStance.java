@@ -9,7 +9,7 @@ import net.sf.anathema.hero.application.perspective.RecentHeroesPresenter;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.display.fx.perspective.content.HeroStackFxBridge;
 import net.sf.anathema.hero.display.fx.perspective.content.HeroViewFactory;
-import net.sf.anathema.hero.display.fx.perspective.navigation.WestInteractionPresenter;
+import net.sf.anathema.hero.display.fx.perspective.navigation.NewHeroPresenter;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -32,17 +32,22 @@ public class HeroesStance implements Stance {
     new HeroPoolInitializer(model, environment).initializeCharacterSystem();
     characterMessaging.setDelegate(model.getMessaging());
     HeroEnvironment heroEnvironment = HeroEnvironmentFetcher.fetch(model);
-    HeroPoolModel heroSystem = new HeroPoolModel(model);
-    heroSystem.collectAllExistingHeroes();
+    HeroPoolModel heroPool = createHeroPool(model);
     this.view = new HeroesStanceView();
     container.setContent(view.getNode());
     HeroViewFactory viewFactory = new HeroViewFactory(heroEnvironment.getObjectFactory(), uiEnvironment);
     HeroStackBridge bridge = new HeroStackFxBridge(viewFactory, view.getStackView());
-    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroSystem, heroEnvironment, environment, uiEnvironment);
+    HeroStackPresenter stackPresenter = new HeroStackPresenter(bridge, heroPool, heroEnvironment, environment, uiEnvironment);
     ShowOnSelect showOnSelect = new ShowOnSelect(characterMessaging, stackPresenter);
-    new RecentHeroesPresenter(heroSystem, view.getGridView(), showOnSelect, environment).initPresentation();
-    new HeroRosterPresenter(heroSystem, view, showOnSelect, environment).initPresentation();
-    new WestInteractionPresenter(heroSystem, view.getCenterInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
+    new RecentHeroesPresenter(heroPool, view.getGridView(), showOnSelect, environment).initPresentation();
+    new HeroRosterPresenter(heroPool, view, showOnSelect, environment).initPresentation();
+    new NewHeroPresenter(heroPool, view.getCenterInteractionView(), environment, view.getGridView(), showOnSelect).initPresentation();
+  }
+
+  private HeroPoolModel createHeroPool(ApplicationModel model) {
+    HeroPoolModel heroPool = new HeroPoolModel(model);
+    heroPool.collectAllExistingHeroes();
+    return heroPool;
   }
 
   @Override
