@@ -6,8 +6,6 @@ import java.util.Collection;
 
 public interface ItemSystemModel extends ItemSelectionModel {
 
-  void collectAllExistingHeroes();
-
   Collection<CharacterItemModel> getAllKnownHeroes();
 
   Item loadItem(HeroIdentifier identifier);
