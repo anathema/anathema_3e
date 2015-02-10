@@ -1,7 +1,7 @@
 {
     "category": "Solar", 
     "charms": {
-        "Solar.BardLighteningPrana": {
+        "Solar.BardingLighteningPrana": {
             "cost": "4m", 
             "duration": "One day", 
             "keywords": [], 
@@ -18,7 +18,7 @@
             "type": "Reflexive"
         }, 
         "Solar.CoursingFireboltFlash": {
-            "cost": "3m or 4m", 
+            "cost": "3m or 4m, 1a", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {
@@ -130,7 +130,7 @@
             "type": "Permanent"
         }, 
         "Solar.HorseHealingTechnique": {
-            "cost": "4m, 1 health level", 
+            "cost": "4m, 1hl or 4m, 1lhl", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {
@@ -564,8 +564,8 @@
             "type": "Reflexive"
         }, 
         "Solar.WorthyMountTechnique": {
-            "cost": "1i", 
-            "duration": "One scene", 
+            "cost": "--(1i)", 
+            "duration": "Permanent", 
             "keywords": [], 
             "minimums": {
                 "Essence": 1, 

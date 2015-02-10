@@ -141,17 +141,6 @@
             ], 
             "type": "Reflexive"
         }, 
-        "Solar.FlashingMarlinMethod": {
-            "cost": "--", 
-            "duration": "Permanent", 
-            "keywords": [], 
-            "minimums": {
-                "Athletics": 3, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Permanent"
-        }, 
         "Solar.FoeVaultingMethod": {
             "cost": "3i", 
             "duration": "Instant", 
@@ -501,10 +490,6 @@
             "prerequisites": [
                 {
                     "id": "Solar.AreteDrivenMarathonStride", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Solar.FlashingMarlinMethod", 
                     "type": "charm"
                 }, 
                 {

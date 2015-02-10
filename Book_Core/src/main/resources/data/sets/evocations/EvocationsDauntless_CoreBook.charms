@@ -2,7 +2,7 @@
     "category": "Evocations", 
     "charms": {
         "Evocations.ArmyShatteringProwess": {
-            "cost": "\u2014(2m+)", 
+            "cost": "\u2014(2+m)", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -10,12 +10,7 @@
             "minimums": {
                 "Essence": 4
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.DaredevilBravadoDefense", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Evocations.ChampionsFatalStrike": {
@@ -27,12 +22,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.TasteofVictoryRhythm", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Evocations.DaredevilBravadoDefense": {
@@ -44,20 +34,11 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.ChampionsFatalStrike", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Evocations.FearlessWarriorsRevival", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Evocations.FearlessWarriorsRevival": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
@@ -65,12 +46,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.TasteofVictoryRhythm", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Evocations.PoundingHeartTriumph": {
@@ -94,12 +70,7 @@
             "minimums": {
                 "Essence": 1
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.PoundingHeartTriumph", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Evocations.UnyieldingHerosDefiance": {
@@ -111,16 +82,9 @@
             "minimums": {
                 "Essence": 4
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.DaredevilBravadoDefense", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }
     }, 
-    "emeraldRequiredForSapphire": 2, 
-    "sapphireRequiredForAdamant": 3, 
     "tree": "Dauntless"
 }

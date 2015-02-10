@@ -125,7 +125,7 @@
             "type": "Simple"
         }, 
         "Solar.IronWolvesGrasp": {
-            "cost": "3m, 4 Initiative", 
+            "cost": "3m, 4i", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {
@@ -177,7 +177,7 @@
             "type": "Reflexive"
         }, 
         "Solar.LivingShadowPreparedness": {
-            "cost": "4m, 1 wp", 
+            "cost": "4m, 1wp", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {
@@ -271,7 +271,7 @@
             "type": "Reflexive"
         }, 
         "Solar.PerfectMirror": {
-            "cost": "--(5m, 1wp)", 
+            "cost": "-- (5m, 1wp)", 
             "duration": "Permanent", 
             "keywords": [
                 "Mute"

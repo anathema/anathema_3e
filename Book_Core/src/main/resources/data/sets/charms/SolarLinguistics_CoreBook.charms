@@ -335,7 +335,7 @@
             "type": "Supplemental"
         }, 
         "Solar.PowerSnaringImage": {
-            "cost": "-- (1m, 1wp)", 
+            "cost": "--(1m, 1wp)", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {

@@ -136,7 +136,7 @@
             "type": "Simple"
         }, 
         "Evocations.SevenWidowsVenom": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
@@ -157,7 +157,7 @@
             "type": "Permanent"
         }, 
         "Evocations.SheddingFeverDreams": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
@@ -178,7 +178,7 @@
             "type": "Permanent"
         }, 
         "Evocations.SpiritDrinkingBlossoms": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"

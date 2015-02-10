@@ -95,7 +95,7 @@
             "type": "Reflexive"
         }, 
         "Evocations.GildedNestRenewal": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -116,7 +116,7 @@
             "type": "Permanent"
         }, 
         "Evocations.GlitteringRubyEyes": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Emerald"

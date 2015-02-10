@@ -22,7 +22,7 @@
             ], 
             "type": "Simple"
         }, 
-        "Evocations.BonesandHopetoAshesandFlame": {
+        "Evocations.BonesandHopetoAshandFlame": {
             "cost": "1m", 
             "duration": "Instant", 
             "keywords": [
@@ -120,7 +120,7 @@
             "type": "Permanent"
         }, 
         "Evocations.FlameFeedingRequiem": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -137,7 +137,7 @@
             "type": "Permanent"
         }, 
         "Evocations.FlameSpiritAwakening": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
@@ -192,7 +192,7 @@
             "type": "Simple"
         }, 
         "Evocations.LingeringFlameShroud": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Emerald"
@@ -209,7 +209,7 @@
             "type": "Permanent"
         }, 
         "Evocations.LostSoulConflagration": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -226,7 +226,7 @@
             "type": "Permanent"
         }, 
         "Evocations.MagmaBurial": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -243,7 +243,7 @@
             "type": "Permanent"
         }, 
         "Evocations.MoltenRageCore": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Emerald"

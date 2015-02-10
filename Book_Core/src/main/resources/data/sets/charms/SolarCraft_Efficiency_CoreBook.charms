@@ -22,7 +22,7 @@
             "type": "Permanent"
         }, 
         "Solar.AreteShiftingPrana": {
-            "cost": "1m, 1wp", 
+            "cost": "4m, 1sxp, 1wp", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {

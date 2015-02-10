@@ -184,24 +184,6 @@
             ], 
             "type": "Simple"
         }, 
-        "Solar.GhostEatingTechnique": {
-            "cost": "3m", 
-            "duration": "Instant", 
-            "keywords": [
-                "Decisive-only"
-            ], 
-            "minimums": {
-                "Essence": 1, 
-                "Occult": 3
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.SpiritCuttingAttack", 
-                    "type": "charm"
-                }
-            ], 
-            "type": "Supplemental"
-        }, 
         "Solar.GloamingEyeUnderstanding": {
             "cost": "3m per Charm", 
             "duration": "Indefinite", 

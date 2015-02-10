@@ -2,7 +2,7 @@
     "category": "Evocations", 
     "charms": {
         "Evocations.ClearPathDefense": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
@@ -10,12 +10,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.SnowGatheringElusion", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Evocations.DestinationHuntingImpulse": {
@@ -27,12 +22,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.SteppingThroughStrife", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Evocations.FallingStarPercussion": {
@@ -44,12 +34,7 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.DestinationHuntingImpulse", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Supplemental"
         }, 
         "Evocations.ObjectiveShiftingWeave": {
@@ -61,24 +46,7 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.DestinationHuntingImpulse", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Evocations.ClearPathDefense", 
-                    "type": "charm"
-                }, 
-                {
-                    "category": "Sidereal", 
-                    "options": [
-                        "Athletics"
-                    ], 
-                    "threshold": 1, 
-                    "type": "numberOfTraitCharms"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Evocations.PoundtheDrums": {
@@ -90,16 +58,11 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.ClearPathDefense", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Simple"
         }, 
         "Evocations.SifusGracefulAccord": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -107,16 +70,7 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.ClearPathDefense", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Evocations.FallingStarPercussion", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Permanent"
         }, 
         "Evocations.SnowGatheringElusion": {
@@ -132,7 +86,7 @@
             "type": "Reflexive"
         }, 
         "Evocations.SteppingThroughStrife": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Emerald"
@@ -144,7 +98,6 @@
             "type": "Permanent"
         }
     }, 
-    "emeraldRequiredForSapphire": 2, 
     "sapphireRequiredForAdamant": 2, 
     "tree": "FreedomsCadence"
 }
