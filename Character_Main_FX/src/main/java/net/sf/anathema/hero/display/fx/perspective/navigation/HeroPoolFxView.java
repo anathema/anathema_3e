@@ -18,13 +18,14 @@ import java.util.Map;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.clipToSize;
 
 public class HeroPoolFxView implements UpdatingHeroesGridView {
-  private final ToggleGroup toggleGroup = new ToggleGroup();
   private final HBox gridPane = new HBox();
   private final Map<HeroIdentifier, HeroPoolButton> buttonsByIdentifier = new HashMap<>();
+  private ToggleGroup toggleGroup;
 
-  public HeroPoolFxView() {
+  public HeroPoolFxView(ToggleGroup toggleGroup) {
     gridPane.setMinWidth(0);
     clipToSize(gridPane);
+    this.toggleGroup = toggleGroup;
   }
 
   @Override

@@ -2,6 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
@@ -19,7 +20,8 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxHeroPoolNavigation implements UpdatingHeroesGridView {
   private final MigPane content = new MigPane(withoutInsets().gridGap("2", "0"), new AC().fill().shrinkPrio(200), new AC().fill());
-  private final HeroPoolFxView heroes = new HeroPoolFxView();
+  private final ToggleGroup toggleGroup = new ToggleGroup();
+  private final HeroPoolFxView heroes = new HeroPoolFxView(toggleGroup);
   private final HBox westTools = new HBox();
   private final HBox centerTools = new HBox();
   private final HBox eastTools = new HBox();
@@ -75,10 +77,10 @@ public class FxHeroPoolNavigation implements UpdatingHeroesGridView {
   }
 
   public InteractionView getCenterInteraction() {
-    return new HeroInteraction(centerTools);
+    return new HeroInteraction(centerTools, toggleGroup);
   }
 
   public InteractionView getWestInteraction() {
-    return new HeroInteraction(westTools);
+    return new HeroInteraction(westTools, toggleGroup);
   }
 }
