@@ -171,6 +171,24 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.FuryFedArdor": {
+            "cost": "3m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Resistance": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WillpowerEnhancingSpirit", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
         "Solar.GloriousSolarPlate": {
             "cost": "10m, 1wp", 
             "duration": "Indefinite", 
@@ -186,22 +204,6 @@
                 }
             ], 
             "type": "Simple"
-        }, 
-        "Solar.GlorytotheMostHigh": {
-            "cost": "10m, 20i, 3a, 1wp", 
-            "duration": "Instant", 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 5, 
-                "Resistance": 5
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.RoaroftheGodEmperor", 
-                    "type": "charm"
-                }
-            ], 
-            "type": "Reflexive"
         }, 
         "Solar.HauberkSummoningGesture": {
             "cost": "3m", 
@@ -271,7 +273,7 @@
         }, 
         "Solar.IronSkinConcentration": {
             "cost": "2m or 6m", 
-            "duration": "Instant", 
+            "duration": "Instant or Indefinite", 
             "keywords": [
                 "Dual"
             ], 
@@ -329,26 +331,6 @@
                 "Resistance": 1
             }, 
             "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
-        "Solar.RoaroftheGodEmperor": {
-            "cost": "10m, 1wp", 
-            "duration": "Instant", 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 4, 
-                "Resistance": 5
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.BloodthirstySwordDancerSpirit", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Solar.WoundKnittingExercise", 
-                    "type": "charm"
-                }
-            ], 
             "type": "Reflexive"
         }, 
         "Solar.RuinAbasingShrug": {

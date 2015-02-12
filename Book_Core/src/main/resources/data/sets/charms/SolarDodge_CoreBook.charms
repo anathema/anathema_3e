@@ -30,7 +30,7 @@
         }, 
         "Solar.DriftingShadowFocus": {
             "cost": "3m, 1wp", 
-            "duration": "One round", 
+            "duration": "One turn", 
             "keywords": [], 
             "minimums": {
                 "Dodge": 4, 

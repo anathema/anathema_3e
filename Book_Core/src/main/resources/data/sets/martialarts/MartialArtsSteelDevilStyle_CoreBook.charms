@@ -21,7 +21,7 @@
             "type": "Reflexive"
         }, 
         "MartialArts.DoubleAttackTechnique": {
-            "cost": "5m", 
+            "cost": "3m", 
             "duration": "Instant", 
             "keywords": [
                 "Celestial", 
@@ -80,6 +80,7 @@
             "cost": "5m, 1wp", 
             "duration": "Instant", 
             "keywords": [
+                "Counterattack", 
                 "Decisive-only"
             ], 
             "minimums": {
@@ -106,7 +107,7 @@
             "type": "Supplemental"
         }, 
         "MartialArts.SecondsBetweenStrife": {
-            "cost": "4m, 1c per success", 
+            "cost": "4m, 1 charge per success", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {
@@ -198,7 +199,7 @@
             "type": "Permanent"
         }, 
         "MartialArts.TwinBladeDefense": {
-            "cost": "3m, 1c per success", 
+            "cost": "3m, 1 charge per success", 
             "duration": "Instant", 
             "keywords": [], 
             "minimums": {

@@ -247,8 +247,11 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.MedicineExcellency", 
-                    "type": "charm"
+                    "options": [
+                        "Medicine"
+                    ], 
+                    "threshold": 1, 
+                    "type": "numberOfTraitCharms"
                 }
             ], 
             "type": "Permanent"

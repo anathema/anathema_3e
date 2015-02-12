@@ -11,7 +11,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "Melee": 5
+                "MartialArts": 5
             }, 
             "prerequisites": [
                 {

@@ -101,7 +101,7 @@
                     {
                         "requirements": [
                             {
-                                "traitType": "Essence", 
+                                "traitType": "Craft", 
                                 "traitValue": 3
                             }
                         ]

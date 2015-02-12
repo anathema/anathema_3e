@@ -50,7 +50,7 @@
             "type": "Reflexive"
         }, 
         "Solar.CountenanceofVastWrath": {
-            "cost": "6m", 
+            "cost": "6m, 3a", 
             "duration": "One scene", 
             "keywords": [], 
             "minimums": {

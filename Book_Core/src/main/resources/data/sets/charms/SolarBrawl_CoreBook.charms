@@ -61,7 +61,8 @@
             "cost": "5m, 1i", 
             "duration": "Instant", 
             "keywords": [
-                "Clash"
+                "Clash", 
+                "Uniform"
             ], 
             "minimums": {
                 "Brawl": 5, 
@@ -410,7 +411,7 @@
         }, 
         "Solar.IronBattleFocus": {
             "cost": "3m", 
-            "duration": "Instant", 
+            "duration": "One turn", 
             "keywords": [], 
             "minimums": {
                 "Brawl": 3, 

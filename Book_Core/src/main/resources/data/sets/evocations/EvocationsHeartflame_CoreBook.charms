@@ -23,7 +23,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.BloodofMountainsMantle": {
-            "cost": "4m, plus 1m per round", 
+            "cost": "4m, plus 1m/round", 
             "duration": "One scene", 
             "keywords": [
                 "Emerald"
@@ -94,7 +94,7 @@
             "type": "Permanent"
         }, 
         "Evocations.FivefoldVictoryMantle": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Adamant"
@@ -212,7 +212,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.PerfectUnityCut": {
-            "cost": "5m, 1+ a", 
+            "cost": "5m, 1+a", 
             "duration": "Instant", 
             "keywords": [
                 "Sapphire"

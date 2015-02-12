@@ -66,25 +66,6 @@
             ], 
             "type": "Simple"
         }, 
-        "Solar.BlindArrow": {
-            "cost": "2m, 3i", 
-            "duration": "Instant", 
-            "keywords": [
-                "Perilous", 
-                "Uniform"
-            ], 
-            "minimums": {
-                "Archery": 3, 
-                "Essence": 1
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.WiseArrow", 
-                    "type": "charm"
-                }
-            ], 
-            "type": "Simple"
-        }, 
         "Solar.BloodWithoutBalance": {
             "cost": "3m", 
             "duration": "Instant", 
@@ -98,28 +79,6 @@
             "prerequisites": [
                 {
                     "id": "Solar.SightWithoutEyes", 
-                    "type": "charm"
-                }
-            ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.CrimsonStreamingIncineration": {
-            "cost": "4m, 1wp + Variable", 
-            "duration": "Instant", 
-            "keywords": [
-                "Decisive-only"
-            ], 
-            "minimums": {
-                "Archery": 5, 
-                "Essence": 4
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.HeartEatingIncineration", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Solar.HeavensCrashDown", 
                     "type": "charm"
                 }
             ], 
@@ -329,29 +288,6 @@
             ], 
             "type": "Simple"
         }, 
-        "Solar.NovaArrow": {
-            "cost": "25m, 25i", 
-            "duration": "Instant", 
-            "keywords": [
-                "Decisive-only", 
-                "Perilous"
-            ], 
-            "minimums": {
-                "Archery": 5, 
-                "Essence": 5
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.CrimsonStreamingIncineration", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Solar.ScourgingWindAttack", 
-                    "type": "charm"
-                }
-            ], 
-            "type": "Simple"
-        }, 
         "Solar.PhantomArrowTechnique": {
             "cost": "1m", 
             "duration": "Instant", 
@@ -398,38 +334,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Simple"
-        }, 
-        "Solar.ScourgingWindAttack": {
-            "cost": "10m, 3i, 3a, 1wp", 
-            "duration": "Instant", 
-            "keywords": [
-                "Decisive-only", 
-                "Perilous"
-            ], 
-            "minimums": {
-                "Archery": 5, 
-                "Essence": 5
-            }, 
-            "prerequisites": [
-                {
-                    "id": "Solar.SearingSunfireInterdiction.x3", 
-                    "type": "charm"
-                }
-            ], 
-            "repurchase": {
-                "tiers": [
-                    {
-                        "requirements": [
-                            {
-                                "traitType": "Essence", 
-                                "traitValue": 5
-                            }
-                        ]
-                    }
-                ], 
-                "type": "tier"
-            }, 
             "type": "Simple"
         }, 
         "Solar.SearingSunfireInterdiction": {

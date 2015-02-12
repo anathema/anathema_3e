@@ -93,9 +93,7 @@
         "MartialArts.ImpenetrableWhiteShroud": {
             "cost": "4m, 1wp", 
             "duration": "One scene", 
-            "keywords": [
-                "Withering-only"
-            ], 
+            "keywords": [], 
             "minimums": {
                 "Essence": 2, 
                 "MartialArts": 4

@@ -18,7 +18,7 @@
                     "type": "charm"
                 }, 
                 {
-                    "id": "Solar.EffectiveCounterArgument", 
+                    "id": "Solar.EffectiveCounterargument", 
                     "type": "charm"
                 }
             ], 
@@ -200,7 +200,7 @@
             ], 
             "type": "Reflexive"
         }, 
-        "Solar.EffectiveCounterArgument": {
+        "Solar.EffectiveCounterargument": {
             "cost": "6m, 1wp", 
             "duration": "Instant", 
             "keywords": [
@@ -220,7 +220,7 @@
         }, 
         "Solar.ElusiveDreamDefense": {
             "cost": "1m, 1wp", 
-            "duration": "One round", 
+            "duration": "One scene", 
             "keywords": [], 
             "minimums": {
                 "Essence": 4, 
@@ -662,7 +662,7 @@
             "type": "Reflexive"
         }, 
         "Solar.ShadowOverDay": {
-            "cost": "1m", 
+            "cost": "1m or 2m", 
             "duration": "Instant", 
             "keywords": [
                 "Mute"
@@ -827,7 +827,7 @@
             }, 
             "prerequisites": [
                 {
-                    "id": "Solar.EffectiveCounterArgument", 
+                    "id": "Solar.EffectiveCounterargument", 
                     "type": "charm"
                 }
             ], 

@@ -10,12 +10,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.LuminousSoulWarden", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Evocations.FoestoMothsProvocation": {
@@ -27,20 +22,11 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.DawnofaHundredRebukes", 
-                    "type": "charm"
-                }, 
-                {
-                    "id": "Evocations.UnconqueredGuardianDefense", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Evocations.LuminousSoulWarden": {
-            "cost": "1m per anima level", 
+            "cost": "1m per 1a", 
             "duration": "One scene", 
             "keywords": [
                 "Emerald"
@@ -60,12 +46,7 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [
-                {
-                    "id": "Evocations.LuminousSoulWarden", 
-                    "type": "charm"
-                }
-            ], 
+            "prerequisites": [], 
             "type": "Reflexive"
         }
     }, 

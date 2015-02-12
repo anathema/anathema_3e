@@ -35,7 +35,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.ErrantOrbitScythe": {
-            "cost": "5m, 1wp, 1+ blade", 
+            "cost": "5m, 1wp, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Sapphire"
@@ -52,7 +52,7 @@
             "type": "Simple"
         }, 
         "Evocations.LifeDrinkingResurgence": {
-            "cost": "2m, 1+ blade", 
+            "cost": "2m, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Emerald"
@@ -69,7 +69,7 @@
             "type": "Reflexive"
         }, 
         "Evocations.RedReaperAegis": {
-            "cost": "4m, 1+ blade", 
+            "cost": "4m, 1+ blades", 
             "duration": "Higher of (Essence) or three rounds", 
             "keywords": [
                 "Sapphire"
@@ -90,7 +90,7 @@
             "type": "Reflexive"
         }, 
         "Evocations.SanguineHammer": {
-            "cost": "2m, 1+ blade", 
+            "cost": "2m, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Emerald"
@@ -107,7 +107,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.SavageBloodSwarm": {
-            "cost": "3m, 1+ blood blade", 
+            "cost": "3m, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Adamant"
@@ -128,7 +128,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.SevenTraumasTechnique": {
-            "cost": "3m, 1+ blade", 
+            "cost": "3m, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Emerald"
@@ -145,7 +145,7 @@
             "type": "Supplemental"
         }, 
         "Evocations.StolenLifeDetonation": {
-            "cost": "3m, 1+ blade", 
+            "cost": "3m, 1+ blades", 
             "duration": "Instant", 
             "keywords": [
                 "Sapphire"

@@ -90,7 +90,7 @@
             "type": "Reflexive"
         }, 
         "Evocations.HeartFreezingCrescent": {
-            "cost": "\u2014", 
+            "cost": "--", 
             "duration": "Permanent", 
             "keywords": [
                 "Sapphire"
