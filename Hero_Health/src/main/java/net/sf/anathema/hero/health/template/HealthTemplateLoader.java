@@ -13,7 +13,7 @@ public class HealthTemplateLoader {
   public static HealthTemplate loadTemplate(TemplateFactory templateFactory, String templateName) {
     Identifier templateId = new SimpleIdentifier(templateName);
     GenericAdapter<HealthLevelType> adapter = new GenericAdapter<>(HealthLevelType.class, new HealthLevelReader());
-    TemplateLoader<HealthTemplate> loader = new GenericTemplateLoader<HealthTemplate>(HealthTemplate.class, adapter);
+    TemplateLoader<HealthTemplate> loader = new GenericTemplateLoader<>(HealthTemplate.class, adapter);
     return templateFactory.loadModelTemplate(templateId, loader);
   }
 }

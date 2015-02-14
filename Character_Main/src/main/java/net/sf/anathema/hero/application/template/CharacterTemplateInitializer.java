@@ -33,8 +33,8 @@ public class CharacterTemplateInitializer {
       HeroTemplate heroTemplate = loader.load(stream);
       HeroSplat template = new HeroSplatImpl(heroTemplate, environment.getHeroTypes());
       environment.getTemplateRegistry().register(template);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
+    } catch (Exception e) {
+      throw new PersistenceException("Error loading " + templateResource.getFileName(), e);
     }
   }
 }

@@ -45,8 +45,8 @@ public class HeroModelTemplateCache implements ExtensibleDataSet {
   private <T> T loadTemplate(ResourceFile file, TemplateLoader<T> loader) {
     try (InputStream inputStream = file.getURL().openStream()) {
       return loader.load(inputStream);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
+    } catch (Exception e) {
+      throw new PersistenceException("Error loading " + file.getFileName(), e);
     }
   }
 }

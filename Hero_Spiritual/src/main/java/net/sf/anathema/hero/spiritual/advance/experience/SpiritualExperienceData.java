@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spiritual.advance.experience;
 
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
-import net.sf.anathema.hero.traits.template.cost.CurrentRatingCostTemplate;
+import net.sf.anathema.hero.traits.advance.FixedValueRatingCost;
 
 public class SpiritualExperienceData {
 
@@ -13,12 +13,10 @@ public class SpiritualExperienceData {
   }
 
   public CurrentRatingCost getEssenceCost() {
-    CurrentRatingCostTemplate costTemplate = template.essence.cost.experiencePoints;
-    return CurrentRatingCostTemplate.createCost(costTemplate);
+    return new FixedValueRatingCost(template.essence.cost.experiencePoints);
   }
 
   public CurrentRatingCost getWillpowerCost() {
-    CurrentRatingCostTemplate costTemplate = template.willpower.cost.experiencePoints;
-    return CurrentRatingCostTemplate.createCost(costTemplate);
+    return new FixedValueRatingCost(template.willpower.cost.experiencePoints);
   }
 }
