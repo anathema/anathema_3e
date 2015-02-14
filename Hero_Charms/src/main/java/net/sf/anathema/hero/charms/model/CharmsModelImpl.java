@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
@@ -241,7 +242,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-    		new CharmTraitRequirementCalculator(this, new TraitStateFetcher(hero)), traits);
+    		new CharmTraitRequirementCalculator(new TraitStateFetcher(hero)), traits);
     return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
@@ -263,8 +264,8 @@ public class CharmsModelImpl implements CharmsModel {
 	public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
 			TreeReference tree, MagicAttribute attribute, int threshold) {
   	int count = 0;
-    for (Charm charm : learningModel.getCurrentlyLearnedCharms().applyFilter(charm ->
-    	charm.getTreeReference().equals(tree))) {
+    Predicate<Charm> charmsFromThisTree = charm -> charm.getTreeReference().equals(tree);
+    for (Charm charm : learningModel.getCurrentlyLearnedCharms().applyFilter(charmsFromThisTree)) {
       if (charm.hasAttribute(attribute)) {
         count++;
       }
