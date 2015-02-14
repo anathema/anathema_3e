@@ -1,5 +1,6 @@
 .hero-link-bar {
-  -fx-background-color: linear-gradient(to bottom, black, black)
+  -fx-background-color: black;
+  -fx-min-height: 2.01em; /*accomodates for split-button's arrow*/  
 }
 
 .hero-link-button {
