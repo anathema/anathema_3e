@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
+import net.sf.anathema.framework.preferences.persistence.PropertiesPreferencesPersister;
+import net.sf.anathema.framework.preferences.perspective.PreferencesPersister;
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
 import net.sf.anathema.hero.application.perspective.CharacterMessaging;
 import net.sf.anathema.hero.application.perspective.HeroPoolModel;
@@ -45,8 +47,10 @@ public class HeroesStance implements Stance {
   }
 
   private HeroPoolModel createHeroPool(ApplicationModel model) {
-    HeroPoolModel heroPool = new HeroPoolModel(model);
+    PreferencesPersister preferencesPersister = new PropertiesPreferencesPersister("recentheroes.properties");
+    HeroPoolModel heroPool = new HeroPoolModel(model, preferencesPersister);
     heroPool.collectAllExistingHeroes();
+    heroPool.loadRecentHeroes();
     return heroPool;
   }
 

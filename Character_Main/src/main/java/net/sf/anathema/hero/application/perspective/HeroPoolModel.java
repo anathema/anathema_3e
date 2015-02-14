@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.application.perspective;
 
+import net.sf.anathema.framework.preferences.perspective.PreferencesPersister;
 import net.sf.anathema.hero.application.ItemReceiver;
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
@@ -26,6 +27,7 @@ import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
+import net.sf.anathema.platform.preferences.PreferencePto;
 import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 import org.jmock.example.announcer.Announcer;
 
@@ -36,7 +38,6 @@ import java.util.Map;
 
 public class HeroPoolModel implements ItemSystemModel {
 
-  private static final int MAXIMUM_RECENT_HEROES = 5;
   private final Map<HeroIdentifier, CharacterItemModel> modelsByIdentifier = new LinkedHashMap<>();
   private Announcer<ChangeListener> getsSelectionListener = Announcer.to(ChangeListener.class);
   private Announcer<ChangeListener> becomesExperiencedListener = Announcer.to(ChangeListener.class);
@@ -48,16 +49,18 @@ public class HeroPoolModel implements ItemSystemModel {
   private ChangeListener dirtyListener = this::notifyDirtyListeners;
   private final CharacterPersistenceModel persistenceModel;
   private ApplicationModel model;
+  private PreferencesPersister recentHeroesPersister;
   private int newCharacterCount = 0;
-  private RotatingSet<CharacterItemModel> recentHeroes = new RotatingSet<>(MAXIMUM_RECENT_HEROES);
+  private final RecentHeroes recentHeroes = new RecentHeroes();
 
-  public HeroPoolModel(ApplicationModel model) {
-    this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model);
+  public HeroPoolModel(ApplicationModel model, PreferencesPersister recentHeroesPersister) {
+    this(new CharacterPersistenceModel(model, HeroEnvironmentFetcher.fetch(model)), model, recentHeroesPersister);
   }
 
-  public HeroPoolModel(CharacterPersistenceModel persistenceModel, ApplicationModel model) {
+  private HeroPoolModel(CharacterPersistenceModel persistenceModel, ApplicationModel model, PreferencesPersister recentHeroesPersister) {
     this.persistenceModel = persistenceModel;
     this.model = model;
+    this.recentHeroesPersister = recentHeroesPersister;
   }
 
   public void collectAllExistingHeroes() {
@@ -66,8 +69,12 @@ public class HeroPoolModel implements ItemSystemModel {
       PreloadedDescriptiveFeatures features = new PreloadedDescriptiveFeatures(createFileScanner(), reference);
       CharacterItemModel character = new CharacterItemModel(features);
       modelsByIdentifier.put(features.getIdentifier(), character);
-      recentHeroes.add(character);
     }
+  }
+
+  public void loadRecentHeroes() {
+    PreferencePto recentHeroesPto = recentHeroesPersister.load();
+    recentHeroes.initializeFrom(recentHeroesPto, modelsByIdentifier);
   }
 
   @Override
@@ -77,7 +84,7 @@ public class HeroPoolModel implements ItemSystemModel {
 
   @Override
   public Collection<CharacterItemModel> getMostRecentHeroes() {
-    return recentHeroes;
+    return recentHeroes.asCollection();
   }
 
   private HeroReferenceScanner createFileScanner() {
@@ -184,6 +191,7 @@ public class HeroPoolModel implements ItemSystemModel {
   public void setCurrentCharacter(HeroIdentifier identifier) {
     this.currentCharacter = identifier;
     recentHeroes.add(modelsByIdentifier.get(identifier));
+    saveRecentHeroes();
     notifyDirtyListeners();
     notifyGetSelectionListeners();
     notifyExperiencedListeners();
@@ -239,10 +247,16 @@ public class HeroPoolModel implements ItemSystemModel {
   public void saveCurrent() throws IOException {
     Item item = getCurrentItem();
     persistenceModel.save(item);
+    saveRecentHeroes();
     item.getItemData().getChangeManagement().setClean();
   }
 
   private HeroReportFinder createReportFinder() {
     return new HeroReportFinder(HeroEnvironmentFetcher.fetch(model));
+  }
+
+  private void saveRecentHeroes() {
+    PreferencePto pto = recentHeroes.serialize();
+    recentHeroesPersister.save(pto);
   }
 }

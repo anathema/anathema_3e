@@ -9,8 +9,11 @@ import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.UtilityPerspective;
 import net.sf.anathema.platform.messaging.MessageCategory;
+import net.sf.anathema.platform.preferences.PropertyPreferences;
 import net.sf.anathema.platform.utility.UtilityAutoCollector;
 import net.sf.anathema.platform.utility.UtilityToggle;
+
+import static net.sf.anathema.platform.preferences.PropertyPreferences.PREFERENCES_PROPERTIES;
 
 @UtilityAutoCollector
 @Weight(weight = 8000)
@@ -26,7 +29,7 @@ public class PreferencesPerspective implements UtilityPerspective {
     PreferencesSystemView view = new PreferencesSystemView(environment.getObjectFactory());
     container.setContent(view.utilityPane.getNode());
     PreferencesModel model = new CollectingPreferencesModel(environment.getObjectFactory());
-    PreferencesPersister persister = new PropertiesPreferencesPersister();
+    PreferencesPersister persister = new PropertiesPreferencesPersister(PREFERENCES_PROPERTIES);
     PreferencesPresenter presenter = new PreferencesPresenter(environment, view.preferencesNavigation, model, persister, environment.getObjectFactory());
     presenter.initialize();
   }
