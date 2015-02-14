@@ -21,7 +21,6 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.Report;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.library.collection.RotatingSet;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.SingleFileChooser;
