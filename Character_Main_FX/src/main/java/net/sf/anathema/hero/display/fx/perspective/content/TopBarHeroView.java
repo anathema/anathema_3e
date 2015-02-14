@@ -62,7 +62,11 @@ public class TopBarHeroView implements HeroView, NodeHolder {
       Node navigationLabel = createNavigationLabel(title);
       sectionBar.getChildren().add(navigationLabel);
     });
+    boolean isFirstSection = stack.isEmpty();
     stack.add(new SimpleIdentifier(title), rasterSectionView.getNode());
+    if(isFirstSection){
+      stack.showFirst();
+    }
     return rasterSectionView;
   }
 
