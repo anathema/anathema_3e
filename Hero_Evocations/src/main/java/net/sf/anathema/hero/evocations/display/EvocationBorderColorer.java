@@ -7,9 +7,9 @@ import net.sf.anathema.library.presenter.RGBColor;
 
 import static net.sf.anathema.charm.template.evocations.EvocationTier.None;
 
-public class EvocationBorderColorer implements CharmBorderColorer {
 
-	public static final String EVOCATION_CATEGORY = "Evocations";
+@SuppressWarnings("UnusedDeclaration") //Automatically instantiated in CharmBorderColorEvaluator 
+public class EvocationBorderColorer implements CharmBorderColorer {
 
   public static final RGBColor Emerald = new RGBColor(80, 200, 120);
   public static final RGBColor Sapphire = new RGBColor(15, 82, 186);
