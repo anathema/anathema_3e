@@ -4,7 +4,7 @@
       calculationBase: 2
     };
     cost: {
-      experiencePoints: 0;
+      experiencePoints: 0
     }
   };
   willpower: {
@@ -13,7 +13,7 @@
     };
     cost: {
       bonusPoints: 2;
-      experiencePoints: 8;
+      experiencePoints: 8
     }
   }
 }
