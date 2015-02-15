@@ -9,7 +9,6 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
-import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
@@ -86,10 +85,10 @@ public class MeritsPresenter {
 
   private Tool initCreationView(MeritEntryView selectionView) {
     String labelText = resources.getString("Merits.DescriptionLabel");
-    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<>());
+    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new ToStringConfiguration<>());
     typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
     MeritOption initialSelection = model.getCurrentMeritOption() != null ? model.getCurrentMeritOption() : null;
-    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptions(), model::setCurrentMeritOption, initialSelection, new MeritUiConfiguration<>());
+    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptions(), model::setCurrentMeritOption, initialSelection, new ToStringConfiguration<>());
     meritBox.addObjectSelectionChangedListener(model::setCurrentMeritOption);
     selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentDescription);
@@ -120,13 +119,5 @@ public class MeritsPresenter {
   private void reset(MeritEntryView selectionView) {
     selectionView.clear();
     model.resetCurrentMerit();
-  }
-
-  private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {
-
-    @Override
-    protected String labelForExistingValue(T value) {
-      return value.toString();
-    }
   }
 }
