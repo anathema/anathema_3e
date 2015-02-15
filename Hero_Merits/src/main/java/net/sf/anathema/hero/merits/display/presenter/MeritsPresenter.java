@@ -6,10 +6,8 @@ import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
-import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.taskbar.BasicUi;
@@ -84,36 +82,40 @@ public class MeritsPresenter {
   }
 
   private Tool initCreationView(MeritEntryView selectionView) {
-    String labelText = resources.getString("Merits.DescriptionLabel");
-    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new ToStringConfiguration<>());
+    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView);
     typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
+    this.meritBox = addMeritSelection(selectionView);
+    addDescriptionBox(selectionView);
+    return addCommitTool(selectionView);
+  }
+
+  private ObjectSelectionView<MeritCategory> addTypeSelection(MeritEntryView selectionView) {
+    ObjectSelectionView<MeritCategory> typeView = selectionView.addSelection(new ToStringConfiguration<>());
+    typeView.setObjects(MeritCategory.values());
+    typeView.setSelectedObject(model.getCurrentType());
+    typeView.addObjectSelectionChangedListener(model::setCurrentType);
+    return typeView;
+  }
+
+  private ObjectSelectionView<MeritOption> addMeritSelection(MeritEntryView selectionView) {
     MeritOption initialSelection = model.getCurrentMeritOption() != null ? model.getCurrentMeritOption() : null;
-    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptions(), model::setCurrentMeritOption, initialSelection, new ToStringConfiguration<>());
-    meritBox.addObjectSelectionChangedListener(model::setCurrentMeritOption);
-    selectionView.addDescriptionBox(labelText);
+    ObjectSelectionView<MeritOption> meritView = selectionView.addMeritSelection(new ToStringConfiguration<>());
+    meritView.setObjects(model.getCurrentMeritOptions());
+    meritView.setSelectedObject(initialSelection);
+    meritView.addObjectSelectionChangedListener(model::setCurrentMeritOption);
+    return meritView;
+  }
+
+  private void addDescriptionBox(MeritEntryView selectionView) {
+    selectionView.addDescriptionBox(resources.getString("Merits.DescriptionLabel"));
     selectionView.addTextChangeListener(model::setCurrentDescription);
+  }
+
+  private Tool addCommitTool(MeritEntryView selectionView) {
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setCommand(model::commitSelection);
     return tool;
-  }
-
-  private ObjectSelectionView<MeritOption> addMeritSelection(MeritEntryView selectionView, List<MeritOption> options, ObjectChangedListener<MeritOption> listener, MeritOption initial, AgnosticUIConfiguration<MeritOption> uiConfiguration) {
-    ObjectSelectionView<MeritOption> view = selectionView.addMeritSelection(uiConfiguration);
-    MeritOption[] optionsArray = options.toArray(new MeritOption[options.size()]);
-    return allowSelection(view, optionsArray, listener, initial);
-  }
-
-  private ObjectSelectionView<MeritCategory> addTypeSelection(MeritEntryView selectionView, MeritCategory[] objects, ObjectChangedListener<MeritCategory> listener, MeritCategory initial, AgnosticUIConfiguration<MeritCategory> uiConfiguration) {
-    ObjectSelectionView<MeritCategory> view = selectionView.addSelection(uiConfiguration);
-    return allowSelection(view, objects, listener, initial);
-  }
-
-  private <T> ObjectSelectionView<T> allowSelection(ObjectSelectionView<T> selection, T[] objects, ObjectChangedListener<T> listener, T initial) {
-    selection.setObjects(objects);
-    selection.setSelectedObject(initial);
-    selection.addObjectSelectionChangedListener(listener);
-    return selection;
   }
 
   private void reset(MeritEntryView selectionView) {

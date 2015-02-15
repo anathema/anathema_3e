@@ -160,9 +160,8 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     if (currentMerit == null) {
       return false;
     }
-    MeritOption baseMerit = currentMerit;
-    if (!baseMerit.isHeroEligible(hero) ||
-            (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
+    if (!currentMerit.isHeroEligible(hero) ||
+            (!currentMerit.allowsRepurchase() && hasMerit(currentMerit))) {
       return false;
     }
     return true;
