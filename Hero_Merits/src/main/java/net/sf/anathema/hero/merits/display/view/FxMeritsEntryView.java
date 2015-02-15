@@ -1,9 +1,9 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.view;
 
 import javafx.scene.Node;
+import net.sf.anathema.hero.merits.display.presenter.MeritEntryView;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.configurableview.FxConfigurableSingleLineView;
-import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;

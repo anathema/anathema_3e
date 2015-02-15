@@ -1,10 +1,13 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.view;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
+import net.sf.anathema.hero.merits.display.presenter.MeritEntryView;
+import net.sf.anathema.hero.merits.display.presenter.MeritItemView;
+import net.sf.anathema.hero.merits.display.presenter.MeritsView;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;

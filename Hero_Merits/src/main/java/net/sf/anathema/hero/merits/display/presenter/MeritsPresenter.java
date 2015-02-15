@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.presenter;
 
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;

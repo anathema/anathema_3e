@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.presenter;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -6,6 +6,8 @@ import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
+import net.sf.anathema.hero.merits.display.presenter.MeritsPresenter;
+import net.sf.anathema.hero.merits.display.presenter.MeritsView;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
