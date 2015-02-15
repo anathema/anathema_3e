@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -10,6 +7,9 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.RemovableEntryModel;
+
+import java.util.Collection;
+import java.util.List;
 
 public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
 
@@ -50,4 +50,6 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
   Collection<String> getSuggestedDescriptions();
 
   boolean isEntryAllowed();
+
+  void addSuggestions(MeritReference merit, Collection<String> suggestions);
 }

@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
@@ -24,7 +23,9 @@ import org.jmock.example.announcer.Announcer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.toList;
@@ -39,6 +40,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   private MeritOption currentMerit = new NullMeritOption();
   private String currentDescription = "";
   private Hero hero;
+  private Map<MeritReference, Collection<String>> suggestions = new HashMap<>();
 
   @Override
   public Identifier getId() {
@@ -198,15 +200,18 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  public Collection<String> getSuggestedDescriptions() {
-    if (currentMeritMatches(new MeritReference("Language"))) {
-      return Lists.newArrayList("High Realm", "Low Realm", "Old Realm", "Riverspeak", "Skytongue", "Flametongue", "Forest-tongue", "Seatongue", "Guild Cant", "Up to 4 Local Tongues, please specify");
-    }
-    return Collections.emptyList();
+  public void addSuggestions(MeritReference merit, Collection<String> suggestionsForReference) {
+    suggestions.put(merit, suggestionsForReference);
   }
 
-  private boolean currentMeritMatches(MeritReference reference) {
-    return currentMerit.isReferencedBy(reference);
+  @Override
+  public Collection<String> getSuggestedDescriptions() {
+    for (MeritReference reference : suggestions.keySet()) {
+      if (currentMerit.isReferencedBy(reference)) {
+        return suggestions.get(reference);
+      }
+    }
+    return Collections.emptyList();
   }
 
   private void selectFirstMeritOption() {
