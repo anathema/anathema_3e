@@ -125,8 +125,8 @@ public class MeritsPresenter {
   private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {
 
     @Override
-    public String getLabel(T value) {
-      return value != null ? value.toString() : null;
+    protected String labelForExistingValue(T value) {
+      return value.toString();
     }
   }
 }
