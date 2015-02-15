@@ -17,7 +17,6 @@
         Combos: '',
         Spells: SolarSpells,
         MagicPoints: SolarMagicPoints_Rookie,
-        Languages: '',
         Intimacies: '',
         Specialties: '',
         SpecialtiesPoints: SolarSpecialtyPoints,

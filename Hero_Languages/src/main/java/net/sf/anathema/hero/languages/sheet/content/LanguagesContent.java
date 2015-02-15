@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.languages.sheet.content;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.hero.languages.model.LanguagesModelFetcher;
+import net.sf.anathema.hero.merits.model.Merit;
+import net.sf.anathema.hero.merits.model.MeritReference;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
-import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
@@ -28,13 +29,10 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
   @Override
   public List<String> getPrintEntries() {
     List<String> printLanguages = new ArrayList<>();
-    LanguagesModel model = getModel();
-    for (Identifier language : model.getEntries()) {
-      String text = language.getId();
-      if (model.isPredefinedLanguage(language)) {
-        text = getString("Language." + text);
-      }
-      printLanguages.add(text);
+    MeritsModel model = getModel();
+    List<Merit> languageMerits = model.getMeritsMatchingReference(new MeritReference("Language"));
+    for (Merit languageMerit : languageMerits) {
+      printLanguages.add(languageMerit.getDescription());
     }
     return printLanguages;
   }
@@ -44,7 +42,7 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
     return false;
   }
 
-  private LanguagesModel getModel() {
-    return LanguagesModelFetcher.fetch(hero);
+  private MeritsModel getModel() {
+    return MeritsModelFetcher.fetch(hero);
   }
 }

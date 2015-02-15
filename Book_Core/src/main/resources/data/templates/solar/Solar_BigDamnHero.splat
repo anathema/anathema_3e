@@ -17,7 +17,6 @@
         Combos: '',
         Spells: SolarSpells,
         MagicPoints: SolarMagicPoints_BigDamn,
-        Languages: '',
         Intimacies: '',
         Specialties: '',
         SpecialtiesPoints: SolarSpecialtyPoints,

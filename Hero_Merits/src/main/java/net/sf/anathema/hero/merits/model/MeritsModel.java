@@ -39,8 +39,6 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
 
   void addChangeListener(FlavoredChangeListener listener);
 
-  boolean isCharacterExperienced();
-
   void resetCurrentMerit();
 
   MeritOption findOptionByReference(MeritReference reference);
@@ -50,4 +48,6 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
   void whenCurrentOptionChanges(ChangeListener changeListener);
 
   Collection<String> getSuggestedDescriptions();
+
+  boolean isEntryAllowed();
 }

@@ -25,7 +25,6 @@ public class MeritsPresenter {
   private final MeritsView view;
   private final Resources resources;
   private final MeritsModel model;
-
   private final Map<Merit, MeritItemView> viewsByEntry = new HashMap<>();
 
   public MeritsPresenter(MeritsModel model, MeritsView view, Resources resources) {

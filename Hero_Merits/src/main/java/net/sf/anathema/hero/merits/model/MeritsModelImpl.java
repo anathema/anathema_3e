@@ -17,7 +17,6 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryListener;
 import org.jmock.example.announcer.Announcer;
@@ -165,7 +164,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  protected boolean isEntryAllowed() {
+  public boolean isEntryAllowed() {
     if (!currentMerit.isHeroEligible(hero) ||
             (!currentMerit.allowsRepurchase() && hasMerit(currentMerit))) {
       return false;
@@ -173,8 +172,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     return true;
   }
 
-  @Override
-  public boolean isCharacterExperienced() {
+  private boolean isCharacterExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();
   }
 

@@ -15,7 +15,6 @@
         Health: MortalHealth,
         Spells: 'MortalSpells',
         MagicPoints: 'MortalMagicPoints',
-        Languages: '',
         Intimacies: '',
         Specialties: '',
         SpecialtiesPoints: MortalSpecialtyPoints,
