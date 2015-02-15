@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
@@ -25,11 +19,13 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryListener;
-
 import org.jmock.example.announcer.Announcer;
 
-import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+import static java.util.stream.Collectors.toList;
 
 public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implements MeritsModel {
 
@@ -37,7 +33,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   private ChangeAnnouncer change;
   private MeritCache meritCache;
   private MeritCategory currentType = MeritCategory.Story;
-  private String currentMerit = "";
+  private MeritOption currentMerit;
   private String currentDescription = "";
   private Hero hero;
 
@@ -111,19 +107,14 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  public List<String> getCurrentMeritOptionLabels() {
-    return Lists.transform(getCurrentMeritOptions(), option -> option.getId());
-  }
-
-  @Override
   public void setCurrentType(MeritCategory type) {
     this.currentType = type;
     fireEntryChanged();
   }
 
   @Override
-  public void setCurrentMerit(String merit) {
-    this.currentMerit = merit;
+  public void setCurrentMeritOption(MeritOption option) {
+    this.currentMerit = option;
     fireEntryChanged();
   }
 
@@ -139,24 +130,8 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  public String getCurrentMerit() {
-    return currentMerit;
-  }
-
-  @Override
-  public String getCurrentDescription() {
-    return currentDescription;
-  }
-
-  @Override
-  public void setCurrentMeritOption(MeritOption option) {
-    this.currentMerit = option.getId();
-    fireEntryChanged();
-  }
-
-  @Override
   public MeritOption getCurrentMeritOption() {
-    return meritCache.getMeritOptionByName(currentMerit);
+    return currentMerit;
   }
 
   @Override
@@ -175,23 +150,20 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   protected Merit createEntry() {
-    MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit),
-            currentDescription, hero, isCharacterExperienced());
+    MeritImpl merit = new MeritImpl(currentMerit, currentDescription, hero, isCharacterExperienced());
     merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
     return merit;
   }
 
   @Override
   protected boolean isEntryAllowed() {
-    if (Strings.isNullOrEmpty(currentMerit)) {
+    if (currentMerit == null) {
       return false;
     }
-    MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit);
-    if (baseMerit != null) {
-      if (!baseMerit.isHeroEligible(hero) ||
-              (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
-        return false;
-      }
+    MeritOption baseMerit = currentMerit;
+    if (!baseMerit.isHeroEligible(hero) ||
+            (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
+      return false;
     }
     return true;
   }
@@ -204,5 +176,25 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @Override
   public boolean isCharacterExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();
+  }
+
+  @Override
+  public void resetCurrentMerit() {
+    currentDescription = "";
+    selectFirstMeritOption();
+  }
+
+  @Override
+  public MeritOption findOptionByReference(MeritReference reference) {
+    return meritCache.getMeritOptionByName(reference);
+  }
+
+  private void selectFirstMeritOption() {
+    List<MeritOption> currentMeritOptions = getCurrentMeritOptions();
+    if (currentMeritOptions.isEmpty()) {
+      currentMerit = null;
+      return;
+    }
+    currentMerit = currentMeritOptions.get(0);
   }
 }

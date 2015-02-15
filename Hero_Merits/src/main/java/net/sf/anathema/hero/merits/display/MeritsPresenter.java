@@ -1,11 +1,8 @@
 package net.sf.anathema.hero.merits.display;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
+import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -18,10 +15,13 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MeritsPresenter {
 
-  private ObjectSelectionView<String> meritBox;
-  private MeritEntryView selectionView;
+  private ObjectSelectionView<MeritOption> meritBox;
   private final MeritsView view;
   private final Resources resources;
   private final MeritsModel model;
@@ -35,15 +35,13 @@ public class MeritsPresenter {
   }
 
   public void initPresentation() {
-
-    selectionView = view.addSelectionView();
-    Tool tool = initCreationViewListening(selectionView);
+    MeritEntryView selectionView = view.addSelectionView();
+    Tool tool = initCreationView(selectionView);
     initModelListening(selectionView, tool);
     for (Merit merit : model.getMerits()) {
       addSubView(merit);
     }
     reset(selectionView);
-
     List<Trait> meritTraits = model.getContingentTraits();
     for (Trait trait : meritTraits) {
       trait.addCurrentValueListener(value -> refreshMeritList());
@@ -57,7 +55,7 @@ public class MeritsPresenter {
     subView.addButtonListener(() -> model.removeEntry(merit));
   }
 
-  protected void initModelListening(final MeritEntryView selectionView, final Tool tool) {
+  private void initModelListening(MeritEntryView selectionView, Tool tool) {
     model.addModelChangeListener(new RemovableEntryListener<Merit>() {
       @Override
       public void entryAdded(Merit merit) {
@@ -83,18 +81,16 @@ public class MeritsPresenter {
   }
 
   private void refreshMeritList() {
-    meritBox.setObjects(model.getCurrentMeritOptionLabels());
+    meritBox.setObjects(model.getCurrentMeritOptions());
   }
 
-  private Tool initCreationViewListening(MeritEntryView selectionView) {
+  private Tool initCreationView(MeritEntryView selectionView) {
     String labelText = resources.getString("Merits.DescriptionLabel");
-    ObjectSelectionView<MeritCategory> typeBox = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
-    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
-            model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
-
-    // We ideally want a text changed listener rather than an object change
-    meritBox.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
+    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<>());
     typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
+    MeritOption initialSelection = model.getCurrentMeritOption() != null ? model.getCurrentMeritOption() : null;
+    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptions(), model::setCurrentMeritOption, initialSelection, new MeritUiConfiguration<>());
+    meritBox.addObjectSelectionChangedListener(model::setCurrentMeritOption);
     selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentDescription);
     Tool tool = selectionView.addTool();
@@ -103,12 +99,15 @@ public class MeritsPresenter {
     return tool;
   }
 
-  private <T> ObjectSelectionView<T> addMeritSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
-    return allowSelection(selectionView.addMeritSelection(uiConfiguration), objects, listener, initial);
+  private ObjectSelectionView<MeritOption> addMeritSelection(MeritEntryView selectionView, List<MeritOption> options, ObjectChangedListener<MeritOption> listener, MeritOption initial, AgnosticUIConfiguration<MeritOption> uiConfiguration) {
+    ObjectSelectionView<MeritOption> view = selectionView.addMeritSelection(uiConfiguration);
+    MeritOption[] optionsArray = options.toArray(new MeritOption[options.size()]);
+    return allowSelection(view, optionsArray, listener, initial);
   }
 
-  private <T> ObjectSelectionView<T> addGenericSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
-    return allowSelection(selectionView.addSelection(uiConfiguration), objects, listener, initial);
+  private ObjectSelectionView<MeritCategory> addTypeSelection(MeritEntryView selectionView, MeritCategory[] objects, ObjectChangedListener<MeritCategory> listener, MeritCategory initial, AgnosticUIConfiguration<MeritCategory> uiConfiguration) {
+    ObjectSelectionView<MeritCategory> view = selectionView.addSelection(uiConfiguration);
+    return allowSelection(view, objects, listener, initial);
   }
 
   private <T> ObjectSelectionView<T> allowSelection(ObjectSelectionView<T> selection, T[] objects, ObjectChangedListener<T> listener, T initial) {
@@ -120,16 +119,10 @@ public class MeritsPresenter {
 
   private void reset(MeritEntryView selectionView) {
     selectionView.clear();
-    model.setCurrentMerit("");
-    model.setCurrentDescription("");
+    model.resetCurrentMerit();
   }
 
   private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {
-    private final Resources resources;
-
-    public MeritUiConfiguration(Resources resources) {
-      this.resources = resources;
-    }
 
     @Override
     public String getLabel(T value) {

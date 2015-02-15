@@ -24,11 +24,7 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
 
   List<MeritOption> getCurrentMeritOptionsOfAllTypes();
 
-  List<String> getCurrentMeritOptionLabels();
-
   void setCurrentType(MeritCategory newValue);
-
-  void setCurrentMerit(String merit);
 
   void setCurrentMeritOption(MeritOption option);
 
@@ -36,11 +32,7 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
 
   MeritCategory getCurrentType();
 
-  String getCurrentMerit();
-
   MeritOption getCurrentMeritOption();
-
-  String getCurrentDescription();
 
   List<Trait> getContingentTraits();
 
@@ -49,4 +41,8 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
   void addModelChangeListener(ChangeListener listener);
 
   boolean isCharacterExperienced();
+
+  void resetCurrentMerit();
+
+  MeritOption findOptionByReference(MeritReference reference);
 }
