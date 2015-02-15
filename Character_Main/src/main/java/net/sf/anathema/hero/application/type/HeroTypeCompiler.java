@@ -31,12 +31,8 @@ public class HeroTypeCompiler implements ExtensibleDataSetCompiler {
 
   @Override
   public void registerFile(ResourceFile resource) {
-    try (InputStream inputStream = resource.getURL().openStream()) {
-      HeroType type = loader.load(inputStream);
-      types.add(type);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
-    }
+    HeroType type = loader.load(resource);
+    types.add(type);
   }
 
   @Override

@@ -6,11 +6,7 @@ import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.hero.individual.splat.HeroSplatImpl;
 import net.sf.anathema.hero.individual.template.HeroTemplate;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.resources.ResourceFile;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 public class CharacterTemplateInitializer {
 
@@ -29,12 +25,8 @@ public class CharacterTemplateInitializer {
   }
 
   private void registerTemplateFromFile(ResourceFile templateResource) {
-    try (InputStream stream = templateResource.getURL().openStream()) {
-      HeroTemplate heroTemplate = loader.load(stream);
-      HeroSplat template = new HeroSplatImpl(heroTemplate, environment.getHeroTypes());
-      environment.getTemplateRegistry().register(template);
-    } catch (Exception e) {
-      throw new PersistenceException("Error loading " + templateResource.getFileName(), e);
-    }
+    HeroTemplate heroTemplate = loader.load(templateResource);
+    HeroSplat splat = new HeroSplatImpl(heroTemplate, environment.getHeroTypes());
+    environment.getTemplateRegistry().register(splat);
   }
 }

@@ -31,7 +31,7 @@ public class EvocationCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  
+
   @Inject
   public ObjectFactory objectFactory;
   @Inject
@@ -56,27 +56,19 @@ public class EvocationCompiler implements ExtensibleDataSetCompiler {
 
   @Override
   public ExtensibleDataSet build() {
-  	RuntimeTypeAdapterFactory[] charmFactories =
-        new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
+    RuntimeTypeAdapterFactory[] charmFactories =
+            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
     TemplateLoader<EvocationArtifactTemplate> evocationLoader = new GenericTemplateLoader<>(EvocationArtifactTemplate.class);
     TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
-    CharmCacheImpl cache = (CharmCacheImpl)cacheProvider.getDataSet(CharmCache.class);
+    CharmCacheImpl cache = (CharmCacheImpl) cacheProvider.getDataSet(CharmCache.class);
     EvocationsBuilder evocationBuilder = new EvocationsBuilder();
     resourceFiles.forEach(resourceFile -> {
-    	EvocationArtifactTemplate asEvocationsTemplate = loadTemplate(resourceFile, evocationLoader);
-    	CharmListTemplate asCharmsTemplate = loadTemplate(resourceFile, charmsLoader);
+      EvocationArtifactTemplate asEvocationsTemplate = evocationLoader.load(resourceFile);
+      CharmListTemplate asCharmsTemplate = charmsLoader.load(resourceFile);
       evocationBuilder.addTemplate(asEvocationsTemplate);
       evocationBuilder.addCharmTemplates(asCharmsTemplate);
     });
     evocationBuilder.apply(cache);
     return new EvocationsCache();
-  }
-
-  private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
-    try (InputStream inputStream = resource.getURL().openStream()) {
-      return loader.load(inputStream);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
-    }
   }
 }
