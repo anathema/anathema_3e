@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import cucumber.api.PendingException;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.charm.data.reference.SpellName;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
@@ -21,6 +22,7 @@ import cucumber.api.java.en.When;
 
 import java.util.List;
 
+@ScenarioScoped
 public class LanguageSteps {
 
   private final CharacterHolder character;

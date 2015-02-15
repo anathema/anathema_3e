@@ -3,6 +3,8 @@ package net.sf.anathema;
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -16,6 +18,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+@ScenarioScoped
 public class AbilitySteps {
 
   public static final int ASSUMED_THRESHOLD_FOR_BONUSPOINTS = 3;
@@ -28,6 +31,7 @@ public class AbilitySteps {
     this.character = character;
     this.bonusModel = new BonusModelFetcher(character);
   }
+  
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));

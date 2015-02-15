@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.CharacterHolder;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
@@ -13,6 +14,7 @@ import static net.sf.anathema.hero.traits.model.types.AttributeType.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+@ScenarioScoped
 public class AttributeSteps {
 
   public static final AttributeType ANY_ATTRIBUTE_TYPE = Dexterity;

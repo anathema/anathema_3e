@@ -2,6 +2,7 @@ package net.sf.anathema;
 
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.points.model.BonusPointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.overview.SpendingModel;
@@ -9,6 +10,7 @@ import net.sf.anathema.points.model.overview.SpendingModel;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@ScenarioScoped
 public class BonusPointSteps {
 
   private final CharacterHolder character;

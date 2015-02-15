@@ -3,6 +3,7 @@ package net.sf.anathema.exaltedengine.essence;
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.characterengine.persona.QualityClosure;
 import net.sf.anathema.characterengine.quality.Name;
 import net.sf.anathema.characterengine.quality.Quality;
@@ -18,6 +19,7 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
+@ScenarioScoped
 public class EssenceSteps {
 
   private final CharacterHolder persona;

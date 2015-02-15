@@ -1,6 +1,6 @@
 package net.sf.anathema;
 
-import com.google.inject.Singleton;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
@@ -13,7 +13,7 @@ import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 
-@Singleton
+@ScenarioScoped
 public class CharacterHolder {
   private HeroItemData heroItemData;
 

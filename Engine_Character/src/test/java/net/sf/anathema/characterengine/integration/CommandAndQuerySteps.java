@@ -5,6 +5,7 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.characterengine.command.AddQuality;
 import net.sf.anathema.characterengine.engine.Engine;
 import net.sf.anathema.characterengine.persona.QualityClosure;
@@ -29,6 +30,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
 @SuppressWarnings("UnusedDeclaration")
+@ScenarioScoped
 public class CommandAndQuerySteps {
   private final Engine engine;
   private QualityListener registeredListener;
