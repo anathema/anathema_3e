@@ -11,6 +11,7 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class LanguagesContent extends AbstractSubBoxContent implements ListSubBoxContent {
 
@@ -28,21 +29,13 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
 
   @Override
   public List<String> getPrintEntries() {
-    List<String> printLanguages = new ArrayList<>();
-    MeritsModel model = getModel();
+    MeritsModel model = MeritsModelFetcher.fetch(hero);
     List<Merit> languageMerits = model.getMeritsMatchingReference(new MeritReference("Language"));
-    for (Merit languageMerit : languageMerits) {
-      printLanguages.add(languageMerit.getDescription());
-    }
-    return printLanguages;
+    return languageMerits.stream().map(Merit::getDescription).collect(Collectors.toList());
   }
 
   @Override
   public boolean useNewLineForEachEntry() {
     return false;
-  }
-
-  private MeritsModel getModel() {
-    return MeritsModelFetcher.fetch(hero);
   }
 }
