@@ -4,6 +4,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -51,6 +52,11 @@ public class NullMeritOption implements MeritOption {
   @Override
   public boolean isReferencedBy(MeritReference reference) {
     return false;
+  }
+
+  @Override
+  public Collection<String> getSuggestions() {
+    return Collections.emptyList();
   }
 
   @Override

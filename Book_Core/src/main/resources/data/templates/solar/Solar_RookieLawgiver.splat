@@ -23,7 +23,6 @@
         SolarVirtueFlaw: '',
         Equipment: '',
         Merits: '',
-        MeritPoints: 'SolarMeritPoints_Rookie',
-        Languages: ''
+        MeritPoints: 'SolarMeritPoints_Rookie'
     }
 }

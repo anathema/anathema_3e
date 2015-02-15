@@ -20,7 +20,6 @@
         SpecialtiesPoints: MortalSpecialtyPoints,
         Equipment: '',
         Merits: '',
-        MeritPoints: 'MortalMeritPoints',
-        Languages: ''
+        MeritPoints: 'MortalMeritPoints'
     }
 }

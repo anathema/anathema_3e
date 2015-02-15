@@ -206,12 +206,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   public Collection<String> getSuggestedDescriptions() {
-    for (MeritReference reference : suggestions.keySet()) {
-      if (currentMerit.isReferencedBy(reference)) {
-        return suggestions.get(reference);
-      }
-    }
-    return Collections.emptyList();
+    return currentMerit.getSuggestions();
   }
 
   private void selectFirstMeritOption() {

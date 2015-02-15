@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
@@ -10,6 +7,10 @@ import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDe
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class MeritOptionImpl implements MeritOption {
 
@@ -19,12 +20,13 @@ public class MeritOptionImpl implements MeritOption {
   private final boolean[] legalValues = new boolean[MAX_MERIT_RATING + 1];
   private final List<MeritRequirement> requirements = new ArrayList<>();
   private final List<MeritMechanicalDetail> mechanics = new ArrayList<>();
+  private final List<String> suggestions = new ArrayList<>();
 
   public MeritOptionImpl(MeritTemplate template) {
     this.name = template.name;
     this.allowRepurchase = template.repurchases;
     this.type = MeritCategory.valueOf(template.type);
-
+    this.suggestions.addAll(template.suggestions);
     parseLegalValues(template.values);
     parseRequirements(template.requirements);
     parseMechanics(template.mechanics);
@@ -128,6 +130,11 @@ public class MeritOptionImpl implements MeritOption {
   @Override
   public boolean isReferencedBy(MeritReference reference) {
     return reference.name.equals(name);
+  }
+
+  @Override
+  public Collection<String> getSuggestions() {
+    return suggestions;
   }
 
   @Override

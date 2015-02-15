@@ -13,4 +13,5 @@ public class MeritTemplate {
 	public boolean repurchases;
 	public List<MeritRequirementsTemplate> requirements = new ArrayList<>();
 	public List<MeritMechanicalDetailTemplate> mechanics = new ArrayList<>();
+	public List<String> suggestions = new ArrayList<>();
 }
