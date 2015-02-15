@@ -5,7 +5,6 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
-import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
@@ -29,7 +28,8 @@ import static java.util.stream.Collectors.toList;
 
 public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implements MeritsModel {
 
-  private final Announcer<ChangeListener> announcer = Announcer.to(ChangeListener.class);
+  private final Announcer<ChangeListener> currentTypeChangeAnnouncer = Announcer.to(ChangeListener.class);
+  private final Announcer<ChangeListener> currentMeritChangeAnnouncer = Announcer.to(ChangeListener.class);
   private ChangeAnnouncer change;
   private MeritCache meritCache;
   private MeritCategory currentType = MeritCategory.Story;
@@ -54,7 +54,6 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @SuppressWarnings("unchecked")
   @Override
   public void initializeListening(final ChangeAnnouncer announcer) {
-    addModelChangeListener(new UnspecifiedChangeListener(announcer));
     addModelChangeListener((RemovableEntryListener) new RemovableEntryChangeAdapter<>(announcer));
     change = announcer;
   }
@@ -109,12 +108,15 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   @Override
   public void setCurrentType(MeritCategory type) {
     this.currentType = type;
+    currentTypeChangeAnnouncer.announce().changeOccurred();
+    resetCurrentMerit();
     fireEntryChanged();
   }
 
   @Override
   public void setCurrentMeritOption(MeritOption option) {
     this.currentMerit = option;
+    currentMeritChangeAnnouncer.announce().changeOccurred();
     fireEntryChanged();
   }
 
@@ -168,11 +170,6 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  public void addModelChangeListener(ChangeListener listener) {
-    announcer.addListener(listener);
-  }
-
-  @Override
   public boolean isCharacterExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();
   }
@@ -188,12 +185,22 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     return meritCache.getMeritOptionByName(reference);
   }
 
+  @Override
+  public void whenTypeChanges(ChangeListener changeListener) {
+    currentTypeChangeAnnouncer.addListener(changeListener);
+  }
+
+  @Override
+  public void whenCurrentOptionChanges(ChangeListener changeListener) {
+    currentMeritChangeAnnouncer.addListener(changeListener);
+  }
+
   private void selectFirstMeritOption() {
     List<MeritOption> currentMeritOptions = getCurrentMeritOptions();
     if (currentMeritOptions.isEmpty()) {
-      currentMerit = null;
+      setCurrentMeritOption(null);
       return;
     }
-    currentMerit = currentMeritOptions.get(0);
+    setCurrentMeritOption(currentMeritOptions.get(0));
   }
 }

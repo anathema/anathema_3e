@@ -77,32 +77,32 @@ public class MeritsPresenter {
     });
   }
 
-  private void refreshMeritList() {
-    meritBox.setObjects(model.getCurrentMeritOptions());
-  }
-
   private Tool initCreationView(MeritEntryView selectionView) {
-    ObjectSelectionView<MeritCategory> typeBox = addTypeSelection(selectionView);
-    typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
+    addTypeSelection(selectionView);
     this.meritBox = addMeritSelection(selectionView);
     addDescriptionBox(selectionView);
     return addCommitTool(selectionView);
   }
 
-  private ObjectSelectionView<MeritCategory> addTypeSelection(MeritEntryView selectionView) {
+  private void addTypeSelection(MeritEntryView selectionView) {
     ObjectSelectionView<MeritCategory> typeView = selectionView.addSelection(new ToStringConfiguration<>());
     typeView.setObjects(MeritCategory.values());
     typeView.setSelectedObject(model.getCurrentType());
     typeView.addObjectSelectionChangedListener(model::setCurrentType);
-    return typeView;
+    model.whenTypeChanges(() -> {
+      typeView.setSelectedObject(model.getCurrentType());
+      refreshMeritList();
+    });
   }
 
   private ObjectSelectionView<MeritOption> addMeritSelection(MeritEntryView selectionView) {
-    MeritOption initialSelection = model.getCurrentMeritOption() != null ? model.getCurrentMeritOption() : null;
     ObjectSelectionView<MeritOption> meritView = selectionView.addMeritSelection(new ToStringConfiguration<>());
     meritView.setObjects(model.getCurrentMeritOptions());
-    meritView.setSelectedObject(initialSelection);
+    meritView.setSelectedObject(model.getCurrentMeritOption());
     meritView.addObjectSelectionChangedListener(model::setCurrentMeritOption);
+    model.whenCurrentOptionChanges(() -> {
+      meritView.setSelectedObject(model.getCurrentMeritOption());
+    });
     return meritView;
   }
 
@@ -121,5 +121,9 @@ public class MeritsPresenter {
   private void reset(MeritEntryView selectionView) {
     selectionView.clear();
     model.resetCurrentMerit();
+  }
+
+  private void refreshMeritList() {
+    meritBox.setObjects(model.getCurrentMeritOptions());
   }
 }

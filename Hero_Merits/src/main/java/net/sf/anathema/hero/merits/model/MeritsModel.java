@@ -38,11 +38,13 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
 
   void addChangeListener(FlavoredChangeListener listener);
 
-  void addModelChangeListener(ChangeListener listener);
-
   boolean isCharacterExperienced();
 
   void resetCurrentMerit();
 
   MeritOption findOptionByReference(MeritReference reference);
+
+  void whenTypeChanges(ChangeListener changeListener);
+
+  void whenCurrentOptionChanges(ChangeListener changeListener);
 }

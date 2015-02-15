@@ -1,17 +1,11 @@
 package net.sf.anathema.hero.evocations.compiler;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.evocations.EvocationArtifactTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
-import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.evocations.json.EvocationsBuilder;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
@@ -25,6 +19,11 @@ import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 @Weight(weight = 100)
