@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
+import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
@@ -47,4 +48,6 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
   void whenTypeChanges(ChangeListener changeListener);
 
   void whenCurrentOptionChanges(ChangeListener changeListener);
+
+  Collection<String> getSuggestedDescriptions();
 }

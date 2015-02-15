@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
@@ -16,11 +17,14 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryListener;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -33,7 +37,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   private ChangeAnnouncer change;
   private MeritCache meritCache;
   private MeritCategory currentType = MeritCategory.Story;
-  private MeritOption currentMerit;
+  private MeritOption currentMerit = new NullMeritOption();
   private String currentDescription = "";
   private Hero hero;
 
@@ -115,6 +119,9 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   public void setCurrentMeritOption(MeritOption option) {
+    if (option == null) {
+      option = new NullMeritOption();
+    }
     this.currentMerit = option;
     currentMeritChangeAnnouncer.announce().changeOccurred();
     fireEntryChanged();
@@ -159,9 +166,6 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   protected boolean isEntryAllowed() {
-    if (currentMerit == null) {
-      return false;
-    }
     if (!currentMerit.isHeroEligible(hero) ||
             (!currentMerit.allowsRepurchase() && hasMerit(currentMerit))) {
       return false;
@@ -195,10 +199,22 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     currentMeritChangeAnnouncer.addListener(changeListener);
   }
 
+  @Override
+  public Collection<String> getSuggestedDescriptions() {
+    if (currentMeritMatches(new MeritReference("Language"))) {
+      return Lists.newArrayList("High Realm", "Low Realm", "Old Realm", "Riverspeak", "Skytongue", "Flametongue", "Forest-tongue", "Seatongue", "Guild Cant", "Up to 4 Local Tongues, please specify");
+    }
+    return Collections.emptyList();
+  }
+
+  private boolean currentMeritMatches(MeritReference reference) {
+    return currentMerit.isReferencedBy(reference);
+  }
+
   private void selectFirstMeritOption() {
     List<MeritOption> currentMeritOptions = getCurrentMeritOptions();
     if (currentMeritOptions.isEmpty()) {
-      setCurrentMeritOption(null);
+      setCurrentMeritOption(new NullMeritOption());
       return;
     }
     setCurrentMeritOption(currentMeritOptions.get(0));

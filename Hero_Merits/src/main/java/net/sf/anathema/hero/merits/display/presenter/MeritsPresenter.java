@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.merits.display.presenter;
 
+import com.google.common.collect.Lists;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
@@ -104,6 +105,7 @@ public class MeritsPresenter {
     meritView.addObjectSelectionChangedListener(model::setCurrentMeritOption);
     model.whenCurrentOptionChanges(() -> {
       meritView.setSelectedObject(model.getCurrentMeritOption());
+      textBox.suggestCompletions(model.getSuggestedDescriptions());
     });
     return meritView;
   }
