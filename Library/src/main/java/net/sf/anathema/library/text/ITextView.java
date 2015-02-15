@@ -1,8 +1,9 @@
 package net.sf.anathema.library.text;
 
 import net.sf.anathema.library.event.ObjectChangedListener;
+import net.sf.anathema.library.view.Clearable;
 
-public interface ITextView {
+public interface ITextView extends Clearable{
 
   void addTextChangedListener(ObjectChangedListener<String> listener);
 

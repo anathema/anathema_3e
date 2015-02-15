@@ -63,4 +63,9 @@ public class TextView implements SwingTextView {
     Color disabledColor = defaults.getColor("TextField.disabledBackground");
     getTextComponent().setBackground(enabled ? enabledColor : disabledColor);
   }
+
+  @Override
+  public void clear() {
+    setText("");
+  }
 }

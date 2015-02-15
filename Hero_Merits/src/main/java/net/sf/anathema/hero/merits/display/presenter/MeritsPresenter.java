@@ -9,6 +9,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.RemovableEntryListener;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
@@ -19,6 +20,7 @@ import java.util.Map;
 public class MeritsPresenter {
 
   private ObjectSelectionView<MeritOption> meritBox;
+  private ITextView textBox;
   private final MeritsView view;
   private final Resources resources;
   private final MeritsModel model;
@@ -38,7 +40,7 @@ public class MeritsPresenter {
     for (Merit merit : model.getMerits()) {
       addSubView(merit);
     }
-    reset(selectionView);
+    reset();
     List<Trait> meritTraits = model.getContingentTraits();
     for (Trait trait : meritTraits) {
       trait.addCurrentValueListener(value -> refreshMeritList());
@@ -57,7 +59,7 @@ public class MeritsPresenter {
       @Override
       public void entryAdded(Merit merit) {
         addSubView(merit);
-        reset(selectionView);
+        reset();
       }
 
       @Override
@@ -96,7 +98,7 @@ public class MeritsPresenter {
   }
 
   private ObjectSelectionView<MeritOption> addMeritSelection(MeritEntryView selectionView) {
-    ObjectSelectionView<MeritOption> meritView = selectionView.addMeritSelection(new ToStringConfiguration<>());
+    ObjectSelectionView<MeritOption> meritView = selectionView.addSelection(new ToStringConfiguration<>());
     meritView.setObjects(model.getCurrentMeritOptions());
     meritView.setSelectedObject(model.getCurrentMeritOption());
     meritView.addObjectSelectionChangedListener(model::setCurrentMeritOption);
@@ -107,8 +109,8 @@ public class MeritsPresenter {
   }
 
   private void addDescriptionBox(MeritEntryView selectionView) {
-    selectionView.addDescriptionBox(resources.getString("Merits.DescriptionLabel"));
-    selectionView.addTextChangeListener(model::setCurrentDescription);
+    this.textBox = selectionView.addDescriptionBox(resources.getString("Merits.DescriptionLabel"));
+    textBox.addTextChangedListener(model::setCurrentDescription);
   }
 
   private Tool addCommitTool(MeritEntryView selectionView) {
@@ -118,8 +120,9 @@ public class MeritsPresenter {
     return tool;
   }
 
-  private void reset(MeritEntryView selectionView) {
-    selectionView.clear();
+  private void reset() {
+    meritBox.clearSelection();
+    textBox.clear();
     model.resetCurrentMerit();
   }
 

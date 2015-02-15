@@ -74,4 +74,9 @@ public class FxSelectionViewWithTool<V> implements ObjectSelectionViewWithTool<V
     selectionPanel.add(comboBox.getNode());
     selectionPanel.add(buttonPanel, new CC().alignY("center"));
   }
+
+  @Override
+  public void clear() {
+    clearSelection();
+  }
 }

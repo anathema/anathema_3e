@@ -97,4 +97,9 @@ public class ListSelectionView<T> implements VetoableObjectSelectionView<T> {
   public Node getNode() {
     return view;
   }
+
+  @Override
+  public void clear() {
+    clearSelection();
+  }
 }

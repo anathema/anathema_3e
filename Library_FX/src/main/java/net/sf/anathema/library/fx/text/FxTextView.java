@@ -61,4 +61,9 @@ public class FxTextView implements ITextView {
   public Node getNode() {
     return view;
   }
+
+  @Override
+  public void clear() {
+    setText("");
+  }
 }
