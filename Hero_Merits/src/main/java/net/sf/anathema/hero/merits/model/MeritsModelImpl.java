@@ -61,131 +61,131 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     addModelChangeListener((RemovableEntryListener) new RemovableEntryChangeAdapter<>(announcer));
     change = announcer;
   }
-  
+
   public List<Trait> getContingentTraits() {
-  	List<Trait> traits = new ArrayList<>();
-  	TraitTypeFinder typeFinder = new TraitTypeFinder();
-  	TraitModel traitModel = TraitModelFetcher.fetch(hero);
-  	for (MeritOption merit : meritCache.getAllMeritOptions()) {
-  		for (String typeLabel : merit.getContingentTraitTypes()) {
-  			Trait trait = traitModel.getTrait(typeFinder.getTrait(typeLabel));
-  			if (!traits.contains(trait)) {
-  				traits.add(trait);
-  			}
-  		}
-  	}
-  	return traits;
+    List<Trait> traits = new ArrayList<>();
+    TraitTypeFinder typeFinder = new TraitTypeFinder();
+    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    for (MeritOption merit : meritCache.getAllMeritOptions()) {
+      for (String typeLabel : merit.getContingentTraitTypes()) {
+        Trait trait = traitModel.getTrait(typeFinder.getTrait(typeLabel));
+        if (!traits.contains(trait)) {
+          traits.add(trait);
+        }
+      }
+    }
+    return traits;
   }
-  
+
   @Override
   public List<Merit> getMerits() {
-	  return getEntries();
+    return getEntries();
   }
-  
+
   @Override
   public List<Merit> getMeritsOfOption(MeritOption option) {
-  	return getEntries().stream().filter(merit -> merit.getBaseOption().equals(option)).collect(toList());
+    return getEntries().stream().filter(merit -> merit.getBaseOption().equals(option)).collect(toList());
   }
-  
+
   @Override
   public List<MeritOption> getCurrentMeritOptions() {
-  	List<MeritOption> options = meritCache.getAllMeritOptions();
-  	options.removeIf(item -> item.getType() != currentType || !item.isHeroEligible(hero) ||
-  						(!item.allowsRepurchase() && hasMerit(item)));
-  	return options;
+    List<MeritOption> options = meritCache.getAllMeritOptions();
+    options.removeIf(item -> item.getType() != currentType || !item.isHeroEligible(hero) ||
+            (!item.allowsRepurchase() && hasMerit(item)));
+    return options;
   }
-  
+
   @Override
-	public List<MeritOption> getCurrentMeritOptionsOfAllTypes() {
-  	List<MeritOption> options = meritCache.getAllMeritOptions();
-  	options.removeIf(item -> !item.isHeroEligible(hero) ||
-  						(!item.allowsRepurchase() && hasMerit(item)));
-  	return options;
-	}
-  
+  public List<MeritOption> getCurrentMeritOptionsOfAllTypes() {
+    List<MeritOption> options = meritCache.getAllMeritOptions();
+    options.removeIf(item -> !item.isHeroEligible(hero) ||
+            (!item.allowsRepurchase() && hasMerit(item)));
+    return options;
+  }
+
   @Override
   public List<String> getCurrentMeritOptionLabels() {
-  	return Lists.transform(getCurrentMeritOptions(), option -> option.getId());
+    return Lists.transform(getCurrentMeritOptions(), option -> option.getId());
   }
 
   @Override
   public void setCurrentType(MeritCategory type) {
-	  this.currentType = type;
-	  fireEntryChanged();
+    this.currentType = type;
+    fireEntryChanged();
   }
 
   @Override
   public void setCurrentMerit(String merit) {
-	  this.currentMerit = merit;
-	  fireEntryChanged();
+    this.currentMerit = merit;
+    fireEntryChanged();
   }
 
   @Override
   public void setCurrentDescription(String description) {
-	  this.currentDescription = description;
-	  fireEntryChanged();
+    this.currentDescription = description;
+    fireEntryChanged();
   }
-  
+
   @Override
   public MeritCategory getCurrentType() {
-	  return currentType;
+    return currentType;
   }
 
   @Override
   public String getCurrentMerit() {
-	  return currentMerit;
+    return currentMerit;
   }
 
   @Override
   public String getCurrentDescription() {
-	  return currentDescription;
+    return currentDescription;
   }
-  
+
   @Override
   public void setCurrentMeritOption(MeritOption option) {
-  	this.currentMerit = option.getId();
-  	fireEntryChanged();
+    this.currentMerit = option.getId();
+    fireEntryChanged();
   }
 
   @Override
   public MeritOption getCurrentMeritOption() {
-  	return meritCache.getMeritOptionByName(currentMerit, false);
+    return meritCache.getMeritOptionByName(currentMerit, false);
   }
 
   @Override
   public void addChangeListener(FlavoredChangeListener listener) {
     hero.getChangeAnnouncer().addListener(listener);
   }
-  
+
   private boolean hasMerit(MeritOption option) {
-	  for (Merit merit : getEntries()) {
-		  if (merit.getBaseOption().equals(option)) {
-			  return true;
-		  }
-	  }
-	  return false;
+    for (Merit merit : getEntries()) {
+      if (merit.getBaseOption().equals(option)) {
+        return true;
+      }
+    }
+    return false;
   }
 
   @Override
   protected Merit createEntry() {
-	  MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
-			  currentDescription, hero, isCharacterExperienced());
-	  merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
-	  return merit;
+    MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
+            currentDescription, hero, isCharacterExperienced());
+    merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
+    return merit;
   }
 
   @Override
   protected boolean isEntryAllowed() {
-	if (Strings.isNullOrEmpty(currentMerit)) {
-		return false;
-	}
-	MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);
-	if (baseMerit != null) {
-		if (!baseMerit.isHeroEligible(hero) ||
-		    (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
-			return false;
-		}
-	}
+    if (Strings.isNullOrEmpty(currentMerit)) {
+      return false;
+    }
+    MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);
+    if (baseMerit != null) {
+      if (!baseMerit.isHeroEligible(hero) ||
+              (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {
+        return false;
+      }
+    }
     return true;
   }
 

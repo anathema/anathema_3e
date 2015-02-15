@@ -2,9 +2,7 @@ package net.sf.anathema.hero.traits.advance;
 
 import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
-import java.io.Serializable;
-
-public class MultiplyRatingCost extends ReflectionEqualsObject implements CurrentRatingCost, NewRatingCost, Serializable {
+public class MultiplyRatingCost extends ReflectionEqualsObject implements CurrentRatingCost, NewRatingCost {
 
   private final int factor;
   private final int initalCost;

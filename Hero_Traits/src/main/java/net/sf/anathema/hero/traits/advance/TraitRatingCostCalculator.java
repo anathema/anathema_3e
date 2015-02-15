@@ -8,7 +8,7 @@ public class TraitRatingCostCalculator {
     return getTraitRatingCosts(trait.getCreationValue(), trait.getExperiencedValue(), ratingCosts);
   }
 
-  public static int getTraitRatingCosts(int valueToAchieveWithoutCost, int valueToPayFor, RatingCost ratingCosts) {
+  private static int getTraitRatingCosts(int valueToAchieveWithoutCost, int valueToPayFor, RatingCost ratingCosts) {
     int traitCosts = 0;
     int currentRating = valueToAchieveWithoutCost;
     while (currentRating < valueToPayFor) {

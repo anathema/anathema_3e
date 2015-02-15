@@ -8,7 +8,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 
 public interface MeritOption extends TraitType {
 
-	static int MAX_MERIT_RATING = 5;
+	int MAX_MERIT_RATING = 5;
 	
 	MeritCategory getType();
 

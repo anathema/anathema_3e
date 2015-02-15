@@ -20,12 +20,12 @@ import net.sf.anathema.platform.taskbar.BasicUi;
 
 public class MeritsPresenter {
 
-	private ObjectSelectionView<String> meritBox;
+  private ObjectSelectionView<String> meritBox;
   private MeritEntryView selectionView;
   private final MeritsView view;
   private final Resources resources;
   private final MeritsModel model;
-  
+
   private final Map<Merit, MeritItemView> viewsByEntry = new HashMap<>();
 
   public MeritsPresenter(MeritsModel model, MeritsView view, Resources resources) {
@@ -35,7 +35,7 @@ public class MeritsPresenter {
   }
 
   public void initPresentation() {
-    
+
     selectionView = view.addSelectionView();
     Tool tool = initCreationViewListening(selectionView);
     initModelListening(selectionView, tool);
@@ -43,10 +43,10 @@ public class MeritsPresenter {
       addSubView(merit);
     }
     reset(selectionView);
-    
+
     List<Trait> meritTraits = model.getContingentTraits();
     for (Trait trait : meritTraits) {
-    	trait.addCurrentValueListener(value -> refreshMeritList());
+      trait.addCurrentValueListener(value -> refreshMeritList());
     }
   }
 
@@ -81,34 +81,34 @@ public class MeritsPresenter {
       }
     });
   }
-  
+
   private void refreshMeritList() {
-  	meritBox.setObjects(model.getCurrentMeritOptionLabels());
+    meritBox.setObjects(model.getCurrentMeritOptionLabels());
   }
 
   private Tool initCreationViewListening(MeritEntryView selectionView) {
-	String labelText = resources.getString("Merits.DescriptionLabel");
-	ObjectSelectionView<MeritCategory> typeBox = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
-	meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
-			model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
-    
-	// We ideally want a text changed listener rather than an object change
-	meritBox.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
-	typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
-	selectionView.addDescriptionBox(labelText);
+    String labelText = resources.getString("Merits.DescriptionLabel");
+    ObjectSelectionView<MeritCategory> typeBox = addGenericSelection(selectionView, MeritCategory.values(), model::setCurrentType, model.getCurrentType(), new MeritUiConfiguration<MeritCategory>(resources));
+    meritBox = addMeritSelection(selectionView, model.getCurrentMeritOptionLabels().toArray(new String[0]), model::setCurrentMerit,
+            model.getCurrentMeritOption() != null ? model.getCurrentMeritOption().getId() : null, new MeritUiConfiguration<String>(resources));
+
+    // We ideally want a text changed listener rather than an object change
+    meritBox.addObjectSelectionChangedListener(text -> model.setCurrentMerit(text));
+    typeBox.addObjectSelectionChangedListener(item -> refreshMeritList());
+    selectionView.addDescriptionBox(labelText);
     selectionView.addTextChangeListener(model::setCurrentDescription);
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setCommand(model::commitSelection);
     return tool;
   }
-  
+
   private <T> ObjectSelectionView<T> addMeritSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
-	  return allowSelection(selectionView.addMeritSelection(uiConfiguration), objects, listener, initial);
+    return allowSelection(selectionView.addMeritSelection(uiConfiguration), objects, listener, initial);
   }
-  
+
   private <T> ObjectSelectionView<T> addGenericSelection(MeritEntryView selectionView, T[] objects, ObjectChangedListener<T> listener, T initial, AgnosticUIConfiguration<T> uiConfiguration) {
-	  return allowSelection(selectionView.addSelection(uiConfiguration), objects, listener, initial);
+    return allowSelection(selectionView.addSelection(uiConfiguration), objects, listener, initial);
   }
 
   private <T> ObjectSelectionView<T> allowSelection(ObjectSelectionView<T> selection, T[] objects, ObjectChangedListener<T> listener, T initial) {
@@ -125,15 +125,15 @@ public class MeritsPresenter {
   }
 
   private class MeritUiConfiguration<T> extends AbstractUIConfiguration<T> {
-	  	private final Resources resources;
-	  	
-	  	public MeritUiConfiguration(Resources resources) {
-	  		this.resources = resources;
-	  	}
-	  
-	    @Override
-	    public String getLabel(T value) {
-	      return value != null ? value.toString() : null;
-	    }
-	  }
+    private final Resources resources;
+
+    public MeritUiConfiguration(Resources resources) {
+      this.resources = resources;
+    }
+
+    @Override
+    public String getLabel(T value) {
+      return value != null ? value.toString() : null;
+    }
+  }
 }
