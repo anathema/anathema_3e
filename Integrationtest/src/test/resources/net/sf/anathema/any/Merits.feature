@@ -40,11 +40,11 @@ Feature: Characters can acquire merits correctly
   	And she earns the Language merit
   	Then she has spent 3 xp points
   	
-  Scenario: Merits cost 3 xp * new rating
+  Scenario: Merits cost 3 xp * new rating, dead levels are free
   	Given any Mortal
   	When she goes experienced
   	And she earns the Fleet of Foot merit
-  	Then she has spent 30 xp points
+  	Then she has spent 12 xp points
   	
   Scenario: Purchasing story merits does not cost xp
   	Given any Mortal

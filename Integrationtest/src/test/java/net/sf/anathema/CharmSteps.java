@@ -1,6 +1,7 @@
 package net.sf.anathema;
 
 import com.google.inject.Inject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import net.sf.anathema.charm.data.Charm;

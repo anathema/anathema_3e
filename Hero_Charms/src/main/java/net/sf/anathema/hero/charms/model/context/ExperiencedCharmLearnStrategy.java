@@ -8,7 +8,7 @@ public class ExperiencedCharmLearnStrategy implements ICharmLearnStrategy {
 
   @Override
   public boolean isForgettable(BasicLearningModel group, Charm charm) {
-    return group.isLearnedOnCreation(charm);
+    return group.isLearnedWithExperience(charm);
   }
 
   @Override

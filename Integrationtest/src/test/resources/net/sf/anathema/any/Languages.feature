@@ -1,4 +1,3 @@
-@Integration
 Feature: Characters can acquire languages correctly
 
   Scenario: A Mortal cannot normally learn Old Realm

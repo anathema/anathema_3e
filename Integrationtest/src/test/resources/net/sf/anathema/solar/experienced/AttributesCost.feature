@@ -26,4 +26,4 @@ Feature: Attribute costs of big damn heroes
     | priority  | cost |
     | Tertiary  | 3    |
     | Secondary | 4    |
-    | Primary   | 5    |
+    | Primary   | 4    |

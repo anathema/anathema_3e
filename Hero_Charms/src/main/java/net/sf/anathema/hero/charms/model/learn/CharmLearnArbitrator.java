@@ -18,5 +18,5 @@ public interface CharmLearnArbitrator {
   
   boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> traits, CategoryReference category, int threshold, int minimumEssence);
 
-	boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold);
+  boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold);
 }
