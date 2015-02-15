@@ -35,47 +35,45 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
   @Override
   public void initializeListening(final ChangeAnnouncer announcer) {
-  	specialtiesChangedListener.addListener(new ISpecialtyListener()
-  	{
+    specialtiesChangedListener.addListener(new ISpecialtyListener() {
+      @Override
+      public void specialtyAdded(Specialty subTrait) {
+        announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
+      }
 
-			@Override
-			public void specialtyAdded(Specialty subTrait) {
-				announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
-			}
-
-			@Override
-			public void specialtyRemoved(Specialty subTrait) {
-				announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
-			}
-  	
-  	});
+      @Override
+      public void specialtyRemoved(Specialty subTrait) {
+        announcer.announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
+      }
+    });
   }
 
   @Override
   public Identifier getId() {
     return SpecialtiesModel.ID;
   }
-  
+
   @Override
-	public List<Specialty> getAllSpecialties() {
-		return new ArrayList<Specialty>(specialties);
-	}
-  
-  @Override
-  public List<Specialty> getAllSpecialtiesOfType(TraitType type) {
-  	List<Specialty> traitSpecialties = getAllSpecialties();
-  	traitSpecialties.removeIf(specialty -> !specialty.getBasicTraitType().equals(type));
-  	return traitSpecialties;
+  public List<Specialty> getAllSpecialties() {
+    return new ArrayList<>(specialties);
   }
 
-	@Override
-	public boolean removeSpecialty(Specialty specialty) {
-		if (specialty.isLearnedAtCreation() && isExperienced()) {
-			return false;
-		}
-		specialtiesChangedListener.announce().specialtyRemoved(specialty);
-		return specialties.remove(specialty);
-	}
+  @Override
+  public List<Specialty> getAllSpecialtiesOfType(TraitType type) {
+    List<Specialty> traitSpecialties = getAllSpecialties();
+    traitSpecialties.removeIf(specialty -> !specialty.getBasicTraitType().equals(type));
+    return traitSpecialties;
+  }
+
+  @Override
+  public boolean removeSpecialty(Specialty specialty) {
+    if (specialty.isLearnedAtCreation() && isExperienced()) {
+      return false;
+    }
+    boolean remove = specialties.remove(specialty);
+    specialtiesChangedListener.announce().specialtyRemoved(specialty);
+    return remove;
+  }
 
   @Override
   public List<TraitType> getAllEligibleParentTraits() {
@@ -87,9 +85,9 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
     }
     return eligibleTypes;
   }
-  
+
   private boolean isNewSpecialtyAllowed(Trait ability) {
-  	return ability.getCurrentValue() > 0;
+    return ability.getCurrentValue() > 0;
   }
 
   @Override
@@ -100,25 +98,25 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
 
   @Override
   public void setCurrentTrait(TraitType newValue) {
-  	if (getAllEligibleParentTraits().contains(newValue)) {
-  		this.currentType = newValue;
-    	control.announce().changeOccurred();
-  	}
-  }
-  
-  public Specialty addSpecialty(Hero hero, TraitType trait, String name, boolean isCreationLearned) {
-  	if (getAllEligibleParentTraits().contains(trait)) {
-  		Specialty specialty = new SpecialtyImpl(hero, trait, name, isCreationLearned);
-  		specialties.add(specialty);
-  		specialtiesChangedListener.announce().specialtyAdded(specialty);
-  		return specialty;
-  	}
-  	return null;
+    if (getAllEligibleParentTraits().contains(newValue)) {
+      this.currentType = newValue;
+      control.announce().changeOccurred();
+    }
   }
 
   @Override
   public boolean commitSelection() {
-  	return addSpecialty(hero, currentType, currentName, !isExperienced()) != null;
+    return addSpecialty(hero, currentType, currentName, !isExperienced()) != null;
+  }
+
+  public Specialty addSpecialty(Hero hero, TraitType trait, String name, boolean isCreationLearned) {
+    if (!getAllEligibleParentTraits().contains(trait)) {
+      return null;
+    }
+    Specialty specialty = new SpecialtyImpl(hero, trait, name, isCreationLearned);
+    specialties.add(specialty);
+    specialtiesChangedListener.announce().specialtyAdded(specialty);
+    return specialty;
   }
 
   @Override
@@ -132,11 +130,11 @@ public class SpecialtiesModelImpl implements SpecialtiesModel, HeroModel {
   public void addSelectionChangeListener(ChangeListener listener) {
     control.addListener(listener);
   }
-  
+
   @Override
-	public void addSpecialtiesChangedListener(ISpecialtyListener listener) {
-		specialtiesChangedListener.addListener(listener);
-	}
+  public void addSpecialtiesChangedListener(ISpecialtyListener listener) {
+    specialtiesChangedListener.addListener(listener);
+  }
 
   @Override
   public TraitType getCurrentTrait() {
