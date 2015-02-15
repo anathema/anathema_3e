@@ -126,6 +126,11 @@ public class MeritOptionImpl implements MeritOption {
   }
 
   @Override
+  public boolean isReferencedBy(MeritReference reference) {
+    return reference.name.equals(name);
+  }
+
+  @Override
   public boolean isLegalValue(int value) {
     if (value < 0 || value > MAX_MERIT_RATING) {
       return false;

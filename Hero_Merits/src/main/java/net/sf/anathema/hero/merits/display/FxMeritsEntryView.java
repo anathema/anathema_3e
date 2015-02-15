@@ -11,7 +11,7 @@ import net.sf.anathema.library.view.ObjectSelectionView;
 
 public class FxMeritsEntryView implements MeritEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
-  private ComboBoxSelectionView<String> meritSelectionView;
+  private ObjectSelectionView<String> meritSelectionView;
   private ITextView textView;
 
   @Override
@@ -31,8 +31,7 @@ public class FxMeritsEntryView implements MeritEntryView {
   
   @Override
   public <T> ObjectSelectionView<T> addMeritSelection(AgnosticUIConfiguration<T> uiConfiguration) {
-    meritSelectionView = (ComboBoxSelectionView<String>) view.addSelectionView("", uiConfiguration);
-    meritSelectionView.makeEditable();
+    meritSelectionView = (ObjectSelectionView<String>) view.addSelectionView("", uiConfiguration);
     return (ObjectSelectionView<T>) meritSelectionView;
   }
 

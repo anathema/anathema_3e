@@ -4,6 +4,7 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -83,8 +84,14 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
   }
 
   @Override
-  public List<Merit> getMeritsOfOption(MeritOption option) {
-    return getEntries().stream().filter(merit -> merit.getBaseOption().equals(option)).collect(toList());
+  public boolean hasMeritsMatchingReference(MeritReference reference) {
+    return !getMeritsMatchingReference(reference).isEmpty();
+  }
+
+  @Override
+  public List<Merit> getMeritsMatchingReference(MeritReference reference) {
+    Predicate<Merit> referencedMerits = merit -> merit.getBaseOption().isReferencedBy(reference);
+    return getEntries().stream().filter(referencedMerits).collect(toList());
   }
 
   @Override
@@ -149,7 +156,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   public MeritOption getCurrentMeritOption() {
-    return meritCache.getMeritOptionByName(currentMerit, false);
+    return meritCache.getMeritOptionByName(currentMerit);
   }
 
   @Override
@@ -168,7 +175,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
 
   @Override
   protected Merit createEntry() {
-    MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit, true),
+    MeritImpl merit = new MeritImpl(meritCache.getMeritOptionByName(currentMerit),
             currentDescription, hero, isCharacterExperienced());
     merit.addCurrentValueListener(new TraitValueChangedListener(change, merit));
     return merit;
@@ -179,7 +186,7 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     if (Strings.isNullOrEmpty(currentMerit)) {
       return false;
     }
-    MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit, false);
+    MeritOption baseMerit = meritCache.getMeritOptionByName(currentMerit);
     if (baseMerit != null) {
       if (!baseMerit.isHeroEligible(hero) ||
               (!baseMerit.allowsRepurchase() && hasMerit(baseMerit))) {

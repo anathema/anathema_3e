@@ -8,5 +8,5 @@ import net.sf.anathema.hero.merits.model.MeritOption;
 public interface MeritCache extends ExtensibleDataSet {
 	List<MeritOption> getAllMeritOptions();
 	
-	MeritOption getMeritOptionByName(String name, boolean returnCustom);
+	MeritOption getMeritOptionByName(String name);
 }

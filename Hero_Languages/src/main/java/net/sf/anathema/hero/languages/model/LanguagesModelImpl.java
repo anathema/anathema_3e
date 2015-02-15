@@ -1,18 +1,17 @@
 package net.sf.anathema.hero.languages.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+import com.google.common.base.Objects;
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
-import net.sf.anathema.hero.merits.model.CustomMeritOption;
 import net.sf.anathema.hero.merits.model.Merit;
-import net.sf.anathema.hero.merits.model.MeritOption;
+import net.sf.anathema.hero.merits.model.MeritReference;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
@@ -21,13 +20,11 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
-
 import org.jmock.example.announcer.Announcer;
 
-import com.google.common.base.Objects;
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Iterables;
-import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> implements LanguagesModel {
 
@@ -69,9 +66,9 @@ public class LanguagesModelImpl extends AbstractRemovableEntryModel<Identifier> 
 
   private void updateLanguagePointAllowance() {
     int currentPoints = languagePointsAllowed;
-    MeritOption languageMeritOption = new CustomMeritOption("Language");
+    MeritReference languageMeritOption = new MeritReference("Language");
     MeritsModel merits = MeritsModelFetcher.fetch(hero);
-    List<Merit> languageMerits = merits.getMeritsOfOption(languageMeritOption);
+    List<Merit> languageMerits = merits.getMeritsMatchingReference(languageMeritOption);
     languagePointsAllowed = languageMerits.size() + 1;
     if (currentPoints != languagePointsAllowed) {
       pointControl.announce().changeOccurred();

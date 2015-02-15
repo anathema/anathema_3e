@@ -1,14 +1,13 @@
 package net.sf.anathema.hero.merits.compiler;
 
+import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
+import net.sf.anathema.hero.merits.model.MeritOption;
+import net.sf.anathema.hero.merits.model.MeritOptionImpl;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
-import net.sf.anathema.hero.merits.model.CustomMeritOption;
-import net.sf.anathema.hero.merits.model.MeritOption;
-import net.sf.anathema.hero.merits.model.MeritOptionImpl;
 
 public class MeritCacheImpl implements MeritCache {
 	private final Map<String, MeritOption> merits = new HashMap<String, MeritOption>();
@@ -24,11 +23,7 @@ public class MeritCacheImpl implements MeritCache {
 		return options;
 	}
 	
-	public MeritOption getMeritOptionByName(String name, boolean returnCustom) {
-		MeritOption option = merits.get(name);
-		if (option == null && returnCustom) {
-			return new CustomMeritOption(name);
-		}
-		return option;
+	public MeritOption getMeritOptionByName(String name) {
+      return merits.get(name);
 	}
 }
