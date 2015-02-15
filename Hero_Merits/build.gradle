@@ -5,7 +5,6 @@ dependencies {
     compile project(':Hero_Points')
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
-    compile 'np.com.ngopal:javafx-autocomplete-field:1.0.0'
     testCompile testDependencies
     testCompile project(path: ':Library', configuration: 'tests')
     testCompile project(path: ':Platform', configuration: 'tests')

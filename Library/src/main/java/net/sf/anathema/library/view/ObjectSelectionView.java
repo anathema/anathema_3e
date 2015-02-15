@@ -4,7 +4,7 @@ import net.sf.anathema.library.event.ObjectChangedListener;
 
 import java.util.Collection;
 
-public interface ObjectSelectionView<V> extends Clearable{
+public interface ObjectSelectionView<V> {
 
   void setSelectedObject(V object);
 

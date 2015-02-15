@@ -97,9 +97,4 @@ public class ComboBoxSelectionView<V> implements FxObjectSelectionView<V> {
   public void makeEditable() {
     comboBox.setEditable(true);
   }
-
-  @Override
-  public void clear() {
-    clearSelection();
-  }
 }
