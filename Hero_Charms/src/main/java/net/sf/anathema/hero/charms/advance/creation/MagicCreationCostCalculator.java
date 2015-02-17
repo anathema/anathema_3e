@@ -55,7 +55,7 @@ public class MagicCreationCostCalculator implements BonusPointCalculator {
     List<Magic> weightedMagics = magics.map(magic -> new WeightedMagic(magic, getMagicCosts(magic))).sorted(
             reverseOrder()).map(WeightedMagic::getValue).collect(toList());
     for (Magic magic : weightedMagics) {
-    	if (!magic.hasAttribute(CommonMagicAttributes.NO_COST)) {
+    	if (!magic.hasAttribute(CommonMagicAttributes.NO_PURCHASE)) {
     		handleMagic(magic);
     	}
     }
