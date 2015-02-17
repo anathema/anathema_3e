@@ -1,0 +1,187 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AreteDrivenMarathonStride": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WinningStrideDiscipline", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DemonWastingRush": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.RacingHareMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.GodspeedSteps": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteDrivenMarathonStride", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.RacingHareMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HurricaneSpiritSpeed": {
+            "cost": "1i per success", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.AreteDrivenMarathonStride", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LeapingTigerAttack": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulCraneStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LightningSpeed": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LivingWindApproach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.OneExtraStep", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.OneExtraStep": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.GodspeedSteps", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.OnrushBurstMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.RacingHareMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "One hour", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WinningStrideDiscipline": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.LightningSpeed", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Athletics.Agility"
+}

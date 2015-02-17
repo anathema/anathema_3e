@@ -1,0 +1,132 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BonfireAnimaWings": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EagleWingStyle", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.OnrushBurstMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EagleWingStyle": {
+            "cost": "5m, 1wp", 
+            "duration": "Indefinite", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.MountainCrossingLeapTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FoeVaultingMethod": {
+            "cost": "3i", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 2, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.GracefulCraneStance", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GracefulCraneStance": {
+            "cost": "3m", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.MonkeyLeapTechnique": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 2, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.MountainCrossingLeapTechnique": {
+            "cost": "7m, 1wp", 
+            "duration": "Until she stops leaping", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.UnboundEagleApproach", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoaringCraneLeap": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 3, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.MonkeyLeapTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnboundEagleApproach": {
+            "cost": "--(2m)", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Athletics": 4, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SoaringCraneLeap", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }
+    }, 
+    "tree": "Athletics.Dexterity"
+}
