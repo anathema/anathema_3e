@@ -10,7 +10,12 @@
             "minimums": {
                 "Essence": 4
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DaredevilBravadoDefense", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Evocations.ChampionsFatalStrike": {
@@ -22,7 +27,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.TasteofVictoryRhythm", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Supplemental"
         }, 
         "Evocations.DaredevilBravadoDefense": {
@@ -34,7 +44,16 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ChampionsFatalStrike", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FearlessWarriorsRevival", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Evocations.FearlessWarriorsRevival": {
@@ -46,7 +65,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.TasteofVictoryRhythm", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Evocations.PoundingHeartTriumph": {
@@ -70,7 +94,12 @@
             "minimums": {
                 "Essence": 1
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.PoundingHeartTriumph", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Reflexive"
         }, 
         "Evocations.UnyieldingHerosDefiance": {
@@ -82,7 +111,12 @@
             "minimums": {
                 "Essence": 4
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DaredevilBravadoDefense", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Reflexive"
         }
     }, 

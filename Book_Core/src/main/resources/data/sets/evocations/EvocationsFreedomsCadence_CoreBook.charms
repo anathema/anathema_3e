@@ -10,7 +10,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SnowGatheringElusion", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Evocations.DestinationHuntingImpulse": {
@@ -22,7 +27,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.SteppingThroughStrife", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Evocations.FallingStarPercussion": {
@@ -34,7 +44,12 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DestinationHuntingImpulse", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Supplemental"
         }, 
         "Evocations.ObjectiveShiftingWeave": {
@@ -46,7 +61,24 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DestinationHuntingImpulse", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "category": "Sidereal", 
+                    "options": [
+                        "Athletics"
+                    ], 
+                    "threshold": 1, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
             "type": "Reflexive"
         }, 
         "Evocations.PoundtheDrums": {
@@ -58,7 +90,12 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Simple"
         }, 
         "Evocations.SifusGracefulAccord": {
@@ -70,7 +107,16 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.ClearPathDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.FallingStarPercussion", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Permanent"
         }, 
         "Evocations.SnowGatheringElusion": {
