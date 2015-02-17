@@ -16,7 +16,8 @@ public class SpecificGroupCharmPrerequisite implements CharmPrerequisite {
 
   @Override
   public void process(PrerequisiteProcessor processor) {
-    processor.requiresCharmFromSelection(prerequisites.toArray(new Charm[0]), threshold);
+    Charm[] prerequisitesArray = prerequisites.toArray(new Charm[prerequisites.size()]);
+    processor.requiresCharmFromSelection(prerequisitesArray, threshold);
   }
 
   @Override

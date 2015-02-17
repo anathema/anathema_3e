@@ -34,12 +34,12 @@ public class IsSatisfied implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     this.satisfied = arbitrator.hasLearnedThresholdCharmsWithKeyword(attribute, count);
   }
-  
+
   @Override
-	public void requiresMagicAttributesFromTree(TreeReference tree,
-			MagicAttribute attribute, int count) {
-		this.satisfied = arbitrator.hasLearnedThresholdCharmsWithKeywordFromTree(tree, attribute, count);
-	}
+  public void requiresMagicAttributesFromTree(TreeReference tree,
+                                              MagicAttribute attribute, int count) {
+    this.satisfied = arbitrator.hasLearnedThresholdCharmsWithKeywordFromTree(tree, attribute, count);
+  }
 
   @Override
   public void requiresCharm(Charm prerequisite) {
@@ -55,21 +55,22 @@ public class IsSatisfied implements PrerequisiteProcessor {
       }
       if (known >= threshold) {
         this.satisfied = true;
+        return;
       }
     }
-    this.satisfied =false;
+    this.satisfied = false;
   }
 
   @Override
   public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold,
-		  int minimumEssence) {
-	  this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(
-			(List<TraitType>)Lists.transform(traits, trait -> new TraitTypeFinder().getTrait(trait.type)),
-				category, threshold, minimumEssence);
+                                     int minimumEssence) {
+    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(
+            (List<TraitType>) Lists.transform(traits, trait -> new TraitTypeFinder().getTrait(trait.type)),
+            category, threshold, minimumEssence);
   }
 
-	@Override
-	public void requiresCharmsOfAnyOneTrait(int threshold) {
-		this.satisfied = arbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(threshold);
-	}
+  @Override
+  public void requiresCharmsOfAnyOneTrait(int threshold) {
+    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(threshold);
+  }
 }
