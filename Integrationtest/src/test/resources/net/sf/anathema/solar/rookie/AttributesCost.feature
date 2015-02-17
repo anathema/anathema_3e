@@ -26,4 +26,4 @@ Feature: Attribute costs of rookie lawgiver
     | priority  | cost |
     | Tertiary  | 3    |
     | Secondary | 4    |
-    | Primary   | 5    |
+    | Primary   | 4    |

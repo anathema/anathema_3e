@@ -1,19 +1,21 @@
 package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import net.sf.anathema.library.fx.tool.DeselectToggleButtonAndProcess;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.view.Style;
 
-public class HeroPoolToggleTool extends HeroPoolBaseTool implements ToggleTool {
+public class HeroPoolToggleTool extends HeroPoolTool implements ToggleTool {
 
   private ToggleButton button;
 
   public HeroPoolToggleTool() {
-    super(new ToggleButton(), new ImageView());
+    super(new ToggleButton());
     this.button = (ToggleButton) super.getNode();
+    button.getStyleClass().add("clean");
   }
 
   @Override
@@ -34,5 +36,9 @@ public class HeroPoolToggleTool extends HeroPoolBaseTool implements ToggleTool {
   @Override
   public void deselect() {
     button.setSelected(false);
+  }
+
+  public void setToggleGroup(ToggleGroup toggleGroup) {
+    button.setToggleGroup(toggleGroup);
   }
 }

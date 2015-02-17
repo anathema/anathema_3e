@@ -19,7 +19,6 @@ public class PolymorphicTypeAdapterFactoryFactory {
 
   public RuntimeTypeAdapterFactory[] generateFactories(Class<?>... baseClasses) {
     Stream<Class<?>> classes = Stream.of(baseClasses);
-    //If you see a "cyclic inference" below, don't worry about it - it's a bug in IntelliJ IDEA, http://youtrack.jetbrains.com/issue/IDEA-124983 and http://youtrack.jetbrains.com/issue/IDEA-124151
     List<RuntimeTypeAdapterFactory> list = classes.map(this::generateFactory).filter(Objects::nonNull).collect(toList());
     return list.toArray(new RuntimeTypeAdapterFactory[list.size()]);
   }

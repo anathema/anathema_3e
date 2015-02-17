@@ -1,5 +1,4 @@
 {
-	"access": "all",
 	"merits": [
 		{
 			"name": "Allies",
@@ -225,6 +224,7 @@
 			"values": "1",
 			"type": "Purchased",
 			"repurchases": true,
+			"suggestions": ["High Realm", "Low Realm", "Old Realm", "Riverspeak", "Skytongue", "Flametongue", "Forest-tongue", "Seatongue", "Guild Cant", "Up to 4 Local Tongues, please specify"],
 			"requirements": [ ]
 		},
 		{

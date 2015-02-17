@@ -7,7 +7,6 @@ import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.platform.preferences.PreferenceKey;
 import net.sf.anathema.platform.preferences.PreferencePto;
 import net.sf.anathema.platform.preferences.PreferenceValue;
-import net.sf.anathema.platform.preferences.PropertyPreferences;
 import net.sf.anathema.platform.updatecheck.PropertiesSaver;
 
 import java.io.IOException;
@@ -17,10 +16,15 @@ import java.util.Properties;
 public class PropertiesPreferencesPersister implements PreferencesPersister {
 
   public static final Logger LOGGER = Logger.getLogger(PropertiesPreferencesPersister.class);
+  private final String filename;
+
+  public PropertiesPreferencesPersister(String filename) {
+    this.filename = filename;
+  }
 
   @Override
   public void save(PreferencePto pto) {
-    PropertiesSaver saver = new PropertiesSaver(PropertyPreferences.PREFERENCES_PROPERTIES);
+    PropertiesSaver saver = new PropertiesSaver(filename);
     Properties properties = createProperties(pto);
     try {
       saver.save(properties);
@@ -31,7 +35,7 @@ public class PropertiesPreferencesPersister implements PreferencesPersister {
 
   @Override
   public PreferencePto load() {
-    PropertiesLoader loader = new PropertiesLoader("preferences.properties");
+    PropertiesLoader loader = new PropertiesLoader(filename);
     try {
       Properties properties = loader.load();
       return createPto(properties);

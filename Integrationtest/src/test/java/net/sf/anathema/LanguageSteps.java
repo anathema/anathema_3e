@@ -2,7 +2,14 @@ package net.sf.anathema;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import cucumber.api.PendingException;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.charm.data.reference.SpellName;
+import net.sf.anathema.hero.merits.model.Merit;
+import net.sf.anathema.hero.merits.model.MeritOption;
+import net.sf.anathema.hero.merits.model.MeritReference;
+import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
@@ -13,6 +20,9 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.util.List;
+
+@ScenarioScoped
 public class LanguageSteps {
 
   private final CharacterHolder character;
@@ -22,46 +32,30 @@ public class LanguageSteps {
     this.character = character;
   }
 
-  @When("^she learns the Language of (.*)$")
-  public void she_learns_the_Language_of(String id) throws Throwable {
-    character.getLanguages().selectLanguage(new SimpleIdentifier(id));
-    character.getLanguages().commitSelection();
-  }
-
-  @When("^she forgets the Language of (.*)$")
-  public void she_forgets_the_Language_of(String id) throws Throwable {
-  	character.getLanguages().removeEntry(new SimpleIdentifier(id));
+  @When("^she learns any language$")
+  public void she_learns_any_language() throws Throwable {
+    MeritsModel merits = character.getMerits();
+    prepareForLanguage(merits, "Any");
+    merits.commitSelection();
   }
 
   @Then("^she can learn the Language of (.*)$")
   public void she_can_learn_the_Language_of(String id) throws Throwable {
-    character.getLanguages().selectLanguage(new SimpleIdentifier(id));
-    boolean learnable = character.getLanguages().isEntryAllowed();
-    assertThat(learnable, is(true));
+    MeritsModel merits = character.getMerits();
+    prepareForLanguage(merits, id);
+    assertThat(merits.isEntryAllowed(), is(true));
   }
 
   @Then("^she can not learn the Language of (.*)$")
   public void she_can_not_learn_the_Language_of(String id) throws Throwable {
-  	character.getLanguages().selectLanguage(new SimpleIdentifier(id));
-    boolean learnable = character.getLanguages().isEntryAllowed();
-    assertThat(learnable, is(false));
+    MeritsModel merits = character.getMerits();
+    prepareForLanguage(merits, id);
+    assertThat(merits.isEntryAllowed(), is(false));
   }
 
-  @Then("^she knows the Language of (.*)$")
-  public void she_knows_the_Language_of(String id) throws Throwable {
-    boolean learned = character.getLanguages().getEntries().contains(new SimpleIdentifier(id));
-    assertThat(learned, is(true));
-  }
-
-  @Then("^she does not know the Language of (.*)$")
-  public void she_does_not_know_the_Language_of(String id) throws Throwable {
-  	boolean learned = character.getLanguages().getEntries().contains(new SimpleIdentifier(id));
-    assertThat(learned, is(false));
-  }
-  
-  @Then("^she has (\\d+) Language picks$")
-  public void she_has_Language_picks(int targetAmount) throws Throwable {
-  	int avaliableAmount = character.getLanguages().getLanguagePointsAllowed();
-    assertThat(avaliableAmount == targetAmount, is(true));
+  private void prepareForLanguage(MeritsModel merits, String id) {
+    MeritOption language = merits.findOptionByReference(new MeritReference("Language"));
+    merits.setCurrentMeritOption(language);
+    merits.setCurrentDescription(id);
   }
 }

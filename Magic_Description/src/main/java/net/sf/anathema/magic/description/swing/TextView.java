@@ -11,6 +11,7 @@ import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.JTextComponent;
 import java.awt.Color;
+import java.util.Collection;
 
 public class TextView implements SwingTextView {
 
@@ -33,6 +34,11 @@ public class TextView implements SwingTextView {
   @Override
   public void removeAllListeners() {
     //nothing to do
+  }
+
+  @Override
+  public void suggestCompletions(Collection<String> suggestions) {
+    //ignored
   }
 
   @Override
@@ -62,5 +68,10 @@ public class TextView implements SwingTextView {
     Color enabledColor = defaults.getColor("TextField.background");
     Color disabledColor = defaults.getColor("TextField.disabledBackground");
     getTextComponent().setBackground(enabled ? enabledColor : disabledColor);
+  }
+
+  @Override
+  public void clear() {
+    setText("");
   }
 }

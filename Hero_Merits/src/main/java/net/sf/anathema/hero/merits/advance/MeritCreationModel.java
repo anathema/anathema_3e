@@ -38,5 +38,4 @@ public class MeritCreationModel extends AbstractSpendingModel {
 		}
 		return Math.min(creation.getFreebiePoints(), totalMeritDots);
 	}
-
 }

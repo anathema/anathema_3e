@@ -5,6 +5,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.List;
 
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
@@ -16,16 +17,15 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+@ScenarioScoped
 public class SpecialtySteps {
 
   private final CharacterHolder character;
 
-  private final BonusModelFetcher bonusModel;
 
   @Inject
   public SpecialtySteps(CharacterHolder character) {
     this.character = character;
-    this.bonusModel = new BonusModelFetcher(character);
   }
   
   @When("^she learns a Specialty in (.*)$")

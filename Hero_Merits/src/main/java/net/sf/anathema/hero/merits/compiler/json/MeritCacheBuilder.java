@@ -9,10 +9,8 @@ import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 
 public class MeritCacheBuilder {
 	private final List<MeritTemplate> meritList = new ArrayList<>();
-	private final List<MeritListTemplate> templateList = new ArrayList<>();
 	
 	public void addTemplate(MeritListTemplate template) {
-		templateList.add(template);
 		for (MeritTemplate merit : template.merits) {
 			meritList.add(merit);
 		}

@@ -26,18 +26,16 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
 
   private final Announcer<ISpecialCharmLearnListener> control = Announcer.to(ISpecialCharmLearnListener.class);
   private final Trait trait;
-  private CharmsModel config;
   private Charm charm;
   private IMultiLearnableCharm specialCharm;
   private CharmSpecialist specialist;
   private CharmLearnableArbitrator arbitrator;
   private Hero hero;
 
-  public MultiLearnableCharmSpecialsImpl(Hero hero, CharmsModel config, Charm charm, IMultiLearnableCharm specialCharm,
+  public MultiLearnableCharmSpecialsImpl(Hero hero, Charm charm, IMultiLearnableCharm specialCharm,
                                          CharmLearnableArbitrator arbitrator) {
     this.hero = hero;
     this.specialist = new CharmSpecialistImpl(hero);
-    this.config = config;
     this.charm = charm;
     this.specialCharm = specialCharm;
     this.arbitrator = arbitrator;
@@ -123,7 +121,7 @@ public class MultiLearnableCharmSpecialsImpl implements MultiLearnCharmSpecials 
 
   private LearnRangeContext createLearnRangeContext() {
     CharmTraitRequirementChecker requirementChecker = new CharmTraitRequirementChecker(
-    		new CharmTraitRequirementCalculator(config, new TraitStateFetcher(hero)), specialist.getTraits());
+            new CharmTraitRequirementCalculator(new TraitStateFetcher(hero)), specialist.getTraits());
     return new LearnRangeContext(TraitModelFetcher.fetch(hero), requirementChecker, charm);
   }
 

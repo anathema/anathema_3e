@@ -21,15 +21,19 @@ public class FxStack {
     namedNodes.put(name, node);
   }
 
+  public void showFirst() {
+    Identifier first = findFirstKey();
+    show(first);
+  }
+
   public void show(Identifier name) {
     parent.getChildren().clear();
     Node selectedNode = namedNodes.get(name);
     parent.add(selectedNode, new CC().push().grow());
   }
 
-  public void showFirst() {
-    Identifier first = findFirstKey();
-    show(first);
+  public boolean isEmpty() {
+    return namedNodes.isEmpty();
   }
 
   private Identifier findFirstKey() {

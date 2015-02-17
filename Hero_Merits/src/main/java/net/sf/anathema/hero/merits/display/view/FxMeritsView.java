@@ -1,9 +1,13 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.view;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
+
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
+import net.sf.anathema.hero.merits.display.presenter.MeritEntryView;
+import net.sf.anathema.hero.merits.display.presenter.MeritItemView;
+import net.sf.anathema.hero.merits.display.presenter.MeritsView;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
@@ -22,7 +26,6 @@ public class FxMeritsView implements MeritsView, NodeHolder {
     mainPanel.add(creationPane, new CC().growX());
     mainPanel.add(entryPanel.getNode(), new CC().alignY("top").growX());
     content.add(mainPanel, new CC().alignY("top").growX());
-    //content.add(overviewPanel, new CC().alignY("top").growX());
   }
 
   @Override
@@ -39,7 +42,7 @@ public class FxMeritsView implements MeritsView, NodeHolder {
 
   @Override
   public MeritItemView addMerit(String label, RelativePath removeIcon) {
-	FxDotView view = FxDotView.WithDefaultLayout(label, MeritOption.MAX_MERIT_RATING);
+    FxDotView view = FxDotView.WithDefaultLayout(label, MeritOption.MAX_MERIT_RATING);
     FxMeritItemView itemView = new FxMeritItemView(view);
     itemView.addTo(entryPanel);
     return itemView;

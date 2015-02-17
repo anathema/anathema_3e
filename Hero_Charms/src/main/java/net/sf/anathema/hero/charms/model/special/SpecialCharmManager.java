@@ -31,12 +31,10 @@ public class SpecialCharmManager implements ISpecialCharmManager {
   private final IExtendedCharmLearnableArbitrator arbitrator;
   private CharmSpecialistImpl specialist;
   private Hero hero;
-  private final CharmsModel charmsModel;
 
   public SpecialCharmManager(CharmSpecialistImpl specialist, Hero hero, CharmsModel charmsModel) {
     this.specialist = specialist;
     this.hero = hero;
-    this.charmsModel = charmsModel;
     this.arbitrator = charmsModel;
   }
 
@@ -77,13 +75,13 @@ public class SpecialCharmManager implements ISpecialCharmManager {
 
   private void registerEffectMultilearnableCharm(IMultipleEffectCharm visited, Charm charm, LearningModel group) {
     MultipleEffectCharmSpecialsImpl configuration = new MultipleEffectCharmSpecialsImpl(specialist, charm, visited,
-      arbitrator);
+            arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
   private void registerMultiLearnableCharm(IMultiLearnableCharm visitedCharm, Charm charm, LearningModel group) {
-    MultiLearnableCharmSpecialsImpl configuration = new MultiLearnableCharmSpecialsImpl(hero, charmsModel, charm,
-      visitedCharm, arbitrator);
+    MultiLearnableCharmSpecialsImpl configuration = new MultiLearnableCharmSpecialsImpl(hero, charm,
+            visitedCharm, arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
@@ -92,7 +90,7 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     OxBodyTechniqueArbitratorImpl arbitrator = createArbitrator();
     TraitType[] relevantTraits = visited.getRelevantTraits();
     OxBodyTechniqueSpecialsImpl specials = new OxBodyTechniqueSpecialsImpl(hero, charm, relevantTraits, arbitrator,
-      visited);
+            visited);
     addSpecialCharmConfiguration(charm, group, specials, true, true);
     arbitrator.addOxBodyTechniqueConfiguration(specials);
     health.addHealthLevelProvider(specials.getHealthLevelProvider());

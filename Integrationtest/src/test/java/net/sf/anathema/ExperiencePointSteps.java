@@ -2,11 +2,13 @@ package net.sf.anathema;
 
 import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.points.model.ExperiencePointManagementImpl;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
+@ScenarioScoped
 public class ExperiencePointSteps {
 
   private final CharacterHolder character;

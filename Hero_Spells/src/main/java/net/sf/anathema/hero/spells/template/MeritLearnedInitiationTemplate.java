@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.spells.template;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.merits.model.CustomMeritOption;
+import net.sf.anathema.hero.merits.model.MeritReference;
+import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.platform.persistence.JsonType;
@@ -13,6 +14,8 @@ public class MeritLearnedInitiationTemplate implements CircleInitiationTemplate 
 	
 	@Override
 	public boolean isInitiated(Hero hero) {
-		return MeritsModelFetcher.fetch(hero).getMeritsOfOption(new CustomMeritOption(meritId)).size() > 0;
+      MeritsModel model = MeritsModelFetcher.fetch(hero);
+      MeritReference reference = new MeritReference(meritId);
+      return model.hasMeritsMatchingReference(reference);
 	}
 }

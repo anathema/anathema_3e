@@ -13,6 +13,14 @@ Feature: Characters can learn their native Charm
     When I set her Medicine to 1
     Then she can learn the Charm Solar.AilmentRectifyingMethod
 
+  Scenario: Charm are unlearnable for experienced characters
+    Given any Solar
+    And I set her Medicine to 1
+    And she goes experienced
+    When she learns the Charm Solar.AilmentRectifyingMethod
+    And she forgets the Charm Solar.AilmentRectifyingMethod
+    Then she does not know the Charm Solar.AilmentRectifyingMethod
+    
   Scenario: Parent Charms are automatically learned
     Given any Solar
     And I set her Medicine to 3

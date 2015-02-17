@@ -20,7 +20,7 @@ public class RasterSectionView implements SectionView, NodeHolder {
   private boolean isEmpty = true;
   private final RasterLayout rasterLayout;
 
-  public RasterSectionView(SubViewRegistry subViewFactory, Command initializationCommand, RasterLayout rasterLayout) {
+  public RasterSectionView(SubViewRegistry subViewFactory, RasterLayout rasterLayout, Command initializationCommand) {
     this.rasterLayout = rasterLayout;
     this.rasterLayout.setLayoutConstraints(content);
     this.subViewFactory = subViewFactory;

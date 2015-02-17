@@ -5,6 +5,7 @@ import net.sf.anathema.hero.application.perspective.HeroRoster;
 import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.application.perspective.model.CharacterItemModel;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
+import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
@@ -23,7 +24,7 @@ public class HeroRosterPresenter {
   }
 
   public void initPresentation() {
-    Tool catalogueTool = view.getFrontInteractionView().addTool();
+    ToggleTool catalogueTool = view.getFrontInteractionView().addToggleTool();
     catalogueTool.setText(resources.getString("CharacterSystem.Tools.Roster.Name"));
     catalogueTool.setIcon(new RelativePath("icons/King-icon.png"));
     catalogueTool.setTooltip(resources.getString("CharacterSystem.Tools.Roster.Tooltip"));
@@ -32,6 +33,7 @@ public class HeroRosterPresenter {
       roster.clear();
       showAllHeroesInRoster(roster);
       view.getStackView().showView(roster.getIdentifier());
+      catalogueTool.select();
     });
   }
 

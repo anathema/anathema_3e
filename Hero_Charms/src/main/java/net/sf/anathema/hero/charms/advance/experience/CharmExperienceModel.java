@@ -34,7 +34,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
     
     int experienceCosts = 0;
     for (Charm charm : charmsModel.getLearningModel().getCharmsLearnedWithExperience()) {
-    	if (!charm.hasAttribute(CommonMagicAttributes.NO_COST)) {
+    	if (!charm.hasAttribute(CommonMagicAttributes.NO_PURCHASE)) {
     		int charmCosts = calculateCharmCost(charmsModel, charm);
     		if (charmsModel.isAlienCharm(charm)) {
     			charmCosts *= 2;

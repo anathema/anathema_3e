@@ -113,6 +113,9 @@
         "Solar.CelestialCircleSorcery": {
             "cost": "--", 
             "duration": "Permanent", 
+            "internalTags": [
+                "IgnoresSupernal"
+            ],
             "keywords": [], 
             "minimums": {
                 "Essence": 3, 
@@ -324,7 +327,10 @@
         }, 
         "Solar.SolarCircleSorcery": {
             "cost": "--", 
-            "duration": "Permanent", 
+            "duration": "Permanent",
+             "internalTags": [
+                "IgnoresSupernal"
+             ],
             "keywords": [], 
             "minimums": {
                 "Essence": 5, 
@@ -540,7 +546,10 @@
         }, 
         "Solar.TerrestrialCircleSorcery": {
             "cost": "--", 
-            "duration": "Permanent", 
+            "duration": "Permanent",
+            "internalTags": [
+                "IgnoresSupernal"
+            ],
             "keywords": [], 
             "minimums": {
                 "Essence": 1, 

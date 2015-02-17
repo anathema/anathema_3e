@@ -30,7 +30,7 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
 
   private static final String Charm_File_Recognition_Pattern = ".+?\\.charms";
   private final List<ResourceFile> resourceFiles = new ArrayList<>();
-  
+
   @Inject
   public ObjectFactory objectFactory;
   @Inject
@@ -56,27 +56,19 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
     RuntimeTypeAdapterFactory[] charmFactories =
             new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
     RuntimeTypeAdapterFactory[] specialFactories =
-        new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
-    TemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
-    TemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
+            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
+    GenericTemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
+    GenericTemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
     CharmCacheBuilderImpl charmsBuilder = new CharmCacheBuilderImpl();
     SpecialCharmsBuilder specialBuilder = new SpecialCharmsBuilder(objectFactory);
     resourceFiles.forEach(resourceFile -> {
-    	CharmListTemplate charmTemplate = loadTemplate(resourceFile, charmsLoader);
+      CharmListTemplate charmTemplate = charmsLoader.load(resourceFile);
       charmsBuilder.addTemplate(charmTemplate);
-      specialBuilder.addTemplate(loadTemplate(resourceFile, specialsLoader),
-      		new AdditionalCharmFactory(charmsBuilder, charmTemplate));
+      SpecialCharmListTemplate specialsTemplate = specialsLoader.load(resourceFile);
+      specialBuilder.addTemplate(specialsTemplate, new AdditionalCharmFactory(charmsBuilder, charmTemplate));
     });
     CharmCacheImpl charmCache = charmsBuilder.createCache();
     specialBuilder.addToCache(charmCache);
     return charmCache;
-  }
-
-  private <T> T loadTemplate(ResourceFile resource, TemplateLoader<T> loader) {
-    try (InputStream inputStream = resource.getURL().openStream()) {
-      return loader.load(inputStream);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
-    }
   }
 }

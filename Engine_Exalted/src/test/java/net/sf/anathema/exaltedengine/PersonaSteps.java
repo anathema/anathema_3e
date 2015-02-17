@@ -3,9 +3,11 @@ package net.sf.anathema.exaltedengine;
 import com.google.inject.Inject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.characterengine.persona.Persona;
 import net.sf.anathema.exaltedengine.support.CharacterHolder;
 
+@ScenarioScoped
 public class PersonaSteps {
 
   private final ExaltedEngine engine;

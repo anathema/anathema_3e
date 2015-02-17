@@ -23,7 +23,6 @@ import static org.junit.Assert.assertThat;
 
 public class MultiLearnableCharmConfigurationTest {
 
-  private CharmsModel config = new DummyCharmsModel();
   private Charm charm = new DummyCharm("id");
   private IMultiLearnableCharm specialCharm = new StaticMultiLearnableCharm(new CharmName("id"), 5);
   private CharmLearnableArbitrator arbitrator = new DummyLearnableArbitrator("id");
@@ -34,7 +33,7 @@ public class MultiLearnableCharmConfigurationTest {
   @Before
   public void setUp() throws Exception {
     hero = new CharmHeroObjectMother().createModelContextWithEssence2(valueStrategy);
-    configuration = new MultiLearnableCharmSpecialsImpl(hero, config, charm, specialCharm, arbitrator);
+    configuration = new MultiLearnableCharmSpecialsImpl(hero, charm, specialCharm, arbitrator);
   }
 
   @Test

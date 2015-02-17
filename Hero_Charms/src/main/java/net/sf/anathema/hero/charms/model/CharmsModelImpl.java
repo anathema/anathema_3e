@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import static net.sf.anathema.hero.charms.model.CommonMagicAttributes.NO_PURCHASE;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 
@@ -9,6 +10,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
@@ -68,7 +70,7 @@ import org.jmock.example.announcer.Announcer;
 public class CharmsModelImpl implements CharmsModel {
 
   private final ProxyCharmLearnStrategy charmLearnStrategy = new ProxyCharmLearnStrategy(
-    new CreationCharmLearnStrategy());
+          new CreationCharmLearnStrategy());
   private LearningModelImpl learningModel = new LearningModelImpl(charmLearnStrategy, this);
   private final CharmsRules charmsRules;
   private ISpecialCharmManager manager;
@@ -103,11 +105,12 @@ public class CharmsModelImpl implements CharmsModel {
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     MagicPointsModelFetcher.fetch(hero).registerMagicLearner(new CharmLearner(this));
-    
+
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
-    		.instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
+            .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
-    	.forEach(rules -> rules.initialize());;
+            .forEach(rules -> rules.initialize());
+    ;
   }
 
   @Override
@@ -213,7 +216,8 @@ public class CharmsModelImpl implements CharmsModel {
       if (prerequisitesForCharmAreNoLongerMet && charmCanBeUnlearned) {
         charmsToUnlearn.add(charm);
       }
-    } for (Charm charm : charmsToUnlearn) {
+    }
+    for (Charm charm : charmsToUnlearn) {
       boolean learnedAtCreation = learningModel.isLearnedOnCreation(charm);
       boolean learnedWithExperience = !learnedAtCreation;
       learningModel.forgetCharm(charm, learnedWithExperience);
@@ -241,7 +245,7 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-    		new CharmTraitRequirementCalculator(this, new TraitStateFetcher(hero)), traits);
+            new CharmTraitRequirementCalculator(new TraitStateFetcher(hero)), traits);
     return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
   }
 
@@ -258,13 +262,13 @@ public class CharmsModelImpl implements CharmsModel {
     }
     return false;
   }
-  
+
   @Override
-	public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
-			TreeReference tree, MagicAttribute attribute, int threshold) {
-  	int count = 0;
-    for (Charm charm : learningModel.getCurrentlyLearnedCharms().applyFilter(charm ->
-    	charm.getTreeReference().equals(tree))) {
+  public boolean hasLearnedThresholdCharmsWithKeywordFromTree(
+          TreeReference tree, MagicAttribute attribute, int threshold) {
+    int count = 0;
+    Predicate<Charm> charmsFromThisTree = charm -> charm.getTreeReference().equals(tree);
+    for (Charm charm : learningModel.getCurrentlyLearnedCharms().applyFilter(charmsFromThisTree)) {
       if (charm.hasAttribute(attribute)) {
         count++;
       }
@@ -273,53 +277,56 @@ public class CharmsModelImpl implements CharmsModel {
       }
     }
     return false;
-	}
-  
+  }
 
-	@Override
-	public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
-			CategoryReference category, int threshold, int minimumEssence) {
-		int count = 0;
-		TraitTypeFinder finder = new TraitTypeFinder();
-		Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
-		Charms matchingLearnedCharms = learnedCharms.applyFilter(charm ->
-			!charm.hasAttribute(CommonMagicAttributes.NO_MANUAL_CONTROL) &&
-			requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)) &&
-			(category == null || category.equals(charm.getTreeReference().category)));
-		for (Charm charm : matchingLearnedCharms) {
-			boolean meetsEssence = true;
-			for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
-				if (trait.type.equals(OtherTraitType.Essence.getId()) &&
-						traits.getTrait(OtherTraitType.Essence).getCurrentValue() < trait.minimalValue) {
-					meetsEssence = false;
-				}
-				if (meetsEssence && ++count >= threshold) {
-					return true;
-				}
-			}
-		}
 
-		return false;
-	}
-	
-	@Override
-	public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
-		Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
-		
-		for (Charm charm : getLearningModel().getCurrentlyLearnedCharms()) {
-			RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
-			Integer currentCount = groupCounts.get(group);
-			if (currentCount == null) {
-				currentCount = 0;
-				groupCounts.put(group, currentCount);
-			}
-			if (++currentCount >= threshold) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
+  @Override
+  public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
+                                                  CategoryReference category, int threshold, int minimumEssence) {
+    Charms matchingLearnedCharms = findCharmsMatchingTraits(requiredTraits, category);
+    int count = 0;
+    for (Charm charm : matchingLearnedCharms) {
+      boolean meetsEssence = true;
+      for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
+        if (!(trait.type.equals(OtherTraitType.Essence.getId()))) {
+          continue;
+        }
+        meetsEssence = trait.minimalValue >= minimumEssence;
+      }
+      if (meetsEssence && ++count >= threshold) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private Charms findCharmsMatchingTraits(List<TraitType> requiredTraits, CategoryReference category) {
+    TraitTypeFinder finder = new TraitTypeFinder();
+    Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
+    return learnedCharms.applyFilter(charm ->
+            !charm.hasAttribute(NO_PURCHASE) &&
+                    requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)) &&
+                    (category == null || category.equals(charm.getTreeReference().category)));
+  }
+
+  @Override
+  public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+    Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
+
+    for (Charm charm : getLearningModel().getCurrentlyLearnedCharms()) {
+      RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
+      Integer currentCount = groupCounts.get(group);
+      if (currentCount == null) {
+        currentCount = 0;
+        groupCounts.put(group, currentCount);
+      }
+      if (++currentCount >= threshold) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 
   @Override
   public boolean isLearned(CharmName charmId) {

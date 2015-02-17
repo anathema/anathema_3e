@@ -28,7 +28,7 @@ public class HeroModelTemplateCache implements ExtensibleDataSet {
       return (T) templateById.get(templateId);
     }
     ResourceFile file = getResourceFileFor(templateId);
-    T template = loadTemplate(file, loader);
+    T template = loader.load(file);
     templateById.put(templateId, template);
     return template;
   }
@@ -40,13 +40,5 @@ public class HeroModelTemplateCache implements ExtensibleDataSet {
       }
     }
     throw new IllegalStateException("No resource found for templateId " + templateId.getId());
-  }
-
-  private <T> T loadTemplate(ResourceFile file, TemplateLoader<T> loader) {
-    try (InputStream inputStream = file.getURL().openStream()) {
-      return loader.load(inputStream);
-    } catch (IOException e) {
-      throw new PersistenceException(e);
-    }
   }
 }

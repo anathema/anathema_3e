@@ -7,6 +7,7 @@ import com.google.gson.TypeAdapterFactory;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
+import net.sf.anathema.library.resources.ResourceFile;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,6 +51,16 @@ public class GenericTemplateLoader<T> implements TemplateLoader<T> {
     gson = gsonBuilder.create();
   }
 
+  @Override
+  public T load(ResourceFile resource) {
+    try (InputStream inputStream = resource.getURL().openStream()) {
+      return load(inputStream);
+    } catch (Exception e) {
+      throw new PersistenceException("Error loading " + resource.getFileName(), e);
+    }
+  }
+
+  @Override
   public T load(InputStream inputStream) {
     try {
       String json = InputOutput.toString(inputStream);

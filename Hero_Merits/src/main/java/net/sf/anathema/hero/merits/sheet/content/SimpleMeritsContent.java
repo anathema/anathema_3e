@@ -5,7 +5,6 @@ import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
-import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
@@ -33,7 +32,7 @@ public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSu
   @Override
   public List<String> getPrintEntries() {
     List<String> printMerits = new ArrayList<>();
-    for (Merit merit : getModel().getEntries()) {
+    for (Merit merit : MeritsModelFetcher.fetch(hero).getEntries()) {
       String text = getTextForMerit(merit);
       printMerits.add(text);
     }
@@ -41,12 +40,7 @@ public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSu
   }
 
   private String getTextForMerit(Merit merit) {
-    String text = merit.getBaseOption().getId();
-    //text += " (" + outlook + strength + bond + ")";
-    return text;
-  }
-
-  private MeritsModel getModel() {
-    return MeritsModelFetcher.fetch(hero);
+    String id = merit.getBaseOption().getId();
+    return id + " (" + merit.getDescription() + ")";
   }
 }

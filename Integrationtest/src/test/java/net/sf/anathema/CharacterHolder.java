@@ -1,20 +1,19 @@
 package net.sf.anathema;
 
-import com.google.inject.Singleton;
-
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
-import net.sf.anathema.hero.languages.model.LanguagesModel;
-import net.sf.anathema.hero.languages.model.LanguagesModelFetcher;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 
-@Singleton
+@ScenarioScoped
 public class CharacterHolder {
   private HeroItemData heroItemData;
 
@@ -30,8 +29,8 @@ public class CharacterHolder {
   	return SpellsModelFetcher.fetch(heroItemData);
   }
   
-  public LanguagesModel getLanguages() {
-  	return LanguagesModelFetcher.fetch(heroItemData);
+  public MeritsModel getMerits() {
+  	return MeritsModelFetcher.fetch(heroItemData);
   }
 
   public HeroConcept getCharacterConcept() {

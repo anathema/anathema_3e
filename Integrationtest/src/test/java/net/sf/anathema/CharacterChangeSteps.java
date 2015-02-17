@@ -2,6 +2,8 @@ package net.sf.anathema;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
@@ -20,6 +22,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+@ScenarioScoped
 public class CharacterChangeSteps {
 
   public static final int MANY = 20;

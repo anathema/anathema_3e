@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.merits.display;
+package net.sf.anathema.hero.merits.display.presenter;
 
 import net.sf.anathema.library.fx.dot.ExtensibleDotView;
 import net.sf.anathema.library.interaction.model.Command;

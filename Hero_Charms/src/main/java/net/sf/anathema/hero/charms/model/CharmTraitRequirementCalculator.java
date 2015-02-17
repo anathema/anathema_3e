@@ -1,31 +1,36 @@
 package net.sf.anathema.hero.charms.model;
 
-import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
+import static net.sf.anathema.charm.data.CharmAttributeList.IGNORES_SUPERNAL;
+import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
+
 public class CharmTraitRequirementCalculator {
-  private final SpecialCharmLearnArbitrator learnArbitrator;
   private final TraitStateFetcher stateFetcher;
 
-  public CharmTraitRequirementCalculator(SpecialCharmLearnArbitrator learnArbitrator,
-                                         TraitStateFetcher stateFetcher) {
-    this.learnArbitrator = learnArbitrator;
+  public CharmTraitRequirementCalculator(TraitStateFetcher stateFetcher) {
     this.stateFetcher = stateFetcher;
   }
 
   public int calculateMinimum(Charm charm, TraitType trait, int baseValue) {
-    int requiredValue = baseValue;
     boolean requiredTraitIsEssence = trait.equals(OtherTraitType.Essence);
-    boolean primaryTraitIsSupernalAbility = stateFetcher.fetch(new TraitTypeUtils().getPrimaryTraitType(charm)).countsAs(Supernal);
-    if (requiredTraitIsEssence && primaryTraitIsSupernalAbility) {
+    boolean supernalApplies = doesSupernalApply(charm);
+    if (requiredTraitIsEssence && supernalApplies) {
       if (baseValue <= 5) {
         return 1;
       }
     }
-    return requiredValue;
+    return baseValue;
+  }
+
+  private boolean doesSupernalApply(Charm charm) {
+    if (charm.hasAttribute(IGNORES_SUPERNAL)) {
+      return false;
+    }
+    TraitType primaryTrait = new TraitTypeUtils().getPrimaryTraitType(charm);
+    return stateFetcher.fetch(primaryTrait).countsAs(Supernal);
   }
 }
