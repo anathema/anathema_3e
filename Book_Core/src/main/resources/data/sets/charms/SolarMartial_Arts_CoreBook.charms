@@ -1,0 +1,22 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.MartialArtsExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Martial Arts": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "MartialArts"
+}
