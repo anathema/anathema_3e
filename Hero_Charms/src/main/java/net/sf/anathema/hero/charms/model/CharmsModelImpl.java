@@ -303,13 +303,19 @@ public class CharmsModelImpl implements CharmsModel {
     return count;
   }
 
+  @SuppressWarnings("SimplifiableIfStatement")
   private Charms findCharmsMatchingTraits(List<TraitType> requiredTraits, CategoryReference category) {
     TraitTypeFinder finder = new TraitTypeFinder();
     Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
-    return learnedCharms.applyFilter(charm ->
-            !charm.hasAttribute(NO_PURCHASE) &&
-                    requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type)) &&
-                    (category == null || category.equals(charm.getTreeReference().category)));
+    return learnedCharms.applyFilter(charm -> {
+      if (charm.hasAttribute(NO_PURCHASE)) {
+        return false;
+      }
+      if (category == null || category.equals(charm.getTreeReference().category)) {
+        return false;
+      }
+      return requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type));
+    });
   }
 
   @Override
