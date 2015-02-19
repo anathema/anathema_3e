@@ -1,11 +1,9 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
-
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.library.lang.ReflectionEqualsObject;
+
+import java.util.List;
 
 public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implements CharmPrerequisite {
 
@@ -34,12 +32,8 @@ public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implemen
 	public List<RequiredTraitType> getTraits() {
 		return traits;
 	}
-	
-	public List<String> getTraitsAsStrings() {
-		return Lists.transform(traits, trait -> trait.type);
-	}
-	
-	public int getThreshold() {
+
+  public int getThreshold() {
 		return threshold;
 	}
 	
