@@ -53,7 +53,7 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
     	int minimum = Integer.parseInt(strings[1].replaceFirst("Essence", ""));
     	essenceMinimum = resources.getString("Essence") + " " + minimum + "+ ";
     }
-    String requirementNameKey = requirementWithCount.replace("." + requirementCount, "");
+    String requirementNameKey = strings[0];
     String requirementName = resources.getString(FunctionalNodeProperties.REQUIREMENT + "." + requirementNameKey);
     String charmString = resources.getString(requirementCount == 1 ? "Charms.Charm.Single" : "Charms.Charm.Multiple");
     return resources.getString("Requirement.Message", requirementCount, essenceMinimum, requirementName, charmString);

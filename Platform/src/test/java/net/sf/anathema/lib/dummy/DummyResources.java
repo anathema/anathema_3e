@@ -3,6 +3,7 @@ package net.sf.anathema.lib.dummy;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.resources.Resources;
 
+import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,9 +21,12 @@ public class DummyResources implements Resources {
 
   @Override
   public String getString(String key, Object... arguments) {
+    if (!stringMap.containsKey(key)) {
+      throw new IllegalArgumentException("Not found:" + key);
+    }
     if (arguments.length == 0) {
       return stringMap.get(key);
     }
-    throw new NotYetImplementedException();
+    return MessageFormat.format(stringMap.get(key), arguments);
   }
 }
