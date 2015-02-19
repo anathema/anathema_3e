@@ -10,7 +10,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LuminousSoulWarden", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Reflexive"
         }, 
         "Evocations.FoestoMothsProvocation": {
@@ -22,7 +27,16 @@
             "minimums": {
                 "Essence": 3
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.DawnofaHundredRebukes", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Evocations.UnconqueredGuardianDefense", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Reflexive"
         }, 
         "Evocations.LuminousSoulWarden": {
@@ -46,7 +60,12 @@
             "minimums": {
                 "Essence": 2
             }, 
-            "prerequisites": [], 
+            "prerequisites": [
+                {
+                    "id": "Evocations.LuminousSoulWarden", 
+                    "type": "charm"
+                }
+            ], 
             "type": "Reflexive"
         }
     }, 

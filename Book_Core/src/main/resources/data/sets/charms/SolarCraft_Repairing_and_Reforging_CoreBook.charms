@@ -1,0 +1,246 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BloodDiamondSweat": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.TimeHealsNothing", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.BreachHealingMethod": {
+            "cost": "7m", 
+            "duration": "One task", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.TimeHealsNothing", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CelestialReforgingTechnique": {
+            "cost": "10m, 1wp, 3xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DesignBeyondLimit", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.ChaosResistancePreparation": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ObjectStrengtheningTouch", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CrackMendingTechnique": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 3, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Solar.DesignBeyondLimit": {
+            "cost": "10m, 1wp, 3xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 4, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CrackMendingTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DurabilityEnhancingTechnique": {
+            "cost": "5m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeroForgingGodWeapon": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DesignBeyondLimit", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ObjectStrengtheningTouch": {
+            "cost": "6m", 
+            "duration": "One scene", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DurabilityEnhancingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.RealizingtheFormSupernal": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.BreachHealingMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ShatteringGrasp": {
+            "cost": "6m", 
+            "duration": "One task", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CraftsmanNeedsNoTools", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SoulForgeTempering": {
+            "cost": "15m, 1wp, 4xp, 4wxp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.HeroForgingGodWeapon", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TheArtofPermanence": {
+            "cost": "6m, 1wxp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosResistancePreparation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.TimeHealsNothing": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 5, 
+                "Essence": 1
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CrackMendingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 3
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Craft.RepairingandReforging"
+}
