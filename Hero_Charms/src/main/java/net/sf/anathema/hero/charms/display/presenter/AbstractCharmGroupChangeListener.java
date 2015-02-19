@@ -21,8 +21,8 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
 import static net.sf.anathema.hero.charms.display.prerequisites.ConcreteCharmRenderingParents.collectRenderingParents;
 
 public abstract class AbstractCharmGroupChangeListener implements ICharmGroupChangeListener, CharmGroupInformer {
@@ -76,8 +76,7 @@ public abstract class AbstractCharmGroupChangeListener implements ICharmGroupCha
     for (Charm charm : arbitrator.filterAvailableCharms(charmTree)) {
       charmsToDisplay.add(charm);
       charmsToDisplay.addAll(collectRenderingParents(charm).stream().filter(
-              prerequisite -> charmTree.getReference().name.equals(prerequisite.getTreeReference().name)).collect(
-              Collectors.toList()));
+              prerequisite -> charmTree.getReference().name.equals(prerequisite.getTreeReference().name)).collect(toList()));
     }
     return charmsToDisplay;
   }
