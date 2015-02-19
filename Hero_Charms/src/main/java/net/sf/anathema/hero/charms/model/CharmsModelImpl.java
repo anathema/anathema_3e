@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.model;
 import static net.sf.anathema.hero.charms.model.CommonMagicAttributes.NO_PURCHASE;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
+import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -282,21 +283,24 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public boolean hasLearnedThresholdCharmsOfTrait(List<TraitType> requiredTraits,
                                                   CategoryReference category, int threshold, int minimumEssence) {
-    Charms matchingLearnedCharms = findCharmsMatchingTraits(requiredTraits, category);
+    Charms charmsForTraits = findCharmsMatchingTraits(requiredTraits, category);
+    int numberOfCharmsMatchingEssence = countCharmsThatMatchTheMinimumEssence(minimumEssence, charmsForTraits);
+    return numberOfCharmsMatchingEssence >= threshold;
+  }
+
+  private int countCharmsThatMatchTheMinimumEssence(int minimumEssence, Charms matchingLearnedCharms) {
     int count = 0;
     for (Charm charm : matchingLearnedCharms) {
-      boolean meetsEssence = true;
       for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
-        if (!(trait.type.equals(OtherTraitType.Essence.getId()))) {
+        if (!(trait.type.type.equals(Essence.getId()))) {
           continue;
         }
-        meetsEssence = trait.minimalValue >= minimumEssence;
-      }
-      if (meetsEssence && ++count >= threshold) {
-        return true;
+        if (trait.minimalValue >= minimumEssence) {
+          count++;
+        }
       }
     }
-    return false;
+    return count;
   }
 
   private Charms findCharmsMatchingTraits(List<TraitType> requiredTraits, CategoryReference category) {
