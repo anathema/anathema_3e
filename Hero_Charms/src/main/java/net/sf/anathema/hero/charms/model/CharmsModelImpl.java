@@ -109,8 +109,7 @@ public class CharmsModelImpl implements CharmsModel {
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
             .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
-            .forEach(rules -> rules.initialize());
-    ;
+            .forEach(AdditionalCharmRules::initialize);
   }
 
   @Override
