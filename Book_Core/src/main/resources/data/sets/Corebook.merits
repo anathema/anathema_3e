@@ -426,12 +426,12 @@
 			 	},
 			 	{
 			 		"type": "AddsUnarmedModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Light: Medium }
 			 	},
 			 	{
 			 		"type": "AddsSavageModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Bashing: Lethal }
 			 	}
 			 ]
@@ -449,7 +449,7 @@
 			 	},
 			 	{
 			 		"type": "AddsUnarmedModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Light: Medium }
 			 	}
 			 ]
@@ -468,12 +468,12 @@
 			 	},
 			 	{
 			 		"type": "AddsUnarmedModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Light: Medium }
 			 	},
 			 	{
 			 		"type": "AddsSavageModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Bashing: Lethal }
 			 	}
 			 ]
@@ -491,12 +491,12 @@
 			 	},
 			 	{
 			 		"type": "AddsUnarmedModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Light: Medium }
 			 	},
 			 	{
 			 		"type": "AddsSavageModification",
-			 		"levels": { 4 },
+			 		"levels": [ 4 ],
 			 		"transformations": { Bashing: Lethal }
 			 	}
 			 ]

@@ -1,5 +1,14 @@
 package net.sf.anathema.hero.merits.model;
 
+import static java.util.stream.Collectors.toList;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Predicate;
+
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -22,16 +31,6 @@ import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryListener;
 
 import org.jmock.example.announcer.Announcer;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
-
-import static java.util.stream.Collectors.toList;
 
 public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implements MeritsModel {
 
