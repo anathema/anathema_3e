@@ -98,14 +98,6 @@ public class EquipmentObjectPresenter implements IEquipmentObjectPresenter {
     }
   }
 
-  private void disableAllOtherAttunementStats(IEquipmentStats equipment) {
-    for (IEquipmentStats stats : presentationModel.getAttunementStats()) {
-      if (!equipment.equals(stats) && model.isPrintEnabled(stats)) {
-        model.setPrintEnabled(stats, false);
-      }
-    }
-  }
-
   private void showEligibleSpecialties(IEquipmentStats equipment, StatsView statsView) {
     if (!(equipment instanceof IWeaponStats)) {
       return;
