@@ -9,11 +9,11 @@ import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.platform.persistence.JsonType;
 
 @JsonType("AddsHealthLevels")
-public class MeritHealthLevelTemplate implements MeritMechanicalDetailTemplate {
-	public List<HealthLevelType> levels = new ArrayList<>();
+public class MeritHealthLevelTemplate extends MeritMechanicalDetailTemplate {
+	public List<HealthLevelType> healthLevels = new ArrayList<>();
 
 	@Override
 	public MeritMechanicalDetail generate() {
-		return new MeritHealthDetail(levels);
+		return new MeritHealthDetail(healthLevels);
 	}
 }

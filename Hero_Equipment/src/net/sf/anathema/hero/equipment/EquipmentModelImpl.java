@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
+import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.database.IEquipmentTemplateProvider;
 import net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase;
 import net.sf.anathema.equipment.stats.IArmourStats;
@@ -22,6 +23,7 @@ import net.sf.anathema.hero.equipment.model.EquipmentHeroEvaluatorImpl;
 import net.sf.anathema.hero.equipment.model.EquipmentItem;
 import net.sf.anathema.hero.equipment.model.natural.DefaultNaturalSoak;
 import net.sf.anathema.hero.equipment.model.natural.NaturalWeaponTemplate;
+import net.sf.anathema.hero.equipment.model.natural.UnarmedModificationProviderCollection;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -48,6 +50,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   private final Announcer<ChangeListener> modelChangeControl = Announcer.to(ChangeListener.class);
   private final Announcer<CollectionListener> equipmentItemControl = Announcer.to(CollectionListener.class);
   private final EquipmentCollection equipmentItems = new EquipmentCollection();
+  private final UnarmedModificationProviderCollection unarmedProviders = new UnarmedModificationProviderCollection();
   private IEquipmentTemplateProvider equipmentTemplateProvider;
   private final ChangeListener itemChangePropagator = this::fireModelChanged;
   private EquipmentHeroEvaluator dataProvider;
@@ -68,9 +71,13 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     new SpecialtiesCollectionImpl(hero).addSpecialtyListChangeListener(new SpecialtyPrintRemover(dataProvider));
     EssencePoolModelFetcher.fetch(hero).addEssencePoolModifier(this);
   }
+  
+  public void addUnarmedModification(UnarmedModificationProvider provider) {
+  	unarmedProviders.addProvider(provider);
+  }
 
   private void createNaturalWeapons() {
-    IEquipmentItem item = createItem(new NaturalWeaponTemplate());
+    IEquipmentItem item = createItem(new NaturalWeaponTemplate(unarmedProviders));
     naturalWeapons.add(item);
   }
 

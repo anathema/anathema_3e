@@ -21,7 +21,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 		
 		for (Merit merit : merits.getMerits()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new MeritMechanicalDetailVisitor() {
+				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
 					@Override
 					public void visitHealthDetail(MeritHealthDetail detail) {
@@ -30,14 +30,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 								levelsOfType[0]++;
 							}
 						}
-					}
-
-					@Override
-					public void visitPainToleranceDetail(MeritPainToleranceDetail detail) {
-						// TODO Auto-generated method stub
-						
-					}
-					
+					}					
 				});
 			}
 		}
@@ -52,11 +45,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 		
 		for (Merit merit : merits.getMerits()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new MeritMechanicalDetailVisitor() {
-
-					@Override
-					public void visitHealthDetail(MeritHealthDetail detail) {
-					}
+				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
 					@Override
 					public void visitPainToleranceDetail(MeritPainToleranceDetail detail) {

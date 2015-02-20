@@ -73,6 +73,10 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
   public void addTag(IWeaponTag tag) {
     tags.add(tag);
   }
+  
+  public void removeTag(IWeaponTag tag) {
+    tags.remove(tag);
+  }
 
   @Override
   public boolean isRangedCombat() {

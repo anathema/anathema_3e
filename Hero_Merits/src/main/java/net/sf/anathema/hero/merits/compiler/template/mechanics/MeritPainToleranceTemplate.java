@@ -5,7 +5,7 @@ import net.sf.anathema.hero.merits.model.mechanics.MeritPainToleranceDetail;
 import net.sf.anathema.platform.persistence.JsonType;
 
 @JsonType("AddsPainTolerance")
-public class MeritPainToleranceTemplate implements MeritMechanicalDetailTemplate {
+public class MeritPainToleranceTemplate extends MeritMechanicalDetailTemplate {
 	public int tolerance;
 
 	@Override

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.merits.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -9,6 +10,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
 import net.sf.anathema.hero.merits.model.mechanics.MeritHealthProvider;
+import net.sf.anathema.hero.merits.model.mechanics.MeritUnarmedModificationProvider;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -18,6 +20,7 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractRemovableEntryModel;
 import net.sf.anathema.library.model.RemovableEntryListener;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -52,8 +55,10 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     this.hero = hero;
     this.meritCache = environment.getDataSet(MeritCache.class);
     MeritHealthProvider healthProvider = new MeritHealthProvider(this);
+    MeritUnarmedModificationProvider unarmedProvider = new MeritUnarmedModificationProvider(this);
     HealthModelFetcher.fetch(hero).addHealthLevelProvider(healthProvider);
     HealthModelFetcher.fetch(hero).addPainToleranceProvider(healthProvider);
+    EquipmentModelFetcher.fetch(hero).addUnarmedModification(unarmedProvider);
   }
 
   @SuppressWarnings("unchecked")
