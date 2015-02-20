@@ -12,32 +12,6 @@ import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 public class CharacterUtilities {
 
-  public static int getDodgeMdv(TraitMap traitMap, HeroStatsModifiers equipment) {
-    return getDodgeMdvWithSpecialty(traitMap, equipment, 0);
-  }
-
-  public static int getDodgeMdvWithSpecialty(TraitMap traitMap, HeroStatsModifiers equipment, int specialty) {
-    int dvPool = getTotalValue(traitMap, OtherTraitType.Willpower, AbilityType.Integrity, OtherTraitType.Essence) +
-                 specialty + equipment.getMDDVPoolMod();
-    int dv = getRoundDownDv(dvPool);
-    return Math.max(dv, 0);
-  }
-
-  public static int getParryMdv(TraitMap traitMap, HeroStatsModifiers equipment, TraitType... types) {
-    int dvPool = getTotalValue(traitMap, types) + equipment.getMPDVPoolMod();
-    int dv = getRoundUpDv(dvPool);
-
-    return Math.max(dv, 0);
-  }
-
-  private static int getRoundDownDv(int dvPool) {
-    return dvPool / 2;
-  }
-
-  private static int getRoundUpDv(int dvPool) {
-    return (int) Math.ceil(dvPool * 0.5);
-  }
-
   public static int getSocialAttackValue(TraitMap traitMap, TraitType... types) {
     return getTotalValue(traitMap, types);
   }
@@ -50,18 +24,6 @@ public class CharacterUtilities {
 
   public static int getJoinBattleWithSpecialty(TraitMap traitMap, HeroStatsModifiers equipment, int awarenessSpecialty) {
     int baseValue = getJoinBattle(traitMap, equipment);
-    baseValue += awarenessSpecialty;
-    return Math.max(baseValue, 1);
-  }
-
-  public static int getJoinDebate(TraitMap traitMap, HeroStatsModifiers equipment) {
-    int baseValue = getTotalValue(traitMap, AttributeType.Wits, AbilityType.Awareness);
-    baseValue += equipment.getJoinDebateMod();
-    return Math.max(baseValue, 1);
-  }
-
-  public static int getJoinDebateWithSpecialty(TraitMap traitMap, HeroStatsModifiers equipment, int awarenessSpecialty) {
-    int baseValue = getJoinDebate(traitMap, equipment);
     baseValue += awarenessSpecialty;
     return Math.max(baseValue, 1);
   }

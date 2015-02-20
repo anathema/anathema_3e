@@ -17,7 +17,6 @@ public class DeceptionStatsGroup extends AbstractSocialCombatsValueStatsGroup {
       table.addCell(createFinalValueCell(font));
     } else {
       table.addCell(createFinalValueCell(font, stats.getDeceptionAttackValue()));
-      table.addCell(createFinalValueCell(font, stats.getDeceptionMDV()));
     }
   }
 

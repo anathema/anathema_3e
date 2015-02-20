@@ -1,17 +1,15 @@
 package net.sf.anathema.character.equipment.dummy;
 
-import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
-import net.sf.anathema.character.equipment.character.model.stats.AbstractStats;
-import net.sf.anathema.equipment.core.ItemCost;
-import net.sf.anathema.equipment.core.MagicalMaterial;
-import net.sf.anathema.equipment.core.MaterialComposition;
-import net.sf.anathema.hero.equipment.model.ItemStatsSet;
-import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import net.sf.anathema.library.event.ChangeListener;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import net.sf.anathema.equipment.character.IEquipmentItem;
+import net.sf.anathema.equipment.core.ItemCost;
+import net.sf.anathema.equipment.stats.ArtifactAttuneType;
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.ItemStatsSet;
+import net.sf.anathema.equipment.stats.impl.AbstractStats;
+import net.sf.anathema.library.event.ChangeListener;
 
 public class DummyEquipmentItem extends AbstractStats implements IEquipmentItem {
 
@@ -77,16 +75,6 @@ public class DummyEquipmentItem extends AbstractStats implements IEquipmentItem 
   @Override
   public void setPrinted(String printedStatId) {
     //nothing to do
-  }
-
-  @Override
-  public MagicalMaterial getMaterial() {
-    return null;
-  }
-
-  @Override
-  public MaterialComposition getMaterialComposition() {
-    return MaterialComposition.None;
   }
 
   @Override

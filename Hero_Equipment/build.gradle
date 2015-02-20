@@ -1,0 +1,7 @@
+dependencies {
+  compile project(':Hero')
+  compile project(':Character_Equipment')
+  testCompile testDependencies
+  testCompile project(path: ':Hero', configuration: 'tests')
+  testCompile project(path: ':Character_Equipment', configuration: 'tests')
+}

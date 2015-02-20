@@ -9,9 +9,7 @@ import net.sf.anathema.hero.combat.sheet.social.stats.ISocialCombatStats;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialCombatNameStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialRateStatsGroup;
 import net.sf.anathema.hero.combat.sheet.social.stats.SocialSpeedStatsGroup;
-import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
-import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.encoder.stats.AbstractFixedLineStatsTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitMap;
@@ -42,8 +40,7 @@ public class SocialCombatStatsTableEncoder extends AbstractFixedLineStatsTableEn
   @Override
   protected ISocialCombatStats[] getPrintStats(ReportSession session) {
     TraitMap traitCollection = TraitModelFetcher.fetch(session.getHero());
-    HeroStatsModifiers modifiers = StatsModifiers.allStatsModifiers(session.getHero());
-    return new ISocialCombatStats[]{new PresenceSocialAttack(traitCollection, modifiers), new PerformanceSocialAttack(
-            traitCollection, modifiers), new InvestigationSocialAttack(traitCollection, modifiers)};
+    return new ISocialCombatStats[]{new PresenceSocialAttack(traitCollection), new PerformanceSocialAttack(
+            traitCollection), new InvestigationSocialAttack(traitCollection)};
   }
 }

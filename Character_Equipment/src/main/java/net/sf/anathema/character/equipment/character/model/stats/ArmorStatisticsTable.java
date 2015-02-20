@@ -1,12 +1,13 @@
 package net.sf.anathema.character.equipment.character.model.stats;
 
+import net.sf.anathema.equipment.stats.impl.ArmourTag;
+
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import net.sf.anathema.character.equipment.creation.model.ArmourTag;
 
-import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Heavy;
-import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Light;
-import static net.sf.anathema.character.equipment.creation.model.ArmourTag.Medium;
+import static net.sf.anathema.equipment.stats.impl.ArmourTag.Light;
+import static net.sf.anathema.equipment.stats.impl.ArmourTag.Medium;
+import static net.sf.anathema.equipment.stats.impl.ArmourTag.Heavy;
 
 public class ArmorStatisticsTable {
 

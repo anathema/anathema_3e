@@ -10,11 +10,9 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 public abstract class AbstractSocialAttack implements ISocialCombatStats {
 
   private final TraitMap collection;
-  private HeroStatsModifiers equipmentModifiers;
 
-  public AbstractSocialAttack(TraitMap collection, HeroStatsModifiers equipmentModifiers) {
+  public AbstractSocialAttack(TraitMap collection) {
     this.collection = collection;
-    this.equipmentModifiers = equipmentModifiers;
   }
 
   @Override
@@ -23,18 +21,8 @@ public abstract class AbstractSocialAttack implements ISocialCombatStats {
   }
 
   @Override
-  public final int getDeceptionMDV() {
-    return CharacterUtilities.getParryMdv(collection, equipmentModifiers, AttributeType.Manipulation, getName());
-  }
-
-  @Override
   public final int getHonestyAttackValue() {
     return CharacterUtilities.getSocialAttackValue(collection, AttributeType.Charisma, getName());
-  }
-
-  @Override
-  public final int getHonestyMDV() {
-    return CharacterUtilities.getParryMdv(collection, equipmentModifiers, AttributeType.Charisma, getName());
   }
 
   @Override

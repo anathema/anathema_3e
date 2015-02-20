@@ -1,0 +1,21 @@
+package net.sf.anathema.character.equipment.impl.character.model.stats.modification.equipment;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentDefenceModifier;
+import net.sf.anathema.equipment.stats.IWeaponModifiers;
+
+import org.junit.Test;
+
+public class EquipmentDefenceModifierTest {
+  IWeaponModifiers modifiers = mock(IWeaponModifiers.class);
+
+  @Test
+  public void addsParryDefenceModifierTwiceBecauseOfLaterDivisionByTwo() throws Exception {
+    when(modifiers.getPDVPoolMod()).thenReturn(5);
+    EquipmentDefenceModifier modifier = new EquipmentDefenceModifier(modifiers);
+    assertThat(modifier.calculate(), is(5));
+  }
+}

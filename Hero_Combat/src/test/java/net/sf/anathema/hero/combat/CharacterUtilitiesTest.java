@@ -21,22 +21,6 @@ public class CharacterUtilitiesTest {
   private HeroStatsModifiers modifiers = mock(HeroStatsModifiers.class);
 
   @Test
-  public void testDodgeMdvWithEvenAttributeSum() throws Exception {
-    traitCollection.addTraits(new DummyTrait(AbilityType.Integrity, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Willpower, 4));
-    Assert.assertEquals(3, CharacterUtilities.getDodgeMdv(traitCollection, modifiers));
-  }
-
-  @Test
-  public void testDodgeMdvWithOddAttributeSum() throws Exception {
-    traitCollection.addTraits(new DummyTrait(AbilityType.Integrity, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Willpower, 5));
-    assertEquals(3, CharacterUtilities.getDodgeMdv(traitCollection, modifiers));
-  }
-
-  @Test
   public void testMortalDodgeDvWithEssenceValueOne() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 2));

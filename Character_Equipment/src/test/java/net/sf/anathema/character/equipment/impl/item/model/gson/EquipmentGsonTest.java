@@ -1,24 +1,21 @@
 package net.sf.anathema.character.equipment.impl.item.model.gson;
 
-import net.sf.anathema.character.equipment.character.model.EquipmentTemplate;
-import net.sf.anathema.character.equipment.character.model.stats.ArmourStats;
-import net.sf.anathema.character.equipment.character.model.stats.ArtifactStats;
-import net.sf.anathema.character.equipment.character.model.stats.TraitModifyingStats;
-import net.sf.anathema.character.equipment.character.model.stats.WeaponStats;
-import net.sf.anathema.character.equipment.item.model.gson.EquipmentGson;
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
-import org.junit.Test;
-
-import static net.sf.anathema.equipment.core.MagicalMaterial.Orichalcum;
-import static net.sf.anathema.equipment.core.MaterialComposition.Fixed;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
+import net.sf.anathema.equipment.core.EquipmentTemplate;
+import net.sf.anathema.equipment.core.IEquipmentTemplate;
+import net.sf.anathema.equipment.database.gson.EquipmentGson;
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.impl.ArmourStats;
+import net.sf.anathema.equipment.stats.impl.ArtifactStats;
+import net.sf.anathema.equipment.stats.impl.TraitModifyingStats;
+import net.sf.anathema.equipment.stats.impl.WeaponStats;
+
+import org.junit.Test;
 
 public class EquipmentGsonTest {
 
-  private EquipmentTemplate originalTemplate = new EquipmentTemplate("First Test", "The test used to shape Creation", Fixed, Orichalcum, null);
+  private EquipmentTemplate originalTemplate = new EquipmentTemplate("First Test", "The test used to shape Creation", null);
   private EquipmentGson gson = new EquipmentGson();
 
   @Test
@@ -30,18 +27,10 @@ public class EquipmentGsonTest {
 
   @Test
   public void deserializesEmptyDescriptionToNull() throws Exception {
-    EquipmentTemplate template = new EquipmentTemplate("Test", null, Fixed, Orichalcum, null);
+    EquipmentTemplate template = new EquipmentTemplate("Test", null, null);
     String json = gson.toJson(template);
     IEquipmentTemplate readTemplate = deserialize(json);
     assertThat(readTemplate.getDescription().isEmpty(), is(true));
-  }
-
-  @Test
-  public void deserializesTemplateWithoutMaterial() throws Exception {
-    EquipmentTemplate template = new EquipmentTemplate("Test", null, Fixed, null, null);
-    String json = gson.toJson(template);
-    IEquipmentTemplate readTemplate = deserialize(json);
-    assertThat(readTemplate.getMaterial(), is(nullValue()));
   }
 
   @Test

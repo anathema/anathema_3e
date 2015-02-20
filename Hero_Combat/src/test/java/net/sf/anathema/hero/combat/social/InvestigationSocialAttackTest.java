@@ -19,26 +19,12 @@ public class InvestigationSocialAttackTest {
 
   TraitMap collection = mock(TraitMap.class);
   HeroStatsModifiers equipment = mock(HeroStatsModifiers.class);
-  private InvestigationSocialAttack socialAttack = new InvestigationSocialAttack(collection, equipment);
+  private InvestigationSocialAttack socialAttack = new InvestigationSocialAttack(collection);
 
   @Before
   public void setUp() throws Exception {
     when(collection.getTrait(Investigation)).thenReturn(new DummyTrait(Investigation, 0));
     when(collection.getTrait(Manipulation)).thenReturn(new DummyTrait(Manipulation, 0));
     when(collection.getTrait(Charisma)).thenReturn(new DummyTrait(Charisma, 0));
-  }
-
-  @Test
-  public void addsParryModifierToDeceptionDV() throws Exception {
-    when(equipment.getMPDVPoolMod()).thenReturn(4);
-    int deceptionMDV = socialAttack.getDeceptionMDV();
-    assertThat(deceptionMDV, is(2));
-  }
-
-  @Test
-  public void addsParryModifierToHonestyDV() throws Exception {
-    when(equipment.getMPDVPoolMod()).thenReturn(4);
-    int honestyMDV = socialAttack.getHonestyMDV();
-    assertThat(honestyMDV, is(2));
   }
 }

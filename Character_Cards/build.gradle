@@ -3,6 +3,7 @@ dependencies {
     compile project(':Character_Main')
     compile project(':Character_Equipment')
     compile project(':Hero_Charms')
+	compile project(':Hero_Equipment')
     compile project(':Hero_Spells')
     compile project(':Hero_MartialArts')
     compile project(':Hero_Sheet')

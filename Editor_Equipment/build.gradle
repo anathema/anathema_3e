@@ -1,0 +1,9 @@
+dependencies {
+  compile project(':Platform')
+  compile project(':Platform_FX')
+  compile project(':Character_Equipment')
+  testCompile testDependencies
+  testCompile project(path: ':Platform', configuration: 'tests')
+  testCompile project(path: ':Platform_FX', configuration: 'tests')
+  testCompile project(path: ':Character_Equipment', configuration: 'tests')
+}

@@ -1,18 +1,18 @@
 package net.sf.anathema.character.equipment.dummy;
 
-import net.sf.anathema.character.equipment.character.model.stats.AbstractCombatStats;
-import net.sf.anathema.character.equipment.creation.model.WeaponTag;
-import net.sf.anathema.hero.equipment.model.ItemStatsSet;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IWeaponStats;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+import net.sf.anathema.equipment.stats.IWeaponStats;
+import net.sf.anathema.equipment.stats.ItemStatsSet;
+import net.sf.anathema.equipment.stats.impl.AbstractCombatStats;
+import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
 

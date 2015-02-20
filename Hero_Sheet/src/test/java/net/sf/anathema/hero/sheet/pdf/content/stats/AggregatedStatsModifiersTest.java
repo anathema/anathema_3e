@@ -35,43 +35,6 @@ public class AggregatedStatsModifiersTest {
     modifiers.add(part);
     assertThat(modifiers.getJoinBattleMod(), is(2));
   }
-
-  @Test
-  public void JoinDebateDefaultsToZero() throws Exception {
-    assertThat(modifiers.getJoinDebateMod(), is(0));
-  }
-
-  @Test
-  public void JoinDebateSumsUpParts() throws Exception {
-    when(part.getJoinDebateMod()).thenReturn(3);
-    modifiers.add(part);
-    assertThat(modifiers.getJoinDebateMod(), is(3));
-  }
-
-  @Test
-  public void JoinWarDefaultsToZero() throws Exception {
-    assertThat(modifiers.getJoinWarMod(), is(0));
-  }
-
-  @Test
-  public void JoinWarSumsUpParts() throws Exception {
-    when(part.getJoinWarMod()).thenReturn(4);
-    modifiers.add(part);
-    assertThat(modifiers.getJoinWarMod(), is(4));
-  }
-
-  @Test
-  public void MddvDefaultsToZero() throws Exception {
-    assertThat(modifiers.getMDDVPoolMod(), is(0));
-  }
-
-  @Test
-  public void MddvSumsUpParts() throws Exception {
-    when(part.getMDDVPoolMod()).thenReturn(5);
-    modifiers.add(part);
-    assertThat(modifiers.getMDDVPoolMod(), is(5));
-  }
-
   @Test
   public void MobilityPenaltDefaultsToZero() throws Exception {
     assertThat(modifiers.getMobilityPenalty(), is(0));
@@ -82,17 +45,5 @@ public class AggregatedStatsModifiersTest {
     when(part.getMobilityPenalty()).thenReturn(6);
     modifiers.add(part);
     assertThat(modifiers.getMobilityPenalty(), is(6));
-  }
-
-  @Test
-  public void MpdvDefaultsToZero() throws Exception {
-    assertThat(modifiers.getMPDVPoolMod(), is(0));
-  }
-
-  @Test
-  public void MpdvSumsUpParts() throws Exception {
-    when(part.getMPDVPoolMod()).thenReturn(7);
-    modifiers.add(part);
-    assertThat(modifiers.getMPDVPoolMod(), is(7));
   }
 }

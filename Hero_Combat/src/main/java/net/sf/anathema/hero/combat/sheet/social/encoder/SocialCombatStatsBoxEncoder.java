@@ -137,36 +137,10 @@ public class SocialCombatStatsBoxEncoder implements ContentEncoder {
     String joinLabel = resources.getString("Sheet.SocialCombat.JoinDebateBattle");
     String dodgeLabel = resources.getString("Sheet.SocialCombat.DodgeMDV");
     String normalLabel = resources.getString("Sheet.Combat.NormalSpecialty");
-    int joinDebate = CharacterUtilities.getJoinDebate(traitCollection, equipment);
-    int joinDebateWithSpecialty = CharacterUtilities.getJoinDebateWithSpecialty(traitCollection, equipment, awarenessSpecialty.getValue());
-    int dodgeMDV = CharacterUtilities.getDodgeMdv(traitCollection, equipment);
-    int dodgeMDVWithSpecialty = CharacterUtilities.getDodgeMdvWithSpecialty(traitCollection, equipment, integritySpecialty.getValue());
     Position upperLeftCorner = new Position(bounds.x, bounds.getMaxY());
     LabelledValueEncoder encoder = new LabelledValueEncoder(2, upperLeftCorner, bounds.width, 3);
-    displayJoinDebateWithSpecialty(graphics, encoder, joinLabel, joinDebate, joinDebateWithSpecialty, normalLabel + awarenessSpecialty);
-    displayDodgeWithSpecialty(graphics, encoder, dodgeLabel, dodgeMDV, dodgeMDVWithSpecialty, normalLabel + integritySpecialty);
+    // TODO
     return encoder.getHeight() + 1;
-  }
-
-  private void displayJoinDebateWithSpecialty(SheetGraphics graphics, LabelledValueEncoder encoder, String joinLabel, int joinDebate,
-                                              int joinDebateWithSpecialty, String joinDebateSpecialtyLabel) {
-    if (joinDebate != joinDebateWithSpecialty) {
-      encoder.addLabelledValue(graphics, 0, joinLabel, joinDebate, joinDebateWithSpecialty);
-      encoder.addComment(graphics, joinDebateSpecialtyLabel, 0);
-    } else {
-      encoder.addLabelledValue(graphics, 0, joinLabel, joinDebate);
-      encoder.addComment(graphics, "", 0);
-    }
-  }
-
-  private void displayDodgeWithSpecialty(SheetGraphics graphics, LabelledValueEncoder encoder, String dodgeLabel, int dodgeMDV,
-                                         int dodgeMDVWithSpecialty, String dodgeSpecialtyLabel) {
-    if (dodgeMDV != dodgeMDVWithSpecialty) {
-      encoder.addLabelledValue(graphics, 1, dodgeLabel, dodgeMDV, dodgeMDVWithSpecialty);
-      encoder.addComment(graphics, dodgeSpecialtyLabel, 1);
-    } else {
-      encoder.addLabelledValue(graphics, 1, dodgeLabel, dodgeMDV);
-    }
   }
 
   @Override

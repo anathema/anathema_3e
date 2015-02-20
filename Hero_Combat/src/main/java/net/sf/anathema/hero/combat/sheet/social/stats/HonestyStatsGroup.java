@@ -17,7 +17,6 @@ public class HonestyStatsGroup extends AbstractSocialCombatsValueStatsGroup {
       table.addCell(createFinalValueCell(font));
     } else {
       table.addCell(createFinalValueCell(font, stats.getHonestyAttackValue()));
-      table.addCell(createFinalValueCell(font, stats.getHonestyMDV()));
     }
   }
 

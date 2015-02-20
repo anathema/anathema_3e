@@ -6,8 +6,8 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 public class PresenceSocialAttack extends AbstractSocialAttack {
 
-  public PresenceSocialAttack(TraitMap collection, HeroStatsModifiers equipmentModifiers) {
-    super(collection, equipmentModifiers);
+  public PresenceSocialAttack(TraitMap collection) {
+    super(collection);
   }
 
   @Override

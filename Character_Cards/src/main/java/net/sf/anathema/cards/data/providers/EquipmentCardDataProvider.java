@@ -1,24 +1,24 @@
 package net.sf.anathema.cards.data.providers;
 
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.cards.data.EquipmentCardData;
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
-import net.sf.anathema.character.equipment.character.IEquipmentStringBuilder;
-import net.sf.anathema.character.equipment.character.model.IEquipmentItem;
-import net.sf.anathema.equipment.core.MaterialComposition;
+import net.sf.anathema.equipment.character.IEquipmentItem;
+import net.sf.anathema.equipment.core.EquipmentStringBuilder;
+import net.sf.anathema.equipment.core.IEquipmentStringBuilder;
+import net.sf.anathema.equipment.stats.ArtifactAttuneType;
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.impl.ArtifactStats;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
-import net.sf.anathema.hero.equipment.display.presenter.EquipmentStringBuilder;
-import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactAttuneType;
-import net.sf.anathema.hero.equipment.sheet.content.stats.ArtifactStats;
-import net.sf.anathema.hero.equipment.sheet.content.stats.weapon.IEquipmentStats;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.resources.Resources;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 
 public class EquipmentCardDataProvider implements ICardDataProvider {
 
@@ -42,17 +42,6 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
       if (hasCustomTitle(item)) {
         headerText.add(new Phrase(item.getTemplateId(), resourceProvider.getNormalFont()));
       }
-      if (item.getMaterialComposition() == MaterialComposition.Variable) {
-        String itemMaterial = "";
-        if (hasCustomTitle(item)) {
-          itemMaterial += " (";
-        }
-        itemMaterial += item.getMaterial().getId();
-        if (hasCustomTitle(item)) {
-          itemMaterial += ")";
-        }
-        headerText.add(new Phrase(itemMaterial, resourceProvider.getNormalFont()));
-      }
       if (!headerText.isEmpty()) {
         headerText.add(new Phrase("\n"));
       }
@@ -75,7 +64,7 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
         Paragraph statsParagraph = new Paragraph();
         if (stats instanceof ArtifactStats) {
           ArtifactStats artifactStats = (ArtifactStats) stats;
-          if (artifactStats.getAttuneType() != ArtifactAttuneType.FullyAttuned) {
+          if (artifactStats.getAttuneType() != ArtifactAttuneType.Attuned) {
             continue;
           }
           statsParagraph.add(new Phrase(resources.getString("Equipment.Stats.Short.AttuneCost").trim() + ": ", resourceProvider.getBoldFont()));
