@@ -8,7 +8,6 @@ import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
-import net.sf.anathema.equipment.stats.impl.Proxy;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.ChangeListener;

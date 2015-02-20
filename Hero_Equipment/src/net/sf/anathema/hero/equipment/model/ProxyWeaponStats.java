@@ -5,8 +5,6 @@ import java.util.Collection;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.AbstractStats;
-import net.sf.anathema.equipment.stats.impl.Proxy;
-import net.sf.anathema.equipment.stats.modification.StatsModification;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
