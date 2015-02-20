@@ -2,7 +2,7 @@ package net.sf.anathema.equipment.editor.stats.model.impl;
 
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
-import net.sf.anathema.equipment.stats.impl.IWeaponTag;
+import net.sf.anathema.equipment.stats.IWeaponTag;
 
 public class WeaponLegalityModel extends EquipmentStatisticsModel implements IEquipmentStatisticsModel {
 

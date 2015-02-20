@@ -11,8 +11,8 @@ import net.sf.anathema.equipment.editor.stats.presenter.TraitModifierStatsConfig
 import net.sf.anathema.equipment.editor.stats.presenter.WeaponStatsConfiguration;
 import net.sf.anathema.equipment.editor.view.EquipmentDetails;
 import net.sf.anathema.equipment.editor.view.ToolListView;
+import net.sf.anathema.equipment.presentation.EquipmentStatsUIConfiguration;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.ui.EquipmentStatsUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 
 public class EquipmentEditStatsPresenter {

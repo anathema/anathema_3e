@@ -8,8 +8,8 @@ import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.ITraitModifyingStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
 import net.sf.anathema.equipment.editor.stats.model.TagsModel;
+import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.EquipmentStatisticsType;
-import net.sf.anathema.equipment.stats.impl.ArmourTag;
 import net.sf.anathema.library.event.ChangeListener;
 
 import org.jmock.example.announcer.Announcer;

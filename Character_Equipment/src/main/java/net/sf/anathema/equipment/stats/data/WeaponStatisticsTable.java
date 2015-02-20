@@ -1,8 +1,9 @@
-package net.sf.anathema.equipment.stats.impl;
+package net.sf.anathema.equipment.stats.data;
 
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Heavy;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Medium;
+import net.sf.anathema.equipment.stats.impl.WeaponTag;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

@@ -3,7 +3,7 @@ package net.sf.anathema.equipment.database.gson;
 import java.nio.file.Path;
 import java.util.List;
 
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
+import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.module.EquipmentItemType;
 import net.sf.anathema.library.event.ChangeListener;

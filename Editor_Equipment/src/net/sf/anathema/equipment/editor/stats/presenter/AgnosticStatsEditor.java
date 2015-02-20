@@ -20,8 +20,8 @@ import net.sf.anathema.equipment.editor.stats.model.TagsModel;
 import net.sf.anathema.equipment.editor.stats.properties.ArmourTagProperties;
 import net.sf.anathema.equipment.editor.stats.properties.WeaponTagProperties;
 import net.sf.anathema.equipment.editor.stats.view.StatsEditor;
+import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.impl.ArmourTag;
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.resources.Resources;
 

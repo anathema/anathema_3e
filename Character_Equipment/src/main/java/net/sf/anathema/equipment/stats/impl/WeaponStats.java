@@ -1,20 +1,21 @@
 package net.sf.anathema.equipment.stats.impl;
 
-import static net.sf.anathema.equipment.stats.impl.WeaponStatisticsTable.forArtifactWeapons;
-import static net.sf.anathema.equipment.stats.impl.WeaponStatisticsTable.forMundaneWeapons;
+import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forArtifactWeapons;
+import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMundaneWeapons;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.equipment.stats.IWeaponStats;
+import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
+import net.sf.anathema.equipment.stats.data.WeaponStatisticsTable;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
-
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Lethal;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Medium;

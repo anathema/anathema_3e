@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.core.EquipmentStringBuilder;
-import net.sf.anathema.equipment.core.EquipmentTemplateNameComparator;
+import net.sf.anathema.equipment.presentation.EquipmentStringBuilder;
+import net.sf.anathema.equipment.presentation.EquipmentTemplateNameComparator;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentObjectPresenter;

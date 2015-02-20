@@ -1,4 +1,4 @@
-package net.sf.anathema.equipment.stats.impl;
+package net.sf.anathema.equipment.stats;
 
 import net.sf.anathema.library.model.BooleanValueModel;
 

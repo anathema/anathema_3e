@@ -1,6 +1,6 @@
 package net.sf.anathema.equipment.editor.presenter.tools;
 
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
+import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.editor.view.EquipmentNavigation;

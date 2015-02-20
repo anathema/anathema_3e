@@ -4,7 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import net.miginfocom.layout.CC;
-import net.sf.anathema.equipment.core.ItemCost;
+import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.editor.view.CostSelectionView;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.event.SelectionIntValueChangedListener;

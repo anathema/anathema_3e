@@ -3,8 +3,8 @@ package net.sf.anathema.hero.equipment;
 import java.text.MessageFormat;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.character.IEquipmentObjectPresenter;
-import net.sf.anathema.equipment.core.IEquipmentStringBuilder;
+import net.sf.anathema.equipment.presentation.IEquipmentObjectPresenter;
+import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;

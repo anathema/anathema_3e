@@ -1,4 +1,4 @@
-package net.sf.anathema.equipment.character;
+package net.sf.anathema.equipment.presentation;
 
 public interface IEquipmentObjectPresenter {
 	public static final String EQUIPMENT_NAME_PREFIX = "Equipment.Name.";

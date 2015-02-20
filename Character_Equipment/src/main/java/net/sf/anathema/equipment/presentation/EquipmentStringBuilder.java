@@ -1,17 +1,16 @@
-package net.sf.anathema.equipment.core;
+package net.sf.anathema.equipment.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.character.IEquipmentObjectPresenter;
-import net.sf.anathema.equipment.character.WeaponStatsNameStringFactory;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.ITraitModifyingStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
+import net.sf.anathema.equipment.stats.WeaponStatsNameStringFactory;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 

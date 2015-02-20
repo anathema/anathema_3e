@@ -1,8 +1,6 @@
-package net.sf.anathema.character.equipment.character.model.stats.modification.equipment;
+package net.sf.anathema.equipment.stats.modification;
 
 import net.sf.anathema.equipment.stats.IWeaponModifiers;
-import net.sf.anathema.equipment.stats.modification.StatModifier;
-import net.sf.anathema.equipment.stats.modification.WeaponStatsType;
 
 public class EquipmentAccuracyModifier implements StatModifier {
   private final IWeaponModifiers modifiers;

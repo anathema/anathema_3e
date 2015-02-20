@@ -10,7 +10,7 @@ import java.util.Collections;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DummyEquipmentItem;
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.core.IEquipmentStringBuilder;
+import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.EquipmentObjectPresenter;
 import net.sf.anathema.hero.equipment.EquipmentObjectView;

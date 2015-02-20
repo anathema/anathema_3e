@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats;
 
-import net.sf.anathema.equipment.character.IEquipmentObjectPresenter;
+import net.sf.anathema.equipment.presentation.IEquipmentObjectPresenter;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractNameStatsGroup;
 import net.sf.anathema.library.resources.Resources;

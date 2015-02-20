@@ -11,8 +11,8 @@ import static net.sf.anathema.equipment.stats.impl.WeaponTag.getSizeTags;
 import java.util.List;
 
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
-import net.sf.anathema.equipment.stats.impl.BasicTagsModel;
-import net.sf.anathema.equipment.stats.impl.IWeaponTag;
+import net.sf.anathema.equipment.stats.BasicTagsModel;
+import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.library.model.BooleanValueModel;
 

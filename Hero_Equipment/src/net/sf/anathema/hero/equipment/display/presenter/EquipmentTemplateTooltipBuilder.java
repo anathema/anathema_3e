@@ -3,7 +3,7 @@ package net.sf.anathema.hero.equipment.display.presenter;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
+import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;

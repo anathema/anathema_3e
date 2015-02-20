@@ -3,9 +3,9 @@ package net.sf.anathema.equipment.editor.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.equipment.core.EquipmentTemplate;
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.equipment.core.ItemCost;
+import net.sf.anathema.equipment.character.EquipmentTemplate;
+import net.sf.anathema.equipment.character.IEquipmentTemplate;
+import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.model.description.IItemDescription;
 import net.sf.anathema.equipment.editor.model.description.ItemDescription;

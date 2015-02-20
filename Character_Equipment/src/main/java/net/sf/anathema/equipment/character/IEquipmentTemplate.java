@@ -1,4 +1,4 @@
-package net.sf.anathema.equipment.core;
+package net.sf.anathema.equipment.character;
 
 import java.util.Collection;
 

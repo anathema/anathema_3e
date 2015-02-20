@@ -1,4 +1,4 @@
-package net.sf.anathema.equipment.core;
+package net.sf.anathema.equipment.presentation;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IEquipmentStats;

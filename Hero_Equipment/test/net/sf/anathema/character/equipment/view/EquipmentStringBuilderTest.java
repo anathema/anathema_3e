@@ -2,10 +2,10 @@ package net.sf.anathema.character.equipment.view;
 
 import static org.junit.Assert.assertEquals;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
-import net.sf.anathema.equipment.core.EquipmentStringBuilder;
-import net.sf.anathema.equipment.core.IEquipmentStringBuilder;
+import net.sf.anathema.equipment.presentation.EquipmentStringBuilder;
+import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
+import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.impl.ArmourStats;
-import net.sf.anathema.equipment.stats.impl.ArmourTag;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.lib.dummy.DummyResources;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

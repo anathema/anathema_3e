@@ -2,9 +2,6 @@ package net.sf.anathema.hero.equipment.model;
 
 import java.util.Collection;
 
-import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentAccuracyModifier;
-import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentDamageModifier;
-import net.sf.anathema.character.equipment.character.model.stats.modification.equipment.EquipmentDefenceModifier;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.AbstractStats;
@@ -13,6 +10,9 @@ import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.equipment.stats.modification.AccuracyModification;
 import net.sf.anathema.equipment.stats.modification.DamageModification;
 import net.sf.anathema.equipment.stats.modification.DefenseModification;
+import net.sf.anathema.equipment.stats.modification.EquipmentAccuracyModifier;
+import net.sf.anathema.equipment.stats.modification.EquipmentDamageModifier;
+import net.sf.anathema.equipment.stats.modification.EquipmentDefenceModifier;
 import net.sf.anathema.equipment.stats.modification.StatModifier;
 import net.sf.anathema.equipment.stats.modification.StatsModification;
 import net.sf.anathema.equipment.stats.modification.WeaponStatsType;

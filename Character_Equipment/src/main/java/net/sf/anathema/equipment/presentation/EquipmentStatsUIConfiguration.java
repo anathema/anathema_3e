@@ -1,6 +1,5 @@
-package net.sf.anathema.equipment.ui;
+package net.sf.anathema.equipment.presentation;
 
-import net.sf.anathema.equipment.core.EquipmentStringBuilder;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.ITraitModifyingStats;

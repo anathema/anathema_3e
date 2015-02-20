@@ -4,12 +4,11 @@ import static com.google.common.collect.Lists.newArrayList;
 
 import java.util.Collection;
 
-import net.sf.anathema.equipment.core.IEquipmentTemplate;
-import net.sf.anathema.equipment.core.ItemCost;
+import net.sf.anathema.equipment.character.IEquipmentTemplate;
+import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.impl.WeaponStats;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
-
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Natural;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.impl.WeaponTag.Bashing;

@@ -1,6 +1,6 @@
 package net.sf.anathema.equipment.editor.stats.properties;
 
-import net.sf.anathema.equipment.stats.impl.IWeaponTag;
+import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.library.resources.Resources;
 
 public class WeaponTagProperties implements TagProperties<IWeaponTag> {

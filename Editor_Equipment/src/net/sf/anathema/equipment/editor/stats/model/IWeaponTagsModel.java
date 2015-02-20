@@ -1,6 +1,6 @@
 package net.sf.anathema.equipment.editor.stats.model;
 
-import net.sf.anathema.equipment.stats.impl.IWeaponTag;
+import net.sf.anathema.equipment.stats.IWeaponTag;
 
 public interface IWeaponTagsModel extends TagsModel<IWeaponTag> {
 
