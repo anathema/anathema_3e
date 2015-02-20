@@ -14,7 +14,6 @@
         EssencePool: SolarEssencePool,
         Health: SolarHealth,
         Charms: SolarCharms,
-        Combos: '',
         Spells: SolarSpells,
         MagicPoints: SolarMagicPoints_Rookie,
         Intimacies: '',

@@ -9,7 +9,6 @@ import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.BACKGROUNDS;
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.CHARMS_AND_SORCERY;
-import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.COMBOS;
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.EXPERIENCE;
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.GENERIC_CHARMS;
 import static net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds.LANGUAGES;
@@ -27,8 +26,7 @@ public class SecondPageEncoder implements PageEncoder {
     LayoutField possessions = page.place(POSSESSIONS).rightOf(backgrounds).withSameHeight().now();
     LayoutField languages = page.place(LANGUAGES).rightOf(possessions).withHeight(LANGUAGE_HEIGHT).now();
     page.place(EXPERIENCE).below(languages).alignBottomTo(backgrounds).now();
-    LayoutField combos = page.place(COMBOS).below(backgrounds).withPreferredHeight().andColumnSpan(3).now();
-    LayoutField genericCharms = page.place(GENERIC_CHARMS).below(combos).withPreferredHeight().andColumnSpan(3).now();
+    LayoutField genericCharms = page.place(GENERIC_CHARMS).below(backgrounds).withPreferredHeight().andColumnSpan(3).now();
     page.place(CHARMS_AND_SORCERY).below(genericCharms).fillToBottomOfPage().andColumnSpan(3).now();
     encodeAdditionalMagicPages(sheet, graphics, session);
   }
