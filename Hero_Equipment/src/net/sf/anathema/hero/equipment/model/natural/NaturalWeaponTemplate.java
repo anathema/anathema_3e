@@ -23,7 +23,7 @@ public class NaturalWeaponTemplate implements IEquipmentTemplate {
       addTag(Bashing);
     }
   };
-  public static final Collection<IEquipmentStats> Third_Edition_Weapons = newArrayList(Unarmed, new Grapple());
+  public static final Collection<IEquipmentStats> Third_Edition_Weapons = newArrayList(Unarmed);
   private static final String NATURAL = "Natural";
 
   @Override
