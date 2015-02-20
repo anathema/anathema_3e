@@ -6,10 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.stats.IWeaponModifiers;
-import net.sf.anathema.hero.equipment.WeaponModifiers;
 
-public class EquipmentCollection implements Iterable<IEquipmentItem>, ModifierFactory {
+public class EquipmentCollection implements Iterable<IEquipmentItem> {
   private final List<IEquipmentItem> equipmentItems = new ArrayList<>();
 
   public void add(IEquipmentItem item) {
@@ -23,11 +21,6 @@ public class EquipmentCollection implements Iterable<IEquipmentItem>, ModifierFa
   @Override
   public Iterator<IEquipmentItem> iterator() {
     return new ArrayList<>(equipmentItems).iterator();
-  }
-
-  @Override
-  public IWeaponModifiers createModifiers() {
-    return new WeaponModifiers(equipmentItems);
   }
 
   public Collection<IEquipmentItem> asList() {

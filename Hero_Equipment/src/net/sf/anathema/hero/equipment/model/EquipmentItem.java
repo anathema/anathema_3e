@@ -23,12 +23,10 @@ public class EquipmentItem implements IEquipmentItem {
   private final Set<IEquipmentStats> printedStats = new HashSet<>();
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final IEquipmentTemplate template;
-  private final ModifierFactory modifiers;
   private String customTitle = null;
   private String customDescription = null;
 
-  public EquipmentItem(IEquipmentTemplate template, ItemAttunementEvaluator provider, ModifierFactory modifiers) {
-    this.modifiers = modifiers;
+  public EquipmentItem(IEquipmentTemplate template, ItemAttunementEvaluator provider) {
     this.template = template;
     printedStats.addAll(template.getStatsList());
     initPrintStats(provider);

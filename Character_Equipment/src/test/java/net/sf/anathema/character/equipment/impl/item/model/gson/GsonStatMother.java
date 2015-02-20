@@ -2,7 +2,6 @@ package net.sf.anathema.character.equipment.impl.item.model.gson;
 
 import net.sf.anathema.equipment.stats.impl.ArmourStats;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
-import net.sf.anathema.equipment.stats.impl.TraitModifyingStats;
 import net.sf.anathema.equipment.stats.impl.WeaponStats;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
@@ -26,27 +25,6 @@ public class GsonStatMother {
   public static ArmourStats createArmour() {
     ArmourStats stats = new ArmourStats();
     stats.setName(new SimpleIdentifier("Bounce!"));
-    return stats;
-  }
-
-  public static TraitModifyingStats createTraitModifier() {
-    TraitModifyingStats stats = new TraitModifyingStats();
-    stats.setName(new SimpleIdentifier("Liftoff!"));
-    stats.setDDVPoolMod(1);
-    stats.setJoinBattleMod(2);
-    stats.setJoinDebateMod(3);
-    stats.setJoinWarMod(4);
-    stats.setMDDVPoolMod(5);
-    stats.setMeleeAccuracyMod(6);
-    stats.setMeleeDamageMod(7);
-    stats.setMeleeRateMod(8);
-    stats.setMeleeSpeedMod(9);
-    stats.setMPDVPoolMod(10);
-    stats.setPDVPoolMod(11);
-    stats.setRangedAccuracyMod(12);
-    stats.setRangedDamageMod(13);
-    stats.setRangedRateMod(14);
-    stats.setRangedSpeedMod(15);
     return stats;
   }
 }

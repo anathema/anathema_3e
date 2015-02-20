@@ -235,7 +235,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   private IEquipmentItem createItem(IEquipmentTemplate template) {
-    return new EquipmentItem(template, getHeroEvaluator(), equipmentItems);
+    return new EquipmentItem(template, getHeroEvaluator());
   }
 
   @Override

@@ -6,16 +6,7 @@ import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.AbstractStats;
 import net.sf.anathema.equipment.stats.impl.Proxy;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
-import net.sf.anathema.equipment.stats.modification.AccuracyModification;
-import net.sf.anathema.equipment.stats.modification.DamageModification;
-import net.sf.anathema.equipment.stats.modification.DefenseModification;
-import net.sf.anathema.equipment.stats.modification.EquipmentAccuracyModifier;
-import net.sf.anathema.equipment.stats.modification.EquipmentDamageModifier;
-import net.sf.anathema.equipment.stats.modification.EquipmentDefenceModifier;
-import net.sf.anathema.equipment.stats.modification.StatModifier;
 import net.sf.anathema.equipment.stats.modification.StatsModification;
-import net.sf.anathema.equipment.stats.modification.WeaponStatsType;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
@@ -25,11 +16,9 @@ import com.google.common.base.Objects;
 public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Proxy<IWeaponStats> {
 
   private final IWeaponStats delegate;
-  private final ModifierFactory modifiers;
 
-  public ProxyWeaponStats(IWeaponStats stats, ModifierFactory modifiers) {
+  public ProxyWeaponStats(IWeaponStats stats) {
     this.delegate = stats;
-    this.modifiers = modifiers;
   }
 
   @Override
@@ -53,30 +42,12 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
 
   @Override
   public int getAccuracy() {
-    int accuracy = delegate.getAccuracy();
-    WeaponStatsType type = getWeaponStatsType();
-    StatModifier equipment = new EquipmentAccuracyModifier(modifiers.createModifiers(), type);
-    return getModifiedValue(new AccuracyModification(equipment), accuracy);
-  }
-
-  private WeaponStatsType getWeaponStatsType() {
-    if (getTags().contains(WeaponTag.Archery)) {
-      return WeaponStatsType.Bow;
-    }
-    if (getTags().contains(WeaponTag.Flame)) {
-      return WeaponStatsType.Flame;
-    }
-    if (getTags().contains(WeaponTag.Thrown)) {
-      return WeaponStatsType.Thrown;
-    }
-    return WeaponStatsType.Melee;
+    return delegate.getAccuracy();
   }
 
   @Override
   public int getDamage() {
-    int damage = delegate.getDamage();
-    StatModifier equipment = new EquipmentDamageModifier(modifiers.createModifiers(), getWeaponStatsType());
-    return getModifiedValue(new DamageModification(equipment), damage);
+    return delegate.getDamage();
   }
 
   @Override
@@ -91,9 +62,7 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
 
   @Override
   public Integer getDefence() {
-    Integer defence = delegate.getDefence();
-    StatModifier equipment = new EquipmentDefenceModifier(modifiers.createModifiers());
-    return getModifiedValue(new DefenseModification(equipment), defence);
+    return delegate.getDefence();
   }
 
   @Override
@@ -144,12 +113,5 @@ public class ProxyWeaponStats extends AbstractStats implements IWeaponStats, Pro
   @Override
   public boolean representsItemForUseInCombat() {
     return delegate.representsItemForUseInCombat();
-  }
-
-  private Integer getModifiedValue(StatsModification modification, Integer unmodifiedValue) {
-    if (unmodifiedValue == null) {
-      return null;
-    }
-    return modification.getModifiedValue(unmodifiedValue);
   }
 }

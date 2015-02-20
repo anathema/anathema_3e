@@ -8,7 +8,6 @@ import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.ITraitModifyingStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.WeaponStatsNameStringFactory;
 import net.sf.anathema.library.identifier.Identifier;
@@ -66,9 +65,6 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     if (equipment instanceof IArtifactStats) {
       return createArtifactString((IArtifactStats) equipment);
     }
-    if (equipment instanceof ITraitModifyingStats) {
-      return createTraitModifyingString((ITraitModifyingStats) equipment);
-    }
     throw new IllegalArgumentException("All subclasses covered. Something appears to be wrong.");
   }
 
@@ -77,27 +73,6 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
     StringBuilder stringBuilder = new StringBuilder();
     stringBuilder.append(getStatsString(stats.getAttuneType().name(), stats.getAttuneCost(), false));
     stringBuilder.append("m");
-    return stringBuilder.toString();
-  }
-
-  private String createTraitModifyingString(ITraitModifyingStats stats) {
-    StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append(stats.getName().getId());
-    stringBuilder.append(":");
-    if (stats.getDDVPoolMod() != 0)
-      stringBuilder.append(getStatsString("DDV", stats.getDDVPoolMod(), true));
-    if (stats.getPDVPoolMod() != 0)
-      stringBuilder.append(getStatsString("PDV", stats.getPDVPoolMod(), true));
-    if (stats.getMeleeAccuracyMod() != 0)
-      stringBuilder.append(getStatsString("MeleeAccuracy", stats.getMeleeAccuracyMod(), true));
-    if (stats.getMeleeDamageMod() != 0)
-      stringBuilder.append(getStatsString("MeleeDamage", stats.getMeleeDamageMod(), true));
-    if (stats.getRangedAccuracyMod() != 0)
-      stringBuilder.append(getStatsString("RangedAccuracy", stats.getRangedAccuracyMod(), true));
-    if (stats.getRangedDamageMod() != 0)
-      stringBuilder.append(getStatsString("RangedDamage", stats.getRangedDamageMod(), true));
-    if (stats.getJoinBattleMod() != 0)
-      stringBuilder.append(getStatsString("JoinBattle", stats.getJoinBattleMod(), true));
     return stringBuilder.toString();
   }
 

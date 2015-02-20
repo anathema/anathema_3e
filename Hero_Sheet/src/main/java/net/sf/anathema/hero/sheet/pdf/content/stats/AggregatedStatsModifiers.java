@@ -15,24 +15,6 @@ public class AggregatedStatsModifiers implements HeroStatsModifiers {
     return mod;
   }
 
-  @Override
-  public int getDDVPoolMod() {
-    int mod = 0;
-    for (HeroStatsModifiers modifier : modifiers) {
-      mod += modifier.getDDVPoolMod();
-    }
-    return mod;
-  }
-
-  @Override
-  public int getJoinBattleMod() {
-    int mod = 0;
-    for (HeroStatsModifiers modifier : modifiers) {
-      mod += modifier.getJoinBattleMod();
-    }
-    return mod;
-  }
-
   public void add(HeroStatsModifiers statsModifiers) {
     modifiers.add(statsModifiers);
   }

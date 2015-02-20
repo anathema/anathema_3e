@@ -18,7 +18,6 @@ public class CharacterUtilities {
 
   public static int getJoinBattle(TraitMap traitMap, HeroStatsModifiers equipment) {
     int baseValue = getTotalValue(traitMap, AttributeType.Wits, AbilityType.Awareness);
-    baseValue += equipment.getJoinBattleMod();
     return Math.max(baseValue, 1);
   }
 
@@ -90,7 +89,7 @@ public class CharacterUtilities {
   }
 
   public static int getDodgeDvWithSpecialty(HeroType heroType, TraitMap traitMap, HeroStatsModifiers equipment, int specialty) {
-    int dvPool = getDodgeDvPool(traitMap) + specialty + equipment.getDDVPoolMod();
+    int dvPool = getDodgeDvPool(traitMap) + specialty;
     int dv = getRoundedDodgeDv(heroType, dvPool) + equipment.getMobilityPenalty();
     return Math.max(dv, 0);
   }

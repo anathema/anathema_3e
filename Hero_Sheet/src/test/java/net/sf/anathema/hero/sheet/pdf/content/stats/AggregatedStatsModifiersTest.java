@@ -13,29 +13,6 @@ public class AggregatedStatsModifiersTest {
   private final HeroStatsModifiers part = mock(HeroStatsModifiers.class);
 
   @Test
-  public void DdvDefaultsToZero() throws Exception {
-    assertThat(modifiers.getDDVPoolMod(), is(0));
-  }
-
-  @Test
-  public void DdvSumsUpParts() throws Exception {
-    when(part.getDDVPoolMod()).thenReturn(1);
-    modifiers.add(part);
-    assertThat(modifiers.getDDVPoolMod(), is(1));
-  }
-
-  @Test
-  public void JoinBattleDefaultsToZero() throws Exception {
-    assertThat(modifiers.getJoinBattleMod(), is(0));
-  }
-
-  @Test
-  public void JoinBattleSumsUpParts() throws Exception {
-    when(part.getJoinBattleMod()).thenReturn(2);
-    modifiers.add(part);
-    assertThat(modifiers.getJoinBattleMod(), is(2));
-  }
-  @Test
   public void MobilityPenaltDefaultsToZero() throws Exception {
     assertThat(modifiers.getMobilityPenalty(), is(0));
   }

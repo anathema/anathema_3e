@@ -2,7 +2,6 @@ package net.sf.anathema.equipment.presentation;
 
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.ITraitModifyingStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
@@ -30,9 +29,6 @@ public class EquipmentStatsUIConfiguration extends AbstractUIConfiguration<IEqui
     }
     if (value instanceof ArtifactStats) {
       return new RelativePath("icons/Artifact16.png");
-    }
-    if (value instanceof ITraitModifyingStats) {
-      return new RelativePath("icons/TraitModifying16.png");
     }
     throw new IllegalArgumentException("All subclasses covered. Something appears to be wrong.");
   }

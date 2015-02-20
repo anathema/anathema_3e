@@ -1,5 +1,12 @@
 package net.sf.anathema.equipment.database.gson;
 
+import java.lang.reflect.Type;
+
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.impl.ArmourStats;
+import net.sf.anathema.equipment.stats.impl.ArtifactStats;
+import net.sf.anathema.equipment.stats.impl.WeaponStats;
+
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.gson.JsonDeserializationContext;
@@ -10,14 +17,6 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 
-import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.impl.ArmourStats;
-import net.sf.anathema.equipment.stats.impl.ArtifactStats;
-import net.sf.anathema.equipment.stats.impl.TraitModifyingStats;
-import net.sf.anathema.equipment.stats.impl.WeaponStats;
-
-import java.lang.reflect.Type;
-
 public class StatsAdapter implements JsonDeserializer<IEquipmentStats>, JsonSerializer<IEquipmentStats> {
 
   private final BiMap<String, Class> classesToTypes = HashBiMap.create();
@@ -26,7 +25,6 @@ public class StatsAdapter implements JsonDeserializer<IEquipmentStats>, JsonSeri
     classesToTypes.put("Weapon", WeaponStats.class);
     classesToTypes.put("Artifact", ArtifactStats.class);
     classesToTypes.put("Armour", ArmourStats.class);
-    classesToTypes.put("Trait Modifier", TraitModifyingStats.class);
   }
 
   @Override
