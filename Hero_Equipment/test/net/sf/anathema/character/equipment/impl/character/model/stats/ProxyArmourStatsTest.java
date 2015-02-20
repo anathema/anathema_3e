@@ -17,20 +17,6 @@ public class ProxyArmourStatsTest {
     assertThat(stats.getMobilityPenalty(), is(-2));
   }
 
-  @Test
-  public void hasNoMobilityPenaltyWithMoonsilver() throws Exception {
-    ArmourStats original = createArmorWithMobilityPenalty();
-    ProxyArmourStats stats = new ProxyArmourStats(original);
-    assertThat(stats.getMobilityPenalty(), is(0));
-  }
-
-  @Test
-  public void hasImprovedMobilityPenaltyWithAdamant() throws Exception {
-    ArmourStats original = createArmorWithMobilityPenalty();
-    ProxyArmourStats stats = new ProxyArmourStats(original);
-    assertThat(stats.getMobilityPenalty(), is(-1));
-  }
-
   private ArmourStats createArmorWithMobilityPenalty() {
     ArmourStats original = new ArmourStats();
     original.addTag(ArmourTag.Heavy);
