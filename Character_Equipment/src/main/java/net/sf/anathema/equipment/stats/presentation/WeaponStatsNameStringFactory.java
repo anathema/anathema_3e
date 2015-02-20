@@ -1,10 +1,12 @@
-package net.sf.anathema.equipment.stats;
+package net.sf.anathema.equipment.stats.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 

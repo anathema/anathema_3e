@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.presentation.EquipmentStatsUIConfiguration;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.stats.presentation.EquipmentStatsUIConfiguration;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.library.resources.Resources;
 

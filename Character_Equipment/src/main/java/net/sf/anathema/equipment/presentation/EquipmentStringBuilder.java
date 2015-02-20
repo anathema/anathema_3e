@@ -9,7 +9,7 @@ import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
-import net.sf.anathema.equipment.stats.WeaponStatsNameStringFactory;
+import net.sf.anathema.equipment.stats.presentation.WeaponStatsNameStringFactory;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
