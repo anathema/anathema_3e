@@ -1,6 +1,5 @@
-package net.sf.anathema.equipment.stats.impl;
+package net.sf.anathema.equipment.stats;
 
-import net.sf.anathema.equipment.stats.IWeaponTag;
 
 
 public enum WeaponTag implements IWeaponTag {

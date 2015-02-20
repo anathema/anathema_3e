@@ -9,9 +9,9 @@ import net.sf.anathema.equipment.stats.impl.WeaponStats;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Natural;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Light;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Bashing;
+import static net.sf.anathema.equipment.stats.WeaponTag.Bashing;
+import static net.sf.anathema.equipment.stats.WeaponTag.Light;
+import static net.sf.anathema.equipment.stats.WeaponTag.Natural;
 
 public class NaturalWeaponTemplate implements IEquipmentTemplate {
 

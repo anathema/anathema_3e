@@ -4,7 +4,7 @@ import java.lang.reflect.Type;
 
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
+import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.template.EquipmentTemplate;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.identifier.Identifier;

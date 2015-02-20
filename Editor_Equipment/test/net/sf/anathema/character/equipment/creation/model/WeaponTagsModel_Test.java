@@ -3,21 +3,21 @@ package net.sf.anathema.character.equipment.creation.model;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.equipment.editor.stats.model.impl.WeaponTagsModel;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
+import net.sf.anathema.equipment.stats.WeaponTag;
 
 import org.junit.Test;
 
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Archery;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Thrown;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Medium;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Heavy;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Lethal;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Bashing;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.MediumRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.ShortRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.CloseRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.LongRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Flame;
+import static net.sf.anathema.equipment.stats.WeaponTag.Archery;
+import static net.sf.anathema.equipment.stats.WeaponTag.Bashing;
+import static net.sf.anathema.equipment.stats.WeaponTag.CloseRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.Flame;
+import static net.sf.anathema.equipment.stats.WeaponTag.Heavy;
+import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
+import static net.sf.anathema.equipment.stats.WeaponTag.LongRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
+import static net.sf.anathema.equipment.stats.WeaponTag.MediumRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.ShortRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.Thrown;
 
 public class WeaponTagsModel_Test {
   WeaponTagsModel model = new WeaponTagsModel();

@@ -4,15 +4,15 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import net.sf.anathema.equipment.editor.stats.model.impl.WeaponLegalityModel;
 import net.sf.anathema.equipment.editor.stats.model.impl.WeaponTagsModel;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
+import net.sf.anathema.equipment.stats.WeaponTag;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Archery;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.getSizeTags;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.getDamageTags;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.MediumRange;;
+import static net.sf.anathema.equipment.stats.WeaponTag.Archery;
+import static net.sf.anathema.equipment.stats.WeaponTag.MediumRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.getDamageTags;
+import static net.sf.anathema.equipment.stats.WeaponTag.getSizeTags;
 
 public class WeaponLegalityModel_Test {
   WeaponTagsModel tagsModel = new WeaponTagsModel();

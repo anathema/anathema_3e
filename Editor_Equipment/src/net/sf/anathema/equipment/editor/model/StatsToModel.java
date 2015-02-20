@@ -8,8 +8,8 @@ import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
+import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.library.identifier.Identifier;
 
 public class StatsToModel {

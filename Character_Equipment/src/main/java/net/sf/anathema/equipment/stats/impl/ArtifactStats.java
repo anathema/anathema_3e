@@ -1,12 +1,6 @@
 package net.sf.anathema.equipment.stats.impl;
 
-import java.util.List;
-
 import net.sf.anathema.equipment.stats.IArtifactStats;
-import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.ItemStatsSet;
-
-import com.google.common.collect.Lists;
 
 public class ArtifactStats extends AbstractNonCombatStats implements IArtifactStats {
   int attuneCost;

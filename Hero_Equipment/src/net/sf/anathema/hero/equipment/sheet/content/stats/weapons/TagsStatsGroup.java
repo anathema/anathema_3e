@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import net.sf.anathema.equipment.stats.IWeaponStats;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
+import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
@@ -22,15 +22,15 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Artifact;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Shield;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Balanced;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.CloseRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.ShortRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.MediumRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.LongRange;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Flame;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Natural;
+import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
+import static net.sf.anathema.equipment.stats.WeaponTag.Balanced;
+import static net.sf.anathema.equipment.stats.WeaponTag.CloseRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.Flame;
+import static net.sf.anathema.equipment.stats.WeaponTag.LongRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.MediumRange;
+import static net.sf.anathema.equipment.stats.WeaponTag.Natural;
+import static net.sf.anathema.equipment.stats.WeaponTag.Shield;
+import static net.sf.anathema.equipment.stats.WeaponTag.ShortRange;
 
 public final class TagsStatsGroup implements IEquipmentStatsGroup<IWeaponStats> {
   private final String title;

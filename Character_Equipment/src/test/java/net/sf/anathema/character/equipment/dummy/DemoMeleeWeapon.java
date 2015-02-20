@@ -6,8 +6,8 @@ import java.util.Collections;
 
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
+import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.impl.AbstractCombatStats;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;

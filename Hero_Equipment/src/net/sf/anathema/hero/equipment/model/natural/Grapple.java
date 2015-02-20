@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.model.natural;
 
+import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.impl.WeaponStats;
-import net.sf.anathema.equipment.stats.impl.WeaponTag;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 

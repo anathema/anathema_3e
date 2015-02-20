@@ -13,9 +13,9 @@ import net.sf.anathema.library.identifier.SimpleIdentifier;
 import org.junit.Before;
 import org.junit.Test;
 
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Light;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Lethal;
-import static net.sf.anathema.equipment.stats.impl.WeaponTag.Artifact;
+import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
+import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
+import static net.sf.anathema.equipment.stats.WeaponTag.Light;
 
 public class EquipmentStringBuilderTest {
 
