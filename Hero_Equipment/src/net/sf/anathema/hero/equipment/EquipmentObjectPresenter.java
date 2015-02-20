@@ -13,6 +13,7 @@ import net.sf.anathema.hero.equipment.display.presenter.StatsPresentationStrateg
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
 import net.sf.anathema.hero.equipment.model.EquipmentItemPresentationModel;
 import net.sf.anathema.hero.equipment.model.EquipmentSpecialtyOption;
+import net.sf.anathema.hero.equipment.model.natural.NaturalWeaponTemplate;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.library.resources.Resources;
 
@@ -83,12 +84,9 @@ public class EquipmentObjectPresenter implements IEquipmentObjectPresenter {
       statsView.setSelected(model.isPrintEnabled(stats));
       statsView.addChangeListener(() -> {
         model.setPrintEnabled(stats, statsView.getSelected());
-        if (stats instanceof IArtifactStats) {
-          boolean userHasEnabledAttunementStats = statsView.getSelected();
-          if (userHasEnabledAttunementStats) {
-            disableAllOtherAttunementStats(stats);
-          }
-          refreshView();
+        if(model.getTemplateId().equals(NaturalWeaponTemplate.NATURAL))
+        {
+        	refreshView();
         }
       });
       if (stats instanceof IArtifactStats) {
