@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.AbstractStats;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.ChangeListener;
 
 public class DummyEquipmentItem extends AbstractStats implements IEquipmentItem {

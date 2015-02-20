@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.IEquipmentTemplateProvider;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;

@@ -1,9 +1,9 @@
 package net.sf.anathema.equipment.editor.presenter.tools;
 
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.editor.view.EquipmentNavigation;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Command;

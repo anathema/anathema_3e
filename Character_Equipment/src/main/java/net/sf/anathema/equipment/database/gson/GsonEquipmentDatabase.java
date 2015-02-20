@@ -3,9 +3,9 @@ package net.sf.anathema.equipment.database.gson;
 import java.nio.file.Path;
 import java.util.List;
 
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.module.EquipmentItemType;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.io.Filenames;
 import net.sf.anathema.platform.frame.ApplicationModel;

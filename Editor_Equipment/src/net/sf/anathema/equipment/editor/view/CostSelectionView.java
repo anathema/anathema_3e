@@ -1,6 +1,6 @@
 package net.sf.anathema.equipment.editor.view;
 
-import net.sf.anathema.equipment.character.ItemCost;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.SelectionIntValueChangedListener;
 
 import java.util.Collection;

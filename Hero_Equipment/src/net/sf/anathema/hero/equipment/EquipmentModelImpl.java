@@ -8,12 +8,12 @@ import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.IEquipmentTemplateProvider;
 import net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.equipment.model.CharacterStatsModifiers;
 import net.sf.anathema.hero.equipment.model.EquipmentCollection;

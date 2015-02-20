@@ -3,13 +3,13 @@ package net.sf.anathema.equipment.editor.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.equipment.character.EquipmentTemplate;
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
-import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.model.description.IItemDescription;
 import net.sf.anathema.equipment.editor.model.description.ItemDescription;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.template.EquipmentTemplate;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.ChangeListener;
 
 import org.jmock.example.announcer.Announcer;

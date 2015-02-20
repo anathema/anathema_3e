@@ -1,8 +1,8 @@
 package net.sf.anathema.equipment.initialization;
 
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.gson.EquipmentGson;
 import net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.item.RepositoryItemInitializationStrategy;
 

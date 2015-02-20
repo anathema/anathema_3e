@@ -2,11 +2,11 @@ package net.sf.anathema.equipment.database.gson;
 
 import java.lang.reflect.Type;
 
-import net.sf.anathema.equipment.character.EquipmentTemplate;
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.equipment.stats.impl.WeaponTag;
+import net.sf.anathema.equipment.template.EquipmentTemplate;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 
 import com.google.gson.Gson;

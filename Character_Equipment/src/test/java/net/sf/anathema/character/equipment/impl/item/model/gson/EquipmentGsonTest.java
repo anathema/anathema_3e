@@ -2,14 +2,14 @@ package net.sf.anathema.character.equipment.impl.item.model.gson;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import net.sf.anathema.equipment.character.EquipmentTemplate;
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
 import net.sf.anathema.equipment.database.gson.EquipmentGson;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.impl.ArmourStats;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
 import net.sf.anathema.equipment.stats.impl.TraitModifyingStats;
 import net.sf.anathema.equipment.stats.impl.WeaponStats;
+import net.sf.anathema.equipment.template.EquipmentTemplate;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
 
 import org.junit.Test;
 

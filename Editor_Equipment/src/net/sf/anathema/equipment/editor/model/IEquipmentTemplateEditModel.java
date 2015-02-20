@@ -2,10 +2,10 @@ package net.sf.anathema.equipment.editor.model;
 
 import java.util.List;
 
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
-import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.editor.model.description.IItemDescription;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.ChangeListener;
 
 public interface IEquipmentTemplateEditModel {

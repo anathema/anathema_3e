@@ -1,4 +1,4 @@
-package net.sf.anathema.equipment.character;
+package net.sf.anathema.equipment.template;
 
 public class ItemCost {
 	private String costType;

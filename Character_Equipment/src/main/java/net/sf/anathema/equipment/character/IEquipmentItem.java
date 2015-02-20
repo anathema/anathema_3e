@@ -3,6 +3,7 @@ package net.sf.anathema.equipment.character;
 import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.ChangeListener;
 
 public interface IEquipmentItem {

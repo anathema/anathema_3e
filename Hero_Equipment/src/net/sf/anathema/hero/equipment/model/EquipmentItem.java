@@ -4,14 +4,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.character.IEquipmentTemplate;
-import net.sf.anathema.equipment.character.ItemCost;
 import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.Proxy;
+import net.sf.anathema.equipment.template.IEquipmentTemplate;
+import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.hero.equipment.ItemAttunementEvaluator;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.lang.StringUtilities;
