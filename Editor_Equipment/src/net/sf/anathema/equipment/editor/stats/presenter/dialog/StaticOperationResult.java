@@ -1,4 +1,4 @@
-package net.sf.anathema.character.equipment.display;
+package net.sf.anathema.equipment.editor.stats.presenter.dialog;
 
 public class StaticOperationResult implements OperationResult {
 

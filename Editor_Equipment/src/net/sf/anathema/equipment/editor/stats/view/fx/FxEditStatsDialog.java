@@ -1,10 +1,10 @@
 package net.sf.anathema.equipment.editor.stats.view.fx;
 
 import javafx.event.ActionEvent;
-import net.sf.anathema.character.equipment.display.StaticOperationResult;
-import net.sf.anathema.character.equipment.display.userdialog.OperationResultHandler;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;
+import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResultHandler;
+import net.sf.anathema.equipment.editor.stats.presenter.dialog.StaticOperationResult;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 
