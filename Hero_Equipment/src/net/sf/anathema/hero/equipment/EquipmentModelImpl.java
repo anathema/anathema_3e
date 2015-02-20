@@ -235,7 +235,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   private IEquipmentItem createItem(IEquipmentTemplate template) {
-    return new EquipmentItem(template, getHeroEvaluator());
+    return new EquipmentItem(template);
   }
 
   @Override
@@ -295,7 +295,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     int total = 0;
     for (IEquipmentItem item : equipmentItems) {
       for (IEquipmentStats stats : item.getStats()) {
-        if (stats instanceof IArtifactStats && item.getAttunementState() == ((IArtifactStats) stats).getAttuneType()) {
+        if (stats instanceof IArtifactStats && item.isAttuned()) {
           total += ((IArtifactStats) stats).getAttuneCost();
         }
       }

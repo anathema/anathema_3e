@@ -71,7 +71,7 @@ public class EquipmentStringBuilder implements IEquipmentStringBuilder {
   @SuppressWarnings("StringBufferReplaceableByString")
   private String createArtifactString(IArtifactStats stats) {
     StringBuilder stringBuilder = new StringBuilder();
-    stringBuilder.append(getStatsString(stats.getAttuneType().name(), stats.getAttuneCost(), false));
+    stringBuilder.append(getStatsString("Attuned", stats.getAttuneCost(), false));
     stringBuilder.append("m");
     return stringBuilder.toString();
   }

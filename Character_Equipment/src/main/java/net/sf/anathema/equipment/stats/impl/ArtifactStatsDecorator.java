@@ -1,38 +1,18 @@
 package net.sf.anathema.equipment.stats.impl;
 
-import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IArtifactStats;
-import net.sf.anathema.equipment.stats.ItemStatsSet;
 
 public class ArtifactStatsDecorator extends AbstractStats implements IArtifactStats {
   private ArtifactStats stats;
-  private ArtifactAttuneType type;
 
-  public ArtifactStatsDecorator(ArtifactStats stats, ArtifactAttuneType type, boolean requireAttune) {
+  public ArtifactStatsDecorator(ArtifactStats stats) {
     this.stats = stats;
-    this.type = type;
     setName(stats.getName());
   }
 
   @Override
   public Integer getAttuneCost() {
-    switch (type) {
-      default:
-      case Unattuned:
-        return 0;
-      case Attuned:
-        return stats.getAttuneCost();
-    }
-  }
-
-  @Override
-  public ArtifactAttuneType getAttuneType() {
-    return type;
-  }
-
-  @Override
-  public ItemStatsSet getViews() {
-    return ItemStatsSet.withSingleStat(this);
+    return stats.attuneCost;
   }
 
   @Override
@@ -41,11 +21,11 @@ public class ArtifactStatsDecorator extends AbstractStats implements IArtifactSt
       return false;
     }
     ArtifactStatsDecorator view = (ArtifactStatsDecorator) obj;
-    return view.stats.equals(stats) && view.type == type;
+    return view.stats.equals(stats);
   }
 
   public String toString() {
-    return stats.toString() + "[" + type + "]";
+    return stats.toString();
   }
 
   @Override
@@ -55,7 +35,7 @@ public class ArtifactStatsDecorator extends AbstractStats implements IArtifactSt
 
   @Override
   public String getId() {
-    return getName().getId() + "." + type.name();
+    return getName().getId();
   }
 
   @Override

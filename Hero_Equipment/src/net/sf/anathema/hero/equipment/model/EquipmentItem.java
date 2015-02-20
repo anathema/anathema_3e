@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
@@ -12,7 +11,6 @@ import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.Proxy;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.equipment.template.ItemCost;
-import net.sf.anathema.hero.equipment.ItemAttunementEvaluator;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.lang.StringUtilities;
 
@@ -26,10 +24,10 @@ public class EquipmentItem implements IEquipmentItem {
   private String customTitle = null;
   private String customDescription = null;
 
-  public EquipmentItem(IEquipmentTemplate template, ItemAttunementEvaluator provider) {
+  public EquipmentItem(IEquipmentTemplate template) {
     this.template = template;
     printedStats.addAll(template.getStatsList());
-    initPrintStats(provider);
+    initPrintStats();
   }
 
   @Override
@@ -88,8 +86,6 @@ public class EquipmentItem implements IEquipmentItem {
     for (IEquipmentStats stats : template.getStatsList()) {
       if (stats instanceof IWeaponStats) {
         statsSet.adopt(((IWeaponStats) stats).getViews());
-      } else if (stats instanceof IArtifactStats) {
-        statsSet.adopt(((IArtifactStats) stats).getViews());
       } else {
         statsSet.add(stats);
       }
@@ -98,15 +94,13 @@ public class EquipmentItem implements IEquipmentItem {
   }
 
   @Override
-  public ArtifactAttuneType getAttunementState() {
+  public boolean isAttuned() {
     for (IEquipmentStats stats : getViews()) {
-      if (stats instanceof IArtifactStats) {
-        if (isPrintEnabled(stats)) {
-          return ((IArtifactStats) stats).getAttuneType();
-        }
+      if (stats instanceof IArtifactStats && isPrintEnabled(stats)) {
+        return true;
       }
     }
-    return ArtifactAttuneType.Unattuned;
+    return false;
   }
 
   @Override
@@ -192,29 +186,9 @@ public class EquipmentItem implements IEquipmentItem {
     return template.getName();
   }
 
-  private void initPrintStats(ItemAttunementEvaluator provider) {
-    IArtifactStats bestAttune = null;
+  private void initPrintStats() {
     for (IEquipmentStats stat : getViews()) {
-      if (stat instanceof IArtifactStats) {
-        if (hasAttunementType((IArtifactStats) stat, provider.getAttuneTypes(this))
-                && (bestAttune == null || ((IArtifactStats) stat).getAttuneType().compareTo(bestAttune.getAttuneType()) > 0)) {
-          bestAttune = (IArtifactStats) stat;
-        }
-        continue;
-      }
       printedStats.add(stat);
     }
-    if (bestAttune != null) {
-      printedStats.add(bestAttune);
-    }
-  }
-
-  private boolean hasAttunementType(IArtifactStats stats, ArtifactAttuneType[] types) {
-    for (ArtifactAttuneType type : types) {
-      if (type.equals(stats.getAttuneType())) {
-        return true;
-      }
-    }
-    return false;
   }
 }

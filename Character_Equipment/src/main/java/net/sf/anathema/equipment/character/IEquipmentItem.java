@@ -1,6 +1,5 @@
 package net.sf.anathema.equipment.character;
 
-import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.template.ItemCost;
@@ -34,7 +33,7 @@ public interface IEquipmentItem {
 
   void setPrinted(String printedStatId);
 
-  ArtifactAttuneType getAttunementState();
+  boolean isAttuned();
 
   void addChangeListener(ChangeListener listener);
 

@@ -9,9 +9,7 @@ import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.presentation.EquipmentStringBuilder;
 import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
-import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
-import net.sf.anathema.equipment.stats.impl.ArtifactStats;
 import net.sf.anathema.hero.equipment.EquipmentModel;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -62,7 +60,7 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
       }
       for (IEquipmentStats stats : item.getStats()) {
         Paragraph statsParagraph = new Paragraph();
-        if (stats instanceof ArtifactStats) {
+        /*if (stats instanceof ArtifactStats) {
           ArtifactStats artifactStats = (ArtifactStats) stats;
           if (artifactStats.getAttuneType() != ArtifactAttuneType.Attuned) {
             continue;
@@ -73,7 +71,7 @@ public class EquipmentCardDataProvider implements ICardDataProvider {
           String statsString = stringBuilder.createString(item, stats);
           statsParagraph.add(new Phrase(stats.getId() + ": ", resourceProvider.getBoldFont()));
           statsParagraph.add(new Phrase(statsString.substring(statsString.indexOf(':') + 2), resourceProvider.getNormalFont()));
-        }
+        }*/
 
         bodyText.add(statsParagraph);
       }

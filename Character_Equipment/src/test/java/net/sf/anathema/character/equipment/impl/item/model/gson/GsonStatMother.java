@@ -16,9 +16,7 @@ public class GsonStatMother {
   public static ArtifactStats createArtifact() {
     ArtifactStats stats = new ArtifactStats();
     stats.setName(new SimpleIdentifier("Zing!"));
-    stats.setAllowForeignAttunement(true);
     stats.setAttuneCost(5);
-    stats.setRequireAttunement(false);
     return stats;
   }
 

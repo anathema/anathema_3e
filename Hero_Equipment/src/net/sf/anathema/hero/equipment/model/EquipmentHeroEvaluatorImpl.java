@@ -2,8 +2,6 @@ package net.sf.anathema.hero.equipment.model;
 
 import java.util.Collection;
 
-import net.sf.anathema.equipment.character.IEquipmentItem;
-import net.sf.anathema.equipment.stats.ArtifactAttuneType;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.IEquipmentStatsOption;
 import net.sf.anathema.hero.equipment.SpecialtiesCollectionImpl;
@@ -34,10 +32,5 @@ public class EquipmentHeroEvaluatorImpl implements EquipmentHeroEvaluator {
       }
     }
     return null;
-  }
-
-  @Override
-  public ArtifactAttuneType[] getAttuneTypes(IEquipmentItem item) {
-    return new ArtifactAttuneType[] { ArtifactAttuneType.Unattuned, ArtifactAttuneType.Attuned };
   }
 }

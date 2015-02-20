@@ -12,7 +12,7 @@ public class EquipmentItemTest {
   @Test
   public void notifiesListenersOfPersonalizationChange() throws Exception {
     IEquipmentTemplate template = mock(IEquipmentTemplate.class);
-    EquipmentItem item = new EquipmentItem(template, new NullAttunementProvider());
+    EquipmentItem item = new EquipmentItem(template);
     ChangeListener listener = mock(ChangeListener.class);
     item.addChangeListener(listener);
     item.setPersonalization("Title", "Description");
