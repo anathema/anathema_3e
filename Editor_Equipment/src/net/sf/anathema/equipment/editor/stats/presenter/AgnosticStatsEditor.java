@@ -1,9 +1,8 @@
 package net.sf.anathema.equipment.editor.stats.presenter;
 
-import static net.sf.anathema.equipment.stats.EquipmentStatisticsType.Armor;
-import static net.sf.anathema.equipment.stats.EquipmentStatisticsType.Artifact;
-import static net.sf.anathema.equipment.stats.EquipmentStatisticsType.TraitModifying;
-import static net.sf.anathema.equipment.stats.EquipmentStatisticsType.Weapon;
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Armor;
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Artifact;
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Weapon;
 import net.sf.anathema.equipment.database.NullClosure;
 import net.sf.anathema.equipment.editor.model.ModelToStats;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
@@ -12,7 +11,6 @@ import net.sf.anathema.equipment.editor.presenter.TagPresenter;
 import net.sf.anathema.equipment.editor.stats.model.IArtifactStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
-import net.sf.anathema.equipment.editor.stats.model.ITraitModifyingStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
 import net.sf.anathema.equipment.editor.stats.model.TagsModel;
 import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResult;
@@ -48,8 +46,6 @@ public class AgnosticStatsEditor implements StatsEditor {
       initArmourPresentation(resources, model, dialog);
     } else if (Artifact == model.getEquipmentType()) {
       initArtifactPresentation(resources, model, dialog);
-    } else if (TraitModifying == model.getEquipmentType()) {
-      initTraitModifyingPresentation(resources, model, dialog);
     }
   }
 
@@ -75,14 +71,6 @@ public class AgnosticStatsEditor implements StatsEditor {
     IArtifactStatisticsModel artifactModel = model.getArtifactStatisticsModel();
     new GeneralStatsPresenter(view, dialog, artifactModel, model, resources).initPresentation();
     new ArtifactStatisticsPresenter(artifactModel, view, resources).initPresentation();
-  }
-
-  private void initTraitModifyingPresentation(Resources resources, IEquipmentStatisticsCreationModel model,
-                                              EquipmentStatsDialog dialog) {
-    EquipmentStatsView view = dialog.getEquipmentStatsView();
-    ITraitModifyingStatisticsModel modModel = model.getTraitModifyingStatisticsModel();
-    new GeneralStatsPresenter(view, dialog, modModel, model, resources).initPresentation();
-    new ModifierStatisticsPresenter(modModel, view, resources).initPresentation();
   }
 
   private class CreateStatsHandler implements OperationResultHandler {

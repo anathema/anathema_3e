@@ -1,6 +1,6 @@
 package net.sf.anathema.equipment.editor.stats.presenter;
 
-import net.sf.anathema.equipment.stats.EquipmentStatisticsType;
+import net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType;
 import net.sf.anathema.library.resources.RelativePath;
 
 public class NewStatsConfiguration {

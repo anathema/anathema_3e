@@ -3,7 +3,6 @@ package net.sf.anathema.equipment.editor.stats.model;
 import java.util.Collection;
 
 import net.sf.anathema.equipment.stats.ArmourTag;
-import net.sf.anathema.equipment.stats.EquipmentStatisticsType;
 
 public interface IEquipmentStatisticsCreationModel {
 
@@ -12,8 +11,6 @@ public interface IEquipmentStatisticsCreationModel {
   IEquipmentStatisticsModel getArmorModel();
   
   IArtifactStatisticsModel getArtifactStatisticsModel();
-  
-  ITraitModifyingStatisticsModel getTraitModifyingStatisticsModel();
 
   IWeaponTagsModel getWeaponTagsModel();
 

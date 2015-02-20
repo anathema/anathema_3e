@@ -1,5 +1,9 @@
 package net.sf.anathema.equipment.editor.view.fx;
 
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
+
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
@@ -13,10 +17,6 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 
 import org.tbee.javafx.scene.layout.MigPane;
-
-import java.util.List;
-
-import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 
 public class FxToolListView<T> implements ToolListView<T> {
 

@@ -1,5 +1,9 @@
 package net.sf.anathema.equipment.editor.view.fx;
 
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
+
+import java.util.Collection;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
@@ -14,10 +18,6 @@ import net.sf.anathema.library.fx.selection.SelectionViewFactory;
 
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
-
-import java.util.Collection;
-
-import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxCostSelectionView implements CostSelectionView {
 

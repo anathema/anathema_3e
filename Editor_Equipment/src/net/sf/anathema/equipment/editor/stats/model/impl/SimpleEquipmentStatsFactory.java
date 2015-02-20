@@ -4,9 +4,9 @@ import java.util.Collection;
 
 import net.sf.anathema.equipment.editor.model.EquipmentStatsFactory;
 import net.sf.anathema.equipment.editor.model.ModelToStats;
+import net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
-import net.sf.anathema.equipment.stats.EquipmentStatisticsType;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 
 public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
@@ -33,8 +33,6 @@ public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
         return model.getWeaponModel();
       case Armor:
         return model.getArmorModel();
-      case TraitModifying:
-        return model.getTraitModifyingStatisticsModel();
       case Artifact:
         return model.getArtifactStatisticsModel();
       default:

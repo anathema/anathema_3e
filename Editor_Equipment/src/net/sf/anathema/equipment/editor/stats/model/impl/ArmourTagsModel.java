@@ -1,13 +1,14 @@
 package net.sf.anathema.equipment.editor.stats.model.impl;
 
+import static net.sf.anathema.equipment.stats.ArmourTag.Light;
+import static net.sf.anathema.equipment.stats.ArmourTag.getSizeTags;
+
 import java.util.List;
 
 import net.sf.anathema.equipment.editor.stats.model.TagsModel;
 import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.BasicTagsModel;
 import net.sf.anathema.library.model.BooleanValueModel;
-import static net.sf.anathema.equipment.stats.ArmourTag.Light;
-import static net.sf.anathema.equipment.stats.ArmourTag.getSizeTags;
 
 public class ArmourTagsModel implements TagsModel<ArmourTag> {
 

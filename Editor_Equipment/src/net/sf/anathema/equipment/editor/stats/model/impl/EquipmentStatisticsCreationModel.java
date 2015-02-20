@@ -2,14 +2,13 @@ package net.sf.anathema.equipment.editor.stats.model.impl;
 
 import java.util.Collection;
 
+import net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType;
 import net.sf.anathema.equipment.editor.stats.model.IArtifactStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
-import net.sf.anathema.equipment.editor.stats.model.ITraitModifyingStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
 import net.sf.anathema.equipment.editor.stats.model.TagsModel;
 import net.sf.anathema.equipment.stats.ArmourTag;
-import net.sf.anathema.equipment.stats.EquipmentStatisticsType;
 import net.sf.anathema.library.event.ChangeListener;
 
 import org.jmock.example.announcer.Announcer;
@@ -21,7 +20,6 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
   private final ArmourTagsModel armourTagsModel = new ArmourTagsModel();
   private final IEquipmentStatisticsModel armourStatisticsModel = new ArmourStatisticsModel(armourTagsModel);
   private final IArtifactStatisticsModel artifactStatisticsModel = new ArtifactStatisticsModel();
-  private final ITraitModifyingStatisticsModel traitModifyingStatisticsModel = new TraitModifyingStatisticsModel();
   private final Announcer<ChangeListener> equipmentTypeChangeControl = Announcer.to(ChangeListener.class);
   private EquipmentStatisticsType statisticsType;
   private Collection<String> existingNames;
@@ -58,11 +56,6 @@ public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCre
   @Override
   public IArtifactStatisticsModel getArtifactStatisticsModel() {
     return artifactStatisticsModel;
-  }
-
-  @Override
-  public ITraitModifyingStatisticsModel getTraitModifyingStatisticsModel() {
-    return traitModifyingStatisticsModel;
   }
 
   @Override
