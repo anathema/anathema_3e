@@ -2,7 +2,6 @@ package net.sf.anathema.equipment.editor.stats.model;
 
 import java.util.List;
 
-import net.sf.anathema.equipment.editor.model.EquipmentStatsFactory;
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.stats.IEquipmentStats;

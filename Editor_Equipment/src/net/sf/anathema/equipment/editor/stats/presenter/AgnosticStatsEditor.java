@@ -4,7 +4,6 @@ import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsTy
 import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Artifact;
 import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Weapon;
 import net.sf.anathema.equipment.database.NullClosure;
-import net.sf.anathema.equipment.editor.model.ModelToStats;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;
 import net.sf.anathema.equipment.editor.presenter.TagPresenter;
@@ -12,6 +11,7 @@ import net.sf.anathema.equipment.editor.stats.model.IArtifactStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
+import net.sf.anathema.equipment.editor.stats.model.ModelToStats;
 import net.sf.anathema.equipment.editor.stats.model.TagsModel;
 import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResult;
 import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResultHandler;

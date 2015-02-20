@@ -1,8 +1,5 @@
-package net.sf.anathema.equipment.editor.model;
+package net.sf.anathema.equipment.editor.stats.model;
 
-import net.sf.anathema.equipment.editor.stats.model.IArtifactStatisticsModel;
-import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
-import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;

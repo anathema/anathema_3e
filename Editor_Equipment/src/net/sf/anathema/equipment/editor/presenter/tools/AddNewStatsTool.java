@@ -3,7 +3,7 @@ package net.sf.anathema.equipment.editor.presenter.tools;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import net.sf.anathema.equipment.editor.model.EquipmentStatsFactory;
+import net.sf.anathema.equipment.editor.stats.model.EquipmentStatsFactory;
 import net.sf.anathema.equipment.editor.stats.model.StatsEditModel;
 import net.sf.anathema.equipment.editor.stats.presenter.NewStatsConfiguration;
 import net.sf.anathema.equipment.editor.view.ToolListView;

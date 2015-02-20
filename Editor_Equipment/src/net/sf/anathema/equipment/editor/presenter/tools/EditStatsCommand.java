@@ -5,9 +5,9 @@ import static java.util.stream.Collectors.toList;
 import java.util.Collection;
 import java.util.stream.Stream;
 
-import net.sf.anathema.equipment.editor.model.StatsToModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.StatsEditModel;
+import net.sf.anathema.equipment.editor.stats.model.StatsToModel;
 import net.sf.anathema.equipment.editor.stats.view.StatsEditViewFactory;
 import net.sf.anathema.equipment.editor.stats.view.StatsEditor;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
