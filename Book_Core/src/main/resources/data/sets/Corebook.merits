@@ -418,28 +418,88 @@
 			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
-			"requirements": [ ]
+			"requirements": [ ],
+			"mechanics": [
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"transformations": { Bashing: Lethal }
+			 	},
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"levels": { 4 },
+			 		"transformations": { Light: Medium }
+			 	},
+			 	{
+			 		"type": "AddsSavageModification",
+			 		"levels": { 4 },
+			 		"transformations": { Bashing: Lethal }
+			 	}
+			 ]
 		},
 		{
 			"name": "Fangs",
 			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
-			"requirements": [ ]
+			"requirements": [ ],
+			"mechanics": [
+			 	{
+			 		"type": "AddsSavageModification",
+			 		"transformations": { Bashing: Lethal }
+			 	},
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"levels": { 4 },
+			 		"transformations": { Light: Medium }
+			 	}
+			 ]
+			
 		},
 		{
 			"name": "Hooves",
 			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
-			"requirements": [ ]
+			"requirements": [ ],
+			"mechanics": [
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"transformations": { Bashing: Lethal }
+			 	},
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"levels": { 4 },
+			 		"transformations": { Light: Medium }
+			 	},
+			 	{
+			 		"type": "AddsSavageModification",
+			 		"levels": { 4 },
+			 		"transformations": { Bashing: Lethal }
+			 	}
+			 ]
 		},
 		{
 			"name": "Horns",
 			"values": "1,4",
 			"type": "Supernatural",
 			"repurchases": false,
-			"requirements": [ ]
+			"requirements": [ ],
+			"mechanics": [
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"transformations": { Bashing: Lethal }
+			 	},
+			 	{
+			 		"type": "AddsUnarmedModification",
+			 		"levels": { 4 },
+			 		"transformations": { Light: Medium }
+			 	},
+			 	{
+			 		"type": "AddsSavageModification",
+			 		"levels": { 4 },
+			 		"transformations": { Bashing: Lethal }
+			 	}
+			 ]
 		},
 		{
 			"name": "Enhanced Sense",
