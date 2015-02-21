@@ -27,12 +27,12 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     nodeIds.add(getNodeId(attribute, count));
   }
-  
+
   @Override
-	public void requiresMagicAttributesFromTree(TreeReference tree,
-			MagicAttribute attribute, int count) {
-  	nodeIds.add(getNodeId(attribute, count));
-	}
+  public void requiresMagicAttributesFromTree(TreeReference tree,
+                                              MagicAttribute attribute, int count) {
+    nodeIds.add(getNodeId(attribute, count));
+  }
 
   @Override
   public void requiresCharm(Charm prerequisite) {
@@ -48,12 +48,12 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
 
   @Override
   public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
-		  int minimumEssence) {
-		nodeIds.add(getNodeId(traits, category, count, minimumEssence));
+                                     int minimumEssence) {
+    nodeIds.add(getNodeId(traits, category, count, minimumEssence));
   }
 
-	@Override
-	public void requiresCharmsOfAnyOneTrait(int threshold) {
-		nodeIds.add(getNodeIdForAnyOneTrait(threshold));
-	}
+  @Override
+  public void requiresCharmsOfAnyOneTrait(int threshold) {
+    nodeIds.add(getNodeIdForAnyOneTrait(threshold));
+  }
 }

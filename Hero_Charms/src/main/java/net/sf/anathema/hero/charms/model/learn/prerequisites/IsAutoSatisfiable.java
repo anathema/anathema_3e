@@ -30,12 +30,12 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
   public void requiresMagicAttributes(MagicAttribute attribute, int count) {
     this.satisfiable = false;
   }
-  
+
   @Override
-	public void requiresMagicAttributesFromTree(TreeReference tree,
-			MagicAttribute attribute, int count) {
-		this.satisfiable = false;
-	}
+  public void requiresMagicAttributesFromTree(TreeReference tree,
+                                              MagicAttribute attribute, int count) {
+    this.satisfiable = false;
+  }
 
   @Override
   public void requiresCharm(Charm prerequisite) {
@@ -56,14 +56,14 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
     this.satisfiable = false;
   }
 
-	@Override
-	public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
-			int minimumEssence) {
-		this.satisfiable = false;
-	}
+  @Override
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
+                                     int minimumEssence) {
+    this.satisfiable = false;
+  }
 
-	@Override
-	public void requiresCharmsOfAnyOneTrait(int threshold) {
-		this.satisfiable = false;
-	}
+  @Override
+  public void requiresCharmsOfAnyOneTrait(int threshold) {
+    this.satisfiable = false;
+  }
 }

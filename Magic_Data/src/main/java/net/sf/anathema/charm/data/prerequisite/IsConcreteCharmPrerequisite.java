@@ -21,7 +21,7 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
     return isConcrete.isConcrete;
   }
 
-  private static class IsConcrete implements PrerequisiteProcessor {
+  public static class IsConcrete implements PrerequisiteProcessor {
 
     public boolean isConcrete = false;
 

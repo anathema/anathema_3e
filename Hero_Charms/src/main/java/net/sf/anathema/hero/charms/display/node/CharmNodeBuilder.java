@@ -32,14 +32,14 @@ public class CharmNodeBuilder {
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
         }
-        
+
         @Override
-				public void requiresMagicAttributesFromTree(TreeReference tree,
-						MagicAttribute attribute, int count) {
-        	String nodeIds = NodeIds.getNodeId(attribute, count);
+        public void requiresMagicAttributesFromTree(TreeReference tree,
+                                                    MagicAttribute attribute, int count) {
+          String nodeIds = NodeIds.getNodeId(attribute, count);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
 
         @Override
         public void requiresCharm(Charm prerequisite) {
@@ -53,20 +53,20 @@ public class CharmNodeBuilder {
           }
         }
 
-				@Override
-				public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
-						int threshold, int minimumEssence) {
-					String nodeIds = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
+        @Override
+        public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
+                                           int threshold, int minimumEssence) {
+          String nodeIds = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
 
-				@Override
-				public void requiresCharmsOfAnyOneTrait(int threshold) {
-					String nodeIds = NodeIds.getNodeIdForAnyOneTrait(threshold);
+        @Override
+        public void requiresCharmsOfAnyOneTrait(int threshold) {
+          String nodeIds = NodeIds.getNodeIdForAnyOneTrait(threshold);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
       }));
     }
   }

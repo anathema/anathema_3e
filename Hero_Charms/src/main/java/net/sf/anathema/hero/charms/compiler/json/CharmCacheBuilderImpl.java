@@ -7,6 +7,7 @@ import java.util.Map;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -63,18 +64,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
         CharmPrerequisite prerequisite = prerequisiteTemplate.generate(abstractCharmList);
         if (isConcreteCharmPrerequisite().test(prerequisite)) {
-          prerequisite.process(new PrerequisiteProcessor() {
-
-            @Override
-            public void requiresMagicAttributes(MagicAttribute attribute,
-                                                int count) {
-            }
-
-            @Override
-            public void requiresMagicAttributesFromTree(TreeReference tree,
-                                                        MagicAttribute attribute, int count) {
-            }
-
+          prerequisite.process(new PrerequisiteProcessorAdapter() {
             @Override
             public void requiresCharm(Charm prerequisite) {
               ((CharmImpl) prerequisite).addChild(charm);
@@ -86,15 +76,6 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
               for (Charm prerequisite : prerequisites) {
                 ((CharmImpl) prerequisite).addChild(charm);
               }
-            }
-
-            @Override
-            public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
-                                               int threshold, int minimumEssence) {
-            }
-
-            @Override
-            public void requiresCharmsOfAnyOneTrait(int threshold) {
             }
           });
         }
