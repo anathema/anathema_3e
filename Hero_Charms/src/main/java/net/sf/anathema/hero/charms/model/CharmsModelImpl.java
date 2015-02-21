@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -288,18 +287,18 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private int countCharmsThatMatchTheMinimumEssence(int minimumEssence, Charms matchingLearnedCharms) {
-    int count = 0;
+    List<Charm> matchingCharms = new ArrayList<>();
     for (Charm charm : matchingLearnedCharms) {
-      for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
+      charm.getPrerequisites().forEachTraitPrerequisite(trait -> {
         if (!(trait.type.type.equals(Essence.getId()))) {
-          continue;
+          return;
         }
         if (trait.minimalValue >= minimumEssence) {
-          count++;
+          matchingCharms.add(charm);
         }
-      }
+      });
     }
-    return count;
+    return matchingCharms.size();
   }
 
   @SuppressWarnings("SimplifiableIfStatement")

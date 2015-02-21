@@ -30,8 +30,8 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   }
 
   @Override
-  public List<TraitPrerequisite> getTraitPrerequisites() {
-    return new ArrayList<>(traitPrerequisites);
+  public void forEachTraitPrerequisite(Consumer<TraitPrerequisite> consumer) {
+    traitPrerequisites.forEach(consumer);
   }
 
   @Override

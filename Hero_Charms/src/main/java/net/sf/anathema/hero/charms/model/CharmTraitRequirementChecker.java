@@ -10,7 +10,7 @@ import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 
 public class CharmTraitRequirementChecker implements TraitRequirementChecker {
   private final CharmTraitRequirementCalculator calculator;
-  private TraitMap traitMap;
+  private final TraitMap traitMap;
 
   public CharmTraitRequirementChecker(CharmTraitRequirementCalculator calculator, TraitMap traitMap) {
     this.calculator = calculator;
@@ -18,23 +18,23 @@ public class CharmTraitRequirementChecker implements TraitRequirementChecker {
   }
 
   public boolean areTraitMinimumsSatisfied(Charm charm) {
-    for (TraitPrerequisite prerequisite : charm.getPrerequisites().getTraitPrerequisites()) {
+    boolean[] satisfied = new boolean[]{true};
+    charm.getPrerequisites().forEachTraitPrerequisite(prerequisite -> {
       if (!isMinimumSatisfied(charm, prerequisite)) {
-        return false;
+        satisfied[0] = false;
       }
-    }
-    return true;
+    });
+    return satisfied[0];
   }
 
   @Override
   public boolean isMinimumSatisfied(Charm charm, TraitPrerequisite prerequisite) {
     TraitType traitType = new TraitTypeUtils().getTraitTypeFor(prerequisite);
-    Trait actualTrait = traitMap.getTrait(traitType);
-    if (actualTrait == null) {
+    if (!(traitMap.contains(traitType))) {
       return false;
     }
+    Trait trait = traitMap.getTrait(traitType);
     int requiredValue = calculator.calculateMinimum(charm, traitType, prerequisite.minimalValue);
-    
-    return actualTrait.getCurrentValue() >= requiredValue;
+    return trait.getCurrentValue() >= requiredValue;
   }
 }
