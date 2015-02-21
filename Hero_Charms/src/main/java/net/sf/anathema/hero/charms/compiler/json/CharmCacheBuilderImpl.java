@@ -50,6 +50,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
         CharmPrerequisite prerequisite = prerequisiteTemplate.generate(charmMap);
         prerequisite.process(new LinkParentsToChild(charm));
+        prerequisite.accept(new ExcludeSpecificPrerequisitesFromNonSpecificRequirements(charm));
         charm.addCharmPrerequisite(prerequisite);
       });
     });

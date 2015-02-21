@@ -12,11 +12,6 @@ public class PrerequisiteVisitorAdapter implements PrerequisiteVisitor {
   }
 
   @Override
-  public void visit(DirectGroupCharmPrerequisite prerequisite) {
-    //nothing to do
-  }
-
-  @Override
   public void visit(SimpleCharmPrerequisite prerequisite) {
     //nothing to do
   }

@@ -1,5 +1,6 @@
 package net.sf.anathema.charm.data.prerequisite;
 
+import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.library.lang.ReflectionEqualsObject;
 
@@ -44,4 +45,8 @@ public class TraitGroupCharmPrerequisite extends ReflectionEqualsObject implemen
 	public CategoryReference getCategory() {
 		return category;
 	}
+
+  public void excludeSpecificPrerequisitesOf(Charm charm) {
+    //TODO IMPLEMENT
+  }
 }

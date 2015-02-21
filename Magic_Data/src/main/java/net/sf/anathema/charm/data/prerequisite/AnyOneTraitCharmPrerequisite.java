@@ -1,5 +1,7 @@
 package net.sf.anathema.charm.data.prerequisite;
 
+import net.sf.anathema.charm.data.Charm;
+
 public class AnyOneTraitCharmPrerequisite implements CharmPrerequisite {
 
 	private final int threshold;
@@ -22,4 +24,7 @@ public class AnyOneTraitCharmPrerequisite implements CharmPrerequisite {
 		return threshold;
 	}
 
+  public void excludeSpecificPrerequsitesOf(Charm charm) {
+    //TODO IMPLEMENT
+  }
 }
