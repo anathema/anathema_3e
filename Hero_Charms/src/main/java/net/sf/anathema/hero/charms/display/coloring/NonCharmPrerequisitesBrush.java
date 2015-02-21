@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.hero.charms.display.prerequisites.NonCharmPrerequisiteId;
 
 public class NonCharmPrerequisitesBrush implements CharmBrush {
   private CharmColoring coloring;
@@ -14,9 +15,9 @@ public class NonCharmPrerequisitesBrush implements CharmBrush {
       if (prerequisite.isSpecific()){
         return;
       }
-      NonSpecificNodeIdVisitor visitor = new NonSpecificNodeIdVisitor();
-      prerequisite.accept(visitor);
-      coloring.colorNonCharmPrerequisite(visitor.nodeId, prerequisite);
+      NonCharmPrerequisiteId processor = new NonCharmPrerequisiteId();
+      prerequisite.process(processor);
+      coloring.colorNonCharmPrerequisite(processor.id, prerequisite);
     });
   }
 }

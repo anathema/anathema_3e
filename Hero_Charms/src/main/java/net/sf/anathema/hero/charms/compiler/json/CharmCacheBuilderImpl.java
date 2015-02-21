@@ -1,8 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
@@ -55,23 +53,4 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
     });
   }
 
-  private static class LinkParentsToChild extends PrerequisiteProcessorAdapter {
-    private final CharmImpl child;
-
-    public LinkParentsToChild(CharmImpl child) {
-      this.child = child;
-    }
-
-    @Override
-    public void requiresCharm(Charm prerequisite) {
-      ((CharmImpl) prerequisite).addChild(child);
-    }
-
-    @Override
-    public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
-      for (Charm prerequisite : prerequisites) {
-        requiresCharm(prerequisite);
-      }
-    }
-  }
 }
