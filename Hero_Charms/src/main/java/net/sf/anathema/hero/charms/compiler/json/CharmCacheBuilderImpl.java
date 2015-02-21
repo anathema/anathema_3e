@@ -42,64 +42,63 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
       generateCharmForTemplate(category, tree, name, charmTemplate);
     });
   }
-  
+
   public void generateCharmForTemplate(CategoryReference category,
-  		TreeName tree, String name, CharmTemplate charmTemplate) {
-  	CharmName charmName = new CharmName(name);
+                                       TreeName tree, String name, CharmTemplate charmTemplate) {
+    CharmName charmName = new CharmName(name);
     CharmImpl charm = new CharmImpl(category, tree, charmName, charmTemplate);
     charmList.put(charmName, charm);
     templateList.put(charmName, charmTemplate);
   }
-  
+
   public CharmTemplate getBaseTemplate(String id) {
-  	return templateList.get(new CharmName(id)).clone();
+    return templateList.get(new CharmName(id)).clone();
   }
 
   private void linkCharms() {
-  	Map<CharmName, Charm> abstractCharmList = new HashMap<>();
-  	charmList.forEach((name, charm) -> abstractCharmList.put(name, charm));
+    Map<CharmName, Charm> abstractCharmList = new HashMap<>();
+    charmList.forEach(abstractCharmList::put);
     templateList.forEach((name, template) -> {
-      final CharmImpl charm = charmList.get(name);
+      CharmImpl charm = charmList.get(name);
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
-      	CharmPrerequisite prerequisite = prerequisiteTemplate.generate(abstractCharmList);
-      	if (isConcreteCharmPrerequisite().test(prerequisite)) {
-      	prerequisite.process(new PrerequisiteProcessor() {
+        CharmPrerequisite prerequisite = prerequisiteTemplate.generate(abstractCharmList);
+        if (isConcreteCharmPrerequisite().test(prerequisite)) {
+          prerequisite.process(new PrerequisiteProcessor() {
 
-					@Override
-					public void requiresMagicAttributes(MagicAttribute attribute,
-							int count) {
-					}
+            @Override
+            public void requiresMagicAttributes(MagicAttribute attribute,
+                                                int count) {
+            }
 
-					@Override
-					public void requiresMagicAttributesFromTree(TreeReference tree,
-							MagicAttribute attribute, int count) {
-					}
+            @Override
+            public void requiresMagicAttributesFromTree(TreeReference tree,
+                                                        MagicAttribute attribute, int count) {
+            }
 
-					@Override
-					public void requiresCharm(Charm prerequisite) {
-						((CharmImpl)prerequisite).addChild(charm);
-					}
+            @Override
+            public void requiresCharm(Charm prerequisite) {
+              ((CharmImpl) prerequisite).addChild(charm);
+            }
 
-					@Override
-					public void requiresCharmFromSelection(Charm[] prerequisites,
-							int threshold) {
-						for (Charm prerequisite : prerequisites) {
-							((CharmImpl)prerequisite).addChild(charm);
-						}
-					}
+            @Override
+            public void requiresCharmFromSelection(Charm[] prerequisites,
+                                                   int threshold) {
+              for (Charm prerequisite : prerequisites) {
+                ((CharmImpl) prerequisite).addChild(charm);
+              }
+            }
 
-					@Override
-					public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
-							int threshold, int minimumEssence) {
-					}
+            @Override
+            public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
+                                               int threshold, int minimumEssence) {
+            }
 
-					@Override
-					public void requiresCharmsOfAnyOneTrait(int threshold) {
-					}
-      		
-      	});
-      	}
-    	  charm.addCharmPrerequisite(prerequisite);
+            @Override
+            public void requiresCharmsOfAnyOneTrait(int threshold) {
+            }
+          });
+        }
+        charm.addCharmPrerequisite(prerequisite);
       });
     });
   }

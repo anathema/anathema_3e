@@ -40,21 +40,19 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
       this.isConcrete = true;
     }
 
-		@Override
-		public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
-				int count, int minimumEssence) {
-		  this.isConcrete = false;
-		}
+    @Override
+    public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count, int minimumEssence) {
+      this.isConcrete = false;
+    }
 
-		@Override
-		public void requiresCharmsOfAnyOneTrait(int threshold) {
-			this.isConcrete = false;
-		}
+    @Override
+    public void requiresCharmsOfAnyOneTrait(int threshold) {
+      this.isConcrete = false;
+    }
 
-		@Override
-		public void requiresMagicAttributesFromTree(TreeReference tree,
-				MagicAttribute attribute, int count) {
-			this.isConcrete = false;
-		}
+    @Override
+    public void requiresMagicAttributesFromTree(TreeReference tree, MagicAttribute attribute, int count) {
+      this.isConcrete = false;
+    }
   }
 }

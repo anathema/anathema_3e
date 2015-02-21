@@ -41,16 +41,11 @@ public class PrerequisiteListImpl implements PrerequisiteList {
     charmPrerequisites.forEach(consumer);
   }
 
-  @Override
-  public List<CharmPrerequisite> getCharmPrerequisites() {
-    return new ArrayList<>(charmPrerequisites);
-  }
-
   public void addCharmPrerequisite(CharmPrerequisite prerequisite) {
     charmPrerequisites.add(prerequisite);
   }
 
-	public void clearPrerequisites() {
-		charmPrerequisites.clear();
-	}
+  public void clearPrerequisites() {
+    charmPrerequisites.clear();
+  }
 }
