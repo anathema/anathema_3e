@@ -49,21 +49,29 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
       CharmImpl charm = charmMap.get(name);
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
         CharmPrerequisite prerequisite = prerequisiteTemplate.generate(charmMap);
-        prerequisite.process(new PrerequisiteProcessorAdapter() {
-          @Override
-          public void requiresCharm(Charm prerequisite) {
-            ((CharmImpl) prerequisite).addChild(charm);
-          }
-
-          @Override
-          public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
-            for (Charm prerequisite : prerequisites) {
-              ((CharmImpl) prerequisite).addChild(charm);
-            }
-          }
-        });
+        prerequisite.process(new LinkParentsToChild(charm));
         charm.addCharmPrerequisite(prerequisite);
       });
     });
+  }
+
+  private static class LinkParentsToChild extends PrerequisiteProcessorAdapter {
+    private final CharmImpl child;
+
+    public LinkParentsToChild(CharmImpl child) {
+      this.child = child;
+    }
+
+    @Override
+    public void requiresCharm(Charm prerequisite) {
+      ((CharmImpl) prerequisite).addChild(child);
+    }
+
+    @Override
+    public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
+      for (Charm prerequisite : prerequisites) {
+        requiresCharm(prerequisite);
+      }
+    }
   }
 }
