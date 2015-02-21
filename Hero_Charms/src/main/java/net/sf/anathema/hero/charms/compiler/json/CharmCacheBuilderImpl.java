@@ -1,22 +1,17 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
-import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.CharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import static net.sf.anathema.charm.data.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
 
@@ -39,9 +34,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
   private void addCharmSkeletons(CharmListTemplate listTemplate) {
     CategoryReference category = new CategoryReference(listTemplate.category);
     TreeName tree = new TreeName(listTemplate.tree);
-    listTemplate.charms.forEach((name, charmTemplate) -> {
-      generateCharmForTemplate(category, tree, name, charmTemplate);
-    });
+    listTemplate.charms.forEach((name, charmTemplate) -> generateCharmForTemplate(category, tree, name, charmTemplate));
   }
 
   public void generateCharmForTemplate(CategoryReference category,
