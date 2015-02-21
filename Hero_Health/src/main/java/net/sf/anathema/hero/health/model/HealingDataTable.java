@@ -52,7 +52,7 @@ public class HealingDataTable {
 		chart.put(HealthLevelType.ZERO,
 				ImmutableMap.of(
 						HealthType.Bashing,
-						new Duration(getUnitString(2, "hour")),
+						new Duration(getUnitString(12, "hour")),
 						HealthType.Lethal,
 						new Duration(getUnitString(2, "day"))));
 		chart.put(HealthLevelType.ONE,
@@ -64,15 +64,15 @@ public class HealingDataTable {
 		chart.put(HealthLevelType.TWO,
 				ImmutableMap.of(
 						HealthType.Bashing,
-						new Duration(getUnitString(2, "day")),
+						new Duration(getUnitString(4, "day")),
 						HealthType.Lethal,
-						new Duration(getUnitString(6, "day"))));
+						new Duration(getUnitString(1, "week"))));
 		chart.put(HealthLevelType.FOUR,
 				ImmutableMap.of(
 						HealthType.Bashing,
-						new Duration(getUnitString(4, "day")),
+						new Duration(getUnitString(1, "week")),
 						HealthType.Lethal,
-						new Duration(getUnitString(10, "day"))));
+						new Duration(getUnitString(1, "month"))));
 		return chart;
 	}
 	
