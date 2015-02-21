@@ -8,7 +8,6 @@ import net.sf.anathema.platform.persistence.JsonType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @JsonType("charmsFromGroup")
 public class SpecificGroupCharmPrerequisiteTemplate implements CharmPrerequisiteTemplate {
@@ -17,7 +16,7 @@ public class SpecificGroupCharmPrerequisiteTemplate implements CharmPrerequisite
 	public int threshold = 1;
 	
 	@Override
-	public CharmPrerequisite generate(Map<CharmName, Charm> charms) {
+	public CharmPrerequisite generate(CharmMap charms) {
 		List<Charm> groupCharms = new ArrayList<>();
 		for (String charmName : options) {
 			Charm charm = charms.get(new CharmName(charmName));

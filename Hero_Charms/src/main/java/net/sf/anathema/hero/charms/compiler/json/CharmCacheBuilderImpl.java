@@ -10,13 +10,10 @@ import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.CharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator {
 
-  private final Map<CharmName, CharmImpl> charmList = new HashMap<>();
-  private final Map<CharmName, CharmTemplate> templateList = new HashMap<>();
+  private final CharmImplMap charmMap = new CharmImplMap();
+  private final TemplateMap templateMap = new TemplateMap();
 
   public void addTemplate(CharmListTemplate charmList) {
     addCharmSkeletons(charmList);
@@ -25,7 +22,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
   public CharmCacheImpl createCache() {
     linkCharms();
     CharmCacheImpl charmCache = new CharmCacheImpl();
-    charmList.values().forEach(charmCache::addCharm);
+    charmMap.forEachCharm(charmCache::addCharm);
     return charmCache;
   }
 
@@ -39,21 +36,19 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
                                        TreeName tree, String name, CharmTemplate charmTemplate) {
     CharmName charmName = new CharmName(name);
     CharmImpl charm = new CharmImpl(category, tree, charmName, charmTemplate);
-    charmList.put(charmName, charm);
-    templateList.put(charmName, charmTemplate);
+    charmMap.put(charmName, charm);
+    templateMap.put(charmName, charmTemplate);
   }
 
   public CharmTemplate getBaseTemplate(String id) {
-    return templateList.get(new CharmName(id)).clone();
+    return templateMap.getClonedTemplate(new CharmName(id));
   }
 
   private void linkCharms() {
-    Map<CharmName, Charm> abstractCharmList = new HashMap<>();
-    charmList.forEach(abstractCharmList::put);
-    templateList.forEach((name, template) -> {
-      CharmImpl charm = charmList.get(name);
+    templateMap.forEach((name, template) -> {
+      CharmImpl charm = charmMap.get(name);
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
-        CharmPrerequisite prerequisite = prerequisiteTemplate.generate(abstractCharmList);
+        CharmPrerequisite prerequisite = prerequisiteTemplate.generate(charmMap);
         prerequisite.process(new PrerequisiteProcessorAdapter() {
           @Override
           public void requiresCharm(Charm prerequisite) {
