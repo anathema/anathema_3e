@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.health.model;
 
+import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -19,7 +20,9 @@ public class HealthModelImpl implements HealthModel {
 
   private final List<IHealthLevelProvider> healthLevelProviders = new ArrayList<>();
   private final List<IPainToleranceProvider> painResistanceProviders = new ArrayList<>();
+  private final List<HealingTypeProvider> healingTypeProviders = new ArrayList<>();
   private final HealthTemplate healthTemplate;
+  private HealingDataTable healingTimes;
 
   public HealthModelImpl(HealthTemplate healthTemplate) {
     this.healthTemplate = healthTemplate;
@@ -33,6 +36,8 @@ public class HealthModelImpl implements HealthModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     addHealthLevelProvider(new DyingStaminaHealthLevelProvider(TraitModelFetcher.fetch(hero)));
+    addHealingTypeProvider(new DefaultHealingTypeProvider(hero));
+    healingTimes = new HealingDataTable(environment.getResources());
   }
 
   @Override
@@ -48,6 +53,11 @@ public class HealthModelImpl implements HealthModel {
   @Override
   public void addPainToleranceProvider(IPainToleranceProvider provider) {
     painResistanceProviders.add(provider);
+  }
+  
+  @Override
+  public void addHealingTypeProvider(HealingTypeProvider provider) {
+  	healingTypeProviders.add(provider);
   }
 
   @Override
@@ -72,7 +82,20 @@ public class HealthModelImpl implements HealthModel {
     }
     return painToleranceLevel;
   }
-
+  
+  @Override
+	public Duration getHealingTime(HealthLevelType level, HealthType damage) {
+		return healingTimes.getHealingTime(usesExaltedHealing(), level, damage);
+	}
+  
+  private boolean usesExaltedHealing() {
+  	boolean usesExaltedHealing = false;
+  	for (HealingTypeProvider provider : healingTypeProviders) {
+  		usesExaltedHealing |= provider.usesExaltedHealing();
+  	}
+  	return usesExaltedHealing;
+  }
+  
   @Override
   public TraitType[] getToughnessControllingTraitTypes() {
     return new TraitType[]{AbilityType.Resistance};

@@ -7,6 +7,11 @@ import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfTemplate;
+
+import net.sf.anathema.hero.health.model.HealthLevelType;
+import net.sf.anathema.hero.health.model.HealthModel;
+import net.sf.anathema.hero.health.model.HealthModelFetcher;
+import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
@@ -32,17 +37,18 @@ public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder
     tableEncoder.encodeTable(graphics, reportSession, tableBounds);
     float textX = tableBounds.getMaxX() + IVoidStateFormatConstants.TEXT_PADDING;
     Bounds textBounds = new Bounds(textX, bounds.y, bounds.x + bounds.width - textX, bounds.height - 2);
-    encodeText(graphics, textBounds);
+    HealthModel model = HealthModelFetcher.fetch(reportSession.getHero());
+    encodeText(model, graphics, textBounds);
   }
 
   protected abstract ITableEncoder createTableEncoder();
 
-  protected void encodeText(SheetGraphics graphics, Bounds textBounds) throws DocumentException {
+  protected void encodeText(HealthModel model, SheetGraphics graphics, Bounds textBounds) throws DocumentException {
     Font headerFont = graphics.createCommentFont();
     Font commentFont = graphics.createCommentFont();
     Font commentTitleFont = new Font(commentFont);
     commentTitleFont.setStyle(Font.BOLD);
-    Paragraph healthText = createHealthRulesPhrase(graphics, headerFont, commentFont, commentTitleFont);
+    Paragraph healthText = createHealthRulesPhrase(model, graphics, headerFont, commentFont, commentTitleFont);
     int leading = IVoidStateFormatConstants.COMMENT_FONT_SIZE + 1;
     float yLine = graphics.createSimpleColumn(textBounds).withLeading((float) leading).andTextPart(healthText).encode().getYLine();
     int rectangleOffset = AbstractHealthAndMovementTableEncoder.HEALTH_RECT_SIZE + 1;
@@ -82,7 +88,7 @@ public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder
     return resources;
   }
 
-  private Paragraph createHealthRulesPhrase(SheetGraphics graphics, Font headerFont, Font commentFont, Font commentTitleFont) {
+  private Paragraph createHealthRulesPhrase(HealthModel model, SheetGraphics graphics, Font headerFont, Font commentFont, Font commentTitleFont) {
     Paragraph healthText = new Paragraph();
     healthText.setAlignment(Element.ALIGN_JUSTIFIED_ALL);
     Chunk seperator = new Chunk(": ", commentTitleFont);
@@ -93,7 +99,7 @@ public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder
     healthText.add(graphics.createSymbolChunk());
     healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.HealthHeader"), commentTitleFont));
     healthText.add(seperator);
-    healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.HealthText"), commentFont));
+    healthText.add(new Chunk(getHealthText(model), commentFont));
     healthText.add(newLine);
     healthText.add(graphics.createSymbolChunk());
     healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.DeathHeader"), commentTitleFont));
@@ -104,6 +110,27 @@ public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder
     healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.MarkDamageHeader"), commentTitleFont));
     healthText.add(seperator);
     return healthText;
+  }
+  
+  private String getHealthText(HealthModel model) {
+  	String zeroBashing = model.getHealingTime(HealthLevelType.ZERO, HealthType.Bashing).text;
+  	String zeroLethal  = model.getHealingTime(HealthLevelType.ZERO, HealthType.Lethal).text;
+  	String oneBashing  = model.getHealingTime(HealthLevelType.ONE, HealthType.Bashing).text;
+  	String oneLethal   = model.getHealingTime(HealthLevelType.ONE, HealthType.Lethal).text;
+  	String twoBashing  = model.getHealingTime(HealthLevelType.TWO, HealthType.Bashing).text;
+  	String twoLethal   = model.getHealingTime(HealthLevelType.TWO, HealthType.Lethal).text;
+  	String fourBashing = model.getHealingTime(HealthLevelType.FOUR, HealthType.Bashing).text;
+  	String fourLethal  = model.getHealingTime(HealthLevelType.FOUR, HealthType.Lethal).text;
+  	return resources.getString("Sheet.Health.Comment.HealthText",
+  			zeroBashing,
+  			zeroLethal,
+  			oneBashing,
+  			oneLethal,
+  			twoBashing,
+  			twoLethal,
+  			fourBashing,
+  			fourLethal);
+  	
   }
 
   @Override
