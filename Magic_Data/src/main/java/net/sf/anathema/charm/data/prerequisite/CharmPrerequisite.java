@@ -5,4 +5,6 @@ public interface CharmPrerequisite {
   void process(PrerequisiteProcessor processor);
 
   void accept(PrerequisiteVisitor visitor);
+  
+  boolean isSpecific();
 }

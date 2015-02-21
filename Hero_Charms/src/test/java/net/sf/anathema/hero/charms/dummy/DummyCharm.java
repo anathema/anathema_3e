@@ -98,6 +98,11 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   @Override
+  public boolean hasCharmPrerequisites() {
+    return !charmPrerequisites.isEmpty();
+  }
+
+  @Override
   public PrerequisiteList getPrerequisites() {
     return this;
   }

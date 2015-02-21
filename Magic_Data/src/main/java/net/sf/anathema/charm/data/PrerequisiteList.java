@@ -14,4 +14,6 @@ public interface PrerequisiteList {
   List<TraitPrerequisite> getTraitPrerequisites();
 
   void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer);
+
+  boolean hasCharmPrerequisites();
 }

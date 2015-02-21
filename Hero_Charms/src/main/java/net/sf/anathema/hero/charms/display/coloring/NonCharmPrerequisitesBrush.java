@@ -11,8 +11,12 @@ public class NonCharmPrerequisitesBrush implements CharmBrush {
 
   public void color(Charm charm) {
     charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> {
-      prerequisite.accept(new ColorNonCharmPrerequisites(coloring));
+      if (prerequisite.isSpecific()){
+        return;
+      }
+      NonSpecificNodeIdVisitor visitor = new NonSpecificNodeIdVisitor();
+      prerequisite.accept(visitor);
+      coloring.colorNonCharmPrerequisite(visitor.nodeId, prerequisite);
     });
   }
-
 }

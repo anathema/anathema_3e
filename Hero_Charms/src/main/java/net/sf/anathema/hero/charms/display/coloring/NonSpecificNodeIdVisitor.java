@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.charms.compiler.json;
+package net.sf.anathema.hero.charms.display.coloring;
 
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
@@ -8,41 +7,39 @@ import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.SpecificGroupCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
+import net.sf.anathema.hero.charms.display.view.NodeIds;
 
-public class ExcludeSpecificPrerequisitesFromNonSpecificRequirements implements PrerequisiteVisitor {
-  private Charm charm;
+public class NonSpecificNodeIdVisitor implements PrerequisiteVisitor {
+  public String nodeId;
 
-  public ExcludeSpecificPrerequisitesFromNonSpecificRequirements(Charm charm) {
-    this.charm = charm;
-  }
 
   @Override
   public void visit(AnyOneTraitCharmPrerequisite prerequisite) {
-    prerequisite.excludeSpecificPrerequsitesOf(charm);
+    nodeId = NodeIds.getNodeId(prerequisite);
   }
 
   @Override
   public void visit(AttributeKnownCharmPrerequisite prerequisite) {
-    prerequisite.excludeSpecificPrerequisitesOf(charm);
+    nodeId = NodeIds.getNodeId(prerequisite);
   }
 
   @Override
   public void visit(SimpleCharmPrerequisite prerequisite) {
-    //nothing to do
+    throw new UnsupportedOperationException("Applied to concrete prerequisite");
   }
 
   @Override
   public void visit(SpecificGroupCharmPrerequisite prerequisite) {
-    //nothing to do
+    throw new UnsupportedOperationException("Applied to concrete prerequisite");
   }
 
   @Override
   public void visit(TraitGroupCharmPrerequisite prerequisite) {
-    prerequisite.excludeSpecificPrerequisitesOf(charm);
+    nodeId = NodeIds.getNodeId(prerequisite);
   }
 
   @Override
   public void visit(EvocationTierPrerequisite prerequisite) {
-    //nothing to do
+    nodeId = NodeIds.getNodeId(prerequisite);
   }
 }

@@ -1,12 +1,10 @@
 package net.sf.anathema.hero.charms.display.view;
 
-import com.google.common.base.Joiner;
 import com.google.common.base.Preconditions;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
-import net.sf.anathema.hero.charms.display.prerequisites.IsTreeRoot;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.Resources;
@@ -30,6 +28,10 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
     this.charmLabeler = new MagicDisplayLabeler(resources);
   }
 
+  private boolean isTreeRoot(Charm charm) {
+    return !charm.getPrerequisites().hasCharmPrerequisites();
+  }
+
   @Override
   public String getNodeText(String nodeId) {
     if (properties.isRequirementNode(nodeId)) {
@@ -37,7 +39,7 @@ public class DefaultNodePresentationProperties implements NodePresentationProper
     }
     Charm charm = findNonNullCharm(toCharmName(nodeId));
     String name = getNodeName(charm);
-    if (IsTreeRoot.isTreeRoot(charm)) {
+    if (isTreeRoot(charm)) {
       return name.toUpperCase();
     }
     return name;

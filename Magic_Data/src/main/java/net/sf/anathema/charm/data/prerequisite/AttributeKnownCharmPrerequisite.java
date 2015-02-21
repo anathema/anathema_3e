@@ -1,6 +1,5 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 public class AttributeKnownCharmPrerequisite implements CharmPrerequisite {
@@ -24,15 +23,16 @@ public class AttributeKnownCharmPrerequisite implements CharmPrerequisite {
   }
 
   @Override
+  public boolean isSpecific() {
+    return false;
+  }
+
+  @Override
   public boolean equals(Object obj) {
     if (obj instanceof AttributeKnownCharmPrerequisite) {
       AttributeKnownCharmPrerequisite prerequisite = (AttributeKnownCharmPrerequisite) obj;
       return prerequisite.attribute.equals(attribute) && prerequisite.count == count;
     }
     return false;
-  }
-
-  public void excludeSpecificPrerequisitesOf(Charm charm) {
-    //TODO IMPLEMENT
   }
 }

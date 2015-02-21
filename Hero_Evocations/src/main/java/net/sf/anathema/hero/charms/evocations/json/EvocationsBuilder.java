@@ -60,16 +60,15 @@ public class EvocationsBuilder {
       newCharmTemplate.keywords.remove(EvocationTier.Sapphire.toString());
       newCharmTemplate.keywords.add(innateAtTier.toString());
       newCharmTemplate.keywords.add("Innate");
-      String predecessor = id;
       newCharmTemplate.prerequisites.clear();
-      newCharmTemplate.prerequisites.add(new SimpleCharmPrerequisiteTemplate(predecessor));
+      newCharmTemplate.prerequisites.add(new SimpleCharmPrerequisiteTemplate(id));
 
       CharmImpl newCharm = new CharmImpl(new CategoryReference(template.category),
               new TreeName(template.tree),
               newCharmName,
               newCharmTemplate);
       setEvocationPrerequisite(newCharm, innateAtTier, 1);
-      newCharm.addCharmPrerequisite(new SimpleCharmPrerequisite(cache.getCharmById(new CharmName(predecessor))));
+      newCharm.addCharmPrerequisite(new SimpleCharmPrerequisite(cache.getCharmById(new CharmName(id))));
 
       cache.addCharm(newCharm);
     });
@@ -115,8 +114,7 @@ public class EvocationsBuilder {
   }
 
   private int countPriorTierAncestors(Charm rootCharm, EvocationTier target) {
-    int[] ancestorsOfTier = new int[1];
-    ancestorsOfTier[0] = 0;
+    int[] ancestorsOfTier = new int[]{0};
     Queue<Charm> charmQueue = new LinkedList<>();
     charmQueue.add(rootCharm);
     while (!charmQueue.isEmpty()) {

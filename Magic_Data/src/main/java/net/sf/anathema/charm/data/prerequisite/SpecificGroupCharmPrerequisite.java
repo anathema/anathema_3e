@@ -24,4 +24,9 @@ public class SpecificGroupCharmPrerequisite implements CharmPrerequisite {
   public void accept(PrerequisiteVisitor visitor) {
     visitor.visit(this);
   }
+
+  @Override
+  public boolean isSpecific() {
+    return true;
+  }
 }
