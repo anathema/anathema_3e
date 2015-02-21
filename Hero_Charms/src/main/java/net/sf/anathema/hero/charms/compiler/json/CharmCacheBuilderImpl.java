@@ -13,8 +13,6 @@ import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import java.util.HashMap;
 import java.util.Map;
 
-import static net.sf.anathema.charm.data.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
-
 public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator {
 
   private final Map<CharmName, CharmImpl> charmList = new HashMap<>();
@@ -56,22 +54,19 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
       CharmImpl charm = charmList.get(name);
       template.prerequisites.stream().forEach(prerequisiteTemplate -> {
         CharmPrerequisite prerequisite = prerequisiteTemplate.generate(abstractCharmList);
-        if (isConcreteCharmPrerequisite().test(prerequisite)) {
-          prerequisite.process(new PrerequisiteProcessorAdapter() {
-            @Override
-            public void requiresCharm(Charm prerequisite) {
+        prerequisite.process(new PrerequisiteProcessorAdapter() {
+          @Override
+          public void requiresCharm(Charm prerequisite) {
+            ((CharmImpl) prerequisite).addChild(charm);
+          }
+
+          @Override
+          public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
+            for (Charm prerequisite : prerequisites) {
               ((CharmImpl) prerequisite).addChild(charm);
             }
-
-            @Override
-            public void requiresCharmFromSelection(Charm[] prerequisites,
-                                                   int count) {
-              for (Charm prerequisite : prerequisites) {
-                ((CharmImpl) prerequisite).addChild(charm);
-              }
-            }
-          });
-        }
+          }
+        });
         charm.addCharmPrerequisite(prerequisite);
       });
     });
