@@ -38,8 +38,8 @@ public class CollectPrerequisiteCharms extends PrerequisiteProcessorAdapter {
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
-    List<Charm> charmsToLearn = selectCharmsToLearn(arbitrator, prerequisites, threshold);
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
+    List<Charm> charmsToLearn = selectCharmsToLearn(arbitrator, prerequisites, count);
     for (Charm learnCharm : charmsToLearn) {
       prerequisiteCharms.addAll(collectPrerequisiteCharms(learnCharm, arbitrator));
       prerequisiteCharms.add(learnCharm);

@@ -47,13 +47,13 @@ public class IsSatisfied implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     int known = 0;
     for (Charm charm : prerequisites) {
       if (arbitrator.isLearned(charm)) {
         known++;
       }
-      if (known >= threshold) {
+      if (known >= count) {
         this.satisfied = true;
         return;
       }
@@ -62,14 +62,14 @@ public class IsSatisfied implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold,
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
                                      int minimumEssence) {
     List<TraitType> traitTypes = Lists.transform(traits, trait -> new TraitTypeFinder().getTrait(trait.type));
-    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(traitTypes, category, threshold, minimumEssence);
+    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(traitTypes, category, count, minimumEssence);
   }
 
   @Override
-  public void requiresCharmsOfAnyOneTrait(int threshold) {
-    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(threshold);
+  public void requiresCharmsOfAnyOneTrait(int count) {
+    this.satisfied = arbitrator.hasLearnedThresholdCharmsOfAnyOneTrait(count);
   }
 }

@@ -31,18 +31,18 @@ public class NonCharmPrerequisiteId implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     throw new UnsupportedOperationException("This is a direct charm prerequisite.");
   }
 
   @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold,
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
                                      int minimumEssence) {
-    this.id = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
+    this.id = NodeIds.getNodeId(traits, category, count, minimumEssence);
   }
 
   @Override
-  public void requiresCharmsOfAnyOneTrait(int threshold) {
-    this.id = NodeIds.getNodeIdForAnyOneTrait(threshold);
+  public void requiresCharmsOfAnyOneTrait(int count) {
+    this.id = NodeIds.getNodeIdForAnyOneTrait(count);
   }
 }

@@ -24,17 +24,17 @@ public class PrerequisiteProcessorAdapter implements PrerequisiteProcessor{
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     //nothing to do
   }
 
   @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold, int minimumEssence) {
+  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count, int minimumEssence) {
     //nothing to do
   }
 
   @Override
-  public void requiresCharmsOfAnyOneTrait(int threshold) {
+  public void requiresCharmsOfAnyOneTrait(int count) {
     //nothing to do
   }
 }

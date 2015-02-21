@@ -28,7 +28,7 @@ public class ConcreteCharmRenderingParents extends PrerequisiteProcessorAdapter 
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     Collections.addAll(renderingParents, prerequisites);
   }
 }

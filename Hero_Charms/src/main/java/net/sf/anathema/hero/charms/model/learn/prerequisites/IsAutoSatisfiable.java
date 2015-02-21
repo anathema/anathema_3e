@@ -43,13 +43,13 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     int knowable = 0;
     for (Charm charm : prerequisites) {
       if (arbitrator.isLearnable(charm)) {
         knowable++;
       }
-      if (knowable >= threshold) {
+      if (knowable >= count) {
         this.satisfiable = true;
       }
     }
@@ -63,7 +63,7 @@ public class IsAutoSatisfiable implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmsOfAnyOneTrait(int threshold) {
+  public void requiresCharmsOfAnyOneTrait(int count) {
     this.satisfiable = false;
   }
 }

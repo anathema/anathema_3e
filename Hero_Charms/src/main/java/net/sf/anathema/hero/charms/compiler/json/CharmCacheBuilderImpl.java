@@ -72,7 +72,7 @@ public class CharmCacheBuilderImpl implements CharmCacheBuilder, CharmGenerator 
 
             @Override
             public void requiresCharmFromSelection(Charm[] prerequisites,
-                                                   int threshold) {
+                                                   int count) {
               for (Charm prerequisite : prerequisites) {
                 ((CharmImpl) prerequisite).addChild(charm);
               }

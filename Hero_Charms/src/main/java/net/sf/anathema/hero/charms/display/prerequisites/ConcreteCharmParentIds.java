@@ -40,7 +40,7 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
     for (Charm prerequisite : prerequisites) {
       nodeIds.add(getNodeId(prerequisite));
     }
@@ -53,7 +53,7 @@ public class ConcreteCharmParentIds implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresCharmsOfAnyOneTrait(int threshold) {
-    nodeIds.add(getNodeIdForAnyOneTrait(threshold));
+  public void requiresCharmsOfAnyOneTrait(int count) {
+    nodeIds.add(getNodeIdForAnyOneTrait(count));
   }
 }

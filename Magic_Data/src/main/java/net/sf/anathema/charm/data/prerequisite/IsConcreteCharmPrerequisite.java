@@ -36,7 +36,7 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
     }
 
     @Override
-    public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+    public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
       this.isConcrete = true;
     }
 
@@ -46,7 +46,7 @@ public class IsConcreteCharmPrerequisite implements Predicate<CharmPrerequisite>
     }
 
     @Override
-    public void requiresCharmsOfAnyOneTrait(int threshold) {
+    public void requiresCharmsOfAnyOneTrait(int count) {
       this.isConcrete = false;
     }
 
