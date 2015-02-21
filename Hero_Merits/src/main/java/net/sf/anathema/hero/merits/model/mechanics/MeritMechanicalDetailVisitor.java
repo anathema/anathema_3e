@@ -8,4 +8,6 @@ public interface MeritMechanicalDetailVisitor {
 	void visitUnarmedModificationDetail(MeritUnarmedModificationDetail detail);
 	
 	void visitSavageModificationDetail(MeritSavageModificationDetail detail);
+	
+	void visitExaltedHealingDetail(MeritExaltedHealingDetail detail);
 }

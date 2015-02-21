@@ -57,7 +57,9 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     MeritUnarmedModificationProvider unarmedProvider = new MeritUnarmedModificationProvider(this);
     HealthModelFetcher.fetch(hero).addHealthLevelProvider(healthProvider);
     HealthModelFetcher.fetch(hero).addPainToleranceProvider(healthProvider);
+    HealthModelFetcher.fetch(hero).addHealingTypeProvider(healthProvider);
     EquipmentModelFetcher.fetch(hero).addUnarmedModification(unarmedProvider);
+    
   }
 
   @SuppressWarnings("unchecked")

@@ -23,4 +23,9 @@ public class EmptyMeritMechanicalDetailVisitor implements MeritMechanicalDetailV
 		// nothing to do
 	}
 
+	@Override
+	public void visitExaltedHealingDetail(MeritExaltedHealingDetail detail) {
+		// nothing to do
+	}
+
 }

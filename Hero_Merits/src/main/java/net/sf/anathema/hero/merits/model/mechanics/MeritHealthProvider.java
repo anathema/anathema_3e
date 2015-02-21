@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.merits.model.mechanics;
 
+import net.sf.anathema.hero.health.model.HealingTypeProvider;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;
 import net.sf.anathema.hero.health.model.IPainToleranceProvider;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 
-public class MeritHealthProvider implements IHealthLevelProvider, IPainToleranceProvider {
+public class MeritHealthProvider implements IHealthLevelProvider, IPainToleranceProvider, HealingTypeProvider {
 	
 	private final MeritsModel merits;
 	
@@ -57,6 +58,24 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 		}
 		
 		return tolerance[0];
+	}
+	
+	@Override
+	public boolean usesExaltedHealing() {
+		boolean[] result = new boolean[1];
+		result[0] = false;
+		for (Merit merit : merits.getMerits()) {
+			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
+				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+
+					@Override
+					public void visitExaltedHealingDetail(MeritExaltedHealingDetail detail) {
+							result[0] = true;
+					}					
+				});
+			}
+		}
+		return result[0];
 	}
 
 }

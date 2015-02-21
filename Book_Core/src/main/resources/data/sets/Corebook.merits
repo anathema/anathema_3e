@@ -517,7 +517,12 @@
 				{
 					"requirementType": "mortal"
 				} 
-			]
+			],
+			"mechanics": [
+			 	{
+			 		"type": "AddsExaltedHealing"
+			 	}
+			 ]
 		},
 		{
 			"name": "Extra Limbs",
