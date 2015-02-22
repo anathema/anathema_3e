@@ -59,9 +59,7 @@ public class CharmDisplayModel {
   }
 
   private LearningModel getCharmGroupByCharmId(CharmName charmId) {
-    CharmsModel charms = getCharmModel();
-    Charm charm = charms.getCharmById(charmId);
-    return charms.getLearningModel();
+    return getCharmModel().getLearningModel();
   }
 
   public MagicDescriptionProvider getMagicDescriptionProvider() {

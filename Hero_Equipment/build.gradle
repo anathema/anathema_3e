@@ -4,6 +4,11 @@ dependencies {
   compile project(':Character_Equipment')
   testCompile testDependencies
   testCompile project(path: ':Hero', configuration: 'tests')
+  testCompile project(path: ':Hero_Concept', configuration: 'tests')
   testCompile project(path: ':Hero_Specialties', configuration: 'tests')
+  testCompile project(path: ':Hero_Spiritual', configuration: 'tests')
+  testCompile project(path: ':Hero_Traits', configuration: 'tests')
   testCompile project(path: ':Character_Equipment', configuration: 'tests')
+  testCompile project(path: ':Library', configuration: 'tests')
+  testCompile project(path: ':Platform', configuration: 'tests')
 }

@@ -3,26 +3,51 @@ package net.sf.anathema.hero.charms.model;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import org.junit.Test;
 
 import static com.google.common.collect.Lists.newArrayList;
+import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class CharmsModelImplTest {
+  CharmsModelImpl model = new CharmsModelImpl(new CharmsTemplate());
 
   @Test
   public void countsEachCharmOnlyOnce() throws Exception {
-    CharmsTemplate template = new CharmsTemplate();
-    CharmsModelImpl model = new CharmsModelImpl(template);
+    DummyCharm charmWithTraitAndEssence = createCharmWithArcheryAndEssenceAtOne();
+    learnCharm(charmWithTraitAndEssence);
+    boolean satisfied = model.hasLearnedThresholdCharmsOfTrait(newArrayList(Archery), null, 2, 1);
+    assertThat(satisfied, is(false));
+  }
+
+  @Test
+  public void countsCharmsWhenNoCategoryIsGiven() throws Exception {
+    DummyCharm charmWithTraitAndEssence = createCharmWithArcheryAndEssenceAtOne();
+    learnCharm(charmWithTraitAndEssence);
+    boolean satisfied = model.hasLearnedThresholdCharmsOfTrait(newArrayList(Archery), null, 1, 1);
+    assertThat(satisfied, is(true));
+  }
+
+  @Test
+  public void countsCharmsWhenCategoriesMatch() throws Exception {
+    DummyCharm charmWithTraitAndEssence = createCharmWithArcheryAndEssenceAtOne();
+    learnCharm(charmWithTraitAndEssence);
+    CategoryReference category = charmWithTraitAndEssence.getTreeReference().category;
+    boolean satisfied = model.hasLearnedThresholdCharmsOfTrait(newArrayList(Archery), category, 1, 1);
+    assertThat(satisfied, is(true));
+  }
+
+  private void learnCharm(DummyCharm charmWithTraitAndEssence) {
+    model.getLearningModel().learnCharm(charmWithTraitAndEssence, false);
+  }
+
+  private DummyCharm createCharmWithArcheryAndEssenceAtOne() {
     TraitPrerequisite essencePrerequisite = new TraitPrerequisite(new RequiredTraitType("Essence"), 1);
     TraitPrerequisite archeryPrerequisite = new TraitPrerequisite(new RequiredTraitType("Archery"), 1);
-    DummyCharm charmWithTraitAndEssence = new DummyCharm("id", new Charm[0], archeryPrerequisite, essencePrerequisite);
-    model.getLearningModel().learnCharm(charmWithTraitAndEssence, false);
-    boolean satisfied = model.hasLearnedThresholdCharmsOfTrait(newArrayList(AbilityType.Archery), null, 2, 1);
-    assertThat(satisfied, is(false));
+    return new DummyCharm("id", new Charm[0], archeryPrerequisite, essencePrerequisite);
   }
 }

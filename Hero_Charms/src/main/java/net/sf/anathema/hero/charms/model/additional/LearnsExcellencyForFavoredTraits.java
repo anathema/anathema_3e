@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.model.additional;
 
-import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
@@ -14,6 +12,11 @@ import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
+import static net.sf.anathema.hero.traits.model.state.CasteTraitStateType.Caste;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+
+@SuppressWarnings("UnusedDeclaration")
+//Auto-instantiated by Charms Model
 public class LearnsExcellencyForFavoredTraits extends ExcellencyAdditionalRules {
 
 	private final static String id = "LearnsExcellencyForLearnedFavoredTraits";

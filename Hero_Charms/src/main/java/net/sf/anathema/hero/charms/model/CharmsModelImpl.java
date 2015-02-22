@@ -309,7 +309,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm.hasAttribute(NO_PURCHASE)) {
         return false;
       }
-      if (category == null || category.equals(charm.getTreeReference().category)) {
+      if (category != null && !category.equals(charm.getTreeReference().category)) {
         return false;
       }
       return requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type));
