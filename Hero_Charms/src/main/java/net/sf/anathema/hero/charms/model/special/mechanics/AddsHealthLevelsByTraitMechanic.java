@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.model.special.mechanics;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 import net.sf.anathema.charm.data.Charm;
@@ -8,6 +7,7 @@ import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;
@@ -16,7 +16,7 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 
-public class AddsHealthLevelsByTraitMechanic implements IAddsHealthLevelsByTraitMechanic {
+public class AddsHealthLevelsByTraitMechanic implements CharmSpecialMechanic {
 
   private final TraitType traitType;
   private final Map<Integer, HealthLevelType[]> healthLevels;
@@ -32,16 +32,6 @@ public class AddsHealthLevelsByTraitMechanic implements IAddsHealthLevelsByTrait
 	public void initialize(Hero hero) {
 		HealthModelFetcher.fetch(hero).addHealthLevelProvider(new AddsHealthLevelsByTraitHealthProvider(hero));
 	}
-
-  @Override
-  public TraitType getRelevantTrait() {
-    return traitType;
-  }
-
-  @Override
-  public Map<Integer, HealthLevelType[]> getHealthLevels() {
-    return new LinkedHashMap<>(healthLevels);
-  }
 
 	private class AddsHealthLevelsByTraitHealthProvider implements IHealthLevelProvider
 	{
