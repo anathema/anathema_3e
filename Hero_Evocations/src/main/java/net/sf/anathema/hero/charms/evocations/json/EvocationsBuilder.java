@@ -1,23 +1,10 @@
 package net.sf.anathema.hero.charms.evocations.json;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.stream.Stream;
-
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.DirectGroupCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.EvocationTierPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitor;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteVisitorAdapter;
 import net.sf.anathema.charm.data.prerequisite.SimpleCharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.SpecificGroupCharmPrerequisite;
-import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeName;
@@ -29,6 +16,14 @@ import net.sf.anathema.charm.template.prerequisite.SimpleCharmPrerequisiteTempla
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.json.CharmImpl;
 import net.sf.anathema.hero.charms.evocations.utilities.EvocationUtilities;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.stream.Stream;
 
 public class EvocationsBuilder {
   private List<EvocationArtifactTemplate> evocationCascades = new ArrayList<>();
@@ -65,16 +60,15 @@ public class EvocationsBuilder {
       newCharmTemplate.keywords.remove(EvocationTier.Sapphire.toString());
       newCharmTemplate.keywords.add(innateAtTier.toString());
       newCharmTemplate.keywords.add("Innate");
-      String predecessor = id;
       newCharmTemplate.prerequisites.clear();
-      newCharmTemplate.prerequisites.add(new SimpleCharmPrerequisiteTemplate(predecessor));
+      newCharmTemplate.prerequisites.add(new SimpleCharmPrerequisiteTemplate(id));
 
       CharmImpl newCharm = new CharmImpl(new CategoryReference(template.category),
               new TreeName(template.tree),
               newCharmName,
               newCharmTemplate);
       setEvocationPrerequisite(newCharm, innateAtTier, 1);
-      newCharm.addCharmPrerequisite(new SimpleCharmPrerequisite(cache.getCharmById(new CharmName(predecessor))));
+      newCharm.addCharmPrerequisite(new SimpleCharmPrerequisite(cache.getCharmById(new CharmName(id))));
 
       cache.addCharm(newCharm);
     });
@@ -106,96 +100,37 @@ public class EvocationsBuilder {
   }
 
   private boolean hasPreviousTierParents(Charm charm, EvocationTier target) {
-    boolean[] hasImmediatePreviousTierParents = new boolean[1];
-    hasImmediatePreviousTierParents[0] = false;
-
-    for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
-      prerequisite.accept(new PrerequisiteVisitor() {
-
-        @Override
-        public void visit(AnyOneTraitCharmPrerequisite prerequisite) {
+    boolean[] hasImmediatePreviousTierParents = new boolean[]{false};
+    charm.getPrerequisites().forEachCharmPrerequisite(prerequisite -> prerequisite.accept(new PrerequisiteVisitorAdapter() {
+      @Override
+      public void visit(SimpleCharmPrerequisite prerequisite) {
+        Charm parentCharm = prerequisite.getParentCharm();
+        if (EvocationUtilities.getTier(parentCharm).compareTo(target) < 0) {
+          hasImmediatePreviousTierParents[0] = true;
         }
-
-        @Override
-        public void visit(AttributeKnownCharmPrerequisite prerequisite) {
-        }
-
-        @Override
-        public void visit(DirectGroupCharmPrerequisite prerequisite) {
-        }
-
-        @Override
-        public void visit(SimpleCharmPrerequisite prerequisite) {
-          Charm parentCharm = prerequisite.getParentCharm();
-          if (EvocationUtilities.getTier(parentCharm).compareTo(target) < 0) {
-            hasImmediatePreviousTierParents[0] = true;
-          }
-        }
-
-        @Override
-        public void visit(SpecificGroupCharmPrerequisite prerequisite) {
-        }
-
-        @Override
-        public void visit(TraitGroupCharmPrerequisite prerequisite) {
-        }
-
-        @Override
-        public void visit(EvocationTierPrerequisite prerequisite) {
-        }
-
-      });
-    }
+      }
+    }));
     return hasImmediatePreviousTierParents[0];
   }
 
   private int countPriorTierAncestors(Charm rootCharm, EvocationTier target) {
-    int[] ancestorsOfTier = new int[1];
-    ancestorsOfTier[0] = 0;
+    int[] ancestorsOfTier = new int[]{0};
     Queue<Charm> charmQueue = new LinkedList<>();
     charmQueue.add(rootCharm);
     while (!charmQueue.isEmpty()) {
       Charm charm = charmQueue.poll();
-      for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
-        prerequisite.accept(new PrerequisiteVisitor() {
-
-          @Override
-          public void visit(AnyOneTraitCharmPrerequisite prerequisite) {
-          }
-
-          @Override
-          public void visit(AttributeKnownCharmPrerequisite prerequisite) {
-          }
-
-          @Override
-          public void visit(DirectGroupCharmPrerequisite prerequisite) {
-          }
-
-          @Override
-          public void visit(SimpleCharmPrerequisite prerequisite) {
-            Charm parent = prerequisite.getParentCharm();
-            if (EvocationUtilities.getTier(parent).compareTo(target) <= 0) {
-              charmQueue.add(parent);
-              if (EvocationUtilities.getTier(parent).compareTo(target) < 0) {
-                ancestorsOfTier[0]++;
-              }
+      charm.getPrerequisites().forEachCharmPrerequisite((prerequisite)-> prerequisite.accept(new PrerequisiteVisitorAdapter() {
+        @Override
+        public void visit(SimpleCharmPrerequisite prerequisite) {
+          Charm parent = prerequisite.getParentCharm();
+          if (EvocationUtilities.getTier(parent).compareTo(target) <= 0) {
+            charmQueue.add(parent);
+            if (EvocationUtilities.getTier(parent).compareTo(target) < 0) {
+              ancestorsOfTier[0]++;
             }
           }
-
-          @Override
-          public void visit(SpecificGroupCharmPrerequisite prerequisite) {
-          }
-
-          @Override
-          public void visit(TraitGroupCharmPrerequisite prerequisite) {
-          }
-
-          @Override
-          public void visit(EvocationTierPrerequisite prerequisite) {
-          }
-
-        });
-      }
+        }
+      }));
     }
     return ancestorsOfTier[0];
   }

@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.merits.model.mechanics;
 
+import net.sf.anathema.equipment.stats.WeaponTag;
+
 import java.util.List;
 import java.util.Map;
-
-import net.sf.anathema.equipment.stats.WeaponTag;
 
 public class MeritUnarmedModificationDetail implements MeritMechanicalDetail {
 

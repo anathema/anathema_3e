@@ -1,23 +1,9 @@
 package net.sf.anathema.hero.charms.model;
 
-import static net.sf.anathema.hero.charms.model.CommonMagicAttributes.NO_PURCHASE;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
-import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.function.Predicate;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmAttributeList;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -60,13 +46,25 @@ import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
-
 import org.jmock.example.announcer.Announcer;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
+
+import static net.sf.anathema.hero.charms.model.CommonMagicAttributes.NO_PURCHASE;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
+import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
 
 public class CharmsModelImpl implements CharmsModel {
 
@@ -239,10 +237,10 @@ public class CharmsModelImpl implements CharmsModel {
         return false;
       }
     }
-    for (CharmPrerequisite prerequisite : charm.getPrerequisites().getCharmPrerequisites()) {
-      if (!isSatisfied(prerequisite, this) && !isAutoSatisfiable(prerequisite, this)) {
-        return false;
-      }
+    SatisfactionConsumer isSatisfiedOrSatisfiable = new SatisfactionConsumer();
+    charm.getPrerequisites().forEachCharmPrerequisite(isSatisfiedOrSatisfiable);
+    if (!isSatisfiedOrSatisfiable.satisfied){
+      return false;
     }
     CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
             new CharmTraitRequirementCalculator(new TraitStateFetcher(hero)), traits);
@@ -289,18 +287,18 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   private int countCharmsThatMatchTheMinimumEssence(int minimumEssence, Charms matchingLearnedCharms) {
-    int count = 0;
+    List<Charm> matchingCharms = new ArrayList<>();
     for (Charm charm : matchingLearnedCharms) {
-      for (TraitPrerequisite trait : charm.getPrerequisites().getTraitPrerequisites()) {
+      charm.getPrerequisites().forEachTraitPrerequisite(trait -> {
         if (!(trait.type.type.equals(Essence.getId()))) {
-          continue;
+          return;
         }
         if (trait.minimalValue >= minimumEssence) {
-          count++;
+          matchingCharms.add(charm);
         }
-      }
+      });
     }
-    return count;
+    return matchingCharms.size();
   }
 
   @SuppressWarnings("SimplifiableIfStatement")
@@ -311,7 +309,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (charm.hasAttribute(NO_PURCHASE)) {
         return false;
       }
-      if (category == null || category.equals(charm.getTreeReference().category)) {
+      if (category != null && !category.equals(charm.getTreeReference().category)) {
         return false;
       }
       return requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type));
@@ -392,5 +390,17 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public CharmOptions getOptions() {
     return options;
+  }
+
+  private class SatisfactionConsumer implements Consumer<CharmPrerequisite> {
+
+    boolean satisfied = true;
+
+    @Override
+    public void accept(CharmPrerequisite prerequisite) {
+      if (!isSatisfied(prerequisite, CharmsModelImpl.this) && !isAutoSatisfiable(prerequisite, CharmsModelImpl.this)) {
+        satisfied = false;
+      }
+    }
   }
 }

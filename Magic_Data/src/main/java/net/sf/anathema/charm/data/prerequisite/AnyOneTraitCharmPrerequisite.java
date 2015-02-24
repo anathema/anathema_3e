@@ -17,9 +17,13 @@ public class AnyOneTraitCharmPrerequisite implements CharmPrerequisite {
 	public void accept(PrerequisiteVisitor visitor) {
 		visitor.visit(this);
 	}
-	
-	public int getThreshold() {
+
+  @Override
+  public boolean isSpecific() {
+    return false;
+  }
+
+  public int getThreshold() {
 		return threshold;
 	}
-
 }

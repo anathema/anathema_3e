@@ -78,18 +78,13 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   }
 
   @Override
-  public List<CharmPrerequisite> getCharmPrerequisites() {
-    return charmPrerequisites;
-  }
-
-  @Override
-  public List<TraitPrerequisite> getTraitPrerequisites() {
-    return traitPrerequisites;
-  }
-
-  @Override
   public RequiredTraitType getPrimaryTraitType() {
     return traitPrerequisites.get(0).type;
+  }
+
+  @Override
+  public void forEachTraitPrerequisite(Consumer<TraitPrerequisite> consumer) {
+    traitPrerequisites.forEach(consumer);
   }
 
   @Override
@@ -100,6 +95,11 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   @Override
   public void forEachCharmPrerequisite(Consumer<CharmPrerequisite> consumer) {
     charmPrerequisites.forEach(consumer);
+  }
+
+  @Override
+  public boolean hasCharmPrerequisites() {
+    return !charmPrerequisites.isEmpty();
   }
 
   @Override

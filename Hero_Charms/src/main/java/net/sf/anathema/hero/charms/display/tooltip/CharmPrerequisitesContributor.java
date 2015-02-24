@@ -1,12 +1,9 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.data.Magic;
-
-import java.util.List;
 
 public class CharmPrerequisitesContributor implements MagicTooltipContributor {
   private final Resources resources;
@@ -17,20 +14,17 @@ public class CharmPrerequisitesContributor implements MagicTooltipContributor {
 
   @Override
   public void buildStringForMagic(ConfigurableTooltip tooltip, Magic magic, Object details) {
-    if (magic instanceof Charm) {
-      Charm charm = (Charm) magic;
-      createPrerequisiteLines(tooltip, charm.getPrerequisites().getTraitPrerequisites());
+    if (!(magic instanceof Charm)) {
+      return;
     }
-  }
-
-  private void createPrerequisiteLines(ConfigurableTooltip tooltip, List<TraitPrerequisite> prerequisites) {
-    for (TraitPrerequisite prerequisite : prerequisites) {
+    Charm charm = (Charm) magic;
+    charm.getPrerequisites().forEachTraitPrerequisite(prerequisite -> {
       if (prerequisite.minimalValue == 0) {
-        continue;
+        return;
       }
-      String label = resources.getString("CharmTreeView.ToolTip.Minimum")+" "+ resources.getString(prerequisite.type.type);
+      String label = resources.getString("CharmTreeView.ToolTip.Minimum") + " " + resources.getString(prerequisite.type.type);
       String value = String.valueOf(prerequisite.minimalValue);
       tooltip.appendLine(label, value);
-    }
+    });
   }
 }

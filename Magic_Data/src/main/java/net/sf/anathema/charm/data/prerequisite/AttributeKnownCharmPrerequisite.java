@@ -2,7 +2,7 @@ package net.sf.anathema.charm.data.prerequisite;
 
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
-public class AttributeKnownCharmPrerequisite implements CharmPrerequisite{
+public class AttributeKnownCharmPrerequisite implements CharmPrerequisite {
 
   private final MagicAttribute attribute;
   private final int count;
@@ -20,6 +20,11 @@ public class AttributeKnownCharmPrerequisite implements CharmPrerequisite{
   @Override
   public void accept(PrerequisiteVisitor visitor) {
     visitor.visit(this);
+  }
+
+  @Override
+  public boolean isSpecific() {
+    return false;
   }
 
   @Override

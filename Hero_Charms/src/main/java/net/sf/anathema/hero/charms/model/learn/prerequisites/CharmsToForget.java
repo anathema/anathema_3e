@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 
 import java.util.Set;
-
-import static net.sf.anathema.charm.data.prerequisite.IsConcreteCharmPrerequisite.isConcreteCharmPrerequisite;
 
 public class CharmsToForget {
 
@@ -18,7 +17,7 @@ public class CharmsToForget {
   }
 
   public Set<Charm> getLearnFollowUpCharms() {
-    charm.forEachChild(child -> addCharmsToForget(child));
+    charm.forEachChild(this::addCharmsToForget);
     return worker.getForgottenCharms();
   }
 
@@ -27,11 +26,11 @@ public class CharmsToForget {
       return;
     }
     worker.forget(charm);
-    charm.forEachChild(child -> addCharmsToForget(child));
+    charm.forEachChild(this::addCharmsToForget);
   }
 
   private boolean isCharmPrerequisiteListFulfilled(Charm charm) {
-    AllSatisfied allSatisfied = new AllSatisfied(worker, isConcreteCharmPrerequisite());
+    AllSatisfied allSatisfied = new AllSatisfied(worker, CharmPrerequisite::isSpecific);
     charm.getPrerequisites().forEachCharmPrerequisite(allSatisfied);
     return allSatisfied.isFulfilled;
   }

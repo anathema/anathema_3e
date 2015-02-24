@@ -15,9 +15,9 @@ public interface PrerequisiteProcessor {
 
   void requiresCharm(Charm prerequisite);
 
-  void requiresCharmFromSelection(Charm[] prerequisites, int threshold);
+  void requiresCharmFromSelection(Charm[] prerequisites, int count);
   
-  void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int threshold, int minimumEssence);
+  void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count, int minimumEssence);
   
-  void requiresCharmsOfAnyOneTrait(int threshold);
+  void requiresCharmsOfAnyOneTrait(int count);
 }

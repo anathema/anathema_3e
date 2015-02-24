@@ -21,6 +21,11 @@ public class SimpleCharmPrerequisite implements CharmPrerequisite {
   }
 
   @Override
+  public boolean isSpecific() {
+    return true;
+  }
+
+  @Override
   public boolean equals(Object obj) {
     if (obj instanceof SimpleCharmPrerequisite) {
       SimpleCharmPrerequisite prerequisite = (SimpleCharmPrerequisite) obj;

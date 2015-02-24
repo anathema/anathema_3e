@@ -17,9 +17,7 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   private final List<TraitPrerequisite> traitPrerequisites = new ArrayList<>();
 
   public PrerequisiteListImpl(CharmTemplate template) {
-    template.minimums.forEach((type, value) -> {
-      traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(type), value));
-    });
+    template.minimums.forEach((type, value) -> traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(type), value)));
     if (!template.minimums.containsKey(ESSENCE_ID)) {
       traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(ESSENCE_ID), 1));
     }
@@ -32,8 +30,8 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   }
 
   @Override
-  public List<TraitPrerequisite> getTraitPrerequisites() {
-    return new ArrayList<>(traitPrerequisites);
+  public void forEachTraitPrerequisite(Consumer<TraitPrerequisite> consumer) {
+    traitPrerequisites.forEach(consumer);
   }
 
   @Override
@@ -42,15 +40,15 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   }
 
   @Override
-  public List<CharmPrerequisite> getCharmPrerequisites() {
-    return new ArrayList<>(charmPrerequisites);
+  public boolean hasCharmPrerequisites() {
+    return !charmPrerequisites.isEmpty();
   }
 
   public void addCharmPrerequisite(CharmPrerequisite prerequisite) {
     charmPrerequisites.add(prerequisite);
   }
 
-	public void clearPrerequisites() {
-		charmPrerequisites.clear();
-	}
+  public void clearPrerequisites() {
+    charmPrerequisites.clear();
+  }
 }

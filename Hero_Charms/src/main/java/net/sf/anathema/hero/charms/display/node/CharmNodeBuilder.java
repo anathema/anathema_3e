@@ -32,14 +32,14 @@ public class CharmNodeBuilder {
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
         }
-        
+
         @Override
-				public void requiresMagicAttributesFromTree(TreeReference tree,
-						MagicAttribute attribute, int count) {
-        	String nodeIds = NodeIds.getNodeId(attribute, count);
+        public void requiresMagicAttributesFromTree(TreeReference tree,
+                                                    MagicAttribute attribute, int count) {
+          String nodeIds = NodeIds.getNodeId(attribute, count);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
 
         @Override
         public void requiresCharm(Charm prerequisite) {
@@ -47,26 +47,26 @@ public class CharmNodeBuilder {
         }
 
         @Override
-        public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
+        public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
           for (Charm prerequisite : prerequisites) {
             handleDirectParent(groupCharms, charmNodesById, prerequisite);
           }
         }
 
-				@Override
-				public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
-						int threshold, int minimumEssence) {
-					String nodeIds = NodeIds.getNodeId(traits, category, threshold, minimumEssence);
+        @Override
+        public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category,
+                                           int count, int minimumEssence) {
+          String nodeIds = NodeIds.getNodeId(traits, category, count, minimumEssence);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
 
-				@Override
-				public void requiresCharmsOfAnyOneTrait(int threshold) {
-					String nodeIds = NodeIds.getNodeIdForAnyOneTrait(threshold);
+        @Override
+        public void requiresCharmsOfAnyOneTrait(int count) {
+          String nodeIds = NodeIds.getNodeIdForAnyOneTrait(count);
           IIdentifiedRegularNode parentNode = createChildlessNode(nodeIds);
           charmNodesById.put(nodeIds, parentNode);
-				}
+        }
       }));
     }
   }

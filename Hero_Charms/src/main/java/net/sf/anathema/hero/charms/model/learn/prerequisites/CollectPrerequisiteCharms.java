@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -15,7 +16,7 @@ import java.util.Set;
 
 import static net.sf.anathema.charm.data.prerequisite.ProcessProcessor.process;
 
-public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
+public class CollectPrerequisiteCharms extends PrerequisiteProcessorAdapter {
 
   public static Set<Charm> collectPrerequisiteCharms(Charm charm, CharmLearnArbitrator arbitrator) {
     CollectPrerequisiteCharms collectPrerequisiteCharms = new CollectPrerequisiteCharms(arbitrator);
@@ -31,41 +32,19 @@ public class CollectPrerequisiteCharms implements PrerequisiteProcessor {
   }
 
   @Override
-  public void requiresMagicAttributes(MagicAttribute attribute, int count) {
-    // nothing to do
-  }
-  
-  @Override
-	public void requiresMagicAttributesFromTree(TreeReference tree,
-			MagicAttribute attribute, int count) {
-		// nothing to do
-	}
-
-  @Override
   public void requiresCharm(Charm prerequisite) {
     prerequisiteCharms.addAll(collectPrerequisiteCharms(prerequisite, arbitrator));
     prerequisiteCharms.add(prerequisite);
   }
 
   @Override
-  public void requiresCharmFromSelection(Charm[] prerequisites, int threshold) {
-    List<Charm> charmsToLearn = selectCharmsToLearn(arbitrator, prerequisites, threshold);
+  public void requiresCharmFromSelection(Charm[] prerequisites, int count) {
+    List<Charm> charmsToLearn = selectCharmsToLearn(arbitrator, prerequisites, count);
     for (Charm learnCharm : charmsToLearn) {
       prerequisiteCharms.addAll(collectPrerequisiteCharms(learnCharm, arbitrator));
       prerequisiteCharms.add(learnCharm);
     }
   }
-  
-  @Override
-  public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
-  		int minimumEssence) {
-  	// nothing to do
-  }
-  
-  @Override
-	public void requiresCharmsOfAnyOneTrait(int threshold) {
-		// nothing to do
-	}
 
   private List<Charm> selectCharmsToLearn(CharmLearnArbitrator learnArbitrator, Charm[] prerequisites, int threshold) {
     List<Charm> charmsToLearn = new ArrayList<>();

@@ -29,18 +29,17 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
   private int getCharmCosts() {
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     if (charmsModel == null) {
-    	return 0;
+      return 0;
     }
-    
     int experienceCosts = 0;
     for (Charm charm : charmsModel.getLearningModel().getCharmsLearnedWithExperience()) {
-    	if (!charm.hasAttribute(CommonMagicAttributes.NO_PURCHASE)) {
-    		int charmCosts = calculateCharmCost(charmsModel, charm);
-    		if (charmsModel.isAlienCharm(charm)) {
-    			charmCosts *= 2;
-    		}
-    		experienceCosts += charmCosts;
-    	}
+      if (!charm.hasAttribute(CommonMagicAttributes.NO_PURCHASE)) {
+        int charmCosts = calculateCharmCost(charmsModel, charm);
+        if (charmsModel.isAlienCharm(charm)) {
+          charmCosts *= 2;
+        }
+        experienceCosts += charmCosts;
+      }
     }
     return experienceCosts;
   }
@@ -57,11 +56,10 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
       }
       SubEffectCharmSpecials subEffectCharmConfiguration = (SubEffectCharmSpecials) specialCharm;
       int count = Math.max(0,
-        (subEffectCharmConfiguration.getExperienceLearnedSubEffectCount() - (subEffectCharmConfiguration.getCreationLearnedSubEffectCount() == 0 ? 1 : 0)));
+              (subEffectCharmConfiguration.getExperienceLearnedSubEffectCount() - (subEffectCharmConfiguration.getCreationLearnedSubEffectCount() == 0 ? 1 : 0)));
       int subEffectCost = (int) Math.ceil(count * subEffectCharmConfiguration.getPointCostPerEffect() * 2);
       return subEffectCost + specialCharmCost;
     }
     return learnModel.isLearnedWithExperience(charm) ? charmCost : 0;
   }
-
 }
