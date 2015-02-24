@@ -4,7 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.Charms;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
@@ -30,12 +30,12 @@ public class CharmContentHelper {
   }
 
   public boolean isMultipleEffectCharm(Charm charm) {
-    CharmSpecialsModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialLearningModel(charm);
     return charmConfiguration instanceof MultipleEffectCharmSpecials && !(charmConfiguration instanceof SubEffectCharmSpecials);
   }
 
   public Iterable<String> getLearnedEffects(Charm charm) {
-    CharmSpecialsModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialLearningModel(charm);
     if (!(charmConfiguration instanceof MultipleEffectCharmSpecials)) {
       return Collections.emptyList();
     }
@@ -54,7 +54,7 @@ public class CharmContentHelper {
   }
 
   public boolean isSubEffectCharm(Charm charm) {
-    CharmSpecialsModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel charmConfiguration = CharmsModelFetcher.fetch(hero).getCharmSpecialLearningModel(charm);
     return charmConfiguration instanceof SubEffectCharmSpecials;
   }
 
@@ -63,7 +63,7 @@ public class CharmContentHelper {
   }
 
   private int getLearnCount(Charm charm, CharmsModel model) {
-    CharmSpecialsModel specialCharmConfiguration = model.getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel specialCharmConfiguration = model.getCharmSpecialLearningModel(charm);
     if (specialCharmConfiguration != null) {
       return specialCharmConfiguration.getCurrentLearnCount();
     }

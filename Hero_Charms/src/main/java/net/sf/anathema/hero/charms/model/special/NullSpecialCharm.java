@@ -2,9 +2,9 @@ package net.sf.anathema.hero.charms.model.special;
 
 import net.sf.anathema.charm.data.reference.CharmName;
 
-public class NullSpecialCharm implements ISpecialCharm {
+public class NullSpecialCharm implements CharmSpecialLearning {
   @Override
-  public void accept(ISpecialCharmVisitor visitor) {
+  public void accept(ICharmSpecialLearningVisitor visitor) {
     //nothing to do
   }
 

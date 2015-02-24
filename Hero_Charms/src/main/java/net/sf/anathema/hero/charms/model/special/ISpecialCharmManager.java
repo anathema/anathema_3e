@@ -5,7 +5,7 @@ import net.sf.anathema.hero.charms.model.learn.LearningModel;
 
 public interface ISpecialCharmManager {
 
-  CharmSpecialsModel getSpecialCharmConfiguration(Charm charm);
+  CharmSpecialLearningModel getSpecialCharmConfiguration(Charm charm);
 
-  void registerSpecialCharmConfiguration(ISpecialCharm specialCharm, Charm charm, LearningModel learningModel);
+  void registerSpecialCharmConfiguration(CharmSpecialLearning specialCharm, Charm charm, LearningModel learningModel);
 }

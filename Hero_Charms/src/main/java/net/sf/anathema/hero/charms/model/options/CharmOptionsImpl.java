@@ -7,7 +7,8 @@ import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.GroupedCharmMap;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -17,6 +18,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 
@@ -47,10 +51,10 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
   }
 
   @Override
-  public Collection<ISpecialCharm> getSpecialCharms() {
-    List<ISpecialCharm> relevantCharms = new ArrayList<>();
-    ISpecialCharm[] allSpecialCharms = getAllSpecialCharms();
-    for (ISpecialCharm specialCharm : allSpecialCharms) {
+  public Collection<CharmSpecialLearning> getSpecialLearningCharms() {
+    List<CharmSpecialLearning> relevantCharms = new ArrayList<>();
+    CharmSpecialLearning[] allSpecialCharms = getAllSpecialLearningCharms();
+    for (CharmSpecialLearning specialCharm : allSpecialCharms) {
       Charm charm = getCharmIdMap().getCharmById(specialCharm.getCharmName());
       if (charm != null && optionsCheck.isValidOptionForHeroType(charm)) {
         relevantCharms.add(specialCharm);
@@ -59,16 +63,16 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     return relevantCharms;
   }
 
-  private ISpecialCharm[] getAllSpecialCharms() {
+  private CharmSpecialLearning[] getAllSpecialLearningCharms() {
     CategoryReference preferredCategory = new CategoryReference(NativeCharacterType.get(hero).getId());
     SpecialCharmSet set = new SpecialCharmSet();
     for (CategoryReference type : charmProvider.getAllCategories()) {
-      set.addAll(charmProvider.getSpecialCharms(type));
+      set.addAll(charmProvider.getSpecialLearningCharms(type));
     }
-    for (ISpecialCharm preferredCharm : charmProvider.getSpecialCharms(preferredCategory)) {
+    for (CharmSpecialLearning preferredCharm : charmProvider.getSpecialLearningCharms(preferredCategory)) {
       set.add(preferredCharm);
     }
-    return set.toArray(new ISpecialCharm[set.size()]);
+    return set.toArray(new CharmSpecialLearning[set.size()]);
   }
 
   @Override
@@ -108,4 +112,13 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     return charmsRule.isAllowedAlienCharms(concept.getCaste().getType());
   }
+
+	@Override
+	public Collection<CharmSpecialMechanic> getAllMechanics() {
+		List<CharmSpecialMechanic> mechanics = new ArrayList<>();
+		for (Charm mechanicalCharm : charmProvider.getCharmsWithSpecialMechanics()) {
+			mechanics.addAll(charmProvider.getSpecialMechanicsForCharm(mechanicalCharm.getName()));
+		}
+		return mechanics;
+	}
 }

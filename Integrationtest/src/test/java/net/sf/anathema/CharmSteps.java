@@ -1,17 +1,17 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
-import cucumber.api.PendingException;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.java.guice.ScenarioScoped;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import com.google.inject.Inject;
+
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class CharmSteps {
@@ -64,7 +64,7 @@ public class CharmSteps {
     CharmsModel charms = character.getCharms();
     assertThat(charms.isLearned(new CharmName(charmId)), is(true));
     Charm charm = character.getCharms().getCharmById(new CharmName(charmId));
-    MultipleEffectCharmSpecials configuration = (MultipleEffectCharmSpecials) charms.getCharmSpecialsModel(charm);
+    MultipleEffectCharmSpecials configuration = (MultipleEffectCharmSpecials) charms.getCharmSpecialLearningModel(charm);
     boolean effectLearned = configuration.getEffectById(effect).isLearned();
     assertThat(effectLearned, is(true));
   }

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnCharmSpecials;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnCharmSpecials;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.resources.Resources;

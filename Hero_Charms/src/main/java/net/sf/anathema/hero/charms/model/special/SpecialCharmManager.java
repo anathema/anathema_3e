@@ -9,25 +9,16 @@ import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
-import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnableCharmSpecialsImpl;
-import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
-import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueArbitratorImpl;
-import net.sf.anathema.hero.charms.model.special.oxbody.OxBodyTechniqueSpecialsImpl;
-import net.sf.anathema.hero.charms.model.special.paintolerance.IPainToleranceCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.IMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnableCharmSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecialsImpl;
-import net.sf.anathema.hero.health.model.HealthModel;
-import net.sf.anathema.hero.health.model.HealthModelFetcher;
-import net.sf.anathema.hero.health.model.IPainToleranceProvider;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
 
 public class SpecialCharmManager implements ISpecialCharmManager {
-  private final Map<Charm, CharmSpecialsModel> specialConfigurationsByCharm = new HashMap<>();
+  private final Map<Charm, CharmSpecialLearningModel> specialConfigurationsByCharm = new HashMap<>();
   private final IExtendedCharmLearnableArbitrator arbitrator;
   private CharmSpecialistImpl specialist;
   private Hero hero;
@@ -39,8 +30,8 @@ public class SpecialCharmManager implements ISpecialCharmManager {
   }
 
   @Override
-  public void registerSpecialCharmConfiguration(ISpecialCharm specialCharm, Charm charm, LearningModel learningModel) {
-    specialCharm.accept(new ISpecialCharmVisitor() {
+  public void registerSpecialCharmConfiguration(CharmSpecialLearning specialCharm, Charm charm, LearningModel learningModel) {
+    specialCharm.accept(new ICharmSpecialLearningVisitor() {
       @Override
       public void visitMultiLearnableCharm(IMultiLearnableCharm visitedCharm) {
         registerMultiLearnableCharm(visitedCharm, charm, learningModel);
@@ -52,16 +43,6 @@ public class SpecialCharmManager implements ISpecialCharmManager {
       }
 
       @Override
-      public void visitOxBodyTechnique(IOxBodyTechniqueCharm visitedCharm) {
-        registerOxBodyTechnique(visitedCharm, charm, learningModel);
-      }
-
-      @Override
-      public void visitPainToleranceCharm(IPainToleranceCharm visitedCharm) {
-        registerPainToleranceCharm(visitedCharm, charm);
-      }
-
-      @Override
       public void visitSubEffectCharm(ISubEffectCharm visitedCharm) {
         registerSubEffectCharm(visitedCharm, charm, learningModel);
       }
@@ -69,7 +50,7 @@ public class SpecialCharmManager implements ISpecialCharmManager {
   }
 
   @Override
-  public CharmSpecialsModel getSpecialCharmConfiguration(Charm charm) {
+  public CharmSpecialLearningModel getSpecialCharmConfiguration(Charm charm) {
     return specialConfigurationsByCharm.get(charm);
   }
 
@@ -85,38 +66,12 @@ public class SpecialCharmManager implements ISpecialCharmManager {
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void registerOxBodyTechnique(IOxBodyTechniqueCharm visited, Charm charm, LearningModel group) {
-    HealthModel health = specialist.getHealth();
-    OxBodyTechniqueArbitratorImpl arbitrator = createArbitrator();
-    TraitType[] relevantTraits = visited.getRelevantTraits();
-    OxBodyTechniqueSpecialsImpl specials = new OxBodyTechniqueSpecialsImpl(hero, charm, relevantTraits, arbitrator,
-            visited);
-    addSpecialCharmConfiguration(charm, group, specials, true, true);
-    arbitrator.addOxBodyTechniqueConfiguration(specials);
-    health.addHealthLevelProvider(specials.getHealthLevelProvider());
-  }
-
-  private OxBodyTechniqueArbitratorImpl createArbitrator() {
-    HealthModel healthModel = HealthModelFetcher.fetch(hero);
-    TraitType[] toughnessControllingTraitTypes = healthModel.getToughnessControllingTraitTypes();
-    return new OxBodyTechniqueArbitratorImpl(TraitModelFetcher.fetch(hero).getTraits(toughnessControllingTraitTypes));
-  }
-
-  private void registerPainToleranceCharm(final IPainToleranceCharm visitedCharm, Charm charm) {
-    final CharmSpecialsModel charmSpecialsModel = getSpecialCharmConfiguration(charm);
-    IPainToleranceProvider painToleranceProvider = () -> {
-      int learnCount = charmSpecialsModel.getCurrentLearnCount();
-      return visitedCharm.getPainToleranceLevel(learnCount);
-    };
-    specialist.getHealth().addPainToleranceProvider(painToleranceProvider);
-  }
-
   private void registerSubEffectCharm(ISubEffectCharm visited, Charm charm, LearningModel group) {
     SubEffectCharmSpecialsImpl configuration = new SubEffectCharmSpecialsImpl(specialist, charm, visited, arbitrator);
     addSpecialCharmConfiguration(charm, group, configuration, true, true);
   }
 
-  private void addSpecialCharmConfiguration(Charm charm, LearningModel group, CharmSpecialsModel charmSpecialsModel,
+  private void addSpecialCharmConfiguration(Charm charm, LearningModel group, CharmSpecialLearningModel charmSpecialsModel,
                                             boolean learnListener, boolean forgetAtZero) {
     if (specialConfigurationsByCharm.containsKey(charm)) {
       throw new IllegalArgumentException("Special charmSpecialsModel already defined for charm " + charm.getName().text);

@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.model;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
-import net.sf.anathema.hero.charms.model.special.multilearn.TraitRequirementChecker;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitRequirementChecker;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;

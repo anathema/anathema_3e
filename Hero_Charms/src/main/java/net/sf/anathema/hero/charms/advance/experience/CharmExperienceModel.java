@@ -5,7 +5,7 @@ import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
@@ -45,7 +45,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
   }
 
   private int calculateCharmCost(CharmsModel charms, Charm charm) {
-    CharmSpecialsModel specialCharm = charms.getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel specialCharm = charms.getCharmSpecialLearningModel(charm);
     int charmCost = calculator.getCharmCosts(hero, charm);
     LearningModel learnModel = charms.getLearningModel();
     if (specialCharm != null) {

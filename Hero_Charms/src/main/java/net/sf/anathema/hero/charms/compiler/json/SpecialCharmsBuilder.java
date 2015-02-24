@@ -1,35 +1,49 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialMechanicsBuilder;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 public class SpecialCharmsBuilder {
 
-  private ReflectionSpecialCharmBuilder builder;
-  private List<ISpecialCharm> specialCharms = new ArrayList<>();
+  private ReflectionSpecialCharmBuilder learningBuilder;
+  private ReflectionSpecialMechanicsBuilder mechanicsBuilder;
+  private List<CharmSpecialLearning> specialLearningCharms = new ArrayList<>();
+  private Multimap<String, CharmSpecialMechanic> specialMechanics = ArrayListMultimap.create();
 
   public SpecialCharmsBuilder(ObjectFactory objectFactory) {
-    this.builder = new ReflectionSpecialCharmBuilder(objectFactory);
+    this.learningBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
+    this.mechanicsBuilder = new ReflectionSpecialMechanicsBuilder(objectFactory);
   }
 
   public void addTemplate(SpecialCharmListTemplate listTemplate, AdditionalCharmFactory factory) {
     listTemplate.charms.forEach((name, template) -> {
     	template.charmId = name;
-    	ISpecialCharm special = builder.readCharm(template, factory);
+    	CharmSpecialLearning special = learningBuilder.readCharmLearning(template, factory);
     	if (special != null) {
-    		specialCharms.add(special);
+    		specialLearningCharms.add(special);
+    	}
+    	List<CharmSpecialMechanic> mechanics = mechanicsBuilder.readCharmMechanics(template);
+    	if (!mechanics.isEmpty()) {
+    		specialMechanics.putAll(name, mechanics);
     	}
     });
   }
 
   public void addToCache(CharmCacheImpl cache) {
-    specialCharms.stream().forEach(cache::addSpecial);
+  	specialLearningCharms.stream().forEach(cache::addSpecialLearning);
+  	specialMechanics.keySet().stream().forEach(charmName ->
+  	cache.addSpecialMechanics(charmName, specialMechanics.get(charmName)));
   }
 }

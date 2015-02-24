@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.library.initialization.DoNotInstantiateAutomatically;
 
 @DoNotInstantiateAutomatically
-public class ConfigurableDummySpecialCharmBuilder implements SpecialCharmBuilder {
+public class ConfigurableDummySpecialCharmBuilder implements CharmSpecialLearningBuilder {
   private SpecialCharmTemplate dto;
-  private ISpecialCharm charm;
+  private CharmSpecialLearning charm;
 
   @Override
-  public ISpecialCharm readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory) {
+  public CharmSpecialLearning readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory) {
     if (dto.equals(this.dto)){
       return charm;
     }
@@ -27,7 +27,7 @@ public class ConfigurableDummySpecialCharmBuilder implements SpecialCharmBuilder
     return this;
   }
 
-  public ConfigurableDummySpecialCharmBuilder with(ISpecialCharm charm) {
+  public ConfigurableDummySpecialCharmBuilder with(CharmSpecialLearning charm) {
     this.charm = charm;
     return this;
   }

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.persistence.special;
 
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 
 public interface SpecialCharmPersister {
 
-  void saveCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto);
+  void saveCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto);
 
-  void loadCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto);
+  void loadCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto);
 }

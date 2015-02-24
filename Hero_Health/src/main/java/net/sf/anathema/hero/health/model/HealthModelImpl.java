@@ -1,5 +1,9 @@
 package net.sf.anathema.hero.health.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.health.template.HealthTemplate;
@@ -7,14 +11,8 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class HealthModelImpl implements HealthModel {
 
@@ -94,11 +92,6 @@ public class HealthModelImpl implements HealthModel {
   		usesExaltedHealing |= provider.usesExaltedHealing();
   	}
   	return usesExaltedHealing;
-  }
-  
-  @Override
-  public TraitType[] getToughnessControllingTraitTypes() {
-    return new TraitType[]{AbilityType.Resistance};
   }
 
   private static class DyingStaminaHealthLevelProvider implements IHealthLevelProvider {

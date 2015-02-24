@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
 import net.sf.anathema.hero.charms.model.CharmMap;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.NullSpecialCharm;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
@@ -35,7 +35,7 @@ public class DefaultTooltipProperties implements ToolTipProperties {
       return;
     }
     Charm charm = findNonNullCharm(toCharmName(nodeId));
-    ISpecialCharm specialCharm = getSpecialCharm(toCharmName(nodeId));
+    CharmSpecialLearning specialCharm = getSpecialCharm(toCharmName(nodeId));
     tooltipTextProvider.configureTooltipWithSpecials(charm, specialCharm, tooltip);
   }
 
@@ -45,8 +45,8 @@ public class DefaultTooltipProperties implements ToolTipProperties {
     return charm;
   }
 
-  private ISpecialCharm getSpecialCharm(CharmName charmName) {
-    for (ISpecialCharm special : specialCharmSet) {
+  private CharmSpecialLearning getSpecialCharm(CharmName charmName) {
+    for (CharmSpecialLearning special : specialCharmSet) {
       if (special.getCharmName().equals(charmName)) {
         return special;
       }

@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import net.sf.anathema.platform.tree.display.TreeView;
 
 public interface SpecialCharmList {
-  void add(ISpecialCharm charm);
+  void add(CharmSpecialLearning charm);
 
   void showViews();
 

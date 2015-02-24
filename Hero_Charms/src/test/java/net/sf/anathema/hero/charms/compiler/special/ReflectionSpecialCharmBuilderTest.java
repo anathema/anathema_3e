@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import org.junit.Test;
 
@@ -16,15 +16,15 @@ public class ReflectionSpecialCharmBuilderTest {
   @Test
   public void returnsCharmFromRegisteredBuilder() {
     SpecialCharmTemplate dto = new SpecialCharmTemplate();
-    ISpecialCharm charm = mock(ISpecialCharm.class);
+    CharmSpecialLearning charm = mock(CharmSpecialLearning.class);
     registerBuilderForDtoYieldingCharm(dto, charm);
-    ISpecialCharm specialCharm = new ReflectionSpecialCharmBuilder(factory).readCharm(dto, null);
+    CharmSpecialLearning specialCharm = new ReflectionSpecialCharmBuilder(factory).readCharmLearning(dto, null);
     assertThat(specialCharm, is(charm));
   }
 
-  private void registerBuilderForDtoYieldingCharm(SpecialCharmTemplate dto, ISpecialCharm charm) {
+  private void registerBuilderForDtoYieldingCharm(SpecialCharmTemplate dto, CharmSpecialLearning charm) {
     ConfigurableDummySpecialCharmBuilder builder = new ConfigurableDummySpecialCharmBuilder();
     builder.support(dto).with(charm);
-    factory.add(SpecialCharmBuilder.class, builder);
+    factory.add(CharmSpecialLearningBuilder.class, builder);
   }
 }

@@ -18,8 +18,9 @@ import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -126,7 +127,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public CharmSpecialsModel getCharmSpecialsModel(Charm charm) {
+  public CharmSpecialLearningModel getCharmSpecialLearningModel(Charm charm) {
     return null;
   }
 
@@ -151,7 +152,7 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public Collection<ISpecialCharm> getSpecialCharms() {
+  public Collection<CharmSpecialLearning> getSpecialLearningCharms() {
     return Collections.emptyList();
   }
 
@@ -194,4 +195,9 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   public void addPrintMagic(List<IMagicStats> printMagic) {
     // nothing to do
   }
+
+	@Override
+	public Collection<CharmSpecialMechanic> getAllMechanics() {
+		return null;
+	}
 }

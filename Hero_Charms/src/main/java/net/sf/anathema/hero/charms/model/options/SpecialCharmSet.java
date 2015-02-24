@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -8,10 +8,10 @@ import java.util.List;
 
 public class SpecialCharmSet {
 
-  private final List<ISpecialCharm> list = new ArrayList<>();
+  private final List<CharmSpecialLearning> list = new ArrayList<>();
 
-  public void add(ISpecialCharm identificate) {
-    for (ISpecialCharm existing : new ArrayList<>(list)) {
+  public void add(CharmSpecialLearning identificate) {
+    for (CharmSpecialLearning existing : new ArrayList<>(list)) {
       if (existing.getCharmName().equals(identificate.getCharmName())) {
         list.remove(existing);
       }
@@ -19,7 +19,7 @@ public class SpecialCharmSet {
     list.add(identificate);
   }
 
-  public ISpecialCharm[] toArray(ISpecialCharm[] array) {
+  public CharmSpecialLearning[] toArray(CharmSpecialLearning[] array) {
     return list.toArray(array);
   }
 
@@ -27,8 +27,8 @@ public class SpecialCharmSet {
     return list.size();
   }
 
-  public void addAll(Collection<ISpecialCharm> identificates) {
-    for (ISpecialCharm identificate : identificates) {
+  public void addAll(Collection<CharmSpecialLearning> identificates) {
+    for (CharmSpecialLearning identificate : identificates) {
       add(identificate);
     }
   }

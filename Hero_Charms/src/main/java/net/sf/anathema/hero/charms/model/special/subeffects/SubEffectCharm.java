@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.special.subeffects;
 
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
+import net.sf.anathema.hero.charms.model.special.ICharmSpecialLearningVisitor;
 
 public class SubEffectCharm extends MultipleEffectCharm implements ISubEffectCharm {
 
@@ -18,7 +18,7 @@ public class SubEffectCharm extends MultipleEffectCharm implements ISubEffectCha
   }
 
   @Override
-  public void accept(ISpecialCharmVisitor visitor) {
+  public void accept(ICharmSpecialLearningVisitor visitor) {
     visitor.visitSubEffectCharm(this);
   }
 }

@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.AbstractMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.CharmTier;
-import net.sf.anathema.hero.charms.model.special.multilearn.EssenceFixedMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.TieredMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.TraitDependentMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.AbstractMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.CharmTier;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.EssenceFixedMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.StaticMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.TieredMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitDependentMultiLearnableCharm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
@@ -24,9 +24,9 @@ public class SpecialCharmContributor implements MagicTooltipContributor {
 
   @Override
   public void buildStringForMagic(ConfigurableTooltip tooltip, Magic magic, Object specialDetails) {
-    if (magic instanceof Charm && specialDetails instanceof ISpecialCharm) {
+    if (magic instanceof Charm && specialDetails instanceof CharmSpecialLearning) {
       Charm charm = (Charm) magic;
-      ISpecialCharm details = (ISpecialCharm) specialDetails;
+      CharmSpecialLearning details = (CharmSpecialLearning) specialDetails;
       if (details instanceof AbstractMultiLearnableCharm) {
         String label = resources.getString("CharmTreeView.ToolTip.Repurchases");
         String repurchaseInfo = null;

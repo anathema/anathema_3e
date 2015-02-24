@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.event.ChangeListener;
@@ -27,7 +27,7 @@ public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrato
 
   void addLearnableListener(ChangeListener listener);
 
-  CharmSpecialsModel getCharmSpecialsModel(Charm charm);
+  CharmSpecialLearningModel getCharmSpecialLearningModel(Charm charm);
 
   LearningModel getLearningModel();
 

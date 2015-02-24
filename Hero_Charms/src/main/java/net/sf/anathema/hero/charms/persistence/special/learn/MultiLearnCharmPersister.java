@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.persistence.special.learn;
 
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnCharmSpecials;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnCharmSpecials;
 import net.sf.anathema.hero.charms.persistence.special.CharmSpecialsPto;
 import net.sf.anathema.hero.charms.persistence.special.SpecialCharmPersister;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -9,7 +9,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 public class MultiLearnCharmPersister implements SpecialCharmPersister {
 
   @Override
-  public void saveCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto) {
+  public void saveCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto) {
     MultiLearnCharmSpecials multiLearn = (MultiLearnCharmSpecials) charmSpecials;
     specialsPto.multiLearn = createMultiLearnPto(multiLearn);
   }
@@ -24,7 +24,7 @@ public class MultiLearnCharmPersister implements SpecialCharmPersister {
   }
 
   @Override
-  public void loadCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto) {
+  public void loadCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto) {
     MultiLearnCharmSpecials configuration = (MultiLearnCharmSpecials) charmSpecials;
     if (specialsPto.multiLearn == null) {
       return;

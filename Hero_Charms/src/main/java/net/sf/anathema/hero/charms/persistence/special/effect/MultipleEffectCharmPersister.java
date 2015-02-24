@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.persistence.special.effect;
 
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.persistence.special.CharmSpecialsPto;
@@ -9,7 +9,7 @@ import net.sf.anathema.hero.charms.persistence.special.SpecialCharmPersister;
 public class MultipleEffectCharmPersister implements SpecialCharmPersister {
 
   @Override
-  public void saveCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto) {
+  public void saveCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto) {
     MultipleEffectCharmSpecials multipleEffects = (MultipleEffectCharmSpecials) charmSpecials;
     SubEffectListPto subEffectsList = createPto(multipleEffects);
     specialsPto.subEffects = subEffectsList;
@@ -33,7 +33,7 @@ public class MultipleEffectCharmPersister implements SpecialCharmPersister {
   }
 
   @Override
-  public void loadCharmSpecials(CharmSpecialsModel charmSpecials, CharmSpecialsPto specialsPto) {
+  public void loadCharmSpecials(CharmSpecialLearningModel charmSpecials, CharmSpecialsPto specialsPto) {
     if (specialsPto.subEffects == null) {
       return;
     }

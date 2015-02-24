@@ -290,6 +290,34 @@
             "type": "Reflexive"
         }, 
         "Solar.OxBodyTechnique": {
+            "addsHealthLevelsByTrait": {
+                "grantedLevels": {
+                    "1": [
+                        "oneHealthLevel", 
+                        "twoHealthLevel"
+                    ], 
+                    "2": [
+                        "oneHealthLevel", 
+                        "twoHealthLevel"
+                    ], 
+                    "3": [
+                        "oneHealthLevel", 
+                        "twoHealthLevel", 
+                        "twoHealthLevel"
+                    ], 
+                    "4": [
+                        "oneHealthLevel", 
+                        "twoHealthLevel", 
+                        "twoHealthLevel"
+                    ], 
+                    "5": [
+                        "zeroHealthLevel", 
+                        "oneHealthLevel", 
+                        "twoHealthLevel"
+                    ]
+                }, 
+                "trait": "Stamina"
+            }, 
             "cost": "--", 
             "duration": "Permanent", 
             "keywords": [

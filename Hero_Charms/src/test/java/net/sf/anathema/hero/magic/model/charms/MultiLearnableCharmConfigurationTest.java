@@ -1,25 +1,23 @@
 package net.sf.anathema.hero.magic.model.charms;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
-import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
-import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnableCharmSpecialsImpl;
-import net.sf.anathema.hero.charms.model.special.multilearn.StaticMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.IMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnableCharmSpecialsImpl;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.dummy.DummyHero;
-import net.sf.anathema.hero.magic.dummy.DummyCharmsModel;
 import net.sf.anathema.hero.magic.dummy.DummyLearnableArbitrator;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ExperiencedTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
+
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 
 public class MultiLearnableCharmConfigurationTest {
 

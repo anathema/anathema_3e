@@ -2,7 +2,7 @@ package net.sf.anathema.hero.charms.display.tree;
 
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 
 import java.util.Iterator;
 
@@ -14,7 +14,7 @@ public class CharacterSpecialCharmSet implements SpecialCharmSet {
   }
 
   @Override
-  public Iterator<ISpecialCharm> iterator() {
-    return model.getCharmModel().getOptions().getSpecialCharms().iterator();
+  public Iterator<CharmSpecialLearning> iterator() {
+    return model.getCharmModel().getOptions().getSpecialLearningCharms().iterator();
   }
 }

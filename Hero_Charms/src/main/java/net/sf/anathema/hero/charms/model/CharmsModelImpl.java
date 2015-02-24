@@ -28,8 +28,8 @@ import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmManager;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmManager;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
@@ -100,7 +100,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.hero = hero;
     this.options = new CharmOptionsImpl(environment.getDataSet(CharmCache.class), charmsRules, hero);
     this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
-    initSpecialCharms();
+    initSpecialLearningCharms();
     learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     MagicPointsModelFetcher.fetch(hero).registerMagicLearner(new CharmLearner(this));
@@ -109,6 +109,8 @@ public class CharmsModelImpl implements CharmsModel {
             .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
             .forEach(AdditionalCharmRules::initialize);
+    
+    options.getAllMechanics().forEach(mechanic -> mechanic.initialize(hero));
   }
 
   @Override
@@ -150,9 +152,9 @@ public class CharmsModelImpl implements CharmsModel {
     learningModel.addCharmLearnListener(listener);
   }
 
-  private void initSpecialCharms() {
+  private void initSpecialLearningCharms() {
     CharmMap charmMap = options.getCharmIdMap();
-    for (ISpecialCharm specialCharm : options.getSpecialCharms()) {
+    for (CharmSpecialLearning specialCharm : options.getSpecialLearningCharms()) {
       Charm charm = charmMap.getCharmById(specialCharm.getCharmName());
       if (charm == null) {
         continue;
@@ -190,7 +192,7 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
-  public CharmSpecialsModel getCharmSpecialsModel(Charm charm) {
+  public CharmSpecialLearningModel getCharmSpecialLearningModel(Charm charm) {
     return manager.getSpecialCharmConfiguration(charm);
   }
 

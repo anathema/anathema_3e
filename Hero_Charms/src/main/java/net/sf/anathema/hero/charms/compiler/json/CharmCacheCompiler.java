@@ -1,22 +1,18 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
-import net.sf.anathema.charm.template.special.Repurchase;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.charm.template.special.learning.Repurchase;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
-import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.ResourceFile;

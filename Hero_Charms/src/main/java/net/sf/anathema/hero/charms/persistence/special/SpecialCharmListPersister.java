@@ -7,19 +7,16 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialsModel;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
-import net.sf.anathema.hero.charms.model.special.multilearn.IMultiLearnableCharm;
-import net.sf.anathema.hero.charms.model.special.multilearn.MultiLearnCharmSpecials;
-import net.sf.anathema.hero.charms.model.special.oxbody.IOxBodyTechniqueCharm;
-import net.sf.anathema.hero.charms.model.special.paintolerance.IPainToleranceCharm;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.ICharmSpecialLearningVisitor;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.IMultiLearnableCharm;
+import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnCharmSpecials;
 import net.sf.anathema.hero.charms.model.special.subeffects.IMultipleEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.persistence.CharmListPto;
 import net.sf.anathema.hero.charms.persistence.special.effect.MultipleEffectCharmPersister;
 import net.sf.anathema.hero.charms.persistence.special.learn.MultiLearnCharmPersister;
-import net.sf.anathema.hero.charms.persistence.special.oxbody.OxBodyTechniquePersister;
 
 public class SpecialCharmListPersister {
 
@@ -27,21 +24,11 @@ public class SpecialCharmListPersister {
 
   public SpecialCharmListPersister(CharmsModel model) {
     final CharmMap charmTree = model.getOptions().getCharmIdMap();
-    for (ISpecialCharm specialCharm : model.getOptions().getSpecialCharms()) {
-      specialCharm.accept(new ISpecialCharmVisitor() {
+    for (CharmSpecialLearning specialCharm : model.getOptions().getSpecialLearningCharms()) {
+      specialCharm.accept(new ICharmSpecialLearningVisitor() {
         @Override
         public void visitMultiLearnableCharm(IMultiLearnableCharm charm) {
           persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new MultiLearnCharmPersister());
-        }
-
-        @Override
-        public void visitOxBodyTechnique(IOxBodyTechniqueCharm charm) {
-          persisterByCharm.put(getCharm(charm.getCharmName(), charmTree), new OxBodyTechniquePersister());
-        }
-
-        @Override
-        public void visitPainToleranceCharm(IPainToleranceCharm charm) {
-          // Nothing to do
         }
 
         @Override
@@ -62,7 +49,7 @@ public class SpecialCharmListPersister {
   }
 
   public void saveCharmSpecials(CharmsModel charmsModel, Charm charm, CharmListPto charmPto) {
-    CharmSpecialsModel charmSpecials = charmsModel.getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel charmSpecials = charmsModel.getCharmSpecialLearningModel(charm);
     SpecialCharmPersister specialCharmPersister = persisterByCharm.get(charm);
     if (charmSpecials == null || specialCharmPersister == null) {
       return;
@@ -75,7 +62,7 @@ public class SpecialCharmListPersister {
 
   public void loadSpecials(CharmsModel model, Charm charm, CharmListPto pto, boolean isExperienceLearned) {
     SpecialCharmPersister specialPersister = persisterByCharm.get(charm);
-    CharmSpecialsModel charmSpecials = model.getCharmSpecialsModel(charm);
+    CharmSpecialLearningModel charmSpecials = model.getCharmSpecialLearningModel(charm);
     CharmSpecialsPto charmSpecialsPto = getSpecialCharmPto(charm.getName().text, pto);
     if (charmSpecialsPto != null && charmSpecials != null) {
       specialPersister.loadCharmSpecials(charmSpecials, charmSpecialsPto);

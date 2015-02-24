@@ -1,11 +1,11 @@
 package net.sf.anathema.cascades.presenter;
 
+import java.util.Iterator;
+
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharm;
-
-import java.util.Iterator;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 
 public class CascadeSpecialCharmSet implements SpecialCharmSet {
 
@@ -21,7 +21,7 @@ public class CascadeSpecialCharmSet implements SpecialCharmSet {
   }
 
   @Override
-  public Iterator<ISpecialCharm> iterator() {
-    return cache.getSpecialCharms(category).iterator();
+  public Iterator<CharmSpecialLearning> iterator() {
+    return cache.getSpecialLearningCharms(category).iterator();
   }
 }

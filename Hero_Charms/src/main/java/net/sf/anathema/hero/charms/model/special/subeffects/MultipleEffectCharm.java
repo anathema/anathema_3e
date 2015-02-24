@@ -5,7 +5,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
-import net.sf.anathema.hero.charms.model.special.ISpecialCharmVisitor;
+import net.sf.anathema.hero.charms.model.special.ICharmSpecialLearningVisitor;
 import net.sf.anathema.library.model.Condition;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class MultipleEffectCharm implements IMultipleEffectCharm {
   }
 
   @Override
-  public void accept(ISpecialCharmVisitor visitor) {
+  public void accept(ICharmSpecialLearningVisitor visitor) {
     visitor.visitMultipleEffectCharm(this);
   }
 
