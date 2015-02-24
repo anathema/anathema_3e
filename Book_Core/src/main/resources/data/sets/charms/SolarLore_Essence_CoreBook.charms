@@ -1,0 +1,319 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.EssenceDrainingTouch": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.InjuryForcingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EssenceFontTechnique": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WillBolsteringMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.EssenceLendingMethod": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Solar.EssenceTwiningMethod": {
+            "cost": "6m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceDrainingTouch", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FlowingEssenceConversion": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ImmanentSolarGlory", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ForceDrainingWhisper": {
+            "cost": "10m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceDrainingTouch", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ImmanentSolarGlory": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceFontTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.IncalculableFlowingMind": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SealofInfiniteWisdom", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.InjuryForcingTechnique": {
+            "cost": "5m per health level, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WoundAcceptingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PowerAwardingPrana": {
+            "cost": "5m + 1m per 1xp", 
+            "duration": "Indefinite", 
+            "keywords": [
+                "Mute", 
+                "Stackable"
+            ], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceFontTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SelfsameMasterInstructor", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.PowerRestoringInvocation": {
+            "cost": "2i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingEssenceConversion", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SealofInfiniteWisdom": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SurgingEssenceFlow", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SurgingEssenceFlow": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingEssenceConversion", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SurgingInnerFire": {
+            "cost": "--", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.PowerRestoringInvocation", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.UnstoppableMagnusApproach": {
+            "cost": "5m, 10i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Perilous"
+            ], 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.IncalculableFlowingMind", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SurgingInnerFire", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WillBolsteringMethod": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EssenceLendingMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WillShatteringIllusion": {
+            "cost": "10m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosRepellingPattern", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ForceDrainingWhisper", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WoundAcceptingTechnique": {
+            "cost": "3m per health level, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WillBolsteringMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Lore.Essence"
+}

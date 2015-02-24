@@ -1,0 +1,173 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BottomlessWellspringApproach": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.HarmoniousAcademicMethodology", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.GodKingsShrike(DogstarRuminations)": {
+            "cost": "30m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ProphetofSeventeenCycles", 
+                    "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 3, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeavenTurningCalculations": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 2, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.LoreExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.LoreInducingConcentration": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.BottomlessWellspringApproach", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ProphetofSeventeenCycles": {
+            "cost": "12m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SacredRelicUnderstanding": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.TruthRenderingGaze": {
+            "cost": "6m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.LoreInducingConcentration", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WaketheSleeper": {
+            "cost": "15m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SacredRelicUnderstanding", 
+                    "type": "charm"
+                }, 
+                {
+                    "options": [
+                        "Lore"
+                    ], 
+                    "threshold": 2, 
+                    "type": "numberOfTraitCharms"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Lore.Facts"
+}

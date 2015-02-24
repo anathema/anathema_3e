@@ -1,0 +1,246 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.ChaosRepellingPattern": {
+            "cost": "10m, 1wp", 
+            "duration": "One hour", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldDispellingPrana", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.DemiurgicSuspiration": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldForgingFocus", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.HeroInductionMethod": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ManseRaisingMethod": {
+            "cost": "10m, 1wp, 10xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldCalledWeapon", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OrderAffirmingBlow": {
+            "cost": "15m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [], 
+            "type": "Simple"
+        }, 
+        "Solar.PowerBeyondReason": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SevenfoldSavantMantle", 
+                    "type": "charm"
+                }
+            ], 
+            "repurchase": {
+                "tiers": [
+                    {
+                        "requirements": [
+                            {
+                                "traitType": "Essence", 
+                                "traitValue": 5
+                            }
+                        ]
+                    }
+                ], 
+                "type": "tier"
+            }, 
+            "type": "Permanent"
+        }, 
+        "Solar.SavantofNineGlories": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 5, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DemiurgicSuspiration", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SevenfoldSavantMantle": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 4, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldCauldronMastery", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.TomeRearingGesture": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Linguistics": 5, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.MindScribingMethod", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.WyldCalledWeapon": {
+            "cost": "7m, 1wp, 8xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WyldCauldronMastery": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WyldDispellingPrana": {
+            "cost": "5m, 1wp", 
+            "duration": "Varies", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 2
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WyldForgingFocus": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WyldShapingTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.WyldShapingTechnique": {
+            "cost": "15m, 1wp, 2xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ChaosRepellingPattern", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.OrderAffirmingBlow", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.TruthRenderingGaze", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Lore.Wyld"
+}

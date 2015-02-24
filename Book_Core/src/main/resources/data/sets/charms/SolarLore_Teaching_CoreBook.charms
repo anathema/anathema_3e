@@ -1,0 +1,115 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.FirstKnowledgesGrace": {
+            "cost": "4m", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.HarmoniousAcademicMethodology", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FlowingMindPrana": {
+            "cost": "1xp+", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FirstKnowledgesGrace", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HarmoniousAcademicMethodology": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 3
+            }, 
+            "prerequisites": [], 
+            "type": "Permanent"
+        }, 
+        "Solar.HiddenWisdomBestowal": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [
+                "Mute"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.LegendaryScholarsCurriculum": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SelfsameMasterInstructor": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.LegendaryScholarsCurriculum", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.TirelessLearnerMethod": {
+            "cost": "1xp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Lore": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlowingMindPrana", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Lore.Teaching"
+}

@@ -1,0 +1,397 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.AgileDragonflyBlade": {
+            "cost": "--(3m)", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.BlazingSolarBolt": {
+            "cost": "5m, 2i, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CoronaofRadiance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.CalltheBlade": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CircleofBrightReaving": {
+            "cost": "6m, 1a, 2i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Withering-only", 
+                "Perilous"
+            ], 
+            "minimums": {
+                "Essence": 5, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.HeavenSwordFlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CoronaofRadiance": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.EdgeofMorningSunlight", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.EdgeofMorningSunlight": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SandstormWindAttack", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ExcellentStrike": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 2
+            }, 
+            "prerequisites": [], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FireandStonesStrike": {
+            "cost": "1m per die or success", 
+            "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.FoeCleavingFocus": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.RisingSunSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.GloriousSolarSaber": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SummoningtheLoyalSteel", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HeavenSwordFlash": {
+            "cost": "7m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only", 
+                "Perilous"
+            ], 
+            "minimums": {
+                "Essence": 4, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.InvincibleFuryoftheDawn", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.HungryTigerTechnique": {
+            "cost": "3m, 2i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Dual"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.RisingSunSlash", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Supplemental"
+        }, 
+        "Solar.ImmortalBladeTriumphant": {
+            "cost": "10m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.GloriousSolarSaber", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.InvincibleFuryoftheDawn": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.IronWhirlwindAttack", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.IronRaptorTechnique": {
+            "cost": "7m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Mute", 
+                "Uniform"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.IronWhirlwindAttack": {
+            "cost": "5m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.PeonyBlossomTechnique", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.MeleeExcellency": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OneWeapon,TwoBlows": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 2
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.PeonyBlossomTechnique": {
+            "cost": "1m, 1wp, 3a", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.RisingSunSlash": {
+            "cost": "1m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Uniform"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FireandStonesStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.SandstormWindAttack": {
+            "cost": "5m, 2i", 
+            "duration": "Instant", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SharpLightofJudgmentStance": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CoronaofRadiance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.SummoningtheLoyalSteel": {
+            "cost": "1m", 
+            "duration": "Indefinite", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.CalltheBlade", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }
+    }, 
+    "tree": "Melee.Offense"
+}

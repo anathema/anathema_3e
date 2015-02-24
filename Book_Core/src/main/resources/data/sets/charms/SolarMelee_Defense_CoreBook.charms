@@ -1,0 +1,282 @@
+{
+    "category": "Solar", 
+    "charms": {
+        "Solar.BulwarkStance": {
+            "cost": "5m", 
+            "duration": "Until next turn", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.CalmandReadyFocus": {
+            "cost": "--", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WarLionStance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.DippingSwallowDefense": {
+            "cost": "2m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FerventBlow": {
+            "cost": "1m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Clash", 
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FlashingEdgeofDawn", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.FivefoldBulwarkStance": {
+            "cost": "5m, 1wp", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.BulwarkStance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.FlashingEdgeofDawn": {
+            "cost": "4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Withering-only"
+            ], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.OneWeapon,TwoBlows", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.SolarCounterattack", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.GuardBreakingTechnique": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WarLionStance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HailShatteringPractice": {
+            "cost": "1m per success", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 3
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.HeavenlyGuardianDefense": {
+            "cost": "1i per success +4m or 4m, 1wp", 
+            "duration": "Instant", 
+            "keywords": [
+                "Perilous", 
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.BulwarkStance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.OverandUnderMethod": {
+            "cost": "--(7m, 1wp)", 
+            "duration": "Permanent", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.FerventBlow", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.PerfectStrikeDiscipline": {
+            "cost": "1wp", 
+            "duration": "Instant", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 3, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }, 
+                {
+                    "id": "Solar.ExcellentStrike", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ProtectionofCelestialBliss": {
+            "cost": "--(4m, 1wp)", 
+            "duration": "Permanent", 
+            "keywords": [
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 5, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.HeavenlyGuardianDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Permanent"
+        }, 
+        "Solar.ReadyinEightDirectionsStance": {
+            "cost": "5m", 
+            "duration": "Until next turn", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.SolarCounterattack", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Simple"
+        }, 
+        "Solar.SolarCounterattack": {
+            "cost": "3m", 
+            "duration": "Instant", 
+            "keywords": [
+                "Counterattack", 
+                "Decisive-only"
+            ], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.UnassailableGuardianPosture": {
+            "cost": "1m, 1wp", 
+            "duration": "One turn", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 2, 
+                "Melee": 5
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.WarLionStance", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.WarLionStance": {
+            "cost": "2m", 
+            "duration": "One scene", 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 4
+            }, 
+            "prerequisites": [
+                {
+                    "id": "Solar.DippingSwallowDefense", 
+                    "type": "charm"
+                }
+            ], 
+            "type": "Reflexive"
+        }
+    }, 
+    "tree": "Melee.Defense"
+}
