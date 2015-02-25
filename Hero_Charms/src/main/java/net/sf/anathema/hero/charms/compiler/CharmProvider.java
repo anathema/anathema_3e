@@ -17,7 +17,7 @@ public interface CharmProvider {
 
   List<CharmSpecialLearning> getSpecialLearningCharms(CategoryReference category);
   
-  List<Charm> getCharmsWithSpecialMechanics();
+  Collection<Charm> getCharmsWithSpecialMechanics();
   
   Collection<CharmSpecialMechanic> getSpecialMechanicsForCharm(CharmName name);
 }

@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.dummy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
@@ -8,6 +11,7 @@ import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.io.DataFileProvider;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
+
 import org.mockito.Mockito;
 
 public class DummyHeroEnvironment implements HeroEnvironment {
@@ -15,6 +19,7 @@ public class DummyHeroEnvironment implements HeroEnvironment {
   public DummyHeroTypes characterTypes = new DummyHeroTypes();
   public DataFileProvider mockFileProvider = Mockito.mock(DataFileProvider.class);
   public ObjectFactory mockObjectFactory = Mockito.mock(ObjectFactory.class);
+  public List<ExtensibleDataSet> dataSets = new ArrayList<>();
 
   @Override
   public HeroTypes getHeroTypes() {
@@ -53,6 +58,6 @@ public class DummyHeroEnvironment implements HeroEnvironment {
 
   @Override
   public <T extends ExtensibleDataSet> T getDataSet(Class<T> set) {
-    throw new UnsupportedOperationException();
+    return (T)dataSets.stream().filter(item -> set.isInstance(item)).findFirst().get();
   }
 }
