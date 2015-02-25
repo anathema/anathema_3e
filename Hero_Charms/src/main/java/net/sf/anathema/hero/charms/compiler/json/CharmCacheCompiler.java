@@ -19,6 +19,7 @@ import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
+import net.sf.anathema.platform.persistence.common.ValueTemplate;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 @Weight(weight = 50)
@@ -52,7 +53,7 @@ public class CharmCacheCompiler implements ExtensibleDataSetCompiler {
     RuntimeTypeAdapterFactory[] charmFactories =
             new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(CharmPrerequisiteTemplate.class);
     RuntimeTypeAdapterFactory[] specialFactories =
-            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class);
+            new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(Repurchase.class, ValueTemplate.class);
     GenericTemplateLoader<CharmListTemplate> charmsLoader = new GenericTemplateLoader<>(CharmListTemplate.class, charmFactories);
     GenericTemplateLoader<SpecialCharmListTemplate> specialsLoader = new GenericTemplateLoader<>(SpecialCharmListTemplate.class, specialFactories);
     CharmCacheBuilderImpl charmsBuilder = new CharmCacheBuilderImpl();

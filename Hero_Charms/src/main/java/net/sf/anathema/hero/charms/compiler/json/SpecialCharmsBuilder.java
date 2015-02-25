@@ -11,6 +11,7 @@ import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilde
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialMechanicsBuilder;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
+import net.sf.anathema.hero.individual.persistence.values.ReflectionValueBuilder;
 import net.sf.anathema.library.initialization.ObjectFactory;
 
 import com.google.common.collect.ArrayListMultimap;
@@ -20,12 +21,14 @@ public class SpecialCharmsBuilder {
 
   private ReflectionSpecialCharmBuilder learningBuilder;
   private ReflectionSpecialMechanicsBuilder mechanicsBuilder;
+  private ReflectionValueBuilder valueBuilder;
   private List<CharmSpecialLearning> specialLearningCharms = new ArrayList<>();
   private Multimap<String, CharmSpecialMechanic> specialMechanics = ArrayListMultimap.create();
 
   public SpecialCharmsBuilder(ObjectFactory objectFactory) {
     this.learningBuilder = new ReflectionSpecialCharmBuilder(objectFactory);
     this.mechanicsBuilder = new ReflectionSpecialMechanicsBuilder(objectFactory);
+    this.valueBuilder = new ReflectionValueBuilder(objectFactory);
   }
 
   public void addTemplate(SpecialCharmListTemplate listTemplate, AdditionalCharmFactory factory) {
@@ -42,7 +45,7 @@ public class SpecialCharmsBuilder {
   }
   
   private void handleMechanics(SpecialCharmTemplate template, String id) {
-  	List<CharmSpecialMechanic> mechanics = mechanicsBuilder.readCharmMechanics(template, id);
+  	List<CharmSpecialMechanic> mechanics = mechanicsBuilder.readCharmMechanics(template, id, valueBuilder);
   	if (!mechanics.isEmpty()) {
   		specialMechanics.putAll(id, mechanics);
   	}

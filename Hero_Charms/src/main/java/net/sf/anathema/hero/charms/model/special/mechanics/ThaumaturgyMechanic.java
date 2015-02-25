@@ -2,15 +2,16 @@ package net.sf.anathema.hero.charms.model.special.mechanics;
 
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.persistence.values.Value;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyProvider;
 
 public class ThaumaturgyMechanic extends AbstractCharmMechanic {
 
 	private final boolean grantsAccess;
-	private final int grantsFreeRituals;
+	private final Value grantsFreeRituals;
 	
-	public ThaumaturgyMechanic(CharmName id, boolean access, int freeRituals) {
+	public ThaumaturgyMechanic(CharmName id, boolean access, Value freeRituals) {
 		super(id);
 		this.grantsAccess = access;
 		this.grantsFreeRituals = freeRituals;
@@ -36,7 +37,7 @@ public class ThaumaturgyMechanic extends AbstractCharmMechanic {
 
 		@Override
 		public int numberOfRitualsProvided() {
-			return grantsFreeRituals * getLearnCount(hero);
+			return grantsFreeRituals.getValueForHero(hero) * getLearnCount(hero);
 		}
 		
 	}

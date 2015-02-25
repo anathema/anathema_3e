@@ -13,6 +13,7 @@ import net.sf.anathema.hero.charms.compiler.special.CharmSpecialMechanicsBuilder
 import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.charms.model.special.mechanics.AddsHealthLevelsByTraitMechanic;
 import net.sf.anathema.hero.health.model.HealthLevelType;
+import net.sf.anathema.hero.individual.persistence.values.ValueFactory;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 
@@ -28,7 +29,9 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto, String id) {
+  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto,
+  		String id,
+  		ValueFactory valueFactory) {
     return createSpecialCharm(new CharmName(id), overallDto.addsHealthLevelsByTrait);
   }
 
