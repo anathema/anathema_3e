@@ -19,7 +19,9 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
 import net.sf.anathema.hero.merits.model.mechanics.MeritHealthProvider;
+import net.sf.anathema.hero.merits.model.mechanics.MeritThaumaturgyProvider;
 import net.sf.anathema.hero.merits.model.mechanics.MeritUnarmedModificationProvider;
+import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -55,11 +57,12 @@ public class MeritsModelImpl extends AbstractRemovableEntryModel<Merit> implemen
     this.meritCache = environment.getDataSet(MeritCache.class);
     MeritHealthProvider healthProvider = new MeritHealthProvider(this);
     MeritUnarmedModificationProvider unarmedProvider = new MeritUnarmedModificationProvider(this);
+    MeritThaumaturgyProvider thaumaturgyProvider = new MeritThaumaturgyProvider(this);
     HealthModelFetcher.fetch(hero).addHealthLevelProvider(healthProvider);
     HealthModelFetcher.fetch(hero).addPainToleranceProvider(healthProvider);
     HealthModelFetcher.fetch(hero).addHealingTypeProvider(healthProvider);
     EquipmentModelFetcher.fetch(hero).addUnarmedModification(unarmedProvider);
-    
+    ThaumaturgyModelFetcher.fetch(hero).addThaumaturgyProvider(thaumaturgyProvider);
   }
 
   @SuppressWarnings("unchecked")

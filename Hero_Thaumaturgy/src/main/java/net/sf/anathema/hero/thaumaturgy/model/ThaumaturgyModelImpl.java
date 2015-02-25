@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -20,6 +21,7 @@ public class ThaumaturgyModelImpl extends AbstractRemovableEntryModel<KnownRitua
 
   private final Announcer<ChangeListener> currentTypeChangeAnnouncer = Announcer.to(ChangeListener.class);
   private final Announcer<ChangeListener> currentMeritChangeAnnouncer = Announcer.to(ChangeListener.class);
+  private final List<ThaumaturgyProvider> providers = new ArrayList<>();
   private ChangeAnnouncer change;
   private ThaumaturgyRitualCache ritualCache;
   private ThaumaturgyRitual currentRitual = new NullRitualOption();
@@ -130,6 +132,20 @@ public class ThaumaturgyModelImpl extends AbstractRemovableEntryModel<KnownRitua
 
 	@Override
 	public boolean isEntryAllowed() {
-		return true;
+		return hasThaumaturgy();
+	}
+	
+	private boolean hasThaumaturgy() {
+		for (ThaumaturgyProvider provider : providers) {
+			if (provider.grantsThaumaturgy()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public void addThaumaturgyProvider(ThaumaturgyProvider provider) {
+		providers.add(provider);
 	}
 }

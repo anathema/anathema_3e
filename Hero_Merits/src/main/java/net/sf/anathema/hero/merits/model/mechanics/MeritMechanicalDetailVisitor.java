@@ -10,4 +10,6 @@ public interface MeritMechanicalDetailVisitor {
 	void visitSavageModificationDetail(MeritSavageModificationDetail detail);
 	
 	void visitExaltedHealingDetail(MeritExaltedHealingDetail detail);
+	
+	void visitThaumaturgyDetail(MeritThaumaturgyDetail detail);
 }

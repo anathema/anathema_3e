@@ -32,6 +32,8 @@ public interface ThaumaturgyModel extends RemovableEntryModel<KnownRitual>, Hero
   void whenTypeChanges(ChangeListener changeListener);
 
   void whenCurrentOptionChanges(ChangeListener changeListener);
+  
+  void addThaumaturgyProvider(ThaumaturgyProvider provider);
 
   boolean isEntryAllowed();
 }

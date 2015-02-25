@@ -383,6 +383,18 @@
 			"requirements": [ ]
 		},
 		{
+			"name": "Thaumaturgist",
+			"values": "4",
+			"type": "Innate",
+			"repurchases": false,
+			"requirements": [ ],
+			"mechanics": [
+				{
+			 		"type": "GrantsThaumaturgy"
+			 	}
+			]
+		},
+		{
 			"name": "Toxin Resistance",
 			"values": "3",
 			"type": "Purchased",
