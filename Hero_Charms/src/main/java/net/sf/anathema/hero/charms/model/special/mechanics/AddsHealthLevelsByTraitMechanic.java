@@ -2,12 +2,7 @@ package net.sf.anathema.hero.charms.model.special.mechanics;
 
 import java.util.Map;
 
-import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;
@@ -16,16 +11,16 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 
-public class AddsHealthLevelsByTraitMechanic implements CharmSpecialMechanic {
+public class AddsHealthLevelsByTraitMechanic extends AbstractCharmMechanic {
 
   private final TraitType traitType;
   private final Map<Integer, HealthLevelType[]> healthLevels;
-  private final CharmName charmId;
+  
 
   public AddsHealthLevelsByTraitMechanic(CharmName charmId, TraitType traitType, Map<Integer, HealthLevelType[]> healthLevels) {
+  	super(charmId);
     this.traitType = traitType;
     this.healthLevels = healthLevels;
-    this.charmId = charmId;
   }
   
   @Override
@@ -43,11 +38,8 @@ public class AddsHealthLevelsByTraitMechanic implements CharmSpecialMechanic {
 
 		@Override
 		public int getHealthLevelTypeCount(HealthLevelType type) {
-			CharmsModel charms = CharmsModelFetcher.fetch(hero);
 			TraitModel traits = TraitModelFetcher.fetch(hero);
-			Charm baseCharm = charms.getCharmById(charmId);
-			CharmSpecialLearningModel learning = charms.getCharmSpecialLearningModel(baseCharm);
-			int picks = learning != null ? learning.getCurrentLearnCount() : (charms.isLearned(baseCharm) ? 1 : 0);
+			int picks = getLearnCount(hero);
 			int traitLevel = traits.getTrait(traitType).getCurrentValue();
 			
 			int total = 0;

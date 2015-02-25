@@ -556,6 +556,9 @@
                 "Occult": 3
             }, 
             "prerequisites": [], 
+            "thaumaturgy": {
+                "grantsAccess": true
+            }, 
             "type": "Permanent"
         }, 
         "Solar.UncannyPerceptionTechnique": {

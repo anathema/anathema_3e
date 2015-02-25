@@ -5,6 +5,7 @@ import net.sf.anathema.charm.template.special.learning.Repurchase;
 import net.sf.anathema.charm.template.special.learning.SubEffect;
 import net.sf.anathema.charm.template.special.learning.Upgradable;
 import net.sf.anathema.charm.template.special.mechanics.AddsHealthLevelsByTraitTemplate;
+import net.sf.anathema.charm.template.special.mechanics.ThaumaturgyTemplate;
 
 public class SpecialCharmTemplate {
 	
@@ -18,4 +19,5 @@ public class SpecialCharmTemplate {
   
   // Mechanics
   public AddsHealthLevelsByTraitTemplate addsHealthLevelsByTrait;
+  public ThaumaturgyTemplate thaumaturgy;
 }
