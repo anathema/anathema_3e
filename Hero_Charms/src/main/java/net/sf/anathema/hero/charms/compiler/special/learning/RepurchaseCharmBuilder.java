@@ -17,6 +17,7 @@ import net.sf.anathema.charm.template.special.learning.TierRepurchase;
 import net.sf.anathema.charm.template.special.learning.TraitRepurchase;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.CharmSpecialLearningBuilder;
+import net.sf.anathema.hero.charms.compiler.special.ExistingMechanicTemplateSupplier;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitCharmTier;
@@ -30,7 +31,9 @@ public class RepurchaseCharmBuilder implements CharmSpecialLearningBuilder {
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public CharmSpecialLearning readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
+  public CharmSpecialLearning readCharm(SpecialCharmTemplate overallDto,
+  		AdditionalCharmFactory factory,
+  		final ExistingMechanicTemplateSupplier supplier) {
   	final Repurchase repurchaseDto = overallDto.repurchase;
   	final CharmName charmName = new CharmName(overallDto.charmId);
   	final CharmSpecialLearning[] result = new CharmSpecialLearning[1];
@@ -49,14 +52,14 @@ public class RepurchaseCharmBuilder implements CharmSpecialLearningBuilder {
 						findFirst().get().traitValue = minimum;
 					tiers.add(tier);
 				}
-				factory.generateCharms(overallDto.charmId, tiers);
+				factory.generateCharms(overallDto.charmId, tiers, supplier);
 				//result[0] = createTraitMultiLearnable(charmName, repurchase);
 				
 			}
 
 			@Override
 			public void visitTierRepurchase(TierRepurchase repurchase) {
-				factory.generateCharms(overallDto.charmId, repurchase.tiers);
+				factory.generateCharms(overallDto.charmId, repurchase.tiers, supplier);
 			}
 
 			@Override
@@ -65,7 +68,7 @@ public class RepurchaseCharmBuilder implements CharmSpecialLearningBuilder {
 				for (int i = 0; i != repurchase.limit; i++) {
 					tiers.add(new Tier());
 				}
-				factory.generateCharms(overallDto.charmId, tiers);
+				factory.generateCharms(overallDto.charmId, tiers, supplier);
 			}
   		
   	});

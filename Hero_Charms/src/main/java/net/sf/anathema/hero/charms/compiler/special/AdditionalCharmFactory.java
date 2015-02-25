@@ -24,14 +24,19 @@ public class AdditionalCharmFactory {
 		this.tree = new TreeName(baseTemplate.tree);
 	}
 	
-	public void generateCharms(String id, List<Tier> tiers) {
+	public void generateCharms(String id, List<Tier> tiers, ExistingMechanicTemplateSupplier supplier) {
 		for (int repurchase = 0; repurchase < tiers.size(); repurchase++) {
 			CharmTemplate newTemplate = generator.getBaseTemplate(id);
 			tiers.get(repurchase).requirements.forEach(requirement -> newTemplate.minimums.put(requirement.traitType, requirement.traitValue));
 			String predecessor = id + (repurchase == 0 ? "" : ".x" + (repurchase + 1));
 			newTemplate.prerequisites.clear();
 			newTemplate.prerequisites.add(new SimpleCharmPrerequisiteTemplate(predecessor));
-			generator.generateCharmForTemplate(category, tree, id + ".x" + (repurchase + 2), newTemplate);
+			String newCharmId = id + ".x" + (repurchase + 2);
+			generator.generateCharmForTemplate(category, tree, newCharmId, newTemplate);
+			
+			if (supplier != null) {
+				supplier.applyMechanicsForTemplate(newCharmId);
+			}
 		}		
 	}
 	

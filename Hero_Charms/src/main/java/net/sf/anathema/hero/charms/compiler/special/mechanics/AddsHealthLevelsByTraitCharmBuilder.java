@@ -28,8 +28,8 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto) {
-    return createSpecialCharm(new CharmName(overallDto.charmId), overallDto.addsHealthLevelsByTrait);
+  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto, String id) {
+    return createSpecialCharm(new CharmName(id), overallDto.addsHealthLevelsByTrait);
   }
 
   private CharmSpecialMechanic createSpecialCharm(CharmName id, AddsHealthLevelsByTraitTemplate dto) {

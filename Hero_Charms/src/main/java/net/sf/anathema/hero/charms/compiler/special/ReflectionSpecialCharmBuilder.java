@@ -16,8 +16,10 @@ public class ReflectionSpecialCharmBuilder {
     this.builders.addAll(objectFactory.instantiateAllImplementers(CharmSpecialLearningBuilder.class));
   }
 
-  public CharmSpecialLearning readCharmLearning(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
-    return findBuilder(overallDto).readCharm(overallDto, factory);
+  public CharmSpecialLearning readCharmLearning(SpecialCharmTemplate overallDto,
+  		AdditionalCharmFactory factory,
+  		ExistingMechanicTemplateSupplier supplier) {
+    return findBuilder(overallDto).readCharm(overallDto, factory, supplier);
   }
 
   private CharmSpecialLearningBuilder findBuilder(SpecialCharmTemplate dto) {

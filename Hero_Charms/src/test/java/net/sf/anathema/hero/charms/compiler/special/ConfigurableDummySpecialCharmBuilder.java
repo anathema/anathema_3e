@@ -10,7 +10,9 @@ public class ConfigurableDummySpecialCharmBuilder implements CharmSpecialLearnin
   private CharmSpecialLearning charm;
 
   @Override
-  public CharmSpecialLearning readCharm(SpecialCharmTemplate dto, AdditionalCharmFactory factory) {
+  public CharmSpecialLearning readCharm(SpecialCharmTemplate dto,
+  		AdditionalCharmFactory factory,
+  		ExistingMechanicTemplateSupplier supplier) {
     if (dto.equals(this.dto)){
       return charm;
     }

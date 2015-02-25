@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;
@@ -30,15 +31,21 @@ public class SpecialCharmsBuilder {
   public void addTemplate(SpecialCharmListTemplate listTemplate, AdditionalCharmFactory factory) {
     listTemplate.charms.forEach((name, template) -> {
     	template.charmId = name;
-    	CharmSpecialLearning special = learningBuilder.readCharmLearning(template, factory);
+    	CharmSpecialLearning special = learningBuilder.readCharmLearning(template, factory,
+    			id -> handleMechanics(template, id));
     	if (special != null) {
     		specialLearningCharms.add(special);
     	}
-    	List<CharmSpecialMechanic> mechanics = mechanicsBuilder.readCharmMechanics(template);
-    	if (!mechanics.isEmpty()) {
-    		specialMechanics.putAll(name, mechanics);
-    	}
+    	
+    	handleMechanics(template, name);
     });
+  }
+  
+  private void handleMechanics(SpecialCharmTemplate template, String id) {
+  	List<CharmSpecialMechanic> mechanics = mechanicsBuilder.readCharmMechanics(template, id);
+  	if (!mechanics.isEmpty()) {
+  		specialMechanics.putAll(id, mechanics);
+  	}
   }
 
   public void addToCache(CharmCacheImpl cache) {

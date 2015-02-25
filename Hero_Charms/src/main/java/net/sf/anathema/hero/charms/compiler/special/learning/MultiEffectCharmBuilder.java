@@ -5,6 +5,7 @@ import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.charm.template.special.learning.MultiEffect;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.CharmSpecialLearningBuilder;
+import net.sf.anathema.hero.charms.compiler.special.ExistingMechanicTemplateSupplier;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharm;
 
@@ -12,7 +13,9 @@ import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharm;
 public class MultiEffectCharmBuilder implements CharmSpecialLearningBuilder {
 
   @Override
-  public CharmSpecialLearning readCharm(SpecialCharmTemplate overallDto, AdditionalCharmFactory factory) {
+  public CharmSpecialLearning readCharm(SpecialCharmTemplate overallDto,
+  		AdditionalCharmFactory factory,
+  		ExistingMechanicTemplateSupplier supplier) {
     MultiEffect multiEffect = overallDto.multiEffect;
     String[] effects = multiEffect.effects.toArray(new String[multiEffect.effects.size()]);
     return new MultipleEffectCharm(new CharmName(overallDto.charmId), effects);

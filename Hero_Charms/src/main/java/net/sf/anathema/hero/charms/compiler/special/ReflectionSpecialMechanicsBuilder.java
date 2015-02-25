@@ -14,11 +14,11 @@ public class ReflectionSpecialMechanicsBuilder {
     this.builders.addAll(objectFactory.instantiateAllImplementers(CharmSpecialMechanicsBuilder.class));
   }
 
-  public List<CharmSpecialMechanic> readCharmMechanics(SpecialCharmTemplate overallDto) {
+  public List<CharmSpecialMechanic> readCharmMechanics(SpecialCharmTemplate overallDto, String id) {
   	List<CharmSpecialMechanic> mechanics = new ArrayList<>();
   	for (CharmSpecialMechanicsBuilder builder : builders) {
   		if (builder.supports(overallDto)) {
-  			mechanics.add(builder.readCharm(overallDto));
+  			mechanics.add(builder.readCharm(overallDto, id));
   		}
   	}
     return mechanics;
