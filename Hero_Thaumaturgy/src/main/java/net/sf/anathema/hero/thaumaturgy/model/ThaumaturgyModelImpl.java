@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -132,7 +133,13 @@ public class ThaumaturgyModelImpl extends AbstractRemovableEntryModel<KnownRitua
 
 	@Override
 	public boolean isEntryAllowed() {
-		return hasThaumaturgy();
+		if (!hasThaumaturgy()) {
+			return false;
+		}
+		if (!ExperienceModelFetcher.fetch(hero).isExperienced()) {
+			return getFreeRituals() > 0;
+		}
+		return true;
 	}
 	
 	private boolean hasThaumaturgy() {
@@ -142,6 +149,14 @@ public class ThaumaturgyModelImpl extends AbstractRemovableEntryModel<KnownRitua
 			}
 		}
 		return false;
+	}
+	
+	private int getFreeRituals() {
+		int total = 0;
+		for (ThaumaturgyProvider provider : providers) {
+			total += provider.numberOfRitualsProvided();
+		}
+		return total;
 	}
 
 	@Override
