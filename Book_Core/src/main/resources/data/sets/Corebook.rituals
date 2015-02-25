@@ -1,0 +1,26 @@
+{
+	"rituals": [
+		{
+			"name": "Reading the Tea Leaves",
+			"basicRitual": true,
+			"advancedRitual": true
+		},
+		{
+			"name": "Unquenchable Flame",
+			"basicRitual": true
+		},
+		{
+			"name": "Second Bread",
+			"basicRitual": true
+		},
+		{
+			"name": "Exorcism",
+			"basicRitual": true,
+			"advancedRitual": true
+		},
+		{
+			"name": "Speak With Ozashun",
+			"advancedRitual": true
+		}
+	]
+}

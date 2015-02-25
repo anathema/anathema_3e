@@ -20,6 +20,7 @@
         SpecialtiesPoints: MortalSpecialtyPoints,
         Equipment: '',
         Merits: '',
-        MeritPoints: 'MortalMeritPoints'
+        MeritPoints: 'MortalMeritPoints',
+        Thaumaturgy: ''
     }
 }
