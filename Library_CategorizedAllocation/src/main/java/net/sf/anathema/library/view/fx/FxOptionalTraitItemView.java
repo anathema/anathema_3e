@@ -1,13 +1,13 @@
-package net.sf.anathema.hero.thaumaturgy.display.view;
+package net.sf.anathema.library.view.fx;
 
-import net.sf.anathema.hero.thaumaturgy.display.presenter.RitualItemView;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.dot.FxExtensibleDotView;
 import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.view.OptionalTraitItemView;
 
-public class FxRitualsItemView extends FxExtensibleDotView implements RitualItemView {
+public class FxOptionalTraitItemView extends FxExtensibleDotView implements OptionalTraitItemView {
 	
-	public FxRitualsItemView(FxDotView dotView) {
+	public FxOptionalTraitItemView(FxDotView dotView) {
 		super(dotView);
 		//this.label = label;
 		//this.buttonIcon = buttonIcon;

@@ -1,14 +1,14 @@
-package net.sf.anathema.hero.thaumaturgy.display.view;
+package net.sf.anathema.library.view.fx;
 
 import javafx.scene.Node;
-import net.sf.anathema.hero.thaumaturgy.display.presenter.RitualEntryView;
 import net.sf.anathema.library.fx.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
+import net.sf.anathema.library.view.OptionalTraitEntryView;
 
-public class FxRitualsEntryView implements RitualEntryView {
+public class FxOptionalTraitsEntryView implements OptionalTraitEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
 
   public Tool addTool() {

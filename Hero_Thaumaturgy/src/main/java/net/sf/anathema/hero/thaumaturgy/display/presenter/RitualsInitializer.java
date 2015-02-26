@@ -6,11 +6,14 @@ import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
-import net.sf.anathema.hero.thaumaturgy.display.presenter.RitualsPresenter;
-import net.sf.anathema.hero.thaumaturgy.display.presenter.RitualsView;
-import net.sf.anathema.hero.thaumaturgy.model.MeritsModelFetcher;
+import net.sf.anathema.hero.thaumaturgy.model.KnownRitual;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModel;
+import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
+import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.initialization.Weight;
+import net.sf.anathema.library.model.NullCategory;
+import net.sf.anathema.library.presenter.CategorizedOptionalTraitPresenter;
+import net.sf.anathema.library.view.OptionalTraitsView;
 
 @RegisteredInitializer(HeroModelGroup.Sorcery)
 @Weight(weight = 300)
@@ -26,13 +29,14 @@ public class RitualsInitializer implements HeroModelInitializer {
   @Override
   public void initialize(SectionView sectionView, Hero hero) {
     String viewName = environment.getResources().getString("AdditionalTemplateView.TabName.Thaumaturgy");
-    RitualsView view = sectionView.addView(viewName, RitualsView.class);
-    ThaumaturgyModel meritsModel = MeritsModelFetcher.fetch(hero);
-    new RitualsPresenter(meritsModel, view, environment.getResources()).initPresentation();
+    OptionalTraitsView view = sectionView.addView(viewName, OptionalTraitsView.class);
+    ThaumaturgyModel thaumaturgyModel = ThaumaturgyModelFetcher.fetch(hero);
+    new CategorizedOptionalTraitPresenter<NullCategory, ThaumaturgyRitual, KnownRitual>
+    	(thaumaturgyModel, view, environment.getResources(), ThaumaturgyRitual.RITUAL_MAX_LEVEL).initPresentation();
   }
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    return MeritsModelFetcher.fetch(hero) != null;
+    return ThaumaturgyModelFetcher.fetch(hero) != null;
   }
 }

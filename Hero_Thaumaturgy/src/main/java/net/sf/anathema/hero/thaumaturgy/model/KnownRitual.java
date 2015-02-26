@@ -1,11 +1,7 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
-import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.library.model.KnownOptionalTrait;
 
-public interface KnownRitual extends Trait {
-	ThaumaturgyRitual getBaseOption();
-	
+public interface KnownRitual extends KnownOptionalTrait<ThaumaturgyRitual> {
 	RitualLevel getLevel();
-	
-	String getDescription();
 }

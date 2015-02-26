@@ -19,7 +19,7 @@ public class ThaumaturgyExperienceModel extends AbstractIntegerValueModel {
   @Override
   public Integer getValue() {
     int totalXP = 0;
-    for (KnownRitual ritual : model.getKnownRituals()) {
+    for (KnownRitual ritual : model.getKnownTraits()) {
       switch (ritual.getLevel()) {
         case Basic:
         	totalXP += BASIC_RITUAL_COST;

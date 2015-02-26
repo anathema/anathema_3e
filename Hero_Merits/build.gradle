@@ -7,6 +7,7 @@ dependencies {
     compile project(':Hero_Sheet')
     compile project(':Hero_Thaumaturgy')
 	compile project(':Hero_Equipment')
+	compile project(':Library_CategorizedAllocation')
     testCompile testDependencies
     testCompile project(path: ':Library', configuration: 'tests')
     testCompile project(path: ':Platform', configuration: 'tests')

@@ -7,8 +7,9 @@ import java.util.Map;
 
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.thaumaturgy.model.RitualImpl;
-import net.sf.anathema.hero.thaumaturgy.model.RitualReference;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
+import net.sf.anathema.library.model.NullCategory;
+import net.sf.anathema.library.model.OptionalTraitReference;
 
 public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
   private final Map<String, ThaumaturgyRitual> rituals = new HashMap<String, ThaumaturgyRitual>();
@@ -18,14 +19,24 @@ public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
   }
 
   @Override
-  public List<ThaumaturgyRitual> getAllRitualOptions() {
+  public List<ThaumaturgyRitual> getAllOptions() {
     List<ThaumaturgyRitual> options = new ArrayList<>(rituals.values());
     options.sort((m1, m2) -> m1.getId().compareTo(m2.getId()));
     return options;
   }
 
 	@Override
-	public ThaumaturgyRitual getRitualByReference(RitualReference reference) {
+	public ThaumaturgyRitual getOptionByReference(OptionalTraitReference reference) {
 		return rituals.get(reference.name);
+	}
+
+	@Override
+	public List<NullCategory> getAllCategories() {
+		return new ArrayList<>();
+	}
+
+	@Override
+	public List<ThaumaturgyRitual> getAllOptionsForCategory(NullCategory category) {
+		return new ArrayList<>();
 	}
 }
