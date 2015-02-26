@@ -1,10 +1,10 @@
-package net.sf.anathema.hero.thaumaturgy.persistence;
+package net.sf.anathema.library.persister;
 
 import net.sf.anathema.hero.traits.persistence.TraitPto;
 
-public class RitualPto {
+public class KnownOptionalTraitPto {
 
-  public String ritualOption;
+  public String option;
   public String description;
   TraitPto rating = new TraitPto();
   
