@@ -31,11 +31,6 @@ public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
 	}
 
 	@Override
-	public List<NullCategory> getAllCategories() {
-		return new ArrayList<>();
-	}
-
-	@Override
 	public List<ThaumaturgyRitual> getAllOptionsForCategory(NullCategory category) {
 		return new ArrayList<>();
 	}

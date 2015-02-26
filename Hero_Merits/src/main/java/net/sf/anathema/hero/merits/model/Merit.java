@@ -1,9 +1,6 @@
 package net.sf.anathema.hero.merits.model;
 
-import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.library.model.KnownOptionalTrait;
 
-public interface Merit extends Trait {
-	MeritOption getBaseOption();
-	
-	String getDescription();
+public interface Merit extends KnownOptionalTrait<MeritOption> {
 }

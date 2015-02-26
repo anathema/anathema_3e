@@ -2,7 +2,9 @@ package net.sf.anathema.library.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
@@ -11,7 +13,6 @@ import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.identifier.Identifier;
 
 import org.jmock.example.announcer.Announcer;
 
@@ -21,6 +22,8 @@ public abstract class AbstractOptionalTraitModel<
 	T extends KnownOptionalTrait<O>>
 	extends AbstractRemovableEntryModel<T>
 	implements OptionalTraitsModel<C, O, T> {
+	
+  private final Map<OptionalTraitReference, Collection<String>> suggestions = new HashMap<>();
 	
 	private final Announcer<ChangeListener> currentCategoryChangeAnnouncer = Announcer.to(ChangeListener.class);
 	private final Announcer<ChangeListener> currentOptionChangeAnnouncer = Announcer.to(ChangeListener.class);
@@ -40,7 +43,15 @@ public abstract class AbstractOptionalTraitModel<
 	@Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
+    cache = initCache(environment);
+    
+
+    if (hasCategories) {
+    	currentCategory = getAvailableCategories().get(0);
+    }
   }
+	
+	protected abstract OptionalTraitCache<C, O> initCache(HeroEnvironment environment);
 	
 	@SuppressWarnings("unchecked")
   @Override
@@ -60,7 +71,7 @@ public abstract class AbstractOptionalTraitModel<
     selectFirstOption();
 	}
 	
-	private void selectFirstOption() {
+	public void selectFirstOption() {
     List<O> currentOptions = getCurrentTraitOptions();
     if (currentOptions.isEmpty()) {
       setSelectedTraitOption(getNullOption());
@@ -82,6 +93,11 @@ public abstract class AbstractOptionalTraitModel<
   }
 	
 	protected abstract T createKnownTrait(O option, String description, Hero hero);
+	
+	@Override
+	public List<O> getAllTraitOptions() {
+		return cache.getAllOptions();
+	}
 	
 	@Override
 	public List<O> getCurrentTraitOptions() {
@@ -127,9 +143,14 @@ public abstract class AbstractOptionalTraitModel<
     fireEntryChanged();
   }
 	
+
+  public void addSuggestions(OptionalTraitReference merit, Collection<String> suggestionsForReference) {
+    suggestions.put(merit, suggestionsForReference);
+  }
+	
 	@Override
 	public Collection<String> getSuggestedDescriptions() {
-		return new ArrayList<>();
+		return currentOption.getSuggestions();
 	}
 	
 	protected boolean knowsTrait(O option) {
@@ -140,8 +161,7 @@ public abstract class AbstractOptionalTraitModel<
 	
 	@Override
 	public List<C> getAvailableCategories() {
-		// TODO
-		return null;
+		return new ArrayList<>();
 	}
 	
 	@Override
@@ -151,7 +171,12 @@ public abstract class AbstractOptionalTraitModel<
 	
 	@Override
 	public void setCurrentCategory(C category) {
-		// TODO
+		if (category.equals(currentCategory)) {
+			return;
+		}
+		currentCategory = category;
+		currentCategoryChangeAnnouncer.announce().changeOccurred();
+		fireEntryChanged();
 	}
 	
 	@Override

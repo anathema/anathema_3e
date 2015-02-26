@@ -1,55 +1,25 @@
 package net.sf.anathema.hero.merits.model;
 
-import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
-import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.library.model.RemovableEntryModel;
-
 import java.util.Collection;
 import java.util.List;
 
-public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel {
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalTraitsModel;
+import net.sf.anathema.library.model.RemovableEntryModel;
+
+public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel,
+	OptionalTraitsModel<MeritCategory, MeritOption, Merit>{
 
   Identifier ID = new SimpleIdentifier("Merits");
 
-  List<Merit> getMerits();
+  boolean hasMeritsMatchingReference(OptionalTraitReference reference);
 
-  boolean hasMeritsMatchingReference(MeritReference reference);
-
-  List<Merit> getMeritsMatchingReference(MeritReference option);
-
-  List<MeritOption> getCurrentMeritOptions();
-
-  List<MeritOption> getCurrentMeritOptionsOfAllTypes();
-
-  void setCurrentType(MeritCategory newValue);
-
-  void setCurrentMeritOption(MeritOption option);
-
-  void setCurrentDescription(String description);
-
-  MeritCategory getCurrentType();
-
-  MeritOption getCurrentMeritOption();
-
-  List<Trait> getContingentTraits();
-
-  void addChangeListener(FlavoredChangeListener listener);
-
-  void resetCurrentMerit();
-
-  MeritOption findOptionByReference(MeritReference reference);
-
-  void whenTypeChanges(ChangeListener changeListener);
-
-  void whenCurrentOptionChanges(ChangeListener changeListener);
-
-  Collection<String> getSuggestedDescriptions();
+  List<Merit> getMeritsMatchingReference(OptionalTraitReference option);
 
   boolean isEntryAllowed();
 
-  void addSuggestions(MeritReference merit, Collection<String> suggestions);
+  void addSuggestions(OptionalTraitReference merit, Collection<String> suggestions);
 }

@@ -38,7 +38,7 @@ public class MeritImpl extends TraitImpl implements Merit {
     limitation.value = base.getMaximumValue();
     template.minimumValue = base.getMinimumValue();
     template.startValue = template.minimumValue;
-    template.modificationType = base.getType() == MeritCategory.Purchased ?
+    template.modificationType = base.getCategory() == MeritCategory.Purchased ?
             ModificationType.RaiseOnly : ModificationType.Free;
     template.limitation = limitation;
     return template;

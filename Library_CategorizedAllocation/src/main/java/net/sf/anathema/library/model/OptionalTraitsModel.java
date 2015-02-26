@@ -14,11 +14,15 @@ public interface OptionalTraitsModel<
 	
 	List<T> getKnownTraits();
 	
+	List<O> getAllTraitOptions();
+	
 	List<O> getCurrentTraitOptions();
 	
 	O getSelectedTraitOption();
 	
 	void setSelectedTraitOption(O option);
+	
+	void selectFirstOption();
 	
 	void whenSelectedOptionChanges(ChangeListener listener);
 	

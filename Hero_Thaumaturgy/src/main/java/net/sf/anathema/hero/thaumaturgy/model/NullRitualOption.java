@@ -1,5 +1,8 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class NullRitualOption implements ThaumaturgyRitual {
@@ -27,6 +30,11 @@ public class NullRitualOption implements ThaumaturgyRitual {
 	@Override
 	public String getId() {
 		return null;
+	}
+
+	@Override
+	public Collection<String> getSuggestions() {
+		return new ArrayList<>();
 	}
 
 

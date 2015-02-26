@@ -1,17 +1,16 @@
 package net.sf.anathema.hero.languages.sheet.content;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
-import net.sf.anathema.hero.merits.model.MeritReference;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
+import net.sf.anathema.library.model.OptionalTraitReference;
 import net.sf.anathema.library.resources.Resources;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class LanguagesContent extends AbstractSubBoxContent implements ListSubBoxContent {
 
@@ -30,7 +29,7 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
   @Override
   public List<String> getPrintEntries() {
     MeritsModel model = MeritsModelFetcher.fetch(hero);
-    List<Merit> languageMerits = model.getMeritsMatchingReference(new MeritReference("Language"));
+    List<Merit> languageMerits = model.getMeritsMatchingReference(new OptionalTraitReference("Language"));
     return languageMerits.stream().map(Merit::getDescription).collect(Collectors.toList());
   }
 

@@ -1,8 +1,7 @@
 package net.sf.anathema.hero.merits.display.presenter;
 
-import net.sf.anathema.library.fx.dot.ExtensibleDotView;
-import net.sf.anathema.library.interaction.model.Command;
+import net.sf.anathema.library.view.OptionalTraitItemView;
 
-public interface MeritItemView extends ExtensibleDotView {
-	void addButtonListener(Command command);
+
+public interface MeritItemView extends OptionalTraitItemView {
 }

@@ -6,8 +6,6 @@ public interface OptionalTraitCache<
 	C extends OptionalTraitCategory,
 	O extends OptionalTraitOption> {
 
-	List<C> getAllCategories();
-	
 	List<O> getAllOptions();
 	
 	List<O> getAllOptionsForCategory(C category);

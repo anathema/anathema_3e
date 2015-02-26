@@ -138,5 +138,6 @@ public class CategorizedOptionalTraitPresenter<
 
   private void refreshTraitList() {
     traitBox.setObjects(model.getCurrentTraitOptions());
+    model.selectFirstOption();
   }
 }

@@ -1,5 +1,9 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
@@ -7,6 +11,7 @@ public class RitualImpl implements ThaumaturgyRitual {
 
   private final String name;
   private final boolean[] legalValues = new boolean[RITUAL_MAX_LEVEL];
+  private final List<String> suggestions = new ArrayList<>();
 
   public RitualImpl(RitualTemplate template) {
     this.name = template.name;
@@ -71,5 +76,10 @@ public class RitualImpl implements ThaumaturgyRitual {
   @Override
   public String toString() {
     return getId();
+  }
+  
+  @Override
+  public Collection<String> getSuggestions() {
+    return suggestions;
   }
 }

@@ -4,11 +4,11 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
-import net.sf.anathema.hero.merits.model.MeritReference;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.model.OptionalTraitReference;
 
 @SuppressWarnings("UnusedDeclaration")
 public class MeritPersister extends AbstractModelJsonPersister<MeritsPto, MeritsModel> {
@@ -22,13 +22,13 @@ public class MeritPersister extends AbstractModelJsonPersister<MeritsPto, Merits
   @Override
   protected void loadModelFromPto(Hero hero, MeritsModel model, MeritsPto pto) {
     for (MeritPto meritPto : pto.merits) {
-      MeritOption option = model.findOptionByReference(new MeritReference(meritPto.meritOption));
-      model.setCurrentMeritOption(option);
+      MeritOption option = model.findOptionByReference(new OptionalTraitReference(meritPto.meritOption));
+      model.setSelectedTraitOption(option);
       model.setCurrentDescription(meritPto.description);
       Merit newMerit = model.commitSelection();
       traitPersister.load(newMerit, meritPto.rating);
     }
-    model.resetCurrentMerit();
+    model.resetCurrentEntry();
   }
 
   @Override

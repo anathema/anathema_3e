@@ -1,16 +1,17 @@
 package net.sf.anathema.hero.merits.model;
 
-import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
+import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
+import net.sf.anathema.library.model.OptionalTraitReference;
+
 public class NullMeritOption implements MeritOption {
   @Override
-  public MeritCategory getType() {
+  public MeritCategory getCategory() {
     return MeritCategory.Innate;
   }
 
@@ -50,7 +51,7 @@ public class NullMeritOption implements MeritOption {
   }
 
   @Override
-  public boolean isReferencedBy(MeritReference reference) {
+  public boolean isReferencedBy(OptionalTraitReference reference) {
     return false;
   }
 

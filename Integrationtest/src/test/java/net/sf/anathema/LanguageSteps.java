@@ -2,25 +2,15 @@ package net.sf.anathema;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-
-import cucumber.api.PendingException;
-import cucumber.runtime.java.guice.ScenarioScoped;
-import net.sf.anathema.charm.data.reference.SpellName;
-import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
-import net.sf.anathema.hero.merits.model.MeritReference;
 import net.sf.anathema.hero.merits.model.MeritsModel;
-import net.sf.anathema.hero.spells.data.Spell;
-import net.sf.anathema.hero.spells.data.Spells;
-import net.sf.anathema.hero.spells.model.SpellsModel;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
+import net.sf.anathema.library.model.OptionalTraitReference;
 
 import com.google.inject.Inject;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-
-import java.util.List;
+import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class LanguageSteps {
@@ -54,8 +44,8 @@ public class LanguageSteps {
   }
 
   private void prepareForLanguage(MeritsModel merits, String id) {
-    MeritOption language = merits.findOptionByReference(new MeritReference("Language"));
-    merits.setCurrentMeritOption(language);
+    MeritOption language = merits.findOptionByReference(new OptionalTraitReference("Language"));
+    merits.setSelectedTraitOption(language);
     merits.setCurrentDescription(id);
   }
 }

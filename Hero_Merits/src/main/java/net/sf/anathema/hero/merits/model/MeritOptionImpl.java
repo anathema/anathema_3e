@@ -1,5 +1,9 @@
 package net.sf.anathema.hero.merits.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
@@ -7,10 +11,7 @@ import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDe
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import net.sf.anathema.library.model.OptionalTraitReference;
 
 public class MeritOptionImpl implements MeritOption {
 
@@ -93,7 +94,7 @@ public class MeritOptionImpl implements MeritOption {
   }
 
   @Override
-  public MeritCategory getType() {
+  public MeritCategory getCategory() {
     return type;
   }
 
@@ -128,7 +129,7 @@ public class MeritOptionImpl implements MeritOption {
   }
 
   @Override
-  public boolean isReferencedBy(MeritReference reference) {
+  public boolean isReferencedBy(OptionalTraitReference reference) {
     return reference.name.equals(name);
   }
 

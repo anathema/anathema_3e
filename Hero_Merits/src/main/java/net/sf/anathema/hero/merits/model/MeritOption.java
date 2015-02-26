@@ -1,33 +1,25 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.Collection;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
-import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.library.model.OptionalTraitOption;
+import net.sf.anathema.library.model.OptionalTraitReference;
 
-public interface MeritOption extends TraitType {
+public interface MeritOption extends OptionalTraitOption {
 
   int MAX_MERIT_RATING = 5;
 
-  MeritCategory getType();
+  MeritCategory getCategory();
 
   boolean allowsRepurchase();
 
   boolean isHeroEligible(Hero hero);
 
-  boolean isLegalValue(int value);
-
   List<String> getContingentTraitTypes();
 
   List<MeritMechanicalDetail> getMechanics();
 
-  int getMinimumValue();
-
-  int getMaximumValue();
-
-  boolean isReferencedBy(MeritReference reference);
-
-  Collection<String> getSuggestions();
+  boolean isReferencedBy(OptionalTraitReference reference);
 }

@@ -24,11 +24,10 @@ public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategor
   public Identifier getId() {
     return ID;
   }
-
+  
   @Override
-  public void initialize(HeroEnvironment environment, Hero hero) {
-  	super.initialize(environment, hero);
-    this.cache = environment.getDataSet(ThaumaturgyRitualCache.class);
+  public ThaumaturgyRitualCache initCache(HeroEnvironment environment) {
+  	return environment.getDataSet(ThaumaturgyRitualCache.class);
   }
   
   @Override
