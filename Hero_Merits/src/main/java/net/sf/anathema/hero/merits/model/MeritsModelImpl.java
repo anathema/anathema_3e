@@ -90,6 +90,13 @@ public class MeritsModelImpl extends AbstractOptionalTraitModel<MeritCategory, M
   public boolean isEntryAllowed() {
     return isAllowedOption(getSelectedTraitOption());
   }
+  
+  @Override
+	public boolean isRemovalAllowed(Merit trait) {
+		return !isCharacterExperienced() ||
+				trait.getBaseOption().getCategory() != MeritCategory.Innate ||
+				trait.getBaseOption().getCategory() != MeritCategory.Supernatural;
+	}
 
   private boolean isCharacterExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();

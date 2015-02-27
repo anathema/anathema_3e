@@ -47,4 +47,6 @@ public interface OptionalTraitsModel<
 	boolean hasCategories();
 	
 	boolean isEntryAllowed();
+	
+	boolean isRemovalAllowed(T trait);
 }

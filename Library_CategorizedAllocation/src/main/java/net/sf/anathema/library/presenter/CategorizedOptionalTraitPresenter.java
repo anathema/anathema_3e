@@ -59,6 +59,7 @@ public class CategorizedOptionalTraitPresenter<
     new TraitPresenter(trait, subView.getIntValueView()).initPresentation();
     viewsByEntry.put(trait, subView);
     subView.addButtonListener(() -> model.removeEntry(trait));
+    subView.setEnabled(model.isRemovalAllowed(trait));
   }
 
   private void initModelListening(OptionalTraitEntryView selectionView, Tool tool) {

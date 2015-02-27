@@ -44,7 +44,7 @@ O extends OptionalTraitOption> implements OptionalTraitsView, NodeHolder {
   @Override
   public OptionalTraitItemView addKnownTrait(String label, int maxValue, RelativePath removeIcon) {
     FxDotView view = FxDotView.WithDefaultLayout(label, maxValue);
-    FxOptionalTraitItemView itemView = new FxOptionalTraitItemView(view);
+    FxOptionalTraitItemView itemView = new FxOptionalTraitItemView(view, removeIcon);
     itemView.addTo(entryPanel);
     return itemView;
   }

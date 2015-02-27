@@ -12,7 +12,6 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractOptionalTraitModel;
 import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.points.model.PointModelFetcher;
-import net.sf.anathema.points.model.PointsModel;
 
 public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategory, ThaumaturgyRitual, KnownRitual>
 	implements ThaumaturgyModel {
@@ -59,6 +58,11 @@ public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategor
 		if (!ExperienceModelFetcher.fetch(hero).isExperienced()) {
 			return getFreeRitualPicks() > 0;
 		}
+		return true;
+	}
+	
+	@Override
+	public boolean isRemovalAllowed(KnownRitual trait) {
 		return true;
 	}
 	
