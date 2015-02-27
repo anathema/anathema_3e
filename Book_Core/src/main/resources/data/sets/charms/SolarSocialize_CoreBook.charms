@@ -266,6 +266,22 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.ExcellentSolarSocialize": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Socialize": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FaceCharmingPrana": {
             "cost": "6m", 
             "duration": "Instant", 
@@ -677,22 +693,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.SocializeExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Socialize": 1
-            }, 
-            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.SoulReprisal": {

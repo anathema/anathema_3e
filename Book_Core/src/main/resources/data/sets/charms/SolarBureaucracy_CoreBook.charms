@@ -53,22 +53,6 @@
             ], 
             "type": "Reflexive"
         }, 
-        "Solar.BureaucracyExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Bureaucracy": 1, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
         "Solar.ConsumerEvaluatingGlance": {
             "cost": "3m", 
             "duration": "Instant", 
@@ -162,6 +146,22 @@
                     "type": "charm"
                 }
             ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ExcellentSolarBureaucracy": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Bureaucracy": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.FoulAirofArgumentTechnique": {

@@ -32,22 +32,6 @@
             }, 
             "type": "Reflexive"
         }, 
-        "Solar.ArcheryExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Archery": 1, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
         "Solar.ArrowStormTechnique": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
@@ -131,6 +115,22 @@
                 ], 
                 "type": "tier"
             }, 
+            "type": "Reflexive"
+        }, 
+        "Solar.ExcellentSolarArchery": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Archery": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.FieryArrowAttack": {

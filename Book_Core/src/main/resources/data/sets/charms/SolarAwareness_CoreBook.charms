@@ -22,22 +22,6 @@
             ], 
             "type": "Supplemental"
         }, 
-        "Solar.AwarenessExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Awareness": 1, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
         "Solar.Blink": {
             "cost": "1wp", 
             "duration": "Instant", 
@@ -68,6 +52,22 @@
                     "type": "charm"
                 }
             ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ExcellentSolarAwareness": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Awareness": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.EyelessHarbingerAwareness": {

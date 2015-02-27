@@ -49,6 +49,22 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarRide": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Ride": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FierceChargersPulse": {
             "cost": "--", 
             "duration": "Permanent", 
@@ -316,22 +332,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.RideExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Ride": 1
-            }, 
-            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.RousingBacklashAssault": {

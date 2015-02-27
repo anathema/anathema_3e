@@ -76,22 +76,6 @@
             ], 
             "type": "Reflexive"
         }, 
-        "Solar.BrawlExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Brawl": 1, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
         "Solar.BurningFistBurial": {
             "cost": "4m + 1m per die", 
             "duration": "Instant", 
@@ -208,6 +192,22 @@
                     "type": "charm"
                 }
             ], 
+            "type": "Reflexive"
+        }, 
+        "Solar.ExcellentSolarBrawl": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Brawl": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.FallingHammerStrike": {

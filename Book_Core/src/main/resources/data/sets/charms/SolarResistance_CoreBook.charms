@@ -153,6 +153,22 @@
             "prerequisites": [], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarResistance": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Resistance": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FrontLineWarriorsStamina": {
             "cost": "4m", 
             "duration": "Instant", 
@@ -341,22 +357,6 @@
             "minimums": {
                 "Essence": 1, 
                 "Resistance": 3
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
-        "Solar.ResistanceExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Resistance": 1
             }, 
             "prerequisites": [], 
             "type": "Reflexive"

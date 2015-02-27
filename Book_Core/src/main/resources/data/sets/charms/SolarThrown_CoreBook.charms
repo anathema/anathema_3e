@@ -88,6 +88,22 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.ExcellentSolarThrown": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Thrown": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FallenWeaponDeflection": {
             "cost": "3m, 2i", 
             "duration": "Instant", 
@@ -407,22 +423,6 @@
                 }
             ], 
             "type": "Supplemental"
-        }, 
-        "Solar.ThrownExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Thrown": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.TripleDistanceAttackTechnique": {
             "cost": "1m", 

@@ -78,6 +78,22 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarLinguistics": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Linguistics": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FlashingQuillAtemi": {
             "cost": "1m", 
             "duration": "One minute", 
@@ -204,22 +220,6 @@
             }, 
             "prerequisites": [], 
             "type": "Simple"
-        }, 
-        "Solar.LinguisticsExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Linguistics": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.MindScribingMethod": {
             "cost": "5m, 1wp", 

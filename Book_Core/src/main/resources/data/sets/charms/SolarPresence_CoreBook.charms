@@ -141,6 +141,22 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.ExcellentSolarPresence": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Presence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FavorConferringPrana": {
             "cost": "5m, 1wp", 
             "duration": "Indefinite", 
@@ -268,22 +284,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.PresenceExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Presence": 1
-            }, 
-            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.ProphetUpliftingEvocation": {

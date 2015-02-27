@@ -99,6 +99,22 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarMelee": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Melee": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.ExcellentStrike": {
             "cost": "3m", 
             "duration": "Instant", 
@@ -271,22 +287,6 @@
                 }
             ], 
             "type": "Simple"
-        }, 
-        "Solar.MeleeExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Melee": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.OneWeapon,TwoBlows": {
             "cost": "3m", 

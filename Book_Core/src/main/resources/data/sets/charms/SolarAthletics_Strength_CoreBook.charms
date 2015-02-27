@@ -35,7 +35,7 @@
             ], 
             "type": "Supplemental"
         }, 
-        "Solar.AthleticsExcellency": {
+        "Solar.ExcellentSolarAthletics": {
             "cost": "1m per die", 
             "duration": "Instant", 
             "internalTags": [

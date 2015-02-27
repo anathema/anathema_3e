@@ -37,6 +37,22 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.ExcellentSolarWar": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "War": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FourGloriesMeditation": {
             "cost": "--", 
             "duration": "Permanent", 
@@ -254,22 +270,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.WarExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "War": 1
-            }, 
-            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.WarGodDescendent": {

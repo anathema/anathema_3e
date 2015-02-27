@@ -119,6 +119,22 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarInvestigation": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Investigation": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.InquisitorsUnfailingNotice": {
             "cost": "--", 
             "duration": "Permanent", 
@@ -134,22 +150,6 @@
                 }
             ], 
             "type": "Permanent"
-        }, 
-        "Solar.InvestigationExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Investigation": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.IrresistibleQuestioningTechnique": {
             "cost": "5m, 1wp", 

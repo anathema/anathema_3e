@@ -127,6 +127,22 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.ExcellentSolarSurvival": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Survival": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.EyeDeceivingCamouflage": {
             "cost": "6m", 
             "duration": "Indefinite", 
@@ -355,22 +371,6 @@
                 }
             ], 
             "type": "Simple"
-        }, 
-        "Solar.SurvivalExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Survival": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.TracelessPassage": {
             "cost": "3m, 1wp", 

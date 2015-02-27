@@ -59,6 +59,22 @@
             "prerequisites": [], 
             "type": "Simple"
         }, 
+        "Solar.ExcellentSolarStealth": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Stealth": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FalseImageFeint": {
             "cost": "7m, 1wp", 
             "duration": "Instant", 
@@ -343,22 +359,6 @@
                 }
             ], 
             "type": "Simple"
-        }, 
-        "Solar.StealthExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Stealth": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.SunSwallowingPractice": {
             "cost": "2m per anima level", 

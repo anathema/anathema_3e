@@ -17,6 +17,22 @@
             ], 
             "type": "Permanent"
         }, 
+        "Solar.ExcellentSolarLore": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Lore": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.GodKingsShrike(DogstarRuminations)": {
             "cost": "30m, 1wp", 
             "duration": "Instant", 
@@ -62,22 +78,6 @@
                 }
             ], 
             "type": "Permanent"
-        }, 
-        "Solar.LoreExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Lore": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.LoreInducingConcentration": {
             "cost": "3m", 

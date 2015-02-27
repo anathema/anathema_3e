@@ -49,6 +49,22 @@
             ], 
             "type": "Reflexive"
         }, 
+        "Solar.ExcellentSolarLarceny": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Larceny": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FateShiftingSolarArete": {
             "cost": "1wp", 
             "duration": "Instant", 
@@ -143,22 +159,6 @@
                 }
             ], 
             "type": "Supplemental"
-        }, 
-        "Solar.LarcenyExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Larceny": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.LightningHandSleight": {
             "cost": "3m", 

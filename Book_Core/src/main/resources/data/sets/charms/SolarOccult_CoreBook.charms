@@ -194,6 +194,22 @@
             ], 
             "type": "Simple"
         }, 
+        "Solar.ExcellentSolarOccult": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Occult": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.GhostEatingTechnique": {
             "cost": "3m", 
             "duration": "Instant", 
@@ -296,22 +312,6 @@
                     "type": "charm"
                 }
             ], 
-            "type": "Reflexive"
-        }, 
-        "Solar.OccultExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Occult": 1
-            }, 
-            "prerequisites": [], 
             "type": "Reflexive"
         }, 
         "Solar.PhantomSeizingStrike": {

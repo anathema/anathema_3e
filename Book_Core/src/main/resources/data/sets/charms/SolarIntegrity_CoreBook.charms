@@ -59,7 +59,7 @@
             }, 
             "type": "Reflexive"
         }, 
-        "Solar.IntegrityExcellency": {
+        "Solar.ExcellentSolarIntegrity": {
             "cost": "1m per die", 
             "duration": "Instant", 
             "internalTags": [

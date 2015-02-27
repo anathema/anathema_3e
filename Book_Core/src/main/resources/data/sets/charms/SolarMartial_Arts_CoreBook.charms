@@ -1,7 +1,7 @@
 {
     "category": "Solar", 
     "charms": {
-        "Solar.MartialArtsExcellency": {
+        "Solar.ExcellentSolarMartialArts": {
             "cost": "1m per die", 
             "duration": "Instant", 
             "internalTags": [

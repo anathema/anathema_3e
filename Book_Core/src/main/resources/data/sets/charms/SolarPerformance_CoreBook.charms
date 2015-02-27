@@ -105,6 +105,22 @@
             ], 
             "type": "Supplemental"
         }, 
+        "Solar.ExcellentSolarPerformance": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Essence": 1, 
+                "Performance": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
+        }, 
         "Solar.FuryIncitingSpeech": {
             "cost": "5m, 1wp", 
             "duration": "Instant", 
@@ -360,22 +376,6 @@
                 }
             ], 
             "type": "Supplemental"
-        }, 
-        "Solar.PerformanceExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Essence": 1, 
-                "Performance": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
         }, 
         "Solar.PhantomConjuringPerformance": {
             "cost": "--(1m)", 

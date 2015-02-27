@@ -64,22 +64,6 @@
             ], 
             "type": "Simple"
         }, 
-        "Solar.CraftExcellency": {
-            "cost": "1m per die", 
-            "duration": "Instant", 
-            "internalTags": [
-                "Excellency", 
-                "NotManuallyLearnable", 
-                "DoesNotCountAsCharmPurchase"
-            ], 
-            "keywords": [], 
-            "minimums": {
-                "Craft": 1, 
-                "Essence": 1
-            }, 
-            "prerequisites": [], 
-            "type": "Reflexive"
-        }, 
         "Solar.DragonSoulEmergence": {
             "cost": "--", 
             "duration": "Permanent", 
@@ -134,6 +118,22 @@
                 }
             ], 
             "type": "Permanent"
+        }, 
+        "Solar.ExcellentSolarCraft": {
+            "cost": "1m per die", 
+            "duration": "Instant", 
+            "internalTags": [
+                "Excellency", 
+                "NotManuallyLearnable", 
+                "DoesNotCountAsCharmPurchase"
+            ], 
+            "keywords": [], 
+            "minimums": {
+                "Craft": 1, 
+                "Essence": 1
+            }, 
+            "prerequisites": [], 
+            "type": "Reflexive"
         }, 
         "Solar.ExegesisoftheDistilledForm": {
             "cost": "25sxp, 15gxp, 10wxp + all remaining wxp", 
