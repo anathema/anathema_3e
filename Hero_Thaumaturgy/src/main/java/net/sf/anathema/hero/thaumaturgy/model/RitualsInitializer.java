@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.thaumaturgy.display.presenter;
+package net.sf.anathema.hero.thaumaturgy.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -6,10 +6,6 @@ import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
 import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
-import net.sf.anathema.hero.thaumaturgy.model.KnownRitual;
-import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModel;
-import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
-import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.presenter.CategorizedOptionalTraitPresenter;
