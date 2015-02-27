@@ -1,12 +1,14 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
-import cucumber.api.java.en.Then;
-import cucumber.runtime.java.guice.ScenarioScoped;
-import net.sf.anathema.points.model.ExperiencePointManagementImpl;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import net.sf.anathema.points.model.ExperiencePointManagement;
+import net.sf.anathema.points.model.PointModelFetcher;
+
+import com.google.inject.Inject;
+
+import cucumber.api.java.en.Then;
+import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class ExperiencePointSteps {
@@ -20,7 +22,7 @@ public class ExperiencePointSteps {
 
   @Then("^she has spent (\\d+) xp points$")
   public void she_has_spent_bonus_points(int amount) throws Throwable {
-    ExperiencePointManagementImpl pointManagement = new ExperiencePointManagementImpl(character.getHero());
+    ExperiencePointManagement pointManagement = PointModelFetcher.fetch(character.getHero()).getExperiencePointManagement();
     int spentPoints = pointManagement.getTotalCosts();
     assertThat(spentPoints, is(amount));
   }

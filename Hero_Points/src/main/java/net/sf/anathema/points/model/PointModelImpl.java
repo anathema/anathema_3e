@@ -1,5 +1,9 @@
 package net.sf.anathema.points.model;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -12,10 +16,6 @@ import net.sf.anathema.points.model.overview.WeightedCategory;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
 import net.sf.anathema.points.template.PointsTemplate;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class PointModelImpl implements PointsModel {
 
   private final ExperiencePoints experiencePoints = new DefaultExperiencePointConfiguration();
@@ -23,9 +23,11 @@ public class PointModelImpl implements PointsModel {
   private final List<IOverviewModel> bonusOverviewModels = new ArrayList<>();
   private final List<WeightedCategory> bonusCategories = new ArrayList<>();
   private BonusPointManagementImpl bonusPointManagement;
+  private ExperiencePointManagement experiencePointManagement;
 
   public PointModelImpl(PointsTemplate template) {
     this.bonusPointManagement = new BonusPointManagementImpl(new PointsCreationData(template));
+    this.experiencePointManagement = new ExperiencePointManagementImpl(this);
   }
 
   @Override
@@ -82,6 +84,11 @@ public class PointModelImpl implements PointsModel {
   public BonusPointManagementImpl getBonusPointManagement() {
     return bonusPointManagement;
   }
+  
+  @Override
+	public ExperiencePointManagement getExperiencePointManagement() {
+		return experiencePointManagement;
+	}
 
   @Override
   public ExperiencePoints getExperiencePoints() {

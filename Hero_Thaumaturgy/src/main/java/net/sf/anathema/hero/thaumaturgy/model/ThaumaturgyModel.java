@@ -14,4 +14,6 @@ public interface ThaumaturgyModel extends RemovableEntryModel<KnownRitual>,
   Identifier ID = new SimpleIdentifier("Thaumaturgy");
   
   void addThaumaturgyProvider(ThaumaturgyProvider provider);
+  
+  int getFreeRitualPicks();
 }

@@ -38,7 +38,7 @@ public class OverviewInitializer implements HeroModelInitializer {
 
   private void initOverviewPresentation(Hero hero, OverviewContainer container) {
     BonusPointManagement bonusPoints = PointModelFetcher.fetch(hero).getBonusPointManagement();
-    ExperiencePointManagement experiencePoints = new ExperiencePointManagementImpl(hero);
+    ExperiencePointManagement experiencePoints = PointModelFetcher.fetch(hero).getExperiencePointManagement();
     Messaging messaging = environment.getMessaging();
     OverviewPresenter presenter = new OverviewPresenter(environment.getResources(), hero, container, bonusPoints, experiencePoints, messaging);
     presenter.initPresentation();

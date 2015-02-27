@@ -27,6 +27,8 @@ public interface PointsModel extends HeroModel {
   Iterable<WeightedCategory> getBonusCategories();
 
   BonusPointManagement getBonusPointManagement();
+  
+  ExperiencePointManagement getExperiencePointManagement();
 
   ExperiencePoints getExperiencePoints();
 }

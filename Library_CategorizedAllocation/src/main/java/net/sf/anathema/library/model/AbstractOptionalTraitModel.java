@@ -44,7 +44,6 @@ public abstract class AbstractOptionalTraitModel<
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
     cache = initCache(environment);
-    
 
     if (hasCategories) {
     	currentCategory = getAvailableCategories().get(0);

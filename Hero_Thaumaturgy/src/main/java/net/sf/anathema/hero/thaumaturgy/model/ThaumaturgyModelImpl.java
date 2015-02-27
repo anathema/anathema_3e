@@ -6,19 +6,29 @@ import java.util.List;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.AbstractOptionalTraitModel;
 import net.sf.anathema.library.model.NullCategory;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
 
 public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategory, ThaumaturgyRitual, KnownRitual>
 	implements ThaumaturgyModel {
 
-  protected ThaumaturgyModelImpl() {
+  public ThaumaturgyModelImpl() {
 		super(false);
 	}
 
 	private final List<ThaumaturgyProvider> providers = new ArrayList<>();
+	
+	@Override
+	public void initialize(HeroEnvironment environment, Hero hero) {
+		super.initialize(environment, hero);
+		
+		PointModelFetcher.fetch(hero).addToExperienceOverview(new ThaumaturgyExperienceModel("Thaumaturgy", this));
+	}
 
   @Override
   public Identifier getId() {
@@ -47,7 +57,7 @@ public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategor
 			return false;
 		}
 		if (!ExperienceModelFetcher.fetch(hero).isExperienced()) {
-			return getFreeRituals() > 0;
+			return getFreeRitualPicks() > 0;
 		}
 		return true;
 	}
@@ -61,7 +71,8 @@ public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategor
 		return false;
 	}
 	
-	private int getFreeRituals() {
+	@Override
+	public int getFreeRitualPicks() {
 		int total = 0;
 		for (ThaumaturgyProvider provider : providers) {
 			total += provider.numberOfRitualsProvided();

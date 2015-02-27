@@ -1,8 +1,8 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.points.model.overview.IValueModel;
-
 import java.util.List;
+
+import net.sf.anathema.points.model.overview.IValueModel;
 
 public interface ExperiencePointManagement {
 

@@ -45,4 +45,6 @@ public interface OptionalTraitsModel<
 	List<Trait> getContingentTraits();
 
 	boolean hasCategories();
+	
+	boolean isEntryAllowed();
 }

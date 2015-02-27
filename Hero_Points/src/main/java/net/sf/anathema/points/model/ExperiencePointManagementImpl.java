@@ -1,25 +1,24 @@
 package net.sf.anathema.points.model;
 
-import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.points.model.overview.IValueModel;
-
 import java.util.ArrayList;
 import java.util.List;
 
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.points.model.overview.IValueModel;
+
 public class ExperiencePointManagementImpl implements ExperiencePointManagement {
 
-  private final Hero hero;
-
-  public ExperiencePointManagementImpl(Hero hero) {
-    this.hero = hero;
+	PointsModel points;
+	
+  public ExperiencePointManagementImpl(PointsModel points) {
+    this.points = points;
   }
 
   @Override
   public List<IValueModel<Integer>> getAllModels() {
     final List<IValueModel<Integer>> allModels = new ArrayList<>();
     // todo (sandra): Sorting mechanism for the value models
-    PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    for (IValueModel<Integer>  model : pointsModel.getExperienceOverviewModels()) {
+    for (IValueModel<Integer>  model : points.getExperienceOverviewModels()) {
       allModels.add(model);
     }
     return allModels;
