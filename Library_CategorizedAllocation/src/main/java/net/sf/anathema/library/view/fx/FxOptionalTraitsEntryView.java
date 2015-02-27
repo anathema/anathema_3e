@@ -6,9 +6,9 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
-import net.sf.anathema.library.view.OptionalTraitEntryView;
+import net.sf.anathema.library.view.OptionalPropertyEntryView;
 
-public class FxOptionalTraitsEntryView implements OptionalTraitEntryView {
+public class FxOptionalTraitsEntryView implements OptionalPropertyEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
 
   public Tool addTool() {

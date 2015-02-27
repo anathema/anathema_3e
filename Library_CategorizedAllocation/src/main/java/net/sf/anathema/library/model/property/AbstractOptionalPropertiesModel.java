@@ -1,4 +1,4 @@
-package net.sf.anathema.library.model;
+package net.sf.anathema.library.model.property;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,32 +11,35 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.model.AbstractRemovableEntryModel;
+import net.sf.anathema.library.model.OptionalEntryCache;
+import net.sf.anathema.library.model.OptionalEntryReference;
+import net.sf.anathema.library.model.RemovableEntryListener;
 
 import org.jmock.example.announcer.Announcer;
 
-public abstract class AbstractOptionalTraitModel<
-	C extends OptionalTraitCategory,
-	O extends OptionalTraitOption,
-	T extends KnownOptionalTrait<O>>
+public abstract class AbstractOptionalPropertiesModel<
+	C extends OptionalEntryCategory,
+	O extends OptionalPropertyOption,
+	T extends PossessedOptionalProperty<O>>
 	extends AbstractRemovableEntryModel<T>
-	implements OptionalTraitsModel<C, O, T> {
+	implements OptionalPropertiesModel<C, O, T> {
 	
-  private final Map<OptionalTraitReference, Collection<String>> suggestions = new HashMap<>();
+  private final Map<OptionalEntryReference, Collection<String>> suggestions = new HashMap<>();
 	
 	private final Announcer<ChangeListener> currentCategoryChangeAnnouncer = Announcer.to(ChangeListener.class);
 	private final Announcer<ChangeListener> currentOptionChangeAnnouncer = Announcer.to(ChangeListener.class);
 	
 	private final boolean hasCategories;
 	protected Hero hero;
-	protected OptionalTraitCache<C, O> cache;
-	private ChangeAnnouncer change;
-	private String currentDescription = "";
-	private C currentCategory;
-	private O currentOption;
+	protected OptionalEntryCache<C, O> cache;
+	protected ChangeAnnouncer change;
+	protected String currentDescription = "";
+	protected C currentCategory;
+	protected O currentOption;
 	
-	protected AbstractOptionalTraitModel(boolean hasCategories) {
+	protected AbstractOptionalPropertiesModel(boolean hasCategories) {
 		this.hasCategories = hasCategories;
 	}
 	
@@ -50,7 +53,7 @@ public abstract class AbstractOptionalTraitModel<
     }
   }
 	
-	protected abstract OptionalTraitCache<C, O> initCache(HeroEnvironment environment);
+	protected abstract OptionalEntryCache<C, O> initCache(HeroEnvironment environment);
 	
 	@SuppressWarnings("unchecked")
   @Override
@@ -67,39 +70,37 @@ public abstract class AbstractOptionalTraitModel<
 	@Override
 	public void resetCurrentEntry() {
 		currentDescription = "";
-    selectFirstOption();
+    selectFirstEntryOption();
 	}
 	
-	public void selectFirstOption() {
-    List<O> currentOptions = getCurrentTraitOptions();
+	public void selectFirstEntryOption() {
+    List<O> currentOptions = getCurrentEntryOptions();
     if (currentOptions.isEmpty()) {
-      setSelectedTraitOption(getNullOption());
+      setSelectedEntryOption(getNullOption());
       return;
     }
-    setSelectedTraitOption(currentOptions.get(0));
+    setSelectedEntryOption(currentOptions.get(0));
   }
 	
 	@Override
-	public List<T> getKnownTraits() {
+	public List<T> getPossessedEntries() {
 		return getEntries();
 	}
 	
 	@Override
   protected T createEntry() {
-    T trait = createKnownTrait(getSelectedTraitOption(), currentDescription, hero);
-    trait.addCurrentValueListener(new TraitValueChangedListener(change, trait));
-    return trait;
+    return createPossessedEntry(getSelectedEntryOption(), currentDescription, hero);
   }
 	
-	protected abstract T createKnownTrait(O option, String description, Hero hero);
+	protected abstract T createPossessedEntry(O option, String description, Hero hero);
 	
 	@Override
-	public List<O> getAllTraitOptions() {
+	public List<O> getAllEntryOptions() {
 		return cache.getAllOptions();
 	}
 	
 	@Override
-	public List<O> getCurrentTraitOptions() {
+	public List<O> getCurrentEntryOptions() {
 		List<O> options = hasCategories ? cache.getAllOptionsForCategory(currentCategory) :
 			cache.getAllOptions();
     options.removeIf(item -> !isAllowedOption(item));
@@ -109,12 +110,12 @@ public abstract class AbstractOptionalTraitModel<
 	protected abstract boolean isAllowedOption(O option);
 
 	@Override
-	public O getSelectedTraitOption() {
+	public O getSelectedEntryOption() {
 		return currentOption;
 	}
 	
 	@Override
-	public void setSelectedTraitOption(O option) {
+	public void setSelectedEntryOption(O option) {
 		if (option == null) {
       option = getNullOption();
     }
@@ -132,7 +133,7 @@ public abstract class AbstractOptionalTraitModel<
 	}
 	
 	@Override
-  public O findOptionByReference(OptionalTraitReference reference) {
+  public O findOptionByReference(OptionalEntryReference reference) {
     return cache.getOptionByReference(reference);
   }
 	
@@ -143,7 +144,7 @@ public abstract class AbstractOptionalTraitModel<
   }
 	
 
-  public void addSuggestions(OptionalTraitReference merit, Collection<String> suggestionsForReference) {
+  public void addSuggestions(OptionalEntryReference merit, Collection<String> suggestionsForReference) {
     suggestions.put(merit, suggestionsForReference);
   }
 	
@@ -153,7 +154,7 @@ public abstract class AbstractOptionalTraitModel<
 	}
 	
 	protected boolean knowsTrait(O option) {
-		return getKnownTraits().stream().anyMatch(trait -> trait.getBaseOption().equals(option));
+		return getPossessedEntries().stream().anyMatch(trait -> trait.getBaseOption().equals(option));
 	}
 	
 	protected abstract O getNullOption();

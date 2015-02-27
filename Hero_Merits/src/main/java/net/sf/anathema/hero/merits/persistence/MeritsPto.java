@@ -3,15 +3,15 @@ package net.sf.anathema.hero.merits.persistence;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.library.persister.KnownOptionalTraitPto;
-import net.sf.anathema.library.persister.OptionalTraitsModelPto;
+import net.sf.anathema.library.persister.OptionalEntriesModelPto;
+import net.sf.anathema.library.persister.PossessedOptionalTraitPto;
 
-public class MeritsPto implements OptionalTraitsModelPto {
+public class MeritsPto implements OptionalEntriesModelPto<PossessedOptionalTraitPto> {
 
-  public List<KnownOptionalTraitPto> merits = new ArrayList<>();
+  public List<PossessedOptionalTraitPto> merits = new ArrayList<>();
 
 	@Override
-	public List<KnownOptionalTraitPto> getOptionalTraitPtoList() {
+	public List<PossessedOptionalTraitPto> getOptionalTraitPtoList() {
 		return merits;
 	}
 }

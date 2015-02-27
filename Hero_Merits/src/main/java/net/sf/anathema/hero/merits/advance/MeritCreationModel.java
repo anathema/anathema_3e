@@ -18,7 +18,7 @@ public class MeritCreationModel extends AbstractSpendingModel {
 	@Override
 	public int getSpentBonusPoints() {
 		int totalMeritDots = 0;
-		for (Merit merit : model.getKnownTraits()) {
+		for (Merit merit : model.getPossessedEntries()) {
 			totalMeritDots += merit.getCurrentValue();
 		}
 		return creation.getBonusPointCost() * 
@@ -33,7 +33,7 @@ public class MeritCreationModel extends AbstractSpendingModel {
 	@Override
 	public Integer getValue() {
 		int totalMeritDots = 0;
-		for (Merit merit : model.getKnownTraits()) {
+		for (Merit merit : model.getPossessedEntries()) {
 			totalMeritDots += merit.getCurrentValue();
 		}
 		return Math.min(creation.getFreebiePoints(), totalMeritDots);

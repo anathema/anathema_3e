@@ -9,7 +9,7 @@ import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritOptionImpl;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 import static java.util.stream.Collectors.toList;
 
@@ -27,7 +27,7 @@ public class MeritCacheImpl implements MeritCache {
     return options;
   }
 
-  public MeritOption getMeritOptionByName(OptionalTraitReference reference) {
+  public MeritOption getMeritOptionByName(OptionalEntryReference reference) {
     return merits.get(reference.name);
   }
 
@@ -37,7 +37,7 @@ public class MeritCacheImpl implements MeritCache {
 	}
 
 	@Override
-	public MeritOption getOptionByReference(OptionalTraitReference reference) {
+	public MeritOption getOptionByReference(OptionalEntryReference reference) {
 		return merits.get(reference.name);
 	}
 }

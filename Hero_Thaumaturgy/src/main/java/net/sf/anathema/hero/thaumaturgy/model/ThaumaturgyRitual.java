@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
-import net.sf.anathema.library.model.OptionalTraitOption;
+import net.sf.anathema.library.model.trait.OptionalTraitOption;
 
 public interface ThaumaturgyRitual extends OptionalTraitOption {
 

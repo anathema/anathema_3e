@@ -19,7 +19,7 @@ public class MeritExperienceModel extends AbstractIntegerValueModel {
   @Override
   public Integer getValue() {
     int totalXP = 0;
-    for (Merit merit : model.getKnownTraits()) {
+    for (Merit merit : model.getPossessedEntries()) {
       switch (merit.getBaseOption().getCategory()) {
         case Purchased:
           // only Purchased merits are paid for

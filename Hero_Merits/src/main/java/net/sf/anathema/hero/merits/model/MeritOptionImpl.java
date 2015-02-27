@@ -11,7 +11,7 @@ import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDe
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 public class MeritOptionImpl implements MeritOption {
 
@@ -129,7 +129,7 @@ public class MeritOptionImpl implements MeritOption {
   }
 
   @Override
-  public boolean isReferencedBy(OptionalTraitReference reference) {
+  public boolean isReferencedBy(OptionalEntryReference reference) {
     return reference.name.equals(name);
   }
 

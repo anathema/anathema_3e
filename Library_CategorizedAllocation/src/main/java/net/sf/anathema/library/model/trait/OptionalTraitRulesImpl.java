@@ -1,4 +1,4 @@
-package net.sf.anathema.library.model;
+package net.sf.anathema.library.model.trait;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;

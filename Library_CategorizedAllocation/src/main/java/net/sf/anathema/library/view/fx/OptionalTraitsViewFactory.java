@@ -2,7 +2,7 @@ package net.sf.anathema.library.view.fx;
 
 import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.dependencies.Produces;
-import net.sf.anathema.library.view.OptionalTraitsView;
+import net.sf.anathema.library.view.trait.OptionalTraitsView;
 
 @Produces(OptionalTraitsView.class)
 public class OptionalTraitsViewFactory implements SubViewFactory {

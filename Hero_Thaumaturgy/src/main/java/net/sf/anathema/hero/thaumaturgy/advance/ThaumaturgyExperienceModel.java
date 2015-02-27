@@ -24,7 +24,7 @@ public class ThaumaturgyExperienceModel extends AbstractIntegerValueModel {
   public Integer getValue() {
     int totalXP = 0;
     int freeRitualPicks = model.getFreeRitualPicks();
-    List<KnownRitual> rituals = model.getKnownTraits();
+    List<KnownRitual> rituals = model.getPossessedEntries();
     rituals = rituals.stream().sorted((r1, r2) -> getXPCostForRitual(r2) - getXPCostForRitual(r1))
     		.collect(toList());
     for (KnownRitual ritual : rituals) {

@@ -8,7 +8,7 @@ import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.thaumaturgy.model.RitualImpl;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.model.NullCategory;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 public class DummyRitualProvider implements ThaumaturgyRitualCache {
 	
@@ -31,7 +31,7 @@ public class DummyRitualProvider implements ThaumaturgyRitualCache {
 	}
 
 	@Override
-	public ThaumaturgyRitual getOptionByReference(OptionalTraitReference reference) {
+	public ThaumaturgyRitual getOptionByReference(OptionalEntryReference reference) {
 		return rituals.stream().filter(ritual -> ritual.getId().toString().equals(reference.name)).findFirst().get();
 	}
 

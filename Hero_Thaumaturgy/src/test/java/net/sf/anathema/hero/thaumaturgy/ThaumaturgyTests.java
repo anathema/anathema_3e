@@ -12,7 +12,7 @@ import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelImpl;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyProvider;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.points.model.PointModelImpl;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.template.PointsTemplate;
@@ -54,21 +54,21 @@ public class ThaumaturgyTests {
 	
 	@Test
 	public void verifyNoThaumaturgyIfNotGranted() {
-		model.selectFirstOption();
+		model.selectFirstEntryOption();
 		assertThat(model.isEntryAllowed(), is(false));
 	}
 	
 	@Test
 	public void verifyThaumaturgyLearnableIfGranted() {
 		model.addThaumaturgyProvider(getAllowsThaumaturgyProvider());
-		model.selectFirstOption();
+		model.selectFirstEntryOption();
 		assertThat(model.isEntryAllowed(), is(true));
 	}
 	
 	@Test
 	public void verifyThaumaturgyBasicCost() {
 		model.addThaumaturgyProvider(getAllowsThaumaturgyProvider());
-		model.setSelectedTraitOption(getOption("Second Bread"));
+		model.setSelectedEntryOption(getOption("Second Bread"));
 		model.commitSelection();
 		assertThat(points.getExperiencePointManagement().getTotalCosts(),
 				is(ThaumaturgyExperienceModel.BASIC_RITUAL_COST));
@@ -77,7 +77,7 @@ public class ThaumaturgyTests {
 	@Test
 	public void verifyThaumaturgyAdvancedCost() {
 		model.addThaumaturgyProvider(getAllowsThaumaturgyProvider());
-		model.setSelectedTraitOption(getOption("Speak To Ozashun"));
+		model.setSelectedEntryOption(getOption("Speak To Ozashun"));
 		model.commitSelection();
 		assertThat(points.getExperiencePointManagement().getTotalCosts(),
 				is(ThaumaturgyExperienceModel.ADVANCED_RITUAL_COST));
@@ -86,18 +86,18 @@ public class ThaumaturgyTests {
 	@Test
 	public void verifyThaumaturgyFreeRitualDiscountCost() {
 		model.addThaumaturgyProvider(getFreeRitualProvider());
-		model.setSelectedTraitOption(getOption("Second Bread"));
+		model.setSelectedEntryOption(getOption("Second Bread"));
 		model.commitSelection();
-		model.setSelectedTraitOption(getOption("Read The Tea Leaves"));
+		model.setSelectedEntryOption(getOption("Read The Tea Leaves"));
 		model.commitSelection();
-		model.setSelectedTraitOption(getOption("Speak To Ozashun"));
+		model.setSelectedEntryOption(getOption("Speak To Ozashun"));
 		model.commitSelection();
 		assertThat(points.getExperiencePointManagement().getTotalCosts(),
 				is(2 * ThaumaturgyExperienceModel.BASIC_RITUAL_COST));
 	}
 	
 	private ThaumaturgyRitual getOption(String name) {
-		return model.findOptionByReference(new OptionalTraitReference(name));
+		return model.findOptionByReference(new OptionalEntryReference(name));
 	}
 	
 	private ThaumaturgyProvider getAllowsThaumaturgyProvider() {

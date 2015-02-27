@@ -1,4 +1,4 @@
-package net.sf.anathema.library.model;
+package net.sf.anathema.library.model.trait;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -15,13 +15,13 @@ import net.sf.anathema.hero.traits.template.TraitTemplate;
 
 import com.google.common.base.Strings;
 
-public abstract class AbstractKnownOptionalTrait<O extends OptionalTraitOption> extends TraitImpl implements KnownOptionalTrait<O> {
+public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOption> extends TraitImpl implements PossessedOptionalTrait<O> {
 	
 	private final O optionBase;
   private final String description;
 	private final List<String> suggestions = new ArrayList<>();
 	
-	protected AbstractKnownOptionalTrait(Hero hero, O optionBase, TraitRules rules, String description) {
+	protected AbstractPossessedOptionalTrait(Hero hero, O optionBase, TraitRules rules, String description) {
 		super(hero, rules);
 		this.description = description;
 		this.optionBase = optionBase;

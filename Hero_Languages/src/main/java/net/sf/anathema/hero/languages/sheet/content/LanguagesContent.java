@@ -9,7 +9,7 @@ import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.resources.Resources;
 
 public class LanguagesContent extends AbstractSubBoxContent implements ListSubBoxContent {
@@ -29,7 +29,7 @@ public class LanguagesContent extends AbstractSubBoxContent implements ListSubBo
   @Override
   public List<String> getPrintEntries() {
     MeritsModel model = MeritsModelFetcher.fetch(hero);
-    List<Merit> languageMerits = model.getMeritsMatchingReference(new OptionalTraitReference("Language"));
+    List<Merit> languageMerits = model.getMeritsMatchingReference(new OptionalEntryReference("Language"));
     return languageMerits.stream().map(Merit::getDescription).collect(Collectors.toList());
   }
 

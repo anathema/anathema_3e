@@ -4,7 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 import com.google.inject.Inject;
 
@@ -44,8 +44,8 @@ public class LanguageSteps {
   }
 
   private void prepareForLanguage(MeritsModel merits, String id) {
-    MeritOption language = merits.findOptionByReference(new OptionalTraitReference("Language"));
-    merits.setSelectedTraitOption(language);
+    MeritOption language = merits.findOptionByReference(new OptionalEntryReference("Language"));
+    merits.setSelectedEntryOption(language);
     merits.setCurrentDescription(id);
   }
 }

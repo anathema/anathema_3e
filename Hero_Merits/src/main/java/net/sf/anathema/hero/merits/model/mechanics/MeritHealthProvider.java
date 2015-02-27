@@ -20,7 +20,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 		final int[] levelsOfType = new int[1];
 		levelsOfType[0] = 0;
 		
-		for (Merit merit : merits.getKnownTraits()) {
+		for (Merit merit : merits.getPossessedEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
@@ -44,7 +44,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 		final int[] tolerance = new int[1];
 		tolerance[0] = 0;
 		
-		for (Merit merit : merits.getKnownTraits()) {
+		for (Merit merit : merits.getPossessedEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
@@ -64,7 +64,7 @@ public class MeritHealthProvider implements IHealthLevelProvider, IPainTolerance
 	public boolean usesExaltedHealing() {
 		boolean[] result = new boolean[1];
 		result[0] = false;
-		for (Merit merit : merits.getKnownTraits()) {
+		for (Merit merit : merits.getPossessedEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 

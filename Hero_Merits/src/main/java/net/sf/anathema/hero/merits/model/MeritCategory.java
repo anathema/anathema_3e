@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.merits.model;
 
-import net.sf.anathema.library.model.OptionalTraitCategory;
+import net.sf.anathema.library.model.property.OptionalEntryCategory;
 
-public enum MeritCategory implements OptionalTraitCategory {
+public enum MeritCategory implements OptionalEntryCategory {
 	Purchased, Innate, Story, Supernatural
 }

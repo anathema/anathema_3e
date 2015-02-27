@@ -7,17 +7,19 @@ import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.dot.SimpleDotViewPanel;
-import net.sf.anathema.library.model.OptionalTraitCategory;
-import net.sf.anathema.library.model.OptionalTraitOption;
+import net.sf.anathema.library.model.property.OptionalEntryCategory;
+import net.sf.anathema.library.model.trait.OptionalTraitOption;
 import net.sf.anathema.library.resources.RelativePath;
-import net.sf.anathema.library.view.OptionalTraitEntryView;
-import net.sf.anathema.library.view.OptionalTraitItemView;
-import net.sf.anathema.library.view.OptionalTraitsView;
+import net.sf.anathema.library.view.OptionalPropertyEntryView;
+import net.sf.anathema.library.view.trait.OptionalTraitItemView;
+import net.sf.anathema.library.view.trait.OptionalTraitsView;
 
 import org.tbee.javafx.scene.layout.MigPane;
 
-public class FxOptionalTraitsView<C extends OptionalTraitCategory,
-O extends OptionalTraitOption> implements OptionalTraitsView, NodeHolder {
+public class FxOptionalTraitsView<
+	C extends OptionalEntryCategory,
+	O extends OptionalTraitOption>
+	implements OptionalTraitsView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());
   private final MigPane creationPane = new MigPane(withoutInsets());
   private final SimpleDotViewPanel entryPanel = new SimpleDotViewPanel();
@@ -35,14 +37,14 @@ O extends OptionalTraitOption> implements OptionalTraitsView, NodeHolder {
   }
 
   @Override
-  public OptionalTraitEntryView addSelectionView() {
+  public OptionalPropertyEntryView addSelectionView() {
     FxOptionalTraitsEntryView view = new FxOptionalTraitsEntryView();
     creationPane.add(view.getNode());
     return view;
   }
 
   @Override
-  public OptionalTraitItemView addKnownTrait(String label, int maxValue, RelativePath removeIcon) {
+  public OptionalTraitItemView addItemView(String label, int maxValue, RelativePath removeIcon) {
     FxDotView view = FxDotView.WithDefaultLayout(label, maxValue);
     FxOptionalTraitItemView itemView = new FxOptionalTraitItemView(view, removeIcon);
     itemView.addTo(entryPanel);

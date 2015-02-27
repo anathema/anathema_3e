@@ -22,10 +22,10 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.AbstractOptionalTraitModel;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
+import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
 
-public class MeritsModelImpl extends AbstractOptionalTraitModel<MeritCategory, MeritOption, Merit>
+public class MeritsModelImpl extends AbstractOptionalPropertiesModel<MeritCategory, MeritOption, Merit>
 	implements MeritsModel {
 
   protected MeritsModelImpl() {
@@ -71,12 +71,12 @@ public class MeritsModelImpl extends AbstractOptionalTraitModel<MeritCategory, M
   }
 
   @Override
-  public boolean hasMeritsMatchingReference(OptionalTraitReference reference) {
+  public boolean hasMeritsMatchingReference(OptionalEntryReference reference) {
     return !getMeritsMatchingReference(reference).isEmpty();
   }
 
   @Override
-  public List<Merit> getMeritsMatchingReference(OptionalTraitReference reference) {
+  public List<Merit> getMeritsMatchingReference(OptionalEntryReference reference) {
     Predicate<Merit> referencedMerits = merit -> merit.getBaseOption().isReferencedBy(reference);
     return getEntries().stream().filter(referencedMerits).collect(toList());
   }
@@ -88,7 +88,7 @@ public class MeritsModelImpl extends AbstractOptionalTraitModel<MeritCategory, M
 
   @Override
   public boolean isEntryAllowed() {
-    return isAllowedOption(getSelectedTraitOption());
+    return isAllowedOption(getSelectedEntryOption());
   }
   
   @Override
@@ -103,7 +103,7 @@ public class MeritsModelImpl extends AbstractOptionalTraitModel<MeritCategory, M
   }
 
 	@Override
-	protected Merit createKnownTrait(MeritOption option, String description,
+	protected Merit createPossessedEntry(MeritOption option, String description,
 			Hero hero) {
 		return new MeritImpl(option, description, hero, isCharacterExperienced());
 	}

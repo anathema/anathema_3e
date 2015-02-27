@@ -3,15 +3,15 @@ package net.sf.anathema.hero.thaumaturgy.persister;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.sf.anathema.library.persister.KnownOptionalTraitPto;
-import net.sf.anathema.library.persister.OptionalTraitsModelPto;
+import net.sf.anathema.library.persister.OptionalEntriesModelPto;
+import net.sf.anathema.library.persister.PossessedOptionalTraitPto;
 
-public class ThaumaturgyPto implements OptionalTraitsModelPto {
+public class ThaumaturgyPto implements OptionalEntriesModelPto<PossessedOptionalTraitPto> {
 
-  public List<KnownOptionalTraitPto> rituals = new ArrayList<>();
+  public List<PossessedOptionalTraitPto> rituals = new ArrayList<>();
 
 	@Override
-	public List<KnownOptionalTraitPto> getOptionalTraitPtoList() {
+	public List<PossessedOptionalTraitPto> getOptionalTraitPtoList() {
 		return rituals;
 	}
 }

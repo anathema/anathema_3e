@@ -2,9 +2,9 @@ package net.sf.anathema.hero.merits.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.ModificationType;
-import net.sf.anathema.library.model.AbstractKnownOptionalTrait;
+import net.sf.anathema.library.model.trait.AbstractPossessedOptionalTrait;
 
-public class MeritImpl extends AbstractKnownOptionalTrait<MeritOption> implements Merit {
+public class MeritImpl extends AbstractPossessedOptionalTrait<MeritOption> implements Merit {
 
   public MeritImpl(MeritOption base, String description, Hero hero,
                    boolean isExperienced) {

@@ -4,8 +4,8 @@ import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.NullCategory;
-import net.sf.anathema.library.model.OptionalTraitsModel;
 import net.sf.anathema.library.model.RemovableEntryModel;
+import net.sf.anathema.library.model.trait.OptionalTraitsModel;
 
 public interface ThaumaturgyModel extends RemovableEntryModel<KnownRitual>,
 	HeroModel,

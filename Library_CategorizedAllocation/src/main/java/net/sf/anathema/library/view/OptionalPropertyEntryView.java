@@ -3,8 +3,9 @@ package net.sf.anathema.library.view;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.text.ITextView;
+import net.sf.anathema.library.view.ObjectSelectionView;
 
-public interface OptionalTraitEntryView {
+public interface OptionalPropertyEntryView {
   Tool addTool();
 
   ITextView addDescriptionBox(String label);

@@ -9,11 +9,11 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.AbstractOptionalTraitModel;
 import net.sf.anathema.library.model.NullCategory;
+import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
 import net.sf.anathema.points.model.PointModelFetcher;
 
-public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategory, ThaumaturgyRitual, KnownRitual>
+public class ThaumaturgyModelImpl extends AbstractOptionalPropertiesModel<NullCategory, ThaumaturgyRitual, KnownRitual>
 	implements ThaumaturgyModel {
 
   public ThaumaturgyModelImpl() {
@@ -40,7 +40,7 @@ public class ThaumaturgyModelImpl extends AbstractOptionalTraitModel<NullCategor
   }
   
   @Override
-	protected KnownRitual createKnownTrait(ThaumaturgyRitual option,
+	protected KnownRitual createPossessedEntry(ThaumaturgyRitual option,
 			String description, Hero hero) {
 		return new KnownRitualImpl(option, description, hero);
 	}

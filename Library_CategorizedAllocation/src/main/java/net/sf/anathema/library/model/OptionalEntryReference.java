@@ -1,9 +1,9 @@
 package net.sf.anathema.library.model;
 
-public class OptionalTraitReference {
+public class OptionalEntryReference {
 	public String name;
 
-  public OptionalTraitReference(String name) {
+  public OptionalEntryReference(String name) {
     this.name= name;
   }
 }

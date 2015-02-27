@@ -6,7 +6,7 @@ import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.points.model.overview.IValueModel;
 
 import com.google.inject.Inject;
@@ -52,7 +52,7 @@ public class MeritSteps {
   @Then("^she can earn the (.*) merit at (\\d+)$")
   public void she_can_earn_the_merit_at(String id, int rank) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	MeritOption matchingOption = model.getCurrentTraitOptions().stream()
+  	MeritOption matchingOption = model.getCurrentEntryOptions().stream()
   			.filter(option -> option.getId().equals(id)).findAny().get();
   	boolean canEarn = matchingOption != null && matchingOption.isLegalValue(rank);
     assertThat(canEarn, is(true));
@@ -61,7 +61,7 @@ public class MeritSteps {
   @Then("^she can earn the (.*) merit$")
   public void she_can_earn_the_merit(String id) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllTraitOptions().stream()
+  	boolean canEarn = model.getAllEntryOptions().stream()
   			.filter(option -> option.getId().equals(id)).count() != 0;
     assertThat(canEarn, is(true));
   }
@@ -69,7 +69,7 @@ public class MeritSteps {
   @Then("^she can not earn the (.*) merit$")
   public void she_can_not_earn_the_merit(String id) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllTraitOptions().stream()
+  	boolean canEarn = model.getAllEntryOptions().stream()
   			.filter(option -> option.getId().equals(id)).count() != 0;
     assertThat(canEarn, is(false));
   }
@@ -81,8 +81,8 @@ public class MeritSteps {
   }
 
   private void selectMeritOptionById(String meritId, MeritsModel model) {
-    MeritOption option = model.findOptionByReference(new OptionalTraitReference(meritId));
-    model.setSelectedTraitOption(option);
+    MeritOption option = model.findOptionByReference(new OptionalEntryReference(meritId));
+    model.setSelectedEntryOption(option);
   }
   
   

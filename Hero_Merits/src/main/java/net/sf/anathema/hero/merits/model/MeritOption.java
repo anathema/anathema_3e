@@ -4,8 +4,8 @@ import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
-import net.sf.anathema.library.model.OptionalTraitOption;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
+import net.sf.anathema.library.model.trait.OptionalTraitOption;
 
 public interface MeritOption extends OptionalTraitOption {
 
@@ -21,5 +21,5 @@ public interface MeritOption extends OptionalTraitOption {
 
   List<MeritMechanicalDetail> getMechanics();
 
-  boolean isReferencedBy(OptionalTraitReference reference);
+  boolean isReferencedBy(OptionalEntryReference reference);
 }

@@ -4,20 +4,20 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
-import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.KnownOptionalTrait;
-import net.sf.anathema.library.model.OptionalTraitCategory;
-import net.sf.anathema.library.model.OptionalTraitOption;
-import net.sf.anathema.library.model.OptionalTraitReference;
-import net.sf.anathema.library.model.OptionalTraitsModel;
+import net.sf.anathema.library.model.OptionalEntryReference;
+import net.sf.anathema.library.model.property.OptionalEntryCategory;
+import net.sf.anathema.library.model.trait.OptionalTraitOption;
+import net.sf.anathema.library.model.trait.OptionalTraitsModel;
+import net.sf.anathema.library.model.trait.PossessedOptionalTrait;
 
 @SuppressWarnings("UnusedDeclaration")
 public abstract class OptionalTraitsPersister<
-	C extends OptionalTraitCategory,
+	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption,
-	T extends KnownOptionalTrait<O>,
+	T extends PossessedOptionalTrait<O>,
 	M extends OptionalTraitsModel<C, O, T>,
-	P extends OptionalTraitsModelPto> extends AbstractModelJsonPersister<P, M>{
+	P extends OptionalEntriesModelPto<PossessedOptionalTraitPto>>
+	extends AbstractModelJsonPersister<P, M> {
 
   private final TraitPersister traitPersister = new TraitPersister(new NullTraitStateMap());
 
@@ -26,9 +26,9 @@ public abstract class OptionalTraitsPersister<
   }
 
   protected void loadModelFromPto(Hero hero, M model, P pto) {
-    for (KnownOptionalTraitPto traitPto : pto.getOptionalTraitPtoList()) {
-      O option = model.findOptionByReference(new OptionalTraitReference(traitPto.option));
-      model.setSelectedTraitOption(option);
+    for (PossessedOptionalTraitPto traitPto : pto.getOptionalTraitPtoList()) {
+      O option = model.findOptionByReference(new OptionalEntryReference(traitPto.option));
+      model.setSelectedEntryOption(option);
       model.setCurrentDescription(traitPto.description);
       T newTrait = model.commitSelection();
       traitPersister.load(newTrait, traitPto.rating);
@@ -46,8 +46,8 @@ public abstract class OptionalTraitsPersister<
   
   protected abstract P createNewPto();
 
-  private KnownOptionalTraitPto createMeritsPto(T trait) {
-    KnownOptionalTraitPto pto = new KnownOptionalTraitPto();
+  private PossessedOptionalTraitPto createMeritsPto(T trait) {
+    PossessedOptionalTraitPto pto = new PossessedOptionalTraitPto();
     pto.option = trait.getBaseOption().getId();
     pto.description = trait.getDescription();
     traitPersister.save(trait, pto.rating);

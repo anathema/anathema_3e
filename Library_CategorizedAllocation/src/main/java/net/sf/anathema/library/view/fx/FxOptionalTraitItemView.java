@@ -5,7 +5,7 @@ import net.sf.anathema.library.fx.dot.FxExtensibleDotView;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
-import net.sf.anathema.library.view.OptionalTraitItemView;
+import net.sf.anathema.library.view.trait.OptionalTraitItemView;
 
 public class FxOptionalTraitItemView extends FxExtensibleDotView implements OptionalTraitItemView {
 	

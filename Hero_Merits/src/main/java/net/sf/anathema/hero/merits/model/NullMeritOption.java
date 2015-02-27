@@ -7,7 +7,7 @@ import java.util.List;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-import net.sf.anathema.library.model.OptionalTraitReference;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 public class NullMeritOption implements MeritOption {
   @Override
@@ -51,7 +51,7 @@ public class NullMeritOption implements MeritOption {
   }
 
   @Override
-  public boolean isReferencedBy(OptionalTraitReference reference) {
+  public boolean isReferencedBy(OptionalEntryReference reference) {
     return false;
   }
 

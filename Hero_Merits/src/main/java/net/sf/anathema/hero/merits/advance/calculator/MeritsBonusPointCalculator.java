@@ -23,7 +23,7 @@ public class MeritsBonusPointCalculator implements BonusPointCalculator {
 	@Override
 	public int getBonusPointCost() {
 		int totalMeritDots = 0;
-		for (Merit merit : model.getKnownTraits()) {
+		for (Merit merit : model.getPossessedEntries()) {
 			totalMeritDots += merit.getCurrentValue();
 		}
 		return creation.getBonusPointCost() *
