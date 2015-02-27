@@ -29,17 +29,6 @@ public class CharmsRulesImpl implements CharmsRules {
   }
 
   @Override
-  public boolean isCompulsiveCharm(Charm charm) {
-    return template.compulsiveCharms.contains(charm.getName().text);
-  }
-
-  @Override
-  public void forAllCompulsiveCharms(Consumer<? super CharmName> consumer) {
-    Stream<String> templateIds = template.compulsiveCharms.stream();
-    templateIds.map(CharmName::new).forEach(consumer);
-  }
-
-  @Override
   public boolean isAllowedAlienCharms(CasteType caste) {
     return template.alienCharmCastes.contains(caste.getId());
   }

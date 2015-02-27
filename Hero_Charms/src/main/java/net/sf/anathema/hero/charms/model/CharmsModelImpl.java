@@ -101,7 +101,6 @@ public class CharmsModelImpl implements CharmsModel {
     this.options = new CharmOptionsImpl(environment.getDataSet(CharmCache.class), charmsRules, hero);
     this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
     initSpecialLearningCharms();
-    learnCompulsiveCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
     MagicPointsModelFetcher.fetch(hero).registerMagicLearner(new CharmLearner(this));
 
@@ -138,13 +137,6 @@ public class CharmsModelImpl implements CharmsModel {
       control.announce().changeOccurred();
     });
     addCharmLearnListener(new CharacterChangeCharmListener(announcer));
-  }
-
-  private void learnCompulsiveCharms() {
-    charmsRules.forAllCompulsiveCharms(charmName -> {
-      Charm charm = getCharmById(charmName);
-      getLearningModel().learnCharm(charm, false);
-    });
   }
 
   @Override
@@ -382,11 +374,6 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public boolean isMagicCheapened(Magic magic) {
     return isCheapenedMagic.isFavored(magic);
-  }
-
-  @Override
-  public final boolean isCompulsiveCharm(Charm charm) {
-    return charmsRules.isCompulsiveCharm(charm);
   }
 
   @Override

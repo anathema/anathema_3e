@@ -97,11 +97,6 @@ public class DummyCharmsModel implements CharmsModel, CharmOptions {
   }
 
   @Override
-  public boolean isCompulsiveCharm(Charm charm) {
-    return false;
-  }
-
-  @Override
   public Collection<CharmTree> getAllTrees() {
     throw new NotYetImplementedException();
   }

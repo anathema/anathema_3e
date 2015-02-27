@@ -172,7 +172,7 @@ public class LearningModelImpl implements LearningModel {
 
   @Override
   public boolean isForgettable(Charm charm) {
-    return !learnArbitrator.isCompulsiveCharm(charm) && learnStrategy.isForgettable(this, charm);
+    return learnStrategy.isForgettable(this, charm);
   }
 
   public void forgetAll(CategoryReference reference) {

@@ -57,9 +57,4 @@ public class DummyLearnableArbitrator implements IExtendedCharmLearnableArbitrat
   public boolean isLearned(Charm charm) {
     return false;
   }
-
-  @Override
-  public boolean isCompulsiveCharm(Charm charm) {
-    return false;
-  }
 }

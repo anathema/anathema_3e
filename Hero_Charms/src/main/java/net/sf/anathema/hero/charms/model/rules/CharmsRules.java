@@ -1,12 +1,10 @@
 package net.sf.anathema.hero.charms.model.rules;
 
+import java.util.List;
+
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
-
-import java.util.List;
-import java.util.function.Consumer;
 
 public interface CharmsRules {
 
@@ -17,8 +15,4 @@ public interface CharmsRules {
   boolean isAlienCategory(CategoryReference category);
 
   List<CategoryReference> getNativeCategories();
-
-  boolean isCompulsiveCharm(Charm charm);
-
-  void forAllCompulsiveCharms(Consumer<? super CharmName> consumer);
 }
