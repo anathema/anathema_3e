@@ -106,6 +106,7 @@ public class MeritOptionImpl implements MeritOption {
   @Override
   public void accept(ITraitTypeVisitor visitor) {
     // TODO: Should we have a visitor?
+    // No.
   }
 
   @Override
