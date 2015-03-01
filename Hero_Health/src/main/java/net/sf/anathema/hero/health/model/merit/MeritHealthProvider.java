@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.merits.model.mechanics;
+package net.sf.anathema.hero.health.model.merit;
 
 import net.sf.anathema.hero.health.model.HealingTypeProvider;
 import net.sf.anathema.hero.health.model.HealthLevelType;
@@ -7,6 +7,7 @@ import net.sf.anathema.hero.health.model.IPainToleranceProvider;
 import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 
 public class MeritHealthProvider implements IHealthLevelProvider, IPainToleranceProvider, HealingTypeProvider {
 

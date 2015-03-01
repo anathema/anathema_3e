@@ -1,4 +1,7 @@
-package net.sf.anathema.hero.merits.model.mechanics;
+package net.sf.anathema.hero.health.model.merit;
+
+import net.sf.anathema.hero.merits.model.mechanics.DetailEntryReference;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 
 public class PainToleranceDetail {
   private MechanicalDetail detail;

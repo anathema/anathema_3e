@@ -39,18 +39,6 @@ public class GenericTemplateLoader<T> implements TemplateLoader<T> {
 	    gson = gsonBuilder.create();
 	  }
   
-  public GenericTemplateLoader(Class<T> aClass, GenericAdapter[] adapters, TypeAdapterFactory[] adapterFactories) {
-    this.aClass = aClass;
-    GsonBuilder gsonBuilder = new GsonBuilder();
-    for (GenericAdapter adapter : adapters) {
-      gsonBuilder.registerTypeAdapter(adapter.type, adapter.adapter);
-    }
-    for (TypeAdapterFactory factory : adapterFactories) {
-      gsonBuilder.registerTypeAdapterFactory(factory);
-    }
-    gson = gsonBuilder.create();
-  }
-
   @Override
   public T load(ResourceFile resource) {
     try (InputStream inputStream = resource.getURL().openStream()) {

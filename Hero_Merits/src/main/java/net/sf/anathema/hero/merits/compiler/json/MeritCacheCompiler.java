@@ -4,20 +4,15 @@ import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
-import net.sf.anathema.hero.health.model.HealthLevelType;
-import net.sf.anathema.hero.health.template.HealthLevelReader;
-import net.sf.anathema.hero.individual.persistence.GenericAdapter;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritListTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,9 +43,7 @@ public class MeritCacheCompiler implements ExtensibleDataSetCompiler {
   public ExtensibleDataSet build() {
     RuntimeTypeAdapterFactory[] factories =
             new PolymorphicTypeAdapterFactoryFactory(finder).generateFactories(MeritRequirementsTemplate.class, MeritMechanicalDetailTemplate.class);
-    GenericAdapter<HealthLevelType> adapter = new GenericAdapter<>(HealthLevelType.class, new HealthLevelReader());
-    TemplateLoader<MeritListTemplate> meritsLoader = new GenericTemplateLoader<>(MeritListTemplate.class,
-            new GenericAdapter[]{adapter}, factories);
+    TemplateLoader<MeritListTemplate> meritsLoader = new GenericTemplateLoader<>(MeritListTemplate.class, factories);
     MeritCacheBuilder meritsBuilder = new MeritCacheBuilder();
     resourceFiles.forEach(resourceFile -> {
       MeritListTemplate meritsTemplate = meritsLoader.load(resourceFile);

@@ -1,6 +1,8 @@
-package net.sf.anathema.hero.merits.model.mechanics;
+package net.sf.anathema.hero.health.model.merit;
 
 import net.sf.anathema.hero.health.model.HealthLevelType;
+import net.sf.anathema.hero.merits.model.mechanics.DetailEntryReference;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 
 import java.util.Collection;
 

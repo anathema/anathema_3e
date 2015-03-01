@@ -1,10 +1,11 @@
-package net.sf.anathema.hero.merits.model.mechanics;
+package net.sf.anathema.hero.equipment.model.merits;
 
 import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 
 public class MeritUnarmedModificationProvider implements UnarmedModificationProvider {
 

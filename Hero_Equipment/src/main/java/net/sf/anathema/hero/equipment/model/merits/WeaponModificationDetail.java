@@ -1,6 +1,8 @@
-package net.sf.anathema.hero.merits.model.mechanics;
+package net.sf.anathema.hero.equipment.model.merits;
 
 import net.sf.anathema.equipment.stats.WeaponTag;
+import net.sf.anathema.hero.merits.model.mechanics.DetailEntryReference;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 
 import java.util.List;
 import java.util.Map;
