@@ -37,7 +37,12 @@ public class ThaumaturgyMechanic extends AbstractCharmMechanic {
 
 		@Override
 		public int numberOfRitualsProvided() {
-			return grantsFreeRituals.getValueForHero(hero) * getLearnCount(hero);
+          if (grantsFreeRituals == null){
+            return 0;
+          }
+          int valueForHero = grantsFreeRituals.getValueForHero(hero);
+          int learnCount = getLearnCount(hero);
+          return valueForHero * learnCount;
 		}
 		
 	}
