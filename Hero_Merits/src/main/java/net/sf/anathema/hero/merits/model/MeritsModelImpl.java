@@ -82,7 +82,7 @@ public class MeritsModelImpl extends AbstractOptionalPropertiesModel<MeritCatego
   }
   
   @Override
-	protected boolean isAllowedOption(MeritOption option) {
+	public boolean isAllowedOption(MeritOption option) {
 		return option.isHeroEligible(hero) && (option.allowsRepurchase() || !knowsTrait(option));
 	}
 

@@ -51,26 +51,24 @@ public class MeritSteps {
 
   @Then("^she can earn the (.*) merit at (\\d+)$")
   public void she_can_earn_the_merit_at(String id, int rank) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	MeritOption matchingOption = model.getAllEntryOptions().stream()
-  			.filter(option -> option.getId().equals(id)).findAny().get();
-  	boolean canEarn = matchingOption != null && matchingOption.isLegalValue(rank);
+    MeritOption matchingOption = findMerit(id);
+  	boolean canEarn = matchingOption.isLegalValue(rank);
     assertThat(canEarn, is(true));
   }
 
   @Then("^she can earn the (.*) merit$")
   public void she_can_earn_the_merit(String id) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllEntryOptions().stream()
-  			.filter(option -> option.getId().equals(id)).count() != 0;
+    MeritOption matchingOption = findMerit(id);
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    boolean canEarn = model.isAllowedOption(matchingOption);
     assertThat(canEarn, is(true));
   }
 
   @Then("^she can not earn the (.*) merit$")
   public void she_can_not_earn_the_merit(String id) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllEntryOptions().stream()
-  			.filter(option -> option.getId().equals(id)).count() != 0;
+    MeritOption matchingOption = findMerit(id);
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    boolean canEarn = model.isAllowedOption(matchingOption);
     assertThat(canEarn, is(false));
   }
 
@@ -84,6 +82,10 @@ public class MeritSteps {
     MeritOption option = model.findOptionByReference(new OptionalEntryReference(meritId));
     model.setSelectedEntryOption(option);
   }
-  
-  
+
+  private MeritOption findMerit(String id) {
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    return model.getAllEntryOptions().stream()
+            .filter(option -> option.getId().equals(id)).findAny().get();
+  }
 }
