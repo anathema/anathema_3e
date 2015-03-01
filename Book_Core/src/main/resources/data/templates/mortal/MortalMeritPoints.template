@@ -3,5 +3,8 @@
 	"bonusPoints": 1,
 	"experiencePoints": {
 		"factor": 3
-	}
+	},
+	"freeMerits": {
+        "Language":1
+    }
 }

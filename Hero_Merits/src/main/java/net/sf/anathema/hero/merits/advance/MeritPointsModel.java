@@ -38,7 +38,7 @@ public class MeritPointsModel implements HeroModel {
 	private void initializeBonusPoints(Hero hero) {
 		MeritsBonusPointCalculator meritCalculator = createCalculator(hero);
 		initializeBonusCalculator(hero, meritCalculator);
-		initializeBonusOverview(hero);
+		initializeBonusOverview(hero, meritCalculator);
 	}
 	
 	private MeritsBonusPointCalculator createCalculator(Hero hero) {
@@ -50,11 +50,10 @@ public class MeritPointsModel implements HeroModel {
 		pointsModel.addBonusPointCalculator(calculator);
 	}
 
-	private void initializeBonusOverview(Hero hero) {
-		MeritsModel merits = MeritsModelFetcher.fetch(hero);
+	private void initializeBonusOverview(Hero hero, MeritsBonusPointCalculator meritCalculator) {
 		PointsModel pointsModel = PointModelFetcher.fetch(hero);
 		pointsModel.addBonusCategory(new WeightedCategory(300, "Merits"));
-		pointsModel.addToBonusOverview(new MeritCreationModel("Merits", merits, new MeritCreationData(template)));
+		pointsModel.addToBonusOverview(new MeritCreationModel("Merits", new MeritCreationData(template), meritCalculator));
 	}
 	
 	private void initializeExperiencePoints(Hero hero) {
