@@ -1,21 +1,18 @@
 package net.sf.anathema.hero.health.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.health.model.merit.MeritHealthProvider;
 import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
-import net.sf.anathema.hero.health.model.merit.MeritHealthProvider;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class HealthModelImpl implements HealthModel {
 
@@ -36,7 +33,6 @@ public class HealthModelImpl implements HealthModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    addHealthLevelProvider(new DyingStaminaHealthLevelProvider(TraitModelFetcher.fetch(hero)));
     addHealingTypeProvider(new DefaultHealingTypeProvider(hero));
     healingTimes = new HealingDataTable(environment.getResources());
     MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
@@ -100,21 +96,5 @@ public class HealthModelImpl implements HealthModel {
   		usesExaltedHealing |= provider.usesExaltedHealing();
   	}
   	return usesExaltedHealing;
-  }
-
-  private static class DyingStaminaHealthLevelProvider implements IHealthLevelProvider {
-    private final TraitMap traits;
-
-    public DyingStaminaHealthLevelProvider(TraitMap config) {
-      this.traits = config;
-    }
-
-    @Override
-    public int getHealthLevelTypeCount(HealthLevelType type) {
-      if (type == HealthLevelType.DYING) {
-        return traits.getTrait(AttributeType.Stamina).getCurrentValue();
-      }
-      return 0;
-    }
   }
 }

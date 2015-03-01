@@ -76,10 +76,6 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
   }
 
   private void addHealthTypeRows(SheetGraphics graphics, PdfPTable table, Hero hero, Image activeTemplate, Image passiveTemplate, HealthLevelType type) {
-    if (type == HealthLevelType.DYING) {
-      return;
-    }
-
     int rowCount = getRowCount(type);
     for (int rowIndex = 0; rowIndex < rowCount; rowIndex++) {
       if (rowIndex == 0) {
@@ -173,26 +169,6 @@ public abstract class AbstractHealthAndMovementTableEncoder implements ITableEnc
       addSpaceCells(graphics, table, 1);
     }
     int additionalCount = 9;
-    if (level == HealthLevelType.FOUR) {
-      addSpaceCells(graphics, table, 1);
-      TableCell cell = new TableCell(new Phrase(resources.getString("HealthLevelType.Dying.Short"), createCommentFont(graphics)), Rectangle.BOTTOM);
-      cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-      cell.setVerticalAlignment(Element.ALIGN_BOTTOM);
-      cell.setColspan(additionalCount - 1);
-      table.addCell(cell);
-      return;
-    }
-    if (level == HealthLevelType.INCAPACITATED) {
-      addSpaceCells(graphics, table, 1);
-      for (int index = 0; index < additionalCount - 1; index++) {
-        if (index < HealthModelFetcher.fetch(hero).getHealthLevelTypeCount(HealthLevelType.DYING)) {
-          table.addCell(createHealthCell(activeImage));
-        } else {
-          table.addCell(createHealthCell(passiveImage));
-        }
-      }
-      return;
-    }
     for (int index = 0; index < additionalCount; index++) {
       int value = naturalCount + row * additionalCount + index + 1;
       if (value <=  HealthModelFetcher.fetch(hero).getHealthLevelTypeCount(level)) {
