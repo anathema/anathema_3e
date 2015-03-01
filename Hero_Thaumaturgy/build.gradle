@@ -8,4 +8,5 @@ dependencies {
     testCompile project(path: ':Library', configuration: 'tests')
     testCompile project(path: ':Platform', configuration: 'tests')
     testCompile project(path: ':Hero', configuration: 'tests')
+    testCompile project(path: ':Hero_Traits', configuration: 'tests')
 }
