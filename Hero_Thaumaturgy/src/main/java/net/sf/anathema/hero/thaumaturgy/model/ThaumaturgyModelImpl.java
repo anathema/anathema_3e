@@ -6,6 +6,8 @@ import java.util.List;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.library.identifier.Identifier;
@@ -24,9 +26,10 @@ public class ThaumaturgyModelImpl extends AbstractOptionalPropertiesModel<NullCa
 	
 	@Override
 	public void initialize(HeroEnvironment environment, Hero hero) {
-		super.initialize(environment, hero);
-		
-		PointModelFetcher.fetch(hero).addToExperienceOverview(new ThaumaturgyExperienceModel("Thaumaturgy", this));
+      super.initialize(environment, hero);
+      MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
+      addThaumaturgyProvider(new MeritThaumaturgyProvider(meritsModel));
+      PointModelFetcher.fetch(hero).addToExperienceOverview(new ThaumaturgyExperienceModel("Thaumaturgy", this));
 	}
 
   @Override

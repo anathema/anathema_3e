@@ -8,7 +8,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
-import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
@@ -20,7 +20,7 @@ public class MeritOptionImpl implements MeritOption {
   private final boolean allowRepurchase;
   private final boolean[] legalValues = new boolean[MAX_MERIT_RATING + 1];
   private final List<MeritRequirement> requirements = new ArrayList<>();
-  private final List<MeritMechanicalDetail> mechanics = new ArrayList<>();
+  private final List<MechanicalDetail> mechanics = new ArrayList<>();
   private final List<String> suggestions = new ArrayList<>();
 
   public MeritOptionImpl(MeritTemplate template) {
@@ -160,7 +160,7 @@ public class MeritOptionImpl implements MeritOption {
   }
 
   @Override
-  public List<MeritMechanicalDetail> getMechanics() {
+  public List<MechanicalDetail> getMechanics() {
     return mechanics;
   }
 }

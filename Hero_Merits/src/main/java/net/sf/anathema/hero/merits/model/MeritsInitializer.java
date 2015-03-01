@@ -26,7 +26,7 @@ public class MeritsInitializer implements HeroModelInitializer {
     String viewName = environment.getResources().getString("AdditionalTemplateView.TabName.Merits");
     OptionalTraitsView view = sectionView.addView(viewName, OptionalTraitsView.class);
     MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
-    new CategorizedOptionalTraitPresenter<MeritCategory, MeritOption, Merit>
+    new CategorizedOptionalTraitPresenter<>
     	(meritsModel, view, environment.getResources(), MeritOption.MAX_MERIT_RATING).initPresentation();
   }
 

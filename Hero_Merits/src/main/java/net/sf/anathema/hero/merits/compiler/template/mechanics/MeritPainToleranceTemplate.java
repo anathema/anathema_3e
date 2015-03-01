@@ -1,15 +1,18 @@
 package net.sf.anathema.hero.merits.compiler.template.mechanics;
 
-import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
-import net.sf.anathema.hero.merits.model.mechanics.MeritPainToleranceDetail;
+import net.sf.anathema.hero.merits.model.mechanics.DetailEntryReference;
+import net.sf.anathema.hero.merits.model.mechanics.GenericMechanicalDetail;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 import net.sf.anathema.platform.persistence.JsonType;
 
 @JsonType("AddsPainTolerance")
 public class MeritPainToleranceTemplate extends MeritMechanicalDetailTemplate {
-	public int tolerance;
+  public int tolerance;
 
-	@Override
-	public MeritMechanicalDetail generate() {
-		return new MeritPainToleranceDetail(tolerance);
-	}
+  @Override
+  public MechanicalDetail generate() {
+    GenericMechanicalDetail detail = new GenericMechanicalDetail("AddsPainTolerance");
+    detail.addDetailEntry(new DetailEntryReference("tolerance"), tolerance);
+    return detail;
+  }
 }

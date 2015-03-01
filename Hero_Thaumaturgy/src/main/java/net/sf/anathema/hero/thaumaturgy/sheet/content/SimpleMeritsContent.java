@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.thaumaturgy.sheet.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.hero.thaumaturgy.model.KnownRitual;
-import net.sf.anathema.hero.thaumaturgy.model.MeritsModelFetcher;
+import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSubBoxContent {
 
@@ -21,7 +21,7 @@ public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSu
 
   @Override
   public String getHeaderKey() {
-    return "Merits";
+    return "Thaumaturgy";
   }
 
   @Override
@@ -32,7 +32,7 @@ public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSu
   @Override
   public List<String> getPrintEntries() {
     List<String> printMerits = new ArrayList<>();
-    for (KnownRitual merit : MeritsModelFetcher.fetch(hero).getEntries()) {
+    for (KnownRitual merit : ThaumaturgyModelFetcher.fetch(hero).getEntries()) {
       String text = getTextForMerit(merit);
       printMerits.add(text);
     }

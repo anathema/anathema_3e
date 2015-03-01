@@ -44,7 +44,5 @@ public class ThaumaturgyMechanic extends AbstractCharmMechanic {
           int learnCount = getLearnCount(hero);
           return valueForHero * learnCount;
 		}
-		
 	}
-
 }

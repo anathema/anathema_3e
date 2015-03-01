@@ -2,95 +2,64 @@ package net.sf.anathema.hero.merits.model.mechanics;
 
 import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.stats.WeaponTag;
+import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 
 public class MeritUnarmedModificationProvider implements UnarmedModificationProvider {
 
-	private final MeritsModel model;
-	
-	public MeritUnarmedModificationProvider(MeritsModel model) {
-		this.model = model;
-	}
+  private final MeritsModel model;
 
-	@Override
-	public boolean hasModificationOnUnarmed(WeaponTag tag) {
-		boolean[] result = new boolean[1];
-		result[0] = false;
-		for (Merit merit : model.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+  public MeritUnarmedModificationProvider(MeritsModel model) {
+    this.model = model;
+  }
 
-					@Override
-					public void visitUnarmedModificationDetail(MeritUnarmedModificationDetail detail) {
-						if (detail.hasTransformationForTag(merit.getCurrentValue(), tag)) {
-							result[0] = true;
-						}
-					}					
-				});
-			}
-		}
-		return result[0];
-	}
+  @Override
+  public boolean hasModificationOnUnarmed(WeaponTag tag) {
+    MechanicalDetailReference addsUnarmedModification = new MechanicalDetailReference("AddsUnarmedModification");
+    return hasModification(tag, addsUnarmedModification);
+  }
 
-	@Override
-	public boolean hasModificationOnSavage(WeaponTag tag) {
-		boolean[] result = new boolean[1];
-		result[0] = false;
-		for (Merit merit : model.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+  @Override
+  public boolean hasModificationOnSavage(WeaponTag tag) {
+    MechanicalDetailReference addsSavageModification = new MechanicalDetailReference("AddSavageModification");
+    return hasModification(tag, addsSavageModification);
+  }
 
-					@Override
-					public void visitSavageModificationDetail(MeritSavageModificationDetail detail) {
-						if (detail.hasTransformationForTag(merit.getCurrentValue(), tag)) {
-							result[0] = true;
-						}
-					}					
-				});
-			}
-		}
-		return result[0];
-	}
+  @Override
+  public WeaponTag performModificationOnUnarmed(WeaponTag tag) {
+    MechanicalDetailReference addsUnarmedModification = new MechanicalDetailReference("AddsUnarmedModification");
+    return performModification(tag, addsUnarmedModification);
+  }
 
-	@Override
-	public WeaponTag performModificationOnUnarmed(WeaponTag tag) {
-		WeaponTag[] result = new WeaponTag[1];
-		result[0] = null;
-		for (Merit merit : model.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+  @Override
+  public WeaponTag performModificationOnSavage(WeaponTag tag) {
+    MechanicalDetailReference addsSavageModification = new MechanicalDetailReference("AddSavageModification");
+    return performModification(tag, addsSavageModification);
+  }
 
-					@Override
-					public void visitUnarmedModificationDetail(MeritUnarmedModificationDetail detail) {
-						if (detail.hasTransformationForTag(merit.getCurrentValue(), tag)) {
-							result[0] = detail.getTransformationForTag(merit.getCurrentValue(), tag);
-						}
-					}					
-				});
-			}
-		}
-		return result[0];
-	}
+  private boolean hasModification(WeaponTag tag, MechanicalDetailReference reference) {
+    boolean hasModification = false;
+    for (Merit merit : model.getPossessedEntries()) {
+      if (!(merit.hasMechanicalDetail(reference))) {
+        continue;
+      }
+      MechanicalDetail detail = merit.getMechanicalDetail(reference);
+      hasModification |= new WeaponModificationDetail(detail).hasModification(merit.getCurrentValue(), tag);
+    }
+    return hasModification;
+  }
 
-	@Override
-	public WeaponTag performModificationOnSavage(WeaponTag tag) {
-		WeaponTag[] result = new WeaponTag[1];
-		result[0] = null;
-		for (Merit merit : model.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
-
-					@Override
-					public void visitSavageModificationDetail(MeritSavageModificationDetail detail) {
-						if (detail.hasTransformationForTag(merit.getCurrentValue(), tag)) {
-							result[0] = detail.getTransformationForTag(merit.getCurrentValue(), tag);
-						}
-					}					
-				});
-			}
-		}
-		return result[0];
-	}
-
+  //TODO Do we need to return null?
+  //TODO Do we need the condition?
+  private WeaponTag performModification(WeaponTag tag, MechanicalDetailReference addsUnarmedModification) {
+    for (Merit merit : model.getPossessedEntries()) {
+      MechanicalDetail detail = merit.getMechanicalDetail(addsUnarmedModification);
+      WeaponModificationDetail weaponModificationDetail = new WeaponModificationDetail(detail);
+      if (weaponModificationDetail.hasModification(merit.getCurrentValue(), tag)) {
+        return weaponModificationDetail.modify(merit.getCurrentValue(), tag);
+      }
+    }
+    return null;
+  }
 }

@@ -3,7 +3,7 @@ package net.sf.anathema.hero.merits.model;
 import java.util.List;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
+import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.trait.OptionalTraitOption;
 
@@ -19,7 +19,7 @@ public interface MeritOption extends OptionalTraitOption {
 
   List<String> getContingentTraitTypes();
 
-  List<MeritMechanicalDetail> getMechanics();
+  List<MechanicalDetail> getMechanics();
 
   boolean isReferencedBy(OptionalEntryReference reference);
 }

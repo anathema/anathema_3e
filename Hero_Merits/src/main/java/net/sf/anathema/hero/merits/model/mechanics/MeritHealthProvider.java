@@ -4,78 +4,54 @@ import net.sf.anathema.hero.health.model.HealingTypeProvider;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;
 import net.sf.anathema.hero.health.model.IPainToleranceProvider;
+import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 
 public class MeritHealthProvider implements IHealthLevelProvider, IPainToleranceProvider, HealingTypeProvider {
-	
-	private final MeritsModel merits;
-	
-	public MeritHealthProvider(MeritsModel merits) {
-		this.merits = merits;
-	}
-	
-	@Override
-	public int getHealthLevelTypeCount(HealthLevelType type) {
-		final int[] levelsOfType = new int[1];
-		levelsOfType[0] = 0;
-		
-		for (Merit merit : merits.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
-					@Override
-					public void visitHealthDetail(MeritHealthDetail detail) {
-						for (HealthLevelType providedType : detail.getHealthLevels()) {
-							if (providedType == type) {
-								levelsOfType[0]++;
-							}
-						}
-					}					
-				});
-			}
-		}
-		
-		return levelsOfType[0];
-	}
+  private final MeritsModel merits;
 
-	@Override
-	public int getPainToleranceLevel() {
-		final int[] tolerance = new int[1];
-		tolerance[0] = 0;
-		
-		for (Merit merit : merits.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+  public MeritHealthProvider(MeritsModel merits) {
+    this.merits = merits;
+  }
 
-					@Override
-					public void visitPainToleranceDetail(MeritPainToleranceDetail detail) {
-						tolerance[0] += detail.getTolerance();
-					}
-					
-				});
-			}
-		}
-		
-		return tolerance[0];
-	}
-	
-	@Override
-	public boolean usesExaltedHealing() {
-		boolean[] result = new boolean[1];
-		result[0] = false;
-		for (Merit merit : merits.getPossessedEntries()) {
-			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
-				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
+  @Override
+  public int getHealthLevelTypeCount(HealthLevelType type) {
+    int addedLevels = 0;
+    for (Merit merit : merits.getPossessedEntries()) {
+      MechanicalDetailReference addsHealthLevels = new MechanicalDetailReference("AddsHealthLevels");
+      if (!(merit.hasMechanicalDetail(addsHealthLevels))) {
+        continue;
+      }
+      MechanicalDetail detail = merit.getMechanicalDetail(addsHealthLevels);
+      addedLevels += new HealthLevelDetail(detail).getLevelsOfType(type);
+    }
+    return addedLevels;
+  }
 
-					@Override
-					public void visitExaltedHealingDetail(MeritExaltedHealingDetail detail) {
-							result[0] = true;
-					}					
-				});
-			}
-		}
-		return result[0];
-	}
+  @Override
+  public int getPainToleranceLevel() {
+    int tolerance = 0;
 
+    for (Merit merit : merits.getPossessedEntries()) {
+      MechanicalDetailReference addsPainTolerance = new MechanicalDetailReference("addsPainTolerance");
+      if (!(merit.hasMechanicalDetail(addsPainTolerance))){
+        continue;
+      }
+      MechanicalDetail detail = merit.getMechanicalDetail(addsPainTolerance);
+      tolerance += new PainToleranceDetail(detail).getTolerance();
+    }
+    return tolerance;
+  }
+
+  @Override
+  public boolean usesExaltedHealing() {
+    for (Merit merit : merits.getPossessedEntries()) {
+      if (merit.hasMechanicalDetail(new MechanicalDetailReference("AddsExaltedHealing"))) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

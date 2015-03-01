@@ -5,7 +5,6 @@ dependencies {
     compile project(':Hero_Points')
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
-    compile project(':Hero_Thaumaturgy')
 	compile project(':Hero_Equipment')
 	compile project(':Library_CategorizedAllocation')
     testCompile testDependencies
