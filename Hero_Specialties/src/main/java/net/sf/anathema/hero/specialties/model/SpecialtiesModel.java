@@ -4,7 +4,6 @@ import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
-import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.model.property.OptionalPropertiesModel;
 
 import java.util.List;

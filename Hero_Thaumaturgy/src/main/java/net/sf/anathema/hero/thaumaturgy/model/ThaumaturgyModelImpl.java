@@ -6,7 +6,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitsModel;
 import net.sf.anathema.points.model.PointModelFetcher;
 

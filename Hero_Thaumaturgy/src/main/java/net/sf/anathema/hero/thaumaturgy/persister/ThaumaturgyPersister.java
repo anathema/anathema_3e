@@ -4,7 +4,6 @@ import net.sf.anathema.hero.thaumaturgy.model.KnownRitual;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModel;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.persister.OptionalTraitsPersister;
 
 public class ThaumaturgyPersister
