@@ -23,7 +23,7 @@ public class SpecialtyExperienceModel extends AbstractIntegerValueModel {
 
   private int getSpecialtyCosts() {
     int experienceCosts = 0;
-    for (Specialty specialty : SpecialtiesModelFetcher.fetch(hero).getPossessedEntries()) {
+    for (Specialty specialty : SpecialtiesModelFetcher.fetch(hero).getEntries()) {
       experienceCosts += !specialty.isLearnedAtCreation() ? getCostPerSpecialtyDot() : 0;
     }
     return experienceCosts;

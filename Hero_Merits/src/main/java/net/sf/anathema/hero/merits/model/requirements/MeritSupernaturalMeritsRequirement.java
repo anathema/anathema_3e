@@ -14,7 +14,7 @@ public class MeritSupernaturalMeritsRequirement implements MeritRequirement {
 	@Override
 	public boolean isSatisfied(Hero hero) {
 		MeritsModel merits = MeritsModelFetcher.fetch(hero);
-		for (Merit merit : merits.getPossessedEntries()) {
+		for (Merit merit : merits.getEntries()) {
 			if (merit.getBaseOption().getCategory() == MeritCategory.Supernatural) {
 				return true;
 			}

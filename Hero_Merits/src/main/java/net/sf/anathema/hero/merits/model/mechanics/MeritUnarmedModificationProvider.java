@@ -17,7 +17,7 @@ public class MeritUnarmedModificationProvider implements UnarmedModificationProv
 	public boolean hasModificationOnUnarmed(WeaponTag tag) {
 		boolean[] result = new boolean[1];
 		result[0] = false;
-		for (Merit merit : model.getPossessedEntries()) {
+		for (Merit merit : model.getEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
@@ -37,7 +37,7 @@ public class MeritUnarmedModificationProvider implements UnarmedModificationProv
 	public boolean hasModificationOnSavage(WeaponTag tag) {
 		boolean[] result = new boolean[1];
 		result[0] = false;
-		for (Merit merit : model.getPossessedEntries()) {
+		for (Merit merit : model.getEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
@@ -57,7 +57,7 @@ public class MeritUnarmedModificationProvider implements UnarmedModificationProv
 	public WeaponTag performModificationOnUnarmed(WeaponTag tag) {
 		WeaponTag[] result = new WeaponTag[1];
 		result[0] = null;
-		for (Merit merit : model.getPossessedEntries()) {
+		for (Merit merit : model.getEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
@@ -77,7 +77,7 @@ public class MeritUnarmedModificationProvider implements UnarmedModificationProv
 	public WeaponTag performModificationOnSavage(WeaponTag tag) {
 		WeaponTag[] result = new WeaponTag[1];
 		result[0] = null;
-		for (Merit merit : model.getPossessedEntries()) {
+		for (Merit merit : model.getEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 

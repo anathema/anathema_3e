@@ -85,11 +85,6 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
   }
 	
 	@Override
-	public List<T> getPossessedEntries() {
-		return getEntries();
-	}
-	
-	@Override
   protected T createEntry() {
     return createPossessedEntry(getSelectedEntryOption(), currentDescription, hero);
   }
@@ -165,7 +160,7 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	}
 	
 	protected boolean knowsTrait(O option) {
-		return getPossessedEntries().stream().anyMatch(trait -> trait.getBaseOption().equals(option));
+		return getEntries().stream().anyMatch(trait -> trait.getBaseOption().equals(option));
 	}
 	
 	protected abstract O getNullOption();

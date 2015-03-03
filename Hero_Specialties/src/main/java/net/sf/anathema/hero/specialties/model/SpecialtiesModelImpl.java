@@ -5,7 +5,6 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.specialties.display.presenter.TraitTypeByNameComparator;
 import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;

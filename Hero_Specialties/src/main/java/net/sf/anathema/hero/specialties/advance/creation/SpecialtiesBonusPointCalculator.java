@@ -22,7 +22,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
   @Override
   public void recalculate() {
     clear();
-    List<Specialty> specialties = SpecialtiesModelFetcher.fetch(hero).getPossessedEntries();
+    List<Specialty> specialties = SpecialtiesModelFetcher.fetch(hero).getEntries();
     specialtyDotSum = specialtyCalculator.getFreebiePointsSpent(specialties);
     specialtyBonusPointCosts = specialtyCalculator.getSpecialtyCosts(specialties);
   }

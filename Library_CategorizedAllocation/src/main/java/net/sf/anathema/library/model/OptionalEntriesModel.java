@@ -11,8 +11,6 @@ public interface OptionalEntriesModel<
 	O extends OptionalEntryOption,
 	T extends PossessedOptionalEntry<O>> extends RemovableEntryModel<T>, HeroModel {
 	
-	List<T> getPossessedEntries();
-	
 	List<O> getAllEntryOptions();
 	
 	List<O> getCurrentEntryOptions();

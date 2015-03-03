@@ -44,7 +44,7 @@ public abstract class AbstractCategorizedOptionalPresenter {
 		OptionalPropertyEntryView selectionView = view.addSelectionView();
 		Tool tool = initCreationView(selectionView);
 		initModelListening(selectionView, tool);
-		for (Object trait : model.getPossessedEntries()) {
+		for (Object trait : model.getEntries()) {
 			addSubView((PossessedOptionalTrait<?>)trait);
 		}
 		reset();

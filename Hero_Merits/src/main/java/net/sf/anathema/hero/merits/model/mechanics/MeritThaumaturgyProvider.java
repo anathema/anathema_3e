@@ -16,7 +16,7 @@ private final MeritsModel merits;
 		final boolean[] access = new boolean[1];
 		access[0] = false;
 		
-		for (Merit merit : merits.getPossessedEntries()) {
+		for (Merit merit : merits.getEntries()) {
 			for (MeritMechanicalDetail detail : merit.getBaseOption().getMechanics()) {
 				detail.accept(new EmptyMeritMechanicalDetailVisitor() {
 
