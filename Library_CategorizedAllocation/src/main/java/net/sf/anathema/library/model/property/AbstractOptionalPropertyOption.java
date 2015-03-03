@@ -1,16 +1,31 @@
 package net.sf.anathema.library.model.property;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import net.sf.anathema.library.model.AbstractOptionalEntryOption;
 
-public class AbstractOptionalPropertyOption implements OptionalPropertyOption {
-
-  protected final List<String> suggestions = new ArrayList<>();
+public abstract class AbstractOptionalPropertyOption extends AbstractOptionalEntryOption implements OptionalPropertyOption {
+  
+  protected final String name;
+  
+  protected AbstractOptionalPropertyOption(String name) {
+    this.name = name;
+  }
   
   @Override
-  public Collection<String> getSuggestions() {
-    return suggestions;
+  public String getId() {
+    return name;
+  }
+  
+  @Override
+  public String toString() {
+    return getId();
+  }
+  
+  @Override
+  public boolean equals(Object obj) {
+    if (obj instanceof AbstractOptionalPropertyOption) {
+      return name.equals(((AbstractOptionalPropertyOption) obj).name);
+    }
+    return false;
   }
 
 }

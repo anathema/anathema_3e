@@ -2,9 +2,9 @@ package net.sf.anathema.hero.thaumaturgy.model;
 
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-import net.sf.anathema.library.model.property.AbstractOptionalPropertyOption;
+import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
-public class RitualImpl extends AbstractOptionalPropertyOption implements ThaumaturgyRitual {
+public class RitualImpl extends AbstractOptionalTraitOption implements ThaumaturgyRitual {
 
   private final String name;
   private final boolean[] legalValues = new boolean[RITUAL_MAX_LEVEL];

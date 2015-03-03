@@ -1,0 +1,37 @@
+{
+	"flaws": [
+		{
+			"name": "Amputee"
+		},
+		{
+			"name": "Blind"
+		},
+		{
+			"name": "Deaf"
+		},
+		{
+			"name": "Hysteria"
+		},
+		{
+			"name": "Madness"
+		},
+		{
+			"name": "Megrims"
+		},
+		{
+			"name": "Obsession"
+		},
+		{
+			"name": "Paranoia"
+		},
+		{
+			"name": "Mute"
+		},
+		{
+			"name": "Sterile"
+		},
+		{
+			"name": "Wyld Mutant"
+		}
+	]
+}

@@ -1,20 +1,13 @@
-package net.sf.anathema.hero.specialties.model;
-
-import net.sf.anathema.hero.traits.model.TraitType;
+package net.sf.anathema.hero.flaws.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class NullSpecialtyOption implements SpecialtyType {
+public class NullFlawOption implements FlawOption {
 
 	@Override
 	public Collection<String> getSuggestions() {
 		return new ArrayList<>();
-	}
-
-	@Override
-	public TraitType getTraitType() {
-		return null;
 	}
 	
 	@Override
@@ -26,6 +19,5 @@ public class NullSpecialtyOption implements SpecialtyType {
   public String getId() {
     return "";
   }
-
 
 }

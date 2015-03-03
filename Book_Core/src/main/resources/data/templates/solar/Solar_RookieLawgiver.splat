@@ -23,6 +23,7 @@
         Equipment: '',
         Merits: '',
         MeritPoints: 'SolarMeritPoints_Rookie',
+        Flaws: '',
         Thaumaturgy: ''
     }
 }

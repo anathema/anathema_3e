@@ -1,0 +1,9 @@
+dependencies {
+  compile project(':Hero')
+  compile project(':Hero_Concept')
+  compile project(':Library_CategorizedAllocation')
+  testCompile testDependencies
+  testCompile project(path: ':Platform', configuration: 'tests')
+  testCompile project(path: ':Hero', configuration: 'tests')
+  testCompile project(path: ':Library', configuration: 'tests')
+}

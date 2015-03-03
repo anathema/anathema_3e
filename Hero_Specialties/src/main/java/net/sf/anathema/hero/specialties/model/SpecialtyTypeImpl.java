@@ -10,6 +10,7 @@ public class SpecialtyTypeImpl extends AbstractOptionalPropertyOption implements
   private final TraitTypeInternationalizer i18;
   
   public SpecialtyTypeImpl(TraitType type, TraitTypeInternationalizer i18) {
+    super(type.getId());
     this.type = type;
     this.i18 = i18;
   }

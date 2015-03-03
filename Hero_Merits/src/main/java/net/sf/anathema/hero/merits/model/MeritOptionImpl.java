@@ -9,11 +9,12 @@ import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.property.AbstractOptionalPropertyOption;
+import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MeritOptionImpl extends AbstractOptionalPropertyOption implements MeritOption {
+public class MeritOptionImpl extends AbstractOptionalTraitOption implements MeritOption {
 
   private final String name;
   private final MeritCategory type;

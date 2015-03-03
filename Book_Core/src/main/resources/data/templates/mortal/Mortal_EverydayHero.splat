@@ -21,6 +21,7 @@
         Equipment: '',
         Merits: '',
         MeritPoints: 'MortalMeritPoints',
+        Flaws: '',
         Thaumaturgy: ''
     }
 }
