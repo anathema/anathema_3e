@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.merits.compiler;
 
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
+import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritOptionImpl;
 import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,4 +42,14 @@ public class MeritCacheImpl implements MeritCache {
 	public MeritOption getOptionByReference(OptionalEntryReference reference) {
 		return merits.get(reference.name);
 	}
+
+  @Override
+  public List<OptionalEntryCategory> getAllCategories() {
+    return Arrays.asList(MeritCategory.values());
+  }
+
+  @Override
+  public List<OptionalEntryCategory> getCurrentCategories() {
+    return getAllCategories().stream().filter(category -> !getAllOptionsForCategory(category).isEmpty()).collect(toList());
+  }
 }

@@ -16,6 +16,8 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.OptionalEntryCategory;
+import net.sf.anathema.library.model.OptionalEntryCategorySupplier;
+import net.sf.anathema.library.model.OptionalEntryOptionSupplier;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitsModel;
 
@@ -52,7 +54,12 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Me
   }
   
   @Override
-	protected MeritCache initCache(HeroEnvironment environment) {
+  protected OptionalEntryCategorySupplier initCategorySupplier(HeroEnvironment environment) {
+    return environment.getDataSet(MeritCache.class);
+  }
+  
+  @Override
+	protected OptionalEntryOptionSupplier<MeritOption> initOptionSupplier(HeroEnvironment environment) {
 		return environment.getDataSet(MeritCache.class);
 	}
 
@@ -60,7 +67,7 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Me
     List<Trait> traits = new ArrayList<>();
     TraitTypeFinder typeFinder = new TraitTypeFinder();
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
-    for (MeritOption merit : cache.getAllOptions()) {
+    for (MeritOption merit : optionSupplier.getAllOptions()) {
       for (String typeLabel : merit.getContingentTraitTypes()) {
         Trait trait = traitModel.getTrait(typeFinder.getTrait(typeLabel));
         if (!traits.contains(trait)) {

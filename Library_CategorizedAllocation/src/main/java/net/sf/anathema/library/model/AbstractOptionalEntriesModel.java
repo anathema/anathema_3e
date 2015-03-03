@@ -28,7 +28,9 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	
 	private final boolean hasCategories;
 	protected Hero hero;
-	protected OptionalEntryCache<O> cache;
+	
+	protected OptionalEntryCategorySupplier categorySupplier;
+	protected OptionalEntryOptionSupplier<O> optionSupplier;
 	protected ChangeAnnouncer change;
 	protected String currentDescription = "";
 	protected OptionalEntryCategory currentCategory;
@@ -41,14 +43,19 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	@Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    cache = initCache(environment);
+    categorySupplier = initCategorySupplier(environment);
+    optionSupplier = initOptionSupplier(environment);
 
     if (hasCategories) {
     	currentCategory = getAvailableCategories().get(0);
     }
   }
 	
-	protected abstract OptionalEntryCache<O> initCache(HeroEnvironment environment);
+	protected abstract OptionalEntryOptionSupplier<O> initOptionSupplier(HeroEnvironment environment);
+	
+	protected OptionalEntryCategorySupplier initCategorySupplier(HeroEnvironment environment) {
+	  return new EmptyCategorySupplier();
+	}
 	
 	@SuppressWarnings("unchecked")
   @Override
@@ -91,13 +98,13 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	
 	@Override
 	public List<O> getAllEntryOptions() {
-		return cache.getAllOptions();
+		return optionSupplier.getAllOptions();
 	}
 	
 	@Override
 	public List<O> getCurrentEntryOptions() {
-		List<O> options = hasCategories ? cache.getAllOptionsForCategory(currentCategory) :
-			cache.getAllOptions();
+		List<O> options = hasCategories ? optionSupplier.getAllOptionsForCategory(currentCategory) :
+		  optionSupplier.getAllOptions();
     options.removeIf(item -> !isAllowedOption(item));
     return options;
 	}
@@ -131,7 +138,7 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	
 	@Override
   public O findOptionByReference(OptionalEntryReference reference) {
-    return cache.getOptionByReference(reference);
+    return optionSupplier.getOptionByReference(reference);
   }
 	
 	@Override
