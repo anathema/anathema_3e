@@ -17,6 +17,8 @@ public interface OptionalEntriesModel<
 	
 	List<O> getCurrentEntryOptions();
 	
+	List<O> getCurrentEntryOptionsFromAllCategories();
+	
 	O getSelectedEntryOption();
 	
 	void setSelectedEntryOption(O option);

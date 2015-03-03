@@ -53,7 +53,7 @@ public class MeritSteps {
   @Then("^she can earn the (.*) merit at (\\d+)$")
   public void she_can_earn_the_merit_at(String id, int rank) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	MeritOption matchingOption = model.getCurrentEntryOptions().stream()
+  	MeritOption matchingOption = model.getCurrentEntryOptionsFromAllCategories().stream()
   			.filter(option -> option.getId().equals(id)).findAny().get();
   	boolean canEarn = matchingOption != null && matchingOption.isLegalValue(rank);
     assertThat(canEarn, is(true));
@@ -62,7 +62,7 @@ public class MeritSteps {
   @Then("^she can earn the (.*) merit$")
   public void she_can_earn_the_merit(String id) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllEntryOptions().stream()
+  	boolean canEarn = model.getCurrentEntryOptionsFromAllCategories().stream()
   			.filter(option -> option.getId().equals(id)).count() != 0;
     assertThat(canEarn, is(true));
   }
@@ -70,7 +70,7 @@ public class MeritSteps {
   @Then("^she can not earn the (.*) merit$")
   public void she_can_not_earn_the_merit(String id) throws Throwable {
   	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getAllEntryOptions().stream()
+  	boolean canEarn = model.getCurrentEntryOptionsFromAllCategories().stream()
   			.filter(option -> option.getId().equals(id)).count() != 0;
     assertThat(canEarn, is(false));
   }

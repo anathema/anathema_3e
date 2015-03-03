@@ -90,7 +90,7 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 
   @Override
   public List<TraitType> getAllEligibleParentTraits() {
-    return this.getAllEntryOptions().stream().map(option -> option.getTraitType()).collect(toList());
+    return this.getCurrentEntryOptions().stream().map(option -> option.getTraitType()).collect(toList());
   }
 
 	

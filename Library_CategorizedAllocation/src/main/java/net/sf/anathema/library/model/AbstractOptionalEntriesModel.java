@@ -103,8 +103,15 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	
 	@Override
 	public List<O> getCurrentEntryOptions() {
-		List<O> options = hasCategories ? optionSupplier.getAllOptionsForCategory(currentCategory) :
-		  optionSupplier.getAllOptions();
+	  List<O> options = hasCategories ? optionSupplier.getAllOptionsForCategory(currentCategory) :
+      optionSupplier.getAllOptions();
+    options.removeIf(item -> !isAllowedOption(item));
+    return options;
+	}
+	
+	@Override
+	public List<O> getCurrentEntryOptionsFromAllCategories() {
+	  List<O> options = optionSupplier.getAllOptions();
     options.removeIf(item -> !isAllowedOption(item));
     return options;
 	}
