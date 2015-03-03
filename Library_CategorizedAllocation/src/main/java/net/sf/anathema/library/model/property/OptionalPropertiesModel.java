@@ -6,7 +6,7 @@ import net.sf.anathema.library.model.RemovableEntryModel;
 
 public interface OptionalPropertiesModel<
 	O extends OptionalPropertyOption,
-	T extends PossessedOptionalProperty<? extends OptionalPropertyOption>>
+	T extends PossessedOptionalProperty<O>>
 	extends RemovableEntryModel<T>, HeroModel,
 	OptionalEntriesModel<O, T> {
 }

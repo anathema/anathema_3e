@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OptionalEntriesModel<
 	O extends OptionalEntryOption,
-	T extends PossessedOptionalEntry<? extends OptionalEntryOption>> extends RemovableEntryModel<T>, HeroModel {
+	T extends PossessedOptionalEntry<O>> extends RemovableEntryModel<T>, HeroModel {
 	
 	List<T> getPossessedEntries();
 	

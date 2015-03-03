@@ -4,6 +4,6 @@ import net.sf.anathema.library.model.OptionalEntriesModel;
 
 public interface OptionalTraitsModel<
 	O extends OptionalTraitOption,
-	T extends PossessedOptionalTrait<? extends OptionalTraitOption>> extends OptionalEntriesModel<O, T> {	
+	T extends PossessedOptionalTrait<O>> extends OptionalEntriesModel<O, T> {	
 
 }
