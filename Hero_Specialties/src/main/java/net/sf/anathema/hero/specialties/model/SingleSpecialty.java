@@ -14,6 +14,10 @@ public class SingleSpecialty {
     this.type = new SpecialtyTypeImpl(type);
   }
   
+  public String toString() {
+    return type.toString();
+  }
+  
   public int getValue() {
     return TraitModelFetcher.fetch(hero).getTrait(type.getTraitType()).getCurrentValue();
   }
