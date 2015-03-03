@@ -6,9 +6,10 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.model.OptionalEntriesModel;
 import net.sf.anathema.library.model.OptionalEntryCategory;
+import net.sf.anathema.library.model.OptionalEntryOption;
 import net.sf.anathema.library.model.PossessedOptionalEntry;
 import net.sf.anathema.library.model.RemovableEntryListener;
-import net.sf.anathema.library.model.property.OptionalPropertyOption;
+import net.sf.anathema.library.model.trait.PossessedOptionalTrait;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
@@ -21,35 +22,30 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public abstract class AbstractCategorizedOptionalPresenter<
-C extends OptionalEntryCategory,
-O extends OptionalPropertyOption,
-T extends PossessedOptionalEntry<O>> {
+public abstract class AbstractCategorizedOptionalPresenter {
 
-	protected ObjectSelectionView<O> traitBox;
+	protected ObjectSelectionView<OptionalEntryOption> traitBox;
 	protected ITextView textBox;
 	protected final OptionalEntriesView view;
 	protected final Resources resources;
-	protected final Map<T, OptionalEntryItemView> viewsByEntry = new HashMap<>();
-	protected final OptionalEntriesModel<C, O, T> model;
+	protected final Map<PossessedOptionalEntry<?>, OptionalEntryItemView> viewsByEntry = new HashMap<>();
+	protected final OptionalEntriesModel model;
 	private final Hero hero;
 
-	public AbstractCategorizedOptionalPresenter(Hero hero,
-			OptionalEntriesModel<C, O, T> model,
-			OptionalEntriesView view,
-			Resources resources) {
+	public AbstractCategorizedOptionalPresenter(Hero hero, OptionalEntriesModel<?, ?, ?> model,
+	    OptionalEntriesView view, Resources resources) {
 		this.hero = hero;
-		this.model = model;
 		this.view = view;
+		this.model = model;
 		this.resources = resources;
 	}
 
-	public void initPresentation() {
+  public void initPresentation() {
 		OptionalPropertyEntryView selectionView = view.addSelectionView();
 		Tool tool = initCreationView(selectionView);
 		initModelListening(selectionView, tool);
-		for (T trait : model.getPossessedEntries()) {
-			addSubView(trait);
+		for (Object trait : model.getPossessedEntries()) {
+			addSubView((PossessedOptionalTrait<?>)trait);
 		}
 		reset();
 		List<Trait> contingentTraits = model.getContingentTraits();
@@ -65,23 +61,24 @@ T extends PossessedOptionalEntry<O>> {
 	}
 	
 	private void updateRemovalStatus() {
-		for (T entry : model.getEntries()) {
-			viewsByEntry.get(entry).setEnabled(model.isRemovalAllowed(entry));
+		for (Object entry : model.getEntries()) {
+			viewsByEntry.get((PossessedOptionalEntry<?>)entry)
+			.setEnabled(model.isRemovalAllowed((PossessedOptionalEntry<?>)entry));
 		}
 	}
 
-	protected abstract void addSubView(T trait);
+	protected abstract void addSubView(PossessedOptionalEntry<?> trait);
 
 	private void initModelListening(OptionalPropertyEntryView selectionView, Tool tool) {
-		model.addModelChangeListener(new RemovableEntryListener<T>() {
+		model.addModelChangeListener(new RemovableEntryListener<PossessedOptionalEntry<?>>() {
 			@Override
-			public void entryAdded(T trait) {
+			public void entryAdded(PossessedOptionalEntry<?> trait) {
 				addSubView(trait);
 				reset();
 			}
 
 			@Override
-			public void entryRemoved(T trait) {
+			public void entryRemoved(PossessedOptionalEntry<?> trait) {
 				OptionalEntryItemView itemView = viewsByEntry.get(trait);
 				itemView.remove();
 			}
@@ -107,7 +104,7 @@ T extends PossessedOptionalEntry<O>> {
 	}
 
 	private void addCategorySelection(OptionalPropertyEntryView selectionView) {
-		ObjectSelectionView<C> typeView = selectionView.addSelection(new ToStringConfiguration<>());
+		ObjectSelectionView<OptionalEntryCategory> typeView = selectionView.addSelection(new ToStringConfiguration<>());
 		typeView.setObjects(model.getAvailableCategories());
 		typeView.setSelectedObject(model.getCurrentCategory());
 		typeView.addObjectSelectionChangedListener(model::setCurrentCategory);
@@ -117,8 +114,8 @@ T extends PossessedOptionalEntry<O>> {
 		});
 	}
 
-	private ObjectSelectionView<O> addTraitSelection(OptionalPropertyEntryView selectionView) {
-		ObjectSelectionView<O> traitView = selectionView.addSelection(new ToStringConfiguration<>());
+	private ObjectSelectionView<OptionalEntryOption> addTraitSelection(OptionalPropertyEntryView selectionView) {
+		ObjectSelectionView<OptionalEntryOption> traitView = selectionView.addSelection(new ToStringConfiguration<>());
 		traitView.setObjects(model.getCurrentEntryOptions());
 		traitView.setSelectedObject(model.getSelectedEntryOption());
 		traitView.addObjectSelectionChangedListener(model::setSelectedEntryOption);

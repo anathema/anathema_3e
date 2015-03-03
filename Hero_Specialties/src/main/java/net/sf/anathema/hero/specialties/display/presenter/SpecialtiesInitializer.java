@@ -8,10 +8,7 @@ import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.model.Specialty;
-import net.sf.anathema.hero.specialties.model.SpecialtyType;
 import net.sf.anathema.library.initialization.Weight;
-import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.presenter.CategorizedOptionalPropertyPresenter;
 import net.sf.anathema.library.view.property.OptionalPropertiesView;
 
@@ -31,8 +28,7 @@ public class SpecialtiesInitializer implements HeroModelInitializer {
     String viewName = environment.getResources().getString("AdditionalTemplateView.TabName.Specialties");
     OptionalPropertiesView view = sectionView.addView(viewName, OptionalPropertiesView.class);
     SpecialtiesModel specialtiesModel = SpecialtiesModelFetcher.fetch(hero);
-    new CategorizedOptionalPropertyPresenter<NullCategory, SpecialtyType, Specialty>
-    	(hero, specialtiesModel, view, environment.getResources()).initPresentation();
+    new CategorizedOptionalPropertyPresenter(hero, specialtiesModel, view, environment.getResources()).initPresentation();
   }
 
   @Override

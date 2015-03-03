@@ -3,15 +3,14 @@ package net.sf.anathema.library.model;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.model.property.OptionalPropertyOption;
 
 import java.util.Collection;
 import java.util.List;
 
 public interface OptionalEntriesModel<
 	C extends OptionalEntryCategory,
-	O extends OptionalPropertyOption,
-	T extends PossessedOptionalEntry<O>> extends RemovableEntryModel<T>, HeroModel {
+	O extends OptionalEntryOption,
+	T extends PossessedOptionalEntry<? extends OptionalEntryOption>> extends RemovableEntryModel<T>, HeroModel {
 	
 	List<T> getPossessedEntries();
 	

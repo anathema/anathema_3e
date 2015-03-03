@@ -14,7 +14,7 @@ import java.util.List;
 public interface OptionalPropertiesModel<
 	C extends OptionalEntryCategory,
 	O extends OptionalPropertyOption,
-	T extends PossessedOptionalProperty<O>>
+	T extends PossessedOptionalProperty<? extends OptionalPropertyOption>>
 	extends RemovableEntryModel<T>, HeroModel,
 	OptionalEntriesModel<C, O, T> {
 	

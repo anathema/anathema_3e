@@ -1,7 +1,6 @@
 package net.sf.anathema.library.model.property;
 
-import java.util.Collection;
+import net.sf.anathema.library.model.OptionalEntryOption;
 
-public interface OptionalPropertyOption {
-  Collection<String> getSuggestions();
+public interface OptionalPropertyOption extends OptionalEntryOption {
 }

@@ -18,7 +18,7 @@ import java.util.Map;
 
 public abstract class AbstractOptionalEntriesModel<
 	C extends OptionalEntryCategory,
-	O extends OptionalPropertyOption,
+	O extends OptionalEntryOption,
 	T extends PossessedOptionalEntry<O>>
 	extends AbstractRemovableEntryModel<T>
 	implements OptionalEntriesModel<C, O, T> {
