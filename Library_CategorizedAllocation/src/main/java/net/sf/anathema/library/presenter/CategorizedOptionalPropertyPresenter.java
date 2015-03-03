@@ -27,7 +27,7 @@ public class CategorizedOptionalPropertyPresenter extends AbstractCategorizedOpt
 	protected void addSubView(PossessedOptionalEntry<?> entry) {
     RelativePath deleteIcon = new BasicUi().getRemoveIconPath();
     OptionalPropertyItemView itemView = view.addItemView(entry.toString(), deleteIcon);
-    itemView.addButtonListener(() -> model.removeEntry(entry));
+    itemView.addButtonListener(() -> model.forget(entry));
     viewsByEntry.put(entry, itemView);
 	}
 }

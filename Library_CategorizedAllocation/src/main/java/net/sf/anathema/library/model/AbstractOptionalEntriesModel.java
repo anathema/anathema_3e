@@ -190,6 +190,7 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	  boolean canForget = isRemovalAllowed(entry);
 	  if (canForget) {
 	    removeEntry(entry);
+	    fireEntryChanged();
 	  }
 	  return canForget;
 	}

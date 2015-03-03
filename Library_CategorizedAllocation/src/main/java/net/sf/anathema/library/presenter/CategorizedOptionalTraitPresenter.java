@@ -25,7 +25,7 @@ public class CategorizedOptionalTraitPresenter extends AbstractCategorizedOption
 		OptionalTraitItemView subView = view.addItemView(trait.toString(), traitMaxValue, new BasicUi().getRemoveIconPath());
 		new TraitPresenter((Trait)trait, subView.getIntValueView()).initPresentation();
 		viewsByEntry.put(trait, subView);
-		subView.addButtonListener(() -> model.removeEntry(trait));
+		subView.addButtonListener(() -> model.forget(trait));
 		subView.setEnabled(model.isRemovalAllowed(trait));
 	}
 }

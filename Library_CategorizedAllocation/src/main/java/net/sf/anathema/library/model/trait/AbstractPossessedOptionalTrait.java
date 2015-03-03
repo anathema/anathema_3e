@@ -75,8 +75,11 @@ public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOpti
   
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof OptionalTraitOption) {
-      return ((OptionalTraitOption) obj).getId().equals(getId());
+    if (obj instanceof PossessedOptionalTrait) {
+      PossessedOptionalTrait<?> otherTrait = (PossessedOptionalTrait<?>)obj;
+      boolean descriptionsMatch = (Strings.isNullOrEmpty(description) && Strings.isNullOrEmpty(description)) ||
+          (description != null ? description : "").equals(otherTrait.getDescription());
+      return optionBase.equals(otherTrait.getBaseOption()) && descriptionsMatch;
     }
     return false;
   }
