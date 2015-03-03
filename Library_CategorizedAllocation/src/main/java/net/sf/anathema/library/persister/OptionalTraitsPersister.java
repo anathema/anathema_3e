@@ -15,7 +15,7 @@ public abstract class OptionalTraitsPersister<
 	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption,
 	T extends PossessedOptionalTrait<O>,
-	M extends OptionalTraitsModel<C, O, T>,
+	M extends OptionalTraitsModel<O, T>,
 	P extends OptionalEntriesModelPto<PossessedOptionalTraitPto>>
 	extends AbstractModelJsonPersister<P, M> {
 

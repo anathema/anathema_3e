@@ -3,7 +3,7 @@ package net.sf.anathema.hero.thaumaturgy.compiler;
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.thaumaturgy.model.RitualImpl;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
-import net.sf.anathema.library.model.NullCategory;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
 
 import java.util.ArrayList;
@@ -31,7 +31,7 @@ public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
 	}
 
 	@Override
-	public List<ThaumaturgyRitual> getAllOptionsForCategory(NullCategory category) {
+	public List<ThaumaturgyRitual> getAllOptionsForCategory(OptionalEntryCategory category) {
 		return new ArrayList<>();
 	}
 }

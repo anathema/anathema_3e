@@ -17,7 +17,7 @@ public class CategorizedOptionalPropertyPresenter extends AbstractCategorizedOpt
 	private final OptionalPropertiesView view;
 
 	public CategorizedOptionalPropertyPresenter(Hero hero,
-			OptionalPropertiesModel<?, ?, ?> model, OptionalPropertiesView view,
+			OptionalPropertiesModel<?, ?> model, OptionalPropertiesView view,
 			Resources resources) {
 		super(hero, model, view, resources);
 		this.view = view;

@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel,
-	OptionalTraitsModel<MeritCategory, MeritOption, Merit>{
+	OptionalTraitsModel<MeritOption, Merit>{
 
   Identifier ID = new SimpleIdentifier("Merits");
 

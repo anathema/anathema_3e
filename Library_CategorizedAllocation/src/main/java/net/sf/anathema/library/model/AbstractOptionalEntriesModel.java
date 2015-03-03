@@ -6,7 +6,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.model.property.OptionalPropertyOption;
 
 import org.jmock.example.announcer.Announcer;
 
@@ -17,11 +16,10 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractOptionalEntriesModel<
-	C extends OptionalEntryCategory,
 	O extends OptionalEntryOption,
 	T extends PossessedOptionalEntry<O>>
 	extends AbstractRemovableEntryModel<T>
-	implements OptionalEntriesModel<C, O, T> {
+	implements OptionalEntriesModel<O, T> {
 	
 private final Map<OptionalEntryReference, Collection<String>> suggestions = new HashMap<>();
 	
@@ -30,10 +28,10 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	
 	private final boolean hasCategories;
 	protected Hero hero;
-	protected OptionalEntryCache<C, O> cache;
+	protected OptionalEntryCache<O> cache;
 	protected ChangeAnnouncer change;
 	protected String currentDescription = "";
-	protected C currentCategory;
+	protected OptionalEntryCategory currentCategory;
 	protected O currentOption;
 	
 	protected AbstractOptionalEntriesModel(boolean hasCategories) {
@@ -50,7 +48,7 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
     }
   }
 	
-	protected abstract OptionalEntryCache<C, O> initCache(HeroEnvironment environment);
+	protected abstract OptionalEntryCache<O> initCache(HeroEnvironment environment);
 	
 	@SuppressWarnings("unchecked")
   @Override
@@ -159,17 +157,17 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	protected abstract O getNullOption();
 	
 	@Override
-	public List<C> getAvailableCategories() {
+	public List<OptionalEntryCategory> getAvailableCategories() {
 		return new ArrayList<>();
 	}
 	
 	@Override
-	public C getCurrentCategory() {
+	public OptionalEntryCategory getCurrentCategory() {
 		return currentCategory;
 	}
 	
 	@Override
-	public void setCurrentCategory(C category) {
+	public void setCurrentCategory(OptionalEntryCategory category) {
 		if (category.equals(currentCategory)) {
 			return;
 		}

@@ -7,7 +7,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.model.OptionalEntryCache;
 import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
 
@@ -15,7 +14,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<NullCategory, SpecialtyType, Specialty>
+public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<SpecialtyType, Specialty>
 	implements SpecialtiesModel, HeroModel {
 
   public SpecialtiesModelImpl() {
@@ -44,7 +43,7 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<NullCa
 	}
 
 	@Override
-	protected OptionalEntryCache<NullCategory, SpecialtyType> initCache(
+	protected OptionalEntryCache<SpecialtyType> initCache(
 			HeroEnvironment environment) {
 		// TODO Auto-generated method stub
 		return null;

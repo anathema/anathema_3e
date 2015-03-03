@@ -10,7 +10,7 @@ import net.sf.anathema.library.model.property.OptionalPropertiesModel;
 import java.util.List;
 
 public interface SpecialtiesModel extends HeroModel,
-	OptionalPropertiesModel<NullCategory, SpecialtyType, Specialty> {
+	OptionalPropertiesModel<SpecialtyType, Specialty> {
 
   Identifier ID = new SimpleIdentifier("Specialties");
   

@@ -5,11 +5,10 @@ import net.sf.anathema.library.model.AbstractOptionalEntriesModel;
 import net.sf.anathema.library.model.OptionalEntryCategory;
 
 public abstract class AbstractOptionalTraitsModel<
-	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption,
 	T extends PossessedOptionalTrait<O>>
-	extends AbstractOptionalEntriesModel<C, O, T>
-	implements OptionalTraitsModel<C, O, T> {
+	extends AbstractOptionalEntriesModel<O, T>
+	implements OptionalTraitsModel<O, T> {
 	
 	protected AbstractOptionalTraitsModel(boolean hasCategories) {
 		super(hasCategories);

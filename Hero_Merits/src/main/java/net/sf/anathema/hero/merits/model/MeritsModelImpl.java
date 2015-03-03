@@ -15,6 +15,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitsModel;
 
@@ -25,7 +26,7 @@ import java.util.function.Predicate;
 
 import static java.util.stream.Collectors.toList;
 
-public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritCategory, MeritOption, Merit>
+public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Merit>
 	implements MeritsModel {
 
   protected MeritsModelImpl() {
@@ -104,7 +105,7 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritCategory, 
 	}
 
 	@Override
-	public List<MeritCategory> getAvailableCategories() {
+	public List<OptionalEntryCategory> getAvailableCategories() {
 		return Arrays.asList(MeritCategory.values());
 	}
 

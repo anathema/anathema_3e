@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.merits.compiler;
 
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
-import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritOptionImpl;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
 
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class MeritCacheImpl implements MeritCache {
   }
 
 	@Override
-	public List<MeritOption> getAllOptionsForCategory(MeritCategory category) {
+	public List<MeritOption> getAllOptionsForCategory(OptionalEntryCategory category) {
 		return getAllOptions().stream().filter(option -> option.getCategory().equals(category)).collect(toList());
 	}
 

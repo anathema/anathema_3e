@@ -32,7 +32,7 @@ public abstract class AbstractCategorizedOptionalPresenter {
 	protected final OptionalEntriesModel model;
 	private final Hero hero;
 
-	public AbstractCategorizedOptionalPresenter(Hero hero, OptionalEntriesModel<?, ?, ?> model,
+	public AbstractCategorizedOptionalPresenter(Hero hero, OptionalEntriesModel<?, ?> model,
 	    OptionalEntriesView view, Resources resources) {
 		this.hero = hero;
 		this.view = view;

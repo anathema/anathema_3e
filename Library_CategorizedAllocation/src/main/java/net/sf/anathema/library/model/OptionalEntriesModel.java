@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.List;
 
 public interface OptionalEntriesModel<
-	C extends OptionalEntryCategory,
 	O extends OptionalEntryOption,
 	T extends PossessedOptionalEntry<? extends OptionalEntryOption>> extends RemovableEntryModel<T>, HeroModel {
 	
@@ -30,11 +29,11 @@ public interface OptionalEntriesModel<
 	
 	Collection<String> getSuggestedDescriptions();
 	
-	List<C> getAvailableCategories();
+	List<OptionalEntryCategory> getAvailableCategories();
 	
-	C getCurrentCategory();
+	OptionalEntryCategory getCurrentCategory();
 	
-	void setCurrentCategory(C category);
+	void setCurrentCategory(OptionalEntryCategory category);
 	
 	void whenCategoryChanges(ChangeListener listener);
 	

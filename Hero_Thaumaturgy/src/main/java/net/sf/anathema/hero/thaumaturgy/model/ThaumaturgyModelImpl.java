@@ -13,7 +13,7 @@ import net.sf.anathema.points.model.PointModelFetcher;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ThaumaturgyModelImpl extends AbstractOptionalTraitsModel<NullCategory, ThaumaturgyRitual, KnownRitual>
+public class ThaumaturgyModelImpl extends AbstractOptionalTraitsModel<ThaumaturgyRitual, KnownRitual>
 	implements ThaumaturgyModel {
 
   public ThaumaturgyModelImpl() {
