@@ -9,7 +9,7 @@ import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.OptionalPropertyEntryView;
 
-public class FxOptionalTraitsEntryView implements OptionalPropertyEntryView {
+public class FxOptionalEntriesInputView implements OptionalPropertyEntryView {
   private final FxConfigurableSingleLineView view = new FxConfigurableSingleLineView();
 
   public Tool addTool() {

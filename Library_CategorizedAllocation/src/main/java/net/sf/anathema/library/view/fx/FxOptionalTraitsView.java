@@ -19,7 +19,6 @@ import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxOptionalTraitsView<
-	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption>
 	implements OptionalTraitsView, NodeHolder {
   private final MigPane content = new MigPane(fillWithoutInsets());
@@ -40,7 +39,7 @@ public class FxOptionalTraitsView<
 
   @Override
   public OptionalPropertyEntryView addSelectionView() {
-    FxOptionalTraitsEntryView view = new FxOptionalTraitsEntryView();
+    FxOptionalEntriesInputView view = new FxOptionalEntriesInputView();
     creationPane.add(view.getNode());
     return view;
   }
