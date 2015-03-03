@@ -5,6 +5,7 @@ import net.sf.anathema.hero.concept.dummy.NullCasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
+
 import org.junit.Test;
 
 import static net.sf.anathema.hero.abilities.model.AbilityGroupType.Life;

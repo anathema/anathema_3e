@@ -4,11 +4,13 @@ import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.fx.cell.ConfigurableTreeCellFactory;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.platform.repositorytree.AgnosticTree;
 import net.sf.anathema.platform.repositorytree.AgnosticTreeNode;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

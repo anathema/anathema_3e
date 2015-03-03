@@ -1,13 +1,5 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -16,6 +8,14 @@ import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeImpl;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public final class CharmTreeCategoryImpl implements CharmTreeCategory {
 

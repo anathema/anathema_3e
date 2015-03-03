@@ -1,12 +1,13 @@
 package net.sf.anathema.equipment.stats.data;
 
-import static net.sf.anathema.equipment.stats.WeaponTag.Heavy;
-import static net.sf.anathema.equipment.stats.WeaponTag.Light;
-import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
 import net.sf.anathema.equipment.stats.WeaponTag;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+
+import static net.sf.anathema.equipment.stats.WeaponTag.Heavy;
+import static net.sf.anathema.equipment.stats.WeaponTag.Light;
+import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
 
 public class WeaponStatisticsTable {
 

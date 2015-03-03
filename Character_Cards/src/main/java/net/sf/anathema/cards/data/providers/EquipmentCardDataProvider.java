@@ -1,8 +1,5 @@
 package net.sf.anathema.cards.data.providers;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.cards.data.EquipmentCardData;
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
@@ -17,6 +14,9 @@ import net.sf.anathema.library.resources.Resources;
 
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EquipmentCardDataProvider implements ICardDataProvider {
 

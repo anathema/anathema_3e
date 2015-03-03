@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.presentation.EquipmentStatsUIConfiguration;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class FilteringEquipmentItemRenderer implements EquipmentItemRenderer {
   private final EquipmentStatsUIConfiguration configuration;

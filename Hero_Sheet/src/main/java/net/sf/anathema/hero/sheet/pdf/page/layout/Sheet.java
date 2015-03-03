@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.sheet.pdf.page.layout;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.Rectangle;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncoderRegistry;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.EncodingMetrics;
@@ -9,6 +7,9 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.PageConfiguration;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Rectangle;
 
 public class Sheet {
 

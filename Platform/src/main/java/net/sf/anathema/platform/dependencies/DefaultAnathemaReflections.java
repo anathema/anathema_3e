@@ -3,6 +3,7 @@ package net.sf.anathema.platform.dependencies;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.platform.resources.InternalResourceFile;
+
 import org.reflections.Reflections;
 import org.reflections.util.ConfigurationBuilder;
 

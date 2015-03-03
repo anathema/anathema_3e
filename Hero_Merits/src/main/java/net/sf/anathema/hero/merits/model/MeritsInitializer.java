@@ -27,7 +27,7 @@ public class MeritsInitializer implements HeroModelInitializer {
     OptionalTraitsView view = sectionView.addView(viewName, OptionalTraitsView.class);
     MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
     new CategorizedOptionalTraitPresenter<MeritCategory, MeritOption, Merit>
-    	(meritsModel, view, environment.getResources(), MeritOption.MAX_MERIT_RATING).initPresentation();
+    	(hero, meritsModel, view, environment.getResources(), MeritOption.MAX_MERIT_RATING).initPresentation();
   }
 
   @Override

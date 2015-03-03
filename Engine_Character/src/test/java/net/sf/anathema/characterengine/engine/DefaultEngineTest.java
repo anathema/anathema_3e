@@ -6,6 +6,7 @@ import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.Type;
 import net.sf.anathema.characterengine.support.NumericQuality;
 import net.sf.anathema.characterengine.support.NumericValue;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

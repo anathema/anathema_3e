@@ -3,9 +3,11 @@ package net.sf.anathema.framework.preferences.perspective;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.NodeHolder;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxPreferencesView implements PreferencesView {

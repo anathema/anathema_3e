@@ -28,6 +28,7 @@ import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.preferences.PreferencePto;
 import net.sf.anathema.platform.repository.IRepositoryFileResolver;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.io.IOException;

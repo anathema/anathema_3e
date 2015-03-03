@@ -1,9 +1,8 @@
 package net.sf.anathema.library.fx.layout;
 
-import javafx.scene.Node;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
+
 import net.miginfocom.layout.LC;
 
 public class LayoutUtils {

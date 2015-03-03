@@ -4,6 +4,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.Condition;
+
 import org.jmock.example.announcer.Announcer;
 
 public class SubEffectImpl extends SimpleIdentifier implements SubEffect {

@@ -1,11 +1,13 @@
 package net.sf.anathema.hero.spiritual.model;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spiritual.model.traits.EssenceLimitationListener;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitIterable;
+
 import org.junit.Test;
+
+import com.google.common.collect.Lists;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyZeroInteractions;

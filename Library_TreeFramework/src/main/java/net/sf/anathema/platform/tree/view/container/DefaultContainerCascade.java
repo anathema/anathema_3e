@@ -1,13 +1,15 @@
 package net.sf.anathema.platform.tree.view.container;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 import net.sf.anathema.platform.tree.view.draw.InteractiveGraphicsElement;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
+
 import org.jmock.example.announcer.Announcer;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 

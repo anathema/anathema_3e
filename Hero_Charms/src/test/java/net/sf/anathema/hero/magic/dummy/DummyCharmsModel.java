@@ -1,10 +1,5 @@
 package net.sf.anathema.hero.magic.dummy;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
@@ -18,8 +13,8 @@ import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.ICharmLearnListener;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -31,6 +26,11 @@ import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class DummyCharmsModel implements CharmsModel, CharmOptions {
 

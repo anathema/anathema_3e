@@ -1,12 +1,13 @@
 package net.sf.anathema.character.equipment.impl.character.model.stats;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.impl.ArmourStats;
 import net.sf.anathema.hero.equipment.model.ProxyArmourStats;
 
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ProxyArmourStatsTest {
 

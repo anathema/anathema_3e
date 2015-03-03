@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.equipment.model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.hero.equipment.display.presenter.StatsView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class EquipmentItemPresentationModel {
 

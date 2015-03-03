@@ -1,9 +1,11 @@
 package net.sf.anathema.hero.display.fx.creation;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.hero.application.creation.ButtonPanel;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

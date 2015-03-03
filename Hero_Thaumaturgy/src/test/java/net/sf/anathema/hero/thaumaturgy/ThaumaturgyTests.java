@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.thaumaturgy;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.DummyHeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
@@ -19,6 +17,9 @@ import net.sf.anathema.points.template.PointsTemplate;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class ThaumaturgyTests {
 	

@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
-
-import java.util.HashSet;
-import java.util.Set;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.model.learn.prerequisites.CharmsToForget;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import static net.sf.anathema.hero.charms.model.learn.prerequisites.CollectPrerequisiteCharms.collectPrerequisiteCharms;
 
 public class LearningModelImpl implements LearningModel {
 

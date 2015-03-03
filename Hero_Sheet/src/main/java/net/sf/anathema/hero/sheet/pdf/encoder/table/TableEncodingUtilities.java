@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.table;
 
+import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Phrase;
@@ -7,7 +9,6 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.BaseFont;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 
 public class TableEncodingUtilities {
 

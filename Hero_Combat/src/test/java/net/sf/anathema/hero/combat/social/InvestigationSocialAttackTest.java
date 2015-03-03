@@ -4,14 +4,12 @@ import net.sf.anathema.hero.combat.model.social.InvestigationSocialAttack;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.TraitMap;
+
 import org.junit.Before;
-import org.junit.Test;
 
 import static net.sf.anathema.hero.traits.model.types.AbilityType.Investigation;
 import static net.sf.anathema.hero.traits.model.types.AttributeType.Charisma;
 import static net.sf.anathema.hero.traits.model.types.AttributeType.Manipulation;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

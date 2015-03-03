@@ -4,6 +4,7 @@ dependencies {
   compile project(':Hero')
   compile project(':Hero_Health')
   compile project(':Hero_Sheet')
+  compile project(':Library_CategorizedAllocation')
   testCompile testDependencies
   testCompile project(path: ':Hero', configuration: 'tests')
   testCompile project(path: ':Hero_Health', configuration: 'tests')

@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.combat.sheet.social.stats;
 
+import net.sf.anathema.library.resources.Resources;
+
 import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.library.resources.Resources;
 
 public class HonestyStatsGroup extends AbstractSocialCombatsValueStatsGroup {
 

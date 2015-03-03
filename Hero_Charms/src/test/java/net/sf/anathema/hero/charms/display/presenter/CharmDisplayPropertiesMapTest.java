@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.presenter;
 import net.sf.anathema.hero.dummy.DummyHeroType;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import net.sf.anathema.platform.tree.document.visualizer.TreePresentationProperties;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

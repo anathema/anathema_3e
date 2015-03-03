@@ -2,8 +2,8 @@ package net.sf.anathema.hero.charms.model.special.subeffects;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 
 public interface IMultipleEffectCharm extends CharmSpecialLearning {
 

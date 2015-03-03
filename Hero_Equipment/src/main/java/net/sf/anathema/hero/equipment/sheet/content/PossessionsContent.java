@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.hero.equipment.EquipmentModel;
@@ -12,6 +8,10 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class PossessionsContent extends AbstractSubBoxContent implements ListSubBoxContent {
 

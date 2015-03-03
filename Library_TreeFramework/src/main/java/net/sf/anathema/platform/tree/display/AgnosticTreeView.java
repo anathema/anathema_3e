@@ -10,6 +10,7 @@ import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
 import net.sf.anathema.platform.tree.view.interaction.SpecialContentMap;
 import net.sf.anathema.platform.tree.view.interaction.SpecialControlTrigger;
 import net.sf.anathema.platform.tree.view.interaction.ToolTipListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class AgnosticTreeView implements TreeView {

@@ -1,14 +1,11 @@
 package net.sf.anathema.hero.charms.persistence.special;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.ICharmSpecialLearningVisitor;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.IMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.MultiLearnCharmSpecials;
@@ -17,6 +14,9 @@ import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.persistence.CharmListPto;
 import net.sf.anathema.hero.charms.persistence.special.effect.MultipleEffectCharmPersister;
 import net.sf.anathema.hero.charms.persistence.special.learn.MultiLearnCharmPersister;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SpecialCharmListPersister {
 

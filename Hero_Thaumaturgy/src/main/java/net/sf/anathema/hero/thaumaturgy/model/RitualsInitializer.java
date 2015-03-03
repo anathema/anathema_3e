@@ -28,7 +28,7 @@ public class RitualsInitializer implements HeroModelInitializer {
     OptionalTraitsView view = sectionView.addView(viewName, OptionalTraitsView.class);
     ThaumaturgyModel thaumaturgyModel = ThaumaturgyModelFetcher.fetch(hero);
     new CategorizedOptionalTraitPresenter<NullCategory, ThaumaturgyRitual, KnownRitual>
-    	(thaumaturgyModel, view, environment.getResources(), ThaumaturgyRitual.RITUAL_MAX_LEVEL).initPresentation();
+    	(hero, thaumaturgyModel, view, environment.getResources(), ThaumaturgyRitual.RITUAL_MAX_LEVEL).initPresentation();
   }
 
   @Override

@@ -3,6 +3,7 @@ package net.sf.anathema.initialization.reflections;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.repository.CustomDataResourceFileLoader;
 import net.sf.anathema.platform.repository.RepositoryLocationResolver;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

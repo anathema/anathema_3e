@@ -1,10 +1,12 @@
 package net.sf.anathema.initialization.reflections;
 
-import com.google.common.collect.Sets;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.platform.dependencies.AggregatedResourceFileLoader;
+
 import org.junit.Test;
+
+import com.google.common.collect.Sets;
 
 import java.util.Set;
 

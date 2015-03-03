@@ -1,10 +1,11 @@
 package net.sf.anathema.character.equipment.impl.item.model.gson;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.equipment.database.gson.FilenameCleaner;
 
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class FilenameCleanerTest {
 

@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.tree.view;
 
 import net.sf.anathema.platform.tree.display.NodeInteractionListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class AggregatingInteractionListener implements NodeInteractionListener {

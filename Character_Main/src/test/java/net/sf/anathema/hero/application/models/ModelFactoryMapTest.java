@@ -5,6 +5,7 @@ import net.sf.anathema.hero.application.dummy.DummyFactoryCollector;
 import net.sf.anathema.hero.dummy.DummyModelFactory;
 import net.sf.anathema.hero.individual.model.ModelTreeEntry;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.Before;

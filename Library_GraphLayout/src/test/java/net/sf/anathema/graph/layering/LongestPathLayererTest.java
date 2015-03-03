@@ -4,6 +4,7 @@ import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.IdentifiedRegularNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
+
 import org.junit.Before;
 import org.junit.Test;
 

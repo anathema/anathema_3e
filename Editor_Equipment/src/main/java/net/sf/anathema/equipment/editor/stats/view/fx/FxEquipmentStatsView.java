@@ -2,6 +2,7 @@ package net.sf.anathema.equipment.editor.stats.view.fx;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;

@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
@@ -10,6 +7,9 @@ import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.hero.equipment.IEquipmentPrintModel;
 import net.sf.anathema.hero.equipment.model.IEquipmentItemCollection;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EquipmentPrintModel implements IEquipmentPrintModel {
 

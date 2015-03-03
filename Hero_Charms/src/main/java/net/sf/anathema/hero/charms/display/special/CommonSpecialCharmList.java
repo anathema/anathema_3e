@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmList;
 import net.sf.anathema.platform.tree.display.SpecialNodeView;
 import net.sf.anathema.platform.tree.display.TreeView;
+
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 import java.util.ArrayList;
 import java.util.List;

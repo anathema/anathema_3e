@@ -1,11 +1,12 @@
 package net.sf.anathema.charm.template.prerequisite;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.charm.data.prerequisite.TraitGroupCharmPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.platform.persistence.JsonType;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 

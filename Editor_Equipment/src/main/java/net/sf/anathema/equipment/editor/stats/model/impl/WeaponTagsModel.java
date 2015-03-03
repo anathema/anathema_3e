@@ -1,5 +1,13 @@
 package net.sf.anathema.equipment.editor.stats.model.impl;
 
+import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
+import net.sf.anathema.equipment.stats.BasicTagsModel;
+import net.sf.anathema.equipment.stats.IWeaponTag;
+import net.sf.anathema.equipment.stats.WeaponTag;
+import net.sf.anathema.library.model.BooleanValueModel;
+
+import java.util.List;
+
 import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
 import static net.sf.anathema.equipment.stats.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.WeaponTag.getDamageTags;
@@ -7,14 +15,6 @@ import static net.sf.anathema.equipment.stats.WeaponTag.getRangeTags;
 import static net.sf.anathema.equipment.stats.WeaponTag.getRangedWeaponExclusiveTags;
 import static net.sf.anathema.equipment.stats.WeaponTag.getRangedWeaponTypeTags;
 import static net.sf.anathema.equipment.stats.WeaponTag.getSizeTags;
-
-import java.util.List;
-
-import net.sf.anathema.equipment.editor.stats.model.IWeaponTagsModel;
-import net.sf.anathema.equipment.stats.BasicTagsModel;
-import net.sf.anathema.equipment.stats.IWeaponTag;
-import net.sf.anathema.equipment.stats.WeaponTag;
-import net.sf.anathema.library.model.BooleanValueModel;
 
 public class WeaponTagsModel implements IWeaponTagsModel {
 

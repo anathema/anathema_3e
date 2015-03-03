@@ -4,6 +4,7 @@ import net.sf.anathema.hero.application.dummy.ConfigurableViewFactory;
 import net.sf.anathema.hero.application.dummy.DummyView;
 import net.sf.anathema.hero.individual.view.SubViewFactory;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

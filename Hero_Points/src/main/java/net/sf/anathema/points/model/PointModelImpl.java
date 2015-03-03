@@ -1,9 +1,5 @@
 package net.sf.anathema.points.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -15,6 +11,10 @@ import net.sf.anathema.points.model.overview.IValueModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
 import net.sf.anathema.points.template.PointsTemplate;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class PointModelImpl implements PointsModel {
 

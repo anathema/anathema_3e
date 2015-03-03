@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.sheet.pdf.content.stats;
 
+import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
+import net.sf.anathema.library.lang.StringUtilities;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
-import net.sf.anathema.hero.sheet.pdf.encoder.table.TableEncodingUtilities;
-import net.sf.anathema.library.lang.StringUtilities;
 
 public abstract class AbstractTextStatsGroup<T extends IStats> implements IStatsGroup<T> {
 

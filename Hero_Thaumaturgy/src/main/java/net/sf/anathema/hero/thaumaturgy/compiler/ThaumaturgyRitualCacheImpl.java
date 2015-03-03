@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.thaumaturgy.compiler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.thaumaturgy.model.RitualImpl;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
   private final Map<String, ThaumaturgyRitual> rituals = new HashMap<String, ThaumaturgyRitual>();

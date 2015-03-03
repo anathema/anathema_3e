@@ -2,6 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.tool.AdjustSize;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.fx.tool.ImageClosure;

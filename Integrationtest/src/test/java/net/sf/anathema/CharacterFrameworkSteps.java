@@ -1,8 +1,9 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
+import com.google.inject.Inject;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

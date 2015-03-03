@@ -1,11 +1,12 @@
 package net.sf.anathema.magic.description.swing;
 
-import javax.swing.SwingUtilities;
 import java.awt.Component;
 import java.awt.Container;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.swing.SwingUtilities;
 
 public class GuiUtilities {
 

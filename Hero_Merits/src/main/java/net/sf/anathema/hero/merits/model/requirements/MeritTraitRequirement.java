@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MeritTraitRequirement implements MeritRequirement {
 

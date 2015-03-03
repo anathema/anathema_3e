@@ -1,11 +1,5 @@
 package net.sf.anathema.equipment.editor.presenter;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Stream;
-
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.presenter.tools.CopyEquipmentTemplateTool;
 import net.sf.anathema.equipment.editor.presenter.tools.NewEquipmentTemplateTool;
@@ -21,6 +15,12 @@ import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.text.TextualPresentation;
 
 import com.google.common.collect.Lists;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class EquipmentDatabasePresenter {
   private final Resources resources;

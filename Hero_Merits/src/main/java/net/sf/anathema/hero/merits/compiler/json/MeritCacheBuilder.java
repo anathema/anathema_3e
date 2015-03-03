@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.merits.compiler.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.merits.compiler.MeritCacheImpl;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritListTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MeritCacheBuilder {
 	private final List<MeritTemplate> meritList = new ArrayList<>();

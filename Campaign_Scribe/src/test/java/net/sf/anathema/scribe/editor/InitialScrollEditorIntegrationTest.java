@@ -3,6 +3,7 @@ package net.sf.anathema.scribe.editor;
 import net.sf.anathema.scribe.editor.model.ScrollModel;
 import net.sf.anathema.scribe.editor.presenter.ScrollPresenter;
 import net.sf.anathema.scribe.scroll.persistence.InMemoryScrollPersister;
+
 import org.junit.Before;
 import org.junit.Test;
 

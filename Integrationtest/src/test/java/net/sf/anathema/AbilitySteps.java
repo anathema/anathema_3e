@@ -1,10 +1,10 @@
 package net.sf.anathema;
 
-import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -14,9 +14,9 @@ import net.sf.anathema.points.model.overview.SpendingModel;
 
 import com.google.inject.Inject;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @ScenarioScoped
 public class AbilitySteps {

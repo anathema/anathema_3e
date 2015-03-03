@@ -12,7 +12,6 @@ import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetProvider;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.ResourceFile;
@@ -20,8 +19,6 @@ import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

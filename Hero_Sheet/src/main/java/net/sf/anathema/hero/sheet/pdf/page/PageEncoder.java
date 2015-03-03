@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.sheet.pdf.page;
 
-import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.layout.Sheet;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+
+import com.itextpdf.text.DocumentException;
 
 public interface PageEncoder {
 

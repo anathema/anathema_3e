@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.sheet.pdf.encoder;
 
-import com.itextpdf.text.Anchor;
-import com.itextpdf.text.Font;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.HorizontalAlignment;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SimpleColumnBuilder;
 import net.sf.anathema.hero.sheet.pdf.page.PageConfiguration;
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Font;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;

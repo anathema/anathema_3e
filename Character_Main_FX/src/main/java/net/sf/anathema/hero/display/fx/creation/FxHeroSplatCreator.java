@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.display.fx.creation;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.hero.application.creation.CharacterTemplateCreator;
 import net.sf.anathema.hero.application.creation.HeroCreationPageProperties;
 import net.sf.anathema.hero.application.creation.HeroCreationPresenter;

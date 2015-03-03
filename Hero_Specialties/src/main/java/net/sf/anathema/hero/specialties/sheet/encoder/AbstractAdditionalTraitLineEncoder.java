@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.specialties.sheet.encoder;
 
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
+import net.sf.anathema.hero.specialties.model.NamedSpecialtyReference;
 import net.sf.anathema.hero.specialties.model.Specialty;
-import net.sf.anathema.hero.specialties.sheet.content.NamedSpecialtyReference;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.pdf.PdfContentByte;
 
 import java.util.Collection;
 import java.util.List;
@@ -72,6 +73,6 @@ public abstract class AbstractAdditionalTraitLineEncoder {
 
   protected final List<ValuedTraitReference> getTraitReferences(Collection<Specialty> specialties, TraitType type) {
     Stream<Specialty> traits = specialties.stream();
-    return traits.map(trait -> new NamedSpecialtyReference(trait, type)).collect(toList());
+    return traits.map(trait -> new NamedSpecialtyReference(trait)).collect(toList());
   }
 }

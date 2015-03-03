@@ -1,10 +1,12 @@
 package net.sf.anathema.platform.fx.perspective;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.Stylesheet;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class UtilityPane {

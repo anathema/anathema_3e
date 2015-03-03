@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.equipment.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
@@ -14,6 +11,9 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.lang.StringUtilities;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class EquipmentItem implements IEquipmentItem {
 

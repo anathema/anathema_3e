@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.traits.model.group;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.TraitTypeList;
 import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupedTraitTypeBuilder {
 

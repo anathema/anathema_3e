@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.display.view;
 
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.charms.display.special.BooleanSelectionSpecialNodeView;
 import net.sf.anathema.hero.charms.display.special.CategorizedSpecialView;
@@ -17,6 +18,7 @@ import net.sf.anathema.platform.tree.display.ContentFactory;
 import net.sf.anathema.platform.tree.display.TreeView;
 import net.sf.anathema.platform.tree.fx.FxPolygonPanel;
 import net.sf.anathema.platform.tree.view.MouseBorderClosure;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;

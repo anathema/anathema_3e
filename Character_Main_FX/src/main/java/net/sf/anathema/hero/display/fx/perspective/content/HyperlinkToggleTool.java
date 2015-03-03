@@ -2,6 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 
 import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.tool.FxBaseTool;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.view.Style;

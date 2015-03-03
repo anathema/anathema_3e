@@ -7,6 +7,7 @@ import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.MessageType;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

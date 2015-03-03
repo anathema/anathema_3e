@@ -1,12 +1,5 @@
 package net.sf.anathema.character.equipment.view;
 
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
-import java.util.Collections;
-
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DummyEquipmentItem;
 import net.sf.anathema.equipment.character.IEquipmentItem;
@@ -23,6 +16,13 @@ import net.sf.anathema.platform.resources.LocaleResources;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.Collections;
+
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class EquipmentItemPresenterTest {
 

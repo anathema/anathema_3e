@@ -1,6 +1,5 @@
 package net.sf.anathema.platform.tree.document.components;
 
-import java.util.List;
 
 public interface ILayer {
 

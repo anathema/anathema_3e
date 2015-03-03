@@ -1,11 +1,11 @@
 package net.sf.anathema.characterengine.integration;
 
-import com.google.inject.Inject;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.characterengine.command.AddQuality;
 import net.sf.anathema.characterengine.engine.Engine;
 import net.sf.anathema.characterengine.persona.QualityClosure;
@@ -19,9 +19,12 @@ import net.sf.anathema.characterengine.support.IncreaseBy;
 import net.sf.anathema.characterengine.support.NumericQuality;
 import net.sf.anathema.characterengine.support.NumericQualityFactory;
 import net.sf.anathema.characterengine.support.NumericValue;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+
+import com.google.inject.Inject;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

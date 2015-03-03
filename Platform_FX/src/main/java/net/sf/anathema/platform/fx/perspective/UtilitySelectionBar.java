@@ -3,6 +3,7 @@ package net.sf.anathema.platform.fx.perspective;
 import javafx.scene.Node;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.ToolBar;
+
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.fx.tool.FxToggleTool;
 import net.sf.anathema.library.interaction.model.Command;

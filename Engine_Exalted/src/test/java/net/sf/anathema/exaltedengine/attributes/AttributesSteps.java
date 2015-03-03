@@ -1,9 +1,9 @@
 package net.sf.anathema.exaltedengine.attributes;
 
-import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.characterengine.persona.QualityClosure;
 import net.sf.anathema.characterengine.quality.Name;
 import net.sf.anathema.characterengine.quality.Quality;
@@ -12,6 +12,8 @@ import net.sf.anathema.exaltedengine.numericquality.NumericValue;
 import net.sf.anathema.exaltedengine.numericquality.SetValue;
 import net.sf.anathema.exaltedengine.support.AssertValue;
 import net.sf.anathema.exaltedengine.support.CharacterHolder;
+
+import com.google.inject.Inject;
 
 import static net.sf.anathema.exaltedengine.ExaltedEngine.ATTRIBUTE;
 import static org.mockito.Matchers.isNotNull;

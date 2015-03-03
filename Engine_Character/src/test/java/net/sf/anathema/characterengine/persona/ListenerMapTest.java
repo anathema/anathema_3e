@@ -2,6 +2,7 @@ package net.sf.anathema.characterengine.persona;
 
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.QualityListener;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

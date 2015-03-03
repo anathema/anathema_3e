@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.sheet.content;
 
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.GraphicsTemplate;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
@@ -8,6 +7,8 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Dot;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Shape;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Square;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
+
+import com.itextpdf.text.pdf.PdfContentByte;
 
 public class PdfTraitEncoder {
 

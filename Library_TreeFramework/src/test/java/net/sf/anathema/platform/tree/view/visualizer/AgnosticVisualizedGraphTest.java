@@ -4,6 +4,7 @@ import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.view.AgnosticCascadeBuilder;
 import net.sf.anathema.platform.tree.view.container.ContainerCascade;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

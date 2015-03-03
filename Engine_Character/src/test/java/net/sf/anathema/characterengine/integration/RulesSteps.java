@@ -1,13 +1,12 @@
 package net.sf.anathema.characterengine.integration;
 
-import com.google.inject.Inject;
 import cucumber.api.java.en.Given;
 import cucumber.runtime.java.guice.ScenarioScoped;
-import net.sf.anathema.characterengine.command.Command;
-import net.sf.anathema.characterengine.engine.Engine;
-import net.sf.anathema.characterengine.persona.Qualities;
+
 import net.sf.anathema.characterengine.quality.Type;
 import net.sf.anathema.characterengine.support.NumericQualityMinimumValueRule;
+
+import com.google.inject.Inject;
 
 @ScenarioScoped
 public class RulesSteps {

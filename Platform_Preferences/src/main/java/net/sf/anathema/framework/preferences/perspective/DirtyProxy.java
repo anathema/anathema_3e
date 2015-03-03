@@ -2,6 +2,7 @@ package net.sf.anathema.framework.preferences.perspective;
 
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.preferences.DirtyModel;
+
 import org.jmock.example.announcer.Announcer;
 
 public class DirtyProxy implements DirtyModel {

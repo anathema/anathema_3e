@@ -1,9 +1,10 @@
 package net.sf.anathema.platform.tree.document.components;
 
-import com.google.common.base.Preconditions;
-import com.google.common.collect.Lists;
 import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.document.util.BackwardsIterable;
+
+import com.google.common.base.Preconditions;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.List;

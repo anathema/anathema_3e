@@ -2,7 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.tool.DeselectToggleButtonAndProcess;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.ToggleTool;

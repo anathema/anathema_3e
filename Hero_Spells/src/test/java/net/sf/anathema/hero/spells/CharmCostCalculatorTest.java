@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.spells;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
@@ -24,6 +21,10 @@ import net.sf.anathema.magic.data.Magic;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class CharmCostCalculatorTest {
 

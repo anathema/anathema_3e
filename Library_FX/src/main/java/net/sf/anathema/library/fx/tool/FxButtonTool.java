@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.tool;
 
 import javafx.scene.image.ImageView;
 import jfxtras.labs.scene.control.MiniIconButton;
+
 import net.sf.anathema.library.fx.view.FxComponent;
 
 public class FxButtonTool extends FxBaseTool implements FxComponent {

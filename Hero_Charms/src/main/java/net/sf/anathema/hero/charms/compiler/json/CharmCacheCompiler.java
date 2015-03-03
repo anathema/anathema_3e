@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.charm.template.CharmListTemplate;
 import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
@@ -20,6 +17,9 @@ import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 import net.sf.anathema.platform.persistence.common.ValueTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 @Weight(weight = 50)

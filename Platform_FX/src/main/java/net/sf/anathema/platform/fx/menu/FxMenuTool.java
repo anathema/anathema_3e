@@ -6,6 +6,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+
 import net.sf.anathema.library.fx.tool.ImageContainer;
 import net.sf.anathema.library.fx.tool.LoadImage;
 import net.sf.anathema.library.interaction.model.Command;

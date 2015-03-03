@@ -3,6 +3,7 @@ package net.sf.anathema.hero.application;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.platform.repository.ChangeManagement;
+
 import org.jmock.example.announcer.Announcer;
 
 public class CharacterChangeManagement implements ChangeManagement {

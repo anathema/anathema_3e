@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.advance.costs;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.sf.anathema.hero.charms.template.advance.KeywordMagicTemplate;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsCategoryTemplate;
 import net.sf.anathema.magic.data.Magic;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class MagicPointsStrategy {
 

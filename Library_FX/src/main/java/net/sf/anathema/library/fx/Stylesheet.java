@@ -3,6 +3,7 @@ package net.sf.anathema.library.fx;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.library.resources.ResourceLoader;
 

@@ -5,6 +5,7 @@ import net.sf.anathema.platform.tree.view.container.Cascade;
 import net.sf.anathema.platform.tree.view.interaction.LeftClickPanner;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
 import net.sf.anathema.platform.tree.view.interaction.ToolTipListener;
+
 import org.junit.Test;
 import org.mockito.InOrder;
 import org.mockito.Matchers;

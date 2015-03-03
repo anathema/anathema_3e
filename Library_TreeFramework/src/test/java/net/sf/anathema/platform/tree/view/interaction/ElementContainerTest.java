@@ -1,11 +1,13 @@
 package net.sf.anathema.platform.tree.view.interaction;
 
-import com.google.common.collect.Iterables;
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.platform.tree.view.draw.GraphicsElement;
 import net.sf.anathema.platform.tree.view.draw.InteractiveGraphicsElement;
 import net.sf.anathema.platform.tree.view.draw.PolygonMother;
+
 import org.junit.Test;
+
+import com.google.common.collect.Iterables;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.traits.model;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.library.event.IntegerChangedListener;
+
 import org.jmock.example.announcer.Announcer;
+
+import com.google.common.base.Preconditions;
 
 public class TraitImpl implements Trait {
 

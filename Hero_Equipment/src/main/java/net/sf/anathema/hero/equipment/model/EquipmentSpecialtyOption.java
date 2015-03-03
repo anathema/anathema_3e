@@ -16,7 +16,7 @@ public class EquipmentSpecialtyOption implements IEquipmentStatsOption {
 
   @Override
   public String getName() {
-    return specialty.getName();
+    return specialty.getDescription();
   }
 
   @Override
@@ -26,12 +26,12 @@ public class EquipmentSpecialtyOption implements IEquipmentStatsOption {
 
   @Override
   public int getAccuracyModifier() {
-    return specialty.getCurrentValue();
+    return 1;
   }
 
   @Override
   public int getDefenseModifier() {
-    return specialty.getCurrentValue();
+    return 1;
   }
 
   @Override

@@ -5,6 +5,7 @@ import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.draw.AgnosticPolygon;
 import net.sf.anathema.platform.tree.display.draw.ShapeWithPosition;
 import net.sf.anathema.platform.tree.display.shape.Polygon;
+
 import org.jmock.example.announcer.Announcer;
 
 public class FilledPolygon implements InteractiveGraphicsElement, AgnosticPolygon {

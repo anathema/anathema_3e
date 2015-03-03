@@ -12,6 +12,7 @@ import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.stance.StanceAutoCollector;
 import net.sf.anathema.platform.utility.UtilityAutoCollector;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;

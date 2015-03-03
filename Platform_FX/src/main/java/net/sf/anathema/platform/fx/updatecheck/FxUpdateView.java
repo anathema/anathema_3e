@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.FxThreading;
@@ -14,6 +15,7 @@ import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
+
 import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
 

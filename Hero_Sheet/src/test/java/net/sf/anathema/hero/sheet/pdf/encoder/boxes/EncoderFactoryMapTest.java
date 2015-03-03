@@ -2,6 +2,7 @@ package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.junit.Before;
 import org.junit.Test;
 

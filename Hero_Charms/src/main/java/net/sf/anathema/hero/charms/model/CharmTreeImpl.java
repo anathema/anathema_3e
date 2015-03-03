@@ -6,9 +6,6 @@ import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 public class CharmTreeImpl implements CharmTree, Identifier {
 

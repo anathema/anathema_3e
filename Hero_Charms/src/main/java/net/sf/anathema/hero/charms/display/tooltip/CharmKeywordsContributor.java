@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import com.google.common.base.Joiner;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import com.google.common.base.Joiner;
 
 import java.util.ArrayList;
 import java.util.List;

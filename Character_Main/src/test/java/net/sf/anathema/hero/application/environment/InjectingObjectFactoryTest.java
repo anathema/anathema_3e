@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.application.environment;
 
 import net.sf.anathema.library.initialization.ObjectFactory;
+
 import org.junit.Before;
 import org.junit.Test;
 

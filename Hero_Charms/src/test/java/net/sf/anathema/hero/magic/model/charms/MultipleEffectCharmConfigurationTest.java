@@ -10,6 +10,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectImpl;
 import net.sf.anathema.hero.dummy.DummyCondition;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

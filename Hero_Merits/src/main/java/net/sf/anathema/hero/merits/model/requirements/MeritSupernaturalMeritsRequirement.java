@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MeritSupernaturalMeritsRequirement implements MeritRequirement {
 

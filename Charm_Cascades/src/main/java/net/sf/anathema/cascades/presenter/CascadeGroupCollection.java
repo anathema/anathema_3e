@@ -1,15 +1,15 @@
 package net.sf.anathema.cascades.presenter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmTreeCollection;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class CascadeGroupCollection implements CharmTreeCollection {
   private CharmProvider charmProvider;

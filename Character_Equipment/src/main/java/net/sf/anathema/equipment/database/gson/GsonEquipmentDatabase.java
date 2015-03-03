@@ -1,8 +1,5 @@
 package net.sf.anathema.equipment.database.gson;
 
-import java.nio.file.Path;
-import java.util.List;
-
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.module.EquipmentItemType;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
@@ -15,6 +12,9 @@ import net.sf.anathema.platform.repository.Repository;
 import org.jmock.example.announcer.Announcer;
 
 import com.google.common.collect.Lists;
+
+import java.nio.file.Path;
+import java.util.List;
 
 public class GsonEquipmentDatabase implements IEquipmentDatabase {
   public static final String DATABASE_FOLDER = "equipment";

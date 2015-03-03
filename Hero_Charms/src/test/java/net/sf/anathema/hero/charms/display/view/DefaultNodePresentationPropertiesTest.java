@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.display.view;
 
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.lib.dummy.DummyResources;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

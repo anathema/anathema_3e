@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import java.util.Collection;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.magic.data.Magic;
+
+import java.util.Collection;
 
 public class CharmLearner implements MagicLearner {
   private CharmsModel charms;

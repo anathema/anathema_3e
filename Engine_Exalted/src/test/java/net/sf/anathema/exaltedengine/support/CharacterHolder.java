@@ -1,12 +1,13 @@
 package net.sf.anathema.exaltedengine.support;
 
-import com.google.inject.Singleton;
 import net.sf.anathema.characterengine.command.Command;
 import net.sf.anathema.characterengine.persona.Persona;
 import net.sf.anathema.characterengine.persona.QualityClosure;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.QualityListener;
 import net.sf.anathema.characterengine.quality.Type;
+
+import com.google.inject.Singleton;
 
 @Singleton
 public class CharacterHolder implements Persona{

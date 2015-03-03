@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.display.view;
 
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AnyOneTraitCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
@@ -12,6 +10,8 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.prerequisites.NonCharmPrerequisiteId;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import java.util.List;
 
 public class NodeIds {
 

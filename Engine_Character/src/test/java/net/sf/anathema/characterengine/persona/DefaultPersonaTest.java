@@ -5,6 +5,7 @@ import net.sf.anathema.characterengine.quality.Name;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.QualityListener;
 import net.sf.anathema.characterengine.quality.Type;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

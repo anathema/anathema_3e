@@ -2,6 +2,7 @@ package net.sf.anathema;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+
 import net.sf.anathema.library.fx.tool.FxAcceleratorMap;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.logging.Logger;

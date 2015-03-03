@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.CheckMenuItem;
 import javafx.scene.control.ContextMenu;
+
 import net.sf.anathema.library.event.BooleanChangedListener;
 import net.sf.anathema.library.view.BooleanView;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.model.state;
 
 import net.sf.anathema.hero.dummy.DummyHero;
+
 import org.junit.Before;
 import org.junit.Test;
 

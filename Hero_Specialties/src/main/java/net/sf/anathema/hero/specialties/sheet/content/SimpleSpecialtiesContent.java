@@ -1,15 +1,14 @@
 package net.sf.anathema.hero.specialties.sheet.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
-import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.sheet.content.TraitReferenceI18n;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleSpecialtiesContent implements ListSubBoxContent {
 
@@ -27,9 +26,9 @@ public class SimpleSpecialtiesContent implements ListSubBoxContent {
     SpecialtiesModel specialtiesModel = SpecialtiesModelFetcher.fetch(hero);
     TraitReferenceI18n traitI18n = new TraitReferenceI18n(resources);
     // todo sort by ability name
-    for (Specialty specialty : specialtiesModel.getAllSpecialties()) {
+    /*for (Specialty specialty : specialtiesModel.getAllSpecialties()) {
     	printEntries.add(traitI18n.getSheetName(new NamedSpecialtyReference(specialty, specialty.getBasicTraitType())));
-    }
+    }*/
     return printEntries;
   }
 

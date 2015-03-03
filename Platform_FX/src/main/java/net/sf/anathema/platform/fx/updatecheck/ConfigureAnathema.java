@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.updatecheck;
 
 import de.idos.updates.UpdateSystem;
 import de.idos.updates.store.ProgressReportAdapter;
+
 import net.sf.anathema.library.io.Filenames;
 import net.sf.anathema.platform.updatecheck.PropertiesSaver;
 

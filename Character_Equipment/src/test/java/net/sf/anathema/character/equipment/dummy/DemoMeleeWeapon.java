@@ -1,9 +1,5 @@
 package net.sf.anathema.character.equipment.dummy;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.WeaponTag;
@@ -13,6 +9,10 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
 

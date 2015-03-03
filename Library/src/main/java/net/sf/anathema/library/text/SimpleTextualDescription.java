@@ -1,9 +1,11 @@
 package net.sf.anathema.library.text;
 
+import net.sf.anathema.library.event.ObjectChangedListener;
+
+import org.jmock.example.announcer.Announcer;
+
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-import net.sf.anathema.library.event.ObjectChangedListener;
-import org.jmock.example.announcer.Announcer;
 
 public class SimpleTextualDescription implements ITextualDescription {
 

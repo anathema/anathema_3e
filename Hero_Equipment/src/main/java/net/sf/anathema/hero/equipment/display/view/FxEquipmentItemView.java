@@ -2,6 +2,7 @@ package net.sf.anathema.hero.equipment.display.view;
 
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.equipment.EquipmentObjectView;

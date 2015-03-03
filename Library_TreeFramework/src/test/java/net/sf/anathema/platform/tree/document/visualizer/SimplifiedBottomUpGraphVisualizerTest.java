@@ -2,6 +2,7 @@ package net.sf.anathema.platform.tree.document.visualizer;
 
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.IdentifiedRegularNode;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

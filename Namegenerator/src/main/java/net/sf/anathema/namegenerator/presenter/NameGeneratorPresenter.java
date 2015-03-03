@@ -1,11 +1,12 @@
 package net.sf.anathema.namegenerator.presenter;
 
-import com.google.common.base.Joiner;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.namegenerator.domain.Names;
 import net.sf.anathema.namegenerator.presenter.model.INameGeneratorModel;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
+
+import com.google.common.base.Joiner;
 
 public class NameGeneratorPresenter {
 

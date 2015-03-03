@@ -1,8 +1,10 @@
 package net.sf.anathema.hero.concept.model.concept;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.library.event.ChangeListener;
+
 import org.jmock.example.announcer.Announcer;
+
+import com.google.common.base.Preconditions;
 
 public class CasteSelectionImpl implements CasteSelection {
 

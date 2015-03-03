@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.Collection;

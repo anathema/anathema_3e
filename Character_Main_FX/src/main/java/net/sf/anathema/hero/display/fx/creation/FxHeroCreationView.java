@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.display.fx.creation;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.hero.application.creation.ButtonPanel;
 import net.sf.anathema.hero.application.creation.CharacterCreationView;
+
 import org.controlsfx.control.PopOver;
 import org.tbee.javafx.scene.layout.MigPane;
 

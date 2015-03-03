@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.compiler.special;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.compiler.special.learning.NullSpecialCharmBuilder;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.library.initialization.ObjectFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReflectionSpecialCharmBuilder {
 

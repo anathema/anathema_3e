@@ -1,12 +1,14 @@
 package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.StyledValueView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

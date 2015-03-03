@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.application.perspective;
 
-import com.google.common.base.Function;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.environment.herotype.PresentationPropertiesImpl;
 import net.sf.anathema.hero.individual.splat.SplatType;
@@ -8,6 +7,8 @@ import net.sf.anathema.hero.individual.view.HeroUI;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+
+import com.google.common.base.Function;
 
 import static net.sf.anathema.hero.concept.model.concept.CasteType.NULL_CASTE_TYPE;
 

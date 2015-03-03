@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.abilities.model;
 
-import com.google.common.base.Functions;
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
@@ -36,6 +35,8 @@ import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
+
+import com.google.common.base.Functions;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.health.model;
 
-import java.util.HashMap;
-import java.util.Map;
+import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.library.resources.Resources;
 
 import com.google.common.collect.ImmutableMap;
 
-import net.sf.anathema.charm.data.Duration;
-import net.sf.anathema.library.resources.Resources;
+import java.util.HashMap;
+import java.util.Map;
 
 public class HealingDataTable {
 	

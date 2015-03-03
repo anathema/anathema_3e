@@ -1,6 +1,5 @@
 package net.sf.anathema.library.presenter;
 
-import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 
 public class ToStringConfiguration<T> extends AbstractUIConfiguration<T> {
 

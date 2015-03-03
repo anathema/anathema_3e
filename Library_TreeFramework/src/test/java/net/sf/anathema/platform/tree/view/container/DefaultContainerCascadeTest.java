@@ -6,6 +6,7 @@ import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.view.draw.FilledPolygon;
 import net.sf.anathema.platform.tree.view.draw.FlexibleArrow;
 import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;

@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import static net.sf.anathema.library.lang.StringUtilities.isNullOrTrimmedEmpty;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.presentation.EquipmentStringBuilder;
 import net.sf.anathema.equipment.presentation.EquipmentTemplateNameComparator;
@@ -20,6 +14,12 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
 import net.sf.anathema.platform.taskbar.BasicUi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static net.sf.anathema.library.lang.StringUtilities.isNullOrTrimmedEmpty;
 
 public class EquipmentPresenter {
 

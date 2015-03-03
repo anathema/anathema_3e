@@ -1,6 +1,5 @@
 package net.sf.anathema.platform.repository;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.IFileProvider;
 import net.sf.anathema.platform.item.IItemType;
@@ -16,6 +15,8 @@ import net.sf.anathema.platform.repository.printname.FileReferenceAccess;
 import net.sf.anathema.platform.repository.printname.PrintNameFileAccess;
 import net.sf.anathema.platform.repository.printname.ReferenceAccess;
 import net.sf.anathema.platform.repository.printname.ReferenceBuilder;
+
+import com.google.common.base.Preconditions;
 
 import java.io.File;
 import java.io.IOException;

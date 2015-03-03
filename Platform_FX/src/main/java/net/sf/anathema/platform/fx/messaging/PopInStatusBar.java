@@ -5,10 +5,12 @@ import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.platform.messaging.StatusBar;
+
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.PopOver;
 import org.controlsfx.control.action.AbstractAction;

@@ -1,6 +1,7 @@
 package net.sf.anathema.equipment.editor.stats.view.fx;
 
 import javafx.event.ActionEvent;
+
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;
 import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResultHandler;

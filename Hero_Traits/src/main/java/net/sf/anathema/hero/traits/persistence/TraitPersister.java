@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.traits.persistence;
 
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
 
 public class TraitPersister {

@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.updatecheck;
 
 import de.idos.updates.Version;
 import de.idos.updates.store.ProgressReportAdapter;
+
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.updatecheck.UpdateChangelog;
 import net.sf.anathema.platform.updatecheck.UpdateState;

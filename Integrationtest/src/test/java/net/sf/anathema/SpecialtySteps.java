@@ -1,21 +1,22 @@
 package net.sf.anathema;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
-import java.util.List;
-
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
+import net.sf.anathema.hero.specialties.model.SpecialtyTypeImpl;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 import com.google.inject.Inject;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import java.util.List;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @ScenarioScoped
 public class SpecialtySteps {
@@ -31,9 +32,9 @@ public class SpecialtySteps {
   @When("^she learns a Specialty in (.*)$")
   public void she_learn_a_specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
-  	model.setCurrentSpecialtyName("Test");
-  	model.setCurrentTrait(AbilityType.valueOf(id));
-  	boolean learned = model.commitSelection();
+  	model.setCurrentDescription("Test");
+  	model.setSelectedEntryOption(new SpecialtyTypeImpl(AbilityType.valueOf(id)));
+  	boolean learned = model.commitSelection() != null;
     assertThat(learned, is(true));
   }
   
@@ -41,10 +42,10 @@ public class SpecialtySteps {
   public void she_forgets_a_specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
   	TraitType ability = AbilityType.valueOf(id);
-  	Specialty toForget = model.getAllSpecialties().stream().filter(specialty -> specialty.getBasicTraitType().equals(ability))
+  	Specialty toForget = model.getEntries().stream().filter(specialty -> specialty.getBasicTraitType().equals(ability))
   		.findFirst().get();
   	if (toForget != null) {
-  		model.removeSpecialty(toForget);
+  		model.removeEntry(toForget);
   	}
   	boolean success = toForget != null;
     assertThat(success, is(true));

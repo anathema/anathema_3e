@@ -1,9 +1,11 @@
 package net.sf.anathema.platform.fx.messaging;
 
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.tool.ImageContainer;
 import net.sf.anathema.library.fx.tool.LoadImage;
 import net.sf.anathema.library.resources.RelativePath;
+
 import org.controlsfx.control.NotificationPane;
 
 public class NotificationWithGraphicAndText implements WithGraphicAndText {

@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.tool.ImageContainer;
@@ -16,6 +17,7 @@ import net.sf.anathema.platform.frame.ApplicationFrameView;
 import net.sf.anathema.platform.fx.menu.MainMenuBar;
 import net.sf.anathema.platform.fx.messaging.PopInStatusBar;
 import net.sf.anathema.platform.messaging.StatusBar;
+
 import org.controlsfx.control.NotificationPane;
 import org.tbee.javafx.scene.layout.MigPane;
 

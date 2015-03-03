@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.equipment.display.presenter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.library.resources.Resources;
@@ -10,6 +7,9 @@ import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EquipmentTemplateTooltipBuilder {
   private final Resources resources;

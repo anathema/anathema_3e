@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.model.context;
 
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.BasicLearningModel;
+
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

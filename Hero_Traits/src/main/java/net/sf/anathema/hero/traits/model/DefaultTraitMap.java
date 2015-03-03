@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.traits.model;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.hero.traits.display.Traits;
+
+import com.google.common.base.Preconditions;
 
 import java.util.Collection;
 import java.util.HashMap;

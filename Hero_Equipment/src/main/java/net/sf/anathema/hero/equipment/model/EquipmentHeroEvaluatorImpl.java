@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.equipment.model;
 
-import java.util.Collection;
-
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.IEquipmentStatsOption;
 import net.sf.anathema.hero.equipment.SpecialtiesCollectionImpl;
@@ -9,6 +7,8 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
+
+import java.util.Collection;
 
 public class EquipmentHeroEvaluatorImpl implements EquipmentHeroEvaluator {
 
@@ -27,7 +27,7 @@ public class EquipmentHeroEvaluatorImpl implements EquipmentHeroEvaluator {
   public IEquipmentStatsOption getCharacterSpecialtyOption(String name, String type) {
     TraitType trait = AbilityType.valueOf(type);
     for (Specialty specialty : getSpecialties(trait)) {
-      if (specialty.getName().equals(name)) {
+      if (specialty.getDescription().equals(name)) {
         return new EquipmentSpecialtyOption(specialty, trait);
       }
     }

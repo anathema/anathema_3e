@@ -1,15 +1,17 @@
 package net.sf.anathema;
 
-import com.google.inject.Inject;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.integration.CharacterFactory;
 import net.sf.anathema.integration.concept.ConceptModelUtilities;
+
+import com.google.inject.Inject;
 
 @ScenarioScoped
 public class CharacterCreationSteps {

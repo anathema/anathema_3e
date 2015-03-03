@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -10,10 +7,13 @@ import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.NullCategory;
-import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
+import net.sf.anathema.library.model.trait.AbstractOptionalTraitsModel;
 import net.sf.anathema.points.model.PointModelFetcher;
 
-public class ThaumaturgyModelImpl extends AbstractOptionalPropertiesModel<NullCategory, ThaumaturgyRitual, KnownRitual>
+import java.util.ArrayList;
+import java.util.List;
+
+public class ThaumaturgyModelImpl extends AbstractOptionalTraitsModel<NullCategory, ThaumaturgyRitual, KnownRitual>
 	implements ThaumaturgyModel {
 
   public ThaumaturgyModelImpl() {

@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.repositorytree;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Window;
+
 import net.sf.anathema.library.io.FileChooserConfiguration;
 import net.sf.anathema.library.io.FileExtension;
 import net.sf.anathema.library.io.SingleFileChooser;

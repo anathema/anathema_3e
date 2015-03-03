@@ -1,11 +1,13 @@
 package net.sf.anathema.points.display.overview.view;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.view.LabelledAllotmentView;
 import net.sf.anathema.library.view.StyledValueView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

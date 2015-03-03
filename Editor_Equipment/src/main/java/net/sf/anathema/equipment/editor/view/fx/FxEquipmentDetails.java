@@ -1,6 +1,7 @@
 package net.sf.anathema.equipment.editor.view.fx;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;

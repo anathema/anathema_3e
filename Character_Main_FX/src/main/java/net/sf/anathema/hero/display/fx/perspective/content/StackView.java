@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.display.fx.perspective.content;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.view.FxStack;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class StackView {

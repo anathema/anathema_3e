@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.charms.model.special;
 
-import com.google.common.base.Predicate;
 import net.sf.anathema.platform.tree.display.TreeView;
+
+import com.google.common.base.Predicate;
 
 public interface SpecialCharmList {
   void add(CharmSpecialLearning charm);

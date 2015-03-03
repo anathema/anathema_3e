@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.perspective;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.view.ViewFactory;
@@ -11,6 +12,7 @@ import net.sf.anathema.platform.environment.Environment;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.stance.StanceAutoCollector;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.ArrayList;

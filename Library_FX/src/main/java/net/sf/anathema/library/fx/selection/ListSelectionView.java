@@ -1,18 +1,21 @@
 package net.sf.anathema.library.fx.selection;
 
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
 import net.sf.anathema.library.fx.cell.ListCellFactory;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
 import net.sf.anathema.library.view.Vetor;
+
 import org.jmock.example.announcer.Announcer;
+
+import com.sun.javafx.collections.ObservableListWrapper;
 
 import java.util.ArrayList;
 import java.util.Arrays;

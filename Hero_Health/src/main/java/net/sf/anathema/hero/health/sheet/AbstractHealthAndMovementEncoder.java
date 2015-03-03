@@ -1,13 +1,5 @@
 package net.sf.anathema.hero.health.sheet;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.pdf.PdfTemplate;
-
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModel;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
@@ -20,6 +12,14 @@ import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfTemplate;
 
 public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder {
 

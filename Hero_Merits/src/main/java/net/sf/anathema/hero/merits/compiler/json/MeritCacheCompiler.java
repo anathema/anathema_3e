@@ -11,13 +11,11 @@ import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritListTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
 import net.sf.anathema.platform.persistence.PolymorphicTypeAdapterFactoryFactory;
 import net.sf.anathema.platform.persistence.RuntimeTypeAdapterFactory;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

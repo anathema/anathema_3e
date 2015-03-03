@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.library.event.ChangeListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class EssencePoolStrategyImpl implements EssencePoolStrategy {

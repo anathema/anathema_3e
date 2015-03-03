@@ -3,6 +3,7 @@ package net.sf.anathema.hero.individual.model;
 import net.sf.anathema.hero.dummy.DummyHeroSplat;
 import net.sf.anathema.hero.dummy.DummyMundaneHeroType;
 import net.sf.anathema.hero.individual.splat.HeroType;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

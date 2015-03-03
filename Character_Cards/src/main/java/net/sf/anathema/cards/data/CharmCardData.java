@@ -1,16 +1,17 @@
 package net.sf.anathema.cards.data;
 
-import com.google.common.base.Joiner;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.description.model.MagicDescription;
+
+import com.google.common.base.Joiner;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 
 public class CharmCardData extends AbstractMagicCardData {
   private Charm charm;

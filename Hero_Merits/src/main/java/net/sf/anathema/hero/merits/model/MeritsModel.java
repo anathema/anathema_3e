@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.RemovableEntryModel;
 import net.sf.anathema.library.model.trait.OptionalTraitsModel;
+
+import java.util.Collection;
+import java.util.List;
 
 public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel,
 	OptionalTraitsModel<MeritCategory, MeritOption, Merit>{

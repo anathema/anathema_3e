@@ -1,8 +1,8 @@
 package net.sf.anathema.equipment.template;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+
+import java.util.Collection;
 
 public interface IEquipmentTemplate {
 

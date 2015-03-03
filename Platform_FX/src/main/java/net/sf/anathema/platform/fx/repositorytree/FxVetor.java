@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.repositorytree;
 
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.view.Vetor;
+
 import org.controlsfx.control.action.Action;
 import org.controlsfx.dialog.Dialogs;
 

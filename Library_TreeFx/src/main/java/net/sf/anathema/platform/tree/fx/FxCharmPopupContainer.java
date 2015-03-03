@@ -5,6 +5,7 @@ import javafx.geometry.Side;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ToggleButton;
 import javafx.stage.WindowEvent;
+
 import net.sf.anathema.platform.tree.display.SpecialCharmContainer;
 import net.sf.anathema.platform.tree.view.interaction.SpecialContentMap;
 

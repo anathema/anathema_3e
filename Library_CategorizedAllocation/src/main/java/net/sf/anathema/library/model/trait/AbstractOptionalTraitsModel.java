@@ -1,17 +1,17 @@
 package net.sf.anathema.library.model.trait;
 
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
-import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
+import net.sf.anathema.library.model.AbstractOptionalEntriesModel;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 
-public abstract class AbstractOptionalTraitModel<
+public abstract class AbstractOptionalTraitsModel<
 	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption,
 	T extends PossessedOptionalTrait<O>>
-	extends AbstractOptionalPropertiesModel<C, O, T>
+	extends AbstractOptionalEntriesModel<C, O, T>
 	implements OptionalTraitsModel<C, O, T> {
 	
-	protected AbstractOptionalTraitModel(boolean hasCategories) {
+	protected AbstractOptionalTraitsModel(boolean hasCategories) {
 		super(hasCategories);
 	}
 

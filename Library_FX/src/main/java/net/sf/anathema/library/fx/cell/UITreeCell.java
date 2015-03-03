@@ -3,6 +3,7 @@ package net.sf.anathema.library.fx.cell;
 import javafx.scene.control.TreeCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.tooltip.ConfigurableFxTooltip;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;

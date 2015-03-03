@@ -1,15 +1,16 @@
 package net.sf.anathema.cards.layout;
 
-import com.itextpdf.text.BadElementException;
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Image;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.lib.gui.icon.ImageLoadingException;
 import net.sf.anathema.lib.gui.icon.ImageProvider;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 
 import java.io.IOException;
 import java.util.HashMap;

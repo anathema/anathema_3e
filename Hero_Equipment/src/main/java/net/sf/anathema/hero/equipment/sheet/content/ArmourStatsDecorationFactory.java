@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
+import java.util.Collection;
 
 public class ArmourStatsDecorationFactory implements IEquipmentStatsDecorationFactory<IArmourStats> {
 

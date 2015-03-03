@@ -4,6 +4,7 @@ import net.sf.anathema.graph.graph.LayeredGraph;
 import net.sf.anathema.graph.graph.ProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

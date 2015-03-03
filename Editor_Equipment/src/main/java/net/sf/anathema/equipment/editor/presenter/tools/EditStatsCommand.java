@@ -1,10 +1,5 @@
 package net.sf.anathema.equipment.editor.presenter.tools;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.Collection;
-import java.util.stream.Stream;
-
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.StatsEditModel;
 import net.sf.anathema.equipment.editor.stats.model.StatsToModel;
@@ -14,6 +9,11 @@ import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.Collection;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class EditStatsCommand implements Command {
   private final StatsEditor statsEditor;

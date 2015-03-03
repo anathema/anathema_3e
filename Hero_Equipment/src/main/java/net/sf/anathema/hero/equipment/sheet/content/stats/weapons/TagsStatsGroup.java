@@ -1,10 +1,5 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.List;
-import java.util.stream.Stream;
-
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.hero.equipment.sheet.content.stats.IEquipmentStatsGroup;
@@ -22,6 +17,10 @@ import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
 import static net.sf.anathema.equipment.stats.WeaponTag.Balanced;
 import static net.sf.anathema.equipment.stats.WeaponTag.CloseRange;

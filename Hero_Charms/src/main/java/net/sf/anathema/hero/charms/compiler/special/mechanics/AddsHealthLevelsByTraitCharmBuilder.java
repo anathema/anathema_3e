@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.charms.compiler.special.mechanics;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.charm.template.special.mechanics.AddsHealthLevelsByTraitTemplate;
@@ -16,6 +10,12 @@ import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.individual.persistence.values.ValueFactory;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 @SuppressWarnings("UnusedDeclaration")
 public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanicsBuilder {

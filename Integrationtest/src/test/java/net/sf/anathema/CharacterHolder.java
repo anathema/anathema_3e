@@ -1,6 +1,7 @@
 package net.sf.anathema;
 
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;

@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.model.rules.minimum;
 
 import net.sf.anathema.library.event.ChangeListener;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

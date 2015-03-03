@@ -2,14 +2,11 @@ package net.sf.anathema.hero.charms.model.rules;
 
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
-import java.util.stream.Stream;
 
 public class CharmsRulesImpl implements CharmsRules {
 

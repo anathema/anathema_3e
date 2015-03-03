@@ -1,16 +1,28 @@
 package net.sf.anathema.integration.attributes;
 
-import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.CharacterHolder;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
 import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
 
-import static net.sf.anathema.hero.traits.model.types.AttributeType.*;
+import com.google.inject.Inject;
+
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Appearance;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Charisma;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Dexterity;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Intelligence;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Manipulation;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Perception;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Stamina;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Strength;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Wits;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.valueOf;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.values;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

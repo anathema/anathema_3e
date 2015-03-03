@@ -3,8 +3,6 @@ package net.sf.anathema.hero.spells.model;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 
-import java.util.List;
-
 public class ProxySpellLearnStrategy implements ISpellLearnStrategy {
 
   private ISpellLearnStrategy strategy;

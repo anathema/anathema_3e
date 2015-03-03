@@ -1,8 +1,5 @@
 package net.sf.anathema.equipment.editor.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.equipment.database.IEquipmentDatabase;
 import net.sf.anathema.equipment.editor.model.description.IItemDescription;
 import net.sf.anathema.equipment.editor.model.description.ItemDescription;
@@ -16,6 +13,9 @@ import org.jmock.example.announcer.Announcer;
 
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class EquipmentTemplateEditModel implements IEquipmentTemplateEditModel {
 

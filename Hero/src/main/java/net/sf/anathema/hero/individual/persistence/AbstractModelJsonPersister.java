@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.individual.persistence;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.messaging.NullMessaging;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;

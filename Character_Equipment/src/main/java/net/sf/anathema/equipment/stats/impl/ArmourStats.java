@@ -1,20 +1,20 @@
 package net.sf.anathema.equipment.stats.impl;
 
+import net.sf.anathema.equipment.stats.ArmourTag;
+import net.sf.anathema.equipment.stats.IArmourStats;
+import net.sf.anathema.equipment.stats.data.ArmorStatisticsTable;
+import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import static net.sf.anathema.equipment.stats.ArmourTag.Artifact;
 import static net.sf.anathema.equipment.stats.ArmourTag.Heavy;
 import static net.sf.anathema.equipment.stats.ArmourTag.Light;
 import static net.sf.anathema.equipment.stats.ArmourTag.Medium;
 import static net.sf.anathema.equipment.stats.data.ArmorStatisticsTable.forArtifactArmor;
 import static net.sf.anathema.equipment.stats.data.ArmorStatisticsTable.forMundaneArmor;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import net.sf.anathema.equipment.stats.ArmourTag;
-import net.sf.anathema.equipment.stats.IArmourStats;
-import net.sf.anathema.equipment.stats.data.ArmorStatisticsTable;
-import net.sf.anathema.library.identifier.Identifier;
 
 public class ArmourStats extends AbstractCombatStats implements IArmourStats {
 

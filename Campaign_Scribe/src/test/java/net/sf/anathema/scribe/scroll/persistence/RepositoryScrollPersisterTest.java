@@ -3,7 +3,6 @@ package net.sf.anathema.scribe.scroll.persistence;
 import net.sf.anathema.platform.repository.Repository;
 import net.sf.anathema.platform.repository.RepositoryIdData;
 import net.sf.anathema.platform.repository.printname.ReferenceAccess;
-import net.sf.anathema.platform.repository.printname.ReferenceBuilder;
 import net.sf.anathema.platform.repository.printname.RepositoryId;
 import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
 
@@ -16,8 +15,6 @@ import java.util.Date;
 import static net.sf.anathema.scribe.scroll.ScrollItemType.ITEM_TYPE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.eq;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

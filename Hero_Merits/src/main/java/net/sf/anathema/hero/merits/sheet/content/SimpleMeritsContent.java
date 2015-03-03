@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.merits.sheet.content;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSubBoxContent {
 

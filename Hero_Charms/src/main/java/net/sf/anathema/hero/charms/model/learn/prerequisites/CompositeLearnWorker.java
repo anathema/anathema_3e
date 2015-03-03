@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
@@ -11,6 +7,10 @@ import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnWorker;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class CompositeLearnWorker implements CharmLearnWorker {
 

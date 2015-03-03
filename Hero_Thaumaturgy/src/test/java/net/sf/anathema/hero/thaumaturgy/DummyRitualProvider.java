@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.thaumaturgy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCache;
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
 import net.sf.anathema.hero.thaumaturgy.model.RitualImpl;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyRitual;
 import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DummyRitualProvider implements ThaumaturgyRitualCache {
 	

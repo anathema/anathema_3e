@@ -1,13 +1,12 @@
 package net.sf.anathema.library.view.fx;
 
-import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
-import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.dot.SimpleDotViewPanel;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.trait.OptionalTraitOption;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.view.OptionalPropertyEntryView;
@@ -15,6 +14,9 @@ import net.sf.anathema.library.view.trait.OptionalTraitItemView;
 import net.sf.anathema.library.view.trait.OptionalTraitsView;
 
 import org.tbee.javafx.scene.layout.MigPane;
+
+import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxOptionalTraitsView<
 	C extends OptionalEntryCategory,

@@ -1,11 +1,13 @@
 package net.sf.anathema.library.fx.view;
 
 import javafx.scene.control.Label;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.view.RemovableEntryView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxRemovableStringView implements RemovableEntryView {

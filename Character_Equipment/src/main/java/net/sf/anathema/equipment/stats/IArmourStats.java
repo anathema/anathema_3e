@@ -1,8 +1,8 @@
 package net.sf.anathema.equipment.stats;
 
-import java.util.Collection;
-
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.Collection;
 
 public interface IArmourStats extends IEquipmentStats {
 

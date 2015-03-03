@@ -7,6 +7,7 @@ import net.sf.anathema.library.fx.view.FxComponent;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.IntValueView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

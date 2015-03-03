@@ -4,20 +4,20 @@ import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
-import net.sf.anathema.hero.specialties.model.HighestSpecialty;
+import net.sf.anathema.hero.specialties.model.SingleSpecialty;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.resources.Resources;
 
 public class CombatStatsContent extends AbstractCombatStatsContent {
 
-  private final HighestSpecialty dodgeSpecialty;
-  private final HighestSpecialty awarenessSpecialty;
+  private final SingleSpecialty dodgeSpecialty;
+  private final SingleSpecialty awarenessSpecialty;
   private final HeroStatsModifiers modifiers;
 
   protected CombatStatsContent(Hero hero, Resources resources) {
     super(resources, hero);
-    dodgeSpecialty = new HighestSpecialty(hero, AbilityType.Dodge);
-    awarenessSpecialty = new HighestSpecialty(hero, AbilityType.Awareness);
+    dodgeSpecialty = new SingleSpecialty(hero, AbilityType.Dodge);
+    awarenessSpecialty = new SingleSpecialty(hero, AbilityType.Awareness);
     modifiers = StatsModifiers.allStatsModifiers(hero);
   }
 

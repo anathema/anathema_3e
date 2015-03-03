@@ -1,12 +1,13 @@
 package net.sf.anathema.equipment.editor.presenter.tools;
 
-import static java.text.MessageFormat.format;
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.stats.model.StatsEditModel;
 import net.sf.anathema.equipment.editor.view.EquipmentNavigation;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.Vetor;
+
+import static java.text.MessageFormat.format;
 
 public class RemoveEquipmentItem implements Command {
   private final EquipmentNavigation view;

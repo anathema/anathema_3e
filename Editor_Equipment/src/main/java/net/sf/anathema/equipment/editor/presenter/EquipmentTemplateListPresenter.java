@@ -1,7 +1,5 @@
 package net.sf.anathema.equipment.editor.presenter;
 
-import java.util.Arrays;
-
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.editor.stats.model.StatsEditModel;
@@ -9,6 +7,8 @@ import net.sf.anathema.equipment.editor.view.EquipmentNavigation;
 import net.sf.anathema.equipment.presentation.EquipmentTemplateNameComparator;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.Arrays;
 
 public class EquipmentTemplateListPresenter {
 

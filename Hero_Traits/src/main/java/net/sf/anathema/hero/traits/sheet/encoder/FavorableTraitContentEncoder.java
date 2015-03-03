@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.sheet.encoder;
 
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.AbstractContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
@@ -13,6 +12,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.sheet.content.FavorableTraitContent;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
+
+import com.itextpdf.text.pdf.PdfContentByte;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.thaumaturgy.advance;
 
-import java.util.List;
-
 import net.sf.anathema.hero.thaumaturgy.model.KnownRitual;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModel;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
+
+import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 

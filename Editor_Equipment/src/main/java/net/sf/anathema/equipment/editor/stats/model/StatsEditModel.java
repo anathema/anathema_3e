@@ -1,9 +1,9 @@
 package net.sf.anathema.equipment.editor.stats.model;
 
-import java.util.List;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.event.ChangeListener;
+
+import java.util.List;
 
 public interface StatsEditModel {
   void addStatsChangeListener(ChangeListener changeListener);

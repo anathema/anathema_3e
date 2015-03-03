@@ -1,8 +1,5 @@
 package net.sf.anathema.cards;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.providers.ICardDataProvider;
 import net.sf.anathema.cards.layout.ICardLayout;
@@ -12,8 +9,11 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.sheet.magicreport.CharmFetcher;
 import net.sf.anathema.library.resources.Resources;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class CardReport extends AbstractPdfReport {

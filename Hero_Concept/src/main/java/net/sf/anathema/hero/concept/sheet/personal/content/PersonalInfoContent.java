@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.concept.sheet.personal.content;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.concept.model.description.HeroDescription;
@@ -14,6 +10,10 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubContent;
 import net.sf.anathema.hero.sheet.pdf.content.SubBoxContent;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class PersonalInfoContent extends AbstractSubContent implements SubBoxContent, Iterable<PersonalInfoRow> {
 

@@ -5,8 +5,10 @@ import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
+
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.text.ITextView;
+
 import org.controlsfx.control.textfield.TextFields;
 import org.jmock.example.announcer.Announcer;
 

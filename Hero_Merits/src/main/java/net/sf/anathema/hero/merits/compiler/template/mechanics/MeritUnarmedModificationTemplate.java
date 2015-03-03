@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.merits.compiler.template.mechanics;
 
-import java.util.Map;
-
 import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
-import net.sf.anathema.hero.merits.model.mechanics.MeritPainToleranceDetail;
 import net.sf.anathema.hero.merits.model.mechanics.MeritUnarmedModificationDetail;
 import net.sf.anathema.platform.persistence.JsonType;
+
+import java.util.Map;
 
 @JsonType("AddsUnarmedModification")
 public class MeritUnarmedModificationTemplate extends MeritMechanicalDetailTemplate {

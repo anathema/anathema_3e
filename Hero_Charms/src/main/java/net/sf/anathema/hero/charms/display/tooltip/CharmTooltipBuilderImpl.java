@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
@@ -11,6 +8,9 @@ import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 
 import com.google.common.base.Preconditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CharmTooltipBuilderImpl implements CharmTooltipBuilder {
   private final List<MagicTooltipContributor> builders = new ArrayList<>();

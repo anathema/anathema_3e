@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.model.rules;
 
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
+
+import java.util.List;
 
 public interface CharmsRules {
 

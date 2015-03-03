@@ -1,7 +1,8 @@
 package net.sf.anathema.platform.dependencies;
 
-import com.google.common.collect.Sets;
 import net.sf.anathema.library.logging.Logger;
+
+import com.google.common.collect.Sets;
 
 import java.io.IOException;
 import java.net.MalformedURLException;

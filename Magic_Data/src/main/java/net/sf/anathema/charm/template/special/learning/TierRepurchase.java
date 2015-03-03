@@ -1,9 +1,9 @@
 package net.sf.anathema.charm.template.special.learning;
 
+import net.sf.anathema.platform.persistence.JsonType;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.anathema.platform.persistence.JsonType;
 
 @JsonType("tier")
 public class TierRepurchase implements Repurchase {

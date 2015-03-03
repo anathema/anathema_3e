@@ -1,10 +1,11 @@
 package net.sf.anathema.hero.sheet.text;
 
+import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
+
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
-import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 
 public class TextPartFactory {
 

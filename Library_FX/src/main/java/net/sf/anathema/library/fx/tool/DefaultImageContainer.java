@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.tool;
 
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.number.Area;
 
 public class DefaultImageContainer implements ImageContainer {

@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 
 public class EquipmentPrintNameFactory {
   private final Resources resources;

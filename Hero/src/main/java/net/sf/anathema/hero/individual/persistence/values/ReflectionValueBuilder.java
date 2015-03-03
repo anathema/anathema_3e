@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.individual.persistence.values;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.platform.persistence.common.ValueTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ReflectionValueBuilder implements ValueFactory {
 	private final List<ValueBuilder> builders = new ArrayList<>();

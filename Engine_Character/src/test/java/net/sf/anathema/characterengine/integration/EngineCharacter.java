@@ -1,7 +1,7 @@
 package net.sf.anathema.characterengine.integration;
 
-import com.google.inject.Inject;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.characterengine.command.Command;
 import net.sf.anathema.characterengine.engine.Engine;
 import net.sf.anathema.characterengine.persona.Persona;
@@ -9,6 +9,8 @@ import net.sf.anathema.characterengine.persona.QualityClosure;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.QualityListener;
 import net.sf.anathema.characterengine.quality.Type;
+
+import com.google.inject.Inject;
 
 @ScenarioScoped
 public class EngineCharacter implements Persona {

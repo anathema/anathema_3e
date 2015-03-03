@@ -1,6 +1,7 @@
 package net.sf.anathema.graph.util;
 
 import net.sf.anathema.graph.nodes.ISimpleNode;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 public class IncidentMatrixUtilities {

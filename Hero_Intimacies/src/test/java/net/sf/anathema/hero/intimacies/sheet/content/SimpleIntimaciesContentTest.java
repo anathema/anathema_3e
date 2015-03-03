@@ -6,15 +6,20 @@ import net.sf.anathema.hero.intimacies.model.IntimaciesModelImpl;
 import net.sf.anathema.hero.intimacies.model.Outlook;
 import net.sf.anathema.hero.intimacies.model.Strength;
 import net.sf.anathema.lib.dummy.DummyResources;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.intimacies.model.Bond.*;
-import static net.sf.anathema.hero.intimacies.model.Outlook.*;
-import static net.sf.anathema.hero.intimacies.model.Strength.*;
+import static net.sf.anathema.hero.intimacies.model.Bond.Principle;
+import static net.sf.anathema.hero.intimacies.model.Bond.Tie;
+import static net.sf.anathema.hero.intimacies.model.Outlook.Negative;
+import static net.sf.anathema.hero.intimacies.model.Outlook.Positive;
+import static net.sf.anathema.hero.intimacies.model.Strength.Defining;
+import static net.sf.anathema.hero.intimacies.model.Strength.Major;
+import static net.sf.anathema.hero.intimacies.model.Strength.Minor;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class SimpleIntimaciesContentTest {
   private IntimaciesModelImpl intimaciesModel = new IntimaciesModelImpl();

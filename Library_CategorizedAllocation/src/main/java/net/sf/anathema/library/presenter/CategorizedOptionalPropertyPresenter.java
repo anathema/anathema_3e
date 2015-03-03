@@ -1,7 +1,8 @@
 package net.sf.anathema.library.presenter;
 
+import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertiesModel;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
 import net.sf.anathema.library.model.property.PossessedOptionalProperty;
 import net.sf.anathema.library.resources.RelativePath;
@@ -18,10 +19,10 @@ public class CategorizedOptionalPropertyPresenter<
 	
 	private final OptionalPropertiesView view;
 
-	public CategorizedOptionalPropertyPresenter(
+	public CategorizedOptionalPropertyPresenter(Hero hero,
 			OptionalPropertiesModel<C, O, T> model, OptionalPropertiesView view,
 			Resources resources) {
-		super(model, view, resources);
+		super(hero, model, view, resources);
 		this.view = view;
 	}
 

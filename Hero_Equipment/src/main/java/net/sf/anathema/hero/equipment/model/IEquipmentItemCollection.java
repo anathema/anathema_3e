@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.equipment.model;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.library.event.CollectionListener;
+
+import java.util.Collection;
 
 public interface IEquipmentItemCollection {
 

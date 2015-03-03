@@ -2,6 +2,7 @@ package net.sf.anathema.points.display.overview;
 
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.points.display.overview.view.DefaultCategorizedOverview;

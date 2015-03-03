@@ -1,6 +1,7 @@
 package net.sf.anathema.lib.lang;
 
 import net.sf.anathema.library.lang.StringUtilities;
+
 import org.junit.Assert;
 import org.junit.Test;
 

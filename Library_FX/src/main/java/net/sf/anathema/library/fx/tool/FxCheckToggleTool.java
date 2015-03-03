@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.tool;
 
 import javafx.scene.control.CheckBox;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.view.Style;

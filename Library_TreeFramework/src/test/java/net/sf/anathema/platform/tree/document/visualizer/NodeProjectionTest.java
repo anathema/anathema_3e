@@ -4,6 +4,7 @@ import net.sf.anathema.library.number.Area;
 import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.Layer;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

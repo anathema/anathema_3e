@@ -3,6 +3,7 @@ package net.sf.anathema.hero.environment.template;
 import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.individual.splat.SplatType;
 import net.sf.anathema.library.identifier.Identifier;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public final class SplatTypeImpl implements SplatType {

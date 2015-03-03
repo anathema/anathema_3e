@@ -1,7 +1,8 @@
 package net.sf.anathema.namegenerator.domain.general;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.library.RandomUtilities;
+
+import com.google.common.base.Preconditions;
 
 public class RandomChoosingTokenFactory implements INameTokenFactory {
 

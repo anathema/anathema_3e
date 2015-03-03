@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.general;
 
+import net.sf.anathema.library.resources.Resources;
+
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Phrase;
-import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;

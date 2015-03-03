@@ -4,6 +4,7 @@ import net.sf.anathema.graph.graph.IProperHierarchicalGraph;
 import net.sf.anathema.graph.graph.ProperHierarchicalGraph;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
+
 import org.junit.Test;
 
 import java.util.Arrays;

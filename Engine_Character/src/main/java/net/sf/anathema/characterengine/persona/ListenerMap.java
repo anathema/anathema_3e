@@ -1,9 +1,10 @@
 package net.sf.anathema.characterengine.persona;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.QualityListener;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 public class ListenerMap {
   private final Multimap<QualityKey, QualityListener> listenerMap = ArrayListMultimap.create();

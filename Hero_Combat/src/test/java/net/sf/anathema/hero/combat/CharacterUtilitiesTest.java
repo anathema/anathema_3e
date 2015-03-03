@@ -9,7 +9,7 @@ import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-import org.junit.Assert;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

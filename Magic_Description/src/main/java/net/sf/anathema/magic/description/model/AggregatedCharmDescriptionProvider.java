@@ -1,8 +1,9 @@
 package net.sf.anathema.magic.description.model;
 
-import com.google.common.base.Function;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
+
+import com.google.common.base.Function;
 
 import java.util.ArrayList;
 import java.util.List;

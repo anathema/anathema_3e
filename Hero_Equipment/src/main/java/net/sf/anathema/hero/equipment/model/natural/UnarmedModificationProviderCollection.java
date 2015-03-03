@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.equipment.model.natural;
 
+import net.sf.anathema.equipment.character.UnarmedModificationProvider;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 
 public class UnarmedModificationProviderCollection {
 	private List<UnarmedModificationProvider> providers = new ArrayList<>();

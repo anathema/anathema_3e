@@ -1,15 +1,15 @@
 package net.sf.anathema.hero.merits.compiler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.model.MeritCategory;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritOptionImpl;
 import net.sf.anathema.library.model.OptionalEntryReference;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static java.util.stream.Collectors.toList;
 

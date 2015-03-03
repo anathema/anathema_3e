@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape;
 
+import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.pdf.PdfContentByte;
-import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 
 public abstract class AbstractShape implements Shape {
   protected PdfContentByte directContent;

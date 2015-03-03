@@ -1,7 +1,5 @@
 package net.sf.anathema.equipment.stats.impl;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.hero.health.model.HealthType;
@@ -9,6 +7,8 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
+import java.util.Collection;
 
 public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats {
   private IWeaponStats stats;

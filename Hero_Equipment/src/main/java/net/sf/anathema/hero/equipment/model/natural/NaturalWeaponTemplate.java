@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.equipment.model.natural;
 
-import static com.google.common.collect.Lists.newArrayList;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;
@@ -15,6 +9,12 @@ import net.sf.anathema.equipment.template.IEquipmentTemplate;
 import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static com.google.common.collect.Lists.newArrayList;
 import static net.sf.anathema.equipment.stats.WeaponTag.Bashing;
 import static net.sf.anathema.equipment.stats.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.WeaponTag.Natural;

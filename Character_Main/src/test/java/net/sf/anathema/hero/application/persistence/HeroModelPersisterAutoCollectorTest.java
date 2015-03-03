@@ -2,6 +2,7 @@ package net.sf.anathema.hero.application.persistence;
 
 import net.sf.anathema.hero.individual.persistence.HeroModelPersister;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.junit.Test;
 
 import java.util.Collection;

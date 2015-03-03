@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
+import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
+
 import java.util.ArrayList;
 import java.util.Collection;
-
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 
 public class NullRitualOption implements ThaumaturgyRitual {
 

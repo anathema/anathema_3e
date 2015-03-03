@@ -2,6 +2,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
 import net.sf.anathema.hero.application.perspective.Selector;
 import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 

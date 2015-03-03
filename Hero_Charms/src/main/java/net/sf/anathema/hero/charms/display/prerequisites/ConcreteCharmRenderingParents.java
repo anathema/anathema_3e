@@ -1,12 +1,7 @@
 package net.sf.anathema.hero.charms.display.prerequisites;
 
 import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.TreeReference;
-import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
 import java.util.Collections;

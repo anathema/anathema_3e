@@ -5,6 +5,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentItemRenderer;
 import net.sf.anathema.hero.equipment.display.presenter.RelativePathWithDisabling;

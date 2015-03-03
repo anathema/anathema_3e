@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
-import java.util.List;
-
-import com.google.common.collect.Lists;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
@@ -14,6 +10,10 @@ import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import com.google.common.collect.Lists;
+
+import java.util.List;
 
 public class IsSatisfied implements PrerequisiteProcessor {
 

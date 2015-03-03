@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.traits.sheet.encoder;
 
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
@@ -12,6 +10,9 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Phrase;
 
 public abstract class AbstractTraitTextEncoder extends TextPartFactory implements HeroTextEncoder {
 

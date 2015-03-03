@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.application.persistence;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import net.sf.anathema.hero.application.item.Item;
 import net.sf.anathema.hero.concept.model.description.HeroNameFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -10,6 +8,9 @@ import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.repository.access.RepositoryReadAccess;
 import net.sf.anathema.platform.repository.access.RepositoryWriteAccess;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.magic.costs;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Matchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.magic.data.Magic;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class MagicCreationCostTest {
 

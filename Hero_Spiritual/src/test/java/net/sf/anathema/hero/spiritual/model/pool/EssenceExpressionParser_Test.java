@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
+
 import org.junit.Test;
 
 import java.util.List;

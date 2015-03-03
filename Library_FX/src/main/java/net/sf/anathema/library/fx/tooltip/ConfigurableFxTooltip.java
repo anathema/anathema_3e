@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.tooltip;
 
 import javafx.scene.control.Control;
 import javafx.scene.control.Tooltip;
+
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 
 public class ConfigurableFxTooltip implements ConfigurableTooltip {

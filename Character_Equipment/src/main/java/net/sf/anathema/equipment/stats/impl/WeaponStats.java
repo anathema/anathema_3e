@@ -1,17 +1,5 @@
 package net.sf.anathema.equipment.stats.impl;
 
-import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
-import static net.sf.anathema.equipment.stats.WeaponTag.Heavy;
-import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
-import static net.sf.anathema.equipment.stats.WeaponTag.Light;
-import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
-import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forArtifactWeapons;
-import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMundaneWeapons;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
@@ -22,6 +10,18 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
+import static net.sf.anathema.equipment.stats.WeaponTag.Heavy;
+import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
+import static net.sf.anathema.equipment.stats.WeaponTag.Light;
+import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
+import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forArtifactWeapons;
+import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMundaneWeapons;
 
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 

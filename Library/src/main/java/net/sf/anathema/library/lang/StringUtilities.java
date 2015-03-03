@@ -1,8 +1,9 @@
 package net.sf.anathema.library.lang;
 
+import net.sf.anathema.library.io.InputOutput;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Strings;
-import net.sf.anathema.library.io.InputOutput;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

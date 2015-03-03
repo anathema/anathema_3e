@@ -2,10 +2,11 @@ package net.sf.anathema.hero.specialties.sheet.content;
 
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.lib.dummy.DummyResources;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class SimpleSpecialtiesContentTest {
 

@@ -4,6 +4,7 @@ import net.sf.anathema.characterengine.persona.QualityClosure;
 import net.sf.anathema.characterengine.quality.Quality;
 import net.sf.anathema.exaltedengine.numericquality.NumericValue;
 import net.sf.anathema.exaltedengine.numericquality.QualityWithValue;
+
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;

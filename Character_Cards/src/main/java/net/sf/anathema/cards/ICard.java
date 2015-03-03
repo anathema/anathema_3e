@@ -1,7 +1,8 @@
 package net.sf.anathema.cards;
 
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.cards.data.ICardData;
+
+import com.itextpdf.text.pdf.PdfContentByte;
 
 public interface ICard {
 	PdfContentByte getPdfContent();

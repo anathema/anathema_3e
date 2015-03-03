@@ -1,9 +1,9 @@
 package net.sf.anathema.equipment.editor.view;
 
-import java.util.List;
-
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.interaction.model.Tool;
+
+import java.util.List;
 
 public interface ToolListView<T> {
   void setObjects(List<T> items);

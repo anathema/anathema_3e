@@ -1,10 +1,5 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.graphics;
 
-import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.BaseFont;
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Box;
@@ -12,6 +7,12 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Dot;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Line;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.shape.Square;
 import net.sf.anathema.library.lang.StringUtilities;
+
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.BaseFont;
+import com.itextpdf.text.pdf.PdfContentByte;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.FONT_SIZE;

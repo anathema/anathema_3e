@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.model.special.mechanics;
 
-import java.util.Map;
-
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
@@ -10,6 +8,8 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+
+import java.util.Map;
 
 public class AddsHealthLevelsByTraitMechanic extends AbstractCharmMechanic {
 

@@ -1,6 +1,7 @@
 package net.sf.anathema.scribe.perspective.view;
 
 import javafx.scene.control.Button;
+
 import net.sf.anathema.library.fx.tool.Execute;
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.model.Command;

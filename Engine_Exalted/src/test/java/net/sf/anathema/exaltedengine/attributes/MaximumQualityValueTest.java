@@ -4,6 +4,7 @@ import net.sf.anathema.characterengine.persona.Permission;
 import net.sf.anathema.characterengine.quality.Name;
 import net.sf.anathema.exaltedengine.numericquality.MaximumQualityValue;
 import net.sf.anathema.exaltedengine.numericquality.NumericValue;
+
 import org.junit.Test;
 
 import static net.sf.anathema.characterengine.persona.Permission.Denied;

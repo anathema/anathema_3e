@@ -1,15 +1,18 @@
 package net.sf.anathema.hero.charms.display.magic;
 
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
+
 import org.tbee.javafx.scene.layout.MigPane;
+
+import com.sun.javafx.collections.ObservableListWrapper;
 
 import java.util.List;
 

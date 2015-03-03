@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.health.template;
 
+import net.sf.anathema.hero.health.model.HealthLevelType;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import net.sf.anathema.hero.health.model.HealthLevelType;
 
 import java.io.IOException;
 

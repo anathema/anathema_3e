@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.environment;
 
 import javafx.stage.Stage;
+
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.ProxyAcceleratorMap;
 import net.sf.anathema.library.interaction.model.Command;
@@ -9,6 +10,7 @@ import net.sf.anathema.library.io.FileChooserConfiguration;
 import net.sf.anathema.library.io.FileExtension;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.fx.initialization.ProxyFileChooser;
+
 import org.controlsfx.dialog.Dialog;
 
 import java.nio.file.Path;

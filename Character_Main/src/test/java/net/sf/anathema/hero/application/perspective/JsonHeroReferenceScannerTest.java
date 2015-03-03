@@ -7,6 +7,7 @@ import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.item.RepositoryConfiguration;
 import net.sf.anathema.platform.repository.IRepositoryFileResolver;
 import net.sf.anathema.platform.repository.printname.SimpleRepositoryId;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;

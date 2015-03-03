@@ -1,7 +1,5 @@
 package net.sf.anathema.equipment.database.gson;
 
-import java.lang.reflect.Type;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.impl.ArmourStats;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
@@ -16,6 +14,8 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
+
+import java.lang.reflect.Type;
 
 public class StatsAdapter implements JsonDeserializer<IEquipmentStats>, JsonSerializer<IEquipmentStats> {
 

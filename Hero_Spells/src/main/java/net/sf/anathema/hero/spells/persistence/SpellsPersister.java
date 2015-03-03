@@ -7,9 +7,7 @@ import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.library.identifier.Identifier;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

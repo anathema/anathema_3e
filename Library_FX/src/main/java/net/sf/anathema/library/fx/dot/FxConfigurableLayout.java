@@ -2,7 +2,9 @@ package net.sf.anathema.library.fx.dot;
 
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+
 import net.miginfocom.layout.CC;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class FxConfigurableLayout {

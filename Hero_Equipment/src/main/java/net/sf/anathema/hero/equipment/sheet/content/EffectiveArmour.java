@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import java.util.Collection;
-import java.util.Collections;
-
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.impl.AbstractCombatStats;
 import net.sf.anathema.hero.equipment.model.natural.NaturalSoak;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
+import java.util.Collection;
+import java.util.Collections;
 
 public class EffectiveArmour extends AbstractCombatStats implements IArmourStats {
 

@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.charms.model;
 
-import com.google.common.base.Objects;
 import net.sf.anathema.magic.data.Magic;
+
+import com.google.common.base.Objects;
 
 public class WeightedMagic implements Comparable<WeightedMagic> {
 

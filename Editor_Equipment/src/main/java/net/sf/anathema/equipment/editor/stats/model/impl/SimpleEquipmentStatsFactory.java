@@ -1,13 +1,13 @@
 package net.sf.anathema.equipment.editor.stats.model.impl;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType;
 import net.sf.anathema.equipment.editor.stats.model.EquipmentStatsFactory;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.ModelToStats;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
+
+import java.util.Collection;
 
 public class SimpleEquipmentStatsFactory implements EquipmentStatsFactory {
 

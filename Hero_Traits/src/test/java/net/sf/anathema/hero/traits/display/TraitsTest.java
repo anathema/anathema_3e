@@ -1,9 +1,11 @@
 package net.sf.anathema.hero.traits.display;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.Trait;
+
 import org.junit.Test;
+
+import com.google.common.collect.Lists;
 
 import java.util.Iterator;
 import java.util.List;

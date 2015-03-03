@@ -1,7 +1,9 @@
 package net.sf.anathema;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
@@ -11,9 +13,8 @@ import net.sf.anathema.points.model.overview.IValueModel;
 
 import com.google.inject.Inject;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.java.guice.ScenarioScoped;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @ScenarioScoped
 public class MeritSteps {

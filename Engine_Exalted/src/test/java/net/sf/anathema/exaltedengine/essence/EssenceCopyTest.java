@@ -1,6 +1,7 @@
 package net.sf.anathema.exaltedengine.essence;
 
 import net.sf.anathema.exaltedengine.numericquality.NumericValue;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

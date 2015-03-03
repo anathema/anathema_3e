@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.equipment.sheet.content;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.lib.dummy.DummyResources;
 
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class PossessionsContentTest {
 

@@ -2,8 +2,8 @@ package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.library.event.ChangeListener;
 
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;

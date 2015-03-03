@@ -1,6 +1,7 @@
 package net.sf.anathema.library.fx.tool;
 
 import javafx.scene.image.Image;
+
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.ResourceLoader;
 

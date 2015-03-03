@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.combat.sheet.social.encoder;
 
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
@@ -17,11 +11,17 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-import net.sf.anathema.hero.specialties.model.HighestSpecialty;
+import net.sf.anathema.hero.specialties.model.SingleSpecialty;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPTable;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
 
@@ -132,8 +132,8 @@ public class SocialCombatStatsBoxEncoder implements ContentEncoder {
 
   private float encodeValues(SheetGraphics graphics, Bounds bounds, Hero hero, HeroStatsModifiers equipment) {
     TraitMap traitCollection = TraitModelFetcher.fetch(hero);
-    HighestSpecialty awarenessSpecialty = new HighestSpecialty(hero, AbilityType.Awareness);
-    HighestSpecialty integritySpecialty = new HighestSpecialty(hero, AbilityType.Integrity);
+    SingleSpecialty awarenessSpecialty = new SingleSpecialty(hero, AbilityType.Awareness);
+    SingleSpecialty integritySpecialty = new SingleSpecialty(hero, AbilityType.Integrity);
     String joinLabel = resources.getString("Sheet.SocialCombat.JoinDebateBattle");
     String dodgeLabel = resources.getString("Sheet.SocialCombat.DodgeMDV");
     String normalLabel = resources.getString("Sheet.Combat.NormalSpecialty");

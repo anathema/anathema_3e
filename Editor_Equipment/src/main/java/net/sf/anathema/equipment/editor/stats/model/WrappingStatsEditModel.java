@@ -1,13 +1,13 @@
 package net.sf.anathema.equipment.editor.stats.model;
 
-import java.util.List;
-
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.event.ChangeListener;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.List;
 
 public class WrappingStatsEditModel implements StatsEditModel {
 

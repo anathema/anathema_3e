@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.sheet.pdf.content.stats;
 
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfPTable;
 
 public abstract class AbstractNameStatsGroup<T extends IStats> extends AbstractTextStatsGroup<T> {
   private final String title;

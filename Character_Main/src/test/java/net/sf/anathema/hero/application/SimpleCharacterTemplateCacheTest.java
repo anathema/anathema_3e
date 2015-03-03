@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.application;
 
-import com.google.common.collect.Iterables;
 import org.junit.Test;
+
+import com.google.common.collect.Iterables;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

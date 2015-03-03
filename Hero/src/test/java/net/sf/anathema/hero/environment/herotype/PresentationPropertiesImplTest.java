@@ -4,6 +4,7 @@ import net.sf.anathema.hero.dummy.DummyHeroSplat;
 import net.sf.anathema.hero.dummy.DummyMundaneHeroType;
 import net.sf.anathema.hero.environment.template.SplatTypeImpl;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.table;
 
-import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
+
+import com.itextpdf.text.DocumentException;
 
 public interface ITableEncoder<C> {
 

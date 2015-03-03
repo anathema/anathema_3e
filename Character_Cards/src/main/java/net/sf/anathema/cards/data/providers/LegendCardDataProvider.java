@@ -1,7 +1,5 @@
 package net.sf.anathema.cards.data.providers;
 
-import com.itextpdf.text.Image;
-
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.LegendCardData;
 import net.sf.anathema.cards.data.LegendEntry;
@@ -16,6 +14,8 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.Image;
 
 import java.util.ArrayList;
 import java.util.List;

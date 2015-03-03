@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.cell;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 
 public class ConfigurableListCellFactory<T> implements ListCellFactory<T> {

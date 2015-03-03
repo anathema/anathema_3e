@@ -1,6 +1,7 @@
 package net.sf.anathema.library.model;
 
 import net.sf.anathema.library.event.BooleanChangedListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class BooleanValueModel {

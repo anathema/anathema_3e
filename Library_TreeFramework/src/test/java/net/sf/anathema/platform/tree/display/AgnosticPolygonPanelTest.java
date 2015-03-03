@@ -3,6 +3,7 @@ package net.sf.anathema.platform.tree.display;
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.platform.tree.display.transform.AgnosticTransform;
 import net.sf.anathema.platform.tree.display.transform.Translation;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

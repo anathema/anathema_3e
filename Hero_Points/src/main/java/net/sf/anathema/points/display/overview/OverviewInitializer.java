@@ -10,7 +10,6 @@ import net.sf.anathema.points.display.overview.presenter.OverviewPresenter;
 import net.sf.anathema.points.display.overview.view.OverviewContainer;
 import net.sf.anathema.points.model.BonusPointManagement;
 import net.sf.anathema.points.model.ExperiencePointManagement;
-import net.sf.anathema.points.model.ExperiencePointManagementImpl;
 import net.sf.anathema.points.model.PointModelFetcher;
 
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;

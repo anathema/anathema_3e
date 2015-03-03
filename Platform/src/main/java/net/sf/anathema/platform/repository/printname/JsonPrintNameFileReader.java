@@ -1,9 +1,10 @@
 package net.sf.anathema.platform.repository.printname;
 
-import com.google.gson.Gson;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.repository.PrintNameFile;
+
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileInputStream;

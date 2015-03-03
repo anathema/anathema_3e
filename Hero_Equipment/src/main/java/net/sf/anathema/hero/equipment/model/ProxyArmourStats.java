@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.equipment.model;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.impl.AbstractStats;
 import net.sf.anathema.library.identifier.Identifier;
 
 import com.google.common.base.Objects;
+
+import java.util.Collection;
 
 public class ProxyArmourStats extends AbstractStats implements IArmourStats, Proxy<IArmourStats> {
 

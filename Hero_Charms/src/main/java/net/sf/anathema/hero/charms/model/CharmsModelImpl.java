@@ -28,8 +28,8 @@ import net.sf.anathema.hero.charms.model.options.CharmOptionsImpl;
 import net.sf.anathema.hero.charms.model.options.CharmTreeCategory;
 import net.sf.anathema.hero.charms.model.rules.CharmsRules;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
+import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmManager;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmManager;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
@@ -50,6 +50,7 @@ import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

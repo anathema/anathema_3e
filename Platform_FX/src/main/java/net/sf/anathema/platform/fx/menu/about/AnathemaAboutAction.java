@@ -4,6 +4,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.web.WebView;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.Stylesheet;
@@ -14,6 +15,7 @@ import net.sf.anathema.library.markdown.HtmlText;
 import net.sf.anathema.library.markdown.WikiText;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
+
 import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
 

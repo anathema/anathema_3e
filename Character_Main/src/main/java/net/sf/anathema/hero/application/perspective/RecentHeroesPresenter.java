@@ -7,7 +7,6 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
 public class RecentHeroesPresenter {
 

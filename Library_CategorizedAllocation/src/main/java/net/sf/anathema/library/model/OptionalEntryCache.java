@@ -1,9 +1,8 @@
 package net.sf.anathema.library.model;
 
-import java.util.List;
-
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
+
+import java.util.List;
 
 public interface OptionalEntryCache<
 	C extends OptionalEntryCategory,

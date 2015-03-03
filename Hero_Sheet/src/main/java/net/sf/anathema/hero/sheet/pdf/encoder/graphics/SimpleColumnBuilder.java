@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.graphics;
 
+import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
+
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfContentByte;
-import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 
 public class SimpleColumnBuilder {
 

@@ -7,6 +7,7 @@ import net.sf.anathema.library.presenter.FontStyle;
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.Polygon;
+
 import org.junit.Before;
 import org.junit.Test;
 

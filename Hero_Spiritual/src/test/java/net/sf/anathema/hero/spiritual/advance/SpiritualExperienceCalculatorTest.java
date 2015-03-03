@@ -5,6 +5,7 @@ import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceData
 import net.sf.anathema.hero.traits.advance.MultiplyRatingCost;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

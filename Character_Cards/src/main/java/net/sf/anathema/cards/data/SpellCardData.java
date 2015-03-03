@@ -1,15 +1,16 @@
 package net.sf.anathema.cards.data;
 
-import com.google.common.base.Joiner;
-import com.itextpdf.text.Element;
-import com.itextpdf.text.Image;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.description.model.MagicDescription;
+
+import com.google.common.base.Joiner;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 
 public class SpellCardData extends AbstractMagicCardData {
 	private Spell spell;

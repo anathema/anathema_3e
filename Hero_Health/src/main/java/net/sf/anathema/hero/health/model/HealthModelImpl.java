@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.health.model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.health.template.HealthTemplate;
@@ -13,6 +9,10 @@ import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class HealthModelImpl implements HealthModel {
 

@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.charms.model.special;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.CharmsModel;
@@ -16,6 +13,9 @@ import net.sf.anathema.hero.charms.model.special.subeffects.ISubEffectCharm;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecialsImpl;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecialsImpl;
 import net.sf.anathema.hero.individual.model.Hero;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SpecialCharmManager implements ISpecialCharmManager {
   private final Map<Charm, CharmSpecialLearningModel> specialConfigurationsByCharm = new HashMap<>();

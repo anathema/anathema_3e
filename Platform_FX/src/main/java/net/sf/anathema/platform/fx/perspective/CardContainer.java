@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.perspective;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.library.fx.view.FxStack;
 import net.sf.anathema.library.identifier.Identifier;
 

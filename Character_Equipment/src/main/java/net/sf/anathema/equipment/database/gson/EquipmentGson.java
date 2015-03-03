@@ -1,7 +1,5 @@
 package net.sf.anathema.equipment.database.gson;
 
-import java.lang.reflect.Type;
-
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.equipment.stats.IWeaponTag;
 import net.sf.anathema.equipment.stats.WeaponTag;
@@ -15,6 +13,8 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+
+import java.lang.reflect.Type;
 
 public class EquipmentGson {
 

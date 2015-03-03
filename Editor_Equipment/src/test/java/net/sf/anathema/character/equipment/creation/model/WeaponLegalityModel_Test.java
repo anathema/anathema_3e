@@ -1,7 +1,5 @@
 package net.sf.anathema.character.equipment.creation.model;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.equipment.editor.stats.model.impl.WeaponLegalityModel;
 import net.sf.anathema.equipment.editor.stats.model.impl.WeaponTagsModel;
 import net.sf.anathema.equipment.stats.WeaponTag;
@@ -13,6 +11,8 @@ import static net.sf.anathema.equipment.stats.WeaponTag.Archery;
 import static net.sf.anathema.equipment.stats.WeaponTag.MediumRange;
 import static net.sf.anathema.equipment.stats.WeaponTag.getDamageTags;
 import static net.sf.anathema.equipment.stats.WeaponTag.getSizeTags;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class WeaponLegalityModel_Test {
   WeaponTagsModel tagsModel = new WeaponTagsModel();

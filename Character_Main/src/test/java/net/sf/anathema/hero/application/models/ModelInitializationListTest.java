@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import org.junit.Test;
 
 import java.util.ArrayList;

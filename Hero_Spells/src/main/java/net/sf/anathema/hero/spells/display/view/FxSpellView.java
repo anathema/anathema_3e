@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spells.display.view;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.charms.display.magic.FxMagicLearnView;
 import net.sf.anathema.hero.charms.display.magic.MagicLearnProperties;
@@ -12,6 +13,7 @@ import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.identifier.Identifier;
+
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

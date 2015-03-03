@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits.sheet.encoder;
 
-import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
@@ -11,6 +10,8 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.DocumentException;
 
 public class DotBoxContentEncoder implements ContentEncoder {
 

@@ -2,12 +2,9 @@ package net.sf.anathema.hero.application.template;
 
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.template.TemplateLoader;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.ResourceFile;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

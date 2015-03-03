@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.concept.sheet.text.concept;
 
-import com.google.common.base.Strings;
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
@@ -14,6 +10,11 @@ import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.sheet.text.TextPartFactory;
 import net.sf.anathema.library.resources.Resources;
+
+import com.google.common.base.Strings;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Phrase;
 
 public class ConceptTextEncoder implements HeroTextEncoder {
 

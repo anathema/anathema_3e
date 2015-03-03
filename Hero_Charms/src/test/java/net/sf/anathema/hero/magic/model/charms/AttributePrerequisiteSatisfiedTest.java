@@ -1,14 +1,5 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.AttributeKnownCharmPrerequisite;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
@@ -27,6 +18,15 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import com.google.common.collect.Lists;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static org.mockito.Mockito.when;
 
 public class AttributePrerequisiteSatisfiedTest {
 

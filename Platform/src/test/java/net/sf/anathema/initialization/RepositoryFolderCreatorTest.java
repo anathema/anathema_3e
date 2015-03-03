@@ -2,6 +2,7 @@ package net.sf.anathema.initialization;
 
 import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.platform.repository.RepositoryFolderCreator;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

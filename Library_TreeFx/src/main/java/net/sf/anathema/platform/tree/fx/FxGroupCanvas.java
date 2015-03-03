@@ -1,6 +1,5 @@
 package net.sf.anathema.platform.tree.fx;
 
-import com.sun.javafx.scene.control.skin.FxFontUtils;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.control.Control;
@@ -11,6 +10,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Transform;
+
 import net.sf.anathema.library.number.Area;
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.library.number.Rectangle;
@@ -20,6 +20,8 @@ import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
 import net.sf.anathema.platform.tree.display.shape.TransformedShape;
 import net.sf.anathema.platform.tree.view.draw.Canvas;
+
+import com.sun.javafx.scene.control.skin.FxFontUtils;
 
 import static net.sf.anathema.platform.tree.fx.FxColorUtils.toFxColor;
 

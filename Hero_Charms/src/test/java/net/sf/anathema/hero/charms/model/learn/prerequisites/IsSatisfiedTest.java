@@ -3,10 +3,11 @@ package net.sf.anathema.hero.charms.model.learn.prerequisites;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
+
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 

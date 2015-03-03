@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.spells.model;
 
-import java.util.Collection;
-
 import net.sf.anathema.hero.charms.model.learn.MagicLearner;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.magic.data.Magic;
+
+import java.util.Collection;
 
 public class SpellsLearner implements MagicLearner {
   private SpellsModel spellsModel;

@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.thaumaturgy.compiler.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
@@ -11,6 +8,9 @@ import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualListTemplate;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.platform.dependencies.InterfaceFinder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler
 public class ThaumaturgyCacheCompiler implements ExtensibleDataSetCompiler {

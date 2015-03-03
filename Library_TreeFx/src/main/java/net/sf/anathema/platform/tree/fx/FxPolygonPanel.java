@@ -10,7 +10,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Transform;
-import net.sf.anathema.library.fx.layout.LayoutUtils;
+
 import net.sf.anathema.library.fx.tooltip.StatefulFxTooltip;
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.library.presenter.RGBColor;

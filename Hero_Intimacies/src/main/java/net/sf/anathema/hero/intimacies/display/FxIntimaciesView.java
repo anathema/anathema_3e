@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.intimacies.display;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -8,6 +9,7 @@ import net.sf.anathema.library.fx.view.FxRemovableStringView;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.view.RemovableEntryView;
 import net.sf.anathema.points.display.overview.view.FxOverviewCategory;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

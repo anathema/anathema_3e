@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.magic.model.rules;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.hero.charms.model.rules.CharmsRulesImpl;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.traits.dummy.DummyCasteType;
 
 import org.junit.Test;
+
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class CharmRulesTest {
 

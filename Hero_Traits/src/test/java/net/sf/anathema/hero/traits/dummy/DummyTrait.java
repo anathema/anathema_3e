@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.dummy;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.IntegerChangedListener;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 

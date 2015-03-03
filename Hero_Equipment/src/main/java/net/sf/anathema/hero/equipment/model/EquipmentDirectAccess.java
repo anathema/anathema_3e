@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.equipment.model;
 
+import net.sf.anathema.equipment.database.gson.EquipmentAccess;
+import net.sf.anathema.library.exception.PersistenceException;
+import net.sf.anathema.library.io.PathUtils;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collection;
-
-import net.sf.anathema.equipment.database.gson.EquipmentAccess;
-import net.sf.anathema.library.exception.PersistenceException;
-import net.sf.anathema.library.io.PathUtils;
 
 public class EquipmentDirectAccess implements EquipmentAccess {
   private final Path baseDirectory;

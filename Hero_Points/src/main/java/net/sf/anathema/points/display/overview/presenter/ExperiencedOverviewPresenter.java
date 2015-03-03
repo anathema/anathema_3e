@@ -5,7 +5,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.overview.OverviewCategory;
 import net.sf.anathema.library.legality.LegalityColorProvider;
 import net.sf.anathema.library.message.MessageToken;
-import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.LabelledAllotmentView;
 import net.sf.anathema.library.view.StyledValueView;

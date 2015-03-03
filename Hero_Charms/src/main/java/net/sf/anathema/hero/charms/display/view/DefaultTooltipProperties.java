@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.charms.display.view;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTooltipBuilderImpl;
@@ -11,6 +10,8 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.description.model.MagicDescriptionProvider;
 import net.sf.anathema.platform.tree.display.ToolTipProperties;
+
+import com.google.common.base.Preconditions;
 
 import static net.sf.anathema.hero.charms.display.view.NodeIds.toCharmName;
 

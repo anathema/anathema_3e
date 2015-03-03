@@ -4,6 +4,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
+
 import org.jmock.example.announcer.Announcer;
 
 public class DotSelectionSpinner {

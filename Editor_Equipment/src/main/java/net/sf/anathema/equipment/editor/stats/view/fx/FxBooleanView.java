@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.CheckBox;
+
 import net.sf.anathema.library.event.BooleanChangedListener;
 import net.sf.anathema.library.view.BooleanView;
 

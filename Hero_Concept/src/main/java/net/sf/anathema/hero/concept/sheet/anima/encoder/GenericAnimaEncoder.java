@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.concept.sheet.anima.encoder;
 
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
@@ -16,6 +13,10 @@ import net.sf.anathema.hero.sheet.pdf.encoder.table.ITableEncoder;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Phrase;
 
 public class GenericAnimaEncoder implements ContentEncoder {
 

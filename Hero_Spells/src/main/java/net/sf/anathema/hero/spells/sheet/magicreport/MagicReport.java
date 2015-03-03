@@ -1,10 +1,5 @@
 package net.sf.anathema.hero.spells.sheet.magicreport;
 
-import com.google.common.base.Joiner;
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfPTable;
-import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
@@ -27,6 +22,12 @@ import net.sf.anathema.hero.spells.sheet.content.SpellStats;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.description.model.MagicDescription;
+
+import com.google.common.base.Joiner;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import static java.text.MessageFormat.format;
 

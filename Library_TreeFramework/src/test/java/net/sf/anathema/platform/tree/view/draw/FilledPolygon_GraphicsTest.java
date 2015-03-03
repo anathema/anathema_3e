@@ -5,6 +5,7 @@ import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.library.number.Rectangle;
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.shape.AgnosticShape;
+
 import org.junit.Before;
 import org.junit.Test;
 

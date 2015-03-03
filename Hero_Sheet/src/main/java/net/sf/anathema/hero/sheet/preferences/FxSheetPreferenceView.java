@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.sheet.preferences;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -9,6 +10,7 @@ import net.sf.anathema.library.fx.selection.ComboBoxSelectionView;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.platform.preferences.PreferenceView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 @SuppressWarnings("UnusedDeclaration")

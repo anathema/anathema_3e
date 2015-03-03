@@ -1,7 +1,5 @@
 package net.sf.anathema.equipment.editor.stats.model.impl;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType;
 import net.sf.anathema.equipment.editor.stats.model.IArtifactStatisticsModel;
 import net.sf.anathema.equipment.editor.stats.model.IEquipmentStatisticsCreationModel;
@@ -12,6 +10,8 @@ import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.library.event.ChangeListener;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.Collection;
 
 public class EquipmentStatisticsCreationModel implements IEquipmentStatisticsCreationModel {
 

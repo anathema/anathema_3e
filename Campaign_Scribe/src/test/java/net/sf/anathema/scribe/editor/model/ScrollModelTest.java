@@ -3,6 +3,7 @@ package net.sf.anathema.scribe.editor.model;
 import net.sf.anathema.library.markdown.HtmlText;
 import net.sf.anathema.library.markdown.WikiText;
 import net.sf.anathema.scribe.scroll.persistence.InMemoryScrollPersister;
+
 import org.junit.Test;
 
 import static org.mockito.Matchers.eq;

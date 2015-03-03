@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import com.itextpdf.text.pdf.PdfContentByte;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
+
+import com.itextpdf.text.pdf.PdfContentByte;
 
 import static net.sf.anathema.hero.sheet.pdf.encoder.boxes.BoundsEncoder.ARC_SPACE;
 import static net.sf.anathema.hero.sheet.pdf.encoder.boxes.BoundsEncoder.HEADER_HEIGHT;

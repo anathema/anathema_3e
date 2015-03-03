@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.thaumaturgy.compiler.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.thaumaturgy.compiler.ThaumaturgyRitualCacheImpl;
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualListTemplate;
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ThaumaturgyCacheBuilder {
 	private final List<RitualTemplate> ritualList = new ArrayList<>();

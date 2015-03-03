@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.initialization;
 
 import javafx.stage.Stage;
+
 import net.sf.anathema.ISplashscreen;
 import net.sf.anathema.ProxySplashscreen;
 import net.sf.anathema.library.initialization.InitializationException;

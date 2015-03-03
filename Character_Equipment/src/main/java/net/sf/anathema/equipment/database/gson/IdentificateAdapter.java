@@ -1,10 +1,11 @@
 package net.sf.anathema.equipment.database.gson;
 
+import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.io.IOException;
 

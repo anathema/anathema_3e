@@ -10,6 +10,7 @@ import net.sf.anathema.platform.tree.view.interaction.PolygonPanel;
 import net.sf.anathema.platform.tree.view.interaction.RightClickCenterer;
 import net.sf.anathema.platform.tree.view.interaction.RightClickResetter;
 import net.sf.anathema.platform.tree.view.interaction.WheelScaler;
+
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 

@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.repositorytree;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
@@ -15,6 +16,7 @@ import net.sf.anathema.platform.repositorytree.RepositoryItemImportPresenter;
 import net.sf.anathema.platform.repositorytree.RepositoryMessagingPresenter;
 import net.sf.anathema.platform.repositorytree.RepositoryTreeModel;
 import net.sf.anathema.platform.repositorytree.RepositoryTreePresenter;
+
 import org.controlsfx.dialog.Dialog;
 
 public class RepositoryViewAction implements Command {

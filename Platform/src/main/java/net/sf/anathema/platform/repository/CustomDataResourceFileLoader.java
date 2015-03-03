@@ -1,10 +1,11 @@
 package net.sf.anathema.platform.repository;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import net.sf.anathema.library.resources.ResourceFile;
 import net.sf.anathema.library.resources.ResourceFileLoader;
 import net.sf.anathema.platform.dependencies.ExternalResourceFile;
+
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
 import java.io.File;
 import java.util.Collection;

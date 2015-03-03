@@ -1,7 +1,5 @@
 package net.sf.anathema.library.model.trait;
 
-import java.util.Collection;
-
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
 

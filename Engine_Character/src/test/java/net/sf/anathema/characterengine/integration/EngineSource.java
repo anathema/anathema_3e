@@ -1,9 +1,10 @@
 package net.sf.anathema.characterengine.integration;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 import cucumber.api.guice.CucumberModules;
 import cucumber.runtime.java.guice.InjectorSource;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class EngineSource implements InjectorSource {
   @Override

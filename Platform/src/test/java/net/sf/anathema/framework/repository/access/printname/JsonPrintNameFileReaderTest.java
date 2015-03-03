@@ -3,6 +3,7 @@ package net.sf.anathema.framework.repository.access.printname;
 import net.sf.anathema.library.io.InputOutput;
 import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.repository.printname.JsonPrintNameFileReader;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;

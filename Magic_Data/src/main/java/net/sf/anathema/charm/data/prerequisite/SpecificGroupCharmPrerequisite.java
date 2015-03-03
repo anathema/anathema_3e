@@ -1,8 +1,8 @@
 package net.sf.anathema.charm.data.prerequisite;
 
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
+
+import java.util.List;
 
 public class SpecificGroupCharmPrerequisite implements CharmPrerequisite {
   private final int threshold;

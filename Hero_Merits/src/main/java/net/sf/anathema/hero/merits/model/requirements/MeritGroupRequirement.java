@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
+import net.sf.anathema.hero.individual.model.Hero;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.anathema.hero.individual.model.Hero;
 
 public class MeritGroupRequirement implements MeritRequirement {
 	

@@ -2,6 +2,7 @@ package net.sf.anathema.hero.charms.display.special;
 
 import net.sf.anathema.library.event.BooleanChangedListener;
 import net.sf.anathema.library.view.BooleanView;
+
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyBooleanView implements BooleanView {

@@ -1,8 +1,8 @@
 package net.sf.anathema.equipment.editor.stats.model;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.stats.ArmourTag;
+
+import java.util.Collection;
 
 public interface IEquipmentStatisticsCreationModel {
 

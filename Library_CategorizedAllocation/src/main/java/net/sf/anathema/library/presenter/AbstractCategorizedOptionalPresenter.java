@@ -1,38 +1,44 @@
 package net.sf.anathema.library.presenter;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
+import net.sf.anathema.hero.experience.model.ExperienceChange;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.model.OptionalEntriesModel;
+import net.sf.anathema.library.model.OptionalEntryCategory;
+import net.sf.anathema.library.model.PossessedOptionalEntry;
 import net.sf.anathema.library.model.RemovableEntryListener;
-import net.sf.anathema.library.model.property.OptionalPropertiesModel;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
-import net.sf.anathema.library.model.property.PossessedOptionalProperty;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.OptionalEntriesView;
 import net.sf.anathema.library.view.OptionalEntryItemView;
 import net.sf.anathema.library.view.OptionalPropertyEntryView;
-import net.sf.anathema.library.view.property.OptionalPropertyItemView;
 import net.sf.anathema.platform.taskbar.BasicUi;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractCategorizedOptionalPresenter<
 C extends OptionalEntryCategory,
 O extends OptionalPropertyOption,
-T extends PossessedOptionalProperty<O>> {
+T extends PossessedOptionalEntry<O>> {
 
 	protected ObjectSelectionView<O> traitBox;
 	protected ITextView textBox;
 	protected final OptionalEntriesView view;
 	protected final Resources resources;
 	protected final Map<T, OptionalEntryItemView> viewsByEntry = new HashMap<>();
-	protected final OptionalPropertiesModel<C, O, T> model;
+	protected final OptionalEntriesModel<C, O, T> model;
+	private final Hero hero;
 
-	public AbstractCategorizedOptionalPresenter(OptionalPropertiesModel<C, O, T> model, OptionalEntriesView view, Resources resources) {
+	public AbstractCategorizedOptionalPresenter(Hero hero,
+			OptionalEntriesModel<C, O, T> model,
+			OptionalEntriesView view,
+			Resources resources) {
+		this.hero = hero;
 		this.model = model;
 		this.view = view;
 		this.resources = resources;
@@ -49,6 +55,18 @@ T extends PossessedOptionalProperty<O>> {
 		List<Trait> contingentTraits = model.getContingentTraits();
 		for (Trait trait : contingentTraits) {
 			trait.addCurrentValueListener(value -> refreshTraitList());
+		}
+		
+		hero.getChangeAnnouncer().addListener(flavor -> {
+      if (flavor == ExperienceChange.FLAVOR_EXPERIENCE_STATE) {
+        updateRemovalStatus();
+      }
+    });
+	}
+	
+	private void updateRemovalStatus() {
+		for (T entry : model.getEntries()) {
+			viewsByEntry.get(entry).setEnabled(model.isRemovalAllowed(entry));
 		}
 	}
 

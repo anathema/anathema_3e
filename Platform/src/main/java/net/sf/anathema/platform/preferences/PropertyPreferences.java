@@ -2,6 +2,7 @@ package net.sf.anathema.platform.preferences;
 
 import de.idos.updates.configuration.ConfigurationFailedException;
 import de.idos.updates.configuration.PropertiesLoader;
+
 import net.sf.anathema.library.preferences.Preferences;
 
 import java.util.Properties;

@@ -1,7 +1,8 @@
 package net.sf.anathema.hero.sheet.text;
 
-import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.individual.model.Hero;
+
+import com.itextpdf.text.DocumentException;
 
 public interface HeroTextEncoder {
 

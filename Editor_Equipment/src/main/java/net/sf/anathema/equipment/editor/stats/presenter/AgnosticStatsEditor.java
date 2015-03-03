@@ -1,8 +1,5 @@
 package net.sf.anathema.equipment.editor.stats.presenter;
 
-import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Armor;
-import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Artifact;
-import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Weapon;
 import net.sf.anathema.equipment.database.NullClosure;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;
@@ -22,6 +19,10 @@ import net.sf.anathema.equipment.stats.ArmourTag;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
 import net.sf.anathema.library.collection.Closure;
 import net.sf.anathema.library.resources.Resources;
+
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Armor;
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Artifact;
+import static net.sf.anathema.equipment.editor.stats.model.EquipmentStatisticsType.Weapon;
 
 public class AgnosticStatsEditor implements StatsEditor {
 

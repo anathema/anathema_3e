@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.model.context;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.library.event.IntegerChangedListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyTraitValueStrategy implements TraitValueStrategy {

@@ -7,7 +7,6 @@ import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.traits.model.state.CasteTraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;

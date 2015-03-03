@@ -6,8 +6,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.stage.Stage;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.LC;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class MigLayoutAndWebViewDoNotGetAlongDemo extends Application {

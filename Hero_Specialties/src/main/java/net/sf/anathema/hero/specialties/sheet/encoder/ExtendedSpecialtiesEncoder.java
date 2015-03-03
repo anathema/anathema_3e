@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.specialties.sheet.encoder;
 
-import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.BARE_LINE_HEIGHT;
-import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.PADDING;
-import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.TEXT_PADDING;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
@@ -19,6 +12,13 @@ import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.hero.traits.sheet.content.ValuedTraitReference;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.BARE_LINE_HEIGHT;
+import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.PADDING;
+import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.TEXT_PADDING;
 
 public class ExtendedSpecialtiesEncoder extends AbstractAdditionalTraitLineEncoder implements ContentEncoder {
 

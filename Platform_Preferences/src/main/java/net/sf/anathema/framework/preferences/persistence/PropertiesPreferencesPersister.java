@@ -2,6 +2,7 @@ package net.sf.anathema.framework.preferences.persistence;
 
 import de.idos.updates.configuration.ConfigurationFailedException;
 import de.idos.updates.configuration.PropertiesLoader;
+
 import net.sf.anathema.framework.preferences.perspective.PreferencesPersister;
 import net.sf.anathema.library.logging.Logger;
 import net.sf.anathema.platform.preferences.PreferenceKey;

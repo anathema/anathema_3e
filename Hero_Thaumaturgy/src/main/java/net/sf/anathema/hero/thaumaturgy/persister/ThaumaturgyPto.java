@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.thaumaturgy.persister;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.library.persister.OptionalEntriesModelPto;
 import net.sf.anathema.library.persister.PossessedOptionalTraitPto;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ThaumaturgyPto implements OptionalEntriesModelPto<PossessedOptionalTraitPto> {
 

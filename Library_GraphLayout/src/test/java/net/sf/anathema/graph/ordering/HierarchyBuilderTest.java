@@ -5,6 +5,7 @@ import net.sf.anathema.graph.hierarchy.IHierachyBuilder;
 import net.sf.anathema.graph.nodes.IRegularNode;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.nodes.NodeFactory;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

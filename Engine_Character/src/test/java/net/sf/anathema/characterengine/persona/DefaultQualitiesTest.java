@@ -8,6 +8,7 @@ import net.sf.anathema.characterengine.rules.AlwaysRule;
 import net.sf.anathema.characterengine.rules.NeverRule;
 import net.sf.anathema.characterengine.support.NumericQuality;
 import net.sf.anathema.characterengine.support.NumericValue;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

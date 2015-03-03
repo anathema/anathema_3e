@@ -1,9 +1,11 @@
 package net.sf.anathema.points.display.overview.view;
 
-import com.google.common.base.Joiner;
 import javafx.scene.control.Label;
+
 import net.sf.anathema.library.presenter.FontStyle;
 import net.sf.anathema.library.presenter.RGBColor;
+
+import com.google.common.base.Joiner;
 
 public class FontStyler {
   private final Label[] labels;

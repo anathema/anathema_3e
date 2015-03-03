@@ -4,6 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.fx.view.FxComponent;
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.ProxyAcceleratorMap;

@@ -3,7 +3,6 @@ package net.sf.anathema.points.display.overview.presenter;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.library.message.Message;
 import net.sf.anathema.library.message.MessageToken;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;

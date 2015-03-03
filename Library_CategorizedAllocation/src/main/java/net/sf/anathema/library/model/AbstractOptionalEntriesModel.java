@@ -1,21 +1,20 @@
 package net.sf.anathema.library.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.RemovableEntryChangeAdapter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public abstract class AbstractOptionalEntriesModel<
 	C extends OptionalEntryCategory,

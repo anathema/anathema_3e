@@ -1,10 +1,10 @@
 package net.sf.anathema.equipment.template;
 
+import net.sf.anathema.equipment.stats.IEquipmentStats;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import net.sf.anathema.equipment.stats.IEquipmentStats;
 
 public class EquipmentTemplate implements IEquipmentTemplate {
 

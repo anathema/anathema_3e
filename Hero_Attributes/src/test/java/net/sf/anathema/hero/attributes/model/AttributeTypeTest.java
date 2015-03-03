@@ -2,6 +2,7 @@ package net.sf.anathema.hero.attributes.model;
 
 import net.sf.anathema.hero.traits.model.types.AttributeGroupType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
+
 import org.junit.Test;
 
 import java.util.Arrays;

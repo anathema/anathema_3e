@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.graphics;
 
+import net.sf.anathema.hero.sheet.pdf.encoder.general.CellPadding;
+
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
@@ -7,7 +9,6 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.sheet.pdf.encoder.general.CellPadding;
 
 public class TableList {
 

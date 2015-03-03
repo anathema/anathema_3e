@@ -1,10 +1,11 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import com.itextpdf.text.Element;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
+
+import com.itextpdf.text.Element;
 
 public class LabelledValueEncoder {
 

@@ -1,11 +1,5 @@
 package net.sf.anathema.hero.spells.model;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
@@ -36,6 +30,12 @@ import org.jmock.example.announcer.Announcer;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class SpellsModelImpl implements SpellsModel {
 

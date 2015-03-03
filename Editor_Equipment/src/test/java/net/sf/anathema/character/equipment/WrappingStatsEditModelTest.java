@@ -1,11 +1,5 @@
 package net.sf.anathema.character.equipment;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
-import static org.mockito.Mockito.when;
 import net.sf.anathema.equipment.editor.model.IEquipmentDatabaseManagement;
 import net.sf.anathema.equipment.editor.model.IEquipmentTemplateEditModel;
 import net.sf.anathema.equipment.editor.stats.model.WrappingStatsEditModel;
@@ -14,6 +8,13 @@ import net.sf.anathema.library.event.ChangeListener;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.when;
 
 public class WrappingStatsEditModelTest {
 

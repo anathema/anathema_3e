@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.points.model.BonusPointCalculator;
+
+import java.util.List;
 
 public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
 
@@ -22,7 +22,7 @@ public class SpecialtiesBonusPointCalculator implements BonusPointCalculator {
   @Override
   public void recalculate() {
     clear();
-    List<Specialty> specialties = SpecialtiesModelFetcher.fetch(hero).getAllSpecialties();
+    List<Specialty> specialties = SpecialtiesModelFetcher.fetch(hero).getPossessedEntries();
     specialtyDotSum = specialtyCalculator.getFreebiePointsSpent(specialties);
     specialtyBonusPointCosts = specialtyCalculator.getSpecialtyCosts(specialties);
   }

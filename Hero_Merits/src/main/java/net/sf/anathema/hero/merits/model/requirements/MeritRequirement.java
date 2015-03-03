@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
+
+import java.util.List;
 
 public interface MeritRequirement {
 	

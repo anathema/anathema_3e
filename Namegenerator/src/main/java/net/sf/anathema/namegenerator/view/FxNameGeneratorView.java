@@ -1,7 +1,5 @@
 package net.sf.anathema.namegenerator.view;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -9,14 +7,19 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.namegenerator.presenter.view.NameGeneratorView;
 import net.sf.anathema.platform.fx.perspective.UtilityPane;
+
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 
 public class FxNameGeneratorView implements NameGeneratorView {
 

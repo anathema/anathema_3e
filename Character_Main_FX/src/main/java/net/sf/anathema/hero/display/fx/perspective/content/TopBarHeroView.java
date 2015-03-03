@@ -6,6 +6,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
@@ -24,6 +25,7 @@ import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;
 import net.sf.anathema.library.interaction.view.MenuTool;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;

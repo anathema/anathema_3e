@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.concept.sheet.text.description;
 
-import com.google.common.base.Strings;
 import net.sf.anathema.hero.concept.model.description.HeroDescription;
 import net.sf.anathema.library.text.ITextualDescription;
+
+import com.google.common.base.Strings;
 
 import java.util.ArrayList;
 import java.util.List;

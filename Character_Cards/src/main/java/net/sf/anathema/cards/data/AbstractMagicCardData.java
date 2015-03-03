@@ -1,7 +1,5 @@
 package net.sf.anathema.cards.data;
 
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
 import net.sf.anathema.charm.data.cost.CostImpl;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
@@ -11,6 +9,9 @@ import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.description.model.MagicDescription;
+
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 
 public abstract class AbstractMagicCardData implements ICardData {
 

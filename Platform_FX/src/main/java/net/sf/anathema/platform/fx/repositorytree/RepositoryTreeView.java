@@ -3,6 +3,7 @@ package net.sf.anathema.platform.fx.repositorytree;
 import javafx.scene.Node;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TreeView;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
@@ -10,6 +11,7 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.view.Vetor;
 import net.sf.anathema.platform.repositorytree.AgnosticTree;
 import net.sf.anathema.platform.repositorytree.IRepositoryTreeView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class RepositoryTreeView implements IRepositoryTreeView {

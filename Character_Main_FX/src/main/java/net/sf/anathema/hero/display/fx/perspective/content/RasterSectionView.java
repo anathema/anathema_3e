@@ -3,6 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.SubViewRegistry;
 import net.sf.anathema.hero.display.fx.perspective.content.layout.RasterLayout;
@@ -10,6 +11,7 @@ import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.interaction.model.Command;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 public class RasterSectionView implements SectionView, NodeHolder {

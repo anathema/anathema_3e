@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.sheet.pdf.content;
 
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

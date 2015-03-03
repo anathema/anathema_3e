@@ -3,6 +3,7 @@ package net.sf.anathema.character.equipment.impl.creation.model.impl.character.m
 import net.sf.anathema.hero.equipment.model.natural.DefaultNaturalSoak;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
+
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,17 +1,20 @@
 package net.sf.anathema.library.fx.selection;
 
-import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.cell.ConfigurableListCellFactory;
 import net.sf.anathema.library.lang.StringUtilities;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
+
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
+
+import com.sun.javafx.collections.ObservableListWrapper;
 
 import java.util.ArrayList;
 import java.util.Arrays;

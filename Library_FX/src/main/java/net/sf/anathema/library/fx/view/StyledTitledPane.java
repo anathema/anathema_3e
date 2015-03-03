@@ -2,6 +2,7 @@ package net.sf.anathema.library.fx.view;
 
 import javafx.scene.Node;
 import javafx.scene.control.TitledPane;
+
 import net.sf.anathema.library.fx.Stylesheet;
 
 public class StyledTitledPane {

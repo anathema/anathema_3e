@@ -4,7 +4,6 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.library.presenter.RGBColor;
 import net.sf.anathema.platform.tree.display.TreeView;
 

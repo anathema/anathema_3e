@@ -1,13 +1,12 @@
 package net.sf.anathema.library.model;
 
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.model.property.OptionalEntryCategory;
 import net.sf.anathema.library.model.property.OptionalPropertyOption;
+
+import java.util.Collection;
+import java.util.List;
 
 public interface OptionalEntriesModel<
 	C extends OptionalEntryCategory,

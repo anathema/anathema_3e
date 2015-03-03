@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.display.prerequisites;
 
-import java.util.List;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
 import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
@@ -9,6 +7,8 @@ import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.charm.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
+
+import java.util.List;
 
 public class NonCharmPrerequisiteId implements PrerequisiteProcessor {
 

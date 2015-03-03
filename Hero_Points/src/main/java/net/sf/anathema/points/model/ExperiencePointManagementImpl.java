@@ -1,10 +1,9 @@
 package net.sf.anathema.points.model;
 
+import net.sf.anathema.points.model.overview.IValueModel;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.points.model.overview.IValueModel;
 
 public class ExperiencePointManagementImpl implements ExperiencePointManagement {
 

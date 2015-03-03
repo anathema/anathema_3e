@@ -1,10 +1,5 @@
 package net.sf.anathema.hero.spells;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -17,6 +12,11 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class DummySpellsModel implements SpellsModel {
 

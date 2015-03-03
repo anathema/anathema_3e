@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
-import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;
+
+import com.itextpdf.text.DocumentException;
 
 public class HorizontalLineBoxContentEncoder implements ContentEncoder {
 

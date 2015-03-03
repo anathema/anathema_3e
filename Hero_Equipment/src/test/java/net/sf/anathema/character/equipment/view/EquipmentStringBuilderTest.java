@@ -1,6 +1,5 @@
 package net.sf.anathema.character.equipment.view;
 
-import static org.junit.Assert.assertEquals;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.equipment.presentation.EquipmentStringBuilder;
 import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
@@ -16,6 +15,7 @@ import org.junit.Test;
 import static net.sf.anathema.equipment.stats.WeaponTag.Artifact;
 import static net.sf.anathema.equipment.stats.WeaponTag.Lethal;
 import static net.sf.anathema.equipment.stats.WeaponTag.Light;
+import static org.junit.Assert.assertEquals;
 
 public class EquipmentStringBuilderTest {
 

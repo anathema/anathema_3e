@@ -9,6 +9,7 @@ import net.sf.anathema.scribe.scroll.persistence.Scroll;
 import net.sf.anathema.scribe.scroll.persistence.ScrollDto;
 import net.sf.anathema.scribe.scroll.persistence.ScrollPersister;
 import net.sf.anathema.scribe.scroll.persistence.ScrollReference;
+
 import org.jmock.example.announcer.Announcer;
 
 public class ScrollModel {

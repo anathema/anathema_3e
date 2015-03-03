@@ -6,6 +6,7 @@ import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.charm.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
+
 import org.junit.Test;
 
 import static com.google.common.collect.Lists.newArrayList;

@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.dummy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.herotype.HeroTypes;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
@@ -13,6 +10,9 @@ import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.library.resources.Resources;
 
 import org.mockito.Mockito;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DummyHeroEnvironment implements HeroEnvironment {
 

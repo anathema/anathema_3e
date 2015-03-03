@@ -2,7 +2,6 @@ package net.sf.anathema.hero.intimacies.display;
 
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.presenter.AbstractUIConfiguration;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 

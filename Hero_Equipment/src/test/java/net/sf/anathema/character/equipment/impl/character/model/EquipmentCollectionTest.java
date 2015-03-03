@@ -1,15 +1,16 @@
 package net.sf.anathema.character.equipment.impl.character.model;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.impl.ArtifactStats;
 import net.sf.anathema.hero.equipment.model.EquipmentCollection;
 
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class EquipmentCollectionTest {
   private EquipmentCollection collection = new EquipmentCollection();

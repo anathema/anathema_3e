@@ -5,9 +5,10 @@ import net.sf.anathema.magic.description.swing.AreaTextView;
 import net.sf.anathema.magic.description.swing.IView;
 import net.sf.anathema.magic.description.swing.TextView;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JComponent;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
 
 public class MagicDescriptionEditView implements IView {
 

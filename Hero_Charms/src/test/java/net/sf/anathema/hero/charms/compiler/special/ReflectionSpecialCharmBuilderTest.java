@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.compiler.special;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;

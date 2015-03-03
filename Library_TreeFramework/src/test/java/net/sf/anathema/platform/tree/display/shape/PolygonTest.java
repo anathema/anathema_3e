@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.tree.display.shape;
 
 import net.sf.anathema.library.number.Coordinate;
+
 import org.junit.Before;
 import org.junit.Test;
 

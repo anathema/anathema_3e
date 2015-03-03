@@ -2,6 +2,7 @@ package net.sf.anathema.hero.equipment.display.view;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.hero.equipment.display.presenter.EquipmentItemRenderer;
 import net.sf.anathema.library.fx.cell.ListCellFactory;

@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
-import java.util.stream.Stream;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.CharmType;
 import net.sf.anathema.charm.data.Duration;
@@ -23,6 +16,13 @@ import net.sf.anathema.magic.data.AbstractMagic;
 import net.sf.anathema.magic.data.attribute.MagicAttributeImpl;
 import net.sf.anathema.magic.data.source.SourceBook;
 import net.sf.anathema.magic.data.source.SourceBookImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class CharmImpl extends AbstractMagic implements Charm {
 

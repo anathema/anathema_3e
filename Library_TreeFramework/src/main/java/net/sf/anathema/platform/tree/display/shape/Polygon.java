@@ -2,6 +2,7 @@ package net.sf.anathema.platform.tree.display.shape;
 
 import net.sf.anathema.library.number.Coordinate;
 import net.sf.anathema.library.number.Coordinates;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class Polygon implements AgnosticShape {

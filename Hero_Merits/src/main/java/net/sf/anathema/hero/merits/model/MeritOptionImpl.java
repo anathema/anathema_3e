@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.json.template.MeritTemplate;
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
@@ -12,8 +8,12 @@ import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
+import net.sf.anathema.library.model.property.AbstractOptionalPropertyOption;
 
-public class MeritOptionImpl implements MeritOption {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MeritOptionImpl extends AbstractOptionalPropertyOption implements MeritOption {
 
   private final String name;
   private final MeritCategory type;
@@ -21,7 +21,6 @@ public class MeritOptionImpl implements MeritOption {
   private final boolean[] legalValues = new boolean[MAX_MERIT_RATING + 1];
   private final List<MeritRequirement> requirements = new ArrayList<>();
   private final List<MeritMechanicalDetail> mechanics = new ArrayList<>();
-  private final List<String> suggestions = new ArrayList<>();
 
   public MeritOptionImpl(MeritTemplate template) {
     this.name = template.name;
@@ -131,11 +130,6 @@ public class MeritOptionImpl implements MeritOption {
   @Override
   public boolean isReferencedBy(OptionalEntryReference reference) {
     return reference.name.equals(name);
-  }
-
-  @Override
-  public Collection<String> getSuggestions() {
-    return suggestions;
   }
 
   @Override

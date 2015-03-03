@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.specialties.advance.creation;
 
-import java.util.Collection;
-
 import net.sf.anathema.hero.specialties.model.Specialty;
+
+import java.util.Collection;
 
 public class SpecialtyCalculator {
 

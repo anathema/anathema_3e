@@ -3,6 +3,7 @@ package net.sf.anathema.platform.tree.view;
 import net.sf.anathema.platform.tree.display.NodePresentationProperties;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 import net.sf.anathema.platform.tree.view.container.ContainerCascade;
+
 import org.junit.Test;
 
 import static org.mockito.Mockito.mock;

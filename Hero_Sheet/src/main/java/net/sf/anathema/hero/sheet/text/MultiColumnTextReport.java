@@ -1,11 +1,12 @@
 package net.sf.anathema.hero.sheet.text;
 
+import net.sf.anathema.hero.environment.report.ReportException;
+
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfWriter;
-import net.sf.anathema.hero.environment.report.ReportException;
 
 public class MultiColumnTextReport {
   public static final int TwoColumns = 2;

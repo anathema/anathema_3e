@@ -5,6 +5,7 @@ import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.Type;
 import net.sf.anathema.exaltedengine.numericquality.NumericValue;
 import net.sf.anathema.exaltedengine.numericquality.SetValue;
+
 import org.junit.Before;
 import org.junit.Test;
 

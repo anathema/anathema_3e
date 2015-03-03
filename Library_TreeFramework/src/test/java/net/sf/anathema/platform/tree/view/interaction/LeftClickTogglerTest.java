@@ -5,6 +5,7 @@ import net.sf.anathema.platform.tree.display.NodeInteractionListener;
 import net.sf.anathema.platform.tree.view.container.Cascade;
 import net.sf.anathema.platform.tree.view.container.DefaultContainerCascade;
 import net.sf.anathema.platform.tree.view.draw.InteractiveGraphicsElement;
+
 import org.junit.Before;
 import org.junit.Test;
 

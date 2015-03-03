@@ -1,15 +1,16 @@
 package net.sf.anathema.hero.combat.sheet.combat.encoder;
 
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.combat.sheet.combat.content.CombatAction;
 import net.sf.anathema.hero.combat.sheet.combat.content.CombatStatsContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableList;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPTable;
 
 public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
 

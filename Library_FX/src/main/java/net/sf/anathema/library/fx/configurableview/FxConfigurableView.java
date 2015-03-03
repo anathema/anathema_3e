@@ -1,6 +1,7 @@
 package net.sf.anathema.library.fx.configurableview;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
@@ -11,6 +12,7 @@ import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.library.view.ConfigurableCharacterView;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.MultiComponentLine;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.ArrayList;

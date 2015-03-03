@@ -5,6 +5,7 @@ import net.sf.anathema.charm.data.cost.CostImpl;
 import net.sf.anathema.charm.data.cost.CostList;
 import net.sf.anathema.charm.data.cost.HealthCost;
 import net.sf.anathema.charm.data.cost.HealthCostImpl;
+
 import org.junit.Test;
 
 import static net.sf.anathema.charm.data.cost.HealthCostType.Aggravated;

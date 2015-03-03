@@ -1,6 +1,7 @@
 package net.sf.anathema.framework.preferences.perspective;
 
 import javafx.scene.control.Button;
+
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.initialization.InitializationException;
 import net.sf.anathema.library.interaction.AcceleratorMap;

@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.merits.compiler.json.template;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequirementsTemplate;
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MeritTemplate {
 	public String name;

@@ -18,9 +18,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 

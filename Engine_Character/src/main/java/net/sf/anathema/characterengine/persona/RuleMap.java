@@ -1,12 +1,13 @@
 package net.sf.anathema.characterengine.persona;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 import net.sf.anathema.characterengine.quality.QualityKey;
 import net.sf.anathema.characterengine.quality.Type;
 import net.sf.anathema.characterengine.quality.TypeClosure;
 import net.sf.anathema.characterengine.rules.AlwaysRule;
 import net.sf.anathema.characterengine.rules.Rule;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.Collection;

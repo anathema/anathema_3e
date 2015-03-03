@@ -4,6 +4,7 @@ dependencies {
   compile project(':Hero_Attributes')
   compile project(':Hero_Concept')
   compile project(':Hero_Experience')
+  compile project(':Library_CategorizedAllocation')
   compile project(':Hero_Points')
   testCompile testDependencies
   testCompile project(path: ':Platform', configuration: 'tests')

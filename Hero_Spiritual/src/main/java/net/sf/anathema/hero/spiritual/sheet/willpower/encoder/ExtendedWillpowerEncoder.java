@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.spiritual.sheet.willpower.encoder;
 
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Phrase;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.AbstractContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.ListUtils;
@@ -12,6 +9,10 @@ import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.spiritual.sheet.willpower.content.WillpowerContent;
 import net.sf.anathema.hero.traits.sheet.content.BulletList;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
+
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Phrase;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.PADDING;

@@ -3,6 +3,7 @@ package net.sf.anathema.hero.display.fx.perspective.navigation;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
+
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;

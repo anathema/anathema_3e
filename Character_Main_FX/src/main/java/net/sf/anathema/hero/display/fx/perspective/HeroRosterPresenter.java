@@ -6,7 +6,6 @@ import net.sf.anathema.hero.application.perspective.ShowOnSelect;
 import net.sf.anathema.hero.application.perspective.model.CharacterItemModel;
 import net.sf.anathema.hero.application.perspective.model.ItemSystemModel;
 import net.sf.anathema.library.interaction.model.ToggleTool;
-import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 

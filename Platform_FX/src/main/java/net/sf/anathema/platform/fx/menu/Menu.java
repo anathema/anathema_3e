@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.menu;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
+
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.platform.menu.IMenu;
 

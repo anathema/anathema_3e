@@ -8,6 +8,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.util.Callback;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -16,6 +17,7 @@ import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
+
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

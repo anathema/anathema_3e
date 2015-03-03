@@ -9,6 +9,7 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

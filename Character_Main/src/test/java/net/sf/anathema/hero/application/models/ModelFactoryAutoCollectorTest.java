@@ -3,6 +3,7 @@ package net.sf.anathema.hero.application.models;
 import net.sf.anathema.hero.application.creation.models.ModelFactoryAutoCollector;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
+
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 

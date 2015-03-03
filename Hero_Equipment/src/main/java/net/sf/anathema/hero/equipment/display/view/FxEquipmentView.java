@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.equipment.display.view;
 
-import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.equipment.character.IEquipmentItem;
@@ -13,11 +13,12 @@ import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.selection.ListSelectionView;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
-import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.VetoableObjectSelectionView;
 
 import org.tbee.javafx.scene.layout.MigPane;
+
+import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;
 
 public class FxEquipmentView implements EquipmentView, NodeHolder {
   private final ListSelectionView<String> equipmentPickList = new ListSelectionView<>();

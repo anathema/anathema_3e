@@ -1,6 +1,7 @@
 package net.sf.anathema.graph.nodes;
 
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;

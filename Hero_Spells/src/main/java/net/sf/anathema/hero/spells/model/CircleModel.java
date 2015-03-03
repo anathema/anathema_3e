@@ -1,9 +1,11 @@
 package net.sf.anathema.hero.spells.model;
 
-import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.library.event.ObjectChangedListener;
+
 import org.jmock.example.announcer.Announcer;
+
+import com.google.common.collect.Iterables;
 
 import java.util.Collection;
 

@@ -1,8 +1,12 @@
 package net.sf.anathema.magic.description.swing;
 
+import net.sf.anathema.library.event.ObjectChangedListener;
+
 import com.google.common.base.Objects;
 import com.google.common.base.Strings;
-import net.sf.anathema.library.event.ObjectChangedListener;
+
+import java.awt.Color;
+import java.util.Collection;
 
 import javax.swing.JComponent;
 import javax.swing.JTextField;
@@ -10,8 +14,6 @@ import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.event.DocumentEvent;
 import javax.swing.text.JTextComponent;
-import java.awt.Color;
-import java.util.Collection;
 
 public class TextView implements SwingTextView {
 

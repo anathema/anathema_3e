@@ -1,18 +1,16 @@
 package net.sf.anathema;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
-import net.sf.anathema.charm.data.reference.SpellName;
+
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
-import net.sf.anathema.hero.spells.model.SpellsModel;
 
 import com.google.inject.Inject;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 @ScenarioScoped
 public class SpellSteps {

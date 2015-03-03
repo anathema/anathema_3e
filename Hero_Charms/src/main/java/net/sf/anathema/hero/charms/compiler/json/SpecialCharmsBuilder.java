@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
 import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
@@ -16,6 +13,9 @@ import net.sf.anathema.library.initialization.ObjectFactory;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SpecialCharmsBuilder {
 

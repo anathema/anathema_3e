@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.sheet.pdf.encoder.boxes;
 
+import org.junit.Test;
+
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Phrase;
-import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 
 public class PhraseBuilderTest {

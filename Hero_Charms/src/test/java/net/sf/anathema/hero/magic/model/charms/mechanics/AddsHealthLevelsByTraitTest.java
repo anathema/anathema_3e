@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.magic.model.charms.mechanics;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
@@ -41,6 +34,13 @@ import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class AddsHealthLevelsByTraitTest {
 	

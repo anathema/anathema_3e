@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.tree.view.interaction;
 
 import net.sf.anathema.library.number.Coordinate;
+
 import org.junit.Test;
 import org.mockito.InOrder;
 

@@ -9,6 +9,7 @@ import net.sf.anathema.hero.individual.splat.ConfiguredModel;
 import net.sf.anathema.hero.individual.splat.HeroSplat;
 import net.sf.anathema.library.dummy.ConfigurableDummyObjectFactory;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
+
 import org.junit.Test;
 
 import java.util.ArrayList;

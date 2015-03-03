@@ -1,6 +1,7 @@
 package net.sf.anathema.cascades.module;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.cascades.presenter.CharmCascadesPresenterImpl;
@@ -20,6 +21,7 @@ import net.sf.anathema.platform.fx.perspective.UtilityPerspective;
 import net.sf.anathema.platform.messaging.MessageCategory;
 import net.sf.anathema.platform.utility.UtilityAutoCollector;
 import net.sf.anathema.platform.utility.UtilityToggle;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 @UtilityAutoCollector

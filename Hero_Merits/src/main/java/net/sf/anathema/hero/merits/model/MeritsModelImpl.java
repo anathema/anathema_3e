@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.merits.model;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Predicate;
-
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
@@ -23,9 +16,16 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.OptionalEntryReference;
-import net.sf.anathema.library.model.property.AbstractOptionalPropertiesModel;
+import net.sf.anathema.library.model.trait.AbstractOptionalTraitsModel;
 
-public class MeritsModelImpl extends AbstractOptionalPropertiesModel<MeritCategory, MeritOption, Merit>
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+import static java.util.stream.Collectors.toList;
+
+public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritCategory, MeritOption, Merit>
 	implements MeritsModel {
 
   protected MeritsModelImpl() {
@@ -85,11 +85,6 @@ public class MeritsModelImpl extends AbstractOptionalPropertiesModel<MeritCatego
 	protected boolean isAllowedOption(MeritOption option) {
 		return option.isHeroEligible(hero) && (option.allowsRepurchase() || !knowsTrait(option));
 	}
-
-  @Override
-  public boolean isEntryAllowed() {
-    return isAllowedOption(getSelectedEntryOption());
-  }
   
   @Override
 	public boolean isRemovalAllowed(Merit trait) {
@@ -116,5 +111,10 @@ public class MeritsModelImpl extends AbstractOptionalPropertiesModel<MeritCatego
 	@Override
 	protected MeritOption getNullOption() {
 		return new NullMeritOption();
+	}
+
+	@Override
+	public boolean isEntryAllowed() {
+		return !(getSelectedEntryOption() instanceof NullMeritOption);
 	}
 }

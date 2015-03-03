@@ -1,9 +1,5 @@
 package net.sf.anathema.hero.equipment.persister;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 import net.sf.anathema.character.equipment.dummy.DemoMeleeWeapon;
 import net.sf.anathema.character.equipment.dummy.DummyEquipmentItem;
 import net.sf.anathema.equipment.stats.IEquipmentStats;
@@ -14,6 +10,11 @@ import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import org.junit.Test;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class ItemToPtoTransformerTest {
 

@@ -4,12 +4,8 @@ import net.sf.anathema.hero.environment.initialization.ExtensibleDataSet;
 import net.sf.anathema.hero.environment.initialization.ExtensibleDataSetCompiler;
 import net.sf.anathema.hero.individual.persistence.GenericTemplateLoader;
 import net.sf.anathema.hero.individual.splat.HeroType;
-import net.sf.anathema.library.exception.PersistenceException;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.ResourceFile;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 @Weight(weight = 1)
 @net.sf.anathema.platform.initialization.ExtensibleDataSetCompiler

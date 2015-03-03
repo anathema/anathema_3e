@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.model.state;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.change.FlavoredChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.Arrays;

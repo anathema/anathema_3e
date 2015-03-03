@@ -1,6 +1,7 @@
 package net.sf.anathema.library.view.fx;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.library.fx.configurableview.FxConfigurableSingleLineView;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;

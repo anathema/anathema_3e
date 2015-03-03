@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.display.magic;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;

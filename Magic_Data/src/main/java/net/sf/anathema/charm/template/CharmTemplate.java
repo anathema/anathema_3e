@@ -1,11 +1,11 @@
 package net.sf.anathema.charm.template;
 
+import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
 
 public class CharmTemplate {
 

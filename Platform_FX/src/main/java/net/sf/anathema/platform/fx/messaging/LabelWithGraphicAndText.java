@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.messaging;
 
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
 import net.sf.anathema.library.resources.RelativePath;
 
 public class LabelWithGraphicAndText implements WithGraphicAndText{

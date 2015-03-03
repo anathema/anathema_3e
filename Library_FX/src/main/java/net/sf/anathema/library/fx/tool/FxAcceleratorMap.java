@@ -3,6 +3,7 @@ package net.sf.anathema.library.fx.tool;
 import javafx.collections.ObservableMap;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCombination;
+
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.interaction.model.Hotkey;

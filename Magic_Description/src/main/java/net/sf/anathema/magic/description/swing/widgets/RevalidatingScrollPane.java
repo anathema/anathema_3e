@@ -1,7 +1,8 @@
 package net.sf.anathema.magic.description.swing.widgets;
 
-import javax.swing.JScrollPane;
 import java.awt.Component;
+
+import javax.swing.JScrollPane;
 
 import static net.sf.anathema.magic.description.swing.GuiUtilities.revalidateTree;
 

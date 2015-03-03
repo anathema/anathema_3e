@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.equipment;
 
-import java.text.MessageFormat;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.presentation.IEquipmentObjectPresenter;
 import net.sf.anathema.equipment.presentation.IEquipmentStringBuilder;
@@ -16,6 +14,8 @@ import net.sf.anathema.hero.equipment.model.EquipmentSpecialtyOption;
 import net.sf.anathema.hero.equipment.model.natural.NaturalWeaponTemplate;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.library.resources.Resources;
+
+import java.text.MessageFormat;
 
 public class EquipmentObjectPresenter implements IEquipmentObjectPresenter {
 
@@ -107,7 +107,7 @@ public class EquipmentObjectPresenter implements IEquipmentObjectPresenter {
 
   private void addSpecialtiesForWeaponStats(StatsView baseView, IWeaponStats weaponStats) {
     for (Specialty specialty : dataProvider.getSpecialties(weaponStats.getTraitType())) {
-      String label = MessageFormat.format(resources.getString("Equipment.Specialty"), specialty.getName());
+      String label = MessageFormat.format(resources.getString("Equipment.Specialty"), specialty.getDescription());
       StatsView statsView = baseView.addOptionFlag(label);
       IEquipmentStatsOption specialtyOption = new EquipmentSpecialtyOption(specialty, weaponStats.getTraitType());
       IEquipmentStats baseStat = model.getStat(weaponStats.getId());

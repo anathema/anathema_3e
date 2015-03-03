@@ -1,8 +1,9 @@
 package net.sf.anathema.graph.graph;
 
-import com.google.common.base.Preconditions;
 import net.sf.anathema.graph.nodes.ISimpleNode;
 import net.sf.anathema.graph.util.IncidentMatrixUtilities;
+
+import com.google.common.base.Preconditions;
 
 import java.util.ArrayList;
 import java.util.Arrays;

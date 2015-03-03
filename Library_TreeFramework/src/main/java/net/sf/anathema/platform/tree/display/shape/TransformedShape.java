@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.tree.display.shape;
 
 import net.sf.anathema.platform.tree.display.transform.AgnosticTransform;
+
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class TransformedShape {

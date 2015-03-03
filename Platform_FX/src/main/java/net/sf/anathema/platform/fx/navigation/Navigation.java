@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.navigation;
 
 import javafx.scene.Node;
 import javafx.scene.control.ToolBar;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.tool.FxBaseTool;
@@ -10,6 +11,7 @@ import net.sf.anathema.library.fx.tool.FxToggleTool;
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.model.ToggleTool;
 import net.sf.anathema.library.interaction.model.Tool;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

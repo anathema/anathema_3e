@@ -1,6 +1,5 @@
 package net.sf.anathema.platform.initialization.bootjobs;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.item.ItemTypeCollection;
 import net.sf.anathema.platform.repository.PrintNameFile;
@@ -8,6 +7,8 @@ import net.sf.anathema.platform.repository.Repository;
 import net.sf.anathema.platform.repository.access.RepositoryFileAccess;
 import net.sf.anathema.platform.repositorytree.ExportModel;
 import net.sf.anathema.platform.repositorytree.RepositoryFileAccessFactory;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 

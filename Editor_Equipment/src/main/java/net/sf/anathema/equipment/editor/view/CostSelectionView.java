@@ -1,9 +1,9 @@
 package net.sf.anathema.equipment.editor.view;
 
-import java.util.Collection;
-
 import net.sf.anathema.equipment.template.ItemCost;
 import net.sf.anathema.library.event.SelectionIntValueChangedListener;
+
+import java.util.Collection;
 
 public interface CostSelectionView {
   void setValue(ItemCost cost);

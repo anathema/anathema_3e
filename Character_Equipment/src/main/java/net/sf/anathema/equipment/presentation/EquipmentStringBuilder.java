@@ -1,9 +1,5 @@
 package net.sf.anathema.equipment.presentation;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.stats.IArmourStats;
 import net.sf.anathema.equipment.stats.IArtifactStats;
@@ -14,6 +10,10 @@ import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
 
 import com.google.common.base.Joiner;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class EquipmentStringBuilder implements IEquipmentStringBuilder {
 

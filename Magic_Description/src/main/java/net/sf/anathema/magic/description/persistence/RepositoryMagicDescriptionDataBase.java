@@ -1,12 +1,13 @@
 package net.sf.anathema.magic.description.persistence;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import net.sf.anathema.magic.description.module.MagicDescriptionItemType;
 import net.sf.anathema.platform.frame.ApplicationModel;
 import net.sf.anathema.platform.item.IItemType;
 import net.sf.anathema.platform.repository.Repository;
 import net.sf.anathema.platform.repository.RepositoryStringAccess;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class RepositoryMagicDescriptionDataBase implements MagicDescriptionDataBase {
 

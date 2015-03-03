@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.magic.model.charms;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
 import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.charm.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
@@ -18,6 +16,9 @@ import net.sf.anathema.hero.traits.model.context.ProxyTraitValueStrategy;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public class MultiLearnableCharmConfigurationTest {
 

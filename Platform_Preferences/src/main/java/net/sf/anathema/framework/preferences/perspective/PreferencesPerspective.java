@@ -9,7 +9,6 @@ import net.sf.anathema.platform.fx.environment.UiEnvironment;
 import net.sf.anathema.platform.fx.perspective.Container;
 import net.sf.anathema.platform.fx.perspective.UtilityPerspective;
 import net.sf.anathema.platform.messaging.MessageCategory;
-import net.sf.anathema.platform.preferences.PropertyPreferences;
 import net.sf.anathema.platform.utility.UtilityAutoCollector;
 import net.sf.anathema.platform.utility.UtilityToggle;
 

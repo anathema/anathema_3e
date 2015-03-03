@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.charms.model.special.learning.multilearn;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
+
+import com.google.common.collect.Lists;
 
 import java.util.List;
 

@@ -2,6 +2,7 @@ package net.sf.anathema.platform.fx.preferences;
 
 import javafx.scene.Node;
 import javafx.stage.DirectoryChooser;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.event.ObjectChangedListener;
 import net.sf.anathema.library.fx.NodeHolder;
@@ -12,6 +13,7 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.text.ITextView;
 import net.sf.anathema.platform.environment.DesktopEnvironment;
 import net.sf.anathema.platform.preferences.PreferenceView;
+
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 

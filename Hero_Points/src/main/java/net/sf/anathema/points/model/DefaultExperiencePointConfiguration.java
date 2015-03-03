@@ -1,15 +1,15 @@
 package net.sf.anathema.points.model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
 import net.sf.anathema.points.model.xp.ExperiencePointsListener;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 
 import org.jmock.example.announcer.Announcer;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class DefaultExperiencePointConfiguration implements ExperiencePoints {
 

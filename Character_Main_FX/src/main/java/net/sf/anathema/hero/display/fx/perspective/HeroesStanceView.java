@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.perspective.HeroRoster;
 import net.sf.anathema.hero.application.perspective.UpdatingHeroesGridView;
@@ -8,6 +9,7 @@ import net.sf.anathema.hero.display.fx.perspective.content.StackView;
 import net.sf.anathema.hero.display.fx.perspective.navigation.FxHeroPoolNavigation;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.interaction.view.InteractionView;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;

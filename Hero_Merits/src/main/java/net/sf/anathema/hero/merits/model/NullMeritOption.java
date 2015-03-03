@@ -1,13 +1,13 @@
 package net.sf.anathema.hero.merits.model;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MeritMechanicalDetail;
 import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
+
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class NullMeritOption implements MeritOption {
   @Override

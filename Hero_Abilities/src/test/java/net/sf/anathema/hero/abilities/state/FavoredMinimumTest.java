@@ -4,9 +4,10 @@ import net.sf.anathema.hero.abilities.model.FavoredMinimum;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.FavoredTraitStateType;
-import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.model.state.TraitStateType;
+
 import org.hamcrest.Matchers;
 import org.junit.Test;
 

@@ -1,6 +1,7 @@
 package net.sf.anathema.namegenerator.presenter.view;
 
 import javafx.scene.Node;
+
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.interaction.model.Command;
 

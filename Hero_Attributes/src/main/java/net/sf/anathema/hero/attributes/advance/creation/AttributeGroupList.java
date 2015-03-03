@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.attributes.advance.creation;
 
-import com.google.common.collect.Iterables;
 import net.sf.anathema.hero.attributes.advance.CreationPointSumComparator;
 import net.sf.anathema.hero.traits.model.TraitGroup;
+
+import com.google.common.collect.Iterables;
 
 import java.util.ArrayList;
 import java.util.Collection;

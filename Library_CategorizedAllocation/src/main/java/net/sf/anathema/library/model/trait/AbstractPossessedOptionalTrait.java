@@ -1,9 +1,5 @@
 package net.sf.anathema.library.model.trait;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
@@ -14,6 +10,10 @@ import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 
 import com.google.common.base.Strings;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOption> extends TraitImpl implements PossessedOptionalTrait<O> {
 	

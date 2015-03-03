@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Strings;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractTextStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.library.resources.Resources;
+
+import com.google.common.base.Joiner;
+import com.google.common.base.Strings;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfPTable;
 
 import java.util.Collection;
 

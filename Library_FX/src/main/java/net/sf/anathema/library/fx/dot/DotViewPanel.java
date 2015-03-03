@@ -1,6 +1,7 @@
 package net.sf.anathema.library.fx.dot;
 
 import javafx.scene.Node;
+
 import net.miginfocom.layout.CC;
 
 public interface DotViewPanel {

@@ -1,12 +1,5 @@
 package net.sf.anathema.hero.equipment;
 
-import static net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase.DATABASE_FOLDER;
-
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.database.IEquipmentTemplateProvider;
@@ -43,6 +36,13 @@ import org.jmock.example.announcer.Announcer;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import static net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase.DATABASE_FOLDER;
 
 public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentModel {
   private final EquipmentCollection naturalWeapons = new EquipmentCollection();

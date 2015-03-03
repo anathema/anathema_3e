@@ -1,11 +1,11 @@
 package net.sf.anathema.characterengine.integration;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Singleton;
-import cucumber.runtime.java.guice.ScenarioScope;
 import cucumber.runtime.java.guice.ScenarioScoped;
+
 import net.sf.anathema.characterengine.engine.DefaultEngine;
 import net.sf.anathema.characterengine.engine.Engine;
+
+import com.google.inject.AbstractModule;
 
 public class EngineModule extends AbstractModule {
   @Override

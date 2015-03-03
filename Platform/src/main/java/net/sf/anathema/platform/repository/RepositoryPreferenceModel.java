@@ -7,6 +7,7 @@ import net.sf.anathema.platform.preferences.PreferenceModel;
 import net.sf.anathema.platform.preferences.PreferencePto;
 import net.sf.anathema.platform.preferences.PreferenceValue;
 import net.sf.anathema.platform.preferences.RegisteredPreferenceModel;
+
 import org.jmock.example.announcer.Announcer;
 
 import java.nio.file.Path;

@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.sheet.pdf;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PageSize;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -21,8 +18,11 @@ import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.sheet.preferences.PageSizePreference;
 import net.sf.anathema.library.resources.Resources;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class PortraitSimpleExaltSheetReport extends AbstractPdfReport {

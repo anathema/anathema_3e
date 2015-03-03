@@ -1,13 +1,14 @@
 package net.sf.anathema.hero.sheet.text;
 
-import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfWriter;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.ReportException;
 import net.sf.anathema.hero.individual.model.Hero;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import java.util.Collection;
 

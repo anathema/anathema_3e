@@ -2,6 +2,7 @@ package net.sf.anathema.characterengine.persona;
 
 import net.sf.anathema.characterengine.quality.Quality;
 import net.sf.anathema.characterengine.rules.Rule;
+
 import org.junit.Test;
 import org.mockito.InOrder;
 

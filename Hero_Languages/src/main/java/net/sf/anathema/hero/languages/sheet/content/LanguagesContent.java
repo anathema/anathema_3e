@@ -1,8 +1,5 @@
 package net.sf.anathema.hero.languages.sheet.content;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
@@ -11,6 +8,9 @@ import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.ListSubBoxContent;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.resources.Resources;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class LanguagesContent extends AbstractSubBoxContent implements ListSubBoxContent {
 

@@ -5,6 +5,7 @@ import net.sf.anathema.platform.tree.document.components.ILayer;
 import net.sf.anathema.platform.tree.document.components.IVisualizableNode;
 import net.sf.anathema.platform.tree.document.components.VisualizableNodes;
 import net.sf.anathema.platform.tree.document.visualizer.NodeDimensions;
+
 import org.junit.Before;
 import org.junit.Test;
 

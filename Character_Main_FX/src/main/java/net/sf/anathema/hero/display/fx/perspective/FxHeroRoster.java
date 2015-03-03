@@ -1,11 +1,8 @@
 package net.sf.anathema.hero.display.fx.perspective;
 
 import javafx.scene.Node;
-import javafx.scene.control.ButtonBase;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.TilePane;
+
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
 import net.sf.anathema.hero.application.perspective.CharacterButtonDto;
@@ -15,6 +12,7 @@ import net.sf.anathema.hero.application.perspective.model.HeroIdentifier;
 import net.sf.anathema.hero.display.fx.perspective.navigation.HeroPoolButton;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.Stylesheet;
+
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.withoutInsets;

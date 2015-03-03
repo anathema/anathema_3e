@@ -4,6 +4,7 @@ import net.sf.anathema.charm.data.Charm;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialist;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmLearnListener;
+
 import org.jmock.example.announcer.Announcer;
 
 public class MultipleEffectCharmSpecialsImpl implements MultipleEffectCharmSpecials {

@@ -1,6 +1,7 @@
 package net.sf.anathema.platform.fx.updatecheck;
 
 import de.idos.updates.Version;
+
 import net.sf.anathema.library.interaction.model.Tool;
 
 public interface UpdateView {

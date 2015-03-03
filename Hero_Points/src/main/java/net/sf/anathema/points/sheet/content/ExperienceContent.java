@@ -1,11 +1,11 @@
 package net.sf.anathema.points.sheet.content;
 
-import java.text.MessageFormat;
-
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.PointModelFetcher;
+
+import java.text.MessageFormat;
 
 public class ExperienceContent extends AbstractSubBoxContent {
 
