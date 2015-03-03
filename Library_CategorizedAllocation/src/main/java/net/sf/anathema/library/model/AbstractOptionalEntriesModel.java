@@ -186,6 +186,15 @@ private final Map<OptionalEntryReference, Collection<String>> suggestions = new 
 	}
 	
 	@Override
+	public boolean forget(T entry) {
+	  boolean canForget = isRemovalAllowed(entry);
+	  if (canForget) {
+	    removeEntry(entry);
+	  }
+	  return canForget;
+	}
+	
+	@Override
 	public void whenCategoryChanges(ChangeListener listener) {
 		currentCategoryChangeAnnouncer.addListener(listener);
 	}

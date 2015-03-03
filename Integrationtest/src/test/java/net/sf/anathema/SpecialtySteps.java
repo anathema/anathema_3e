@@ -45,7 +45,7 @@ public class SpecialtySteps {
   	Specialty toForget = model.getEntries().stream().filter(specialty -> specialty.getBasicTraitType().equals(ability))
   		.findFirst().get();
   	if (toForget != null) {
-  		model.removeEntry(toForget);
+  		model.forget(toForget);
   	}
   	boolean success = toForget != null;
     assertThat(success, is(true));

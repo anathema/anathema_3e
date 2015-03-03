@@ -45,6 +45,8 @@ public interface OptionalEntriesModel<
 
 	boolean hasCategories();
 	
+	boolean forget(T entry);
+	
 	boolean isEntryAllowed();
 	
 	boolean isRemovalAllowed(T entry);

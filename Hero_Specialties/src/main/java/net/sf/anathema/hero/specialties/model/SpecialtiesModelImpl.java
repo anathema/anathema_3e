@@ -70,7 +70,7 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 	@Override
 	protected Specialty createPossessedEntry(SpecialtyType option,
 			String description, Hero hero) {
-		return new SpecialtyImpl(option, description, isCharacterExperienced());
+		return new SpecialtyImpl(option, description, !isCharacterExperienced());
 	}
 
 	private boolean isCharacterExperienced() {
