@@ -33,7 +33,7 @@ public class SpecialtySteps {
   public void she_learn_a_specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
   	model.setCurrentDescription("Test");
-  	model.setSelectedEntryOption(new SpecialtyTypeImpl(AbilityType.valueOf(id)));
+  	model.setSelectedEntryOption(new SpecialtyTypeImpl(AbilityType.valueOf(id), null));
   	boolean learned = model.commitSelection() != null;
     assertThat(learned, is(true));
   }

@@ -5,6 +5,11 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.specialties.display.presenter.TraitTypeByNameComparator;
+import net.sf.anathema.hero.traits.display.TraitTypeInternationalizer;
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.model.OptionalEntryOptionSupplier;
@@ -16,6 +21,8 @@ import static java.util.stream.Collectors.toList;
 
 public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<SpecialtyType, Specialty>
 	implements SpecialtiesModel, HeroModel {
+  
+  private TraitTypeInternationalizer i18;
 
   public SpecialtiesModelImpl() {
 		super(false);
@@ -24,11 +31,20 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 	@Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     super.initialize(environment, hero);
+    
+    i18 = new TraitTypeInternationalizer(environment.getResources());
   }
 
   @Override
   public Identifier getId() {
     return SpecialtiesModel.ID;
+  }
+  
+  public List<Trait> getContingentTraits() {
+    TraitModel traits = TraitModelFetcher.fetch(hero);
+    return optionSupplier.getAllOptions().stream()
+        .map(option -> traits.getTrait(option.getTraitType()))
+        .collect(toList());
   }
   
   @Override
@@ -44,7 +60,7 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 
 	@Override
 	protected OptionalEntryOptionSupplier<SpecialtyType> initOptionSupplier(HeroEnvironment environment) {
-		return new AbilityOptionSupplier();
+		return new AbilityOptionSupplier(i18);
 	}
 	
 	@Override

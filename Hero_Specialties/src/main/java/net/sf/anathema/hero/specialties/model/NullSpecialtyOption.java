@@ -16,6 +16,11 @@ public class NullSpecialtyOption implements SpecialtyType {
 	public TraitType getTraitType() {
 		return null;
 	}
+	
+	@Override
+	public String toString() {
+	  return "";
+	}
 
 
 }

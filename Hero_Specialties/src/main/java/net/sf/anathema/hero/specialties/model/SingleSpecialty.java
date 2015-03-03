@@ -11,7 +11,7 @@ public class SingleSpecialty {
   
   public SingleSpecialty(Hero hero, TraitType type) {
     this.hero = hero;
-    this.type = new SpecialtyTypeImpl(type);
+    this.type = new SpecialtyTypeImpl(type, null);
   }
   
   public String toString() {
