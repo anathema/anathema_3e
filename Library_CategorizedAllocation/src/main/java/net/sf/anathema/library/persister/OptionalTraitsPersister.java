@@ -4,7 +4,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.persistence.TraitPersister;
-import net.sf.anathema.library.model.OptionalEntryCategory;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.trait.OptionalTraitOption;
 import net.sf.anathema.library.model.trait.OptionalTraitsModel;
@@ -12,7 +11,6 @@ import net.sf.anathema.library.model.trait.PossessedOptionalTrait;
 
 @SuppressWarnings("UnusedDeclaration")
 public abstract class OptionalTraitsPersister<
-	C extends OptionalEntryCategory,
 	O extends OptionalTraitOption,
 	T extends PossessedOptionalTrait<O>,
 	M extends OptionalTraitsModel<O, T>,

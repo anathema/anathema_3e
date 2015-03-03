@@ -8,7 +8,7 @@ import net.sf.anathema.library.model.NullCategory;
 import net.sf.anathema.library.persister.OptionalTraitsPersister;
 
 public class ThaumaturgyPersister
-	extends OptionalTraitsPersister<NullCategory, ThaumaturgyRitual, KnownRitual, ThaumaturgyModel, ThaumaturgyPto> {
+	extends OptionalTraitsPersister<ThaumaturgyRitual, KnownRitual, ThaumaturgyModel, ThaumaturgyPto> {
 
 	public ThaumaturgyPersister() {
 		super("rituals", ThaumaturgyPto.class);
