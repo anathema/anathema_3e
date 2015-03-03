@@ -21,8 +21,8 @@ import net.sf.anathema.points.model.PointsModel;
 public class CharmsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public CharmsModelFactory() {
-    super(CharmsModel.ID, ThaumaturgyModel.ID, EssencePoolModel.ID, AttributeModel.ID, AbilitiesModel.ID, SpiritualTraitModel.ID, TraitModel.ID, ExperienceModel.ID,
-            HeroConcept.ID, HealthModel.ID, MagicPointsModel.ID, PointsModel.ID);
+    super(CharmsModel.ID, EssencePoolModel.ID, AttributeModel.ID, AbilitiesModel.ID, SpiritualTraitModel.ID, TraitModel.ID, ExperienceModel.ID,
+            HeroConcept.ID, HealthModel.ID, MagicPointsModel.ID, PointsModel.ID, ThaumaturgyModel.ID);
   }
 
   @SuppressWarnings("unchecked")

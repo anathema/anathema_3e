@@ -5,6 +5,7 @@ import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
+import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.points.model.PointsModel;
 
@@ -12,7 +13,7 @@ import net.sf.anathema.points.model.PointsModel;
 public class ThaumaturgyModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public ThaumaturgyModelFactory() {
-    super(ThaumaturgyModel.ID, TraitModel.ID, ExperienceModel.ID, HeroConcept.ID, PointsModel.ID);
+    super(ThaumaturgyModel.ID, TraitModel.ID, ExperienceModel.ID, HeroConcept.ID, PointsModel.ID, MeritsModel.ID);
   }
 
   @SuppressWarnings("unchecked")

@@ -1,15 +1,9 @@
 package net.sf.anathema.hero.merits.model;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
-import net.sf.anathema.hero.equipment.EquipmentModelFetcher;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
-import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
-import net.sf.anathema.hero.merits.model.mechanics.MeritHealthProvider;
-import net.sf.anathema.hero.merits.model.mechanics.MeritThaumaturgyProvider;
-import net.sf.anathema.hero.merits.model.mechanics.MeritUnarmedModificationProvider;
-import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -31,7 +25,7 @@ import static java.util.stream.Collectors.toList;
 public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Merit>
 	implements MeritsModel {
 
-  protected MeritsModelImpl() {
+  public MeritsModelImpl() {
 		super(true);
 	}
 
@@ -43,14 +37,6 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Me
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
   	super.initialize(environment, hero);
-    MeritHealthProvider healthProvider = new MeritHealthProvider(this);
-    MeritUnarmedModificationProvider unarmedProvider = new MeritUnarmedModificationProvider(this);
-    MeritThaumaturgyProvider thaumaturgyProvider = new MeritThaumaturgyProvider(this);
-    HealthModelFetcher.fetch(hero).addHealthLevelProvider(healthProvider);
-    HealthModelFetcher.fetch(hero).addPainToleranceProvider(healthProvider);
-    HealthModelFetcher.fetch(hero).addHealingTypeProvider(healthProvider);
-    EquipmentModelFetcher.fetch(hero).addUnarmedModification(unarmedProvider);
-    ThaumaturgyModelFetcher.fetch(hero).addThaumaturgyProvider(thaumaturgyProvider);
   }
   
   @Override
@@ -90,7 +76,7 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Me
   }
   
   @Override
-	protected boolean isAllowedOption(MeritOption option) {
+	public boolean isAllowedOption(MeritOption option) {
 		return option.isHeroEligible(hero) && (option.allowsRepurchase() || !knowsTrait(option));
 	}
   

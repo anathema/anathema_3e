@@ -1,12 +1,9 @@
 dependencies {
     compile project(':Hero')
     compile project(':Hero_Experience')
-    compile project(':Hero_Health')
     compile project(':Hero_Points')
     compile project(':Hero_Spiritual')
     compile project(':Hero_Sheet')
-    compile project(':Hero_Thaumaturgy')
-	compile project(':Hero_Equipment')
 	compile project(':Library_CategorizedAllocation')
     testCompile testDependencies
     testCompile project(path: ':Library', configuration: 'tests')

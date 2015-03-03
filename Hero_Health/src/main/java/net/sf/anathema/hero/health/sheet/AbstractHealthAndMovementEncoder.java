@@ -98,17 +98,11 @@ public abstract class AbstractHealthAndMovementEncoder implements ContentEncoder
     healthText.add(newLine);
     healthText.add(graphics.createSymbolChunk());
     healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.HealthHeader"), commentTitleFont));
-    healthText.add(seperator);
+    healthText.add(newLine);
     healthText.add(new Chunk(getHealthText(model), commentFont));
     healthText.add(newLine);
     healthText.add(graphics.createSymbolChunk());
-    healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.DeathHeader"), commentTitleFont));
-    healthText.add(seperator);
-    healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.DeathText"), commentFont));
-    healthText.add(newLine);
-    healthText.add(graphics.createSymbolChunk());
     healthText.add(new Chunk(resources.getString("Sheet.Health.Comment.MarkDamageHeader"), commentTitleFont));
-    healthText.add(seperator);
     return healthText;
   }
   

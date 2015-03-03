@@ -1,41 +1,31 @@
 package net.sf.anathema.hero.merits.advance;
 
-import net.sf.anathema.hero.merits.model.Merit;
-import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.advance.calculator.MeritsBonusPointCalculator;
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class MeritCreationModel extends AbstractSpendingModel {
 
-	private final MeritsModel model;
-	private final MeritCreationData creation;
-	
-	public MeritCreationModel(String id, MeritsModel merits, MeritCreationData creation) {
-		super(id, id);
-		this.model = merits;
-		this.creation = creation;
-	}
+  private final MeritCreationData creation;
+  private final MeritsBonusPointCalculator calculator;
 
-	@Override
-	public int getSpentBonusPoints() {
-		int totalMeritDots = 0;
-		for (Merit merit : model.getEntries()) {
-			totalMeritDots += merit.getCurrentValue();
-		}
-		return creation.getBonusPointCost() * 
-				Math.max(totalMeritDots - creation.getFreebiePoints(), 0);
-	}
+  public MeritCreationModel(String id, MeritCreationData creation, MeritsBonusPointCalculator calculator) {
+    super(id, id);
+    this.creation = creation;
+    this.calculator = calculator;
+  }
 
-	@Override
-	public int getAllotment() {
-		return creation.getFreebiePoints();
-	}
+  @Override
+  public int getAllotment() {
+    return creation.getFreebiePoints();
+  }
 
-	@Override
-	public Integer getValue() {
-		int totalMeritDots = 0;
-		for (Merit merit : model.getEntries()) {
-			totalMeritDots += merit.getCurrentValue();
-		}
-		return Math.min(creation.getFreebiePoints(), totalMeritDots);
-	}
+  @Override
+  public int getSpentBonusPoints() {
+    return calculator.getBonusPointCost();
+  }
+
+  @Override
+  public Integer getValue() {
+    return calculator.getPointsCoveredByFreebies();
+  }
 }

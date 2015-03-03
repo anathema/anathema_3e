@@ -4,6 +4,7 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.DummyHeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelImpl;
+import net.sf.anathema.hero.merits.model.MeritsModelImpl;
 import net.sf.anathema.hero.thaumaturgy.advance.ThaumaturgyExperienceModel;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModel;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelImpl;
@@ -23,24 +24,19 @@ import static org.junit.Assert.assertThat;
 
 public class ThaumaturgyTests {
 	
-	DummyHero hero;
-	ThaumaturgyModel model;
-	PointsModel points;
+	DummyHero hero = new DummyHero();
+	ThaumaturgyModel model = new ThaumaturgyModelImpl();
+	PointsModel points = new PointModelImpl(new PointsTemplate());
 	ExperienceModel xp;
 	
 	
 	@Before
   public void setUp() throws Exception {
-    hero = new DummyHero();
-    
-    model = new ThaumaturgyModelImpl();
-    hero.addModel(model);
-    
-    points = new PointModelImpl(new PointsTemplate());
-    hero.addModel(points);
-    
     DummyTraitModel traits = new DummyTraitModel();
     hero.addModel(traits);
+    hero.addModel(model);
+    hero.addModel(points);
+    hero.addModel(new MeritsModelImpl());
     
     DummyHeroEnvironment dummyEnvironment = new DummyHeroEnvironment();
     DummyRitualProvider provider = new DummyRitualProvider();

@@ -1,9 +1,7 @@
 package net.sf.anathema;
 
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import cucumber.runtime.java.guice.ScenarioScoped;
-
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
@@ -13,8 +11,9 @@ import net.sf.anathema.points.model.overview.IValueModel;
 
 import com.google.inject.Inject;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import cucumber.runtime.java.guice.ScenarioScoped;
 
 @ScenarioScoped
 public class MeritSteps {
@@ -52,26 +51,24 @@ public class MeritSteps {
 
   @Then("^she can earn the (.*) merit at (\\d+)$")
   public void she_can_earn_the_merit_at(String id, int rank) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	MeritOption matchingOption = model.getCurrentEntryOptionsFromAllCategories().stream()
-  			.filter(option -> option.getId().equals(id)).findAny().get();
-  	boolean canEarn = matchingOption != null && matchingOption.isLegalValue(rank);
+    MeritOption matchingOption = findMerit(id);
+  	boolean canEarn = matchingOption.isLegalValue(rank);
     assertThat(canEarn, is(true));
   }
 
   @Then("^she can earn the (.*) merit$")
   public void she_can_earn_the_merit(String id) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getCurrentEntryOptionsFromAllCategories().stream()
-  			.filter(option -> option.getId().equals(id)).count() != 0;
+    MeritOption matchingOption = findMerit(id);
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    boolean canEarn = model.isAllowedOption(matchingOption);
     assertThat(canEarn, is(true));
   }
 
   @Then("^she can not earn the (.*) merit$")
   public void she_can_not_earn_the_merit(String id) throws Throwable {
-  	MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
-  	boolean canEarn = model.getCurrentEntryOptionsFromAllCategories().stream()
-  			.filter(option -> option.getId().equals(id)).count() != 0;
+    MeritOption matchingOption = findMerit(id);
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    boolean canEarn = model.isAllowedOption(matchingOption);
     assertThat(canEarn, is(false));
   }
 
@@ -85,6 +82,10 @@ public class MeritSteps {
     MeritOption option = model.findOptionByReference(new OptionalEntryReference(meritId));
     model.setSelectedEntryOption(option);
   }
-  
-  
+
+  private MeritOption findMerit(String id) {
+    MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
+    return model.getAllEntryOptions().stream()
+            .filter(option -> option.getId().equals(id)).findAny().get();
+  }
 }

@@ -2,12 +2,12 @@ package net.sf.anathema.hero.health.model;
 
 import net.sf.anathema.charm.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.health.model.merit.MeritHealthProvider;
 import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
@@ -33,9 +33,13 @@ public class HealthModelImpl implements HealthModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    addHealthLevelProvider(new DyingStaminaHealthLevelProvider(TraitModelFetcher.fetch(hero)));
     addHealingTypeProvider(new DefaultHealingTypeProvider(hero));
     healingTimes = new HealingDataTable(environment.getResources());
+    MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
+    MeritHealthProvider healthProvider = new MeritHealthProvider(meritsModel);
+    addHealthLevelProvider(healthProvider);
+    addPainToleranceProvider(healthProvider);
+    addHealingTypeProvider(healthProvider);
   }
 
   @Override
@@ -92,21 +96,5 @@ public class HealthModelImpl implements HealthModel {
   		usesExaltedHealing |= provider.usesExaltedHealing();
   	}
   	return usesExaltedHealing;
-  }
-
-  private static class DyingStaminaHealthLevelProvider implements IHealthLevelProvider {
-    private final TraitMap traits;
-
-    public DyingStaminaHealthLevelProvider(TraitMap config) {
-      this.traits = config;
-    }
-
-    @Override
-    public int getHealthLevelTypeCount(HealthLevelType type) {
-      if (type == HealthLevelType.DYING) {
-        return traits.getTrait(AttributeType.Stamina).getCurrentValue();
-      }
-      return 0;
-    }
   }
 }

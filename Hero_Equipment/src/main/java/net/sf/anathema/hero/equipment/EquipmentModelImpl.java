@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.equipment;
 
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 import net.sf.anathema.equipment.character.IEquipmentItem;
 import net.sf.anathema.equipment.character.UnarmedModificationProvider;
 import net.sf.anathema.equipment.database.IEquipmentTemplateProvider;
@@ -20,6 +22,9 @@ import net.sf.anathema.hero.equipment.model.natural.UnarmedModificationProviderC
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
+import net.sf.anathema.hero.equipment.model.merits.MeritUnarmedModificationProvider;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
@@ -31,11 +36,7 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.CollectionListener;
 import net.sf.anathema.library.identifier.Identifier;
-
 import org.jmock.example.announcer.Announcer;
-
-import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Table;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -70,6 +71,9 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     createNaturalWeapons();
     new SpecialtiesCollectionImpl(hero).addSpecialtyListChangeListener(new SpecialtyPrintRemover(dataProvider));
     EssencePoolModelFetcher.fetch(hero).addEssencePoolModifier(this);
+    MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
+    MeritUnarmedModificationProvider unarmedProvider = new MeritUnarmedModificationProvider(meritsModel);
+    addUnarmedModification(unarmedProvider);
   }
   
   public void addUnarmedModification(UnarmedModificationProvider provider) {

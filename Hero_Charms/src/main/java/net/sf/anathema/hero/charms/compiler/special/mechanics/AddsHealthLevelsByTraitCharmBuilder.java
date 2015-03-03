@@ -24,7 +24,6 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
   private static final String TAG_TWO_HEALTH = "twoHealthLevel";
   private static final String TAG_FOUR_HEALTH = "fourHealthLevel";
   private static final String TAG_INCAP_HEALTH = "incapHealthLevel";
-  private static final String TAG_DYING_HEALTH = "dyingHealthLevel";
 
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
@@ -57,7 +56,6 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
     healthTypeByString.put(TAG_TWO_HEALTH, HealthLevelType.TWO);
     healthTypeByString.put(TAG_FOUR_HEALTH, HealthLevelType.FOUR);
     healthTypeByString.put(TAG_INCAP_HEALTH, HealthLevelType.INCAPACITATED);
-    healthTypeByString.put(TAG_DYING_HEALTH, HealthLevelType.DYING);
     return healthTypeByString;
   }
 

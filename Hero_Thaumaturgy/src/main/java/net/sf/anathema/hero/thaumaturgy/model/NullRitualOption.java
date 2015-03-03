@@ -29,13 +29,11 @@ public class NullRitualOption implements ThaumaturgyRitual {
 
 	@Override
 	public String getId() {
-		return null;
+		return "";
 	}
 
 	@Override
 	public Collection<String> getSuggestions() {
 		return new ArrayList<>();
 	}
-
-
 }

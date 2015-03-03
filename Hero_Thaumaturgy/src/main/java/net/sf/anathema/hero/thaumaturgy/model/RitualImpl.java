@@ -27,6 +27,7 @@ public class RitualImpl extends AbstractOptionalPropertyOption implements Thauma
   @Override
   public void accept(ITraitTypeVisitor visitor) {
     // TODO: Should we have a visitor?
+    // No. 
   }
 
   @Override
@@ -64,7 +65,8 @@ public class RitualImpl extends AbstractOptionalPropertyOption implements Thauma
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof ThaumaturgyRitual) {
-      return ((ThaumaturgyRitual) obj).getId().equals(getId());
+      String id = ((ThaumaturgyRitual) obj).getId();
+      return id.equals(getId());
     }
     return false;
   }

@@ -8,13 +8,14 @@ import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.health.template.HealthTemplateLoader;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
+import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.traits.model.TraitModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class HealthModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public HealthModelFactory() {
-    super(HealthModel.ID, AbilitiesModel.ID, AttributeModel.ID, TraitModel.ID, ExperienceModel.ID);
+    super(HealthModel.ID, AbilitiesModel.ID, AttributeModel.ID, TraitModel.ID, ExperienceModel.ID, MeritsModel.ID);
   }
 
   @SuppressWarnings("unchecked")

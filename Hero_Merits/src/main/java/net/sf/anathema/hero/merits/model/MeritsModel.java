@@ -21,5 +21,7 @@ public interface MeritsModel extends RemovableEntryModel<Merit>, HeroModel,
 
   boolean isEntryAllowed();
 
+  boolean isAllowedOption(MeritOption option);
+
   void addSuggestions(OptionalEntryReference merit, Collection<String> suggestions);
 }

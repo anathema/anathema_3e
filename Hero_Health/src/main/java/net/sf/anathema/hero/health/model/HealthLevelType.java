@@ -8,9 +8,8 @@ public enum HealthLevelType implements Identifier {
   ONE("1", -1),
   TWO("2", -2),
   FOUR("4", -4),
-  INCAPACITATED("Incapacitated", Integer.MIN_VALUE),
-  DYING("Dying", Integer.MIN_VALUE);
-
+  INCAPACITATED("Incapacitated", Integer.MIN_VALUE);
+  
   private final String id;
   private final int value;
 
