@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.magic.model.charms.mechanics;
 
+import net.sf.anathema.hero.magic.model.MagicModel;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
@@ -65,6 +66,7 @@ public class AddsHealthLevelsByTraitTest {
     HealthTemplate healthTemplate = new HealthTemplate();
     healthTemplate.levels = Arrays.asList(HealthLevelType.ZERO,
             HealthLevelType.ONE, HealthLevelType.ONE, HealthLevelType.TWO, HealthLevelType.TWO);
+    hero.addModel(new MagicModel());
     hero.addModel(new HealthModelImpl(healthTemplate));
     hero.addModel(new PointModelImpl(new PointsTemplate()));
     hero.addModel(new MagicPointsModel(new MagicPointsTemplate()));
