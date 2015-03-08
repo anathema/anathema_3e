@@ -6,6 +6,9 @@ import net.sf.anathema.hero.magic.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPartFactory;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPrintSupport;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPrinter;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
@@ -17,7 +20,7 @@ import net.sf.anathema.library.resources.Resources;
 import static java.text.MessageFormat.format;
 
 @Weight(weight = 20)
-public class SpellPrinter implements MagicPrinter{
+public class SpellPrinter implements MagicPrinter {
   private final HeroEnvironment environment;
   private final Resources resources;
   private final MagicPartFactory partFactory;

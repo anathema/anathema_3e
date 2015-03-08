@@ -1,12 +1,12 @@
-package net.sf.anathema.hero.charms.sheet.content;
+package net.sf.anathema.hero.magic.sheet.content;
 
-import net.sf.anathema.hero.charms.sheet.content.mnemonic.MagicMnemonic;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicCostStatsGroup;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicDetailsStatsGroup;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicDurationStatsGroup;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicNameStatsGroup;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicSourceStatsGroup;
-import net.sf.anathema.hero.charms.sheet.content.stats.MagicTypeStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.mnemonic.MagicMnemonic;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicCostStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicDetailsStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicDurationStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicNameStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicSourceStatsGroup;
+import net.sf.anathema.hero.magic.sheet.content.stats.MagicTypeStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.stats.IStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;

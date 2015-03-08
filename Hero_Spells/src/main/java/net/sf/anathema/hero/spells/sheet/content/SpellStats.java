@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.sheet.content;
 
 import net.sf.anathema.hero.magic.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.stats.AbstractCharmStats;
 import net.sf.anathema.hero.charms.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.hero.spells.data.Spell;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.sheet.magicreport;
+package net.sf.anathema.hero.magic.sheet.magicreport;
 
 import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.magic.display.MagicDisplayLabeler;

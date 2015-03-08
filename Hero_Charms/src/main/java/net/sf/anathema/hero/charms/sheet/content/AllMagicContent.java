@@ -2,7 +2,9 @@ package net.sf.anathema.hero.charms.sheet.content;
 
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.sheet.content.mnemonic.AllMagicMnemonic;
-import net.sf.anathema.hero.charms.sheet.content.mnemonic.MagicMnemonic;
+import net.sf.anathema.hero.magic.sheet.content.AbstractMagicContent;
+import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.mnemonic.MagicMnemonic;
 import net.sf.anathema.hero.sheet.pdf.session.PageBreakChecker;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.library.resources.Resources;

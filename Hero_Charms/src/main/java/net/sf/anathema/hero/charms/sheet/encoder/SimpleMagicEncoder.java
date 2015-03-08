@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.charms.sheet.encoder;
 
 import net.sf.anathema.hero.charms.sheet.content.AllMagicContent;
+import net.sf.anathema.hero.magic.sheet.encoder.MagicTableEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.AbstractContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;

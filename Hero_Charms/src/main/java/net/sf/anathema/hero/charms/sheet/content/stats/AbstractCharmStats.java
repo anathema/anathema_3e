@@ -5,7 +5,7 @@ import net.sf.anathema.magic.data.CharmType;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.magic.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 

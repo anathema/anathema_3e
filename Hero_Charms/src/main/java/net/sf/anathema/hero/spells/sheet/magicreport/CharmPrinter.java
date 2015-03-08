@@ -9,13 +9,16 @@ import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPartFactory;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPrintSupport;
+import net.sf.anathema.hero.magic.sheet.magicreport.MagicPrinter;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Charm;
 
 @Weight(weight = 10)
-public class CharmPrinter implements MagicPrinter{
+public class CharmPrinter implements MagicPrinter {
   private final Resources resources;
   private final MagicPartFactory partFactory;
   private final MagicPrintSupport magicPrintSupport;

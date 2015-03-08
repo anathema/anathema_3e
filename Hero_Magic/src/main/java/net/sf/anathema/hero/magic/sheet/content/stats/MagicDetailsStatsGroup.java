@@ -1,6 +1,6 @@
-package net.sf.anathema.hero.charms.sheet.content.stats;
+package net.sf.anathema.hero.magic.sheet.content.stats;
 
-import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.sheet.pdf.content.stats.AbstractTextStatsGroup;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.library.resources.Resources;

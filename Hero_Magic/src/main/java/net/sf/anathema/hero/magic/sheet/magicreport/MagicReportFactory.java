@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.sheet.magicreport;
+package net.sf.anathema.hero.magic.sheet.magicreport;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.environment.report.RegisteredReportFactory;

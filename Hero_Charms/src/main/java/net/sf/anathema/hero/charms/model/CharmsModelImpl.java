@@ -32,7 +32,7 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.ISpecialCharmManager;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmManager;
-import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.charms.sheet.content.PrintCharmsProvider;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
