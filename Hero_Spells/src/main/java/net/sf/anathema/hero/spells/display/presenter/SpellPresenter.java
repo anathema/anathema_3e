@@ -1,10 +1,7 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.hero.magic.display.magic.MagicLearnView;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
+import net.sf.anathema.hero.magic.display.magic.MagicLearnView;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
@@ -21,17 +18,17 @@ import java.util.List;
 public class SpellPresenter {
 
   private final SpellsModel spellConfiguration;
-  private final CharmsModel charmsModel;
+  private final ButtonUpdateTrigger buttonUpdateTrigger;
   private final CombinedSpellAndMagicProperties properties;
   private final CircleModel circleModel;
   private final Resources resources;
   private final SpellView view;
 
   public SpellPresenter(CircleModel circleModel, Resources resources, SpellView view,
-                        MagicDescriptionProvider magicDescriptionProvider, ExperienceModel experienceModel, SpellsModel spellsModel, CharmsModel charmsModel) {
+                        MagicDescriptionProvider magicDescriptionProvider, ExperienceModel experienceModel, SpellsModel spellsModel, ButtonUpdateTrigger buttonUpdateTrigger) {
     this.circleModel = circleModel;
     this.spellConfiguration = spellsModel;
-    this.charmsModel = charmsModel;
+    this.buttonUpdateTrigger = buttonUpdateTrigger;
     this.properties = new CombinedSpellAndMagicProperties(resources, magicDescriptionProvider, spellConfiguration, experienceModel);
     this.resources = resources;
     this.view = view;
@@ -69,19 +66,7 @@ public class SpellPresenter {
     spellConfiguration.addChangeListener(() -> refreshSpellListsInView(magicLearnView));
     refreshSpellListsInView(magicLearnView);
     updateCircleInView(circleModel.getSelectedCircle(), view);
-    if (charmsModel != null) {
-    	charmsModel.addCharmLearnListener(new CharmLearnAdapter() {
-    		@Override
-    		public void charmLearned(Charm charm) {
-    			learnPresenter.updateButtons();
-    		}
-
-    		@Override
-    		public void charmForgotten(Charm charm) {
-    			learnPresenter.updateButtons();
-    		}
-    	});
-    }
+    buttonUpdateTrigger.addChangeListener(learnPresenter::updateButtons);
   }
 
   private void updateCircleInView(CircleType newValue, SpellView view) {

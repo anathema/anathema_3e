@@ -1,14 +1,12 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.view.SectionView;
+import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
 import net.sf.anathema.hero.spells.model.CircleModel;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.spells.model.SpellsModelFetcher;
@@ -32,8 +30,8 @@ public class SpellInitializer implements HeroModelInitializer {
     MagicDescriptionProvider magicDescriptionProvider = MagicDescriptionProviderExtractor.CreateFor(environment);
     ExperienceModel experienceModel = ExperienceModelFetcher.fetch(hero);
     SpellsModel spellsModel = SpellsModelFetcher.fetch(hero);
-    CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
-    new SpellPresenter(circleModel, environment.getResources(), view, magicDescriptionProvider, experienceModel, spellsModel, charmsModel).initPresentation();
+    ButtonUpdateTrigger trigger = new CharmButtonUpdateTrigger(hero);
+    new SpellPresenter(circleModel, environment.getResources(), view, magicDescriptionProvider, experienceModel, spellsModel, trigger).initPresentation();
   }
 
   @Override
