@@ -15,9 +15,6 @@ public class MagicDisplayLabeler {
   }
 
   public boolean supportsMagic(Magic magic) {
-    if (magic == null) {
-      return false;
-    }
-    return resources.supportsKey(magic.getName().text);
+    return magic != null && resources.supportsKey(magic.getName().text);
   }
 }

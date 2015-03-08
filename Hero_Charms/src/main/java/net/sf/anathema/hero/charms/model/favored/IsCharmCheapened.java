@@ -1,12 +1,10 @@
 package net.sf.anathema.hero.charms.model.favored;
 
-import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.Magic;
 
 public class IsCharmCheapened implements CheapenedChecker {
@@ -34,9 +32,5 @@ public class IsCharmCheapened implements CheapenedChecker {
     	return AbilitiesModelFetcher.fetch(hero).getState(traitType).isCheapened();
     }
     return false;
-  }
-
-  private Trait getTrait(TraitType traitType) {
-    return TraitModelFetcher.fetch(hero).getTrait(traitType);
   }
 }

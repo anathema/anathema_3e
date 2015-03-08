@@ -61,8 +61,8 @@ public class AddsHealthLevelsByTraitTest {
     hero = new CharmHeroObjectMother().createModelContextWithEssence2(strategy);
     
     HealthTemplate healthTemplate = new HealthTemplate();
-    healthTemplate.levels = Arrays.asList(new HealthLevelType[] { HealthLevelType.ZERO,
-      	HealthLevelType.ONE, HealthLevelType.ONE, HealthLevelType.TWO, HealthLevelType.TWO});
+    healthTemplate.levels = Arrays.asList(HealthLevelType.ZERO,
+            HealthLevelType.ONE, HealthLevelType.ONE, HealthLevelType.TWO, HealthLevelType.TWO);
     hero.addModel(new HealthModelImpl(healthTemplate));
     hero.addModel(new MagicPointsModel(new MagicPointsTemplate()));
     

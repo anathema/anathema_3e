@@ -25,9 +25,7 @@ public class CharmTypeContributor implements ICharmTypeStringBuilder, MagicToolt
 
   @Override
   public String createTypeString(CharmType charmType) {
-    final StringBuilder builder = new StringBuilder();
-    builder.append(getResources().getString(charmType.getId()));
-    return builder.toString();
+    return getResources().getString(charmType.getId());
   }
 
   protected Resources getResources() {

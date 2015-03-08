@@ -5,7 +5,6 @@ import java.util.List;
 
 
 public class EvocationArtifactTemplate {
-	public enum EvocationTier {  };
 	
 	public String category;
 	public String tree;

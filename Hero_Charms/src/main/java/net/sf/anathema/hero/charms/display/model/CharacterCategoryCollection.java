@@ -14,7 +14,6 @@ public class CharacterCategoryCollection implements CategoryCollection {
 
   @Override
   public List<CategoryReference> getCurrentCategories() {
-    List<CategoryReference> categories = model.getValidCategoriesForHero();
-    return categories;
+    return model.getValidCategoriesForHero();
   }
 }

@@ -51,15 +51,11 @@ public class CharmDisplayModel {
 
   public void toggleLearned(CharmName charmId) {
     CharmsModel charms = getCharmModel();
-    LearningModel charmGroup = getCharmGroupByCharmId(charmId);
+    LearningModel learningModel = getCharmModel().getLearningModel();
     Charm charmToLearn = charms.getCharmById(charmId);
     if (!charmToLearn.hasAttribute(CommonMagicAttributes.NO_MANUAL_CONTROL)) {
-    	charmGroup.toggleLearned(charmToLearn);
+    	learningModel.toggleLearned(charmToLearn);
     }
-  }
-
-  private LearningModel getCharmGroupByCharmId(CharmName charmId) {
-    return getCharmModel().getLearningModel();
   }
 
   public MagicDescriptionProvider getMagicDescriptionProvider() {

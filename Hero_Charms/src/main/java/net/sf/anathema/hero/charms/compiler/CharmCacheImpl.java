@@ -101,6 +101,6 @@ public class CharmCacheImpl implements CharmCache {
 
 	@Override
 	public List<Charm> getCharmsWithSpecialMechanics() {
-		return mechanics.keySet().stream().collect(Collectors.mapping(key -> getCharmById(key), Collectors.toList()));
+		return mechanics.keySet().stream().collect(Collectors.mapping(this::getCharmById, Collectors.toList()));
 	}
 }

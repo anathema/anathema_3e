@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("UnusedDeclaration")
+//TODO (Urs): What's up with all the unused code?
 public class RepurchaseCharmBuilder implements CharmSpecialLearningBuilder {
 
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();

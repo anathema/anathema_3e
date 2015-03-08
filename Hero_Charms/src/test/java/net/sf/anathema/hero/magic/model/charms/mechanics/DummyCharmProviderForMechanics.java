@@ -17,6 +17,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.mapping;
+import static java.util.stream.Collectors.toList;
+
 public class DummyCharmProviderForMechanics implements CharmCache {
 
 	private Map<CharmName, Charm> charmSet = new HashMap<>();
@@ -29,7 +32,7 @@ public class DummyCharmProviderForMechanics implements CharmCache {
 	
 	@Override
 	public List<CategoryReference> getAllCategories() {
-		List<CategoryReference> list = new ArrayList<CategoryReference>();
+		List<CategoryReference> list = new ArrayList<>();
 		list.add(new CategoryReference("AnyCategory"));
 		return list;
 	}
@@ -44,12 +47,12 @@ public class DummyCharmProviderForMechanics implements CharmCache {
 	@Override
 	public List<CharmSpecialLearning> getSpecialLearningCharms(
 			CategoryReference category) {
-		return new ArrayList<CharmSpecialLearning>();
+		return new ArrayList<>();
 	}
 
 	@Override
 	public Collection<Charm> getCharmsWithSpecialMechanics() {
-		return mechanics.keySet().stream().map(key -> charmSet.get(key)).collect(Collectors.toList());
+		return mechanics.keySet().stream().collect(mapping(charmSet::get, toList()));
 	}
 
 	@Override
