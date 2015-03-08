@@ -1,16 +1,13 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
+import com.google.common.collect.Lists;
+import net.sf.anathema.hero.magic.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.hero.magic.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
-import net.sf.anathema.hero.charms.sheet.content.stats.AbstractCharmStats;
-import net.sf.anathema.hero.charms.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.resources.Resources;
-
 import org.apache.commons.lang3.builder.HashCodeBuilder;
-
-import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -66,7 +63,7 @@ public class SpellStats extends AbstractMagicStats<Spell> {
   @SuppressWarnings("NullableProblems")
   @Override
   public int compareTo(IMagicStats stats) {
-    if (stats instanceof AbstractCharmStats) {
+    if (!(stats instanceof SpellStats)) {
       return 1;
     }
     SpellStats spell = (SpellStats) stats;

@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.sheet.content.stats;
+package net.sf.anathema.hero.magic.sheet.content.stats;
 
 import net.sf.anathema.hero.magic.display.tooltip.CostStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.HealthCostStringBuilder;
