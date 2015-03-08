@@ -1,17 +1,8 @@
 {
   favoringTrait: Occult,
   charmInitiations: {
-     Terrestrial: {
-     	type: charm,
-     	charmId: Solar.TerrestrialCircleSorcery
-     },
-     Celestial: {
-     	type: charm,
-     	charmId: Solar.CelestialCircleSorcery
-     },
-     Solar: {
-     	type: charm,
-     	charmId: Solar.SolarCircleSorcery
-     }
+     Terrestrial: Solar.TerrestrialCircleSorcery,     
+     Celestial: Solar.CelestialCircleSorcery,
+     Solar: Solar.SolarCircleSorcery
   }
 }

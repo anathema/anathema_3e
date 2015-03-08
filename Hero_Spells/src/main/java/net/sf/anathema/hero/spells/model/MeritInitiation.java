@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.spells.data.CircleType;
-import net.sf.anathema.hero.spells.template.CircleInitiationTemplate;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
+import net.sf.anathema.library.model.OptionalEntryReference;
 
 import java.util.Collection;
 
@@ -19,8 +20,12 @@ public class MeritInitiation implements SorceryInitiation {
 
   @Override
   public boolean isInitiated(CircleType circle) {
-    CircleInitiationTemplate initiation = template.meritInitiations.get(circle);
-    return initiation != null && initiation.isInitiated(hero);
+    String meritId = template.meritInitiations.get(circle);
+    if (meritId == null){
+      return false;
+    }
+    OptionalEntryReference reference = new OptionalEntryReference(meritId);
+    return MeritsModelFetcher.fetch(hero).hasMeritsMatchingReference(reference);
   }
 
   @Override

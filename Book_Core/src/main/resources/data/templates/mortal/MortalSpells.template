@@ -1,9 +1,6 @@
 {
   favoringTrait: Occult,
   meritInitiations: {
-     Terrestrial: {
-     	type: merit,
-     	meritId: "Sorcerous Initiation"
-     }
+     Terrestrial: "Sorcerous Initiation"
   }
 }

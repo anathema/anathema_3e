@@ -1,9 +1,10 @@
 package net.sf.anathema.hero.spells.model;
 
+import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.CircleType;
-import net.sf.anathema.hero.spells.template.CircleInitiationTemplate;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
+import net.sf.anathema.magic.data.reference.CharmName;
 
 import java.util.Collection;
 
@@ -18,8 +19,12 @@ public class CharmInitiation implements SorceryInitiation {
   }
 
   public boolean isInitiated(CircleType circle) {
-    CircleInitiationTemplate initiation = template.charmInitiations.get(circle);
-    return initiation != null && initiation.isInitiated(hero);
+    String charmId = template.charmInitiations.get(circle);
+    if (charmId == null) {
+      return false;
+    }
+    CharmName charmName = new CharmName(charmId);
+    return CharmsModelFetcher.fetch(hero).isLearned(charmName);
   }
 
   @Override

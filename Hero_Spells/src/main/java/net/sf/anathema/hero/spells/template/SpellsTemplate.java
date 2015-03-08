@@ -7,7 +7,7 @@ import java.util.TreeMap;
 
 public class SpellsTemplate {
 
-  public Map<CircleType, CharmLearnedInitiationTemplate> charmInitiations = new TreeMap<>();
-  public Map<CircleType, MeritLearnedInitiationTemplate> meritInitiations = new TreeMap<>();
+  public Map<CircleType, String> charmInitiations = new TreeMap<>();
+  public Map<CircleType, String> meritInitiations = new TreeMap<>();
   public String favoringTrait;
 }
