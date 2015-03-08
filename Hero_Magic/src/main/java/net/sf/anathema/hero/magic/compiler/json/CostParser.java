@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.compiler.json;
+package net.sf.anathema.hero.magic.compiler.json;
 
 import net.sf.anathema.magic.data.cost.Cost;
 import net.sf.anathema.magic.data.cost.CostImpl;
