@@ -60,10 +60,10 @@ public class SpellsModelImpl implements SpellsModel {
     CharmsModel charms = CharmsModelFetcher.fetch(hero);
     if (charms != null) {
       charms.addPrintProvider(new PrintSpellsProvider(hero));
-      MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
-      pointsModel.registerMagicLearner(new SpellsLearner(this));
-      pointsModel.addCheapenedChecker(new IsFavoredSpell(hero));
     }
+    MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
+    pointsModel.registerMagicLearner(new SpellsLearner(this));
+    pointsModel.addCheapenedChecker(new IsFavoredSpell(hero));
     initializeSpellsByCircle(environment);
     initializeExperience(hero);
   }
