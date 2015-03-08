@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
-import net.sf.anathema.hero.charms.model.PrintMagicProvider;
+import net.sf.anathema.hero.magic.model.PrintMagicProvider;
 import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;

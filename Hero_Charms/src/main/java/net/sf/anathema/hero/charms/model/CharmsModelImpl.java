@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.hero.magic.model.PrintMagicProvider;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.CharmAttributeList;
 import net.sf.anathema.magic.data.prerequisite.CharmPrerequisite;
