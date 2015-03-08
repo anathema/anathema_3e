@@ -40,7 +40,7 @@ public class SpellsOnlyContent extends AbstractMagicContent {
 
   @Override
   public String getHeaderKey() {
-    return "Charms";
+    return "Spells";
   }
 }
 
