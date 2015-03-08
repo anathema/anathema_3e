@@ -21,8 +21,6 @@ public interface EncoderIds {
   String HEALTH_AND_MOVEMENT = "HealthAndMovement";
   String MUTATIONS = "Mutations";
   String CHARMS_AND_SORCERY = "CharmsAndSorcery";
-  String CHARMS_ONLY = "CharmsOnly";
-  String SPELLS_ONLY = "SpellsOnly";
   String NOTES = "Notes";
   String PANOPLY = "Panoply";
   String PERSONAL_INFO = "PersonalInfo";

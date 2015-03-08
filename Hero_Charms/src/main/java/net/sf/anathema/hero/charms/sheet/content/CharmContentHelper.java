@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.sheet.content;
 
-import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
-import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.Charms;
@@ -10,7 +8,7 @@ import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmS
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffect;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.magic.data.Charm;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,12 +20,6 @@ public class CharmContentHelper {
 
   public CharmContentHelper(Hero hero) {
     this.hero = hero;
-  }
-
-  public static List<IMagicStats> collectPrintCharms(ReportSession session) {
-    List<IMagicStats> printStats = new ArrayList<>();
-    new PrintCharmsProvider(session.getHero()).addPrintMagic(printStats);
-    return printStats;
   }
 
   public boolean isMultipleEffectCharm(Charm charm) {
