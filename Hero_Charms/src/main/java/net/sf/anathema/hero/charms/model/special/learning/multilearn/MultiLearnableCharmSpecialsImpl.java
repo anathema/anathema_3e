@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.learning.multilearn;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.CharmTraitRequirementCalculator;
 import net.sf.anathema.hero.charms.model.CharmTraitRequirementChecker;

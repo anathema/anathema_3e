@@ -1,6 +1,7 @@
 dependencies {
   compile project(':Platform')
   compile project(':Hero')
+  compile project(':Hero_Magic')
   compile project(':Hero_Charms')
   compile project(':Hero_Merits')
   compile project(':Hero_Points')

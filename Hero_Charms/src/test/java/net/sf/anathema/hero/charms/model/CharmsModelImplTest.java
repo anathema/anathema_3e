@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
-import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 

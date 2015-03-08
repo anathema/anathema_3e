@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.PrerequisiteProcessorAdapter;
 
 public class LinkParentsToChild extends PrerequisiteProcessorAdapter {
   private final CharmImpl child;

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;

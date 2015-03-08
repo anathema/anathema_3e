@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.data.reference.TreeName;
-import net.sf.anathema.charm.template.CharmListTemplate;
-import net.sf.anathema.charm.template.CharmTemplate;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CharmName;
+import net.sf.anathema.magic.data.reference.TreeName;
+import net.sf.anathema.magic.template.CharmListTemplate;
+import net.sf.anathema.magic.template.CharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 
 import org.junit.Before;

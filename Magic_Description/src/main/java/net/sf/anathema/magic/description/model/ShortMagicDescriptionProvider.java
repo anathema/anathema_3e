@@ -1,6 +1,6 @@
 package net.sf.anathema.magic.description.model;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
 

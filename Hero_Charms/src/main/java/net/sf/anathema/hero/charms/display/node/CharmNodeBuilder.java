@@ -1,10 +1,10 @@
 package net.sf.anathema.hero.charms.display.node;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessor;
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.reference.CategoryReference;
-import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.PrerequisiteProcessor;
+import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.magic.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.reference.TreeReference;
 import net.sf.anathema.graph.nodes.IIdentifiedRegularNode;
 import net.sf.anathema.hero.charms.display.view.NodeIds;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-import static net.sf.anathema.charm.data.prerequisite.ProcessProcessor.process;
+import static net.sf.anathema.magic.data.prerequisite.ProcessProcessor.process;
 import static net.sf.anathema.graph.nodes.NodeFactory.createChildlessNode;
 
 // todo (sandra) entstatifizieren

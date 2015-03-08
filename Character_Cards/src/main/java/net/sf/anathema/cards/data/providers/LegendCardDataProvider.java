@@ -4,7 +4,7 @@ import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.data.LegendCardData;
 import net.sf.anathema.cards.data.LegendEntry;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.Charms;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;

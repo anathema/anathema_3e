@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.mechanics;
 
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.values.Value;
 import net.sf.anathema.hero.thaumaturgy.model.ThaumaturgyModelFetcher;

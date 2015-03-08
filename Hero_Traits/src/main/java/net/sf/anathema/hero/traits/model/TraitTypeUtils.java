@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;

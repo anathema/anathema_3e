@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.learn;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 
 import java.util.ArrayList;
 import java.util.Collection;

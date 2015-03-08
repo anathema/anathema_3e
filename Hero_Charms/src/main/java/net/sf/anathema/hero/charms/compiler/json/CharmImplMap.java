@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.template.prerequisite.CharmMap;
+import net.sf.anathema.magic.data.reference.CharmName;
+import net.sf.anathema.magic.template.prerequisite.CharmMap;
 
 import java.util.HashMap;
 import java.util.Map;

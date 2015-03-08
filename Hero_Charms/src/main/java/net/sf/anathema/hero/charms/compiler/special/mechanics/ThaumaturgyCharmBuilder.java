@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.compiler.special.mechanics;
 
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.template.special.mechanics.ThaumaturgyTemplate;
+import net.sf.anathema.magic.data.reference.CharmName;
+import net.sf.anathema.magic.template.special.SpecialCharmTemplate;
+import net.sf.anathema.magic.template.special.mechanics.ThaumaturgyTemplate;
 import net.sf.anathema.hero.charms.compiler.special.CharmSpecialMechanicsBuilder;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.charms.model.special.mechanics.ThaumaturgyMechanic;

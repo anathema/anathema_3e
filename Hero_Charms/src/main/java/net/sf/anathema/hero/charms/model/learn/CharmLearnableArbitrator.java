@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.learn;
 
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 
 public interface CharmLearnableArbitrator {
 

@@ -1,16 +1,16 @@
 package net.sf.anathema.hero.charms.compiler.special.learning;
 
-import net.sf.anathema.charm.data.prerequisite.RequiredTraitType;
-import net.sf.anathema.charm.data.prerequisite.TraitPrerequisite;
-import net.sf.anathema.charm.data.reference.CharmName;
-import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
-import net.sf.anathema.charm.template.special.learning.Repurchase;
-import net.sf.anathema.charm.template.special.learning.RepurchaseVisitor;
-import net.sf.anathema.charm.template.special.learning.Requirement;
-import net.sf.anathema.charm.template.special.learning.StaticRepurchase;
-import net.sf.anathema.charm.template.special.learning.Tier;
-import net.sf.anathema.charm.template.special.learning.TierRepurchase;
-import net.sf.anathema.charm.template.special.learning.TraitRepurchase;
+import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
+import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.magic.data.reference.CharmName;
+import net.sf.anathema.magic.template.special.SpecialCharmTemplate;
+import net.sf.anathema.magic.template.special.learning.Repurchase;
+import net.sf.anathema.magic.template.special.learning.RepurchaseVisitor;
+import net.sf.anathema.magic.template.special.learning.Requirement;
+import net.sf.anathema.magic.template.special.learning.StaticRepurchase;
+import net.sf.anathema.magic.template.special.learning.Tier;
+import net.sf.anathema.magic.template.special.learning.TierRepurchase;
+import net.sf.anathema.magic.template.special.learning.TraitRepurchase;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.CharmSpecialLearningBuilder;
 import net.sf.anathema.hero.charms.compiler.special.ExistingMechanicTemplateSupplier;

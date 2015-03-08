@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.charm.data.CharmType;
+import net.sf.anathema.magic.data.CharmType;
 
 public interface ICharmTypeStringBuilder {
 

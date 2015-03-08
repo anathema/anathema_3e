@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.learning.multilearn;
 
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 

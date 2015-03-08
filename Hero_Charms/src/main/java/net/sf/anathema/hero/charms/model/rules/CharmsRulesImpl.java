@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.model.rules;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 

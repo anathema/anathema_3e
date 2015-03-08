@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.presenter;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.TreeReference;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
 import net.sf.anathema.hero.charms.display.coloring.ExternalPrerequisitesBrush;
 import net.sf.anathema.hero.charms.display.presenter.CharmGroupInformer;

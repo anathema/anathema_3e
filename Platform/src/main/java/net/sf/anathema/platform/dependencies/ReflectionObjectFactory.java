@@ -51,6 +51,13 @@ public class ReflectionObjectFactory implements ObjectFactory {
     return filteredClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
   }
 
+  @Override
+  public <T> Collection<T> instantiateAllImplementersOrdered(Class<T> interfaceClass, Object... parameter) {
+    Collection<Class<? extends T>> filteredClasses = findLegalImplementers(interfaceClass);
+    List<Class<?>> sortedClasses = sort(filteredClasses);
+    return sortedClasses.stream().map(new Instantiate<T>(parameter)).collect(Collectors.toList());
+  }
+
   private <T> Collection<Class<? extends T>> findLegalImplementers(Class<T> interfaceClass) {
     Set<Class<? extends T>> classes = interfaceFinder.findAll(interfaceClass);
     Collection<Class<? extends T>> filteredClasses = filterBlackListedClasses(classes);
@@ -72,6 +79,12 @@ public class ReflectionObjectFactory implements ObjectFactory {
     return list;
   }
 
+  private <T> List<Class<?>> sort(Collection<Class<? extends T>> filteredClasses) {
+    List<Class<?>> list = new ArrayList<>(filteredClasses);
+    Collections.sort(list, new ByWeightAnnotation());
+    return list;
+  }
+  
   private class Instantiate<T> implements Function<Class<?>, T> {
     private final Object[] parameters;
 

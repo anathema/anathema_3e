@@ -3,7 +3,7 @@ package net.sf.anathema.cards.data.providers;
 import net.sf.anathema.cards.data.CharmCardData;
 import net.sf.anathema.cards.data.ICardData;
 import net.sf.anathema.cards.layout.ICardReportResourceProvider;
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;

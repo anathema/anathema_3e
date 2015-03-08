@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.martial;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 
 public class MartialArtUtilities {
 	public static boolean isMartialArts(Charm charm) {

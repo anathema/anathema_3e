@@ -33,6 +33,11 @@ public class ConfigurableDummyObjectFactory implements ObjectFactory {
     return new ArrayList<>(objects);
   }
 
+  @Override
+  public <T> Collection<T> instantiateAllImplementersOrdered(Class<T> interfaceClass, Object... parameter) {
+    return instantiateAllImplementers(interfaceClass, parameter);
+  }
+
   public void add(Class<?> interfaceClass, Object instance) {
     objectsForInterfaces.put(interfaceClass, instance);
   }

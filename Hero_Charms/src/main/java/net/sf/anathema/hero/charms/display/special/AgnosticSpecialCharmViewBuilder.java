@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.special;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmViewContainer;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;

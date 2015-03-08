@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
-import static net.sf.anathema.charm.data.CharmAttributeList.IGNORES_SUPERNAL;
+import static net.sf.anathema.magic.data.CharmAttributeList.IGNORES_SUPERNAL;
 import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
 
 public class CharmTraitRequirementCalculator {

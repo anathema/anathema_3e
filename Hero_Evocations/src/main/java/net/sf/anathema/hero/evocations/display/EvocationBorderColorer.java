@@ -1,11 +1,11 @@
 package net.sf.anathema.hero.evocations.display;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorer;
 import net.sf.anathema.hero.charms.evocations.utilities.EvocationUtilities;
 import net.sf.anathema.library.presenter.RGBColor;
 
-import static net.sf.anathema.charm.template.evocations.EvocationTier.None;
+import static net.sf.anathema.magic.template.evocations.EvocationTier.None;
 
 
 @SuppressWarnings("UnusedDeclaration") //Automatically instantiated in CharmBorderColorEvaluator 

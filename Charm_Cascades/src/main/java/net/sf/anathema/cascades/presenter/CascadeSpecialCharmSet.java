@@ -1,6 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
-import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.view.SpecialCharmSet;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;

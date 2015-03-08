@@ -1,6 +1,6 @@
 package net.sf.anathema.cascades.presenter;
 
-import net.sf.anathema.charm.data.reference.CategoryReference;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.display.presenter.AbstractCharmGroupChangeListener;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.individual.splat.HeroType;

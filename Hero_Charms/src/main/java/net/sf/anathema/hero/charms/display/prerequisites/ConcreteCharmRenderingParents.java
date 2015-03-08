@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.display.prerequisites;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.PrerequisiteProcessorAdapter;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.PrerequisiteProcessorAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;

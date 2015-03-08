@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.history.ForgotCharmMemento;
 import net.sf.anathema.hero.charms.model.history.LearnedCharmMemento;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;

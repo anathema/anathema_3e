@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.data;
 
-import net.sf.anathema.charm.data.reference.SpellName;
+import net.sf.anathema.magic.data.reference.SpellName;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.List;

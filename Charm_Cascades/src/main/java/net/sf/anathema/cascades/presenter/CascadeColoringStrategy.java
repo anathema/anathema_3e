@@ -1,7 +1,7 @@
 package net.sf.anathema.cascades.presenter;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.coloring.CharmColoring;
 import net.sf.anathema.library.presenter.RGBColor;

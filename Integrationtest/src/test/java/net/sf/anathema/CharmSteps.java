@@ -4,8 +4,8 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.MultipleEffectCharmSpecials;
 

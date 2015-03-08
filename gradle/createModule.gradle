@@ -1,8 +1,6 @@
-apply from: 'gradle/ssh.gradle'
-
 task createModule << {
-    def newModuleName = usePropertyOrPrompt("moduleName", "\nPlease enter the module's name")
-    if (!newModuleName) {
+    def moduleName = System.console().readLine("\n\nPlease enter the module's name: ")
+    if (!moduleName) {
         throw new StopExecutionException( "\nPlease specify a module name.\n")
     }
     if (new File(moduleName).exists()) {

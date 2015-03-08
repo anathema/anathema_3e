@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special.learning;
 
-import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.magic.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.CharmSpecialLearningBuilder;
 import net.sf.anathema.hero.charms.compiler.special.ExistingMechanicTemplateSupplier;

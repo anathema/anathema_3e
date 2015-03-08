@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.health.model;
 
-import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.magic.data.Duration;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.health.model.merit.MeritHealthProvider;
 import net.sf.anathema.hero.health.template.HealthTemplate;

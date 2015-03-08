@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
-import net.sf.anathema.charm.template.special.SpecialCharmTemplate;
+import net.sf.anathema.magic.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.magic.template.special.SpecialCharmTemplate;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;
 import net.sf.anathema.hero.charms.compiler.special.ReflectionSpecialCharmBuilder;

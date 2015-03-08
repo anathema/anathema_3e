@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.evocations.compiler;
 
-import net.sf.anathema.charm.template.CharmListTemplate;
-import net.sf.anathema.charm.template.evocations.EvocationArtifactTemplate;
-import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
+import net.sf.anathema.magic.template.CharmListTemplate;
+import net.sf.anathema.magic.template.evocations.EvocationArtifactTemplate;
+import net.sf.anathema.magic.template.prerequisite.CharmPrerequisiteTemplate;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;

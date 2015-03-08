@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
-import net.sf.anathema.charm.template.CharmListTemplate;
-import net.sf.anathema.charm.template.prerequisite.CharmPrerequisiteTemplate;
-import net.sf.anathema.charm.template.special.SpecialCharmListTemplate;
-import net.sf.anathema.charm.template.special.learning.Repurchase;
+import net.sf.anathema.magic.template.CharmListTemplate;
+import net.sf.anathema.magic.template.prerequisite.CharmPrerequisiteTemplate;
+import net.sf.anathema.magic.template.special.SpecialCharmListTemplate;
+import net.sf.anathema.magic.template.special.learning.Repurchase;
 import net.sf.anathema.hero.application.environment.Inject;
 import net.sf.anathema.hero.charms.compiler.CharmCacheImpl;
 import net.sf.anathema.hero.charms.compiler.special.AdditionalCharmFactory;

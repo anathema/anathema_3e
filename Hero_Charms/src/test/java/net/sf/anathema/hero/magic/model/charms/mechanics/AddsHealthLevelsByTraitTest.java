@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.magic.model.charms.mechanics;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;

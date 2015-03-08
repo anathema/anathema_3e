@@ -50,4 +50,8 @@ public class Spells implements Iterable<Spell> {
   public List<Spell> asList() {
     return new ArrayList<>(list);
   }
+
+  public boolean isEmpty() {
+    return list.isEmpty();
+  }
 }

@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.evocations.utilities;
 
-import net.sf.anathema.charm.data.Charm;
-import net.sf.anathema.charm.template.evocations.EvocationTier;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.template.evocations.EvocationTier;
 
 public class EvocationUtilities {
 

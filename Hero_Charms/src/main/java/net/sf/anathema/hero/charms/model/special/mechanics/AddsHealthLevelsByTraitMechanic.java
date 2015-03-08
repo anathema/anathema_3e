@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.special.mechanics;
 
-import net.sf.anathema.charm.data.reference.CharmName;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.IHealthLevelProvider;

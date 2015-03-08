@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.health.model;
 
-import net.sf.anathema.charm.data.Duration;
+import net.sf.anathema.magic.data.Duration;
 import net.sf.anathema.library.resources.Resources;
 
 import com.google.common.collect.ImmutableMap;

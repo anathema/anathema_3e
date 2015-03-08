@@ -1,0 +1,7 @@
+dependencies {
+    compile project(':Hero')
+    compile project(':Hero_Sheet')
+    compile project(':Magic_Data')
+    compile project(':Magic_Description')
+    testCompile testDependencies //includes JUnit etc.
+}

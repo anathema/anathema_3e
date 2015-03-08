@@ -1,6 +1,6 @@
 package net.sf.anathema.cards.layout;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.spells.data.CircleType;
 
 import com.itextpdf.text.Font;

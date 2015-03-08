@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells.compiler;
 
-import net.sf.anathema.charm.data.cost.CostList;
-import net.sf.anathema.charm.data.reference.SpellName;
+import net.sf.anathema.magic.data.cost.CostList;
+import net.sf.anathema.magic.data.reference.SpellName;
 import net.sf.anathema.hero.charms.compiler.json.CostParser;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.SpellImpl;

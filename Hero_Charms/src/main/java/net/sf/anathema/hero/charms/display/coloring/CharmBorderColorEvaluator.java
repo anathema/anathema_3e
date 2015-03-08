@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.display.coloring;
 
-import net.sf.anathema.charm.data.Charm;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.library.initialization.ObjectFactory;
 import net.sf.anathema.library.presenter.RGBColor;
 
