@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.sheet.magicreport;
+package net.sf.anathema.hero.charms.sheet.magicreport;
 
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;

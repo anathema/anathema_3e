@@ -2,8 +2,6 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import net.sf.anathema.hero.magic.advance.MagicPointsModel;
-import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -13,8 +11,10 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.MagicPointsModel;
+import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
-import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.compiler.SpellCache;
 import net.sf.anathema.hero.spells.data.CircleType;
@@ -61,16 +61,16 @@ public class SpellsModelImpl implements SpellsModel {
     if (charms != null) {
       charms.addPrintProvider(new PrintSpellsProvider(hero));
     }
+    initializePoints(hero);
+    initializeSpellsByCircle(environment);
+  }
+
+  private void initializePoints(Hero hero) {
     MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
     pointsModel.registerMagicLearner(new SpellsLearner(this));
     pointsModel.addCheapenedChecker(new IsFavoredSpell(hero));
-    initializeSpellsByCircle(environment);
-    initializeExperience(hero);
-  }
-
-  private void initializeExperience(Hero hero) {
-    MagicExperienceData experienceCost = MagicPointsModelFetcher.fetch(hero).getExperienceCost();
-    SpellExperienceCostCalculator calculator = new SpellExperienceCostCalculator(experienceCost);
+    MagicExperienceData experienceCost = pointsModel.getExperienceCost();
+    MagicExperienceCostCalculator calculator = new MagicExperienceCostCalculator(experienceCost);
     PointModelFetcher.fetch(hero).addToExperienceOverview(new SpellExperienceModel(hero, calculator));
   }
 

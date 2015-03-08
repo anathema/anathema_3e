@@ -6,7 +6,7 @@ import net.sf.anathema.cards.layout.ICardLayout;
 import net.sf.anathema.framework.reporting.pdf.AbstractPdfReport;
 import net.sf.anathema.hero.environment.report.ReportException;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.spells.sheet.magicreport.CharmFetcher;
+import net.sf.anathema.hero.charms.sheet.magicreport.CharmFetcher;
 import net.sf.anathema.library.resources.Resources;
 
 import com.itextpdf.text.Document;

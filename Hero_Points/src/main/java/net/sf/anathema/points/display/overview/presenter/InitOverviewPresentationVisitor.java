@@ -23,23 +23,27 @@ public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
 
   @Override
   public void visitStringValueModel(IValueModel<String> visitedModel) {
-    OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
+    OverviewCategory overviewCategory = getCategory(visitedModel);
     StyledValueView<String> view = overviewCategory.addStringValueView(getString(visitedModel.getId()));
     updater.add(new StringSubPresenter(visitedModel, view, resources));
   }
 
   @Override
   public void visitIntegerValueModel(IValueModel<Integer> visitedModel) {
-    OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
+    OverviewCategory overviewCategory = getCategory(visitedModel);
     StyledValueView<Integer> valueView = overviewCategory.addIntegerValueView(getLabelString(visitedModel), 2);
     updater.add(new ValueSubPresenter(visitedModel, valueView));
   }
 
   @Override
   public void visitAllotmentModel(SpendingModel visitedModel) {
-    OverviewCategory overviewCategory = categories.get(visitedModel.getCategoryId());
+    OverviewCategory overviewCategory = getCategory(visitedModel);
     LabelledAllotmentView valueView = overviewCategory.addAllotmentView(getLabelString(visitedModel), 2);
     updater.add(new AllotmentSubPresenter(visitedModel, valueView));
+  }
+
+  private OverviewCategory getCategory(IOverviewModel visitedModel) {
+    return categories.get(visitedModel.getCategoryId());
   }
 
 

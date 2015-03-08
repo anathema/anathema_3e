@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.hero.charms.advance.experience.CharmExperienceModel;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.special.CharmSpecialistImpl;
 import net.sf.anathema.hero.charms.model.additional.AdditionalCharmRules;
@@ -33,6 +34,8 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.magic.model.PrintMagicProvider;
 import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
@@ -49,6 +52,8 @@ import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.magic.data.reference.TreeReference;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
 import org.jmock.example.announcer.Announcer;
 
 import java.util.ArrayList;
@@ -99,9 +104,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
     initSpecialLearningCharms();
     addPrintProvider(new PrintCharmsProvider(hero));
-    MagicPointsModel magicPointsModel = MagicPointsModelFetcher.fetch(hero);
-    magicPointsModel.registerMagicLearner(new CharmLearner(this));
-    magicPointsModel.addCheapenedChecker(new IsCharmCheapened(hero));
+    initPoints(hero);
 
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
             .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
@@ -109,6 +112,16 @@ public class CharmsModelImpl implements CharmsModel {
             .forEach(AdditionalCharmRules::initialize);
     
     options.getAllMechanics().forEach(mechanic -> mechanic.initialize(hero));
+  }
+
+  private void initPoints(Hero hero) {
+    MagicPointsModel magicPointsModel = MagicPointsModelFetcher.fetch(hero);
+    magicPointsModel.registerMagicLearner(new CharmLearner(this));
+    magicPointsModel.addCheapenedChecker(new IsCharmCheapened(hero));
+    MagicExperienceData experienceCost = magicPointsModel.getExperienceCost();
+    MagicExperienceCostCalculator calculator = new MagicExperienceCostCalculator(experienceCost);
+    PointsModel pointsModel = PointModelFetcher.fetch(hero);
+    pointsModel.addToExperienceOverview(new CharmExperienceModel(calculator, hero));
   }
 
   @Override

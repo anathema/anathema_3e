@@ -5,11 +5,11 @@ import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.magic.data.Magic;
 
-public class CostAnalyzerImpl implements CostAnalyzer {
+public class GenericCostAnalyzer implements CostAnalyzer {
 
   private final Hero hero;
 
-  public CostAnalyzerImpl(Hero hero) {
+  public GenericCostAnalyzer(Hero hero) {
     this.hero = hero;
   }
 

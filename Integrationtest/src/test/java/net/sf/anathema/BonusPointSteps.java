@@ -55,7 +55,7 @@ public class BonusPointSteps {
   @Then("^she has spent (\\d+) Charm pick$")
   public void she_has_spent_Charm_pick(int picks) throws Throwable {
     calculateBonusPoints();
-    Integer dotsSpent = findBonusModel("Charms", "General").getValue();
+    Integer dotsSpent = findBonusModel("Magic", "General").getValue();
     assertThat(dotsSpent, is(picks));
   }
 

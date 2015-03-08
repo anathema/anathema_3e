@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
@@ -12,10 +13,10 @@ import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class CharmExperienceModel extends AbstractIntegerValueModel {
 
-  private final CharmExperienceCostCalculator calculator;
+  private final MagicExperienceCostCalculator calculator;
   private final Hero hero;
 
-  public CharmExperienceModel(CharmExperienceCostCalculator calculator, Hero hero) {
+  public CharmExperienceModel(MagicExperienceCostCalculator calculator, Hero hero) {
     super("Experience", "Charms");
     this.calculator = calculator;
     this.hero = hero;
@@ -46,7 +47,7 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
 
   private int calculateCharmCost(CharmsModel charms, Charm charm) {
     CharmSpecialLearningModel specialCharm = charms.getCharmSpecialLearningModel(charm);
-    int charmCost = calculator.getCharmCosts(hero, charm);
+    int charmCost = calculator.getMagicCosts(hero, charm);
     LearningModel learnModel = charms.getLearningModel();
     if (specialCharm != null) {
       int timesLearnedWithExperience = specialCharm.getCurrentLearnCount() - specialCharm.getCreationLearnCount();

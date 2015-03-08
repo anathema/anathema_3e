@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.spells.sheet.magicreport;
+package net.sf.anathema.hero.charms.sheet.magicreport;
 
 import com.google.common.base.Joiner;
 import com.itextpdf.text.DocumentException;

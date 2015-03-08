@@ -1,7 +1,5 @@
-package net.sf.anathema.hero.charms.advance.creation;
+package net.sf.anathema.hero.magic.advance.creation;
 
-import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostCalculator;
-import net.sf.anathema.hero.magic.advance.creation.MagicCreationData;
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class FavoredMagicModel extends AbstractSpendingModel {
@@ -9,7 +7,7 @@ public class FavoredMagicModel extends AbstractSpendingModel {
   private final MagicCreationData creationData;
 
   public FavoredMagicModel(MagicCreationCostCalculator magicCalculator, MagicCreationData creationData) {
-    super("Charms", "Favored");
+    super("Magic", "Favored");
     this.magicCalculator = magicCalculator;
     this.creationData = creationData;
   }
