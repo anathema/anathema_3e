@@ -13,6 +13,7 @@
         AttributePoints: MortalAttributePoints,
         EssencePool: MortalEssencePool,
         Health: MortalHealth,
+        Magic:'',
         Spells: 'MortalSpells',
         MagicPoints: 'MortalMagicPoints',
         Intimacies: '',

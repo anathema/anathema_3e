@@ -46,7 +46,6 @@ public class InitOverviewPresentationVisitor implements IOverviewModelVisitor {
     return categories.get(visitedModel.getCategoryId());
   }
 
-
   private String getLabelString(IOverviewModel visitedModel) {
     return getString("Overview.Creation." + visitedModel.getCategoryId() + "." + visitedModel.getId());
   }

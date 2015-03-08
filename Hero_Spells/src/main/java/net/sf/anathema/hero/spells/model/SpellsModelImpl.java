@@ -2,8 +2,6 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceChange;
 import net.sf.anathema.hero.experience.model.ExperienceModel;
@@ -15,6 +13,7 @@ import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
+import net.sf.anathema.hero.magic.model.MagicModelFetcher;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.compiler.SpellCache;
 import net.sf.anathema.hero.spells.data.CircleType;
@@ -57,10 +56,7 @@ public class SpellsModelImpl implements SpellsModel {
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template, environment);
-    CharmsModel charms = CharmsModelFetcher.fetch(hero);
-    if (charms != null) {
-      charms.addPrintProvider(new PrintSpellsProvider(hero));
-    }
+    MagicModelFetcher.fetch(hero).addPrintProvider(new PrintSpellsProvider(hero));
     initializePoints(hero);
     initializeSpellsByCircle(environment);
   }

@@ -6,7 +6,6 @@ import net.sf.anathema.hero.charms.model.options.CharmOptions;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.SpecialCharmLearnArbitrator;
 import net.sf.anathema.hero.individual.model.HeroModel;
-import net.sf.anathema.hero.magic.model.PrintMagicProvider;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
@@ -16,11 +15,9 @@ import net.sf.anathema.magic.data.reference.CategoryReference;
 import java.util.Collection;
 
 public interface CharmsModel extends HeroModel, IExtendedCharmLearnableArbitrator, CharmMap,
-        SpecialCharmLearnArbitrator, PrintMagicProvider {
+        SpecialCharmLearnArbitrator {
 
   Identifier ID = new SimpleIdentifier("Charms");
-
-  void addPrintProvider(PrintMagicProvider provider);
 
   void addLearnableListener(ChangeListener listener);
 

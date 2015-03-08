@@ -13,6 +13,7 @@
         AttributePoints: SolarAttributePoints,
         EssencePool: SolarEssencePool,
         Health: SolarHealth,
+        Magic:'',
         Charms: SolarCharms,
         Spells: SolarSpells,
         MagicPoints: SolarMagicPoints_BigDamn,

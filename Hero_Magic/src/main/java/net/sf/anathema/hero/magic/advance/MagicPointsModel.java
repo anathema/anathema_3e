@@ -73,7 +73,7 @@ public class MagicPointsModel implements HeroModel {
   }
 
   private void initBonusOverview(Hero hero, MagicCreationCostCalculator calculator) {
-    PointModelFetcher.fetch(hero).addBonusCategory(new WeightedCategory(400, "Charms"));
+    PointModelFetcher.fetch(hero).addBonusCategory(new WeightedCategory(400, "Magic"));
     PointModelFetcher.fetch(hero).addToBonusOverview(new DefaultMagicModel(calculator, getMagicCreationData()));
     SpendingModel favoredMagicModel = new FavoredMagicModel(calculator, getMagicCreationData());
     if (favoredMagicModel.getAllotment() > 0) {

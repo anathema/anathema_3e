@@ -42,7 +42,7 @@ public class ModelInitializationList<E extends ModelTreeEntry> implements Iterab
   private void handleRequirements(Identifier entry) {
     E entryModel = findConfigurationWithId(entry);
     if (entryModel == null) {
-      logger.warn("Not found entry " + entry.getId());
+      logger.warn("Entry not found: " + entry.getId());
     }
     Iterable<Identifier> modelIds = entryModel.getRequiredModelIds();
     for (Identifier id : modelIds) {

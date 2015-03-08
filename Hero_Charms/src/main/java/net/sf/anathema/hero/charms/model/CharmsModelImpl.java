@@ -36,8 +36,7 @@ import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
-import net.sf.anathema.hero.magic.model.PrintMagicProvider;
-import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.model.MagicModelFetcher;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -82,7 +81,6 @@ public class CharmsModelImpl implements CharmsModel {
   private TraitModel traits;
   private Hero hero;
   private CharmOptionsImpl options;
-  private final List<PrintMagicProvider> printMagicProviders = new ArrayList<>();
   private final CharmsTemplate template;
 
   public CharmsModelImpl(CharmsTemplate template) {
@@ -103,7 +101,7 @@ public class CharmsModelImpl implements CharmsModel {
     this.options = new CharmOptionsImpl(environment.getDataSet(CharmCache.class), charmsRules, hero);
     this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
     initSpecialLearningCharms();
-    addPrintProvider(new PrintCharmsProvider(hero));
+    MagicModelFetcher.fetch(hero).addPrintProvider(new PrintCharmsProvider(hero));
     initPoints(hero);
 
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
@@ -354,18 +352,6 @@ public class CharmsModelImpl implements CharmsModel {
   @Override
   public final boolean isLearned(Charm charm) {
     return getLearningModel().isCurrentlyLearned(charm);
-  }
-
-  @Override
-  public void addPrintProvider(PrintMagicProvider provider) {
-    printMagicProviders.add(provider);
-  }
-
-  @Override
-  public void addPrintMagic(List<IMagicStats> printMagic) {
-    for (PrintMagicProvider provider : printMagicProviders) {
-      provider.addPrintMagic(printMagic);
-    }
   }
 
   @Override
