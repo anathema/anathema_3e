@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spells.advance;
 
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
-import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.spells.data.Spell;
+import net.sf.anathema.hero.spells.model.IsFavoredSpell;
 
 public class SpellExperienceCostCalculator {
 
@@ -14,6 +14,6 @@ public class SpellExperienceCostCalculator {
   }
 
   public int getSpellCosts(Hero hero, Spell spell) {
-    return costs.getMagicCosts(spell, new CostAnalyzerImpl(hero));
+    return costs.getMagicCosts(spell, new IsFavoredSpell(hero));
   }
 }

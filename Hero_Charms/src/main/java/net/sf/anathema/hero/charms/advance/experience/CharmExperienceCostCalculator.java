@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
+import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
+import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
-import net.sf.anathema.hero.individual.model.Hero;
 
 public class CharmExperienceCostCalculator {
 
@@ -14,6 +14,6 @@ public class CharmExperienceCostCalculator {
   }
 
   public int getCharmCosts(Hero hero, Charm charm) {
-    return costs.getMagicCosts(charm, new CostAnalyzerImpl(hero));
+    return costs.getMagicCosts(charm, new IsCharmCheapened(hero));
   }
 }

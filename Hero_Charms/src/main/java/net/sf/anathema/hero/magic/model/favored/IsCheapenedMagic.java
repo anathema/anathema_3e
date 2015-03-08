@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.charms.model.favored;
+package net.sf.anathema.hero.magic.model.favored;
 
-import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.ArrayList;

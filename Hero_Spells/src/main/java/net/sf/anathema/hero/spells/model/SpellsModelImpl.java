@@ -2,8 +2,8 @@ package net.sf.anathema.hero.spells.model;
 
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
-import net.sf.anathema.hero.charms.advance.MagicPointsModel;
-import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
+import net.sf.anathema.hero.magic.advance.MagicPointsModel;
+import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -59,10 +59,10 @@ public class SpellsModelImpl implements SpellsModel {
     this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template, environment);
     CharmsModel charms = CharmsModelFetcher.fetch(hero);
     if (charms != null) {
-      charms.addCheapenedChecker(new IsFavoredSpell(hero));
       charms.addPrintProvider(new PrintSpellsProvider(hero));
       MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
       pointsModel.registerMagicLearner(new SpellsLearner(this));
+      pointsModel.addCheapenedChecker(new IsFavoredSpell(hero));
     }
     initializeSpellsByCircle(environment);
     initializeExperience(hero);

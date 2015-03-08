@@ -2,13 +2,14 @@ package net.sf.anathema.hero.charms.model.favored;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.Magic;
 
-public class IsCharmCheapened implements CheapenedChecker {
+public class IsCharmCheapened implements CheapenedChecker, CostAnalyzer {
   private Hero hero;
 
   public IsCharmCheapened(Hero hero) {
@@ -18,6 +19,11 @@ public class IsCharmCheapened implements CheapenedChecker {
   @Override
   public boolean supportsMagic(Magic magic) {
     return magic instanceof Charm;
+  }
+
+  @Override
+  public boolean isMagicFavored(Magic magic) {
+    return isCheapened(magic);
   }
 
   @Override

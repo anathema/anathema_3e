@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.advance;
+package net.sf.anathema.hero.magic.advance;
 
 import net.sf.anathema.hero.individual.model.Hero;
 

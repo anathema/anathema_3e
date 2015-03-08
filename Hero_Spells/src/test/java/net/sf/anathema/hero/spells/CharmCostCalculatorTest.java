@@ -1,18 +1,12 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
+import net.sf.anathema.hero.dummy.DummyHero;
+import net.sf.anathema.hero.dummy.magic.DummySpell;
+import net.sf.anathema.hero.magic.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostCalculator;
 import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostEvaluator;
 import net.sf.anathema.hero.magic.advance.creation.MagicCreationData;
-import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelImpl;
-import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
-import net.sf.anathema.hero.charms.model.learn.CharmLearner;
-import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-import net.sf.anathema.hero.dummy.DummyHero;
-import net.sf.anathema.hero.dummy.magic.DummySpell;
 import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
-import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsLearner;
 import net.sf.anathema.magic.data.Magic;
@@ -27,12 +21,11 @@ public class CharmCostCalculatorTest {
 
   private MagicCreationCostCalculator calculator;
   private DummySpellsModel spells = new DummySpellsModel();
-  private CharmsModel charmModel = new CharmsModelImpl(new CharmsTemplate());
+  private boolean favorSpells = false;
 
   @Before
   public void setUp() throws Exception {
     DummyHero hero = new DummyHero();
-    hero.addModel(charmModel);
     hero.addModel(spells);
     MagicPointsTemplate template = new MagicPointsTemplate();
     template.generalCreationPoints.freePicks = 3;
@@ -40,10 +33,9 @@ public class CharmCostCalculatorTest {
     template.favoredCreationPoints.freePicks = 2;
     template.favoredCreationPoints.costs = 4;
     MagicCreationCostEvaluator magicCostEvaluator = new MagicCreationCostEvaluator();
-    magicCostEvaluator.registerMagicLearner(new CharmLearner(charmModel));
     magicCostEvaluator.registerMagicLearner(new SpellsLearner(spells));
     MagicCreationData creationData = new MagicCreationData(template);
-    calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new CostAnalyzerImpl(hero));
+    calculator = new MagicCreationCostCalculator(magicCostEvaluator, creationData, new ConfigurableFavoredChecker());
   }
 
   @Test
@@ -118,18 +110,13 @@ public class CharmCostCalculatorTest {
   }
 
   private void setSpellsFavored() {
-    charmModel.addCheapenedChecker(new FavorsSpells());
+    this.favorSpells = true;
   }
 
-  private static class FavorsSpells implements CheapenedChecker {
+  private class ConfigurableFavoredChecker implements CostAnalyzer {
     @Override
-    public boolean supportsMagic(Magic magic) {
-      return magic instanceof Spell;
-    }
-
-    @Override
-    public boolean isCheapened(Magic magic) {
-      return true;
+    public boolean isMagicFavored(Magic magic) {
+      return favorSpells;
     }
   }
 }

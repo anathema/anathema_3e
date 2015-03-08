@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.attributes.model.AttributeModel;
-import net.sf.anathema.hero.charms.advance.MagicPointsModel;
+import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
