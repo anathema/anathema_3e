@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.advance.experience;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
+import net.sf.anathema.hero.magic.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;

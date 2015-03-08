@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
-import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.traits.model.TraitType;

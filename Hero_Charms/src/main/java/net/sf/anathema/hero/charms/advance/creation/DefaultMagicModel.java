@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
+import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostCalculator;
+import net.sf.anathema.hero.magic.advance.creation.MagicCreationData;
 import net.sf.anathema.points.display.overview.model.AbstractSpendingModel;
 
 public class DefaultMagicModel extends AbstractSpendingModel {

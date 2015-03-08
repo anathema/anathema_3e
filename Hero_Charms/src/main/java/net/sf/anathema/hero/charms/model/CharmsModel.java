@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.model;
 import net.sf.anathema.hero.magic.model.PrintMagicProvider;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.reference.CategoryReference;
-import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.IExtendedCharmLearnableArbitrator;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.options.CharmOptions;

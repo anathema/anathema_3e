@@ -15,7 +15,7 @@ import net.sf.anathema.hero.charms.model.additional.AdditionalCharmRules;
 import net.sf.anathema.hero.charms.model.context.CreationCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ExperiencedCharmLearnStrategy;
 import net.sf.anathema.hero.charms.model.context.ProxyCharmLearnStrategy;
-import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.favored.IsCharmCheapened;
 import net.sf.anathema.hero.charms.model.favored.IsCheapenedMagic;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
@@ -63,7 +63,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-import static net.sf.anathema.hero.charms.model.CommonMagicAttributes.NO_PURCHASE;
+import static net.sf.anathema.hero.magic.model.CommonMagicAttributes.NO_PURCHASE;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;

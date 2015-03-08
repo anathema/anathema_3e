@@ -6,7 +6,7 @@ import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
+import net.sf.anathema.hero.magic.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.concept.model.concept.CasteSelection;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;

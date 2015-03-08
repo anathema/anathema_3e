@@ -1,24 +1,21 @@
 package net.sf.anathema.hero.spells;
 
-import net.sf.anathema.hero.charms.CharmHeroObjectMother;
 import net.sf.anathema.hero.charms.advance.costs.CostAnalyzerImpl;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostCalculator;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationCostEvaluator;
-import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
+import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostCalculator;
+import net.sf.anathema.hero.magic.advance.creation.MagicCreationCostEvaluator;
+import net.sf.anathema.hero.magic.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
-import net.sf.anathema.hero.charms.model.favored.CheapenedChecker;
+import net.sf.anathema.hero.magic.model.favored.CheapenedChecker;
 import net.sf.anathema.hero.charms.model.learn.CharmLearner;
-import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.magic.DummySpell;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsLearner;
-import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.magic.data.Magic;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -34,9 +31,7 @@ public class CharmCostCalculatorTest {
 
   @Before
   public void setUp() throws Exception {
-    CharmHeroObjectMother objectMother = new CharmHeroObjectMother();
-    CreationTraitValueStrategy valueStrategy = new CreationTraitValueStrategy();
-    DummyHero hero = objectMother.createModelContextWithEssence2(valueStrategy);
+    DummyHero hero = new DummyHero();
     hero.addModel(charmModel);
     hero.addModel(spells);
     MagicPointsTemplate template = new MagicPointsTemplate();

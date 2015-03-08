@@ -1,5 +1,6 @@
 dependencies {
     compile project(':Hero')
+    compile project(':Hero_Points')
     compile project(':Hero_Sheet')
     compile project(':Magic_Data')
     compile project(':Magic_Description')
