@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.model.learn;
+package net.sf.anathema.hero.magic.model.learn;
 
 import net.sf.anathema.magic.data.Magic;
 

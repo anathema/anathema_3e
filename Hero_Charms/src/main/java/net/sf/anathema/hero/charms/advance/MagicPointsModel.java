@@ -9,7 +9,7 @@ import net.sf.anathema.hero.charms.advance.creation.MagicCreationData;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceCostCalculator;
 import net.sf.anathema.hero.charms.advance.experience.CharmExperienceModel;
 import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
-import net.sf.anathema.hero.charms.model.learn.MagicLearner;
+import net.sf.anathema.hero.magic.model.learn.MagicLearner;
 import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;

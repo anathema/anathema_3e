@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.model.learn;
 
+import net.sf.anathema.hero.magic.model.learn.MagicLearner;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
