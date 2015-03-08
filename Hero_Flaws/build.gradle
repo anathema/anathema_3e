@@ -1,4 +1,5 @@
 dependencies {
+  compile project(':Character_Main')
   compile project(':Hero')
   compile project(':Hero_Concept')
   compile project(':Library_CategorizedAllocation')
