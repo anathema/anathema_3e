@@ -19,4 +19,9 @@ public class CharmInitiation implements SorceryInitiation {
     CircleInitiationTemplate initiation = template.charmInitiations.get(circle);
     return initiation != null && initiation.isInitiated(hero);
   }
+
+  @Override
+  public boolean canInitiate() {
+    return !template.charmInitiations.isEmpty();
+  }
 }

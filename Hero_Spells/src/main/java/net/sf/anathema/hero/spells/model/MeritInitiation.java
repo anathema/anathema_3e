@@ -20,4 +20,9 @@ public class MeritInitiation implements SorceryInitiation {
     CircleInitiationTemplate initiation = template.meritInitiations.get(circle);
     return initiation != null && initiation.isInitiated(hero);
   }
+
+  @Override
+  public boolean canInitiate() {
+    return !template.meritInitiations.isEmpty();
+  }
 }

@@ -240,7 +240,7 @@ public class SpellsModelImpl implements SpellsModel {
 
   @Override
   public boolean canLearnSorcery() {
-    return !(template.meritInitiations.isEmpty() && template.charmInitiations.isEmpty());
+    return initiationEvaluator.canInitiate();
   }
 
   @Override

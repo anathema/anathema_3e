@@ -16,7 +16,16 @@ public class SorceryInitiationEvaluator {
 
   public boolean isInitiated(CircleType circle) {
     for (SorceryInitiation initiation : initiations) {
-      if (initiation.isInitiated(circle)){
+      if (initiation.isInitiated(circle)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public boolean canInitiate() {
+    for (SorceryInitiation initiation : initiations) {
+      if (initiation.canInitiate()) {
         return true;
       }
     }
