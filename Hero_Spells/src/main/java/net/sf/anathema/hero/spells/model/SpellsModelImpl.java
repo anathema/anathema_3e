@@ -41,7 +41,6 @@ public class SpellsModelImpl implements SpellsModel {
   private final Announcer<ChangeListener> changeControl = Announcer.to(ChangeListener.class);
   private final Multimap<CircleType, Spell> spellsByCircle = ArrayListMultimap.create();
   private SorceryInitiationEvaluator initiationEvaluator;
-  private CharmsModel charms;
   private ExperienceModel experience;
   private SpellsTemplate template;
 
@@ -56,9 +55,9 @@ public class SpellsModelImpl implements SpellsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    this.charms = CharmsModelFetcher.fetch(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
     this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template, environment);
+    CharmsModel charms = CharmsModelFetcher.fetch(hero);
     if (charms != null) {
       charms.addCheapenedChecker(new IsFavoredSpell(hero));
       charms.addPrintProvider(new PrintSpellsProvider(hero));
