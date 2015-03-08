@@ -5,6 +5,8 @@ import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.template.CircleInitiationTemplate;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 
+import java.util.Collection;
+
 @SuppressWarnings("UnusedDeclaration") //Used through reflection in SorceryInitiationEvaluator
 public class CharmInitiation implements SorceryInitiation {
   private final Hero hero;
@@ -23,5 +25,10 @@ public class CharmInitiation implements SorceryInitiation {
   @Override
   public boolean canInitiate() {
     return !template.charmInitiations.isEmpty();
+  }
+
+  @Override
+  public Collection<CircleType> getCirclesToInitiateInto() {
+    return template.charmInitiations.keySet();
   }
 }

@@ -5,7 +5,11 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 public class SorceryInitiationEvaluator {
   private final Collection<SorceryInitiation> initiations;
@@ -30,5 +34,13 @@ public class SorceryInitiationEvaluator {
       }
     }
     return false;
+  }
+
+  public Collection<CircleType> getCirclesToInitiateInto() {
+    List<CircleType> circles = new ArrayList<>();
+    for (SorceryInitiation initiation : initiations) {
+      circles.addAll(initiation.getCirclesToInitiateInto());
+    }
+    return circles.stream().distinct().collect(toList());
   }
 }

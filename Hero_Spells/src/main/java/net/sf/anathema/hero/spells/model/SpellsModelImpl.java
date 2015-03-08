@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.spells.model;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
 import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
-import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -12,6 +13,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.spells.advance.SpellExperienceCostCalculator;
 import net.sf.anathema.hero.spells.advance.SpellExperienceModel;
 import net.sf.anathema.hero.spells.compiler.SpellCache;
@@ -25,17 +27,11 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
-
 import org.jmock.example.announcer.Announcer;
-
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 public class SpellsModelImpl implements SpellsModel {
 
@@ -245,10 +241,7 @@ public class SpellsModelImpl implements SpellsModel {
 
   @Override
   public Collection<CircleType> getSorceryCircles() {
-    List<CircleType> circles = new ArrayList<>();
-    circles.addAll(template.meritInitiations.keySet());
-    circles.addAll(template.charmInitiations.keySet());
-    return circles.stream().distinct().collect(toList());
+    return initiationEvaluator.getCirclesToInitiateInto();
   }
 
   @Override
