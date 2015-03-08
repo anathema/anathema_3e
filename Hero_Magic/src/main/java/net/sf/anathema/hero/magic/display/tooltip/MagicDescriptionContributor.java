@@ -1,6 +1,5 @@
-package net.sf.anathema.hero.charms.display.tooltip;
+package net.sf.anathema.hero.magic.display.tooltip;
 
-import net.sf.anathema.hero.magic.display.tooltip.MagicTooltipContributor;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
 import net.sf.anathema.magic.data.Magic;
 import net.sf.anathema.magic.description.model.MagicDescription;
