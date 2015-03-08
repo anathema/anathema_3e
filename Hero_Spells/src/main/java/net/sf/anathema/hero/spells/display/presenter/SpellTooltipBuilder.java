@@ -63,22 +63,22 @@ public class SpellTooltipBuilder {
   }
 
   public String getUndefinedString() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Target.Undefined");
+    return resources.getString("CardView.Spells.Target.Undefined");
   }
 
   private String getDurationLabel() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Duration");
+    return resources.getString("CardView.Spells.Duration");
   }
   
   private String getKeywordsLabel() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Keywords");
+    return resources.getString("CardView.Spells.Keywords");
   }
 
   private String getSourceLabel() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Source");
+    return resources.getString("CardView.Spells.Source");
   }
 
   private String getCostLabel() {
-    return resources.getString("CardView.CharmConfiguration.Spells.Cost");
+    return resources.getString("CardView.Spells.Cost");
   }
 }

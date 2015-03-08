@@ -28,7 +28,7 @@ public class CombinedSpellAndMagicProperties extends AbstractMagicLearnPropertie
 
   @Override
   public String getCircleLabel() {
-    return getResources().getString("CardView.CharmConfiguration.Spells.Circle");
+    return getResources().getString("CardView.Spells.Circle");
   }
 
   @Override
@@ -48,12 +48,12 @@ public class CombinedSpellAndMagicProperties extends AbstractMagicLearnPropertie
 
   @Override
   public String getAddButtonToolTip() {
-    return getResources().getString("CardView.CharmConfiguration.Spells.AddToolTip");
+    return getResources().getString("CardView.Spells.AddToolTip");
   }
 
   @Override
   public String getRemoveButtonToolTip() {
-    return getResources().getString("CardView.CharmConfiguration.Spells.RemoveToolTip");
+    return getResources().getString("CardView.Spells.RemoveToolTip");
   }
 
   @Override

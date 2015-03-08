@@ -27,7 +27,7 @@ public class SorceryInitializer implements HeroModelInitializer {
     SpellsModel spellsModel = SpellsModelFetcher.fetch(hero);
     boolean canLeanSorcery = spellsModel.canLearnSorcery();
     if (canLeanSorcery) {
-      String titleKey = "CardView.CharmConfiguration.Spells.Title";
+      String titleKey = "CardView.Spells.Title";
       CircleModel circleModel = new CircleModel(spellsModel.getSorceryCircles());
       new SpellInitializer(environment, titleKey, circleModel).initialize(sectionView, hero);
     }
