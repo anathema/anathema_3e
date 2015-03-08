@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
-import net.sf.anathema.hero.charms.display.tooltip.CostStringBuilder;
-import net.sf.anathema.hero.charms.display.tooltip.HealthCostStringBuilder;
-import net.sf.anathema.hero.charms.display.tooltip.MagicInfoStringBuilder;
+import net.sf.anathema.hero.magic.display.tooltip.CostStringBuilder;
+import net.sf.anathema.hero.magic.display.tooltip.HealthCostStringBuilder;
+import net.sf.anathema.hero.magic.display.tooltip.MagicInfoStringBuilder;
 import net.sf.anathema.hero.charms.sheet.content.IMagicStats;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;

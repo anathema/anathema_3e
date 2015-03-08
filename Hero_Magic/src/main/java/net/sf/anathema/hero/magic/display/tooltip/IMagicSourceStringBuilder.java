@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.tooltip;
+package net.sf.anathema.hero.magic.display.tooltip;
 
 import net.sf.anathema.magic.data.Magic;
 

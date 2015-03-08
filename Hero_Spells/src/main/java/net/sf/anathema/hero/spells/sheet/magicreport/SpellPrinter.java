@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.sheet.magicreport;
 
 import com.google.common.base.Joiner;
 import com.itextpdf.text.DocumentException;
-import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
+import net.sf.anathema.hero.magic.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -56,13 +56,13 @@ public class SpellPrinter implements MagicPrinter{
     magicPrintSupport.addMagicName(spell, report);
     addSpellCost(spell, report);
     addSpellTarget(spellStats, report);
-    magicPrintSupport.addCharmDescription(spell, report);
+    magicPrintSupport.addMagicDescription(spell, report);
     return currentGroup;
   }
 
-  private void addSpellCost(Spell charm, MultiColumnTextReport report) throws DocumentException {
+  private void addSpellCost(Spell spell, MultiColumnTextReport report) throws DocumentException {
     String costsLabel = resources.getString("MagicReport.Costs.Label") + ": ";
-    String costsValue = new ScreenDisplayInfoContributor(resources).createCostString(charm);
+    String costsValue = new ScreenDisplayInfoContributor(resources).createCostString(spell);
     report.addElement(partFactory.createDataPhrase(costsLabel, costsValue));
   }
 

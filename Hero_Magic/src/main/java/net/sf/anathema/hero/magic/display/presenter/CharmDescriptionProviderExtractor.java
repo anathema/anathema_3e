@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.presenter;
+package net.sf.anathema.hero.magic.display.presenter;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.ObjectFactory;

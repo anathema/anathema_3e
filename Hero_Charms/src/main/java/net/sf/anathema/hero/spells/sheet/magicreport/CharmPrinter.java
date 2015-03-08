@@ -4,7 +4,7 @@ import com.google.common.base.Joiner;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
-import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
+import net.sf.anathema.hero.magic.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.hero.charms.sheet.content.CharmContentHelper;
 import net.sf.anathema.hero.charms.sheet.content.stats.CharmStats;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -51,7 +51,7 @@ public class CharmPrinter implements MagicPrinter{
     }
     magicPrintSupport.addMagicName(charm, report);
     addCharmData(charmStats, charm, report);
-    magicPrintSupport.addCharmDescription(charm, report);
+    magicPrintSupport.addMagicDescription(charm, report);
     return currentGroup;
   }
 

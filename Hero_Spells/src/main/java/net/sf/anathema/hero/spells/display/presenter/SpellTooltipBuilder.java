@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.hero.charms.display.tooltip.MagicDescriptionContributor;
-import net.sf.anathema.hero.charms.display.tooltip.ScreenDisplayInfoContributor;
-import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
+import net.sf.anathema.hero.magic.display.tooltip.ScreenDisplayInfoContributor;
+import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;

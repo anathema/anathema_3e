@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.display;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
-import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CharacterCharmTreePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;

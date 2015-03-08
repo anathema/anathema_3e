@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.spells.sheet.magicreport;
 
 import com.itextpdf.text.DocumentException;
-import net.sf.anathema.hero.charms.display.MagicDisplayLabeler;
-import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
-import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
+import net.sf.anathema.hero.magic.display.MagicDisplayLabeler;
+import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.library.resources.Resources;
@@ -27,7 +27,7 @@ public class MagicPrintSupport {
     report.addElement(partFactory.createCharmTitle(charmName));
   }
 
-  public void addCharmDescription(Magic magic, MultiColumnTextReport report) throws DocumentException {
+  public void addMagicDescription(Magic magic, MultiColumnTextReport report) throws DocumentException {
     MagicDescription charmDescription = getCharmDescription(magic);
     if (charmDescription.isEmpty()) {
       String sourceString = new MagicSourceContributor<>(resources).createSourceString(magic);

@@ -1,7 +1,9 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
+import net.sf.anathema.hero.magic.display.tooltip.MagicTooltipContributor;
+import net.sf.anathema.hero.magic.display.tooltip.ScreenDisplayInfoContributor;
 import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.hero.charms.display.tooltip.source.MagicSourceContributor;
+import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;

@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;

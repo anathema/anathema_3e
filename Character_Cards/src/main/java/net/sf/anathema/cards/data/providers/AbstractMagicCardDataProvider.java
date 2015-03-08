@@ -1,6 +1,6 @@
 package net.sf.anathema.cards.data.providers;
 
-import net.sf.anathema.hero.charms.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.magic.data.Magic;
