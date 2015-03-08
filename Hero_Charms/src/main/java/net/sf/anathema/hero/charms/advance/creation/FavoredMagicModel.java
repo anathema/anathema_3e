@@ -21,7 +21,7 @@ public class FavoredMagicModel extends AbstractSpendingModel {
 
   @Override
   public Integer getValue() {
-    return magicCalculator.getFavoredCharmPicksSpent();
+    return magicCalculator.getFavoredMagicPicksSpent();
   }
 
   @Override

@@ -85,11 +85,11 @@ public class MagicCreationCostCalculator implements BonusPointCalculator {
     return 0;
   }
 
-  public int getFavoredCharmPicksSpent() {
+  public int getFavoredMagicPicksSpent() {
     return favoredPicksSpent;
   }
 
-  public int getGeneralCharmPicksSpent() {
+  public int getGeneralMagicPicksSpent() {
     return generalPicksSpent;
   }
 

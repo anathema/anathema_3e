@@ -17,7 +17,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class CharmCostCalculatorTest {
+public class MagicCostCalculatorTest_WithSpells {
 
   private MagicCreationCostCalculator calculator;
   private DummySpellsModel spells = new DummySpellsModel();
@@ -40,8 +40,8 @@ public class CharmCostCalculatorTest {
 
   @Test
   public void testNoSpellsLearned() {
-    assertEquals(0, calculator.getGeneralCharmPicksSpent());
-    assertEquals(0, calculator.getFavoredCharmPicksSpent());
+    assertEquals(0, calculator.getGeneralMagicPicksSpent());
+    assertEquals(0, calculator.getFavoredMagicPicksSpent());
     assertEquals(0, calculator.getBonusPointCost());
   }
 
@@ -49,8 +49,8 @@ public class CharmCostCalculatorTest {
   public void calculatesCategoriesForUnfavoredSpell() {
     spells.addSpells(Spells.singleSpell(new DummySpell()));
     calculator.calculateMagicCosts();
-    assertEquals(1, calculator.getGeneralCharmPicksSpent());
-    assertEquals(0, calculator.getFavoredCharmPicksSpent());
+    assertEquals(1, calculator.getGeneralMagicPicksSpent());
+    assertEquals(0, calculator.getFavoredMagicPicksSpent());
     assertEquals(0, calculator.getBonusPointCost());
   }
 
@@ -59,8 +59,8 @@ public class CharmCostCalculatorTest {
     setSpellsFavored();
     spells.addSpells(Spells.from(new DummySpell()));
     calculator.calculateMagicCosts();
-    assertEquals(0, calculator.getGeneralCharmPicksSpent());
-    assertEquals(1, calculator.getFavoredCharmPicksSpent());
+    assertEquals(0, calculator.getGeneralMagicPicksSpent());
+    assertEquals(1, calculator.getFavoredMagicPicksSpent());
     assertEquals(0, calculator.getBonusPointCost());
   }
 
@@ -69,8 +69,8 @@ public class CharmCostCalculatorTest {
     DummySpell dummySpell = new DummySpell();
     spells.addSpells(Spells.from(dummySpell, dummySpell, dummySpell, dummySpell));
     calculator.calculateMagicCosts();
-    assertEquals(3, calculator.getGeneralCharmPicksSpent());
-    assertEquals(0, calculator.getFavoredCharmPicksSpent());
+    assertEquals(3, calculator.getGeneralMagicPicksSpent());
+    assertEquals(0, calculator.getFavoredMagicPicksSpent());
     assertEquals(5, calculator.getBonusPointCost());
   }
 
@@ -80,12 +80,12 @@ public class CharmCostCalculatorTest {
     DummySpell dummySpellToRemove = new DummySpell();
     spells.addSpells(Spells.from(dummySpell, dummySpell, dummySpell, dummySpellToRemove));
     calculator.calculateMagicCosts();
-    assertEquals(3, calculator.getGeneralCharmPicksSpent());
-    assertEquals(0, calculator.getFavoredCharmPicksSpent());
+    assertEquals(3, calculator.getGeneralMagicPicksSpent());
+    assertEquals(0, calculator.getFavoredMagicPicksSpent());
     assertEquals(5, calculator.getBonusPointCost());
     spells.removeSpells(Spells.from(dummySpellToRemove), false);
     calculator.calculateMagicCosts();
-    assertEquals(3, calculator.getGeneralCharmPicksSpent());
+    assertEquals(3, calculator.getGeneralMagicPicksSpent());
   }
 
   @Test
@@ -104,8 +104,8 @@ public class CharmCostCalculatorTest {
     spells.addSpells(Spells.from(new DummySpell(), new DummySpell(), new DummySpell(), new DummySpell(),
             new DummySpell(), new DummySpell()));
     calculator.calculateMagicCosts();
-    assertEquals(3, calculator.getGeneralCharmPicksSpent());
-    assertEquals(2, calculator.getFavoredCharmPicksSpent());
+    assertEquals(3, calculator.getGeneralMagicPicksSpent());
+    assertEquals(2, calculator.getFavoredMagicPicksSpent());
     assertEquals(4, calculator.getBonusPointCost());
   }
 

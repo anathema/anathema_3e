@@ -25,7 +25,7 @@ public class DefaultMagicModel extends AbstractSpendingModel {
 
   @Override
   public Integer getValue() {
-    return magicCalculator.getGeneralCharmPicksSpent();
+    return magicCalculator.getGeneralMagicPicksSpent();
   }
 
   @Override
