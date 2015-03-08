@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.presenter;
+package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.sort.StringSorter;

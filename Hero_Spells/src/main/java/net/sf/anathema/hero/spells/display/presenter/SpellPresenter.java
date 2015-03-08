@@ -1,10 +1,7 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
 import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.hero.charms.display.magic.MagicLearnPresenter;
 import net.sf.anathema.hero.magic.display.magic.MagicLearnView;
-import net.sf.anathema.hero.charms.display.magic.MagicViewListener;
-import net.sf.anathema.hero.charms.display.presenter.MagicSorter;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.experience.model.ExperienceModel;

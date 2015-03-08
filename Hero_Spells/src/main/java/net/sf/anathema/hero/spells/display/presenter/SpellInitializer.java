@@ -33,7 +33,7 @@ public class SpellInitializer implements HeroModelInitializer {
     ExperienceModel experienceModel = ExperienceModelFetcher.fetch(hero);
     SpellsModel spellsModel = SpellsModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
-    new SpellPresenter(circleModel, environment.getResources(), view, magicDescriptionProvider, experienceModel, spellsModel,charmsModel).initPresentation();
+    new SpellPresenter(circleModel, environment.getResources(), view, magicDescriptionProvider, experienceModel, spellsModel, charmsModel).initPresentation();
   }
 
   @Override
