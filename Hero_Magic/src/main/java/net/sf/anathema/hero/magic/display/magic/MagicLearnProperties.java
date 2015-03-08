@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.magic;
+package net.sf.anathema.hero.magic.display.magic;
 
 import net.sf.anathema.library.presenter.AgnosticUIConfiguration;
 import net.sf.anathema.library.resources.RelativePath;

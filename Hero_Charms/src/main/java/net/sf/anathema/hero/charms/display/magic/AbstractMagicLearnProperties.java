@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.charms.display.magic;
 
+import net.sf.anathema.hero.magic.display.magic.MagicLearnProperties;
 import net.sf.anathema.library.resources.RelativePath;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.taskbar.BasicUi;

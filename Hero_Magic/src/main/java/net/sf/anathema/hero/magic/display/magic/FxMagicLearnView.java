@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.display.magic;
+package net.sf.anathema.hero.magic.display.magic;
 
 import javafx.scene.Node;
 import javafx.scene.control.ListView;
@@ -44,26 +44,6 @@ public class FxMagicLearnView implements MagicLearnView {
   @Override
   public void setLearnedMagic(List magics) {
     learnedMagicList.setItems(new ObservableListWrapper(magics));
-  }
-
-  @Override
-  public boolean hasMoreThanOneElementLearned() {
-    return learnedMagicList.getItems().size() > 1;
-  }
-
-  @Override
-  public boolean hasAnyElementLearned() {
-    return learnedMagicList.getItems().size() > 0;
-  }
-
-  @Override
-  public void addLearnedListListener(final ChangeListener changeListener) {
-    learnedMagicList.itemsProperty().addListener((observableValue, o, o2) -> changeListener.changeOccurred());
-  }
-
-  @Override
-  public Tool addAdditionalTool() {
-    return addToolTo(endButtons);
   }
 
   @Override

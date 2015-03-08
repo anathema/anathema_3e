@@ -3,9 +3,9 @@ package net.sf.anathema.hero.spells.display.view;
 import javafx.scene.Node;
 
 import net.miginfocom.layout.CC;
-import net.sf.anathema.hero.charms.display.magic.FxMagicLearnView;
-import net.sf.anathema.hero.charms.display.magic.MagicLearnProperties;
-import net.sf.anathema.hero.charms.display.magic.MagicLearnView;
+import net.sf.anathema.hero.magic.display.magic.FxMagicLearnView;
+import net.sf.anathema.hero.magic.display.magic.MagicLearnProperties;
+import net.sf.anathema.hero.magic.display.magic.MagicLearnView;
 import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.display.presenter.SpellView;
 import net.sf.anathema.hero.spells.display.presenter.SpellViewProperties;
@@ -32,13 +32,7 @@ public class FxSpellView implements SpellView, NodeHolder {
             properties.getCircleSelectionRenderer());
     selectionView.setObjects(circles);
     content.add(selectionView.getNode(), new CC().wrap());
-    selectionView.addObjectSelectionChangedListener(new ObjectChangedListener<Identifier>() {
-      @SuppressWarnings("unchecked")
-      @Override
-      public void valueChanged(Identifier newValue) {
-        circleControl.announce().valueChanged(newValue);
-      }
-    });
+    selectionView.addObjectSelectionChangedListener(newValue -> circleControl.announce().valueChanged(newValue));
   }
 
   @Override

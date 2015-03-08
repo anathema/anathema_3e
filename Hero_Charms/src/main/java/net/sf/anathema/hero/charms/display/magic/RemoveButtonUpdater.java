@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.charms.display.magic;
 
+import net.sf.anathema.hero.magic.display.magic.MagicLearnProperties;
+import net.sf.anathema.hero.magic.display.magic.MagicLearnView;
 import net.sf.anathema.library.interaction.model.Tool;
 
 import java.util.List;
