@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.spells.display.presenter;
 
-import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
@@ -29,7 +29,7 @@ public class SpellInitializer implements HeroModelInitializer {
   public void initialize(SectionView sectionView, Hero hero) {
     String header = environment.getResources().getString(titleKey);
     SpellView view = sectionView.addView(header, SpellView.class);
-    MagicDescriptionProvider magicDescriptionProvider = CharmDescriptionProviderExtractor.CreateFor(environment);
+    MagicDescriptionProvider magicDescriptionProvider = MagicDescriptionProviderExtractor.CreateFor(environment);
     ExperienceModel experienceModel = ExperienceModelFetcher.fetch(hero);
     SpellsModel spellsModel = SpellsModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);

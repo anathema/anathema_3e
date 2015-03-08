@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.charms.advance;
 
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplateLoader;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplateLoader;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;

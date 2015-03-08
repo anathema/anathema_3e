@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.advance.costs;
+package net.sf.anathema.hero.magic.advance.costs;
 
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 

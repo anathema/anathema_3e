@@ -10,11 +10,11 @@ import java.util.List;
 
 import static com.google.common.collect.Lists.transform;
 
-public class AggregatedCharmDescriptionProvider implements MagicDescriptionProvider {
+public class AggregatedMagicDescriptionProvider implements MagicDescriptionProvider {
 
   private final List<MagicDescriptionProvider> providerList = new ArrayList<>();
 
-  public AggregatedCharmDescriptionProvider(Resources resources) {
+  public AggregatedMagicDescriptionProvider(Resources resources) {
     providerList.add(new ShortMagicDescriptionProvider(resources));
   }
 

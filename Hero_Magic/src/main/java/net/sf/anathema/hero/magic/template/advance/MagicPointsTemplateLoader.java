@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.template.advance;
+package net.sf.anathema.hero.magic.template.advance;
 
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.environment.template.TemplateLoader;

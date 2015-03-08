@@ -1,7 +1,7 @@
-package net.sf.anathema.hero.charms.advance.costs;
+package net.sf.anathema.hero.magic.advance.costs;
 
-import net.sf.anathema.hero.charms.template.advance.KeywordMagicTemplate;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsCategoryTemplate;
+import net.sf.anathema.hero.magic.template.advance.KeywordMagicTemplate;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsCategoryTemplate;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class MagicPointsStrategy {
     return new MagicKeywordCosts(keywordFavoredCosts);
   }
 
-  public int getMagicCosts(Magic magic, CostAnalyzer analyzer) {
+  public int getMagicCosts(Magic magic) {
     if (keywordCosts.hasCostFor(magic.getAttributes())) {
       return keywordCosts.getCostFor(magic.getAttributes());
     }

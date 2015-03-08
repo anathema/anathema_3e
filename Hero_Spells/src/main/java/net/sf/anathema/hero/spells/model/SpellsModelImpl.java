@@ -2,7 +2,7 @@ package net.sf.anathema.hero.spells.model;
 
 import net.sf.anathema.hero.charms.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.advance.MagicPointsModelFetcher;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;

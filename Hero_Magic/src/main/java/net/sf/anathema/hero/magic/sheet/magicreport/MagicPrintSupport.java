@@ -2,7 +2,7 @@ package net.sf.anathema.hero.magic.sheet.magicreport;
 
 import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.magic.display.MagicDisplayLabeler;
-import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
@@ -40,6 +40,6 @@ public class MagicPrintSupport {
   }
 
   private MagicDescription getCharmDescription(Magic magic) {
-    return CharmDescriptionProviderExtractor.CreateFor(environment).getCharmDescription(magic);
+    return MagicDescriptionProviderExtractor.CreateFor(environment).getCharmDescription(magic);
   }
 }

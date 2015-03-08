@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.advance.creation;
 
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
+import net.sf.anathema.hero.magic.advance.costs.CostAnalyzer;
 import net.sf.anathema.hero.charms.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.WeightedMagic;
 import net.sf.anathema.magic.data.Magic;

@@ -3,7 +3,7 @@ package net.sf.anathema.hero.charms.display;
 import net.sf.anathema.hero.charms.compiler.CharmCache;
 import net.sf.anathema.hero.charms.display.coloring.CharmBorderColorEvaluator;
 import net.sf.anathema.hero.charms.display.model.CharmDisplayModel;
-import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CharacterCharmTreePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;
@@ -33,7 +33,7 @@ public class CharmInitializer implements HeroModelInitializer {
 
   @Override
   public void initialize(SectionView sectionView, Hero hero) {
-    MagicDescriptionProvider provider = CharmDescriptionProviderExtractor.CreateFor(environment);
+    MagicDescriptionProvider provider = MagicDescriptionProviderExtractor.CreateFor(environment);
     CharmBorderColorEvaluator evaluator = new CharmBorderColorEvaluator(environment.getObjectFactory());
     CharmDisplayModel model = new CharmDisplayModel(hero, evaluator, provider);
     HeroType heroType = hero.getSplat().getTemplateType().getHeroType();

@@ -8,7 +8,7 @@ import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
 import net.sf.anathema.hero.charms.model.special.mechanics.AddsHealthLevelsByTraitMechanic;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.DummyHeroEnvironment;

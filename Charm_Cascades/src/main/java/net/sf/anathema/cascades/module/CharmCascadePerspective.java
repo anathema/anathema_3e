@@ -7,7 +7,7 @@ import net.miginfocom.layout.LC;
 import net.sf.anathema.cascades.presenter.CharmCascadesPresenterImpl;
 import net.sf.anathema.cascades.presenter.CharmTreeMap;
 import net.sf.anathema.hero.application.environment.HeroEnvironmentFetcher;
-import net.sf.anathema.hero.magic.display.presenter.CharmDescriptionProviderExtractor;
+import net.sf.anathema.hero.magic.display.presenter.MagicDescriptionProviderExtractor;
 import net.sf.anathema.hero.charms.display.view.FxCharmView;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.library.initialization.Weight;
@@ -57,6 +57,6 @@ public class CharmCascadePerspective implements UtilityPerspective {
   }
 
   private MagicDescriptionProvider getCharmDescriptionProvider(HeroEnvironment environment) {
-    return CharmDescriptionProviderExtractor.CreateFor(environment);
+    return MagicDescriptionProviderExtractor.CreateFor(environment);
   }
 }

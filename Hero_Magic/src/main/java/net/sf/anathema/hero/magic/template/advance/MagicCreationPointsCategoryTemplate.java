@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.template.advance;
+package net.sf.anathema.hero.magic.template.advance;
 
 public class MagicCreationPointsCategoryTemplate extends MagicPointsCategoryTemplate {
 

@@ -1,9 +1,9 @@
-package net.sf.anathema.hero.charms.advance.experience;
+package net.sf.anathema.hero.magic.advance.experience;
 
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.advance.costs.MagicCosts;
-import net.sf.anathema.hero.charms.advance.costs.MagicPointsStrategy;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
+import net.sf.anathema.hero.magic.advance.costs.CostAnalyzer;
+import net.sf.anathema.hero.magic.advance.costs.MagicCosts;
+import net.sf.anathema.hero.magic.advance.costs.MagicPointsStrategy;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.magic.data.Magic;
 
 import java.util.HashMap;
@@ -21,6 +21,6 @@ public class MagicExperienceData implements MagicCosts {
   @Override
   public int getMagicCosts(Magic magic, CostAnalyzer analyzer) {
     boolean favored = analyzer.isMagicFavored(magic);
-    return strategyByFavored.get(favored).getMagicCosts(magic, analyzer);
+    return strategyByFavored.get(favored).getMagicCosts(magic);
   }
 }

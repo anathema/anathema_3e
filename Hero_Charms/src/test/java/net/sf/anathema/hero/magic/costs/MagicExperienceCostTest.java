@@ -1,9 +1,9 @@
 package net.sf.anathema.hero.magic.costs;
 
-import net.sf.anathema.hero.charms.advance.costs.CostAnalyzer;
-import net.sf.anathema.hero.charms.advance.experience.MagicExperienceData;
+import net.sf.anathema.hero.magic.advance.costs.CostAnalyzer;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
-import net.sf.anathema.hero.charms.template.advance.MagicPointsTemplate;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 
 import org.junit.Test;
 
