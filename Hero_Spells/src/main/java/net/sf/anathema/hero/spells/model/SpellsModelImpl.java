@@ -62,10 +62,12 @@ public class SpellsModelImpl implements SpellsModel {
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.charms = CharmsModelFetcher.fetch(hero);
     this.experience = ExperienceModelFetcher.fetch(hero);
-    this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template);
+    this.initiationEvaluator = new SorceryInitiationEvaluator(hero, template, environment);
     if (charms != null) {
       charms.addCheapenedChecker(new IsFavoredSpell(hero));
-      initializeCharmsModel(hero);
+      charms.addPrintProvider(new PrintSpellsProvider(hero));
+      MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
+      pointsModel.registerMagicLearner(new SpellsLearner(this));
     }
     initializeSpellsByCircle(environment);
     initializeExperience(hero);
@@ -81,16 +83,6 @@ public class SpellsModelImpl implements SpellsModel {
     for (Spell spell : environment.getDataSet(SpellCache.class).getSpells()) {
       spellsByCircle.put(spell.getCircleType(), spell);
     }
-  }
-
-  private void initializeCharmsModel(Hero hero) {
-    CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
-    if (charmsModel == null) {
-      return;
-    }
-    charmsModel.addPrintProvider(new PrintSpellsProvider(hero));
-    MagicPointsModel pointsModel = MagicPointsModelFetcher.fetch(hero);
-    pointsModel.registerMagicLearner(new SpellsLearner(this));
   }
 
   @Override
