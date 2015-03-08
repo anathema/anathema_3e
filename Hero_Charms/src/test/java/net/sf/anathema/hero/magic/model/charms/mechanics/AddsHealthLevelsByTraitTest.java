@@ -32,6 +32,8 @@ import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 
+import net.sf.anathema.points.model.PointModelImpl;
+import net.sf.anathema.points.template.PointsTemplate;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,6 +66,7 @@ public class AddsHealthLevelsByTraitTest {
     healthTemplate.levels = Arrays.asList(HealthLevelType.ZERO,
             HealthLevelType.ONE, HealthLevelType.ONE, HealthLevelType.TWO, HealthLevelType.TWO);
     hero.addModel(new HealthModelImpl(healthTemplate));
+    hero.addModel(new PointModelImpl(new PointsTemplate()));
     hero.addModel(new MagicPointsModel(new MagicPointsTemplate()));
     
     DummyHeroEnvironment dummyEnvironment = new DummyHeroEnvironment();
