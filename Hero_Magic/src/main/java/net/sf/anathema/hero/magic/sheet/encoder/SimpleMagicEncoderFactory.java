@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.sheet.encoder;
+package net.sf.anathema.hero.magic.sheet.encoder;
 
 import net.sf.anathema.hero.sheet.pdf.content.BasicContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds;

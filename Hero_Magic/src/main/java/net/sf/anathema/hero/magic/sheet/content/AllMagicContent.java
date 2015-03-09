@@ -1,9 +1,6 @@
-package net.sf.anathema.hero.charms.sheet.content;
+package net.sf.anathema.hero.magic.sheet.content;
 
-import net.sf.anathema.hero.charms.sheet.content.mnemonic.AllMagicMnemonic;
 import net.sf.anathema.hero.magic.model.MagicModelFetcher;
-import net.sf.anathema.hero.magic.sheet.content.AbstractMagicContent;
-import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
 import net.sf.anathema.hero.magic.sheet.content.mnemonic.MagicMnemonic;
 import net.sf.anathema.hero.sheet.pdf.session.PageBreakChecker;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;

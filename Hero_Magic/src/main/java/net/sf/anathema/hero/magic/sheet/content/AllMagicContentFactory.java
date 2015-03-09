@@ -1,4 +1,4 @@
-package net.sf.anathema.hero.charms.sheet.content;
+package net.sf.anathema.hero.magic.sheet.content;
 
 import net.sf.anathema.hero.sheet.pdf.content.ReportContentFactory;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
