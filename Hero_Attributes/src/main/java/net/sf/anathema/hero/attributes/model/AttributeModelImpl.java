@@ -16,6 +16,7 @@ import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
+import net.sf.anathema.hero.traits.model.group.TraitTypeGroupFactory;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
@@ -55,7 +56,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
     this.attributeGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
-    this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(getAttributeGroups());
+    this.attributeTraitGroups = new TraitTypeGroupFactory().createTraitGroups(getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());

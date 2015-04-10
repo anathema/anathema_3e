@@ -34,7 +34,8 @@ public class GroupedTraitTypeBuilder {
 
   public void addGroupedTraitType(String traitId, String groupId) {
     TraitType traitType = traitTypeList.getById(traitId);
-    GroupedTraitType type = new GroupedTraitType(traitType, groupId);
+    GroupName group = new GroupName(groupId);
+    GroupedTraitType type = new GroupedTraitType(traitType, group);
     groupedTraitTypes.add(type);
   }
 }

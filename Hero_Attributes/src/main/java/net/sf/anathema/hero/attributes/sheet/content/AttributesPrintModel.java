@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AttributesPrintModel implements AttributesList {
 
-  private Hero hero;
+  private final Hero hero;
 
   public AttributesPrintModel(Hero hero) {
     this.hero = hero;
@@ -54,7 +54,7 @@ public class AttributesPrintModel implements AttributesList {
   private List<TraitType> getTraitTypes(Identifier groupId) {
     List<TraitType> attributes = new ArrayList<>();
     for (GroupedTraitType groupedType : getGroupedAttributeTypes()) {
-      if (groupedType.getGroupId().equals(groupId.getId())) {
+      if (groupedType.getGroupName().equals(groupId)) {
         attributes.add(groupedType.getTraitType());
       }
     }
@@ -64,7 +64,7 @@ public class AttributesPrintModel implements AttributesList {
   private List<Identifier> getGroupedIds() {
     List<Identifier> groupIdList = new ArrayList<>();
     for (GroupedTraitType type : getGroupedAttributeTypes()) {
-      SimpleIdentifier groupId = new SimpleIdentifier(type.getGroupId());
+      Identifier groupId = type.getGroupName();
       if (!groupIdList.contains(groupId)) {
         groupIdList.add(groupId);
       }

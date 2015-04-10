@@ -21,6 +21,7 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.PromoteStateChange;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
+import net.sf.anathema.hero.traits.model.group.TraitTypeGroupFactory;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.Castes;
@@ -81,7 +82,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
 
   private IdentifiedTraitTypeList[] createAbilityGroups() {
     GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
-    return new AbilityTypeGroupFactory().createTraitGroups(abilityGroups);
+    return new TraitTypeGroupFactory().createTraitGroups(abilityGroups);
   }
 
   private void createAndAddTraits() {

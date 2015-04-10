@@ -1,21 +1,23 @@
 package net.sf.anathema.hero.traits.model;
 
 
+import net.sf.anathema.hero.traits.model.group.GroupName;
+
 public class GroupedTraitType {
 
   private final TraitType type;
-  private final String groupId;
+  private final GroupName group;
 
-  public GroupedTraitType(TraitType type, String groupId) {
+  public GroupedTraitType(TraitType type, GroupName group) {
     this.type = type;
-    this.groupId = groupId;
+    this.group = group;
   }
 
   public TraitType getTraitType() {
     return type;
   }
 
-  public String getGroupId() {
-    return groupId;
+  public GroupName getGroupName() {
+    return group;
   }
 }
