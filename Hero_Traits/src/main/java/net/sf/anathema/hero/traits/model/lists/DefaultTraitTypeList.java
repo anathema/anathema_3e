@@ -8,14 +8,6 @@ import java.util.List;
 
 public class DefaultTraitTypeList implements TraitTypeList {
 
-  public static TraitType[] getAllTraitTypes(TraitTypeList... traitTypeGroups) {
-    List<TraitType> traitTypes = new ArrayList<>();
-    for (TraitTypeList group : traitTypeGroups) {
-      traitTypes.addAll(group.getAll());
-    }
-    return traitTypes.toArray(new TraitType[traitTypes.size()]);
-  }
-
   private final List<TraitType> traitTypes = new ArrayList<>();
 
   public DefaultTraitTypeList(TraitType[] traitTypes) {

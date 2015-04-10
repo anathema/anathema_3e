@@ -6,8 +6,6 @@ import java.util.Collection;
 
 public interface CasteCollection {
 
-  boolean containsCasteType(String casteTypeId);
-
   Collection<CasteType> getAllCasteTypes(SplatType template);
 
   CasteType getById(String casteTypeId);

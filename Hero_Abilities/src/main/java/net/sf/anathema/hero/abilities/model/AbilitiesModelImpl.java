@@ -75,16 +75,13 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     this.traitStateMap = new TraitStateMapImpl(hero);
     this.hero = hero;
     this.traitModel = TraitModelFetcher.fetch(hero);
-    this.abilityTraitGroups = createAbilityGroups(hero);
+    this.abilityTraitGroups = createAbilityGroups();
     createAndAddTraits();
   }
 
-  private IdentifiedTraitTypeList[] createAbilityGroups(Hero hero) {
-    HeroConcept concept = HeroConceptFetcher.fetch(hero);
-    CasteCollection casteCollection = concept.getCasteCollection();
-    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template,
-            AllAbilityTraitTypeList.getInstance());
-    return new AbilityTypeGroupFactory().createTraitGroups(casteCollection, abilityGroups);
+  private IdentifiedTraitTypeList[] createAbilityGroups() {
+    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
+    return new AbilityTypeGroupFactory().createTraitGroups(abilityGroups);
   }
 
   private void createAndAddTraits() {

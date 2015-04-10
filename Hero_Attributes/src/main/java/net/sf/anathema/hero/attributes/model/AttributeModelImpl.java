@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.attributes.model;
 
-import net.sf.anathema.hero.concept.model.concept.CasteCollection;
-import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -20,8 +18,6 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.state.GrumpyIncrementChecker;
-import net.sf.anathema.hero.traits.model.state.IncrementChecker;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
@@ -42,7 +38,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
 
   private IdentifiedTraitTypeList[] attributeTraitGroups;
   private Hero hero;
-  private GroupedTraitType[] abilityGroups;
+  private GroupedTraitType[] attributeGroups;
   private GroupedTraitsTemplate template;
   private TraitModel traitModel;
 
@@ -58,17 +54,14 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    CasteCollection casteCollection = HeroConceptFetcher.fetch(hero).getCasteCollection();
-    this.abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
-    this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(casteCollection,
-            getAttributeGroups());
+    this.attributeGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
+    this.attributeTraitGroups = new AttributeTypeGroupFactory().createTraitGroups(getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
   }
 
   private void addAttributes() {
-    IncrementChecker incrementChecker = new GrumpyIncrementChecker();
     for (IdentifiedTraitTypeList traitGroup : attributeTraitGroups) {
       TraitTemplateMap map = new TraitTemplateMapImpl(template);
       Collection<Trait> traits = createTraits(traitGroup, map);
@@ -90,7 +83,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
 
   @Override
   public GroupedTraitType[] getAttributeGroups() {
-    return abilityGroups;
+    return attributeGroups;
   }
 
   @Override

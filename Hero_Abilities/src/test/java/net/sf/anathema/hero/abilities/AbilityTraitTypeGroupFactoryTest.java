@@ -23,12 +23,11 @@ public class AbilityTraitTypeGroupFactoryTest {
 
   @Test
   public void testOneGroup() throws Exception {
-    CasteCollection casteCollection = new NullCasteCollection();
     GroupedTraitType[] abilityTypes = new GroupedTraitType[]{
             new GroupedTraitType(Archery, "War"),
             new GroupedTraitType(Melee, "War")
     };
-    IdentifiedTraitTypeList[] typeGroups = factory.createTraitGroups(casteCollection, abilityTypes);
+    IdentifiedTraitTypeList[] typeGroups = factory.createTraitGroups(abilityTypes);
     assertEquals(1, typeGroups.length);
     assertThat(typeGroups[0].getAll(), contains(Archery, Melee));
     assertEquals(War, typeGroups[0].getListId());
@@ -36,12 +35,11 @@ public class AbilityTraitTypeGroupFactoryTest {
 
   @Test
   public void testDifferentGroups() throws Exception {
-    CasteCollection casteCollection = new NullCasteCollection();
     GroupedTraitType[] abilityTypes = new GroupedTraitType[]{
             new GroupedTraitType(Archery, "War"),
             new GroupedTraitType(Medicine, "Life")
     };
-    IdentifiedTraitTypeList[] typeGroups = factory.createTraitGroups(casteCollection, abilityTypes);
+    IdentifiedTraitTypeList[] typeGroups = factory.createTraitGroups(abilityTypes);
     assertEquals(2, typeGroups.length);
     assertThat(typeGroups[0].getAll(), contains(Archery));
     assertEquals(War, typeGroups[0].getListId());

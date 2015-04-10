@@ -8,10 +8,6 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class NullCasteCollection implements CasteCollection {
-  @Override
-  public boolean containsCasteType(String casteTypeId) {
-    return false;
-  }
 
   @Override
   public Collection<CasteType> getAllCasteTypes(SplatType template) {

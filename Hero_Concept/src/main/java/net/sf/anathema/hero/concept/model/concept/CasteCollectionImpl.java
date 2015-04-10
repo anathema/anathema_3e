@@ -33,16 +33,6 @@ public class CasteCollectionImpl implements CasteCollection {
   }
 
   @Override
-  public boolean containsCasteType(String casteTypeId) {
-    for (CasteType type : allTypes) {
-      if (type.getId().equals(casteTypeId)) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  @Override
   public Collection<CasteType> getAllCasteTypes(SplatType template) {
     return Collections.unmodifiableCollection(allTypes);
   }

@@ -15,9 +15,9 @@ import java.util.Set;
 
 public abstract class AbstractTraitTypeGroupFactory {
 
-  protected abstract Identifier getGroupIdentifier(CasteCollection casteCollection, String groupId);
+  protected abstract Identifier getGroupIdentifier(String groupId);
 
-  public IdentifiedTraitTypeList[] createTraitGroups(CasteCollection casteCollection, GroupedTraitType[] traitTypes) {
+  public IdentifiedTraitTypeList[] createTraitGroups(GroupedTraitType[] traitTypes) {
     Set<String> groupIds = new LinkedHashSet<>();
     MultiEntryMap<String, TraitType> traitTypesByGroupId = new MultiEntryMap<>();
     for (GroupedTraitType type : traitTypes) {
@@ -33,7 +33,7 @@ public abstract class AbstractTraitTypeGroupFactory {
           continue;
         }
       }
-      Identifier groupIdentifier = getGroupIdentifier(casteCollection, groupId);
+      Identifier groupIdentifier = getGroupIdentifier(groupId);
       TraitType[] types = groupTraitTypes.toArray(new TraitType[groupTraitTypes.size()]);
       groups.add(new IdentifiedTraitTypeListImpl(types, groupIdentifier));
     }

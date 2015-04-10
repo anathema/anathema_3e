@@ -4,9 +4,7 @@ import net.sf.anathema.library.identifier.Identifier;
 
 public enum AbilityGroupType implements Identifier {
 
-  Life ,
-  Wisdom,
-  War;
+  War, Life, Wisdom;
 
   @Override
   public String getId() {
