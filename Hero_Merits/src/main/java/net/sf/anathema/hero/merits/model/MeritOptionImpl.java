@@ -105,12 +105,6 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
   }
 
   @Override
-  public void accept(ITraitTypeVisitor visitor) {
-    // TODO: Should we have a visitor?
-    // No.
-  }
-
-  @Override
   public int getMinimumValue() {
     for (int i = 0; i <= MAX_MERIT_RATING; i++) {
       if (isLegalValue(i)) {
@@ -149,6 +143,11 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
       return ((MeritOption) obj).getId().equals(getId());
     }
     return false;
+  }
+
+  @Override
+  public int hashCode() {
+    return getId().hashCode();
   }
 
   @Override

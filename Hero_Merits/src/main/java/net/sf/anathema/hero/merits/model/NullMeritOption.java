@@ -2,7 +2,6 @@ package net.sf.anathema.hero.merits.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
 
 import java.util.Collection;
@@ -58,11 +57,6 @@ public class NullMeritOption implements MeritOption {
   @Override
   public Collection<String> getSuggestions() {
     return Collections.emptyList();
-  }
-
-  @Override
-  public void accept(ITraitTypeVisitor visitor) {
-    //nothing to do
   }
 
   @Override

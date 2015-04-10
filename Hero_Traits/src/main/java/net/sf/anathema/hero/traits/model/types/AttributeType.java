@@ -14,11 +14,6 @@ public enum AttributeType implements TraitType {
   }
 
   @Override
-  public void accept(ITraitTypeVisitor visitor) {
-    visitor.visitAttribute(this);
-  }
-
-  @Override
   public String toString() {
     return getId();
   }

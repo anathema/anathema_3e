@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
 public class RitualImpl extends AbstractOptionalTraitOption implements ThaumaturgyRitual {
@@ -22,12 +21,6 @@ public class RitualImpl extends AbstractOptionalTraitOption implements Thaumatur
   @Override
   public String getId() {
     return name;
-  }
-
-  @Override
-  public void accept(ITraitTypeVisitor visitor) {
-    // TODO: Should we have a visitor?
-    // No. 
   }
 
   @Override

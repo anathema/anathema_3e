@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
-
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -20,11 +18,6 @@ public class NullRitualOption implements ThaumaturgyRitual {
 	@Override
 	public int getMaximumValue() {
 		return 0;
-	}
-
-	@Override
-	public void accept(ITraitTypeVisitor visitor) {
-		
 	}
 
 	@Override

@@ -31,11 +31,6 @@ public enum AbilityType implements TraitType {
   Socialize;
 
   @Override
-  public void accept(ITraitTypeVisitor visitor) {
-    visitor.visitAbility(this);
-  }
-
-  @Override
   public String getId() {
     return name();
   }
