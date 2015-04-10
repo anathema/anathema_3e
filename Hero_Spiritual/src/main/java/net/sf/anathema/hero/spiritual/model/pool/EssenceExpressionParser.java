@@ -53,7 +53,7 @@ public class EssenceExpressionParser {
     TraitType type = null;
     for (String part : split) {
       TraitType candidate = finder.getTrait(part);
-      if (candidate != null) {
+      if (candidate != TraitTypeFinder.NONE_FOUND) {
         type = candidate;
       }
     }

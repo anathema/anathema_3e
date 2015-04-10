@@ -2,15 +2,15 @@ package net.sf.anathema.hero.abilities.sheet.content;
 
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.sheet.content.FavorableTraitContent;
 import net.sf.anathema.library.resources.Resources;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 public class AbilitiesContent extends FavorableTraitContent {
@@ -24,7 +24,21 @@ public class AbilitiesContent extends FavorableTraitContent {
 
   @Override
   public List<? extends TraitType> getMarkedTraitTypes() {
-    return Arrays.asList(AbilityType.Athletics, AbilityType.Dodge, AbilityType.Larceny, AbilityType.Ride, AbilityType.Stealth);
+    List<TraitType> traitTypes = new ArrayList<>();
+    addTrait(traitTypes, "Athletics");
+    addTrait(traitTypes, "Dodge");
+    addTrait(traitTypes, "Larceny");
+    addTrait(traitTypes, "Ride");
+    addTrait(traitTypes, "Stealth");
+    return traitTypes;
+  }
+
+  private void addTrait(List<TraitType> traitTypes, String traitName) {
+    TraitType traitType = new TraitTypeFinder().getTrait(traitName);
+    if (traitType == TraitTypeFinder.NONE_FOUND){
+      return;
+    }
+    traitTypes.add(traitType);
   }
 
   @Override
