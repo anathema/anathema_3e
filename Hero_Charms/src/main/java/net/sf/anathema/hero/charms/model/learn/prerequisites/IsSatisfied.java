@@ -26,7 +26,7 @@ public class IsSatisfied implements PrerequisiteProcessor {
   private CharmLearnArbitrator arbitrator;
   public boolean satisfied = true;
 
-  public IsSatisfied(CharmLearnArbitrator learnArbitrator) {
+  private IsSatisfied(CharmLearnArbitrator learnArbitrator) {
     this.arbitrator = learnArbitrator;
   }
 

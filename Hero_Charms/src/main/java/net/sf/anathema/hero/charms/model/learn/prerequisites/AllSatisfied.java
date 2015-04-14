@@ -22,8 +22,6 @@ public class AllSatisfied implements Consumer<CharmPrerequisite> {
     if (!isFulfilled || !predicate.test(prerequisite)) {
       return;
     }
-    IsSatisfied satisfied = new IsSatisfied(learnArbitrator);
-    prerequisite.process(satisfied);
-    isFulfilled = satisfied.satisfied;
+    isFulfilled = IsSatisfied.isSatisfied(prerequisite, learnArbitrator);
   }
 }

@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.abilities.model;
 
+import com.google.common.base.Functions;
 import net.sf.anathema.hero.abilities.template.AbilitiesTemplate;
 import net.sf.anathema.hero.abilities.template.CasteTraitTemplate;
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
@@ -33,11 +34,8 @@ import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
-
-import com.google.common.base.Functions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,7 +84,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   }
 
   private void createAndAddTraits() {
-    for (AbilityType type : AbilityType.values()) {
+    for (TraitType type : AllAbilityTraitTypeList.getInstance().getAll()) {
       TraitRules traitRules = new TraitRulesImpl(type, templateMap.getTemplate(type), this.hero);
       Trait trait = new TraitImpl(this.hero, traitRules);
       addTraits(trait);

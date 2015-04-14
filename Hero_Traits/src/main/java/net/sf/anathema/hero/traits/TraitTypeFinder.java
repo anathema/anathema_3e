@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.traits;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
@@ -18,7 +17,7 @@ public class TraitTypeFinder {
 
   private TraitType getAbilityType(String value) {
     try {
-      return AbilityType.valueOf(value);
+      return new TraitTypeFinder().getTrait(value);
     } catch (Exception e) {
       return NONE_FOUND;
     }
