@@ -23,8 +23,12 @@ public class TraitTypeList implements Iterable<TraitType> {
     types.add(type);
   }
 
-  public void add(TraitType type) {
-    types.add(type);
+  public void add(TraitType... allTypes) {
+    Collections.addAll(types, allTypes);
+  }
+
+  public void addAll(List<TraitType> allTypes) {
+    types.addAll(allTypes);
   }
 
   public boolean isEmpty() {
@@ -48,9 +52,5 @@ public class TraitTypeList implements Iterable<TraitType> {
   @Override
   public Spliterator<TraitType> spliterator() {
     return types.spliterator();
-  }
-
-  public void add(TraitType... allTypes) {
-    Collections.addAll(types, allTypes);
   }
 }

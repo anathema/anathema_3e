@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.text.HeroTextEncoder;
 import net.sf.anathema.hero.sheet.text.MultiColumnTextReport;
 import net.sf.anathema.hero.sheet.text.TextPartFactory;
+import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -45,7 +46,7 @@ public abstract class AbstractTraitTextEncoder extends TextPartFactory implement
     report.addElement(traitPhrase);
   }
 
-  protected abstract TraitType[] getTypes(Hero hero);
+  protected abstract TraitTypeList getTypes(Hero hero);
 
   protected abstract TraitState getTraitState(Hero hero, Trait trait);
 

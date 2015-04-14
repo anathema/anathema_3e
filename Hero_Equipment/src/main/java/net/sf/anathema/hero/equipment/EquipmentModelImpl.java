@@ -16,6 +16,7 @@ import net.sf.anathema.hero.equipment.model.EquipmentCollection;
 import net.sf.anathema.hero.equipment.model.EquipmentDirectAccess;
 import net.sf.anathema.hero.equipment.model.EquipmentHeroEvaluatorImpl;
 import net.sf.anathema.hero.equipment.model.EquipmentItem;
+import net.sf.anathema.hero.equipment.model.merits.MeritUnarmedModificationProvider;
 import net.sf.anathema.hero.equipment.model.natural.DefaultNaturalSoak;
 import net.sf.anathema.hero.equipment.model.natural.NaturalWeaponTemplate;
 import net.sf.anathema.hero.equipment.model.natural.UnarmedModificationProviderCollection;
@@ -24,14 +25,14 @@ import net.sf.anathema.hero.individual.change.UnspecifiedChangeListener;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
-import net.sf.anathema.hero.equipment.model.merits.MeritUnarmedModificationProvider;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.CollectionListener;
@@ -345,8 +346,8 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     }
 
     private boolean characterStillHasCorrespondingSpecialty(IEquipmentStatsOption option) {
-      AbilityType trait = AbilityType.valueOf(option.getType());
-      Collection<Specialty> specialties = dataProvider.getSpecialties(trait);
+      TraitType type = new TraitTypeFinder().getTrait(option.getType());
+      Collection<Specialty> specialties = dataProvider.getSpecialties(type);
       return specialties.contains(option.getUnderlyingTrait());
     }
   }

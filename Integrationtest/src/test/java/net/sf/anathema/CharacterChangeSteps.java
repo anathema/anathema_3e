@@ -12,6 +12,7 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
@@ -57,7 +58,7 @@ public class CharacterChangeSteps {
 
   @When("^I set her (.*) to (\\d+)$")
   public void I_set_her_trait_to(String traitId, int value) throws Throwable {
-    TraitType type = new TraitTypeUtils().getTraitTypeById(traitId);
+    TraitType type = new TraitTypeFinder().getTrait(traitId);
     Trait trait = character.getTraitConfiguration().getTrait(type);
     if (ExperienceModelFetcher.fetch(character.getHero()).isExperienced()) {
       trait.setExperiencedValue(value);

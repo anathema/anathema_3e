@@ -3,6 +3,7 @@ package net.sf.anathema.hero.attributes.sheet.text;
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
 import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
@@ -17,8 +18,10 @@ public class AttributeTextEncoder extends AbstractTraitTextEncoder {
   }
 
   @Override
-  protected TraitType[] getTypes(Hero hero) {
-    return AttributeType.values();
+  protected TraitTypeList getTypes(Hero hero) {
+    TraitTypeList traitTypes = new TraitTypeList();
+    traitTypes.add(AttributeType.values());
+    return traitTypes;
   }
 
   @Override
