@@ -2,6 +2,7 @@ package net.sf.anathema.hero.traits.sheet.content;
 
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
+import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.GroupedTraitsModel;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
@@ -9,8 +10,6 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.resources.Resources;
-
-import java.util.List;
 
 public abstract class FavorableTraitContent extends AbstractSubBoxContent {
 
@@ -21,7 +20,7 @@ public abstract class FavorableTraitContent extends AbstractSubBoxContent {
     this.model = model;
   }
 
-  public abstract List<? extends TraitType> getMarkedTraitTypes();
+  public abstract TraitTypeList getMarkedTraitTypes();
 
   public abstract IdentifiedTraitTypeList[] getIdentifiedTraitTypeGroups();
 

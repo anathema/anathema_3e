@@ -6,8 +6,8 @@ import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.data.WeaponStatisticsTable;
 import net.sf.anathema.hero.health.model.HealthType;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -26,7 +26,10 @@ import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMund
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   private final List<IWeaponTag> tags = new ArrayList<>();
-
+  private final TraitType martialArts = new TraitTypeFinder().getTrait("MartialArts");
+  private final TraitType melee = new TraitTypeFinder().getTrait("Melee");
+  
+  
   @Override
   public int getAccuracy() {
     return getWeaponStatsEntry().getAccuracy();
@@ -94,8 +97,8 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
   }
 
   @Override
-  public AbilityType getTraitType() {
-    return isMartialArtsOnlyWeapon() ? AbilityType.MartialArts : AbilityType.Melee;
+  public TraitType getTraitType() {
+    return isMartialArtsOnlyWeapon() ? martialArts : melee;
   }
 
   private boolean isMartialArtsOnlyWeapon() {
@@ -112,7 +115,7 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
     if (isMartialArtsOnlyWeapon()) {
       return ItemStatsSet.withSingleStat(this);
     }
-    return ItemStatsSet.from(new WeaponStatsDecorator(this, AbilityType.Melee), new WeaponStatsDecorator(this, AbilityType.MartialArts));
+    return ItemStatsSet.from(new WeaponStatsDecorator(this, melee), new WeaponStatsDecorator(this, martialArts));
   }
 
   @Override

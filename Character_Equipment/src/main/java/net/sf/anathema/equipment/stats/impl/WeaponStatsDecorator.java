@@ -4,7 +4,6 @@ import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 
@@ -15,7 +14,7 @@ public class WeaponStatsDecorator extends AbstractStats implements IWeaponStats 
   private TraitType ability;
   private Identifier name;
 
-  public WeaponStatsDecorator(IWeaponStats stats, AbilityType statsAbility) {
+  public WeaponStatsDecorator(IWeaponStats stats, TraitType statsAbility) {
     this.stats = stats;
     this.ability = statsAbility;
     this.name = stats.getName();

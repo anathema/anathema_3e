@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.specialties.model.SingleSpecialty;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.resources.Resources;
 
@@ -16,8 +17,8 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
 
   protected CombatStatsContent(Hero hero, Resources resources) {
     super(resources, hero);
-    dodgeSpecialty = new SingleSpecialty(hero, AbilityType.Dodge);
-    awarenessSpecialty = new SingleSpecialty(hero, AbilityType.Awareness);
+    dodgeSpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Dodge"));
+    awarenessSpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Awareness"));
     modifiers = StatsModifiers.allStatsModifiers(hero);
   }
 
@@ -38,11 +39,11 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
   }
 
   public int getJoinBattle() {
-    return CharacterUtilities.getJoinBattle(getTraits(), modifiers);
+    return CharacterUtilities.getJoinBattle(getTraits());
   }
 
   public int getJoinBattleWithSpecialty() {
-    return CharacterUtilities.getJoinBattleWithSpecialty(getTraits(), modifiers, awarenessSpecialty.getValue());
+    return CharacterUtilities.getJoinBattleWithSpecialty(getTraits(), awarenessSpecialty.getValue());
   }
 
   public int getDodgeDv() {

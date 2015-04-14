@@ -3,6 +3,8 @@ package net.sf.anathema.hero.combat.model;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
@@ -10,25 +12,35 @@ import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Dexterity;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Stamina;
+import static net.sf.anathema.hero.traits.model.types.AttributeType.Wits;
+
 public class CharacterUtilities {
 
   public static int getSocialAttackValue(TraitMap traitMap, TraitType... types) {
     return getTotalValue(traitMap, types);
   }
 
-  public static int getJoinBattle(TraitMap traitMap, HeroStatsModifiers equipment) {
-    int baseValue = getTotalValue(traitMap, AttributeType.Wits, AbilityType.Awareness);
+  public static int getJoinBattle(TraitMap traitMap) {
+    TraitTypeList typeList = new TraitTypeList();
+    typeList.add(Wits);
+    typeList.add("Awareness");
+    int baseValue = getTotalValue(traitMap, typeList);
     return Math.max(baseValue, 1);
   }
 
-  public static int getJoinBattleWithSpecialty(TraitMap traitMap, HeroStatsModifiers equipment, int awarenessSpecialty) {
-    int baseValue = getJoinBattle(traitMap, equipment);
+  public static int getJoinBattleWithSpecialty(TraitMap traitMap, int awarenessSpecialty) {
+    int baseValue = getJoinBattle(traitMap);
     baseValue += awarenessSpecialty;
     return Math.max(baseValue, 1);
   }
 
   public static int getKnockdownThreshold(TraitMap traitMap) {
-    int baseValue = getTotalValue(traitMap, AttributeType.Stamina, AbilityType.Resistance);
+    TraitTypeList typeList = new TraitTypeList();
+    typeList.add(Stamina);
+    typeList.add("Resistance");
+    int baseValue = getTotalValue(traitMap, typeList);
     return Math.max(baseValue, 0);
   }
 
@@ -37,8 +49,9 @@ public class CharacterUtilities {
   }
 
   public static int getKnockdownPool(TraitMap traitMap) {
-    int attribute = getMaxValue(traitMap, AttributeType.Dexterity, AttributeType.Stamina);
-    int ability = getMaxValue(traitMap, AbilityType.Athletics, AbilityType.Resistance);
+    int attribute = getMaxValue(traitMap, Dexterity, AttributeType.Stamina);
+    TraitTypeFinder finder = new TraitTypeFinder();
+    int ability = getMaxValue(traitMap, finder.getTrait("Athletics"), finder.getTrait("Resistance"));
     int pool = attribute + ability;
     return Math.max(pool, 0);
   }
@@ -49,7 +62,10 @@ public class CharacterUtilities {
   }
 
   public static int getStunningPool(TraitMap traitMap) {
-    int baseValue = getTotalValue(traitMap, AttributeType.Stamina, AbilityType.Resistance);
+    TraitTypeList typeList = new TraitTypeList();
+    typeList.add(Stamina);
+    typeList.add("Resistance");
+    int baseValue = getTotalValue(traitMap, typeList);
     return Math.max(baseValue, 0);
   }
 
@@ -58,6 +74,13 @@ public class CharacterUtilities {
   }
 
   private static int getTotalValue(TraitMap traitCollection, TraitType... types) {
+    TraitTypeList list = new TraitTypeList();
+    list.add(types);
+    return getTotalValue(traitCollection, list);
+  }
+
+
+  private static int getTotalValue(TraitMap traitCollection, TraitTypeList types) {
     int sum = 0;
     for (TraitType type : types) {
       sum += traitCollection.getTrait(type).getCurrentValue();
@@ -67,7 +90,10 @@ public class CharacterUtilities {
 
   private static int getDodgeDvPool(TraitMap traitCollection) {
     int essence = traitCollection.getTrait(OtherTraitType.Essence).getCurrentValue();
-    int dvPool = getTotalValue(traitCollection, AttributeType.Dexterity, AbilityType.Dodge);
+    TraitTypeList typeList = new TraitTypeList();
+    typeList.add(Dexterity);
+    typeList.add("Dodge");
+    int dvPool = getTotalValue(traitCollection, typeList);
     if (essence >= 2) {
       dvPool += essence;
     }

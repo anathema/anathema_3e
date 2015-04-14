@@ -6,6 +6,7 @@ import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.table.TableColumns;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
@@ -51,7 +52,7 @@ public class HealthAndMovementTableEncoder extends AbstractHealthAndMovementTabl
     int woundPenalty = getPenalty(level, painTolerance);
     int dex = collection.getTrait(AttributeType.Dexterity).getCurrentValue();
     int str = collection.getTrait(AttributeType.Strength).getCurrentValue();
-    int athletics = collection.getTrait(AbilityType.Athletics).getCurrentValue();
+    int athletics = collection.getTrait(new TraitTypeFinder().getTrait("Athletics")).getCurrentValue();
 
     // minimum move is 1, minimum dash is 2, minimum jump h/v, swim, & climb is unknown
     int move = Math.max(dex + woundPenalty + mobilityPenalty, 1);

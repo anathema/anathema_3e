@@ -7,6 +7,7 @@ import net.sf.anathema.hero.spells.data.CircleType;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
+import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.event.ChangeListener;
@@ -137,6 +138,6 @@ public class DummySpellsModel implements SpellsModel {
 
   @Override
   public TraitType getFavoringTraitType() {
-    return AbilityType.Occult;
+    return new TraitTypeFinder().getTrait("Occult");
   }
 }
