@@ -6,7 +6,6 @@ import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.specialties.model.SingleSpecialty;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.resources.Resources;
 
 public class CombatStatsContent extends AbstractCombatStatsContent {

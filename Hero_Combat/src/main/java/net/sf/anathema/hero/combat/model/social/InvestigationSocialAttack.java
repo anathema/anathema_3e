@@ -3,7 +3,6 @@ package net.sf.anathema.hero.combat.model.social;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 public class InvestigationSocialAttack extends AbstractSocialAttack {
 
