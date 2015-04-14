@@ -6,9 +6,7 @@ import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequ
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
 import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.library.model.OptionalEntryReference;
-import net.sf.anathema.library.model.property.AbstractOptionalPropertyOption;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
 import java.util.ArrayList;

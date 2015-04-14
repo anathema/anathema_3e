@@ -1,15 +1,13 @@
 package net.sf.anathema.library.model.trait;
 
+import com.google.common.base.Strings;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.rules.ModificationType;
-import net.sf.anathema.hero.traits.model.types.ITraitTypeVisitor;
 import net.sf.anathema.hero.traits.template.LimitationTemplate;
 import net.sf.anathema.hero.traits.template.LimitationType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
-
-import com.google.common.base.Strings;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -48,10 +46,6 @@ public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOpti
 	
   public String getId() {
     return optionBase.getId();
-  }
-  
-  public void accept(ITraitTypeVisitor visitor) {
-    // TODO: Should we have a visitor?
   }
   
   public Collection<String> getSuggestions() {
