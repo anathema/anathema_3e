@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.traits;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Attributes;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.SpiritualTraits;
 
 public class TraitTypeFinder {
 
@@ -26,21 +25,20 @@ public class TraitTypeFinder {
   }
 
   private TraitType getAttributeType(String value) {
-    try {
-      return AttributeType.valueOf(value);
-    } catch (Exception e) {
-      return NONE_FOUND;
+    for (TraitType trait : Attributes) {
+      if (trait.getId().equals(value)) {
+        return trait;
+      }
     }
+    return NONE_FOUND;
   }
 
   private TraitType getOtherType(String value) {
-    if (Essence.getId().equals(value)) {
-      return Essence;
+    for (TraitType trait : SpiritualTraits) {
+      if (trait.getId().equals(value)) {
+        return trait;
+      }
     }
-    if (Willpower.getId().equals(value)) {
-      return Willpower;
-    } else {
-      return NONE_FOUND;
-    }
+    return NONE_FOUND;
   }
 }

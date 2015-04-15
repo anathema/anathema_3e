@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.model.lists;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +13,10 @@ public class DefaultTraitTypeList implements TraitTypeList {
 
   public DefaultTraitTypeList(TraitType[] traitTypes) {
     Collections.addAll(this.traitTypes, traitTypes);
+  }
+
+  public DefaultTraitTypeList(Collection<TraitType> traitTypes) {
+    this.traitTypes.addAll(traitTypes);
   }
 
   @Override

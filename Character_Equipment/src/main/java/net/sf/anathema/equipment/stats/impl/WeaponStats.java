@@ -8,7 +8,6 @@ import net.sf.anathema.equipment.stats.data.WeaponStatisticsTable;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ import static net.sf.anathema.equipment.stats.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
 import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forArtifactWeapons;
 import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMundaneWeapons;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Strength;
 
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
@@ -42,7 +42,7 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   @Override
   public TraitType getDamageTraitType() {
-    return AttributeType.Strength;
+    return Strength;
   }
 
   @Override

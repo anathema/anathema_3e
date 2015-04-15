@@ -33,7 +33,6 @@ import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.CollectionListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -45,6 +44,7 @@ import java.util.Collection;
 import java.util.List;
 
 import static net.sf.anathema.equipment.database.gson.GsonEquipmentDatabase.DATABASE_FOLDER;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Stamina;
 
 public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentModel {
   private final EquipmentCollection naturalWeapons = new EquipmentCollection();
@@ -93,7 +93,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
   }
 
   private IArmourStats determineNaturalArmor(Hero hero) {
-    Trait stamina = TraitModelFetcher.fetch(hero).getTrait(AttributeType.Stamina);
+    Trait stamina = TraitModelFetcher.fetch(hero).getTrait(Stamina);
     return new DefaultNaturalSoak(stamina);
   }
 

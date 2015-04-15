@@ -1,35 +1,33 @@
 package net.sf.anathema.integration.attributes;
 
+import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
-
 import net.sf.anathema.CharacterHolder;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.AttributeTraitType;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
 import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
 
-import com.google.inject.Inject;
-
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Appearance;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Charisma;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Dexterity;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Intelligence;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Manipulation;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Perception;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Stamina;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Strength;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Wits;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.valueOf;
-import static net.sf.anathema.hero.traits.model.types.AttributeType.values;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Appearance;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Attributes;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Charisma;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dexterity;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Intelligence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Manipulation;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Perception;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Stamina;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Strength;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Wits;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 @ScenarioScoped
 public class AttributeSteps {
 
-  public static final AttributeType ANY_ATTRIBUTE_TYPE = Dexterity;
+  public static final TraitType ANY_ATTRIBUTE_TYPE = Dexterity;
   private final IntegrationAttributes attributes;
   private CharacterHolder character;
 
@@ -51,7 +49,7 @@ public class AttributeSteps {
 
   @Then("^she has (\\d+) dots in attribute (.*)$")
   public void she_has_dots_in_attribute(int value, String traitId) throws Throwable {
-    AttributeType type = valueOf(traitId);
+    AttributeTraitType type = new AttributeTraitType(traitId);
     assertThatAttributeHasValueOf(type, value);
   }
 
@@ -62,7 +60,7 @@ public class AttributeSteps {
 
   @Then("^she has (\\d+) dots in all her attributes$")
   public void she_has_dots_in_all_her_attributes(int value) throws Throwable {
-    for (AttributeType type : values()) {
+    for (TraitType type : Attributes) {
       assertThatAttributeHasValueOf(type, value);
     }
   }
@@ -103,7 +101,7 @@ public class AttributeSteps {
     attributes.spendDotsOnAttributes(amount, Strength, Dexterity, Stamina);
   }
 
-  private void assertThatAttributeHasValueOf(AttributeType type, int value) {
+  private void assertThatAttributeHasValueOf(TraitType type, int value) {
     assertThat("Attribute type " + type, attributes.getAttribute(type).getCurrentValue(), is(value));
   }
 }

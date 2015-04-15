@@ -4,7 +4,9 @@ import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.combat.sheet.social.stats.ISocialCombatStats;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Charisma;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Manipulation;
 
 public abstract class AbstractSocialAttack implements ISocialCombatStats {
 
@@ -16,12 +18,12 @@ public abstract class AbstractSocialAttack implements ISocialCombatStats {
 
   @Override
   public final int getDeceptionAttackValue() {
-    return CharacterUtilities.getSocialAttackValue(collection, AttributeType.Manipulation, getName());
+    return CharacterUtilities.getSocialAttackValue(collection, Manipulation, getName());
   }
 
   @Override
   public final int getHonestyAttackValue() {
-    return CharacterUtilities.getSocialAttackValue(collection, AttributeType.Charisma, getName());
+    return CharacterUtilities.getSocialAttackValue(collection, Charisma, getName());
   }
 
   @Override

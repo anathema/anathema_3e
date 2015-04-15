@@ -5,9 +5,8 @@ import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.hero.traits.model.types.AttributeTraitType;
 import net.sf.anathema.library.identifier.Identifier;
-import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class AttributesPrintModel implements AttributesList {
   }
 
   public int getCurrentValue(Identifier traitId) {
-    AttributeType type = AttributeType.valueOf(traitId.getId());
+    AttributeTraitType type = new AttributeTraitType(traitId.getId());
     return getAttributeModel().getTrait(type).getCurrentValue();
   }
 

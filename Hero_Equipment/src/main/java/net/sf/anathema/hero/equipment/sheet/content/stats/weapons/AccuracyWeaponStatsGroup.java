@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.EquipmentOptionsProvider;
@@ -7,11 +9,9 @@ import net.sf.anathema.hero.equipment.IEquipmentStatsOption;
 import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipmentStatsGroup;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.resources.Resources;
 
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.PdfPTable;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dexterity;
 
 public class AccuracyWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWeaponStats> {
 
@@ -57,7 +57,7 @@ public class AccuracyWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<I
   }
 
   protected int getFinalValue(IWeaponStats weapon, int weaponValue) {
-    Trait trait = collection.getTrait(AttributeType.Dexterity);
+    Trait trait = collection.getTrait(Dexterity);
     return calculateFinalValue(weaponValue + getOptionModifiers(weapon), trait, collection.getTrait(weapon.getTraitType()));
   }
 }

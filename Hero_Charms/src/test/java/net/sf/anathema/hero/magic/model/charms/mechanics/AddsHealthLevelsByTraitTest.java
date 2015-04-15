@@ -1,15 +1,10 @@
 package net.sf.anathema.hero.magic.model.charms.mechanics;
 
-import net.sf.anathema.hero.magic.model.MagicModel;
-import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.CharmHeroObjectMother;
-import net.sf.anathema.hero.magic.advance.MagicPointsModel;
 import net.sf.anathema.hero.charms.dummy.DummyCharm;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModelImpl;
 import net.sf.anathema.hero.charms.model.special.mechanics.AddsHealthLevelsByTraitMechanic;
-import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.DummyHeroEnvironment;
@@ -19,6 +14,9 @@ import net.sf.anathema.hero.health.model.HealthModelFetcher;
 import net.sf.anathema.hero.health.model.HealthModelImpl;
 import net.sf.anathema.hero.health.template.HealthTemplate;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.MagicPointsModel;
+import net.sf.anathema.hero.magic.model.MagicModel;
+import net.sf.anathema.hero.magic.template.advance.MagicPointsTemplate;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -29,10 +27,10 @@ import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
-
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.points.model.PointModelImpl;
 import net.sf.anathema.points.template.PointsTemplate;
 import org.junit.Before;
@@ -42,6 +40,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Stamina;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -80,7 +79,7 @@ public class AddsHealthLevelsByTraitTest {
     hero.addModel(charms);
     charms.initialize(dummyEnvironment, hero);
     
-    stamina = createTrait(hero, AttributeType.Stamina);
+    stamina = createTrait(hero, Stamina);
     resistance = createTrait(hero, AbilityType.Resistance);
     health = HealthModelFetcher.fetch(hero);
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
@@ -153,7 +152,7 @@ public class AddsHealthLevelsByTraitTest {
 		for (int i = 1; i <= numberOfMechanics; i++) {
 			CharmName name = new CharmName(charmName + (i > 1 ? ".x" + i : ""));
 			mechanics[i - 1] = new AddsHealthLevelsByTraitMechanic(name,
-					AttributeType.Stamina,
+					Stamina,
 					healthLevels);
 			charms[i - 1] = new DummyCharm(name.text);
 			provider.addCharm(charms[i - 1], mechanics[i - 1]);

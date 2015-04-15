@@ -4,7 +4,7 @@ import net.sf.anathema.CharacterHolder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
+import net.sf.anathema.hero.traits.model.TraitType;
 
 public class IntegrationAttributes {
 
@@ -14,14 +14,14 @@ public class IntegrationAttributes {
     this.holder = holder;
   }
 
-  public Trait getAttribute(AttributeType type) {
+  public Trait getAttribute(TraitType type) {
     TraitMap traitConfiguration = TraitModelFetcher.fetch(holder.getHero());
     return traitConfiguration.getTrait(type);
   }
 
-  public void spendDotsOnAttributes(int amount, AttributeType... attributeTypes) {
+  public void spendDotsOnAttributes(int amount, TraitType... attributeTypes) {
     for (; amount > 0; amount--) {
-      for (AttributeType attributeType : attributeTypes) {
+      for (TraitType attributeType : attributeTypes) {
         Trait attribute = getAttribute(attributeType);
         if (attribute.getCreationValue() < 5) {
           attribute.setCreationValue(attribute.getCreationValue() + 1);

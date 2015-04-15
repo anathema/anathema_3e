@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
-import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import org.junit.Test;
 
 import java.util.List;
 
-import static net.sf.anathema.hero.traits.model.types.AttributeType.Strength;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Strength;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.hasSize;

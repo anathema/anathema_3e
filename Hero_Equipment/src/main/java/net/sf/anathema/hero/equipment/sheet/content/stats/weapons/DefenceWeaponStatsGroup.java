@@ -1,5 +1,7 @@
 package net.sf.anathema.hero.equipment.sheet.content.stats.weapons;
 
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.equipment.stats.IWeaponStats;
 import net.sf.anathema.hero.equipment.EquipmentHeroEvaluator;
 import net.sf.anathema.hero.equipment.EquipmentOptionsProvider;
@@ -8,11 +10,9 @@ import net.sf.anathema.hero.equipment.sheet.content.stats.AbstractValueEquipment
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.library.resources.Resources;
 
-import com.itextpdf.text.Font;
-import com.itextpdf.text.pdf.PdfPTable;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dexterity;
 
 public class DefenceWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IWeaponStats> {
 
@@ -50,7 +50,7 @@ public class DefenceWeaponStatsGroup extends AbstractValueEquipmentStatsGroup<IW
 
   protected int getDefenceValue(IWeaponStats weapon) {
     TraitMap traitCollection = TraitModelFetcher.fetch(hero);
-    double finalValue = calculateFinalValue(weapon.getDefence() + getOptionModifiers(weapon), traitCollection.getTrait(AttributeType.Dexterity),
+    double finalValue = calculateFinalValue(weapon.getDefence() + getOptionModifiers(weapon), traitCollection.getTrait(Dexterity),
             traitCollection.getTrait(weapon.getTraitType()));
     boolean isMortal = !hero.getSplat().getTemplateType().getHeroType().isEssenceUser();
     if (isMortal) {

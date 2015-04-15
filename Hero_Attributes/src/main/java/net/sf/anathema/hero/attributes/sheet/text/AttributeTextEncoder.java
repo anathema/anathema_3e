@@ -5,11 +5,11 @@ import net.sf.anathema.hero.attributes.model.AttributesModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
-import net.sf.anathema.hero.traits.model.types.AttributeType;
 import net.sf.anathema.hero.traits.sheet.encoder.AbstractTraitTextEncoder;
 import net.sf.anathema.library.resources.Resources;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Attributes;
 
 public class AttributeTextEncoder extends AbstractTraitTextEncoder {
 
@@ -20,7 +20,7 @@ public class AttributeTextEncoder extends AbstractTraitTextEncoder {
   @Override
   protected TraitTypeList getTypes(Hero hero) {
     TraitTypeList traitTypes = new TraitTypeList();
-    traitTypes.add(AttributeType.values());
+    traitTypes.addAll(Attributes);
     return traitTypes;
   }
 
