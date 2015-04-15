@@ -2,7 +2,8 @@ package net.sf.anathema.hero.spiritual.advance.creation;
 
 import net.sf.anathema.hero.spiritual.template.points.SpiritualPointsTemplate;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class DefaultSpiritualCreationData implements SpiritualCreationData {
 
@@ -14,7 +15,7 @@ public class DefaultSpiritualCreationData implements SpiritualCreationData {
 
   @Override
   public int getCalculationBase(TraitType type) {
-    if (type == OtherTraitType.Willpower) {
+    if (type == Willpower) {
       return template.willpower.calculation.calculationBase;
     }
     return 1;

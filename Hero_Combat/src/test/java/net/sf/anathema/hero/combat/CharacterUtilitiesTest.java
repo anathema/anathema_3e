@@ -8,10 +8,9 @@ import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
-
 import org.junit.Test;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 
@@ -24,7 +23,7 @@ public class CharacterUtilitiesTest {
   public void testMortalDodgeDvWithEssenceValueOne() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 2));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 1));
+    traitCollection.addTraits(new DummyTrait(Essence, 1));
     assertEquals(1, CharacterUtilities.getDodgeDv(new DummyMundaneHeroType(), traitCollection, modifiers));
   }
 
@@ -32,7 +31,7 @@ public class CharacterUtilitiesTest {
   public void testMortalDodgeDvWithEssenceValueTwo() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 2));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 2));
+    traitCollection.addTraits(new DummyTrait(Essence, 2));
     assertEquals(2, CharacterUtilities.getDodgeDv(new DummyMundaneHeroType(), traitCollection, modifiers));
   }
 
@@ -40,7 +39,7 @@ public class CharacterUtilitiesTest {
   public void testExaltDodgeWithEssenceValueOne() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 1));
+    traitCollection.addTraits(new DummyTrait(Essence, 1));
     assertEquals(1, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
   }
 
@@ -48,7 +47,7 @@ public class CharacterUtilitiesTest {
   public void testExaltDodgeWithEssenceValueTwo() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 1));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 2));
+    traitCollection.addTraits(new DummyTrait(Essence, 2));
     assertEquals(2, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
   }
 
@@ -56,7 +55,7 @@ public class CharacterUtilitiesTest {
   public void testExaltDodgeOddSum() throws Exception {
     traitCollection.addTraits(new DummyTrait(AbilityType.Dodge, 1));
     traitCollection.addTraits(new DummyTrait(AttributeType.Dexterity, 2));
-    traitCollection.addTraits(new DummyTrait(OtherTraitType.Essence, 2));
+    traitCollection.addTraits(new DummyTrait(Essence, 2));
     assertEquals(3, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
   }
 }

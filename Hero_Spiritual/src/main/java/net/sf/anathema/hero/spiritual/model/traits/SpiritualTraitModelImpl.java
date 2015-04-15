@@ -11,9 +11,11 @@ import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
 import net.sf.anathema.library.identifier.Identifier;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class SpiritualTraitModelImpl extends DefaultTraitMap implements SpiritualTraitModel, HeroModel {
 
@@ -34,7 +36,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
     addEssence(hero);
     addWillpower(hero);
     this.traitModel = TraitModelFetcher.fetch(hero);
-    getTrait(OtherTraitType.Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
+    getTrait(Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
     traitModel.addTraits(getAll());
   }
 
@@ -47,12 +49,12 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   private void addEssence(Hero hero) {
     SpiritualTraitFactory traitFactory = createTraitFactory(hero);
-    addTraits(traitFactory.createTrait(OtherTraitType.Essence));
+    addTraits(traitFactory.createTrait(Essence));
   }
 
   private void addWillpower(Hero hero) {
     SpiritualTraitFactory traitFactory = createTraitFactory(hero);
-    addTraits(traitFactory.createTrait(OtherTraitType.Willpower));
+    addTraits(traitFactory.createTrait(Willpower));
   }
 
   private SpiritualTraitFactory createTraitFactory(Hero hero) {
@@ -62,7 +64,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   @Override
   public int getEssenceCap(boolean modified) {
-    Trait essence = getTrait(OtherTraitType.Essence);
+    Trait essence = getTrait(Essence);
     return modified ? essence.getModifiedMaximalValue() : essence.getUnmodifiedMaximalValue();
   }
 

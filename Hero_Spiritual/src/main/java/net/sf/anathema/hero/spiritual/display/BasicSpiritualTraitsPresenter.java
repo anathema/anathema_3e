@@ -4,12 +4,13 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class BasicSpiritualTraitsPresenter {
   private final List<Presenter> subPresenters = new ArrayList<>();
@@ -20,7 +21,7 @@ public class BasicSpiritualTraitsPresenter {
     this.resources = resources;
     this.view = view;
     TraitMap traitMap = TraitModelFetcher.fetch(hero);
-    subPresenters.add(new WillpowerConfigurationPresenter(resources, traitMap.getTrait(OtherTraitType.Willpower), view));
+    subPresenters.add(new WillpowerConfigurationPresenter(resources, traitMap.getTrait(Willpower), view));
     subPresenters.add(new EssenceConfigurationPresenter(resources, EssencePoolModelFetcher.fetch(hero), traitMap, view));
   }
 

@@ -2,8 +2,9 @@ package net.sf.anathema.hero.spiritual.advance.experience;
 
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class EssenceExperienceModel extends AbstractIntegerValueModel {
   private final SpiritualTraitModel spiritualTraits;
@@ -17,7 +18,7 @@ public class EssenceExperienceModel extends AbstractIntegerValueModel {
 
   @Override
   public Integer getValue() {
-    Trait essence = spiritualTraits.getTrait(OtherTraitType.Essence);
+    Trait essence = spiritualTraits.getTrait(Essence);
     return calculator.getEssenceCosts(essence);
   }
 }

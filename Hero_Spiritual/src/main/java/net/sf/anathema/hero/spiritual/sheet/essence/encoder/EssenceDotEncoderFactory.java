@@ -5,9 +5,10 @@ import net.sf.anathema.hero.sheet.pdf.encoder.EncoderIds;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.AbstractEncoderFactory;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.traits.model.SystemConstants;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.sheet.encoder.DotBoxContentEncoder;
 import net.sf.anathema.library.resources.Resources;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 @SuppressWarnings("UnusedDeclaration")
 public class EssenceDotEncoderFactory extends AbstractEncoderFactory {
@@ -18,7 +19,7 @@ public class EssenceDotEncoderFactory extends AbstractEncoderFactory {
 
   @Override
   public ContentEncoder create(Resources resources, BasicContent content) {
-    return new DotBoxContentEncoder(OtherTraitType.Essence, SystemConstants.SYSTEM_ESSENCE_MAX, resources, "Essence");
+    return new DotBoxContentEncoder(Essence, SystemConstants.SYSTEM_ESSENCE_MAX, resources, "Essence");
   }
 
   @Override

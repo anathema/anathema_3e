@@ -41,6 +41,7 @@ import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Charm;
@@ -67,7 +68,7 @@ import java.util.function.Predicate;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsAutoSatisfiable.isAutoSatisfiable;
 import static net.sf.anathema.hero.charms.model.learn.prerequisites.IsSatisfied.isSatisfied;
 import static net.sf.anathema.hero.magic.model.CommonMagicAttributes.NO_PURCHASE;
-import static net.sf.anathema.hero.traits.model.types.OtherTraitType.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class CharmsModelImpl implements CharmsModel {
 

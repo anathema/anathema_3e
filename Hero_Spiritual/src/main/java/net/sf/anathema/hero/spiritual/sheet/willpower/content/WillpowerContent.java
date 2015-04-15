@@ -4,11 +4,12 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.ListUtils;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.sheet.content.BulletList;
 import net.sf.anathema.library.resources.Resources;
 
 import java.util.List;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class WillpowerContent extends AbstractSubBoxContent {
 
@@ -25,7 +26,7 @@ public class WillpowerContent extends AbstractSubBoxContent {
   }
 
   public int getWillpowerValue() {
-    return SpiritualTraitModelFetcher.fetch(hero).getTrait(OtherTraitType.Willpower).getCurrentValue();
+    return SpiritualTraitModelFetcher.fetch(hero).getTrait(Willpower).getCurrentValue();
   }
 
   public String getWillpowerSpendingNote() {

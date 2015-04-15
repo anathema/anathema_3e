@@ -1,12 +1,12 @@
 package net.sf.anathema.hero.charms.model;
 
-import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.magic.data.Charm;
 
-import static net.sf.anathema.magic.data.CharmAttributeList.IGNORES_SUPERNAL;
 import static net.sf.anathema.hero.traits.model.state.SupernalTraitStateType.Supernal;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.magic.data.CharmAttributeList.IGNORES_SUPERNAL;
 
 public class CharmTraitRequirementCalculator {
   private final TraitStateFetcher stateFetcher;
@@ -16,7 +16,7 @@ public class CharmTraitRequirementCalculator {
   }
 
   public int calculateMinimum(Charm charm, TraitType trait, int baseValue) {
-    boolean requiredTraitIsEssence = trait.equals(OtherTraitType.Essence);
+    boolean requiredTraitIsEssence = trait.equals(Essence);
     boolean supernalApplies = doesSupernalApply(charm);
     if (requiredTraitIsEssence && supernalApplies) {
       if (baseValue <= 5) {

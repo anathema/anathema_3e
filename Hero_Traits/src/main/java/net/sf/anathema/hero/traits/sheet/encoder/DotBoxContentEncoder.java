@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.traits.sheet.encoder;
 
+import com.itextpdf.text.DocumentException;
 import net.sf.anathema.hero.sheet.pdf.encoder.boxes.ContentEncoder;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Bounds;
 import net.sf.anathema.hero.sheet.pdf.encoder.general.Position;
@@ -7,21 +8,19 @@ import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.sheet.content.PdfTraitEncoder;
 import net.sf.anathema.library.resources.Resources;
-
-import com.itextpdf.text.DocumentException;
 
 public class DotBoxContentEncoder implements ContentEncoder {
 
   private PdfTraitEncoder traitEncoder;
-  private OtherTraitType trait;
+  private TraitType trait;
   private Resources resources;
   private final int traitMax;
   private String traitHeaderKey;
 
-  public DotBoxContentEncoder(OtherTraitType trait, int traitMax, Resources resources, String traitHeaderKey) {
+  public DotBoxContentEncoder(TraitType trait, int traitMax, Resources resources, String traitHeaderKey) {
     this.traitMax = traitMax;
     this.trait = trait;
     this.resources = resources;

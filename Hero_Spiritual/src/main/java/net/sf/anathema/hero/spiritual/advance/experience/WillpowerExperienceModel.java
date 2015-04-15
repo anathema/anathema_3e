@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.spiritual.advance.experience;
 
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class WillpowerExperienceModel extends AbstractIntegerValueModel {
 
@@ -21,6 +22,6 @@ public class WillpowerExperienceModel extends AbstractIntegerValueModel {
   }
 
   private int getWillpowerCosts() {
-    return calculator.getWillpowerCosts(spiritualTraits.getTrait(OtherTraitType.Willpower));
+    return calculator.getWillpowerCosts(spiritualTraits.getTrait(Willpower));
   }
 }

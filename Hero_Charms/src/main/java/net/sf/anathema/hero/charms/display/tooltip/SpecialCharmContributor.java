@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.display.tooltip;
 
-import net.sf.anathema.hero.magic.display.tooltip.MagicTooltipContributor;
-import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.AbstractMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.CharmTier;
@@ -9,12 +7,15 @@ import net.sf.anathema.hero.charms.model.special.learning.multilearn.EssenceFixe
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.StaticMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.TieredMultiLearnableCharm;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitDependentMultiLearnableCharm;
+import net.sf.anathema.hero.magic.display.tooltip.MagicTooltipContributor;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.tooltip.ConfigurableTooltip;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.Magic;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class SpecialCharmContributor implements MagicTooltipContributor {
   private Resources resources;
@@ -64,7 +65,7 @@ public class SpecialCharmContributor implements MagicTooltipContributor {
         builder.append(resources.getString("Essence"));
         builder.append(ConfigurableTooltip.Space);
       }
-      builder.append(tier.getRequirement(OtherTraitType.Essence));
+      builder.append(tier.getRequirement(Essence));
       TraitType primaryTraitType =  new TraitTypeUtils().getPrimaryTraitType(charm);
       int traitRequirement = tier.getRequirement(primaryTraitType);
       if (traitRequirement > 0) {

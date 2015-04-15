@@ -17,13 +17,12 @@ import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelImpl;
 import net.sf.anathema.hero.spiritual.template.EssencePoolTemplate;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
-
 import org.junit.Before;
 import org.junit.Test;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static org.mockito.Mockito.mock;
 
 public class EquipmentModelTest {
@@ -51,7 +50,7 @@ public class EquipmentModelTest {
     hero.addModel(traitModel);
     hero.addModel(new DummyHeroConcept());
     hero.addModel(new DummyTraitModel());
-    traitModel.getTrait(OtherTraitType.Essence).setCurrentValue(currentValue);
+    traitModel.getTrait(Essence).setCurrentValue(currentValue);
     return hero;
   }
 

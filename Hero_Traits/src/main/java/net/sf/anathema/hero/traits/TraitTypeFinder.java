@@ -2,7 +2,9 @@ package net.sf.anathema.hero.traits;
 
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class TraitTypeFinder {
 
@@ -32,9 +34,12 @@ public class TraitTypeFinder {
   }
 
   private TraitType getOtherType(String value) {
-    try {
-      return OtherTraitType.valueOf(value);
-    } catch (Exception e) {
+    if (Essence.getId().equals(value)) {
+      return Essence;
+    }
+    if (Willpower.getId().equals(value)) {
+      return Willpower;
+    } else {
       return NONE_FOUND;
     }
   }

@@ -5,7 +5,8 @@ import net.sf.anathema.hero.dummy.DummyHero;
 import net.sf.anathema.hero.dummy.models.DummySpiritualTraitModel;
 import net.sf.anathema.hero.traits.dummy.DummyTraitModel;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class CharmHeroObjectMother {
 
@@ -19,7 +20,7 @@ public class CharmHeroObjectMother {
     hero.addModel(otherTraitModel);
     hero.addModel(new DummyHeroConcept());
     hero.addModel(createTraits(valueStrategy));
-    otherTraitModel.getTrait(OtherTraitType.Essence).setCurrentValue(currentValue);
+    otherTraitModel.getTrait(Essence).setCurrentValue(currentValue);
     return hero;
   }
 

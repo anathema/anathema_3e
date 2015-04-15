@@ -1,19 +1,21 @@
 package net.sf.anathema.hero.spiritual.persister;
 
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.hero.traits.persistence.TraitTypeMap;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class SpiritualTraitTypeMap implements TraitTypeMap {
 
   private Map<String, TraitType> traitTypeMap = new HashMap<>();
 
   {
-    addTraitType(OtherTraitType.Essence);
-    addTraitType(OtherTraitType.Willpower);
+    addTraitType(Essence);
+    addTraitType(Willpower);
   }
 
   private void addTraitType(TraitType type) {

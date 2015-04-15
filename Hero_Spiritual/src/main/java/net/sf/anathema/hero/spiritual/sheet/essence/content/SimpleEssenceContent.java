@@ -4,8 +4,9 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.resources.Resources;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class SimpleEssenceContent extends AbstractSubBoxContent {
 
@@ -27,7 +28,7 @@ public class SimpleEssenceContent extends AbstractSubBoxContent {
   }
 
   public int getEssenceValue() {
-    return SpiritualTraitModelFetcher.fetch(hero).getTrait(OtherTraitType.Essence).getCurrentValue();
+    return SpiritualTraitModelFetcher.fetch(hero).getTrait(Essence).getCurrentValue();
   }
 
   public int getEssenceMax() {

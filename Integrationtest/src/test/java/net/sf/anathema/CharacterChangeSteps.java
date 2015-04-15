@@ -1,10 +1,10 @@
 package net.sf.anathema;
 
+import com.google.inject.Inject;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
-
 import net.sf.anathema.hero.concept.model.concept.CasteCollection;
 import net.sf.anathema.hero.concept.model.concept.CasteType;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
@@ -15,11 +15,10 @@ import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.TraitTypeUtils;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
+import net.sf.anathema.hero.traits.model.types.SpiritualTraitType;
 
-import com.google.inject.Inject;
-
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -93,7 +92,7 @@ public class CharacterChangeSteps {
 
   @Then("^she has (\\d+) dots in Essence$")
   public void she_has_value_dots_in_Essence(int expectation) throws Throwable {
-    int essenceValue = SpiritualTraitModelFetcher.fetch(character.getHero()).getTrait(OtherTraitType.Essence).getCurrentValue();
+    int essenceValue = SpiritualTraitModelFetcher.fetch(character.getHero()).getTrait(Essence).getCurrentValue();
     assertThat(essenceValue, is(expectation));
   }
 }

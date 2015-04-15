@@ -16,6 +16,7 @@ public class TraitStateFetcher {
   }
 
   public TraitStateType fetch(TraitType type) {
+    //TODO (Urs, for Martial Arts): Find another way of recognizing an ability
     if (!(type instanceof AbilityType)) {
       return DefaultTraitStateType.Default;
     }

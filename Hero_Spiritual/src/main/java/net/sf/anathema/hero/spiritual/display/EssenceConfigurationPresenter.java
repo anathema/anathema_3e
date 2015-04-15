@@ -4,12 +4,13 @@ import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitMap;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.NullStyledValueView;
 import net.sf.anathema.library.view.StyledValueView;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class EssenceConfigurationPresenter implements Presenter {
 
@@ -27,7 +28,7 @@ public class EssenceConfigurationPresenter implements Presenter {
 
   @Override
   public void initPresentation() {
-    Trait essenceTrait = traitMap.getTrait(OtherTraitType.Essence);
+    Trait essenceTrait = traitMap.getTrait(Essence);
     IntValueView essenceView =
             view.addEssenceView(resources.getString("Essence.Name"), essenceTrait.getMaximalValue());
     if (essencePool.isEssenceUser()) {

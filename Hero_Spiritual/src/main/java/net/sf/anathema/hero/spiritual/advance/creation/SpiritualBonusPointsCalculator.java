@@ -3,8 +3,9 @@ package net.sf.anathema.hero.spiritual.advance.creation;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModel;
 import net.sf.anathema.hero.spiritual.model.traits.TraitCollectionUtilities;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.points.model.BonusPointCalculator;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class SpiritualBonusPointsCalculator implements BonusPointCalculator {
 
@@ -33,7 +34,7 @@ public class SpiritualBonusPointsCalculator implements BonusPointCalculator {
   }
 
   private int calculateWillpowerPoints() {
-    int calculationBase = creationData.getCalculationBase(OtherTraitType.Willpower);
+    int calculationBase = creationData.getCalculationBase(Willpower);
     return (willpower.getCreationValue() - calculationBase) * creationData.getWillpowerCost();
   }
 }

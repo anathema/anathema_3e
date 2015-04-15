@@ -9,11 +9,11 @@ import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.types.AttributeType;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 
 import static net.sf.anathema.hero.traits.model.types.AttributeType.Dexterity;
 import static net.sf.anathema.hero.traits.model.types.AttributeType.Stamina;
 import static net.sf.anathema.hero.traits.model.types.AttributeType.Wits;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class CharacterUtilities {
 
@@ -88,7 +88,7 @@ public class CharacterUtilities {
   }
 
   private static int getDodgeDvPool(TraitMap traitCollection) {
-    int essence = traitCollection.getTrait(OtherTraitType.Essence).getCurrentValue();
+    int essence = traitCollection.getTrait(Essence).getCurrentValue();
     TraitTypeList typeList = new TraitTypeList();
     typeList.add(Dexterity);
     typeList.add("Dodge");

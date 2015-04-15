@@ -8,14 +8,16 @@ import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.rules.limitation.StaticTraitLimitation;
-import net.sf.anathema.hero.traits.model.types.OtherTraitType;
 import net.sf.anathema.library.identifier.Identifier;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class DummySpiritualTraitModel extends DefaultTraitMap implements SpiritualTraitModel {
 
   public DummySpiritualTraitModel() {
-    addTraits(new DummyTrait(OtherTraitType.Essence, 2));
-    addTraits(new DummyTrait(OtherTraitType.Willpower, 5));
+    addTraits(new DummyTrait(Essence, 2));
+    addTraits(new DummyTrait(Willpower, 5));
   }
 
   @Override
