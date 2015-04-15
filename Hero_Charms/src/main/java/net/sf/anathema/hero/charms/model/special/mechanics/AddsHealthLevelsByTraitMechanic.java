@@ -15,42 +15,38 @@ public class AddsHealthLevelsByTraitMechanic extends AbstractCharmMechanic {
 
   private final TraitType traitType;
   private final Map<Integer, HealthLevelType[]> healthLevels;
-  
+
 
   public AddsHealthLevelsByTraitMechanic(CharmName charmId, TraitType traitType, Map<Integer, HealthLevelType[]> healthLevels) {
-  	super(charmId);
+    super(charmId);
     this.traitType = traitType;
     this.healthLevels = healthLevels;
   }
-  
+
   @Override
-	public void initialize(Hero hero) {
-		HealthModelFetcher.fetch(hero).addHealthLevelProvider(new AddsHealthLevelsByTraitHealthProvider(hero));
-	}
+  public void initialize(Hero hero) {
+    HealthModelFetcher.fetch(hero).addHealthLevelProvider(new AddsHealthLevelsByTraitHealthProvider(hero));
+  }
 
-	private class AddsHealthLevelsByTraitHealthProvider implements IHealthLevelProvider
-	{
-		private final Hero hero;
-		
-		public AddsHealthLevelsByTraitHealthProvider(Hero hero) {
-			this.hero = hero;
-		}
+  private class AddsHealthLevelsByTraitHealthProvider implements IHealthLevelProvider {
+    private final Hero hero;
 
-		@Override
-		public int getHealthLevelTypeCount(HealthLevelType type) {
-			TraitModel traits = TraitModelFetcher.fetch(hero);
-			int picks = getLearnCount(hero);
-			int traitLevel = traits.getTrait(traitType).getCurrentValue();
-			
-			int total = 0;
-			for (HealthLevelType entry : healthLevels.get(traitLevel)) {
-				if (entry == type) {
-					total += picks;
-				}
-			}
-			return total;
-		}
-	}
+    public AddsHealthLevelsByTraitHealthProvider(Hero hero) {
+      this.hero = hero;
+    }
 
-	
+    @Override
+    public int getHealthLevelTypeCount(HealthLevelType type) {
+      TraitModel traits = TraitModelFetcher.fetch(hero);
+      int picks = getLearnCount(hero);
+      int traitLevel = traits.getTrait(traitType).getCurrentValue();
+      int total = 0;
+      for (HealthLevelType entry : healthLevels.get(traitLevel)) {
+        if (entry == type) {
+          total += picks;
+        }
+      }
+      return total;
+    }
+  }
 }

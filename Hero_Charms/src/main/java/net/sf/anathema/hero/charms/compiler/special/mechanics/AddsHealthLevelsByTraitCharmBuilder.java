@@ -28,9 +28,7 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
   private final TraitTypeFinder traitTypeFinder = new TraitTypeFinder();
 
   @Override
-  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto,
-  		String id,
-  		ValueFactory valueFactory) {
+  public CharmSpecialMechanic readCharm(SpecialCharmTemplate overallDto, String id, ValueFactory valueFactory) {
     return createSpecialCharm(new CharmName(id), overallDto.addsHealthLevelsByTrait);
   }
 
@@ -43,8 +41,8 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
       List<HealthLevelType> healthLevels = new ArrayList<>();
       for (String healthLevel : dto.grantedLevels.get(traitLevel)) {
         healthLevels.add(healthTypeByString.get(healthLevel));
-       }
-       healthLevelsByTrait.put(traitLevel, healthLevels.toArray(new HealthLevelType[healthLevels.size()]));
+      }
+      healthLevelsByTrait.put(traitLevel, healthLevels.toArray(new HealthLevelType[healthLevels.size()]));
     }
     return new AddsHealthLevelsByTraitMechanic(id, trait, healthLevelsByTrait);
   }
