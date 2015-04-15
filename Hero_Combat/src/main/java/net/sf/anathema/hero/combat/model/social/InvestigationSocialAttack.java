@@ -1,8 +1,9 @@
 package net.sf.anathema.hero.combat.model.social;
 
-import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Investigation;
 
 public class InvestigationSocialAttack extends AbstractSocialAttack {
 
@@ -22,6 +23,6 @@ public class InvestigationSocialAttack extends AbstractSocialAttack {
 
   @Override
   public TraitType getName() {
-    return new TraitTypeFinder().getTrait("Investigation");
+    return Investigation;
   }
 }

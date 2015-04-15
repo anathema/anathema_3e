@@ -22,4 +22,18 @@ public interface CommonTraitTypes {
   AttributeTraitType Intelligence = new AttributeTraitType("Intelligence");
   AttributeTraitType Wits = new AttributeTraitType("Wits");
   List<TraitType> Attributes = Lists.newArrayList(Strength, Dexterity, Stamina, Charisma, Manipulation, Appearance, Perception, Intelligence, Wits);
+
+  //Abilities
+  AbilityTraitType Archery = new AbilityTraitType("Archery");
+  AbilityTraitType MartialArts = new AbilityTraitType("MartialArts");
+  AbilityTraitType Melee = new AbilityTraitType("Melee");
+  AbilityTraitType Integrity = new AbilityTraitType("Integrity");
+  AbilityTraitType Performance = new AbilityTraitType("Performance");
+  AbilityTraitType Presence = new AbilityTraitType("Presence");
+  AbilityTraitType Resistance = new AbilityTraitType("Resistance");
+  AbilityTraitType Investigation = new AbilityTraitType("Investigation");
+  AbilityTraitType Occult = new AbilityTraitType("Occult");
+  AbilityTraitType Athletics = new AbilityTraitType("Athletics");
+  AbilityTraitType Awareness = new AbilityTraitType("Awareness");
+  AbilityTraitType Dodge = new AbilityTraitType("Dodge");
 }

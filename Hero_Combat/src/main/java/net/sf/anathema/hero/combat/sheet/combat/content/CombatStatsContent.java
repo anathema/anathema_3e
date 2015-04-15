@@ -6,7 +6,11 @@ import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.specialties.model.SingleSpecialty;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.resources.Resources;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Awareness;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dodge;
 
 public class CombatStatsContent extends AbstractCombatStatsContent {
 
@@ -16,8 +20,8 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
 
   protected CombatStatsContent(Hero hero, Resources resources) {
     super(resources, hero);
-    dodgeSpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Dodge"));
-    awarenessSpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Awareness"));
+    dodgeSpecialty = new SingleSpecialty(hero, Dodge);
+    awarenessSpecialty = new SingleSpecialty(hero, Awareness);
     modifiers = StatsModifiers.allStatsModifiers(hero);
   }
 

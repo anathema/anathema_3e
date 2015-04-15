@@ -1,8 +1,8 @@
 package net.sf.anathema.hero.abilities.sheet.text;
 
 import net.sf.anathema.framework.reporting.pdf.PdfReportUtils;
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
-import net.sf.anathema.hero.abilities.model.AllAbilityTraitTypeList;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.TraitTypeList;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -19,7 +19,8 @@ public class AbilityTextEncoder extends AbstractTraitTextEncoder {
   @Override
   protected TraitTypeList getTypes(Hero hero) {
     TraitTypeList traitTypes = new TraitTypeList();
-    traitTypes.addAll(AllAbilityTraitTypeList.getInstance().getAll());
+    AbilitiesModel abilitiesModel = AbilitiesModelFetcher.fetch(hero);
+    traitTypes.addAll(abilitiesModel.getAllAbilityTypes());
     return traitTypes;
   }
 

@@ -6,7 +6,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 
 public class TraitStateFetcher {
   private final Hero hero;
@@ -16,8 +15,8 @@ public class TraitStateFetcher {
   }
 
   public TraitStateType fetch(TraitType type) {
-    //TODO (Urs, for Martial Arts): Find another way of recognizing an ability
-    if (!(type instanceof AbilityType)) {
+    boolean isAnAbility = AbilitiesModelFetcher.fetch(hero).contains(type);
+    if (!isAnAbility) {
       return DefaultTraitStateType.Default;
     }
     AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);

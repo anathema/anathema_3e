@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.display;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import net.sf.anathema.hero.traits.model.Trait;
 
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
@@ -10,8 +11,8 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 
-import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
-import static net.sf.anathema.hero.traits.model.types.AbilityType.Athletics;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Archery;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Athletics;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

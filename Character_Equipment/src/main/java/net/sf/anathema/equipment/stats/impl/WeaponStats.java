@@ -6,7 +6,6 @@ import net.sf.anathema.equipment.stats.ItemStatsSet;
 import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.data.WeaponStatisticsTable;
 import net.sf.anathema.hero.health.model.HealthType;
-import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -21,15 +20,14 @@ import static net.sf.anathema.equipment.stats.WeaponTag.Light;
 import static net.sf.anathema.equipment.stats.WeaponTag.Medium;
 import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forArtifactWeapons;
 import static net.sf.anathema.equipment.stats.data.WeaponStatisticsTable.forMundaneWeapons;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.MartialArts;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Melee;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Strength;
 
 public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   private final List<IWeaponTag> tags = new ArrayList<>();
-  private final TraitType martialArts = new TraitTypeFinder().getTrait("MartialArts");
-  private final TraitType melee = new TraitTypeFinder().getTrait("Melee");
-  
-  
+
   @Override
   public int getAccuracy() {
     return getWeaponStatsEntry().getAccuracy();
@@ -98,7 +96,7 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
 
   @Override
   public TraitType getTraitType() {
-    return isMartialArtsOnlyWeapon() ? martialArts : melee;
+    return isMartialArtsOnlyWeapon() ? MartialArts : Melee;
   }
 
   private boolean isMartialArtsOnlyWeapon() {
@@ -115,7 +113,7 @@ public class WeaponStats extends AbstractCombatStats implements IWeaponStats {
     if (isMartialArtsOnlyWeapon()) {
       return ItemStatsSet.withSingleStat(this);
     }
-    return ItemStatsSet.from(new WeaponStatsDecorator(this, melee), new WeaponStatsDecorator(this, martialArts));
+    return ItemStatsSet.from(new WeaponStatsDecorator(this, Melee), new WeaponStatsDecorator(this, MartialArts));
   }
 
   @Override

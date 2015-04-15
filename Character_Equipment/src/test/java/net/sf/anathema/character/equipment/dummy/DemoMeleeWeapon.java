@@ -6,13 +6,13 @@ import net.sf.anathema.equipment.stats.WeaponTag;
 import net.sf.anathema.equipment.stats.impl.AbstractCombatStats;
 import net.sf.anathema.hero.health.model.HealthType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.library.identifier.Identifier;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Melee;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Strength;
 
 public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats {
@@ -68,7 +68,7 @@ public class DemoMeleeWeapon extends AbstractCombatStats implements IWeaponStats
 
   @Override
   public TraitType getTraitType() {
-    return AbilityType.Melee;
+    return Melee;
   }
 
   @Override

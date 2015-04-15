@@ -1,18 +1,17 @@
 package net.sf.anathema;
 
+import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
-
+import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
+import net.sf.anathema.hero.traits.model.types.AbilityTraitType;
 import net.sf.anathema.points.model.overview.SpendingModel;
-
-import com.google.inject.Inject;
 
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
@@ -34,14 +33,14 @@ public class AbilitySteps {
   
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
-    Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new AbilityTraitType(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
   }
   
   @When("^I Caste her (.*)$")
   public void caste_her(String abilityName) {
-    Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new AbilityTraitType(abilityName));
     int currentValue = ability.getCurrentValue();
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
@@ -54,7 +53,7 @@ public class AbilitySteps {
 
   @Then("^she has (\\d+) dots in ability (.*)$")
   public void she_has_dots_in_Ability(int amount, String abilityName) throws Throwable {
-    Trait ability = character.getTraitConfiguration().getTrait(AbilityType.valueOf(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new AbilityTraitType(abilityName));
     assertThat(ability.getCurrentValue(), is(amount));
   }
 
@@ -82,12 +81,12 @@ public class AbilitySteps {
   }
 
   private void spendAPoint() {
-    TraitStateMap abilitiesStateMap = AbilitiesModelFetcher.fetch(character.getHero());
+    AbilitiesModel abilitiesModel = AbilitiesModelFetcher.fetch(character.getHero());
     Traits traits = character.getTraitConfiguration().getAll();
     for (Trait trait : traits) {
-      boolean isAbility = trait.getType() instanceof AbilityType;
+      boolean isAbility = abilitiesModel.contains(trait.getType());
       boolean hasNotYetReachedThreshold = trait.getCreationValue() < ASSUMED_THRESHOLD_FOR_BONUSPOINTS;
-      if (isAbility && hasNotYetReachedThreshold && abilitiesStateMap.getState(trait) != Favored){
+      if (isAbility && hasNotYetReachedThreshold && abilitiesModel.getState(trait) != Favored) {
         increaseTraitValueByOne(trait);
         break;
       }

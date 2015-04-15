@@ -26,7 +26,6 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitValueStrategy;
 import net.sf.anathema.hero.traits.model.context.CreationTraitValueStrategy;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateFactory;
 import net.sf.anathema.magic.data.Charm;
@@ -40,6 +39,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Resistance;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Stamina;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -80,7 +80,7 @@ public class AddsHealthLevelsByTraitTest {
     charms.initialize(dummyEnvironment, hero);
     
     stamina = createTrait(hero, Stamina);
-    resistance = createTrait(hero, AbilityType.Resistance);
+    resistance = createTrait(hero, Resistance);
     health = HealthModelFetcher.fetch(hero);
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(stamina, resistance);

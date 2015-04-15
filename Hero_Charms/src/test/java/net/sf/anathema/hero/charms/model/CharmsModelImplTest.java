@@ -1,16 +1,15 @@
 package net.sf.anathema.hero.charms.model;
 
+import net.sf.anathema.hero.charms.dummy.DummyCharm;
+import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.magic.data.reference.CategoryReference;
-import net.sf.anathema.hero.charms.dummy.DummyCharm;
-import net.sf.anathema.hero.charms.template.model.CharmsTemplate;
-
 import org.junit.Test;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Archery;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

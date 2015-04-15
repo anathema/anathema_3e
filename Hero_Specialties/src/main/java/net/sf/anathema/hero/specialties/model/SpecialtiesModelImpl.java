@@ -19,68 +19,69 @@ import java.util.List;
 import static java.util.stream.Collectors.toList;
 
 public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<SpecialtyType, Specialty>
-	implements SpecialtiesModel, HeroModel {
-  
+        implements SpecialtiesModel, HeroModel {
+
   private TraitTypeInternationalizer i18;
+  private List<TraitType> abilityTypes;
 
   public SpecialtiesModelImpl() {
-		super(false);
-	}
+    super(false);
+  }
 
-	@Override
+  @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     super.initialize(environment, hero);
-    
     i18 = new TraitTypeInternationalizer(environment.getResources());
+    abilityTypes = AbilitiesModelFetcher.fetch(hero).getAllAbilityTypes();
   }
 
   @Override
   public Identifier getId() {
     return SpecialtiesModel.ID;
   }
-  
+
   public List<Trait> getContingentTraits() {
     TraitModel traits = TraitModelFetcher.fetch(hero);
     return optionSupplier.getAllOptions().stream()
-        .map(option -> traits.getTrait(option.getTraitType()))
-        .collect(toList());
+            .map(option -> traits.getTrait(option.getTraitType()))
+            .collect(toList());
   }
-  
+
   @Override
-	protected boolean isAllowedOption(SpecialtyType option) {
-  	return AbilitiesModelFetcher.fetch(hero).getTrait(option.getTraitType())
-  			.getCurrentValue() > 0;
-	}
-  
+  protected boolean isAllowedOption(SpecialtyType option) {
+    return AbilitiesModelFetcher.fetch(hero).getTrait(option.getTraitType())
+            .getCurrentValue() > 0;
+  }
+
   @Override
-	public boolean isRemovalAllowed(Specialty entry) {
-  	return !isCharacterExperienced() || !entry.isLearnedAtCreation();
-	}
+  public boolean isRemovalAllowed(Specialty entry) {
+    return !isCharacterExperienced() || !entry.isLearnedAtCreation();
+  }
 
-	@Override
-	protected OptionalEntryOptionSupplier<SpecialtyType> initOptionSupplier(HeroEnvironment environment) {
-		return new AbilityOptionSupplier(i18);
-	}
-	
-	@Override
-	public boolean isEntryAllowed() {
-		return hasDescription() && !(getSelectedEntryOption() instanceof NullSpecialtyOption);
-	}
+  @Override
+  protected OptionalEntryOptionSupplier<SpecialtyType> initOptionSupplier(HeroEnvironment environment) {
+    return new AbilityOptionSupplier(i18, abilityTypes);
+  }
 
-	@Override
-	protected Specialty createPossessedEntry(SpecialtyType option,
-			String description, Hero hero) {
-		return new SpecialtyImpl(option, description, !isCharacterExperienced());
-	}
+  @Override
+  public boolean isEntryAllowed() {
+    return hasDescription() && !(getSelectedEntryOption() instanceof NullSpecialtyOption);
+  }
 
-	private boolean isCharacterExperienced() {
+  @Override
+  protected Specialty createPossessedEntry(SpecialtyType option,
+                                           String description, Hero hero) {
+    return new SpecialtyImpl(option, description, !isCharacterExperienced());
+  }
+
+  private boolean isCharacterExperienced() {
     return ExperienceModelFetcher.fetch(hero).isExperienced();
   }
 
-	@Override
-	protected SpecialtyType getNullOption() {
-		return new NullSpecialtyOption();
-	}
+  @Override
+  protected SpecialtyType getNullOption() {
+    return new NullSpecialtyOption();
+  }
 
   @Override
   public List<Specialty> getAllSpecialtiesOfType(TraitType type) {
@@ -89,8 +90,8 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 
   @Override
   public List<TraitType> getAllEligibleParentTraits() {
-    return this.getCurrentEntryOptions().stream().map(option -> option.getTraitType()).collect(toList());
+    return this.getCurrentEntryOptions().stream().map(SpecialtyType::getTraitType).collect(toList());
   }
 
-	
+
 }

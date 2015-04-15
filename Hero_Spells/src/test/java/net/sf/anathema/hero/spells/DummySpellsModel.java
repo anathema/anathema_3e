@@ -9,6 +9,7 @@ import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.model.SpellsModel;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.exception.NotYetImplementedException;
 import net.sf.anathema.library.identifier.Identifier;
@@ -137,6 +138,6 @@ public class DummySpellsModel implements SpellsModel {
 
   @Override
   public TraitType getFavoringTraitType() {
-    return new TraitTypeFinder().getTrait("Occult");
+    return CommonTraitTypes.Occult;
   }
 }

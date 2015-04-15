@@ -23,6 +23,8 @@ import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.hero.sheet.pdf.page.IVoidStateFormatConstants.COMMENT_FONT_SIZE;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Awareness;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Integrity;
 
 public class SocialCombatStatsBoxEncoder implements ContentEncoder {
 
@@ -131,8 +133,8 @@ public class SocialCombatStatsBoxEncoder implements ContentEncoder {
 
   private float encodeValues(SheetGraphics graphics, Bounds bounds, Hero hero, HeroStatsModifiers equipment) {
     TraitMap traitCollection = TraitModelFetcher.fetch(hero);
-    SingleSpecialty awarenessSpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Awareness"));
-    SingleSpecialty integritySpecialty = new SingleSpecialty(hero, new TraitTypeFinder().getTrait("Integrity"));
+    SingleSpecialty awarenessSpecialty = new SingleSpecialty(hero, Awareness);
+    SingleSpecialty integritySpecialty = new SingleSpecialty(hero, Integrity);
     String joinLabel = resources.getString("Sheet.SocialCombat.JoinDebateBattle");
     String dodgeLabel = resources.getString("Sheet.SocialCombat.DodgeMDV");
     String normalLabel = resources.getString("Sheet.Combat.NormalSpecialty");

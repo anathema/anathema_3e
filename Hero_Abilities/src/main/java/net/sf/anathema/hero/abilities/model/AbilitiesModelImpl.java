@@ -34,6 +34,8 @@ import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
+import net.sf.anathema.hero.traits.model.types.AbilityTraitType;
+import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
 
@@ -54,6 +56,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   private Hero hero;
   private TraitModel traitModel;
   private TraitStateMapImpl traitStateMap;
+  private AllAbilityTraitTypeList abilityTypes;
 
   public AbilitiesModelImpl(AbilitiesTemplate template) {
     this.template = template;
@@ -74,17 +77,28 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     this.traitStateMap = new TraitStateMapImpl(hero);
     this.hero = hero;
     this.traitModel = TraitModelFetcher.fetch(hero);
+    this.abilityTypes = fillAbilityTypeList();
     this.abilityTraitGroups = createAbilityGroups();
     createAndAddTraits();
   }
 
+  private AllAbilityTraitTypeList fillAbilityTypeList() {
+    List<TraitType> abilityTypes = new ArrayList<>();
+    for (Group group : template.groups) {
+      for (String traitId : group.traits) {
+        abilityTypes.add(new AbilityTraitType(traitId));
+      }
+    }
+    return new AllAbilityTraitTypeList(abilityTypes);
+  }
+
   private IdentifiedTraitTypeList[] createAbilityGroups() {
-    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAbilityTraitTypeList.getInstance());
+    GroupedTraitType[] abilityGroups = GroupedTraitTypeBuilder.BuildFor(template, abilityTypes);
     return new TraitTypeGroupFactory().createTraitGroups(abilityGroups);
   }
 
   private void createAndAddTraits() {
-    for (TraitType type : AllAbilityTraitTypeList.getInstance().getAll()) {
+    for (TraitType type : abilityTypes.getAll()) {
       TraitRules traitRules = new TraitRulesImpl(type, templateMap.getTemplate(type), this.hero);
       Trait trait = new TraitImpl(this.hero, traitRules);
       addTraits(trait);
@@ -160,6 +174,11 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
   @Override
   public Iterable<TraitStateType> getAvailableTraitStates() {
     return traitStateTypes;
+  }
+
+  @Override
+  public List<TraitType> getAllAbilityTypes() {
+    return abilityTypes.getAll();
   }
 
   @Override

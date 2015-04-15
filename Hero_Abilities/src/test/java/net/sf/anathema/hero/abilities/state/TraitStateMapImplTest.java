@@ -8,13 +8,12 @@ import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
-import net.sf.anathema.hero.traits.model.types.AbilityType;
-
+import net.sf.anathema.hero.traits.model.types.AbilityTraitType;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import static net.sf.anathema.hero.traits.model.types.AbilityType.Archery;
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Archery;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 public class TraitStateMapImplTest {
 
-  public static final AbilityType ANY_TYPE = Archery;
+  public static final AbilityTraitType ANY_TYPE = Archery;
   private Hero hero;
   private TraitStateMapImpl stateMap;
   private Trait trait;

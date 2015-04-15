@@ -3,6 +3,9 @@ package net.sf.anathema.hero.combat.model.social;
 import net.sf.anathema.hero.traits.TraitTypeFinder;
 import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
+
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Performance;
 
 public class PerformanceSocialAttack extends AbstractSocialAttack {
 
@@ -22,6 +25,6 @@ public class PerformanceSocialAttack extends AbstractSocialAttack {
 
   @Override
   public TraitType getName() {
-    return new TraitTypeFinder().getTrait("Performance");
+    return Performance;
   }
 }
