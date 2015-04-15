@@ -37,11 +37,10 @@ import net.sf.anathema.hero.magic.advance.MagicPointsModelFetcher;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
 import net.sf.anathema.hero.magic.advance.experience.MagicExperienceData;
 import net.sf.anathema.hero.magic.model.MagicModelFetcher;
-import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.Charm;
@@ -308,7 +307,6 @@ public class CharmsModelImpl implements CharmsModel {
 
   @SuppressWarnings("SimplifiableIfStatement")
   private Charms findCharmsMatchingTraits(List<TraitType> requiredTraits, CategoryReference category) {
-    TraitTypeFinder finder = new TraitTypeFinder();
     Charms learnedCharms = getLearningModel().getCurrentlyLearnedCharms();
     return learnedCharms.applyFilter(charm -> {
       if (charm.hasAttribute(NO_PURCHASE)) {
@@ -317,7 +315,7 @@ public class CharmsModelImpl implements CharmsModel {
       if (category != null && !category.equals(charm.getTreeReference().category)) {
         return false;
       }
-      return requiredTraits.contains(finder.getTrait(charm.getPrerequisites().getPrimaryTraitType().type));
+      return requiredTraits.contains(new DefaultTraitType(charm.getPrerequisites().getPrimaryTraitType().type));
     });
   }
 

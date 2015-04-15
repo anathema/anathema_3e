@@ -1,39 +1,40 @@
 package net.sf.anathema.hero.traits.model.types;
 
 import com.google.common.collect.Lists;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.List;
 
 public interface CommonTraitTypes {
   //Spiritual
-  SpiritualTraitType Willpower = new SpiritualTraitType("Willpower");
-  SpiritualTraitType Essence = new SpiritualTraitType("Essence");
+  DefaultTraitType Willpower = new DefaultTraitType("Willpower");
+  DefaultTraitType Essence = new DefaultTraitType("Essence");
   List<TraitType> SpiritualTraits = Lists.newArrayList(Willpower, Essence);
   
   //Attributes
-  AttributeTraitType Strength = new AttributeTraitType("Strength");
-  AttributeTraitType Dexterity = new AttributeTraitType("Dexterity");
-  AttributeTraitType Stamina = new AttributeTraitType("Stamina");
-  AttributeTraitType Charisma = new AttributeTraitType("Charisma");
-  AttributeTraitType Manipulation = new AttributeTraitType("Manipulation");
-  AttributeTraitType Appearance = new AttributeTraitType("Appearance");
-  AttributeTraitType Perception = new AttributeTraitType("Perception");
-  AttributeTraitType Intelligence = new AttributeTraitType("Intelligence");
-  AttributeTraitType Wits = new AttributeTraitType("Wits");
+  DefaultTraitType Strength = new DefaultTraitType("Strength");
+  DefaultTraitType Dexterity = new DefaultTraitType("Dexterity");
+  DefaultTraitType Stamina = new DefaultTraitType("Stamina");
+  DefaultTraitType Charisma = new DefaultTraitType("Charisma");
+  DefaultTraitType Manipulation = new DefaultTraitType("Manipulation");
+  DefaultTraitType Appearance = new DefaultTraitType("Appearance");
+  DefaultTraitType Perception = new DefaultTraitType("Perception");
+  DefaultTraitType Intelligence = new DefaultTraitType("Intelligence");
+  DefaultTraitType Wits = new DefaultTraitType("Wits");
   List<TraitType> Attributes = Lists.newArrayList(Strength, Dexterity, Stamina, Charisma, Manipulation, Appearance, Perception, Intelligence, Wits);
 
   //Abilities
-  AbilityTraitType Archery = new AbilityTraitType("Archery");
-  AbilityTraitType MartialArts = new AbilityTraitType("MartialArts");
-  AbilityTraitType Melee = new AbilityTraitType("Melee");
-  AbilityTraitType Integrity = new AbilityTraitType("Integrity");
-  AbilityTraitType Performance = new AbilityTraitType("Performance");
-  AbilityTraitType Presence = new AbilityTraitType("Presence");
-  AbilityTraitType Resistance = new AbilityTraitType("Resistance");
-  AbilityTraitType Investigation = new AbilityTraitType("Investigation");
-  AbilityTraitType Occult = new AbilityTraitType("Occult");
-  AbilityTraitType Athletics = new AbilityTraitType("Athletics");
-  AbilityTraitType Awareness = new AbilityTraitType("Awareness");
-  AbilityTraitType Dodge = new AbilityTraitType("Dodge");
+  DefaultTraitType Archery = new DefaultTraitType("Archery");
+  DefaultTraitType MartialArts = new DefaultTraitType("MartialArts");
+  DefaultTraitType Melee = new DefaultTraitType("Melee");
+  DefaultTraitType Integrity = new DefaultTraitType("Integrity");
+  DefaultTraitType Performance = new DefaultTraitType("Performance");
+  DefaultTraitType Presence = new DefaultTraitType("Presence");
+  DefaultTraitType Resistance = new DefaultTraitType("Resistance");
+  DefaultTraitType Investigation = new DefaultTraitType("Investigation");
+  DefaultTraitType Occult = new DefaultTraitType("Occult");
+  DefaultTraitType Athletics = new DefaultTraitType("Athletics");
+  DefaultTraitType Awareness = new DefaultTraitType("Awareness");
+  DefaultTraitType Dodge = new DefaultTraitType("Dodge");
 }

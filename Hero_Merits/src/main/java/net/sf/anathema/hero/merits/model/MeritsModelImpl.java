@@ -4,7 +4,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.merits.compiler.MeritCache;
-import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
@@ -51,11 +51,10 @@ public class MeritsModelImpl extends AbstractOptionalTraitsModel<MeritOption, Me
 
   public List<Trait> getContingentTraits() {
     List<Trait> traits = new ArrayList<>();
-    TraitTypeFinder typeFinder = new TraitTypeFinder();
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     for (MeritOption merit : optionSupplier.getAllOptions()) {
       for (String typeLabel : merit.getContingentTraitTypes()) {
-        Trait trait = traitModel.getTrait(typeFinder.getTrait(typeLabel));
+        Trait trait = traitModel.getTrait(new DefaultTraitType(typeLabel));
         if (!traits.contains(trait)) {
           traits.add(trait);
         }

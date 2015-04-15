@@ -22,7 +22,6 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
         implements SpecialtiesModel, HeroModel {
 
   private TraitTypeInternationalizer i18;
-  private List<TraitType> abilityTypes;
 
   public SpecialtiesModelImpl() {
     super(false);
@@ -32,7 +31,6 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
   public void initialize(HeroEnvironment environment, Hero hero) {
     super.initialize(environment, hero);
     i18 = new TraitTypeInternationalizer(environment.getResources());
-    abilityTypes = AbilitiesModelFetcher.fetch(hero).getAllAbilityTypes();
   }
 
   @Override
@@ -60,6 +58,7 @@ public class SpecialtiesModelImpl extends AbstractOptionalPropertiesModel<Specia
 
   @Override
   protected OptionalEntryOptionSupplier<SpecialtyType> initOptionSupplier(HeroEnvironment environment) {
+    List<TraitType> abilityTypes = AbilitiesModelFetcher.fetch(hero).getAllAbilityTypes();
     return new AbilityOptionSupplier(i18, abilityTypes);
   }
 

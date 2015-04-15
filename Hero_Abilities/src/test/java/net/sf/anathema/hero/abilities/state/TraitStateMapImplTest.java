@@ -7,8 +7,8 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
-import net.sf.anathema.hero.traits.model.types.AbilityTraitType;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 public class TraitStateMapImplTest {
 
-  public static final AbilityTraitType ANY_TYPE = Archery;
+  public static final TraitType ANY_TYPE = Archery;
   private Hero hero;
   private TraitStateMapImpl stateMap;
   private Trait trait;

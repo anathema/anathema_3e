@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.traits;
 
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
@@ -11,15 +12,10 @@ import java.util.function.Consumer;
 
 public class TraitTypeList implements Iterable<TraitType> {
 
-
-  private final TraitTypeFinder finder = new TraitTypeFinder();
   private final List<TraitType> types = new ArrayList<>();
 
   public void add(String typeId) {
-    TraitType type = finder.getTrait(typeId);
-    if (type == TraitTypeFinder.NONE_FOUND) {
-      return;
-    }
+    TraitType type = new DefaultTraitType(typeId);
     types.add(type);
   }
 

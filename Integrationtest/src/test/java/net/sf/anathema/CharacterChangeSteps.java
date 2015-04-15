@@ -12,11 +12,9 @@ import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
-import net.sf.anathema.hero.traits.TraitTypeFinder;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
-import net.sf.anathema.hero.traits.model.types.SpiritualTraitType;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static org.hamcrest.CoreMatchers.is;
@@ -57,7 +55,7 @@ public class CharacterChangeSteps {
 
   @When("^I set her (.*) to (\\d+)$")
   public void I_set_her_trait_to(String traitId, int value) throws Throwable {
-    TraitType type = new TraitTypeFinder().getTrait(traitId);
+    TraitType type = new DefaultTraitType(traitId);
     Trait trait = character.getTraitConfiguration().getTrait(type);
     if (ExperienceModelFetcher.fetch(character.getHero()).isExperienced()) {
       trait.setExperiencedValue(value);

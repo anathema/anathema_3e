@@ -8,8 +8,8 @@ import net.sf.anathema.hero.specialties.model.SpecialtiesModel;
 import net.sf.anathema.hero.specialties.model.SpecialtiesModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.specialties.model.SpecialtyTypeImpl;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
-import net.sf.anathema.hero.traits.model.types.AbilityTraitType;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class SpecialtySteps {
   public void she_learn_a_specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
   	model.setCurrentDescription("Test");
-  	model.setSelectedEntryOption(new SpecialtyTypeImpl(new AbilityTraitType(id), null));
+  	model.setSelectedEntryOption(new SpecialtyTypeImpl(new DefaultTraitType(id), null));
   	boolean learned = model.commitSelection() != null;
     assertThat(learned, is(true));
   }
@@ -39,7 +39,7 @@ public class SpecialtySteps {
   @When("^she forgets a Specialty in (.*)$")
   public void she_forgets_a_specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
-  	TraitType ability = new AbilityTraitType(id);
+  	TraitType ability = new DefaultTraitType(id);
   	Specialty toForget = model.getEntries().stream().filter(specialty -> specialty.getBasicTraitType().equals(ability))
   		.findFirst().get();
   	if (toForget != null) {
@@ -52,21 +52,21 @@ public class SpecialtySteps {
   @Then("^she can learn a Specialty in (.*)$")
   public void she_can_learn_a_Specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
-    boolean learnable = model.getAllEligibleParentTraits().contains(new AbilityTraitType(id));
+    boolean learnable = model.getAllEligibleParentTraits().contains(new DefaultTraitType(id));
     assertThat(learnable, is(true));
   }
 
   @Then("^she can not learn a Specialty in (.*)$")
   public void she_can_not_learn_a_Specialty_in(String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
-    boolean learnable = model.getAllEligibleParentTraits().contains(new AbilityTraitType(id));
+    boolean learnable = model.getAllEligibleParentTraits().contains(new DefaultTraitType(id));
     assertThat(learnable, is(false));
   }
   
   @Then("^she knows (\\d+) Specialties in (.*)$")
   public void she_knows_specialties_in(int count, String id) throws Throwable {
   	SpecialtiesModel model = SpecialtiesModelFetcher.fetch(character.getHero());
-  	List<Specialty> specialtiesOfType = model.getAllSpecialtiesOfType(new AbilityTraitType(id));
+  	List<Specialty> specialtiesOfType = model.getAllSpecialtiesOfType(new DefaultTraitType(id));
     boolean countMatches = specialtiesOfType.size() == count;
     assertThat(countMatches, is(true));
   }
