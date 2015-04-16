@@ -1,5 +1,6 @@
 package net.sf.anathema.integration.attributes;
 
+import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -11,8 +12,9 @@ import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
 import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
 
+import java.util.List;
+
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Appearance;
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Attributes;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Charisma;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dexterity;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Intelligence;
@@ -27,6 +29,7 @@ import static org.junit.Assert.assertThat;
 @ScenarioScoped
 public class AttributeSteps {
 
+  private final static List<TraitType> Attributes = Lists.newArrayList(Strength, Dexterity, Stamina, Charisma, Manipulation, Appearance, Perception, Intelligence, Wits);
   public static final TraitType ANY_ATTRIBUTE_TYPE = Dexterity;
   private final IntegrationAttributes attributes;
   private CharacterHolder character;

@@ -1,17 +1,12 @@
 package net.sf.anathema.hero.traits.model.types;
 
-import com.google.common.collect.Lists;
 import net.sf.anathema.hero.traits.model.DefaultTraitType;
-import net.sf.anathema.hero.traits.model.TraitType;
-
-import java.util.List;
 
 public interface CommonTraitTypes {
   //Spiritual
   DefaultTraitType Willpower = new DefaultTraitType("Willpower");
   DefaultTraitType Essence = new DefaultTraitType("Essence");
-  List<TraitType> SpiritualTraits = Lists.newArrayList(Willpower, Essence);
-  
+
   //Attributes
   DefaultTraitType Strength = new DefaultTraitType("Strength");
   DefaultTraitType Dexterity = new DefaultTraitType("Dexterity");
@@ -22,7 +17,6 @@ public interface CommonTraitTypes {
   DefaultTraitType Perception = new DefaultTraitType("Perception");
   DefaultTraitType Intelligence = new DefaultTraitType("Intelligence");
   DefaultTraitType Wits = new DefaultTraitType("Wits");
-  List<TraitType> Attributes = Lists.newArrayList(Strength, Dexterity, Stamina, Charisma, Manipulation, Appearance, Perception, Intelligence, Wits);
 
   //Abilities
   DefaultTraitType Archery = new DefaultTraitType("Archery");

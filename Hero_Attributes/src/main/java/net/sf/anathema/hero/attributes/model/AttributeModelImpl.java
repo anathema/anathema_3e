@@ -5,6 +5,7 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
+import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
@@ -22,6 +23,7 @@ import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.NullTraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.GroupedTraitsTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.hero.traits.template.TraitTemplateMap;
@@ -42,6 +44,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   private GroupedTraitType[] attributeGroups;
   private GroupedTraitsTemplate template;
   private TraitModel traitModel;
+  private AllAttributeTraitTypeList attributeTypes;
 
   public AttributeModelImpl(GroupedTraitsTemplate template) {
     this.template = template;
@@ -55,11 +58,22 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
-    this.attributeGroups = GroupedTraitTypeBuilder.BuildFor(template, AllAttributeTraitTypeList.getInstance());
+    this.attributeTypes = fillAttributeTypeList();
+    this.attributeGroups = GroupedTraitTypeBuilder.BuildFor(template, attributeTypes);
     this.attributeTraitGroups = new TraitTypeGroupFactory().createTraitGroups(getAttributeGroups());
     addAttributes();
     this.traitModel = TraitModelFetcher.fetch(hero);
     traitModel.addTraits(getAll());
+  }
+
+  private AllAttributeTraitTypeList fillAttributeTypeList() {
+    List<TraitType> attributeTypes = new ArrayList<>();
+    for (Group group : template.groups) {
+      for (String traitId : group.traits) {
+        attributeTypes.add(new DefaultTraitType(traitId));
+      }
+    }
+    return new AllAttributeTraitTypeList(attributeTypes);
   }
 
   private void addAttributes() {
@@ -91,6 +105,11 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
   public TraitStateMap getStateMap() {
     // todo sandra favorable attributes?
     return new NullTraitStateMap();
+  }
+
+  @Override
+  public List<TraitType> getAllAttributeTypes() {
+    return attributeTypes.getAll();
   }
 
   @Override
