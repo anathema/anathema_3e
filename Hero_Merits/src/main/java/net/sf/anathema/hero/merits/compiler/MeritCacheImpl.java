@@ -16,7 +16,7 @@ import java.util.Map;
 import static java.util.stream.Collectors.toList;
 
 public class MeritCacheImpl implements MeritCache {
-  private final Map<String, MeritOption> merits = new HashMap<String, MeritOption>();
+  private final Map<String, MeritOption> merits = new HashMap<>();
 
   public void addMerit(MeritTemplate option) {
     merits.put(option.name, new MeritOptionImpl(option));
@@ -25,7 +25,7 @@ public class MeritCacheImpl implements MeritCache {
   @Override
   public List<MeritOption> getAllOptions() {
     List<MeritOption> options = new ArrayList<>(merits.values());
-    options.sort((m1, m2) -> m1.getId().compareTo(m2.getId()));
+    options.sort((m1, m2) -> m1.getTraitType().getId().compareTo(m2.getTraitType().getId()));
     return options;
   }
 

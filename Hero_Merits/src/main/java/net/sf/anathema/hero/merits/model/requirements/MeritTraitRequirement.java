@@ -1,7 +1,7 @@
 package net.sf.anathema.hero.merits.model.requirements;
 
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 
@@ -21,7 +21,7 @@ public class MeritTraitRequirement implements MeritRequirement {
 	@Override
 	public boolean isSatisfied(Hero hero) {
 		TraitModel traitModel = TraitModelFetcher.fetch(hero);
-		return traitModel.getTrait(new DefaultTraitType(trait)).getCurrentValue() >= value;
+		return traitModel.getTrait(new TraitType(trait)).getCurrentValue() >= value;
 	}
 
 	@Override

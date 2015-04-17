@@ -16,7 +16,7 @@ public class FreeMerits {
   public List<Merit> cover(List<Merit> possessedMerits) {
     List<Merit> meritsNotYetCovered = new ArrayList<>();
     for (Merit merit : possessedMerits) {
-      String meritId = merit.getBaseOption().getId();
+      String meritId = merit.getBaseOption().getTraitType().getId();
       if (!freeMerits.containsKey(meritId)) {
         meritsNotYetCovered.add(merit);
         continue;

@@ -32,7 +32,7 @@ public class DummyRitualProvider implements ThaumaturgyRitualCache {
 
 	@Override
 	public ThaumaturgyRitual getOptionByReference(OptionalEntryReference reference) {
-		return rituals.stream().filter(ritual -> ritual.getId().toString().equals(reference.name)).findFirst().get();
+		return rituals.stream().filter(ritual -> ritual.getTraitType().toString().equals(reference.name)).findFirst().get();
 	}
 
 }

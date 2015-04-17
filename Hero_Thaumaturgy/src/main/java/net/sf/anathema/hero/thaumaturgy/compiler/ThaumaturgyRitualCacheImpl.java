@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
-  private final Map<String, ThaumaturgyRitual> rituals = new HashMap<String, ThaumaturgyRitual>();
+  private final Map<String, ThaumaturgyRitual> rituals = new HashMap<>();
 
   public void addRitual(RitualTemplate option) {
     rituals.put(option.name, new RitualImpl(option));
@@ -21,7 +21,7 @@ public class ThaumaturgyRitualCacheImpl implements ThaumaturgyRitualCache {
   @Override
   public List<ThaumaturgyRitual> getAllOptions() {
     List<ThaumaturgyRitual> options = new ArrayList<>(rituals.values());
-    options.sort((m1, m2) -> m1.getId().compareTo(m2.getId()));
+    options.sort((m1, m2) -> m1.getTraitType().getId().compareTo(m2.getTraitType().getId()));
     return options;
   }
 

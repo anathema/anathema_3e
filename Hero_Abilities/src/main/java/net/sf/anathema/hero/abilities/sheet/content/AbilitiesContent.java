@@ -10,8 +10,6 @@ import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.sheet.content.FavorableTraitContent;
 import net.sf.anathema.library.resources.Resources;
 
-import java.util.List;
-
 public class AbilitiesContent extends FavorableTraitContent {
 
   private Hero hero;

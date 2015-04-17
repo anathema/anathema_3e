@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.charms.model.additional;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,7 @@ public class LearnsExcellencyWithOtherCharms extends ExcellencyAdditionalRules {
   private class ExcellencyMonitor extends CharmLearnAdapter {
 
     private boolean hasOtherCharmsOfTrait(String trait) {
-      TraitType traitType = new DefaultTraitType(trait);
+      TraitType traitType = new TraitType(trait);
       List<TraitType> traitTypes = new ArrayList<>();
       traitTypes.add(traitType);
       return charms.hasLearnedThresholdCharmsOfTrait(traitTypes, null, 1, 1);

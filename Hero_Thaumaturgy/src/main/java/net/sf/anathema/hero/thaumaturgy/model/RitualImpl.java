@@ -1,26 +1,22 @@
 package net.sf.anathema.hero.thaumaturgy.model;
 
 import net.sf.anathema.hero.thaumaturgy.compiler.json.template.RitualTemplate;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
 public class RitualImpl extends AbstractOptionalTraitOption implements ThaumaturgyRitual {
 
-  private final String name;
   private final boolean[] legalValues = new boolean[RITUAL_MAX_LEVEL];
+  private final TraitType traitType;
 
   public RitualImpl(RitualTemplate template) {
-    this.name = template.name;
+    this.traitType = new TraitType(template.name);
     parseLegalValues(template);
   }
 
   private void parseLegalValues(RitualTemplate template) {
     legalValues[levelToIndex(RitualLevel.Basic)] = template.basicRitual;
     legalValues[levelToIndex(RitualLevel.Advanced)] = template.advancedRitual;
-  }
-
-  @Override
-  public String getId() {
-    return name;
   }
 
   @Override
@@ -44,6 +40,11 @@ public class RitualImpl extends AbstractOptionalTraitOption implements Thaumatur
   }
 
   @Override
+  public TraitType getTraitType() {
+    return traitType;
+  }
+
+  @Override
   public boolean isLegalValue(int value) {
     if (value < RitualLevel.getMinimumLevel().getValue() || value > RitualLevel.getMaximumLevel().getValue()) {
       return false;
@@ -58,14 +59,14 @@ public class RitualImpl extends AbstractOptionalTraitOption implements Thaumatur
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof ThaumaturgyRitual) {
-      String id = ((ThaumaturgyRitual) obj).getId();
-      return id.equals(getId());
+      TraitType otherType = ((ThaumaturgyRitual) obj).getTraitType();
+      return otherType.equals(getTraitType());
     }
     return false;
   }
 
   @Override
   public String toString() {
-    return getId();
+    return getTraitType().getId();
   }
 }

@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.spiritual.model.pool;
 
 import net.sf.anathema.hero.spiritual.template.PoolPartTemplate;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class EssenceExpressionParser {
 
   private TraitType findTrait(String expression) {
     String[] split = expression.split("\\*");
-    return new DefaultTraitType(split[0]);
+    return new TraitType(split[0]);
   }
 
   private int findMultiplier(String expression) {

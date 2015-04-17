@@ -46,7 +46,7 @@ public abstract class OptionalTraitsPersister<
 
   private PossessedOptionalTraitPto createMeritsPto(T trait) {
     PossessedOptionalTraitPto pto = new PossessedOptionalTraitPto();
-    pto.option = trait.getBaseOption().getId();
+    pto.option = trait.getBaseOption().getTraitType().getId();
     pto.description = trait.getDescription();
     traitPersister.save(trait, pto.rating);
     return pto;

@@ -6,6 +6,7 @@ import net.sf.anathema.hero.merits.compiler.json.template.requirements.MeritRequ
 import net.sf.anathema.hero.merits.compiler.template.mechanics.MeritMechanicalDetailTemplate;
 import net.sf.anathema.hero.merits.model.mechanics.MechanicalDetail;
 import net.sf.anathema.hero.merits.model.requirements.MeritRequirement;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.library.model.trait.AbstractOptionalTraitOption;
 
@@ -21,9 +22,11 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
   private final List<MeritRequirement> requirements = new ArrayList<>();
   private final List<MechanicalDetail> mechanics = new ArrayList<>();
   private final List<String> suggestions = new ArrayList<>();
+  private final TraitType traitType;
 
   public MeritOptionImpl(MeritTemplate template) {
     this.name = template.name;
+    this.traitType = new TraitType(template.name);
     this.allowRepurchase = template.repurchases;
     this.type = MeritCategory.valueOf(template.type);
     this.suggestions.addAll(template.suggestions);
@@ -88,11 +91,6 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
   }
 
   @Override
-  public String getId() {
-    return name;
-  }
-
-  @Override
   public MeritCategory getCategory() {
     return type;
   }
@@ -123,6 +121,11 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
   }
 
   @Override
+  public TraitType getTraitType() {
+    return traitType;
+  }
+
+  @Override
   public boolean isReferencedBy(OptionalEntryReference reference) {
     return reference.name.equals(name);
   }
@@ -138,19 +141,19 @@ public class MeritOptionImpl extends AbstractOptionalTraitOption implements Meri
   @Override
   public boolean equals(Object obj) {
     if (obj instanceof MeritOption) {
-      return ((MeritOption) obj).getId().equals(getId());
+      return ((MeritOption) obj).getTraitType().equals(getTraitType());
     }
     return false;
   }
 
   @Override
   public int hashCode() {
-    return getId().hashCode();
+    return getTraitType().hashCode();
   }
 
   @Override
   public String toString() {
-    return getId();
+    return getTraitType().toString();
   }
 
   @Override

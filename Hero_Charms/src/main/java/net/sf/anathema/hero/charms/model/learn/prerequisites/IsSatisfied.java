@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.model.learn.prerequisites;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.magic.data.prerequisite.PrerequisiteProcessor;
@@ -8,7 +8,6 @@ import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.magic.data.reference.TreeReference;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnArbitrator;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import com.google.common.collect.Lists;
@@ -64,7 +63,7 @@ public class IsSatisfied implements PrerequisiteProcessor {
   @Override
   public void requiresCharmsOfTraits(List<RequiredTraitType> traits, CategoryReference category, int count,
                                      int minimumEssence) {
-    List<TraitType> traitTypes = Lists.transform(traits, trait -> new DefaultTraitType(trait.type));
+    List<TraitType> traitTypes = Lists.transform(traits, trait -> new TraitType(trait.type));
     this.satisfied = arbitrator.hasLearnedThresholdCharmsOfTrait(traitTypes, category, count, minimumEssence);
   }
 

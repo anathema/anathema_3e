@@ -5,8 +5,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
 import net.sf.anathema.hero.specialties.model.SingleSpecialty;
-import net.sf.anathema.hero.traits.TraitTypeFinder;
-import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Awareness;

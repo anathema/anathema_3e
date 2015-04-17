@@ -40,7 +40,7 @@ public class SimpleMeritsContent extends AbstractSubBoxContent implements ListSu
   }
 
   private String getTextForMerit(Merit merit) {
-    String id = merit.getBaseOption().getId();
+    String id = merit.getBaseOption().getTraitType().getId();
     return id + " (" + merit.getDescription() + ")";
   }
 }

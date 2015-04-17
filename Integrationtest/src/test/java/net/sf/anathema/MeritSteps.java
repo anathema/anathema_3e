@@ -86,6 +86,6 @@ public class MeritSteps {
   private MeritOption findMerit(String id) {
     MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
     return model.getAllEntryOptions().stream()
-            .filter(option -> option.getId().equals(id)).findAny().get();
+            .filter(option -> option.getTraitType().getId().equals(id)).findAny().get();
   }
 }

@@ -8,7 +8,7 @@ import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.traits.display.Traits;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.points.model.overview.SpendingModel;
@@ -33,14 +33,14 @@ public class AbilitySteps {
   
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
-    Trait ability = character.getTraitConfiguration().getTrait(new DefaultTraitType(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
   }
   
   @When("^I Caste her (.*)$")
   public void caste_her(String abilityName) {
-    Trait ability = character.getTraitConfiguration().getTrait(new DefaultTraitType(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     int currentValue = ability.getCurrentValue();
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
@@ -53,7 +53,7 @@ public class AbilitySteps {
 
   @Then("^she has (\\d+) dots in ability (.*)$")
   public void she_has_dots_in_Ability(int amount, String abilityName) throws Throwable {
-    Trait ability = character.getTraitConfiguration().getTrait(new DefaultTraitType(abilityName));
+    Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     assertThat(ability.getCurrentValue(), is(amount));
   }
 

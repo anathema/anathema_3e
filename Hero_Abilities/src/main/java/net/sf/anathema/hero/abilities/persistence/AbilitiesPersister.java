@@ -3,7 +3,7 @@ package net.sf.anathema.hero.abilities.persistence;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.persistence.AbstractModelJsonPersister;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.persistence.TraitListPto;
 import net.sf.anathema.hero.traits.persistence.TraitMapPersister;
 import net.sf.anathema.library.identifier.Identifier;
@@ -34,6 +34,6 @@ public class AbilitiesPersister extends AbstractModelJsonPersister<TraitListPto,
   }
 
   private TraitMapPersister createTraitMapPersistence(AbilitiesModel model) {
-    return new TraitMapPersister(model, DefaultTraitType::new);
+    return new TraitMapPersister(model, TraitType::new);
   }
 }

@@ -5,7 +5,7 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitGroup;
@@ -14,7 +14,6 @@ import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
 import net.sf.anathema.hero.traits.model.group.TraitTypeGroupFactory;
@@ -70,7 +69,7 @@ public class AttributeModelImpl extends DefaultTraitMap implements AttributeMode
     List<TraitType> attributeTypes = new ArrayList<>();
     for (Group group : template.groups) {
       for (String traitId : group.traits) {
-        attributeTypes.add(new DefaultTraitType(traitId));
+        attributeTypes.add(new TraitType(traitId));
       }
     }
     return new AllAttributeTraitTypeList(attributeTypes);

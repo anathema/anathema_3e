@@ -14,20 +14,20 @@ import java.util.Collection;
 import java.util.List;
 
 public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOption> extends TraitImpl implements PossessedOptionalTrait<O> {
-	
-	private final O optionBase;
+
+  private final O optionBase;
   private final String description;
-	private final List<String> suggestions = new ArrayList<>();
-	
-	protected AbstractPossessedOptionalTrait(Hero hero, O optionBase, TraitRules rules, String description) {
-		super(hero, rules);
-		this.description = description;
-		this.optionBase = optionBase;
-	}
-	
-	protected static TraitRules createTraitRules(OptionalTraitOption base,
-			Hero hero,
-			ModificationType modification) {
+  private final List<String> suggestions = new ArrayList<>();
+
+  protected AbstractPossessedOptionalTrait(Hero hero, O optionBase, TraitRules rules, String description) {
+    super(hero, rules);
+    this.description = description;
+    this.optionBase = optionBase;
+  }
+
+  protected static TraitRules createTraitRules(OptionalTraitOption base,
+                                               Hero hero,
+                                               ModificationType modification) {
     TraitTemplate template = createTraitTemplate(base, modification);
     return new OptionalTraitRulesImpl(base, template, hero);
   }
@@ -43,11 +43,11 @@ public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOpti
     template.limitation = limitation;
     return template;
   }
-	
+
   public String getId() {
-    return optionBase.getId();
+    return optionBase.getTraitType().getId();
   }
-  
+
   public Collection<String> getSuggestions() {
     return suggestions;
   }
@@ -64,17 +64,21 @@ public abstract class AbstractPossessedOptionalTrait<O extends OptionalTraitOpti
 
   @Override
   public String toString() {
-    return optionBase.getId() + (!Strings.isNullOrEmpty(description) ? " (" + description + ")" : "");
+    return optionBase.getTraitType().getId() + (!Strings.isNullOrEmpty(description) ? " (" + description + ")" : "");
   }
-  
+
   @Override
   public boolean equals(Object obj) {
-    if (obj instanceof PossessedOptionalTrait) {
-      PossessedOptionalTrait<?> otherTrait = (PossessedOptionalTrait<?>)obj;
-      boolean descriptionsMatch = (Strings.isNullOrEmpty(description) && Strings.isNullOrEmpty(description)) ||
-          (description != null ? description : "").equals(otherTrait.getDescription());
-      return optionBase.equals(otherTrait.getBaseOption()) && descriptionsMatch;
+    if (!(obj instanceof PossessedOptionalTrait)) {
+      return false;
     }
-    return false;
+    PossessedOptionalTrait<?> otherTrait = (PossessedOptionalTrait<?>) obj;
+    if (!optionBase.equals(otherTrait.getBaseOption())) {
+      return false;
+    }
+    if (Strings.isNullOrEmpty(description) && Strings.isNullOrEmpty(otherTrait.getDescription())) {
+      return true;
+    }
+    return description != null && description.equals(otherTrait.getDescription());
   }
 }

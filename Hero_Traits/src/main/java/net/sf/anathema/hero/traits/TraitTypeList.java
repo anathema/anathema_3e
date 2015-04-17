@@ -1,6 +1,5 @@
 package net.sf.anathema.hero.traits;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class TraitTypeList implements Iterable<TraitType> {
   private final List<TraitType> types = new ArrayList<>();
 
   public void add(String typeId) {
-    TraitType type = new DefaultTraitType(typeId);
+    TraitType type = new TraitType(typeId);
     types.add(type);
   }
 

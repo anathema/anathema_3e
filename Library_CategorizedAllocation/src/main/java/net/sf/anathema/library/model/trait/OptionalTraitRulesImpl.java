@@ -9,7 +9,7 @@ public class OptionalTraitRulesImpl<O extends OptionalTraitOption> extends Trait
   private final O base;
 
   public OptionalTraitRulesImpl(O base, TraitTemplate template, Hero hero) {
-    super(base, template, hero);
+    super(base.getTraitType(), template, hero);
     this.base = base;
   }
 

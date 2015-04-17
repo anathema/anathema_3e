@@ -7,11 +7,11 @@ import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
 public class TraitTypeUtils {
 
   public TraitType getTraitTypeFor(TraitPrerequisite prerequisite) {
-    return new DefaultTraitType(prerequisite.type.type);
+    return new TraitType(prerequisite.type.type);
   }
 
   public TraitType getPrimaryTraitType(Charm charm) {
     RequiredTraitType primaryTraitType = charm.getPrerequisites().getPrimaryTraitType();
-    return new DefaultTraitType(primaryTraitType.type);
+    return new TraitType(primaryTraitType.type);
   }
 }

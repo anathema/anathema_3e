@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special.learning;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
 import net.sf.anathema.magic.data.reference.CharmName;
@@ -19,7 +19,6 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.CharmTier;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitCharmTier;
 import net.sf.anathema.hero.charms.model.special.learning.multilearn.TraitDependentMultiLearnableCharm;
-import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +112,7 @@ public class RepurchaseCharmBuilder implements CharmSpecialLearningBuilder {
   }
 
   private TraitDependentMultiLearnableCharm createTraitMultiLearnable(CharmName id, TraitRepurchase dto) {
-    TraitType trait = new DefaultTraitType(dto.limitingTrait);
+    TraitType trait = new TraitType(dto.limitingTrait);
     int modifier = 0; //dto.modifier;
     int absoluteMax = 0; //dto.absoluteMax;
     return new TraitDependentMultiLearnableCharm(id, absoluteMax, trait, modifier);

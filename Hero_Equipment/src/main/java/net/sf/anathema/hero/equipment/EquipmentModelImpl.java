@@ -29,10 +29,9 @@ import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModelFetcher;
 import net.sf.anathema.hero.specialties.model.Specialty;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModelFetcher;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.event.CollectionListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -346,7 +345,7 @@ public class EquipmentModelImpl implements EquipmentOptionsProvider, EquipmentMo
     }
 
     private boolean characterStillHasCorrespondingSpecialty(IEquipmentStatsOption option) {
-      TraitType type = new DefaultTraitType(option.getType());
+      TraitType type = new TraitType(option.getType());
       Collection<Specialty> specialties = dataProvider.getSpecialties(type);
       return specialties.contains(option.getUnderlyingTrait());
     }

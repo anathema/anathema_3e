@@ -1,6 +1,6 @@
 package net.sf.anathema.hero.charms.compiler.special.mechanics;
 
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.magic.template.special.SpecialCharmTemplate;
 import net.sf.anathema.magic.template.special.mechanics.AddsHealthLevelsByTraitTemplate;
@@ -9,7 +9,6 @@ import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
 import net.sf.anathema.hero.charms.model.special.mechanics.AddsHealthLevelsByTraitMechanic;
 import net.sf.anathema.hero.health.model.HealthLevelType;
 import net.sf.anathema.hero.individual.persistence.values.ValueFactory;
-import net.sf.anathema.hero.traits.model.TraitType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,7 +30,7 @@ public class AddsHealthLevelsByTraitCharmBuilder implements CharmSpecialMechanic
   }
 
   private CharmSpecialMechanic createSpecialCharm(CharmName id, AddsHealthLevelsByTraitTemplate dto) {
-    TraitType trait = new DefaultTraitType(dto.trait);
+    TraitType trait = new TraitType(dto.trait);
 
     Map<String, HealthLevelType> healthTypeByString = getHealthTypeMap();
     LinkedHashMap<Integer, HealthLevelType[]> healthLevelsByTrait = new LinkedHashMap<>();

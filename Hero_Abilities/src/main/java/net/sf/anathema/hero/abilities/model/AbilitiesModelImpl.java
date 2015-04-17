@@ -11,7 +11,7 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.GroupedTraitType;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
@@ -19,7 +19,6 @@ import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.PromoteStateChange;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.group.GroupedTraitTypeBuilder;
@@ -86,7 +85,7 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     List<TraitType> abilityTypes = new ArrayList<>();
     for (Group group : template.groups) {
       for (String traitId : group.traits) {
-        abilityTypes.add(new DefaultTraitType(traitId));
+        abilityTypes.add(new TraitType(traitId));
       }
     }
     return new AllAbilityTraitTypeList(abilityTypes);

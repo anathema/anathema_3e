@@ -1,7 +1,11 @@
 package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.identifier.SimpleIdentifier;
 
-public interface TraitType extends Identifier {
-  //nothing to do
+public final class TraitType extends SimpleIdentifier implements Identifier {
+
+  public TraitType(String id) {
+    super(id);
+  }
 }

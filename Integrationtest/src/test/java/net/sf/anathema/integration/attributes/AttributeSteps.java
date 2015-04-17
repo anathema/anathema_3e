@@ -7,7 +7,6 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
 import net.sf.anathema.CharacterHolder;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.integration.attributes.points.AttributeFreebiesMap;
 import net.sf.anathema.integration.attributes.points.IntegrationAttributes;
@@ -52,7 +51,7 @@ public class AttributeSteps {
 
   @Then("^she has (\\d+) dots in attribute (.*)$")
   public void she_has_dots_in_attribute(int value, String traitId) throws Throwable {
-    DefaultTraitType type = new DefaultTraitType(traitId);
+    TraitType type = new TraitType(traitId);
     assertThatAttributeHasValueOf(type, value);
   }
 

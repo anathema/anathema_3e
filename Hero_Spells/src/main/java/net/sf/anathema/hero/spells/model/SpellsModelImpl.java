@@ -21,7 +21,6 @@ import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.hero.spells.data.Spells;
 import net.sf.anathema.hero.spells.sheet.content.PrintSpellsProvider;
 import net.sf.anathema.hero.spells.template.SpellsTemplate;
-import net.sf.anathema.hero.traits.model.DefaultTraitType;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
@@ -241,6 +240,6 @@ public class SpellsModelImpl implements SpellsModel {
 
   @Override
   public TraitType getFavoringTraitType() {
-    return new DefaultTraitType(template.favoringTrait);
+    return new TraitType(template.favoringTrait);
   }
 }
