@@ -10,7 +10,9 @@ import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.presenter.CategorizedOptionalTraitPresenter;
 import net.sf.anathema.library.view.trait.OptionalTraitsView;
 
-@RegisteredInitializer(HeroModelGroup.Background)
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Background;
+
+@RegisteredInitializer(Background)
 @Weight(weight = 300)
 public class MeritsInitializer implements HeroModelInitializer {
 

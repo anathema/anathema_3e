@@ -10,7 +10,9 @@ import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.Background)
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Background;
+
+@RegisteredInitializer(Background)
 @Weight(weight = 200)
 public class IntimaciesInitializer implements HeroModelInitializer {
 
