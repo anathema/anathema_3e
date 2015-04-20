@@ -34,7 +34,7 @@ public class HeroViewFactory {
   private RasterLayoutMap createRasterLayoutMap() {
     RasterLayoutMap rasterLayoutMap = new RasterLayoutMap();
     rasterLayoutMap.setLayout("Spiritual", new RasterLayoutImpl(2, new SpanCell(1, 2)));
-    rasterLayoutMap.setLayout("Background", new RasterLayoutImpl(2, new SpanCell(1, 1)));
+    rasterLayoutMap.setLayout("Background", new RasterLayoutImpl(2, new DefaultCell()));
     rasterLayoutMap.setLayout("Mundane", new RasterLayoutImpl(3, new DefaultCell(), new SpanCell(2, 1), new SpanCell(2, 1)));
     return rasterLayoutMap;
   }

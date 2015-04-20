@@ -16,6 +16,7 @@
         Magic:'',
         Charms: SolarCharms,
         Spells: SolarSpells,
+        MartialArts:'',
         MagicPoints: SolarMagicPoints_BigDamn,
         Intimacies: '',
         Specialties: '',
