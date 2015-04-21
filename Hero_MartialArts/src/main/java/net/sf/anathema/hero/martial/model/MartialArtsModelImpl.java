@@ -7,6 +7,11 @@ import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitImpl;
+import net.sf.anathema.hero.traits.model.TraitType;
+import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.event.ChangeListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.reference.CategoryReference;
@@ -17,9 +22,12 @@ import java.util.List;
 
 public class MartialArtsModelImpl implements MartialArtsModel {
   private final List<StyleName> availableStyleNames = new ArrayList<>();
-  private final List<StyleName> learnedStyleNames = new ArrayList<>();
+  private final List<Trait> learnedStyles = new ArrayList<>();
   private final Announcer<ChangeListener> selectionAnnouncer = Announcer.to(ChangeListener.class);
+  private final Announcer<StyleLearnListener> learnAnnouncer = Announcer.to(StyleLearnListener.class);
+  private final Announcer<StyleForgetListener> forgetAnnouncer = Announcer.to(StyleForgetListener.class);
   private StyleName selectedStyle;
+  private Hero hero;
 
   @Override
   public Identifier getId() {
@@ -28,6 +36,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    this.hero = hero;
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
     for (CharmTree charmTree : martialArtsTrees) {
@@ -56,10 +65,6 @@ public class MartialArtsModelImpl implements MartialArtsModel {
     selectionAnnouncer.announce().changeOccurred();
   }
 
-  @Override
-  public void whenStyleIsSelected(ChangeListener listener) {
-    selectionAnnouncer.addListener(listener);
-  }
 
   @Override
   public StyleName getSelectedStyle() {
@@ -68,6 +73,29 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void learnSelectedStyle() {
-    learnedStyleNames.add(selectedStyle);
+    TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(selectedStyle.name), new TraitTemplate(), hero));
+    learnedStyles.add(style);
+    learnAnnouncer.announce().styleLearned(style);
+  }
+
+  @Override
+  public void forget(Trait style) {
+    learnedStyles.remove(style);
+    forgetAnnouncer.announce().styleForgotten(style);
+  }
+
+  @Override
+  public void whenStyleIsSelected(ChangeListener listener) {
+    selectionAnnouncer.addListener(listener);
+  }
+
+  @Override
+  public void whenStyleIsLearned(StyleLearnListener listener) {
+    learnAnnouncer.addListener(listener);
+  }
+
+  @Override
+  public void whenStyleIsForgotten(StyleForgetListener listener) {
+    forgetAnnouncer.addListener(listener);
   }
 }

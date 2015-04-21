@@ -2,21 +2,28 @@ package net.sf.anathema.hero.martial.display;
 
 import net.sf.anathema.hero.martial.model.MartialArtsModel;
 import net.sf.anathema.hero.martial.model.StyleName;
+import net.sf.anathema.hero.traits.display.TraitPresenter;
+import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.ObjectSelectionView;
 import net.sf.anathema.library.view.OptionalPropertyEntryView;
-import net.sf.anathema.library.view.property.OptionalPropertiesView;
+import net.sf.anathema.library.view.trait.OptionalTraitItemView;
+import net.sf.anathema.library.view.trait.OptionalTraitsView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MartialArtsPresenter {
+  private static final int MAX_VALUE = 5;
   private final MartialArtsModel model;
   private final Resources resources;
-  private final OptionalPropertiesView view;
+  private final OptionalTraitsView view;
+  private final Map<Trait, OptionalTraitItemView> viewsByEntry = new HashMap<>();
 
-  public MartialArtsPresenter(MartialArtsModel model, Resources resources, OptionalPropertiesView view) {
+  public MartialArtsPresenter(MartialArtsModel model, Resources resources, OptionalTraitsView view) {
     this.model = model;
     this.resources = resources;
     this.view = view;
@@ -33,12 +40,22 @@ public class MartialArtsPresenter {
     tool.setTooltip(resources.getString("MartialArts.Add.Tooltip"));
     tool.setCommand(model::learnSelectedStyle);
     model.whenStyleIsSelected(() -> updateSelectionInView(selection));
-    //model.whenStyleIsLearned(() -> updateLearnedStylesInView());
+    model.whenStyleIsLearned(this::addSubView);
+    model.whenStyleIsForgotten(this::removeSubView);
     updateSelectionInView(selection);
   }
 
-  private void updateLearnedStylesInView() {
-    //view.addItemView()
+  private void addSubView(Trait style) {
+    String styleLabel = resources.getString(style.getType().getId());
+    OptionalTraitItemView subView = view.addItemView(styleLabel, MAX_VALUE, new BasicUi().getRemoveIconPath());
+    new TraitPresenter(style, subView.getIntValueView()).initPresentation();
+    viewsByEntry.put(style, subView);
+    subView.addButtonListener(() -> model.forget(style));
+  }
+
+  private void removeSubView(Trait style) {
+    OptionalTraitItemView viewToRemove = viewsByEntry.remove(style);
+    viewToRemove.remove();
   }
 
   private void updateSelectionInView(ObjectSelectionView<StyleName> selection) {
