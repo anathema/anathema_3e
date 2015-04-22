@@ -11,7 +11,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SinglePointShiningIntotheVoidStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -39,7 +39,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SinglePointShiningIntotheVoidStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -58,7 +58,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "SinglePointShiningIntotheVoidStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -74,7 +74,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SinglePointShiningIntotheVoidStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -94,7 +94,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SinglePointShiningIntotheVoidStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -113,7 +113,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SinglePointShiningIntotheVoidStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -128,7 +128,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SinglePointShiningIntotheVoidStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -152,7 +152,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SinglePointShiningIntotheVoidStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -171,7 +171,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SinglePointShiningIntotheVoidStyle": 5
             }, 
             "prerequisites": [
                 {

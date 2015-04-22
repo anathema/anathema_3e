@@ -10,7 +10,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SilverVoicedNightingaleStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -29,7 +29,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SilverVoicedNightingaleStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -47,7 +47,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SilverVoicedNightingaleStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -65,7 +65,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SilverVoicedNightingaleStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -85,7 +85,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 3
+                "SilverVoicedNightingaleStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -103,7 +103,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SilverVoicedNightingaleStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -121,7 +121,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SilverVoicedNightingaleStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -141,7 +141,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SilverVoicedNightingaleStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -167,7 +167,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "SilverVoicedNightingaleStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -189,7 +189,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SilverVoicedNightingaleStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -207,7 +207,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "SilverVoicedNightingaleStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Permanent"

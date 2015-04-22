@@ -9,6 +9,8 @@ import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
+import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
@@ -28,6 +30,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   private final Announcer<StyleForgetListener> forgetAnnouncer = Announcer.to(StyleForgetListener.class);
   private StyleName selectedStyle;
   private Hero hero;
+  private TraitModel traitModel;
 
   @Override
   public Identifier getId() {
@@ -37,6 +40,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
     this.hero = hero;
+    this.traitModel = TraitModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
     for (CharmTree charmTree : martialArtsTrees) {
@@ -75,6 +79,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   public void learnSelectedStyle() {
     TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(selectedStyle.name), new TraitTemplate(), hero));
     learnedStyles.add(style);
+    traitModel.addTraits(style);
     learnAnnouncer.announce().styleLearned(style);
   }
 

@@ -10,7 +10,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "EbonShadowStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -34,7 +34,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "EbonShadowStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -53,7 +53,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "EbonShadowStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -67,7 +67,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "EbonShadowStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -82,7 +82,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "EbonShadowStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -101,7 +101,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "EbonShadowStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -120,7 +120,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 4
+                "EbonShadowStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -140,7 +140,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "EbonShadowStyle": 5
             }, 
             "prerequisites": [
                 {

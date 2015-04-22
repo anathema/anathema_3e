@@ -9,7 +9,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "CraneStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -32,7 +32,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "CraneStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -51,7 +51,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "CraneStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -65,7 +65,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "CraneStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -84,7 +84,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "CraneStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -99,7 +99,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "CraneStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -118,7 +118,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "CraneStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -136,7 +136,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "CraneStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -154,7 +154,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "CraneStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -174,7 +174,7 @@
             ], 
             "minimums": {
                 "Essence": 4, 
-                "MartialArts": 5
+                "CraneStyle": 5
             }, 
             "prerequisites": [
                 {

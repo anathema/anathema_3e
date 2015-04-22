@@ -9,7 +9,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "BlackClawStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -29,7 +29,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "BlackClawStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -47,7 +47,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "BlackClawStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -72,7 +72,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "BlackClawStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -90,7 +90,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "BlackClawStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -104,7 +104,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "BlackClawStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -131,7 +131,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "BlackClawStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -150,7 +150,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "BlackClawStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -171,7 +171,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "BlackClawStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Reflexive"

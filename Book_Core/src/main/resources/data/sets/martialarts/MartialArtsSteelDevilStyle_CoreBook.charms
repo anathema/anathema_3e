@@ -10,7 +10,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -29,7 +29,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SteelDevilStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -48,7 +48,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -66,7 +66,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -85,7 +85,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -101,7 +101,7 @@
             "keywords": [], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 2
+                "SteelDevilStyle": 2
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -112,7 +112,7 @@
             "keywords": [], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -131,7 +131,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -149,7 +149,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -168,7 +168,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "SteelDevilStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -188,7 +188,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -204,7 +204,7 @@
             "keywords": [], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -223,7 +223,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SteelDevilStyle": 5
             }, 
             "prerequisites": [
                 {

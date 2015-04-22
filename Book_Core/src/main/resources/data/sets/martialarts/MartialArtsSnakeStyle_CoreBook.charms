@@ -10,7 +10,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "SnakeStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -30,7 +30,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SnakeStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -49,7 +49,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SnakeStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -67,7 +67,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 4
+                "SnakeStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -88,7 +88,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "SnakeStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -119,7 +119,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SnakeStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -132,7 +132,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "SnakeStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -156,7 +156,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SnakeStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -175,7 +175,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "SnakeStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -189,7 +189,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "SnakeStyle": 4
             }, 
             "prerequisites": [
                 {

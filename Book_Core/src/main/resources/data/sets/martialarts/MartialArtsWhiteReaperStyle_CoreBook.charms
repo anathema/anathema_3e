@@ -11,7 +11,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "WhiteReaperStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -30,7 +30,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "WhiteReaperStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -48,7 +48,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "WhiteReaperStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Supplemental"
@@ -62,7 +62,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 3
+                "WhiteReaperStyle": 3
             }, 
             "prerequisites": [
                 {
@@ -80,7 +80,7 @@
             ], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 5
+                "WhiteReaperStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -96,7 +96,7 @@
             "keywords": [], 
             "minimums": {
                 "Essence": 2, 
-                "MartialArts": 4
+                "WhiteReaperStyle": 4
             }, 
             "prerequisites": [
                 {
@@ -115,7 +115,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 3
+                "WhiteReaperStyle": 3
             }, 
             "prerequisites": [], 
             "type": "Reflexive"
@@ -128,7 +128,7 @@
             ], 
             "minimums": {
                 "Essence": 3, 
-                "MartialArts": 5
+                "WhiteReaperStyle": 5
             }, 
             "prerequisites": [
                 {
@@ -154,7 +154,7 @@
             ], 
             "minimums": {
                 "Essence": 1, 
-                "MartialArts": 4
+                "WhiteReaperStyle": 4
             }, 
             "prerequisites": [
                 {
