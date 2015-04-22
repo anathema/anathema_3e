@@ -1,7 +1,6 @@
 package net.sf.anathema.hero.martial.display;
 
 import net.sf.anathema.hero.martial.model.MartialArtsModel;
-import net.sf.anathema.hero.martial.model.StyleName;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.library.interaction.model.Tool;
@@ -29,19 +28,28 @@ public class MartialArtsPresenter {
   }
 
   public void initPresentation() {
-    List<Trait> allStyles = model.getAllStyles();
     OptionalPropertyEntryView selectionView = view.addSelectionView();
     ObjectSelectionView<Trait> selection = selectionView.addSelection(new MartialArtsStyleConfiguration(resources));
-    selection.setObjects(allStyles);
+    updateAvailableStyles(selection);
     selection.addObjectSelectionChangedListener(model::selectStyle);
     Tool tool = selectionView.addTool();
     tool.setIcon(new BasicUi().getAddIconPath());
     tool.setTooltip(resources.getString("MartialArts.Add.Tooltip"));
     tool.setCommand(model::learnSelectedStyle);
     model.whenStyleIsSelected(() -> updateSelectionInView(selection));
-    model.whenStyleIsLearned(this::addSubView);
-    model.whenStyleIsForgotten(this::removeSubView);
+    model.whenStyleIsLearned((style) -> {
+      addSubView(style);
+      updateAvailableStyles(selection);
+    });
+    model.whenStyleIsForgotten((style) -> {
+      removeSubView(style);
+      updateAvailableStyles(selection);
+    });
     updateSelectionInView(selection);
+  }
+
+  private void updateAvailableStyles(ObjectSelectionView<Trait> selection) {
+    selection.setObjects(model.getAvailableStyles());
   }
 
   private void addSubView(Trait style) {
