@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 public class MartialArtsPresenter {
-  private static final int MAX_VALUE = 5;
   private final MartialArtsModel model;
   private final Resources resources;
   private final OptionalTraitsView view;
@@ -47,7 +46,7 @@ public class MartialArtsPresenter {
 
   private void addSubView(Trait style) {
     String styleLabel = resources.getString(style.getType().getId());
-    OptionalTraitItemView subView = view.addItemView(styleLabel, MAX_VALUE, new BasicUi().getRemoveIconPath());
+    OptionalTraitItemView subView = view.addItemView(styleLabel, style.getMaximalValue(), new BasicUi().getRemoveIconPath());
     new TraitPresenter(style, subView.getIntValueView()).initPresentation();
     viewsByEntry.put(style, subView);
     subView.addButtonListener(() -> model.forget(style));
