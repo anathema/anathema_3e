@@ -23,14 +23,12 @@ import java.util.Collection;
 import java.util.List;
 
 public class MartialArtsModelImpl implements MartialArtsModel {
-  private final List<StyleName> availableStyleNames = new ArrayList<>();
+  private final List<Trait> availableStyles = new ArrayList<>();
   private final List<Trait> learnedStyles = new ArrayList<>();
   private final Announcer<ChangeListener> selectionAnnouncer = Announcer.to(ChangeListener.class);
   private final Announcer<StyleLearnListener> learnAnnouncer = Announcer.to(StyleLearnListener.class);
   private final Announcer<StyleForgetListener> forgetAnnouncer = Announcer.to(StyleForgetListener.class);
-  private StyleName selectedStyle;
-  private Hero hero;
-  private TraitModel traitModel;
+  private Trait selectedStyle;
 
   @Override
   public Identifier getId() {
@@ -39,15 +37,16 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    this.hero = hero;
-    this.traitModel = TraitModelFetcher.fetch(hero);
+    TraitModel traitModel = TraitModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
     for (CharmTree charmTree : martialArtsTrees) {
       String treeId = charmTree.getReference().name.text;
-      availableStyleNames.add(new StyleName(treeId));
+      TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(treeId), new TraitTemplate(), hero));
+      availableStyles.add(style);
+      traitModel.addTraits(style);
     }
-    this.selectedStyle = availableStyleNames.get(0);
+    this.selectedStyle = availableStyles.get(0);
   }
 
   @Override
@@ -56,12 +55,12 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   }
 
   @Override
-  public List<StyleName> getAllStyles() {
-    return availableStyleNames;
+  public List<Trait> getAllStyles() {
+    return availableStyles;
   }
 
   @Override
-  public void selectStyle(StyleName newValue) {
+  public void selectStyle(Trait newValue) {
     if (newValue == selectedStyle) {
       return;
     }
@@ -71,16 +70,14 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
 
   @Override
-  public StyleName getSelectedStyle() {
+  public Trait getSelectedStyle() {
     return selectedStyle;
   }
 
   @Override
   public void learnSelectedStyle() {
-    TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(selectedStyle.name), new TraitTemplate(), hero));
-    learnedStyles.add(style);
-    traitModel.addTraits(style);
-    learnAnnouncer.announce().styleLearned(style);
+    learnedStyles.add(selectedStyle);
+    learnAnnouncer.announce().styleLearned(selectedStyle);
   }
 
   @Override

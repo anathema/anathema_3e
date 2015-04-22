@@ -29,9 +29,9 @@ public class MartialArtsPresenter {
   }
 
   public void initPresentation() {
-    List<StyleName> allStyles = model.getAllStyles();
+    List<Trait> allStyles = model.getAllStyles();
     OptionalPropertyEntryView selectionView = view.addSelectionView();
-    ObjectSelectionView<StyleName> selection = selectionView.addSelection(new MartialArtsStyleConfiguration(resources));
+    ObjectSelectionView<Trait> selection = selectionView.addSelection(new MartialArtsStyleConfiguration(resources));
     selection.setObjects(allStyles);
     selection.addObjectSelectionChangedListener(model::selectStyle);
     Tool tool = selectionView.addTool();
@@ -57,7 +57,7 @@ public class MartialArtsPresenter {
     viewToRemove.remove();
   }
 
-  private void updateSelectionInView(ObjectSelectionView<StyleName> selection) {
+  private void updateSelectionInView(ObjectSelectionView<Trait> selection) {
     selection.setSelectedObject(model.getSelectedStyle());
   }
 }
