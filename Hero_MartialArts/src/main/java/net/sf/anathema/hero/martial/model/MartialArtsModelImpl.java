@@ -66,12 +66,27 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   }
 
   @Override
+  public List<Trait> getLearnedStyles() {
+    return learnedStyles;
+  }
+
+  @Override
   public void selectStyle(Trait newValue) {
     if (newValue == selectedStyle) {
       return;
     }
     this.selectedStyle = newValue;
     selectionAnnouncer.announce().changeOccurred();
+  }
+
+  @Override
+  public void selectStyle(StyleName styleName) {
+    for (Trait candidate : availableStyles) {
+      if (candidate.getType().getId().equals(styleName.name)){
+        selectStyle(candidate);
+        return;
+      }
+    }
   }
 
 

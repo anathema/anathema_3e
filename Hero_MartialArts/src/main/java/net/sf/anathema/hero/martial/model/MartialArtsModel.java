@@ -14,7 +14,11 @@ public interface MartialArtsModel extends HeroModel {
 
   List<Trait> getAvailableStyles();
 
+  List<Trait> getLearnedStyles();
+
   void selectStyle(Trait newValue);
+
+  void selectStyle(StyleName styleName);
 
   Trait getSelectedStyle();
 

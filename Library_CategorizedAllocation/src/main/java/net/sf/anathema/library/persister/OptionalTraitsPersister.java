@@ -37,14 +37,15 @@ public abstract class OptionalTraitsPersister<
   protected P saveModelToPto(M heroModel) {
     P traitsList = createNewPto();
     for (T merit : heroModel.getEntries()) {
-      traitsList.getOptionalTraitPtoList().add(createMeritsPto(merit));
+      PossessedOptionalTraitPto optionalTraitPto = createOptionalTraitPto(merit);
+      traitsList.getOptionalTraitPtoList().add(optionalTraitPto);
     }
     return traitsList;
   }
   
   protected abstract P createNewPto();
 
-  private PossessedOptionalTraitPto createMeritsPto(T trait) {
+  private PossessedOptionalTraitPto createOptionalTraitPto(T trait) {
     PossessedOptionalTraitPto pto = new PossessedOptionalTraitPto();
     pto.option = trait.getBaseOption().getTraitType().getId();
     pto.description = trait.getDescription();

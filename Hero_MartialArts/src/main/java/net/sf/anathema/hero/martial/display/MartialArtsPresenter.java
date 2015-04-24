@@ -46,6 +46,13 @@ public class MartialArtsPresenter {
       updateAvailableStyles(selection);
     });
     updateSelectionInView(selection);
+    initSubViews();
+  }
+
+  private void initSubViews() {
+    for (Trait style : model.getLearnedStyles()) {
+      addSubView(style);
+    }
   }
 
   private void updateAvailableStyles(ObjectSelectionView<Trait> selection) {
