@@ -12,7 +12,6 @@ import net.sf.anathema.library.view.trait.OptionalTraitsView;
 import net.sf.anathema.platform.taskbar.BasicUi;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class MartialArtsPresenter {
@@ -45,6 +44,8 @@ public class MartialArtsPresenter {
       removeSubView(style);
       updateAvailableStyles(selection);
     });
+    model.whenCharacterBecomesAMartialArtist(tool::enable);
+    model.whenCharacterNoLongerIsAMartialArtist(tool::disable);
     updateSelectionInView(selection);
     initSubViews();
   }

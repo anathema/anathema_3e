@@ -31,4 +31,8 @@ public interface MartialArtsModel extends HeroModel {
   void whenStyleIsLearned(StyleLearnListener listener);
 
   void whenStyleIsForgotten(StyleForgetListener listener);
+
+  void whenCharacterBecomesAMartialArtist(ChangeListener listener);
+
+  void whenCharacterNoLongerIsAMartialArtist(ChangeListener listener);
 }

@@ -8,6 +8,9 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.merits.model.Merit;
+import net.sf.anathema.hero.merits.model.MeritsModel;
+import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitModel;
@@ -17,8 +20,8 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.event.ChangeListener;
-import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.library.model.RemovableEntryListener;
 import net.sf.anathema.magic.data.reference.CategoryReference;
 
 import java.util.ArrayList;
@@ -31,6 +34,8 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   private final Announcer<ChangeListener> selectionAnnouncer = Announcer.to(ChangeListener.class);
   private final Announcer<StyleLearnListener> learnAnnouncer = Announcer.to(StyleLearnListener.class);
   private final Announcer<StyleForgetListener> forgetAnnouncer = Announcer.to(StyleForgetListener.class);
+  private final Announcer<ChangeListener> martialArtistAnnouncer = Announcer.to(ChangeListener.class);
+  private final Announcer<ChangeListener> noMartialArtistAnnouncer = Announcer.to(ChangeListener.class);
   private Trait selectedStyle;
   private TraitImpl martialArts;
 
@@ -41,6 +46,27 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
+    meritsModel.addModelChangeListener(new RemovableEntryListener<Merit>() {
+      @Override
+      public void entryAdded(Merit entry) {
+        if (entry.getType().getId().equals("Martial Artist")) {
+          martialArtistAnnouncer.announce().changeOccurred();
+        }
+      }
+
+      @Override
+      public void entryRemoved(Merit entry) {
+        if (entry.getType().getId().equals("Martial Artist")) {
+          noMartialArtistAnnouncer.announce().changeOccurred();
+        }
+      }
+
+      @Override
+      public void entryAllowed(boolean complete) {
+
+      }
+    });
     extractAvailableStyles(hero);
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     martialArts = new TraitImpl(hero, new TraitRulesImpl(new TraitType("MartialArts"), new TraitTemplate(), hero));
@@ -145,5 +171,15 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   @Override
   public void whenStyleIsForgotten(StyleForgetListener listener) {
     forgetAnnouncer.addListener(listener);
+  }
+
+  @Override
+  public void whenCharacterBecomesAMartialArtist(ChangeListener listener) {
+    martialArtistAnnouncer.addListener(listener);
+  }
+
+  @Override
+  public void whenCharacterNoLongerIsAMartialArtist(ChangeListener listener) {
+    noMartialArtistAnnouncer.addListener(listener);
   }
 }

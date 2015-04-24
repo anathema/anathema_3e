@@ -5,12 +5,13 @@ import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.environment.template.TemplateFactory;
 import net.sf.anathema.hero.individual.model.HeroModelFactory;
 import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
+import net.sf.anathema.hero.merits.model.MeritsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class MartialArtsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public MartialArtsModelFactory() {
-    super(MartialArtsModel.ID, AbilitiesModel.ID, CharmsModel.ID);
+    super(MartialArtsModel.ID, AbilitiesModel.ID, CharmsModel.ID, MeritsModel.ID);
   }
 
   @SuppressWarnings("unchecked")
