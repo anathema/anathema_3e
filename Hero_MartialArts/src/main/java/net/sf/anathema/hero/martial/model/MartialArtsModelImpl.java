@@ -17,6 +17,7 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.event.ChangeListener;
+import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.magic.data.reference.CategoryReference;
 
@@ -31,6 +32,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   private final Announcer<StyleLearnListener> learnAnnouncer = Announcer.to(StyleLearnListener.class);
   private final Announcer<StyleForgetListener> forgetAnnouncer = Announcer.to(StyleForgetListener.class);
   private Trait selectedStyle;
+  private TraitImpl martialArts;
 
   @Override
   public Identifier getId() {
@@ -39,6 +41,25 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    extractAvailableStyles(hero);
+    TraitModel traitModel = TraitModelFetcher.fetch(hero);
+    martialArts = new TraitImpl(hero, new TraitRulesImpl(new TraitType("MartialArts"), new TraitTemplate(), hero));
+    traitModel.addTraits(martialArts);
+    for (Trait availableStyle : availableStyles) {
+      availableStyle.addCurrentValueListener(newValue -> updateMartialArtsRating());
+    }
+    selectStyle(availableStyles.get(0));
+  }
+
+  private void updateMartialArtsRating() {
+    int maximumStyleRating = 0;
+    for (Trait style : learnedStyles) {
+      maximumStyleRating = Math.max(maximumStyleRating, style.getCurrentValue());
+    }
+    martialArts.setCurrentValue(maximumStyleRating);
+  }
+
+  private void extractAvailableStyles(Hero hero) {
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
     Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
@@ -48,7 +69,6 @@ public class MartialArtsModelImpl implements MartialArtsModel {
       availableStyles.add(style);
       traitModel.addTraits(style);
     }
-    selectStyle(availableStyles.get(0));
   }
 
   @Override
@@ -82,7 +102,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   @Override
   public void selectStyle(StyleName styleName) {
     for (Trait candidate : availableStyles) {
-      if (candidate.getType().getId().equals(styleName.name)){
+      if (candidate.getType().getId().equals(styleName.name)) {
         selectStyle(candidate);
         return;
       }

@@ -30,7 +30,7 @@ public class DefaultTraitMap implements TraitMap {
   }
 
   @Override
-  public final Trait getTrait(TraitType traitType) {
+  public Trait getTrait(TraitType traitType) {
     if (contains(traitType)) {
       return traitsByType.get(traitType);
     }
