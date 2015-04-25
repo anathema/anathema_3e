@@ -8,7 +8,6 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.model.Hero;
-import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
@@ -29,7 +28,6 @@ import net.sf.anathema.magic.data.reference.CategoryReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class MartialArtsModelImpl implements MartialArtsModel {
   private final List<Trait> availableStyles = new ArrayList<>();
@@ -41,6 +39,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   private final Announcer<ChangeListener> noMartialArtistAnnouncer = Announcer.to(ChangeListener.class);
   private Trait selectedStyle;
   private TraitImpl martialArts;
+  private boolean isAMartialArtist;
 
   @Override
   public Identifier getId() {
@@ -66,7 +65,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
       @Override
       public void entryAdded(Merit entry) {
         if (entry.hasMechanicalDetail(new MechanicalDetailReference("GrantsMartialArts"))) {
-          martialArtistAnnouncer.announce().changeOccurred();
+          enableMartialArts();
         }
       }
 
@@ -74,7 +73,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
       public void entryRemoved(Merit entry) {
         boolean isAMartialArtist = meritsModel.getEntries().stream().anyMatch(merit -> merit.hasMechanicalDetail(new MechanicalDetailReference("GrantsMartialArts")));
         if (!isAMartialArtist) {
-          noMartialArtistAnnouncer.announce().changeOccurred();
+          disableMartialArts();
         }
       }
 
@@ -85,8 +84,21 @@ public class MartialArtsModelImpl implements MartialArtsModel {
     });
   }
 
+  private void disableMartialArts() {
+    this.isAMartialArtist = false;
+    noMartialArtistAnnouncer.announce().changeOccurred();
+  }
+
+  private void enableMartialArts() {
+    this.isAMartialArtist = true;
+    martialArtistAnnouncer.announce().changeOccurred();
+  }
+
   private void updateMartialArtsRating() {
     int maximumStyleRating = 0;
+    for (Trait style : availableStyles) {
+      maximumStyleRating = Math.max(maximumStyleRating, style.getCurrentValue());
+    }
     for (Trait style : learnedStyles) {
       maximumStyleRating = Math.max(maximumStyleRating, style.getCurrentValue());
     }
@@ -151,6 +163,9 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void learnSelectedStyle() {
+    if (!isAMartialArtist){
+      return;
+    }
     learnedStyles.add(selectedStyle);
     availableStyles.remove(selectedStyle);
     learnAnnouncer.announce().styleLearned(selectedStyle);

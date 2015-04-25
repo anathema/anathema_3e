@@ -2,10 +2,15 @@ package net.sf.anathema;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritOption;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.model.OptionalEntryReference;
 import net.sf.anathema.points.model.overview.IValueModel;
 
@@ -87,5 +92,16 @@ public class MeritSteps {
     MeritsModel model = MeritsModelFetcher.fetch(character.getHero());
     return model.getAllEntryOptions().stream()
             .filter(option -> option.getTraitType().getId().equals(id)).findAny().get();
+  }
+
+  @And("^she is not a Martial Artist$")
+  public void she_is_not_a_Martial_Artist() throws Throwable {
+    //nothing to do
+  }
+
+  @And("^she is a Martial Artist$")
+  public void she_is_a_Martial_Artist() throws Throwable {
+    AbilitiesModelFetcher.fetch(character.getHero()).getTrait(CommonTraitTypes.Brawl).setCurrentValue(1);
+    she_earns_the_merit("Martial Artist");
   }
 }

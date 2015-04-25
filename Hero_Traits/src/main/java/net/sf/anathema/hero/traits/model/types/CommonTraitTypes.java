@@ -20,6 +20,7 @@ public interface CommonTraitTypes {
 
   //Abilities
   TraitType Archery = new TraitType("Archery");
+  TraitType Brawl = new TraitType("Brawl");
   TraitType MartialArts = new TraitType("MartialArts");
   TraitType Melee = new TraitType("Melee");
   TraitType Integrity = new TraitType("Integrity");

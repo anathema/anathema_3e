@@ -1,12 +1,17 @@
 package net.sf.anathema;
 
 import com.google.inject.Inject;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+import junit.framework.Assert;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
+import net.sf.anathema.hero.martial.display.MartialArtsModelFetcher;
+import net.sf.anathema.hero.martial.model.MartialArtsModel;
+import net.sf.anathema.hero.martial.model.StyleName;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.Trait;
@@ -16,6 +21,7 @@ import net.sf.anathema.points.model.overview.SpendingModel;
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertFalse;
 
 @ScenarioScoped
 public class AbilitySteps {
@@ -51,8 +57,8 @@ public class AbilitySteps {
     }
   }
 
-  @Then("^she has (\\d+) dots in ability (.*)$")
-  public void she_has_dots_in_Ability(int amount, String abilityName) throws Throwable {
+  @Then("^she has (\\d+) dots in (.*)$")
+  public void she_has_dots_in(int amount, String abilityName) throws Throwable {
     Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     assertThat(ability.getCurrentValue(), is(amount));
   }
@@ -95,5 +101,14 @@ public class AbilitySteps {
 
   private void increaseTraitValueByOne(Trait trait) {
     trait.setCreationValue(trait.getCreationValue() + 1);
+  }
+
+  @And("^she cannot learn (.*) martial arts$")
+  public void she_cannot_learn_martialarts (String style) throws Throwable {
+    MartialArtsModel martialArtsModel = MartialArtsModelFetcher.fetch(character.getHero());
+    martialArtsModel.selectStyle(new StyleName(style));
+    Trait selectedStyle = martialArtsModel.getSelectedStyle();
+    martialArtsModel.learnSelectedStyle();
+    assertFalse(martialArtsModel.getLearnedStyles().contains(selectedStyle));
   }
 }

@@ -5,4 +5,4 @@ Feature: Anathema calculates creation point costs for Abilities
   Scenario: A Solar has minimum value of 1 in a favored Ability
     Given a new Solar using rules for BigDamnHero
     When I favor her Archery
-    Then she has 1 dots in ability Archery
+    Then she has 1 dots in Archery

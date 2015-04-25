@@ -56,11 +56,7 @@ public class CharacterChangeSteps {
   public void I_set_her_trait_to(String traitId, int value) throws Throwable {
     TraitType type = new TraitType(traitId);
     Trait trait = character.getTraitConfiguration().getTrait(type);
-    if (ExperienceModelFetcher.fetch(character.getHero()).isExperienced()) {
-      trait.setExperiencedValue(value);
-    } else {
-      trait.setCreationValue(value);
-    }
+    trait.setCurrentValue(value);
   }
 
   @When("^I add a fresh Intimacy$")
