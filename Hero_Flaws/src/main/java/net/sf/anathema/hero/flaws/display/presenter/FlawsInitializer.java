@@ -12,10 +12,8 @@ import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.presenter.CategorizedOptionalPropertyPresenter;
 import net.sf.anathema.library.view.property.OptionalPropertiesView;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Background;
-
-@RegisteredInitializer(Background)
-@Weight(weight = 300)
+@RegisteredInitializer(HeroModelGroup.Background)
+@Weight(weight = 400)
 public class FlawsInitializer implements HeroModelInitializer {
 
   private HeroEnvironment environment;

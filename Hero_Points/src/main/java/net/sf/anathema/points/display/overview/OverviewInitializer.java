@@ -4,6 +4,7 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModelInitializer;
 import net.sf.anathema.hero.individual.model.RegisteredInitializer;
+import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.points.display.overview.presenter.OverviewPresenter;
@@ -12,9 +13,7 @@ import net.sf.anathema.points.model.BonusPointManagement;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;
-
-@RegisteredInitializer(Miscellaneous)
+@RegisteredInitializer(HeroModelGroup.Miscellaneous)
 public class OverviewInitializer implements HeroModelInitializer {
 
   private HeroEnvironment environment;

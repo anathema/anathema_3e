@@ -12,7 +12,7 @@ import net.sf.anathema.library.initialization.Weight;
 import net.sf.anathema.library.view.trait.OptionalTraitsView;
 
 @RegisteredInitializer(HeroModelGroup.Mundane)
-@Weight(weight = 100)
+@Weight(weight = 200)
 public class MartialArtsInitializer implements HeroModelInitializer {
   private HeroEnvironment environment;
 
