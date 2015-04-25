@@ -245,7 +245,12 @@
           	 	"trait": "Brawl",
           	 	"rating": 1
           	}
-		  ]		  
+		  ],	
+		  "mechanics": [
+            {
+                "type": "GrantsMartialArts"
+            }
+          ]
 		},
 		{
 			"name": "Mentor",

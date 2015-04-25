@@ -8,6 +8,8 @@ import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.model.HeroModel;
+import net.sf.anathema.hero.merits.model.MechanicalDetailReference;
 import net.sf.anathema.hero.merits.model.Merit;
 import net.sf.anathema.hero.merits.model.MeritsModel;
 import net.sf.anathema.hero.merits.model.MeritsModelFetcher;
@@ -27,6 +29,7 @@ import net.sf.anathema.magic.data.reference.CategoryReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class MartialArtsModelImpl implements MartialArtsModel {
   private final List<Trait> availableStyles = new ArrayList<>();
@@ -46,27 +49,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
-    meritsModel.addModelChangeListener(new RemovableEntryListener<Merit>() {
-      @Override
-      public void entryAdded(Merit entry) {
-        if (entry.getType().getId().equals("Martial Artist")) {
-          martialArtistAnnouncer.announce().changeOccurred();
-        }
-      }
-
-      @Override
-      public void entryRemoved(Merit entry) {
-        if (entry.getType().getId().equals("Martial Artist")) {
-          noMartialArtistAnnouncer.announce().changeOccurred();
-        }
-      }
-
-      @Override
-      public void entryAllowed(boolean complete) {
-
-      }
-    });
+    listenForMartialArtsMerits(hero);
     extractAvailableStyles(hero);
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     martialArts = new TraitImpl(hero, new TraitRulesImpl(new TraitType("MartialArts"), new TraitTemplate(), hero));
@@ -75,6 +58,31 @@ public class MartialArtsModelImpl implements MartialArtsModel {
       availableStyle.addCurrentValueListener(newValue -> updateMartialArtsRating());
     }
     selectStyle(availableStyles.get(0));
+  }
+
+  private void listenForMartialArtsMerits(Hero hero) {
+    MeritsModel meritsModel = MeritsModelFetcher.fetch(hero);
+    meritsModel.addModelChangeListener(new RemovableEntryListener<Merit>() {
+      @Override
+      public void entryAdded(Merit entry) {
+        if (entry.hasMechanicalDetail(new MechanicalDetailReference("GrantsMartialArts"))) {
+          martialArtistAnnouncer.announce().changeOccurred();
+        }
+      }
+
+      @Override
+      public void entryRemoved(Merit entry) {
+        boolean isAMartialArtist = meritsModel.getEntries().stream().anyMatch(merit -> merit.hasMechanicalDetail(new MechanicalDetailReference("GrantsMartialArts")));
+        if (!isAMartialArtist) {
+          noMartialArtistAnnouncer.announce().changeOccurred();
+        }
+      }
+
+      @Override
+      public void entryAllowed(boolean complete) {
+        //nothing to do
+      }
+    });
   }
 
   private void updateMartialArtsRating() {
