@@ -1,6 +1,8 @@
 package net.sf.anathema.hero.martial.model;
 
 import net.sf.anathema.characterengine.support.Announcer;
+import net.sf.anathema.hero.abilities.advance.AbilitiesPointModelFetcher;
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
@@ -57,6 +59,9 @@ public class MartialArtsModelImpl implements MartialArtsModel {
       availableStyle.addCurrentValueListener(newValue -> updateMartialArtsRating());
     }
     selectStyle(availableStyles.get(0));
+    if (AbilitiesPointModelFetcher.isActive(hero)) {
+      AbilitiesPointModelFetcher.fetch(hero).add(new MartialArtsTraitHolder(this));
+    }
   }
 
   private void listenForMartialArtsMerits(Hero hero) {

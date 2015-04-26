@@ -1,14 +1,12 @@
 package net.sf.anathema.hero.abilities.advance.creation;
 
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
+import net.sf.anathema.hero.abilities.advance.PointCalculationTraitHolder;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
-import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
-
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,17 +20,15 @@ import static net.sf.anathema.hero.traits.advance.TraitCalculationUtilities.getC
 
 public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
-  private AbilitiesModel abilitiesModel;
-  private AbilityCreationData creationData;
+  private final PointCalculationTraitHolder traits;
+  private final AbilityCreationData creationData;
   private final Multimap<Trait, FavorableTraitCost> costsByTrait = HashMultimap.create();
-  private final Traits traits;
   private final Map<TraitStateType, Integer> statePicks = new HashMap<>();
   private int generalDotSum = 0;
 
-  public AbilityCostCalculatorImpl(AbilitiesModel abilitiesModel, AbilityCreationData creationData) {
-    this.abilitiesModel = abilitiesModel;
+  public AbilityCostCalculatorImpl(PointCalculationTraitHolder traits, AbilityCreationData creationData) {
+    this.traits = traits;
     this.creationData = creationData;
-    this.traits = abilitiesModel.getAll();
     clearStatePickCounter();
   }
 
@@ -64,15 +60,15 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private void clearStatePickCounter() {
-    for (TraitStateType candidate : abilitiesModel.getAvailableTraitStates()) {
+    for (TraitStateType candidate : traits.getAvailableTraitStates()) {
       statePicks.put(candidate, 0);
     }
   }
 
   private void countTraitStatePicks() {
-    for (Trait trait : traits) {
-      TraitStateType state = abilitiesModel.getState(trait).getType();
-      for (TraitStateType candidate : abilitiesModel.getAvailableTraitStates()) {
+    for (Trait trait : traits.getAll()) {
+      TraitStateType state = traits.getState(trait).getType();
+      for (TraitStateType candidate : traits.getAvailableTraitStates()) {
         if (state.countsAs(candidate)) increasePicksForType(candidate);
       }
     }
@@ -104,10 +100,6 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   public int getFreePointsSpent() {
     return generalDotSum;
-  }
-
-  protected Traits getTraits() {
-    return traits;
   }
 
   private FavorableTraitCost handleFavoredSingleTrait(Trait trait, int bonusPointCostFactor) {
@@ -187,12 +179,12 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private Set<Trait> sortTraitsByStatus() {
     Set<Trait> orderedTraits = new LinkedHashSet<>();
-    for (Trait trait : traits) {
+    for (Trait trait : traits.getAll()) {
       if (!isCheapened(trait)) {
         addAllTraits(orderedTraits, trait);
       }
     }
-    for (Trait trait : traits) {
+    for (Trait trait : traits.getAll()) {
       if (!orderedTraits.contains(trait)) {
         addAllTraits(orderedTraits, trait);
       }
@@ -205,6 +197,6 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
   }
 
   private boolean isCheapened(Trait trait) {
-    return abilitiesModel.getState(trait).isCheapened();
+    return traits.getState(trait).isCheapened();
   }
 }

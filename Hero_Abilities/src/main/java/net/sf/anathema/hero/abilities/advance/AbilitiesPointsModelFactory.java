@@ -12,13 +12,13 @@ import net.sf.anathema.points.model.PointsModel;
 public class AbilitiesPointsModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public AbilitiesPointsModelFactory() {
-    super(AbilitiesPointModel.ID, AbilitiesModel.ID, PointsModel.ID);
+    super(AbilitiesPointModelImpl.ID, AbilitiesModel.ID, PointsModel.ID);
   }
 
   @SuppressWarnings("unchecked")
   @Override
   public AbilitiesPointModel create(TemplateFactory templateFactory, String templateId) {
     AbilityPointsTemplate template = AbilityPointsTemplateLoader.loadTemplate(templateFactory, templateId);
-    return new AbilitiesPointModel(template);
+    return new AbilitiesPointModelImpl(template);
   }
 }
