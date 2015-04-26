@@ -8,12 +8,14 @@ import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 
 public class EssenceBasedLimitation implements TraitLimitation {
 
+  public static final int Default_Max_Value = 5;
+
   @Override
   public int getAbsoluteLimit(Hero hero) {
     SpiritualTraitModel spiritualTraitModel = getOtherTraitModel(hero);
     TraitLimitation essenceLimitation = spiritualTraitModel.getEssenceLimitation();
     int essenceMaximum = essenceLimitation.getAbsoluteLimit(hero);
-    return Math.max(essenceMaximum, 5);
+    return Math.max(essenceMaximum, Default_Max_Value);
   }
 
   @Override
@@ -21,7 +23,7 @@ public class EssenceBasedLimitation implements TraitLimitation {
     SpiritualTraitModel spiritualTraitModel = getOtherTraitModel(hero);
     Trait essence = spiritualTraitModel.getTrait(Essence);
     int currentEssence = Math.min(essence.getCurrentValue(), spiritualTraitModel.getEssenceCap(modified));
-    int currentEssenceValue = Math.max(currentEssence, 5);
+    int currentEssenceValue = Math.max(currentEssence, Default_Max_Value);
     return Math.min(getAbsoluteLimit(hero), currentEssenceValue);
   }
 

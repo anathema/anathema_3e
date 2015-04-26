@@ -7,11 +7,13 @@ import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.spiritual.template.SpiritualTraitsTemplate;
 import net.sf.anathema.hero.traits.model.DefaultTraitMap;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitImpl;
 import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
+import net.sf.anathema.hero.traits.model.TraitRules;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
-import net.sf.anathema.hero.traits.template.TraitTemplateMap;
+import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.library.identifier.Identifier;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
@@ -48,18 +50,15 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void addEssence(Hero hero) {
-    SpiritualTraitFactory traitFactory = createTraitFactory(hero);
-    addTraits(traitFactory.createTrait(Essence));
+    TraitRules rules = new TraitRulesImpl(Essence, template.essence, hero);
+    Trait trait  = new TraitImpl(hero, rules);
+    addTraits(trait);
   }
 
   private void addWillpower(Hero hero) {
-    SpiritualTraitFactory traitFactory = createTraitFactory(hero);
-    addTraits(traitFactory.createTrait(Willpower));
-  }
-
-  private SpiritualTraitFactory createTraitFactory(Hero hero) {
-    TraitTemplateMap map = new SpiritualTraitTemplateMap(template);
-    return new SpiritualTraitFactory(hero, map);
+    TraitRules rules = new TraitRulesImpl(Willpower, template.willpower, hero);
+    Trait trait  = new TraitImpl(hero, rules);
+    addTraits(trait);
   }
 
   @Override

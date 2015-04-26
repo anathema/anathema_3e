@@ -14,10 +14,10 @@ public class TemplateMap {
     map.put(charmName, charmTemplate);
   }
 
-
   public CharmTemplate getClonedTemplate(CharmName name) {
     return map.get(name).clone();
   }
+  
   public void forEach(BiConsumer<CharmName, CharmTemplate> consumer){
     map.forEach(consumer);
   }
