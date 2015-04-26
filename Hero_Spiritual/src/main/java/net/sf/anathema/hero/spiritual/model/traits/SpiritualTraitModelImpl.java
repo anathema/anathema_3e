@@ -37,9 +37,9 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
+    this.traitModel = TraitModelFetcher.fetch(hero);
     addEssence(hero);
     addWillpower(hero);
-    this.traitModel = TraitModelFetcher.fetch(hero);
     getTrait(Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
   }
 
