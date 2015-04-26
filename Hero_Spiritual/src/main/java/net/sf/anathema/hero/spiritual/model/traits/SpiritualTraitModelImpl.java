@@ -12,8 +12,10 @@ import net.sf.anathema.hero.traits.model.TraitLimitation;
 import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitRules;
+import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
+import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
@@ -39,7 +41,6 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
     addWillpower(hero);
     this.traitModel = TraitModelFetcher.fetch(hero);
     getTrait(Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
-    traitModel.addTraits(getAll());
   }
 
   @Override
@@ -50,15 +51,13 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void addEssence(Hero hero) {
-    TraitRules rules = new TraitRulesImpl(Essence, template.essence, hero);
-    Trait trait  = new TraitImpl(hero, rules);
-    addTraits(trait);
+    TraitType type = Essence;
+    TraitTemplate template = this.template.essence;
+    createTrait(hero, type, template);
   }
 
   private void addWillpower(Hero hero) {
-    TraitRules rules = new TraitRulesImpl(Willpower, template.willpower, hero);
-    Trait trait  = new TraitImpl(hero, rules);
-    addTraits(trait);
+    createTrait(hero, Willpower, template.willpower);
   }
 
   @Override
@@ -70,5 +69,12 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   @Override
   public TraitLimitation getEssenceLimitation() {
     return traitModel.createLimitation(template.essence.limitation);
+  }
+
+  private void createTrait(Hero hero, TraitType type, TraitTemplate template) {
+    TraitRules rules = new TraitRulesImpl(type, template, hero);
+    Trait trait  = new TraitImpl(hero, rules);
+    addTraits(trait);
+    traitModel.addTraits(trait);
   }
 }
