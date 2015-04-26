@@ -1,17 +1,17 @@
 package net.sf.anathema.hero.abilities.advance.experience;
 
-import net.sf.anathema.hero.abilities.model.AbilitiesModel;
+import net.sf.anathema.hero.abilities.advance.PointCalculationTraitHolder;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class AbilityExperienceModel extends AbstractIntegerValueModel {
 
-  private final AbilitiesModel abilities;
+  private final PointCalculationTraitHolder traits;
   private final AbilityExperienceCalculator calculator;
 
-  public AbilityExperienceModel(AbilitiesModel abilities, AbilityExperienceCalculator calculator) {
+  public AbilityExperienceModel(PointCalculationTraitHolder traits, AbilityExperienceCalculator calculator) {
     super("Experience", "Abilities");
-    this.abilities = abilities;
+    this.traits = traits;
     this.calculator = calculator;
   }
 
@@ -22,8 +22,8 @@ public class AbilityExperienceModel extends AbstractIntegerValueModel {
 
   private int getAbilityCosts() {
     int experienceCosts = 0;
-    for (Trait ability : abilities.getAll()) {
-      experienceCosts += calculator.getAbilityCosts(ability, abilities.getState(ability).isCheapened());
+    for (Trait ability : traits.getAll()) {
+      experienceCosts += calculator.getAbilityCosts(ability, traits.getState(ability).isCheapened());
     }
     return experienceCosts;
   }

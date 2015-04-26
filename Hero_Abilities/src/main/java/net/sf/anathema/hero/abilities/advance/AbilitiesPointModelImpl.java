@@ -39,10 +39,14 @@ public class AbilitiesPointModelImpl implements AbilitiesPointModel {
 
   @Override
   public void initialize(HeroEnvironment environment, Hero hero) {
-    AbilityPointTraitHolder traitHolder = new AbilityPointTraitHolder(AbilitiesModelFetcher.fetch(hero));
-    this.traitHolder.add(traitHolder);
+    initializeTraitHandling(hero);
     initializeBonusPoints(hero);
     initializeExperiencePoints(hero);
+  }
+
+  private void initializeTraitHandling(Hero hero) {
+    AbilityPointTraitHolder traitHolder = new AbilityPointTraitHolder(AbilitiesModelFetcher.fetch(hero));
+    this.traitHolder.add(traitHolder);
   }
 
   private void initializeBonusPoints(Hero hero) {
@@ -75,10 +79,9 @@ public class AbilitiesPointModelImpl implements AbilitiesPointModel {
 
   private void initializeExperiencePoints(Hero hero) {
     PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    AbilitiesModel abilities = AbilitiesModelFetcher.fetch(hero);
     AbilityExperienceData experienceData = new AbilityExperienceData(template);
     AbilityExperienceCalculator calculator = new AbilityExperienceCalculator(experienceData);
-    pointsModel.addToExperienceOverview(new AbilityExperienceModel(abilities, calculator));
+    pointsModel.addToExperienceOverview(new AbilityExperienceModel(traitHolder, calculator));
   }
 
   private AbilityCostCalculatorImpl createCalculator() {
