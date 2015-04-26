@@ -6,20 +6,26 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.NullTraitState;
 import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 
 import java.util.Collections;
+import java.util.List;
 
 public class MartialArtsTraitHolder implements PointCalculationTraitHolder {
-  private MartialArtsModel martialArtsModel;
+  public static final List<TraitStateType> This_Model_Does_Not_Contribute_Any_New_States = Collections.emptyList();
+  private final MartialArtsModel martialArtsModel;
+  private final TraitStateMap states;
 
-  public MartialArtsTraitHolder(MartialArtsModel martialArtsModel) {
+  public MartialArtsTraitHolder(MartialArtsModel martialArtsModel, TraitStateMap states) {
     this.martialArtsModel = martialArtsModel;
+    this.states = states;
   }
 
   @Override
   public TraitState getState(Trait trait) {
-    return new NullTraitState();
+    return states.getState(CommonTraitTypes.Brawl);
   }
 
   @Override
@@ -36,7 +42,7 @@ public class MartialArtsTraitHolder implements PointCalculationTraitHolder {
 
   @Override
   public Iterable<TraitStateType> getAvailableTraitStates() {
-    return Collections.singletonList(DefaultTraitStateType.Default);
+    return This_Model_Does_Not_Contribute_Any_New_States;
   }
 
   @Override

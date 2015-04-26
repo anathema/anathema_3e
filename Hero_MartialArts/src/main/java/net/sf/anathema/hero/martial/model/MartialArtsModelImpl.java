@@ -53,14 +53,14 @@ public class MartialArtsModelImpl implements MartialArtsModel {
     listenForMartialArtsMerits(hero);
     extractAvailableStyles(hero);
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
-    martialArts = new TraitImpl(hero, new TraitRulesImpl(new TraitType("MartialArts"), new TraitTemplate(), hero));
+    this.martialArts = new TraitImpl(hero, new TraitRulesImpl(new TraitType("MartialArts"), new TraitTemplate(), hero));
     traitModel.addTraits(martialArts);
     for (Trait availableStyle : availableStyles) {
       availableStyle.addCurrentValueListener(newValue -> updateMartialArtsRating());
     }
     selectStyle(availableStyles.get(0));
     if (AbilitiesPointModelFetcher.isActive(hero)) {
-      AbilitiesPointModelFetcher.fetch(hero).add(new MartialArtsTraitHolder(this));
+      AbilitiesPointModelFetcher.fetch(hero).add(new MartialArtsTraitHolder(this, AbilitiesModelFetcher.fetch(hero)));
     }
   }
 
@@ -168,7 +168,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
 
   @Override
   public void learnSelectedStyle() {
-    if (!isAMartialArtist){
+    if (!isAMartialArtist) {
       return;
     }
     learnedStyles.add(selectedStyle);
