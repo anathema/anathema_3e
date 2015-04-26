@@ -51,9 +51,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void addEssence(Hero hero) {
-    TraitType type = Essence;
-    TraitTemplate template = this.template.essence;
-    createTrait(hero, type, template);
+    createTrait(hero, Essence, template.essence);
   }
 
   private void addWillpower(Hero hero) {

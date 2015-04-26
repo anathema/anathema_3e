@@ -7,7 +7,7 @@ import net.sf.anathema.library.identifier.SimpleIdentifier;
 
 public interface ExperienceModel extends HeroModel {
 
-  static final Identifier ID = new SimpleIdentifier("Experience");
+  Identifier ID = new SimpleIdentifier("Experience");
 
   boolean isExperienced();
 
