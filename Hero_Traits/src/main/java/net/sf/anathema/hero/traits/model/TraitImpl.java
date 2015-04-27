@@ -25,9 +25,7 @@ public class TraitImpl implements Trait {
     this.valueStrategy = traits.getValueStrategy();
     this.creationValue = traitRules.getStartValue();
     DynamicMinimum dynamicMinimum = TraitModelFetcher.fetch(hero).getMinimumMap().getMinimum(traitRules.getType());
-    dynamicMinimum.addChangedListener(() -> {
-      resetCurrentValue();;
-    });
+    dynamicMinimum.addChangedListener(this::resetCurrentValue);
   }
 
   @Override

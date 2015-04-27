@@ -12,24 +12,17 @@ import java.util.Map;
 public class ExperienceBasedLimitation implements TraitLimitation {
 
   //TODO (Urs): Introduce offset to hand in via template instead of going through the character type 
-  private Map<Integer, Integer> defaultLimitByXp = new LinkedHashMap<Integer,Integer>() {{
+  private Map<Integer, Integer> defaultLimitByXp = new LinkedHashMap<Integer, Integer>() {{
     put(0, 1);
   }};
 
 
-  private Map<Integer, Integer> rookieLimitByXp = new LinkedHashMap<Integer,Integer>() {{
+  public static Map<Integer, Integer> rookieLimitByXp = new LinkedHashMap<Integer, Integer>() {{
     put(0, 1);
     put(50, 2);
     put(120, 3);
     put(200, 4);
     put(300, 5);
-  }};
-
-  private Map<Integer, Integer> bigDamnLimitByXp = new LinkedHashMap<Integer,Integer>() {{
-    put(0, 2);
-    put(70, 3);
-    put(150, 4);
-    put(250, 5);
   }};
 
   @Override
@@ -55,12 +48,9 @@ public class ExperienceBasedLimitation implements TraitLimitation {
   }
 
   private Map<Integer, Integer> chooseTableOfMaxima(Hero hero) {
-    if (hero.getSplat().getTemplateType().getSubType().getId().equals("RookieLawgiver")) {
+    if (hero.getSplat().getTemplateType().getHeroType().getId().equals("Solar")) {
       return rookieLimitByXp;
     }
-    if (hero.getSplat().getTemplateType().getSubType().getId().equals("BigDamnHero")) {
-      return bigDamnLimitByXp;
-    }
-    return   defaultLimitByXp;
+    return defaultLimitByXp;
   }
 }

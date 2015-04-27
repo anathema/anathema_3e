@@ -12,7 +12,7 @@ import static java.lang.Math.max;
 public class AggregatedDynamicMinimum implements DynamicMinimum {
 
   private final List<DynamicMinimum> minimums = new ArrayList<>();
-  private Announcer<ChangeListener> announcer = new Announcer(ChangeListener.class);
+  private final Announcer<ChangeListener> announcer = Announcer.to(ChangeListener.class);
 
   @Override
   public int getMinimum() {
@@ -31,11 +31,6 @@ public class AggregatedDynamicMinimum implements DynamicMinimum {
   public void addMinimum(DynamicMinimum minimum) {
     minimums.add(minimum);
     announcer.announce().changeOccurred();
-    minimum.addChangedListener(new ChangeListener() {
-      @Override
-      public void changeOccurred() {
-        announcer.announce().changeOccurred();
-      }
-    });
+    minimum.addChangedListener(() -> announcer.announce().changeOccurred());
   }
 }

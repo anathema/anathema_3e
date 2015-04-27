@@ -17,6 +17,10 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.xp.ExperiencePointsListener;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
@@ -51,7 +55,11 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void addEssence(Hero hero) {
-    createTrait(hero, Essence, template.essence);
+    PointsModel pointsModel = PointModelFetcher.fetch(hero);
+    ExperiencePoints experiencePoints = pointsModel.getExperiencePoints();
+    traitModel.getMinimumMap().addMinimum(Essence, new ExperienceBasedMinimum(experiencePoints));
+    TraitRules rules = new TraitRulesImpl(Essence, template.essence, hero);
+    createTrait(hero, rules);
   }
 
   private void addWillpower(Hero hero) {
@@ -71,7 +79,11 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   private void createTrait(Hero hero, TraitType type, TraitTemplate template) {
     TraitRules rules = new TraitRulesImpl(type, template, hero);
-    Trait trait  = new TraitImpl(hero, rules);
+    createTrait(hero, rules);
+  }
+
+  private void createTrait(Hero hero, TraitRules rules) {
+    Trait trait = new TraitImpl(hero, rules);
     addTraits(trait);
     traitModel.addTraits(trait);
   }
