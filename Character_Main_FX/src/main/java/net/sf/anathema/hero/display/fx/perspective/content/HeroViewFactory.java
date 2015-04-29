@@ -3,8 +3,9 @@ package net.sf.anathema.hero.display.fx.perspective.content;
 import net.sf.anathema.hero.application.SubViewMap;
 import net.sf.anathema.hero.application.item.HeroItemData;
 import net.sf.anathema.hero.display.fx.perspective.CssSkinner;
+import net.sf.anathema.hero.display.fx.perspective.content.layout.ConfigurableLayout;
 import net.sf.anathema.hero.display.fx.perspective.content.layout.DefaultCell;
-import net.sf.anathema.hero.display.fx.perspective.content.layout.RasterLayoutImpl;
+import net.sf.anathema.hero.display.fx.perspective.content.layout.GreedyLayout;
 import net.sf.anathema.hero.display.fx.perspective.content.layout.RasterLayoutMap;
 import net.sf.anathema.hero.display.fx.perspective.content.layout.SpanCell;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -32,15 +33,19 @@ public class HeroViewFactory {
   }
 
   private RasterLayoutMap createRasterLayoutMap() {
-    RasterLayoutMap rasterLayoutMap = new RasterLayoutMap();
-    rasterLayoutMap.setLayout("Spiritual", new RasterLayoutImpl(2, new SpanCell(1, 2)));
-    rasterLayoutMap.setLayout("Background", new RasterLayoutImpl(2, new DefaultCell()));
-    rasterLayoutMap.setLayout("Mundane", new RasterLayoutImpl(3, new DefaultCell(), new SpanCell(2, 1), new SpanCell(2, 1)));
-    return rasterLayoutMap;
+    // todo (sandra): do not use internationalized strings as keys
+    RasterLayoutMap layoutMap = new RasterLayoutMap();
+    layoutMap.setLayout("Background", new ConfigurableLayout(2, new SpanCell(1, 3)));
+    layoutMap.setLayout("Perks", new ConfigurableLayout(1));
+    layoutMap.setLayout("Traits", new ConfigurableLayout(3, new DefaultCell(), new SpanCell(2, 1)));
+    layoutMap.setLayout("Charms", new GreedyLayout());
+
+    return layoutMap;
   }
 
   private Collection<Stylesheet> createStylesheets(Hero hero) {
     Collection<String> skins = new CssSkinner().getSkins(hero.getSplat().getTemplateType().getHeroType());
     return skins.stream().map(Stylesheet::new).collect(Collectors.toList());
   }
+
 }

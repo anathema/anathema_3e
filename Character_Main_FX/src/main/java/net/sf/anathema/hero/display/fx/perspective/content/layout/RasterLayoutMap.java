@@ -6,7 +6,7 @@ import java.util.Map;
 public class RasterLayoutMap {
 
   private Map<String, RasterLayout> layoutMap = new HashMap<>();
-  private RasterLayoutImpl defaultLayout = new RasterLayoutImpl();
+  private ConfigurableLayout defaultLayout = new ConfigurableLayout();
 
   public RasterLayout get(String key) {
     return layoutMap.getOrDefault(key, defaultLayout);

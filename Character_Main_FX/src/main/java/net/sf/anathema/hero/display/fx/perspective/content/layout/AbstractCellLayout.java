@@ -1,9 +1,7 @@
 package net.sf.anathema.hero.display.fx.perspective.content.layout;
 
 import javafx.scene.Node;
-
 import net.miginfocom.layout.CC;
-
 import org.tbee.javafx.scene.layout.MigPane;
 
 public abstract class AbstractCellLayout implements CellLayout {
@@ -16,7 +14,7 @@ public abstract class AbstractCellLayout implements CellLayout {
   protected abstract CC createCellConstraint();
 
   protected final CC createDefaultCellConstraints() {
-    return new CC().alignY("t").grow().push();
+    return new CC().alignY("t");
   }
 }
 
