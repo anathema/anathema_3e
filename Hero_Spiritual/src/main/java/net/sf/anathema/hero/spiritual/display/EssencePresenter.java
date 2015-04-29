@@ -3,34 +3,32 @@ package net.sf.anathema.hero.spiritual.display;
 import net.sf.anathema.hero.spiritual.model.pool.EssencePoolModel;
 import net.sf.anathema.hero.traits.display.TraitPresenter;
 import net.sf.anathema.hero.traits.model.Trait;
-import net.sf.anathema.hero.traits.model.TraitMap;
 import net.sf.anathema.library.presenter.Presenter;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.NullStyledValueView;
 import net.sf.anathema.library.view.StyledValueView;
 
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
-
-public class EssenceConfigurationPresenter implements Presenter {
+public class EssencePresenter implements Presenter {
 
   private final SpiritualTraitsView view;
   private final EssencePoolModel essencePool;
+  private final Trait essence;
   private final Resources resources;
-  private final TraitMap traitMap;
 
-  public EssenceConfigurationPresenter(Resources resources, EssencePoolModel essencePool, TraitMap traitMap, SpiritualTraitsView view) {
+  public EssencePresenter(Resources resources, EssencePoolModel essencePool, Trait essence,
+                          SpiritualTraitsView view) {
     this.resources = resources;
     this.essencePool = essencePool;
-    this.traitMap = traitMap;
+    this.essence = essence;
     this.view = view;
   }
 
   @Override
   public void initPresentation() {
-    Trait essenceTrait = traitMap.getTrait(Essence);
     IntValueView essenceView =
-            view.addEssenceView(resources.getString("Essence.Name"), essenceTrait.getMaximalValue());
+            view.addEssenceView(resources.getString("Essence.Name"), essence.getMaximalValue());
+    essenceView.disableUserInput();
     if (essencePool.isEssenceUser()) {
       String key = "EssencePool.Name.Personal";
       String personalPool = essencePool.getPersonalPool();
@@ -43,7 +41,7 @@ public class EssenceConfigurationPresenter implements Presenter {
         attunementView.setValue(essencePool.getAttunedPool());
       });
     }
-    new TraitPresenter(essenceTrait, essenceView).initPresentation();
+    new TraitPresenter(essence, essenceView).initPresentation();
   }
 
   private void listenToPeripheralChanges(StyledValueView<String> peripheralView) {

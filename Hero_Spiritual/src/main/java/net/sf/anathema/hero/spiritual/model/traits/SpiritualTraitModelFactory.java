@@ -6,12 +6,13 @@ import net.sf.anathema.hero.individual.model.SimpleModelTreeEntry;
 import net.sf.anathema.hero.spiritual.template.SpiritualTraitsTemplate;
 import net.sf.anathema.hero.spiritual.template.SpiritualTraitsTemplateLoader;
 import net.sf.anathema.hero.traits.model.TraitModel;
+import net.sf.anathema.points.model.PointsModel;
 
 @SuppressWarnings("UnusedDeclaration")
 public class SpiritualTraitModelFactory extends SimpleModelTreeEntry implements HeroModelFactory {
 
   public SpiritualTraitModelFactory() {
-    super(SpiritualTraitModel.ID, TraitModel.ID);
+    super(SpiritualTraitModel.ID, TraitModel.ID, PointsModel.ID);
   }
 
   @SuppressWarnings("unchecked")

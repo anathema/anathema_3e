@@ -17,13 +17,7 @@
       value: 1
     }
   };
-  virtues: {
-    startValue: 1;
-    minimumValue = 1;
-    modificationType: "RaiseOnly";
-    limitation: {
-      type: "Static";
-      value: 5
-    }
+  essenceValues: {
+    0: 1
   }
 }
