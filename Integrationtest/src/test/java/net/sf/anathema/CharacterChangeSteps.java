@@ -11,11 +11,9 @@ import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModel;
 import net.sf.anathema.hero.intimacies.model.IntimaciesModelFetcher;
-import net.sf.anathema.hero.spiritual.model.traits.SpiritualTraitModelFetcher;
-import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.TraitType;
 
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -81,11 +79,5 @@ public class CharacterChangeSteps {
   public void the_character_as_intimacies() throws Throwable {
     IntimaciesModel model = IntimaciesModelFetcher.fetch(character.getHero());
     assertThat(model.getEntries().size(), is(MANY));
-  }
-
-  @Then("^she has (\\d+) dots in Essence$")
-  public void she_has_value_dots_in_Essence(int expectation) throws Throwable {
-    int essenceValue = SpiritualTraitModelFetcher.fetch(character.getHero()).getTrait(Essence).getCurrentValue();
-    assertThat(essenceValue, is(expectation));
   }
 }

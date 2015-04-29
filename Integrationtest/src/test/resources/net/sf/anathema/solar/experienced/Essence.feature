@@ -1,3 +1,4 @@
+@Integration
 Feature: Essence
   Essence cannot be raised as other traits but grows with experience.
 
@@ -14,6 +15,6 @@ Feature: Essence
 
   Examples:
     | xp  | essence |
-    | 70  | 3       |
+    | 75  | 3       |
     | 150 | 4       |
     | 250 | 5       |

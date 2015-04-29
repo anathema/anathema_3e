@@ -1,3 +1,4 @@
+@Integration
 Feature: Essence
   Essence cannot be raised as other traits but grows with experience.
 
