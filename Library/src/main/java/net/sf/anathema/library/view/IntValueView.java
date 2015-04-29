@@ -9,4 +9,6 @@ public interface IntValueView {
   void addIntValueChangedListener(IntegerChangedListener listener);
 
   void removeIntValueChangedListener(IntegerChangedListener listener);
+  
+  void disableUserInput();
 }

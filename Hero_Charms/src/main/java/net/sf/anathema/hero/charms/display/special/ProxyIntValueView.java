@@ -2,7 +2,6 @@ package net.sf.anathema.hero.charms.display.special;
 
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.view.IntValueView;
-
 import org.jmock.example.announcer.Announcer;
 
 public class ProxyIntValueView implements IntValueView {
@@ -20,12 +19,7 @@ public class ProxyIntValueView implements IntValueView {
 
   public void setActualView(IntValueView actualView) {
     this.actualView = actualView;
-    actualView.addIntValueChangedListener(new IntegerChangedListener() {
-      @Override
-      public void valueChanged(int newValue) {
-        valueListeners.announce().valueChanged(newValue);
-      }
-    });
+    actualView.addIntValueChangedListener(newValue -> valueListeners.announce().valueChanged(newValue));
   }
 
   @Override
@@ -57,6 +51,11 @@ public class ProxyIntValueView implements IntValueView {
       return;
     }
     valueListeners.removeListener(listener);
+  }
+
+  @Override
+  public void disableUserInput() {
+    actualView.disableUserInput();
   }
 
   public int getMaxValue() {

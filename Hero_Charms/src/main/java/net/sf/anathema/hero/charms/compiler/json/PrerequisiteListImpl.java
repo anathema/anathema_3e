@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
+
 public class PrerequisiteListImpl implements PrerequisiteList {
 
-  public static final String ESSENCE_ID = "Essence";
+  public static final String ESSENCE_ID = Essence.getId();
   private final List<CharmPrerequisite> charmPrerequisites = new ArrayList<>();
   private final List<TraitPrerequisite> traitPrerequisites = new ArrayList<>();
 

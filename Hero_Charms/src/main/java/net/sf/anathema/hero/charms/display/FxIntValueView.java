@@ -2,12 +2,10 @@ package net.sf.anathema.hero.charms.display;
 
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
-
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.platform.tree.fx.FxSpecialContent;
-
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
@@ -32,6 +30,11 @@ public class FxIntValueView implements FxSpecialContent, IntValueView {
   @Override
   public void removeIntValueChangedListener(IntegerChangedListener listener) {
     view.removeIntValueChangedListener(listener);
+  }
+
+  @Override
+  public void disableUserInput() {
+    view.disableUserInput();
   }
 
   @Override
