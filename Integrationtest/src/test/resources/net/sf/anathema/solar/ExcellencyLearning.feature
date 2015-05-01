@@ -42,3 +42,19 @@ Feature: Characters learn and unlearn Excellencies correctly
     And she learns the Charm Solar.AilmentRectifyingMethod
     And she forgets the Charm Solar.AilmentRectifyingMethod
     Then she does not know the Charm Solar.ExcellentSolarMedicine
+
+  Scenario: Solar keeps Excellency when all Charms for a favored trait are forgotten
+    Given any Solar with Caste Twilight
+    And I favor her Medicine
+    And I set her Medicine to 1
+    And she learns the Charm Solar.AilmentRectifyingMethod
+    When she forgets the Charm Solar.AilmentRectifyingMethod
+    Then she knows the Charm Solar.ExcellentSolarMedicine
+
+  Scenario: Solar keeps Excellency when she unfavors a trait where she still knows Charms 
+    Given any Solar with Caste Twilight
+    And I favor her Medicine
+    And I set her Medicine to 1
+    And she learns the Charm Solar.AilmentRectifyingMethod
+    When I set her Medicine to Default state
+    Then she knows the Charm Solar.ExcellentSolarMedicine

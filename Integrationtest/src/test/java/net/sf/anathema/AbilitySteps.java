@@ -15,9 +15,12 @@ import net.sf.anathema.hero.martial.model.StyleName;
 import net.sf.anathema.hero.traits.display.Traits;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
+import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
 import static net.sf.anathema.hero.traits.model.state.FavoredTraitStateType.Favored;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -36,14 +39,24 @@ public class AbilitySteps {
     this.character = character;
     this.bonusModel = new BonusModelFetcher(character);
   }
-  
+
+  @When("^I set her (.*) to Default state$")
+  public void set_to_Default_state(String abilityName) throws Throwable {
+    Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
+    TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
+    TraitState state = stateMap.getState(ability);
+    while (state.getType() != DefaultTraitStateType.Default){
+      state.advanceState();
+    }
+  }
+
   @When("^I favor her (.*)$")
   public void favor_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     stateMap.getState(ability).advanceState();
   }
-  
+
   @When("^I Caste her (.*)$")
   public void caste_her(String abilityName) {
     Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
@@ -53,7 +66,7 @@ public class AbilitySteps {
     stateMap.getState(ability).advanceState();
     // Awkward workaround for having to traverse through Favored state
     if (currentValue == 0) {
-    	ability.setCurrentValue(0);
+      ability.setCurrentValue(0);
     }
   }
 
@@ -81,7 +94,7 @@ public class AbilitySteps {
   }
 
   private void spendPoints(int pointsToSpend) {
-    for (;pointsToSpend>0; pointsToSpend--){
+    for (; pointsToSpend > 0; pointsToSpend--) {
       spendAPoint();
     }
   }
@@ -104,7 +117,7 @@ public class AbilitySteps {
   }
 
   @And("^she cannot learn (.*) martial arts$")
-  public void she_cannot_learn_martialarts (String style) throws Throwable {
+  public void she_cannot_learn_martialarts(String style) throws Throwable {
     MartialArtsModel martialArtsModel = MartialArtsModelFetcher.fetch(character.getHero());
     martialArtsModel.selectStyle(new StyleName(style));
     Trait selectedStyle = martialArtsModel.getSelectedStyle();
