@@ -64,12 +64,17 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
   }
 
   private boolean shouldKnowExcellency(TraitType traitType) {
+    return isProficientInCasteOrFavored(traitType) || hasLearnedOneOrMoreCharms(traitType);
+  }
+
+  private boolean isProficientInCasteOrFavored(TraitType traitType) {
     Trait trait = abilities.getTrait(traitType);
     TraitStateType state = abilities.getState(trait).getType();
     boolean isCasteOrFavored = state.countsAs(Caste) || state.countsAs(Favored);
-    if (isCasteOrFavored && trait.getCurrentValue() >= 1) {
-      return true;
-    }
+    return isCasteOrFavored && trait.getCurrentValue() >= 1;
+  }
+
+  private boolean hasLearnedOneOrMoreCharms(TraitType traitType) {
     List<TraitType> traitTypes = new ArrayList<>();
     traitTypes.add(traitType);
     return charms.hasLearnedThresholdCharmsOfTrait(traitTypes, null, 1, 1);
