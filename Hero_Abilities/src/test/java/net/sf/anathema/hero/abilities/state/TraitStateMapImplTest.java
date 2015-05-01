@@ -9,11 +9,15 @@ import net.sf.anathema.hero.traits.model.TraitModel;
 import net.sf.anathema.hero.traits.model.TraitModelImpl;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimumMap;
+import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Archery;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -52,5 +56,11 @@ public class TraitStateMapImplTest {
     when(hero.getModel(TraitModel.ID)).thenReturn(traitModel);
     stateMap.addState(trait, null);
     verify(minimumMap).addMinimum(eq(Archery), Mockito.isA(FavoredMinimum.class));
+  }
+
+  @Test
+  public void returnsDefaultStateWhenTraitIsUnknown() throws Exception {
+    TraitState state = stateMap.getState(new TraitType("test"));
+    assertThat(state.getType(), is(DefaultTraitStateType.Default));
   }
 }

@@ -193,6 +193,11 @@ public class CharmsModelImpl implements CharmsModel {
   }
 
   @Override
+  public boolean exists(CharmName charmId) {
+    return options.getCharmIdMap().exists(charmId);
+  }
+
+  @Override
   public CharmSpecialLearningModel getCharmSpecialLearningModel(Charm charm) {
     return manager.getSpecialCharmConfiguration(charm);
   }

@@ -23,4 +23,9 @@ public class GroupedCharmMap implements CharmMap {
     }
     return null;
   }
+
+  @Override
+  public boolean exists(CharmName charmId) {
+    return getCharmById(charmId) != null;
+  }
 }

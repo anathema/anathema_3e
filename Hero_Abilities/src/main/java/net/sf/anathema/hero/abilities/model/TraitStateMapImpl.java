@@ -1,10 +1,12 @@
 package net.sf.anathema.hero.abilities.model;
 
+import com.google.common.base.Functions;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
+import net.sf.anathema.hero.traits.model.state.NullTraitState;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
@@ -16,7 +18,7 @@ import java.util.function.Consumer;
 public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
 
   private final Hero hero;
-  private Map<TraitType, TraitState> statesByType = new HashMap<>();
+  private final Map<TraitType, TraitState> statesByType = new HashMap<>();
 
   public TraitStateMapImpl(Hero hero) {
     this.hero = hero;
@@ -42,6 +44,6 @@ public class TraitStateMapImpl implements TraitStateMap, TraitStateCollection {
 
   @Override
   public TraitState getState(TraitType traitType) {
-    return statesByType.get(traitType);
+    return Functions.forMap(statesByType, new NullTraitState()).apply(traitType);
   }
 }

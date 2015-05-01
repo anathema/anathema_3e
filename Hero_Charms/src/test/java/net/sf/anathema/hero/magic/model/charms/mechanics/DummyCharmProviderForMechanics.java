@@ -66,4 +66,9 @@ public class DummyCharmProviderForMechanics implements CharmCache {
 		return null;
 	}
 
+  @Override
+  public boolean exists(CharmName charmId) {
+	return false;
+  }
+
 }

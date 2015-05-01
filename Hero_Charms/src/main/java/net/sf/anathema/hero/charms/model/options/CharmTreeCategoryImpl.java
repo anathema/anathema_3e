@@ -43,6 +43,11 @@ public final class CharmTreeCategoryImpl implements CharmTreeCategory {
     return charmById.get(charmID);
   }
 
+  @Override
+  public boolean exists(CharmName charmId) {
+    return charmById.containsKey(charmId);
+  }
+
   public final Collection<Charm> getAllCharms() {
     return allCharms;
   }

@@ -81,14 +81,22 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
   }
 
   private void forgetExcellency(TraitType type) {
-    Charm excellency = charms.getCharmById(new CharmName(getStringForExcellency(type.getId())));
+    CharmName excellencyName = new CharmName(getStringForExcellency(type.getId()));
+    if (!charms.exists(excellencyName)) {
+      return;
+    }
+    Charm excellency = charms.getCharmById(excellencyName);
     if (charms.isLearned(excellency)) {
       charms.getLearningModel().forgetCharm(excellency, false);
     }
   }
 
   private void learnExcellency(TraitType type) {
-    Charm excellency = charms.getCharmById(new CharmName(getStringForExcellency(type.getId())));
+    CharmName excellencyName = new CharmName(getStringForExcellency(type.getId()));
+    if (!charms.exists(excellencyName)) {
+      return;
+    }
+    Charm excellency = charms.getCharmById(excellencyName);
     if (!charms.isLearned(excellency)) {
       charms.getLearningModel().learnCharm(excellency, false);
     }

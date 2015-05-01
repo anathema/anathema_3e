@@ -33,6 +33,11 @@ public class CharmCacheImpl implements CharmCache {
   }
 
   @Override
+  public boolean exists(CharmName charmId) {
+    return charmsById.containsKey(charmId);
+  }
+
+  @Override
   public List<Charm> getCharms(CategoryReference type) {
     if (!charmsByCategory.containsKey(type)) {
       return Collections.emptyList();
