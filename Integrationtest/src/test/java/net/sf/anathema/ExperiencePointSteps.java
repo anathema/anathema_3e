@@ -28,8 +28,8 @@ public class ExperiencePointSteps {
   public void she_gains_experience_points(int amount) throws Throwable {
     ExperiencePoints experiencePoints = PointModelFetcher.fetch(character.getHero()).getExperiencePoints();
     ExperiencePointEntry entry = experiencePoints.addEntry();
-    entry.getTextualDescription().setText("Test");
-    entry.setExperiencePoints(amount);
+    experiencePoints.selectForChange(entry);
+    experiencePoints.updateCurrentSelection("Test", amount);
   }
 
   @When("^she spends (\\d+) experience points$")

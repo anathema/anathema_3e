@@ -17,7 +17,9 @@ import net.sf.anathema.hero.traits.model.event.TraitValueChangedListener;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
+import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
 
 import java.util.ArrayList;
@@ -52,13 +54,16 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void initExperienceListening(Hero hero) {
-    ExperiencePoints experiencePoints = PointModelFetcher.fetch(hero).getExperiencePoints();
+    PointsModel pointsModel = PointModelFetcher.fetch(hero);
+    ExperiencePoints experiencePoints = pointsModel.getExperiencePoints();
+    ExperiencePointManagement pointManagement = pointsModel.getExperiencePointManagement();
     Trait essence = getTrait(Essence);
     List<Integer> experienceBoundsDescending = getExperienceBoundsInDescendingOrder();
     experiencePoints.addExperiencePointConfigurationListener(() -> {
-      int total = experiencePoints.getTotalExperiencePoints();
+      int totalGained = experiencePoints.getTotalExperiencePoints();
+      int totalSpent = pointManagement.getTotalCosts();
       for (Integer bound : experienceBoundsDescending) {
-        if (total >= bound) {
+        if (totalGained >= bound && totalSpent >= bound) {
           essence.setCurrentValue(template.essenceValues.get(String.valueOf(bound)));
           return;
         }
