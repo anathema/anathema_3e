@@ -1,11 +1,10 @@
 package net.sf.anathema.hero.combat.sheet.combat.encoder;
 
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPTable;
-import net.sf.anathema.hero.combat.sheet.combat.content.CombatAction;
 import net.sf.anathema.hero.combat.sheet.combat.content.CombatStatsContent;
+import net.sf.anathema.hero.combat.sheet.combat.content.MovementAction;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableList;
@@ -33,36 +32,34 @@ public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
 
   private PdfPTable createCombatAttackList(SheetGraphics graphics, CombatStatsContent content) {
     TableList list = new TableList(graphics.createCommentFont());
-    list.addHeader(new Chunk(content.getAttackHeader(), graphics.createTextFont()), true);
-    list.addHeader(new Chunk("\n", graphics.createCommentFont()), false);
-    for (String attack : content.getOrderOfAttack()) {
-      list.addItem(attack);
-    }
-    list.addCell(createSpaceCell(graphics));
-    list.addCell(createSpaceCell(graphics));
-    list.addCell(createSpaceCell(graphics));
-    TableCell rulesCommentCell = new TableCell(new Phrase(content.getAttackComment(), graphics.createCommentFont()), Rectangle.NO_BORDER);
-    list.addCell(rulesCommentCell);
     return list.getTable();
   }
 
-  private TableCell createSpaceCell(SheetGraphics graphics) {
-    return new TableCell(new Phrase(" ", graphics.createCommentFont()), Rectangle.NO_BORDER);
-  }
-
   private PdfPTable createCommonActionsTable(SheetGraphics graphics, CombatStatsContent content) {
-    float[] columnWidths = new float[]{5f, 1.5f, 1.5f};
+    float[] columnWidths = new float[]{5f, 1.5f};
     PdfPTable table = new PdfPTable(columnWidths);
     table.setWidthPercentage(100);
-    TableCell headerCell = createCommonActionsCell(new Phrase(content.getActionHeader(), graphics.createTextFont()));
-    headerCell.setColspan(columnWidths.length);
-    table.addCell(headerCell);
-    for (CombatAction combatAction : content.getCombatActions()) {
-      addCommonActionsCell(graphics, table, combatAction.name);
-      addCommonActionsCell(graphics, table, combatAction.speed);
-      addCommonActionsCell(graphics, table, combatAction.dv);
+    table.addCell(createHeaderCell(graphics, columnWidths.length, content.getCombatActionHeader()));
+    for (String combatAction : content.getCombatActions()) {
+      addCommonActionsCell(graphics, table, combatAction);
+      addCommonActionsCell(graphics, table, "");
+    }
+
+    addCommonActionsCell(graphics, table, " ");
+    addCommonActionsCell(graphics, table, " ");
+
+    table.addCell(createHeaderCell(graphics, columnWidths.length, content.getMovementActionHeader()));
+    for (MovementAction movementAction : content.getMovementActions()) {
+      addCommonActionsCell(graphics, table, movementAction.name);
+      addCommonActionsCell(graphics, table, movementAction.type);
     }
     return table;
+  }
+
+  private TableCell createHeaderCell(SheetGraphics graphics, int span, String header) {
+    TableCell headerCell = createCommonActionsCell(new Phrase(header, graphics.createTextFont()));
+    headerCell.setColspan(span);
+    return headerCell;
   }
 
   private void addCommonActionsCell(SheetGraphics graphics, PdfPTable table, String text) {

@@ -58,20 +58,21 @@ public class CombatStatsContent extends AbstractSubBoxContent {
   }
 
   public String[] getOrderOfAttack() {
-    return new String[]{getString("Sheet.Combat.AttackList.DeclareAttack"), getString("Sheet.Combat.AttackList.DeclareDefence"),
-            getString("Sheet.Combat.AttackList.AttackRoll"), getString("Sheet.Combat.AttackList.AttackReroll"),
-            getString("Sheet.Combat.AttackList.SubstractPenalties"), getString("Sheet.Combat.AttackList.DefenseReroll"),
-            getString("Sheet.Combat.AttackList.CalculateRawDamage"), getString("Sheet.Combat.AttackList.RollDamage"),
-            getString("Sheet.Combat.AttackList.Counterattack"), getString("Sheet.Combat.AttackList.ApplyDamage")
+    return new String[]{getString("Sheet.Combat.AttackList.DeclareAttack"), getString(
+      "Sheet.Combat.AttackList.DeclareDefence"), getString("Sheet.Combat.AttackList.AttackRoll"), getString(
+      "Sheet.Combat.AttackList.AttackReroll"), getString("Sheet.Combat.AttackList.SubstractPenalties"), getString(
+      "Sheet.Combat.AttackList.DefenseReroll"), getString("Sheet.Combat.AttackList.CalculateRawDamage"), getString(
+      "Sheet.Combat.AttackList.RollDamage"), getString("Sheet.Combat.AttackList.Counterattack"), getString(
+      "Sheet.Combat.AttackList.ApplyDamage")
 
     };
   }
 
   public QualifiedText[] getRulesOfInterest() {
-    return new QualifiedText[]{new QualifiedText(getString("Sheet.Combat.Prone.Header") + "\n", TextType.Normal),
-            new QualifiedText(getString("Sheet.Combat.Prone.Comment") + "\n\n", TextType.Comment),
-            new QualifiedText(getString("Sheet.Combat.Flurry.Header") + "\n", TextType.Normal),
-            new QualifiedText(getString("Sheet.Combat.Flurry.Comment"), TextType.Comment)
+    return new QualifiedText[]{new QualifiedText(getString("Sheet.Combat.Prone.Header") + "\n",
+      TextType.Normal), new QualifiedText(getString("Sheet.Combat.Prone.Comment") + "\n\n",
+      TextType.Comment), new QualifiedText(getString("Sheet.Combat.Flurry.Header") + "\n",
+      TextType.Normal), new QualifiedText(getString("Sheet.Combat.Flurry.Comment"), TextType.Comment)
 
     };
   }
@@ -84,29 +85,40 @@ public class CombatStatsContent extends AbstractSubBoxContent {
     return getString("Sheet.Combat.Comment.Rules");
   }
 
-  public CombatAction[] getCombatActions() {
-    String nameHeader = getResources().getString("Sheet.Combat.CommonActions.Action");
-    String speedHeader = getResources().getString("Sheet.Combat.CommonActions.Speed");
-    String dvHeader = getResources().getString("Sheet.Combat.CommonActions.DV");
-    CombatAction headerData = new CombatAction(nameHeader, speedHeader, dvHeader);
-    CombatAction emptyData = new CombatAction(" ", " ", " ");
-    return new CombatAction[]{headerData, emptyData, getCombatAction("JoinBattle"), getCombatAction(
-      "ReadyWeapon"), getCombatAction("PhysicalAttack"),
-            getCombatAction("CoordinateAttack"), getCombatAction("Aim"), getCombatAction("Guard"), getCombatAction("Move"), getCombatAction("Dash"),
-            getCombatAction("Misc"), getCombatAction("Jump"), getCombatAction("Rise"), getCombatAction("Inactive")
-
+  public MovementAction[] getMovementActions() {
+    return new MovementAction[]{
+      createMovementAction("Combat.MovementAction.Move", "Combat.ActionType.Reflexive"),
+      createMovementAction("Combat.MovementAction.Rush", "Combat.ActionType.Combat"),
+      createMovementAction("Combat.MovementAction.Disengage", "Combat.ActionType.Combat"),
+      createMovementAction("Combat.MovementAction.RiseFromProne", "Combat.ActionType.Combat"),
+      createMovementAction("Combat.MovementAction.TakeCover", "Combat.ActionType.Combat"),
+      createMovementAction("Combat.MovementAction.Withdraw", "Combat.ActionType.Combat")
     };
   }
 
-  private CombatAction getCombatAction(String actionId) {
-    String name = getString("Sheet.Combat.CommonActions." + actionId + ".Name");
-    String speed = getString("Sheet.Combat.CommonActions." + actionId + ".Speed");
-    String dv = getString("Sheet.Combat.CommonActions." + actionId + ".DV");
-    return new CombatAction(name, speed, dv);
+  public String getMovementActionHeader() {
+    return getResources().getString("Sheet.Combat.MovementActions.Header");
   }
 
-  public String getActionHeader() {
-    return getResources().getString("Sheet.Combat.CommonActions.Header");
+  private MovementAction createMovementAction(String nameKey, String typeKey) {
+    String name = getResources().getString(nameKey);
+    String type = getResources().getString(typeKey);
+    return new MovementAction(name, type);
+  }
+
+  public String getCombatActionHeader() {
+    return getResources().getString("Sheet.Combat.CombatActions.Header");
+  }
+
+  public String[] getCombatActions() {
+    return new String[]{
+      getString("Combat.CombatAction.Attack"),
+      getString("Combat.CombatAction.Aim"),
+      getString("Combat.CombatAction.DefendOther"),
+      getString("Combat.CombatAction.DrawReadyWeapon"),
+      getString("Combat.CombatAction.FullDefense"),
+      getString("Combat.CombatAction.MiscellaneousAction")
+    };
   }
 
   @Override
