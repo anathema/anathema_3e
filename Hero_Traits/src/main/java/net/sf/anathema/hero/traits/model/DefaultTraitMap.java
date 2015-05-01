@@ -1,8 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
-import net.sf.anathema.hero.traits.display.Traits;
-
 import com.google.common.base.Preconditions;
+import net.sf.anathema.hero.traits.display.Traits;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -34,7 +33,7 @@ public class DefaultTraitMap implements TraitMap {
     if (contains(traitType)) {
       return traitsByType.get(traitType);
     }
-    throw new UnsupportedOperationException("Unsupported trait type " + traitType);
+    return new NullTrait();
   }
 
   @Override
