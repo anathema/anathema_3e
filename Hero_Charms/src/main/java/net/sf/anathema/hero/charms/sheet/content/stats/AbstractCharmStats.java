@@ -1,13 +1,12 @@
 package net.sf.anathema.hero.charms.sheet.content.stats;
 
-import net.sf.anathema.hero.magic.sheet.content.stats.AbstractMagicStats;
-import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.magic.data.CharmType;
 import net.sf.anathema.hero.charms.display.tooltip.CharmTypeContributor;
 import net.sf.anathema.hero.magic.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.library.resources.Resources;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.CharmType;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
 
 import java.util.ArrayList;
@@ -59,15 +58,5 @@ public abstract class AbstractCharmStats extends AbstractMagicStats<Charm> {
   public Collection<String> getDetailStrings(final Resources resources) {
     Stream<String> keys = getDetailKeys().stream();
     return keys.map(resources::getString).collect(Collectors.toList());
-  }
-
-  @SuppressWarnings("NullableProblems")
-  @Override
-  public int compareTo(IMagicStats stats) {
-    if (stats instanceof AbstractCharmStats) {
-      return 0;
-    } else {
-      return -1;
-    }
   }
 }

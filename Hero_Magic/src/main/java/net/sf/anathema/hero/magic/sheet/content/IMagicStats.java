@@ -6,7 +6,7 @@ import net.sf.anathema.library.resources.Resources;
 
 import java.util.Collection;
 
-public interface IMagicStats extends IStats, Comparable<IMagicStats> {
+public interface IMagicStats extends IStats {
 
   @Override
   Identifier getName();
