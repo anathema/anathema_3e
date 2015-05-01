@@ -18,6 +18,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.state.DefaultTraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateMap;
+import net.sf.anathema.integration.attributes.AttributeSteps;
 import net.sf.anathema.points.model.overview.SpendingModel;
 
 import static net.sf.anathema.hero.traits.model.state.DefaultTraitStateType.Default;
@@ -45,7 +46,7 @@ public class AbilitySteps {
     Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
     TraitStateMap stateMap = AbilitiesModelFetcher.fetch(character.getHero());
     TraitState state = stateMap.getState(ability);
-    while (state.getType() != DefaultTraitStateType.Default){
+    while (state.getType() != DefaultTraitStateType.Default) {
       state.advanceState();
     }
   }
@@ -71,9 +72,17 @@ public class AbilitySteps {
   }
 
   @Then("^she has (\\d+) dots in (.*)$")
-  public void she_has_dots_in(int amount, String abilityName) throws Throwable {
-    Trait ability = character.getTraitConfiguration().getTrait(new TraitType(abilityName));
-    assertThat(ability.getCurrentValue(), is(amount));
+  public void she_has_dots_in(int amount, String traitName) throws Throwable {
+    if (traitName.equals("all her attributes")) {
+      new AttributeSteps(character).she_has_dots_in_all_her_attributes(amount);
+      return;
+    }
+    if (traitName.equals("the attribute")){
+      new AttributeSteps(character).she_has_dots_in_the_attribute(amount);
+      return;
+    }
+    Trait trait = character.getTraitConfiguration().getTrait(new TraitType(traitName));
+    assertThat(trait.getCurrentValue(), is(amount));
   }
 
   @And("^she spends all her general Ability dots$")
