@@ -109,7 +109,7 @@ public class CharacterUtilities {
     return dv;
   }
 
-  public static int getDodgeDv(HeroType heroType, TraitMap traitMap, HeroStatsModifiers modifiers) {
+  public static int getEvasion(HeroType heroType, TraitMap traitMap, HeroStatsModifiers modifiers) {
     return getDodgeDvWithSpecialty(heroType, traitMap, modifiers, 0);
   }
 
