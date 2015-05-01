@@ -1,16 +1,15 @@
 package net.sf.anathema.hero.combat.sheet.combat.encoder;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPTable;
 import net.sf.anathema.hero.combat.sheet.combat.content.CombatAction;
 import net.sf.anathema.hero.combat.sheet.combat.content.CombatStatsContent;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.SheetGraphics;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableCell;
 import net.sf.anathema.hero.sheet.pdf.encoder.graphics.TableList;
 import net.sf.anathema.hero.sheet.pdf.session.ReportSession;
-
-import com.itextpdf.text.Chunk;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPTable;
 
 public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
 
@@ -23,7 +22,7 @@ public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
   @Override
   protected void addSecondCell(SheetGraphics graphics, ReportSession reportSession, PdfPTable table) {
     CombatStatsContent content = reportSession.createContent(CombatStatsContent.class);
-    addAsCell(graphics, table, content.getKnockdownAndStunningTexts());
+    addAsCell(graphics, table, content.getRulesOfInterest());
   }
 
   @Override
@@ -36,7 +35,7 @@ public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
     TableList list = new TableList(graphics.createCommentFont());
     list.addHeader(new Chunk(content.getAttackHeader(), graphics.createTextFont()), true);
     list.addHeader(new Chunk("\n", graphics.createCommentFont()), false);
-    for (String attack : content.getAttacks()) {
+    for (String attack : content.getOrderOfAttack()) {
       list.addItem(attack);
     }
     list.addCell(createSpaceCell(graphics));
@@ -55,8 +54,7 @@ public class CombatRulesTableEncoder extends AbstractCombatRulesTableEncoder {
     float[] columnWidths = new float[]{5f, 1.5f, 1.5f};
     PdfPTable table = new PdfPTable(columnWidths);
     table.setWidthPercentage(100);
-    String header = content.getActionHeader();
-    TableCell headerCell = createCommonActionsCell(new Phrase(header, graphics.createTextFont()));
+    TableCell headerCell = createCommonActionsCell(new Phrase(content.getActionHeader(), graphics.createTextFont()));
     headerCell.setColspan(columnWidths.length);
     table.addCell(headerCell);
     for (CombatAction combatAction : content.getCombatActions()) {

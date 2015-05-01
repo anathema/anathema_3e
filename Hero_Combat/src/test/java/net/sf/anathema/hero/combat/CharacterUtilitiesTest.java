@@ -24,7 +24,7 @@ public class CharacterUtilitiesTest {
     traitCollection.addTraits(new DummyTrait(Dodge, 1));
     traitCollection.addTraits(new DummyTrait(Dexterity, 2));
     traitCollection.addTraits(new DummyTrait(Essence, 1));
-    assertEquals(1, CharacterUtilities.getDodgeDv(new DummyMundaneHeroType(), traitCollection, modifiers));
+    assertEquals(1, CharacterUtilities.getEvasion(new DummyMundaneHeroType(), traitCollection, modifiers));
   }
 
   @Test
@@ -32,7 +32,7 @@ public class CharacterUtilitiesTest {
     traitCollection.addTraits(new DummyTrait(Dodge, 1));
     traitCollection.addTraits(new DummyTrait(Dexterity, 2));
     traitCollection.addTraits(new DummyTrait(Essence, 2));
-    assertEquals(2, CharacterUtilities.getDodgeDv(new DummyMundaneHeroType(), traitCollection, modifiers));
+    assertEquals(2, CharacterUtilities.getEvasion(new DummyMundaneHeroType(), traitCollection, modifiers));
   }
 
   @Test
@@ -40,7 +40,7 @@ public class CharacterUtilitiesTest {
     traitCollection.addTraits(new DummyTrait(Dodge, 1));
     traitCollection.addTraits(new DummyTrait(Dexterity, 1));
     traitCollection.addTraits(new DummyTrait(Essence, 1));
-    assertEquals(1, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
+    assertEquals(1, CharacterUtilities.getEvasion(new DummyHeroType(), traitCollection, modifiers));
   }
 
   @Test
@@ -48,7 +48,7 @@ public class CharacterUtilitiesTest {
     traitCollection.addTraits(new DummyTrait(Dodge, 1));
     traitCollection.addTraits(new DummyTrait(Dexterity, 1));
     traitCollection.addTraits(new DummyTrait(Essence, 2));
-    assertEquals(2, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
+    assertEquals(2, CharacterUtilities.getEvasion(new DummyHeroType(), traitCollection, modifiers));
   }
 
   @Test
@@ -56,6 +56,6 @@ public class CharacterUtilitiesTest {
     traitCollection.addTraits(new DummyTrait(Dodge, 1));
     traitCollection.addTraits(new DummyTrait(Dexterity, 2));
     traitCollection.addTraits(new DummyTrait(Essence, 2));
-    assertEquals(3, CharacterUtilities.getDodgeDv(new DummyHeroType(), traitCollection, modifiers));
+    assertEquals(3, CharacterUtilities.getEvasion(new DummyHeroType(), traitCollection, modifiers));
   }
 }

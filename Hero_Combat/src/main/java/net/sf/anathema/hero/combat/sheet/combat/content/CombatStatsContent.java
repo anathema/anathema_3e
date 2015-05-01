@@ -2,20 +2,26 @@ package net.sf.anathema.hero.combat.sheet.combat.content;
 
 import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.individual.splat.HeroType;
+import net.sf.anathema.hero.sheet.pdf.content.AbstractSubBoxContent;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
+import net.sf.anathema.hero.traits.model.TraitMap;
+import net.sf.anathema.hero.traits.model.TraitModelFetcher;
 import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Awareness;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dodge;
 
-public class CombatStatsContent extends AbstractCombatStatsContent {
+public class CombatStatsContent extends AbstractSubBoxContent {
 
   public static final int SPECIALTY_INCREMENT = 1;
   private final HeroStatsModifiers modifiers;
+  private final Hero hero;
 
   protected CombatStatsContent(Hero hero, Resources resources) {
-    super(resources, hero);
+    super(resources);
+    this.hero = hero;
     modifiers = StatsModifiers.allStatsModifiers(hero);
   }
 
@@ -23,8 +29,8 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
     return getString("Sheet.Combat.JoinBattle");
   }
 
-  public String getDodgeLabel() {
-    return getString("Sheet.Combat.DodgeDV");
+  public String getEvasionLabel() {
+    return getString("Sheet.Combat.Evasion");
   }
 
   public String getJoinBattleSpecialtyLabel() {
@@ -44,14 +50,14 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
   }
 
   public int getDodgeDv() {
-    return CharacterUtilities.getDodgeDv(getCharacterType(), getTraits(), modifiers);
+    return CharacterUtilities.getEvasion(getCharacterType(), getTraits(), modifiers);
   }
 
-  public int getDodgeDvWithSpecialty() {
+  public int getEvasionWithSpecialty() {
     return CharacterUtilities.getDodgeDvWithSpecialty(getCharacterType(), getTraits(), modifiers, SPECIALTY_INCREMENT);
   }
 
-  public String[] getAttacks() {
+  public String[] getOrderOfAttack() {
     return new String[]{getString("Sheet.Combat.AttackList.DeclareAttack"), getString("Sheet.Combat.AttackList.DeclareDefence"),
             getString("Sheet.Combat.AttackList.AttackRoll"), getString("Sheet.Combat.AttackList.AttackReroll"),
             getString("Sheet.Combat.AttackList.SubstractPenalties"), getString("Sheet.Combat.AttackList.DefenseReroll"),
@@ -61,11 +67,11 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
     };
   }
 
-  public QualifiedText[] getKnockdownAndStunningTexts() {
-    return new QualifiedText[]{new QualifiedText(getString("Sheet.Combat.Knockdown.Header") + "\n", TextType.Normal),
-            new QualifiedText(getString("Sheet.Combat.Knockdown.Second.Comment") + "\n\n", TextType.Comment),
-            new QualifiedText(getString("Sheet.Combat.Stunning.Header") + "\n", TextType.Normal),
-            new QualifiedText(getString("Sheet.Combat.Stunning.Second.Comment"), TextType.Comment)
+  public QualifiedText[] getRulesOfInterest() {
+    return new QualifiedText[]{new QualifiedText(getString("Sheet.Combat.Prone.Header") + "\n", TextType.Normal),
+            new QualifiedText(getString("Sheet.Combat.Prone.Comment") + "\n\n", TextType.Comment),
+            new QualifiedText(getString("Sheet.Combat.Flurry.Header") + "\n", TextType.Normal),
+            new QualifiedText(getString("Sheet.Combat.Flurry.Comment"), TextType.Comment)
 
     };
   }
@@ -84,7 +90,8 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
     String dvHeader = getResources().getString("Sheet.Combat.CommonActions.DV");
     CombatAction headerData = new CombatAction(nameHeader, speedHeader, dvHeader);
     CombatAction emptyData = new CombatAction(" ", " ", " ");
-    return new CombatAction[]{headerData, emptyData, getCombatAction("JoinBattle"), getCombatAction("ReadyWeapon"), getCombatAction("PhysicalAttack"),
+    return new CombatAction[]{headerData, emptyData, getCombatAction("JoinBattle"), getCombatAction(
+      "ReadyWeapon"), getCombatAction("PhysicalAttack"),
             getCombatAction("CoordinateAttack"), getCombatAction("Aim"), getCombatAction("Guard"), getCombatAction("Move"), getCombatAction("Dash"),
             getCombatAction("Misc"), getCombatAction("Jump"), getCombatAction("Rise"), getCombatAction("Inactive")
 
@@ -100,5 +107,23 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
 
   public String getActionHeader() {
     return getResources().getString("Sheet.Combat.CommonActions.Header");
+  }
+
+  @Override
+  public String getHeaderKey() {
+    return "Combat";
+  }
+
+  @Override
+  public boolean hasContent() {
+    return true;
+  }
+
+  private HeroType getCharacterType() {
+    return hero.getSplat().getTemplateType().getHeroType();
+  }
+
+  private TraitMap getTraits() {
+    return TraitModelFetcher.fetch(hero);
   }
 }
