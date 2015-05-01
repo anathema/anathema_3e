@@ -12,11 +12,6 @@ public class SpiritualExperienceCalculator {
     this.experienceData = experienceData;
   }
 
-  public int getEssenceCosts(Trait essence) {
-    CurrentRatingCost cost = experienceData.getEssenceCost();
-    return getTraitRatingCosts(essence, cost);
-  }
-
   public int getWillpowerCosts(Trait willpower) {
     CurrentRatingCost cost = experienceData.getWillpowerCost();
     return getTraitRatingCosts(willpower, cost);

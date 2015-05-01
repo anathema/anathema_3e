@@ -6,7 +6,6 @@ import net.sf.anathema.hero.traits.advance.MultiplyRatingCost;
 import net.sf.anathema.hero.traits.dummy.DummyTrait;
 import org.junit.Test;
 
-import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -16,12 +15,6 @@ public class SpiritualExperienceCalculatorTest {
 
   private SpiritualExperienceData experienceCosts = mock(SpiritualExperienceData.class);
   private SpiritualExperienceCalculator calculator = new SpiritualExperienceCalculator(experienceCosts);
-
-  @Test
-  public void testEssenceCosts() throws Exception {
-    when(experienceCosts.getEssenceCost()).thenReturn(new MultiplyRatingCost(8));
-    assertEquals(16, calculator.getEssenceCosts(DummyTrait.createLearnTrait(Essence, 2, 3)));
-  }
 
   @Test
   public void testWillpowerCosts() throws Exception {
