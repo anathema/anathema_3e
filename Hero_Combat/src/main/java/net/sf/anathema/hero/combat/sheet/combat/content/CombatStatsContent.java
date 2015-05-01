@@ -4,7 +4,6 @@ import net.sf.anathema.hero.combat.model.CharacterUtilities;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.sheet.pdf.content.stats.HeroStatsModifiers;
 import net.sf.anathema.hero.sheet.pdf.content.stats.StatsModifiers;
-import net.sf.anathema.hero.specialties.model.SingleSpecialty;
 import net.sf.anathema.library.resources.Resources;
 
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Awareness;
@@ -12,14 +11,11 @@ import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Dodge;
 
 public class CombatStatsContent extends AbstractCombatStatsContent {
 
-  private final SingleSpecialty dodgeSpecialty;
-  private final SingleSpecialty awarenessSpecialty;
+  public static final int SPECIALTY_INCREMENT = 1;
   private final HeroStatsModifiers modifiers;
 
   protected CombatStatsContent(Hero hero, Resources resources) {
     super(resources, hero);
-    dodgeSpecialty = new SingleSpecialty(hero, Dodge);
-    awarenessSpecialty = new SingleSpecialty(hero, Awareness);
     modifiers = StatsModifiers.allStatsModifiers(hero);
   }
 
@@ -32,11 +28,11 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
   }
 
   public String getJoinBattleSpecialtyLabel() {
-    return getString("Sheet.Combat.NormalSpecialty") + awarenessSpecialty;
+    return getString("Sheet.Combat.IncreasesWithSpecialty", Awareness);
   }
 
   public String getDodgeSpecialtyLabel() {
-    return getString("Sheet.Combat.NormalSpecialty") + dodgeSpecialty;
+    return getString("Sheet.Combat.IncreasesWithSpecialty", Dodge);
   }
 
   public int getJoinBattle() {
@@ -44,7 +40,7 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
   }
 
   public int getJoinBattleWithSpecialty() {
-    return CharacterUtilities.getJoinBattleWithSpecialty(getTraits(), awarenessSpecialty.getValue());
+    return CharacterUtilities.getJoinBattleWithSpecialty(getTraits(), SPECIALTY_INCREMENT);
   }
 
   public int getDodgeDv() {
@@ -52,7 +48,7 @@ public class CombatStatsContent extends AbstractCombatStatsContent {
   }
 
   public int getDodgeDvWithSpecialty() {
-    return CharacterUtilities.getDodgeDvWithSpecialty(getCharacterType(), getTraits(), modifiers, dodgeSpecialty.getValue());
+    return CharacterUtilities.getDodgeDvWithSpecialty(getCharacterType(), getTraits(), modifiers, SPECIALTY_INCREMENT);
   }
 
   public String[] getAttacks() {
