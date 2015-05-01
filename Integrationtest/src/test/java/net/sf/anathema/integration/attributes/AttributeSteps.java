@@ -55,12 +55,10 @@ public class AttributeSteps {
     assertThatAttributeHasValueOf(type, value);
   }
 
-  @Then("^she has (\\d+) dots in the attribute$")
   public void she_has_dots_in_the_attribute(int value) throws Throwable {
     assertThatAttributeHasValueOf(ANY_ATTRIBUTE_TYPE, value);
   }
 
-  @Then("^she has (\\d+) dots in all her attributes$")
   public void she_has_dots_in_all_her_attributes(int value) throws Throwable {
     for (TraitType type : Attributes) {
       assertThatAttributeHasValueOf(type, value);
