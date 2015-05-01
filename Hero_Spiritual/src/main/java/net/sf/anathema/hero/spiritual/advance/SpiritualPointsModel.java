@@ -6,7 +6,6 @@ import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
 import net.sf.anathema.hero.spiritual.advance.creation.DefaultSpiritualCreationData;
 import net.sf.anathema.hero.spiritual.advance.creation.SpiritualBonusPointsCalculator;
-import net.sf.anathema.hero.spiritual.advance.experience.EssenceExperienceModel;
 import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceCalculator;
 import net.sf.anathema.hero.spiritual.advance.experience.SpiritualExperienceData;
 import net.sf.anathema.hero.spiritual.advance.experience.WillpowerExperienceModel;
@@ -59,7 +58,6 @@ public class SpiritualPointsModel implements HeroModel {
     SpiritualTraitModel model = SpiritualTraitModelFetcher.fetch(hero);
     SpiritualExperienceData experienceData = new SpiritualExperienceData(template);
     SpiritualExperienceCalculator calculator = new SpiritualExperienceCalculator(experienceData);
-    pointsModel.addToExperienceOverview(new EssenceExperienceModel(model, calculator));
     pointsModel.addToExperienceOverview(new WillpowerExperienceModel(model, calculator));
   }
 }

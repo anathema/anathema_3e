@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumber.runtime.java.guice.ScenarioScoped;
+import net.sf.anathema.hero.individual.change.ChangeFlavor;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.overview.IOverviewModelVisitor;
@@ -28,13 +29,14 @@ public class ExperiencePointSteps {
   public void she_gains_experience_points(int amount) throws Throwable {
     ExperiencePoints experiencePoints = PointModelFetcher.fetch(character.getHero()).getExperiencePoints();
     ExperiencePointEntry entry = experiencePoints.addEntry();
-    entry.getTextualDescription().setText("Test");
-    entry.setExperiencePoints(amount);
+    experiencePoints.selectForChange(entry);
+    experiencePoints.updateCurrentSelection("Test", amount);
   }
 
   @When("^she spends (\\d+) experience points$")
   public void she_spends_xp_experience_points(int amount) throws Throwable {
     PointModelFetcher.fetch(character.getHero()).addToExperienceOverview(new ConfigurableValueModel(amount));
+    character.getHero().getChangeAnnouncer().announceChangeFlavor(ChangeFlavor.UNSPECIFIED);
   }
 
   @Then("^she has spent (\\d+) xp points$")

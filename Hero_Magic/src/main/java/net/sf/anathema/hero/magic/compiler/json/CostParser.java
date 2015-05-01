@@ -39,11 +39,13 @@ public class CostParser {
 
   private Cost parseCost(String costString, String unit, boolean permanent) {
     for (String costPart : costString.split(",")) {
-      String pattern = "(\\d+)" + unit;
+      String pattern = "(\\d+)" + unit + "(.*)";
       Matcher matcher = Pattern.compile(pattern).matcher(costPart.trim());
       if (matcher.matches()) {
         String costTest = matcher.group(1);
-        return new CostImpl(costTest, null, permanent);
+        String text = matcher.group(2).trim();
+        text = text.isEmpty() ? null : text;
+        return new CostImpl(costTest, text, permanent);
       }
     }
     return NULL_COST;

@@ -1,10 +1,9 @@
 package net.sf.anathema.hero.spells.sheet.content;
 
 import com.google.common.collect.Lists;
-import net.sf.anathema.hero.magic.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.hero.magic.display.tooltip.IMagicSourceStringBuilder;
 import net.sf.anathema.hero.magic.display.tooltip.source.MagicSourceContributor;
-import net.sf.anathema.hero.magic.sheet.content.IMagicStats;
+import net.sf.anathema.hero.magic.sheet.content.stats.AbstractMagicStats;
 import net.sf.anathema.hero.spells.data.Spell;
 import net.sf.anathema.library.resources.Resources;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -60,27 +59,15 @@ public class SpellStats extends AbstractMagicStats<Spell> {
     return resources.getString(getMagic().getName().text);
   }
 
-  @SuppressWarnings("NullableProblems")
-  @Override
-  public int compareTo(IMagicStats stats) {
-    if (!(stats instanceof SpellStats)) {
-      return 1;
-    }
-    SpellStats spell = (SpellStats) stats;
-    int r = getMagic().getCircleType().compareTo(spell.getMagic().getCircleType());
-    if (r == 0) {
-      r = getMagic().getName().text.compareTo(spell.getMagic().getName().text);
-    }
-    return r;
-  }
-
   @SuppressWarnings("SimplifiableIfStatement")
   @Override
   public boolean equals(Object obj) {
-    if (obj == null || obj.getClass() != getClass()) {
+    if (!(obj instanceof SpellStats)) {
       return false;
     }
-    return compareTo((SpellStats) obj) == 0;
+    SpellStats other = (SpellStats) obj;
+    return other.getMagic().getCircleType().equals(getMagic().getCircleType()) && other.getMagic().getName().equals(
+      getMagic().getName());
   }
 
   @Override

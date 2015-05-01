@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.spiritual.model.traits;
 
 import net.sf.anathema.hero.environment.HeroEnvironment;
+import net.sf.anathema.hero.experience.model.ExperienceModelFetcher;
 import net.sf.anathema.hero.individual.change.ChangeAnnouncer;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.HeroModel;
@@ -18,11 +19,7 @@ import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
-import net.sf.anathema.points.model.xp.ExperiencePoints;
-import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
-import net.sf.anathema.points.model.xp.ExperiencePoints;
-import net.sf.anathema.points.model.xp.ExperiencePointsListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,18 +53,26 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void initExperienceListening(Hero hero) {
-    ExperiencePoints experiencePoints = PointModelFetcher.fetch(hero).getExperiencePoints();
-    Trait essence = getTrait(Essence);
+    PointsModel pointsModel = PointModelFetcher.fetch(hero);
     List<Integer> experienceBoundsDescending = getExperienceBoundsInDescendingOrder();
-    experiencePoints.addExperiencePointConfigurationListener(() -> {
-      int total = experiencePoints.getTotalExperiencePoints();
-      for (Integer bound : experienceBoundsDescending) {
-        if (total >= bound) {
-          essence.setCurrentValue(template.essenceValues.get(String.valueOf(bound)));
-          return;
-        }
+    pointsModel.getExperiencePoints().addExperiencePointConfigurationListener(() -> updateEssence(pointsModel, experienceBoundsDescending));
+    hero.getChangeAnnouncer().addListener(flavor -> {
+      if (ExperienceModelFetcher.fetch(hero).isExperienced()) {
+        updateEssence(pointsModel, experienceBoundsDescending);
       }
     });
+  }
+
+  private void updateEssence(PointsModel pointsModel, List<Integer> experienceBoundsDescending) {
+    Trait essence = getTrait(Essence);
+    int totalGained = pointsModel.getExperiencePoints().getTotalExperiencePoints();
+    int totalSpent = pointsModel.getExperiencePointManagement().getTotalCosts();
+    for (Integer bound : experienceBoundsDescending) {
+      if (totalGained >= bound && totalSpent >= bound) {
+        essence.setCurrentValue(template.essenceValues.get(String.valueOf(bound)));
+        return;
+      }
+    }
   }
 
   private List<Integer> getExperienceBoundsInDescendingOrder() {

@@ -12,10 +12,6 @@ public class SpiritualExperienceData {
     this.template = template;
   }
 
-  public CurrentRatingCost getEssenceCost() {
-    return new FixedValueRatingCost(template.essence.cost.experiencePoints);
-  }
-
   public CurrentRatingCost getWillpowerCost() {
     return new FixedValueRatingCost(template.willpower.cost.experiencePoints);
   }

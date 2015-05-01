@@ -6,7 +6,6 @@ import net.sf.anathema.magic.data.cost.CostImpl;
 import net.sf.anathema.magic.data.cost.CostList;
 import net.sf.anathema.magic.data.cost.HealthCost;
 import net.sf.anathema.magic.data.cost.HealthCostImpl;
-
 import org.junit.Test;
 
 import static net.sf.anathema.magic.data.cost.HealthCostType.Aggravated;
@@ -56,6 +55,12 @@ public class CostParserTest {
   }
 
   @Test
+  public void parsesMotesPerDie() {
+    CostList cost = parser.parse("1m per die");
+    assertThat(cost.getEssenceCost(), is(new CostImpl("1", "per die", false)));
+  }
+
+  @Test
   public void parsesWillpower() {
     CostList costList = parser.parse("3m,2wp,1xp");
     assertThat(costList.getWillpowerCost(), is(new CostImpl("2", null, false)));
@@ -84,4 +89,4 @@ public class CostParserTest {
     HealthCost cost = parser.parseHealthCost("3ahl");
     assertThat(cost, is(new HealthCostImpl(3, null, false, Aggravated)));
   }
-}
+  }

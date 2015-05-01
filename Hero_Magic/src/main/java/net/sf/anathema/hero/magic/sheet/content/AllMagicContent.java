@@ -24,7 +24,13 @@ public class AllMagicContent extends AbstractMagicContent {
   @Override
   protected MagicMnemonic createMnemonic() {
     List<IMagicStats> printMagic = collectPrintMagic();
-    Collections.sort(printMagic);
+    Collections.sort(printMagic, (stats1, stats2) -> {
+      int result = stats1.getGroupName(getResources()).compareTo(stats2.getGroupName(getResources()));
+      if (result != 0) {
+        return result;
+      }
+      return stats1.getNameString(getResources()).compareTo(stats2.getNameString(getResources()));
+    });
     return new AllMagicMnemonic(printMagic);
   }
 
