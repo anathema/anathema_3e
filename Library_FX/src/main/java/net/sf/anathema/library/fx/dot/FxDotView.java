@@ -1,10 +1,8 @@
 package net.sf.anathema.library.fx.dot;
 
 import javafx.scene.control.Label;
-
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.library.view.IntValueView;
-
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
@@ -43,6 +41,11 @@ public class FxDotView implements IntValueView {
   @Override
   public void removeIntValueChangedListener(IntegerChangedListener listener) {
     valueChangeAnnouncer.removeListener(listener);
+  }
+
+  @Override
+  public void disableUserInput() {
+    spinner.getNode().getStyleClass().add("immutable");
   }
 
   public void addTo(MigPane parent) {

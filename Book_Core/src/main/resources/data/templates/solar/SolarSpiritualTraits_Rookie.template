@@ -1,20 +1,40 @@
 {
   willpower: {
-    startValue: 5;
-    minimumValue = 5;
-    modificationType: "RaiseOnly";
+    startValue: 5
+    ;
+    minimumValue
+    =
+    5
+    ;
+    modificationType: "RaiseOnly"
+    ;
     limitation: {
-      type: "Static";
+      type: "Static"
+      ;
       value: 10
     }
-  };
+  }
+  ;
   essence: {
-    startValue: 1;
-    minimumValue = 1;
-    modificationType: "RaiseOnly";
+    startValue: 1
+    ;
+    minimumValue
+    =
+    1
+    ;
+    modificationType: "RaiseOnly"
+    ;
     limitation: {
-      type: "Static";
+      type: "Static"
+      ;
       value: 5
     }
+  };
+  essenceValues: {
+    0: 1,
+    50: 2,
+    125: 3,
+    200: 4,
+    300: 5
   }
 }

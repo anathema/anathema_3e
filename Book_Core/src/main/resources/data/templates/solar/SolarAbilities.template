@@ -24,7 +24,7 @@
   casteAbilities: [
     {
       caste: "Dawn",
-      traits: [ "Archery", "Awareness", "Brawl", "Dodge", "MartialArts", "Melee", "Resistance", "Thrown", "War" ]
+      traits: [ "Archery", "Awareness", "Brawl", "Dodge", "Melee", "Resistance", "Thrown", "War" ]
     },
     {
       caste: "Zenith",

@@ -1,10 +1,8 @@
 package net.sf.anathema.library.fx.dot;
 
 import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import jfxtras.scene.control.ListSpinner;
-
 import org.jmock.example.announcer.Announcer;
 
 public class DotSelectionSpinner {
@@ -12,12 +10,7 @@ public class DotSelectionSpinner {
   private final Announcer<ChangeListener> announcer = new Announcer<>(ChangeListener.class);
   private ListSpinner<Integer> spinner;
   @SuppressWarnings("unchecked")
-  private ChangeListener<Integer> announcingListener = new ChangeListener<Integer>() {
-    @Override
-    public void changed(ObservableValue<? extends Integer> observableValue, Integer oldValue, Integer newValue) {
-      announcer.announce().changed(observableValue, oldValue, newValue);
-    }
-  };
+  private ChangeListener<Integer> announcingListener = (observableValue, oldValue, newValue) -> announcer.announce().changed(observableValue, oldValue, newValue);
 
   public DotSelectionSpinner(final int lowerBound, final int upperBound) {
     spinner = new ListSpinner<>(lowerBound, upperBound);

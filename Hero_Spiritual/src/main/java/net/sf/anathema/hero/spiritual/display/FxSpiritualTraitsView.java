@@ -1,14 +1,12 @@
 package net.sf.anathema.hero.spiritual.display;
 
 import javafx.scene.Node;
-
 import net.miginfocom.layout.CC;
 import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.dot.FxDotView;
 import net.sf.anathema.library.fx.view.StyledTitledPane;
 import net.sf.anathema.library.view.IntValueView;
 import net.sf.anathema.library.view.StyledValueView;
-
 import org.tbee.javafx.scene.layout.MigPane;
 
 import static net.sf.anathema.library.fx.layout.LayoutUtils.fillWithoutInsets;
@@ -27,7 +25,7 @@ public class FxSpiritualTraitsView implements SpiritualTraitsView, NodeHolder {
   }
 
   @Override
-  public IntValueView addWillpower(String labelText, int maxValue) {
+  public IntValueView addWillpowerView(String labelText, int maxValue) {
     FxDotView willpowerView = FxDotView.WithDefaultLayout(labelText, maxValue);
     willpowerView.addTo(willpowerPanel);
     return willpowerView;

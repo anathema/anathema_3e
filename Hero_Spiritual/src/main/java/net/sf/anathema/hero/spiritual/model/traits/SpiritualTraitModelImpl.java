@@ -18,16 +18,23 @@ import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
 import net.sf.anathema.points.model.xp.ExperiencePointsListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Essence;
 import static net.sf.anathema.hero.traits.model.types.CommonTraitTypes.Willpower;
 
 public class SpiritualTraitModelImpl extends DefaultTraitMap implements SpiritualTraitModel, HeroModel {
 
-  private SpiritualTraitsTemplate template;
+  private final SpiritualTraitsTemplate template;
   private TraitModel traitModel;
 
   public SpiritualTraitModelImpl(SpiritualTraitsTemplate template) {
@@ -45,6 +52,28 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
     addEssence(hero);
     addWillpower(hero);
     getTrait(Essence).addCurrentValueListener(new EssenceLimitationListener(traitModel, hero));
+    initExperienceListening(hero);
+  }
+
+  private void initExperienceListening(Hero hero) {
+    ExperiencePoints experiencePoints = PointModelFetcher.fetch(hero).getExperiencePoints();
+    Trait essence = getTrait(Essence);
+    List<Integer> experienceBoundsDescending = getExperienceBoundsInDescendingOrder();
+    experiencePoints.addExperiencePointConfigurationListener(() -> {
+      int total = experiencePoints.getTotalExperiencePoints();
+      for (Integer bound : experienceBoundsDescending) {
+        if (total >= bound) {
+          essence.setCurrentValue(template.essenceValues.get(String.valueOf(bound)));
+          return;
+        }
+      }
+    });
+  }
+
+  private List<Integer> getExperienceBoundsInDescendingOrder() {
+    List<String> experienceBounds = new ArrayList<>(template.essenceValues.keySet());
+    Collections.reverse(experienceBounds);
+    return experienceBounds.stream().map(Integer::valueOf).collect(toList());
   }
 
   @Override
@@ -55,11 +84,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
   }
 
   private void addEssence(Hero hero) {
-    PointsModel pointsModel = PointModelFetcher.fetch(hero);
-    ExperiencePoints experiencePoints = pointsModel.getExperiencePoints();
-    traitModel.getMinimumMap().addMinimum(Essence, new ExperienceBasedMinimum(experiencePoints));
-    TraitRules rules = new TraitRulesImpl(Essence, template.essence, hero);
-    createTrait(hero, rules);
+    createTrait(hero, Essence, template.essence);
   }
 
   private void addWillpower(Hero hero) {
@@ -79,10 +104,6 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   private void createTrait(Hero hero, TraitType type, TraitTemplate template) {
     TraitRules rules = new TraitRulesImpl(type, template, hero);
-    createTrait(hero, rules);
-  }
-
-  private void createTrait(Hero hero, TraitRules rules) {
     Trait trait = new TraitImpl(hero, rules);
     addTraits(trait);
     traitModel.addTraits(trait);

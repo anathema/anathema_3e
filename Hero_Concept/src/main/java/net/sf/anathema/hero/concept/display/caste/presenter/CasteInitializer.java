@@ -10,7 +10,7 @@ import net.sf.anathema.hero.individual.overview.HeroModelGroup;
 import net.sf.anathema.hero.individual.view.SectionView;
 import net.sf.anathema.library.initialization.Weight;
 
-@RegisteredInitializer(HeroModelGroup.Spiritual)
+@RegisteredInitializer(HeroModelGroup.Background)
 @Weight(weight = 100)
 public class CasteInitializer implements HeroModelInitializer {
 

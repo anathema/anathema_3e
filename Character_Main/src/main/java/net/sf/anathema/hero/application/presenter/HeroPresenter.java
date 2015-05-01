@@ -12,8 +12,8 @@ import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Charms;
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Miscellaneous;
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Mundane;
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Panoply;
+import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Perks;
 import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Sorcery;
-import static net.sf.anathema.hero.individual.overview.HeroModelGroup.Spiritual;
 
 public class HeroPresenter {
 
@@ -31,8 +31,8 @@ public class HeroPresenter {
 
   public void initPresentation() {
     initializeSection("CardView.Background.Title", Background);
-    initializeSection("CardView.Mundane.Title", Mundane);
-    initializeSection("CardView.Spiritual.Title", Spiritual);
+    initializeSection("CardView.Traits.Title", Mundane);
+    initializeSection("CardView.Perks.Title", Perks);
     initializeSection("CardView.Charms.Title", Charms);
     initializeSection("CardView.Sorcery.Title", Sorcery);
     initializeSection("CardView.Panoply.Title", Panoply);

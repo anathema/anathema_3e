@@ -16,5 +16,11 @@
       type: "Static";
       value: 5
     }
+  };
+  essenceValues: {
+    0: 2,
+    75: 3,
+    150: 4,
+    250: 5,
   }
 }
