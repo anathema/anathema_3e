@@ -112,7 +112,7 @@ public class CharmsModelImpl implements CharmsModel {
 
   private void initAdditionalRules(HeroEnvironment environment, Hero hero) {
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
-            .instantiateAllImplementers(AdditionalCharmRules.class, hero);
+            .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
             .forEach(AdditionalCharmRules::initialize);
   }

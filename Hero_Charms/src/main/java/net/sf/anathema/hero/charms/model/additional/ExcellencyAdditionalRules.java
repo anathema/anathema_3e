@@ -3,7 +3,6 @@ package net.sf.anathema.hero.charms.model.additional;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModel;
-import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
@@ -31,9 +30,9 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
   private final CharmsModel charms;
   private final AbilitiesModel traits;
 
-  public ExcellencyAdditionalRules(Hero hero) {
+  public ExcellencyAdditionalRules(CharmsModel charms, Hero hero) {
     this.heroType = hero.getSplat().getTemplateType().getHeroType();
-    this.charms = CharmsModelFetcher.fetch(hero);
+    this.charms = charms;
     this.traits = AbilitiesModelFetcher.fetch(hero);
   }
 
