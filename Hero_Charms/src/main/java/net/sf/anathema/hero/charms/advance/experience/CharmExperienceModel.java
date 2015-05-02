@@ -1,14 +1,14 @@
 package net.sf.anathema.hero.charms.advance.experience;
 
-import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
-import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
-import net.sf.anathema.hero.magic.model.CommonMagicAttributes;
 import net.sf.anathema.hero.charms.model.learn.LearningModel;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearningModel;
 import net.sf.anathema.hero.charms.model.special.subeffects.SubEffectCharmSpecials;
 import net.sf.anathema.hero.individual.model.Hero;
+import net.sf.anathema.hero.magic.advance.experience.MagicExperienceCostCalculator;
+import net.sf.anathema.hero.magic.model.CommonMagicAttributes;
+import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.points.display.overview.model.AbstractIntegerValueModel;
 
 public class CharmExperienceModel extends AbstractIntegerValueModel {
@@ -36,9 +36,6 @@ public class CharmExperienceModel extends AbstractIntegerValueModel {
     for (Charm charm : charmsModel.getLearningModel().getCharmsLearnedWithExperience()) {
       if (!charm.hasAttribute(CommonMagicAttributes.NO_PURCHASE)) {
         int charmCosts = calculateCharmCost(charmsModel, charm);
-        if (charmsModel.isAlienCharm(charm)) {
-          charmCosts *= 2;
-        }
         experienceCosts += charmCosts;
       }
     }
