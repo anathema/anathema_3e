@@ -107,7 +107,7 @@ public class CharmsModelImpl implements CharmsModel {
             .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
             .forEach(AdditionalCharmRules::initialize);
-    
+
     options.getAllMechanics().forEach(mechanic -> mechanic.initialize(hero));
   }
 
@@ -248,12 +248,12 @@ public class CharmsModelImpl implements CharmsModel {
     }
     SatisfactionConsumer isSatisfiedOrSatisfiable = new SatisfactionConsumer();
     charm.getPrerequisites().forEachCharmPrerequisite(isSatisfiedOrSatisfiable);
-    if (!isSatisfiedOrSatisfiable.satisfied){
+    if (!isSatisfiedOrSatisfiable.satisfied) {
       return false;
     }
-    CharmTraitRequirementChecker traitRequirementChecker = new CharmTraitRequirementChecker(
-            new CharmTraitRequirementCalculator(new TraitStateFetcher(hero)), traits);
-    return traitRequirementChecker.areTraitMinimumsSatisfied(charm);
+    CharmTraitRequirementCalculator calculator = new CharmTraitRequirementCalculator(new TraitStateFetcher(hero));
+    CharmTraitRequirementChecker checker = new CharmTraitRequirementChecker(calculator, traits);
+    return checker.areTraitMinimumsSatisfied(charm);
   }
 
   @Override
