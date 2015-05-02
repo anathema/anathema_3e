@@ -29,7 +29,7 @@ public class DescriptionPresenter {
     TextualPresentation presentation = new TextualPresentation();
     initNameLineView(presentation);
     initLineView("CharacterDescription.Label.Player", description.getPlayer(), presentation);
-    initLineView("Label.Concept", description.getConcept(), presentation);
+    initAreaView("Label.Concept", description.getConcept(), presentation);
     if (hasAnima) {
       initLineView("CharacterDescription.Label.Anima", description.getAnima(), presentation);
     }
