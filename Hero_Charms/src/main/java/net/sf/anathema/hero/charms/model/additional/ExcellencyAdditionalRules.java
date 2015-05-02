@@ -3,6 +3,7 @@ package net.sf.anathema.hero.charms.model.additional;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModel;
+import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.charms.model.learn.CharmLearnAdapter;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.splat.HeroType;
@@ -28,12 +29,12 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
 
   private final HeroType heroType;
   private final CharmsModel charms;
-  private AbilitiesModel abilities;
+  private final AbilitiesModel traits;
 
-  public ExcellencyAdditionalRules(CharmsModel charms, Hero hero) {
+  public ExcellencyAdditionalRules(Hero hero) {
     this.heroType = hero.getSplat().getTemplateType().getHeroType();
-    this.charms = charms;
-    this.abilities = AbilitiesModelFetcher.fetch(hero);
+    this.charms = CharmsModelFetcher.fetch(hero);
+    this.traits = AbilitiesModelFetcher.fetch(hero);
   }
 
   protected String getStringForExcellency(String trait) {
@@ -48,9 +49,9 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
   @Override
   public void initialize() {
     charms.addCharmLearnListener(new CharmExcellencyMonitor());
-    abilities.getAll().forEach(trait -> {
+    traits.getAll().forEach(trait -> {
       TraitExcellencyMonitor monitor = new TraitExcellencyMonitor(trait.getType());
-      abilities.getState(trait).addTraitStateChangedListener(monitor);
+      traits.getState(trait).addTraitStateChangedListener(monitor);
       trait.addCurrentValueListener(monitor);
     });
   }
@@ -68,8 +69,8 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
   }
 
   private boolean isProficientInCasteOrFavored(TraitType traitType) {
-    Trait trait = abilities.getTrait(traitType);
-    TraitStateType state = abilities.getState(trait).getType();
+    Trait trait = traits.getTrait(traitType);
+    TraitStateType state = traits.getState(trait).getType();
     boolean isCasteOrFavored = state.countsAs(Caste) || state.countsAs(Favored);
     return isCasteOrFavored && trait.getCurrentValue() >= 1;
   }

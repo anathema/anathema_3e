@@ -1,7 +1,5 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.compiler.CharmProvider;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
@@ -13,6 +11,8 @@ import net.sf.anathema.hero.concept.model.concept.HeroConcept;
 import net.sf.anathema.hero.concept.model.concept.HeroConceptFetcher;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.individual.model.NativeCharacterType;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +21,7 @@ import java.util.List;
 
 import static net.sf.anathema.hero.charms.model.options.CharmTreeCategoryImpl.CreateFor;
 
-public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOptions {
+public class CharmOptionsImpl implements Iterable<CharmTreeCategory>, CharmOptions {
 
   private final List<CharmTreeCategory> treeCategories = new ArrayList<>();
   private final CharmsRules charmsRule;
@@ -34,7 +34,7 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     this.hero = hero;
     this.charmsRule = charmsRule;
     this.optionsCheck = new CharmOptionCheckImpl(charmsRule);
-    for(CategoryReference reference : charmProvider.getAllCategories()) {
+    for (CategoryReference reference : charmProvider.getAllCategories()) {
       CharmTreeCategory treeCategory = CreateFor(optionsCheck, charmProvider, reference);
       if (!treeCategory.isEmpty()) {
         treeCategories.add(treeCategory);
@@ -110,12 +110,15 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>,CharmOption
     return charmsRule.isAllowedAlienCharms(concept.getCaste().getType());
   }
 
-	@Override
-	public Collection<CharmSpecialMechanic> getAllMechanics() {
-		List<CharmSpecialMechanic> mechanics = new ArrayList<>();
-		for (Charm mechanicalCharm : charmProvider.getCharmsWithSpecialMechanics()) {
-			mechanics.addAll(charmProvider.getSpecialMechanicsForCharm(mechanicalCharm.getName()));
-		}
-		return mechanics;
-	}
+  public void initSpecialMechanics() {
+    getAllMechanics().forEach(mechanic -> mechanic.initialize(hero));
+  }
+
+  private Collection<CharmSpecialMechanic> getAllMechanics() {
+    List<CharmSpecialMechanic> mechanics = new ArrayList<>();
+    for (Charm mechanicalCharm : charmProvider.getCharmsWithSpecialMechanics()) {
+      mechanics.addAll(charmProvider.getSpecialMechanicsForCharm(mechanicalCharm.getName()));
+    }
+    return mechanics;
+  }
 }

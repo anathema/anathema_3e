@@ -1,12 +1,11 @@
 package net.sf.anathema.hero.charms.model.options;
 
-import net.sf.anathema.magic.data.Charm;
-import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.hero.charms.display.presenter.CharmTreeArbitrator;
 import net.sf.anathema.hero.charms.model.CharmMap;
 import net.sf.anathema.hero.charms.model.CharmTree;
 import net.sf.anathema.hero.charms.model.special.CharmSpecialLearning;
-import net.sf.anathema.hero.charms.model.special.CharmSpecialMechanic;
+import net.sf.anathema.magic.data.Charm;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 
 import java.util.Collection;
 import java.util.List;
@@ -19,8 +18,6 @@ public interface CharmOptions extends CharmTreeArbitrator {
 
   Collection<Charm> filterAvailableCharms(CharmTree tree);
   
-  Collection<CharmSpecialMechanic> getAllMechanics();
-
   boolean isAlienCharmsAllowedForHero();
 
   List<CategoryReference> getValidCategoryReferencesForHero();

@@ -100,15 +100,21 @@ public class CharmsModelImpl implements CharmsModel {
     this.options = new CharmOptionsImpl(environment.getDataSet(CharmCache.class), charmsRules, hero);
     this.manager = new SpecialCharmManager(new CharmSpecialistImpl(hero), hero, this);
     initSpecialLearningCharms();
-    MagicModelFetcher.fetch(hero).addPrintProvider(new PrintCharmsProvider(hero));
     initPoints(hero);
+    initAdditionalRules(environment, hero);
+    initPrint(hero);
+    options.initSpecialMechanics();
+  }
 
+  private void initPrint(Hero hero) {
+    MagicModelFetcher.fetch(hero).addPrintProvider(new PrintCharmsProvider(hero));
+  }
+
+  private void initAdditionalRules(HeroEnvironment environment, Hero hero) {
     Collection<AdditionalCharmRules> additionalRules = environment.getObjectFactory()
-            .instantiateAllImplementers(AdditionalCharmRules.class, this, hero);
+            .instantiateAllImplementers(AdditionalCharmRules.class, hero);
     additionalRules.stream().filter(rules -> template.additionalCharmRules.contains(rules.getId()))
             .forEach(AdditionalCharmRules::initialize);
-
-    options.getAllMechanics().forEach(mechanic -> mechanic.initialize(hero));
   }
 
   private void initPoints(Hero hero) {
