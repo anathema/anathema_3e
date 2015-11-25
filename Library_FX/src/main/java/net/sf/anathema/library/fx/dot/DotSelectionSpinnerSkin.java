@@ -1,6 +1,5 @@
 package net.sf.anathema.library.fx.dot;
 
-import com.sun.javafx.Utils;
 import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -47,7 +46,7 @@ public class DotSelectionSpinnerSkin<T> extends SkinBase<ListSpinner<T>> {
   };
   private final EventHandler<MouseEvent> updateOverlay = event -> {
     Point2D location = new Point2D(event.getSceneX(), event.getSceneY());
-    double overlayWidth = Utils.clamp(0, dotContainer.sceneToLocal(location).getX(), dotContainer.getWidth() - 2);
+    double overlayWidth = clamp(0, dotContainer.sceneToLocal(location).getX(), dotContainer.getWidth() - 2);
     overlay.setVisible(true);
     overlay.setWidth(overlayWidth);
     overlay.setHeight(Dot.SIZE);
@@ -113,9 +112,15 @@ public class DotSelectionSpinnerSkin<T> extends SkinBase<ListSpinner<T>> {
     if (newRating < 0.4) {
       newRating = 0;
     } else {
-      newRating = Utils.clamp(1, Math.ceil(newRating), getMaximumValue());
+      newRating = clamp(1, Math.ceil(newRating), getMaximumValue());
     }
     return newRating;
+  }
+
+  private double clamp(double min, double value, double max) {
+    if (value < min) return min;
+    if (value > max) return max;
+    return value;
   }
 
   private void updateRating() {
@@ -127,7 +132,7 @@ public class DotSelectionSpinnerSkin<T> extends SkinBase<ListSpinner<T>> {
     if (newRating == rating) {
       return;
     }
-    rating = Utils.clamp(0, newRating, getMaximumValue());
+    rating = clamp(0, newRating, getMaximumValue());
     if (!getSkinnable().valueProperty().isBound()) {
       getSkinnable().setValue((T) (Integer) Double.valueOf(rating).intValue());
     }
