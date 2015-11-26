@@ -3,10 +3,11 @@ package net.sf.anathema.platform.fx.updatecheck;
 import de.idos.updates.Version;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
-
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.FxThreading;
@@ -15,11 +16,7 @@ import net.sf.anathema.library.fx.text.FxTextView;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.platform.fx.environment.UiEnvironment;
-
-import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
-
-import static org.controlsfx.dialog.Dialog.Actions.OK;
 
 public class FxUpdateView implements UpdateView {
 
@@ -40,14 +37,14 @@ public class FxUpdateView implements UpdateView {
     this.currentVersionText = currentVersionText;
     this.latestVersionText = latestVersionText;
     this.dialog = uiEnvironment.createDialog(title);
-    dialog.getActions().setAll(OK);
+    dialog.getDialogPane().getButtonTypes().setAll(ButtonType.OK);
     this.changelogDisplay = FxTextView.MultiLine("", 10);
     changelogDisplay.setEnabled(false);
   }
 
   @Override
   public void show() {
-    dialog.setContent(createContent());
+    dialog.getDialogPane().setContent(createContent());
     dialog.show();
   }
 
@@ -66,7 +63,7 @@ public class FxUpdateView implements UpdateView {
 
   @Override
   public void showDescription(String message) {
-    dialog.setMasthead(message);
+    dialog.setHeaderText(message);
   }
 
   //Threading required!

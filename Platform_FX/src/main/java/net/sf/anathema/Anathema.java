@@ -39,7 +39,6 @@ public class Anathema extends Application {
   public void start(Stage stage) throws Exception {
     try {
       displayStatus("Initializing Environment...");
-      uiEnvironment.setStage(stage);
       uiEnvironment.setFileChooser(new FxFileChooser(stage));
       displayStatus("Starting Platform...");
       ApplicationFrame applicationFrame = new GuiInitializer(stage, environment, uiEnvironment, exceptionHandler).initialize().getWindow();

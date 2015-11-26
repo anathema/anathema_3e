@@ -1,13 +1,11 @@
 package net.sf.anathema.platform.fx.repositorytree;
 
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.view.Vetor;
 
-import org.controlsfx.control.action.Action;
-import org.controlsfx.dialog.Dialogs;
-
-import static org.controlsfx.dialog.Dialog.Actions.NO;
-import static org.controlsfx.dialog.Dialog.Actions.YES;
+import java.util.Optional;
 
 public class FxVetor implements Vetor {
   private String title;
@@ -20,8 +18,12 @@ public class FxVetor implements Vetor {
 
   @Override
   public void requestPermissionFor(Command command) {
-    Action action = Dialogs.create().title(title).masthead(null).message(message).actions(YES, NO).showConfirm();
-    if (action == YES) {
+    Dialog<ButtonType> dialog = new Dialog<>();
+    dialog.setTitle(title);
+    dialog.getDialogPane().setContentText(message);
+    dialog.getDialogPane().getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+    Optional<ButtonType> result = dialog.showAndWait();
+    if (result.isPresent() && result.get() == ButtonType.YES) {
       command.execute();
     }
   }

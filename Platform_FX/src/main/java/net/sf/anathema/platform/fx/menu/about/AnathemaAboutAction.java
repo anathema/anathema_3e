@@ -1,10 +1,9 @@
 package net.sf.anathema.platform.fx.menu.about;
 
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.web.WebView;
-
 import net.miginfocom.layout.CC;
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.fx.Stylesheet;
@@ -15,8 +14,6 @@ import net.sf.anathema.library.markdown.HtmlText;
 import net.sf.anathema.library.markdown.WikiText;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
-
-import org.controlsfx.dialog.Dialog;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.io.IOException;
@@ -44,14 +41,14 @@ public class AnathemaAboutAction implements Command {
     showVersion(parent);
     showCopyrightAndLicense(parent);
     showCredits(parent);
-    dialog.setContent(parent);
+    dialog.getDialogPane().setContent(parent);
     dialog.show();
   }
 
   private Dialog initializeDialogStage() {
     String title = resources.getString("Help.AboutDialog.Title");
     Dialog dialog = dialogFactory.createDialog(title);
-    dialog.getActions().addAll(Dialog.Actions.CLOSE);
+    dialog.getDialogPane().getButtonTypes().setAll(ButtonType.CLOSE);
     initCloseOnEscape(dialog);
     return dialog;
   }
@@ -95,6 +92,6 @@ public class AnathemaAboutAction implements Command {
   }
 
   private void initCloseOnEscape(final Dialog dialog) {
-    dialog.getWindow().getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.ESCAPE), dialog::hide);
+    //dialog.getWindow().getScene().getAccelerators().put(new KeyCodeCombination(KeyCode.ESCAPE), dialog::hide);
   }
 }

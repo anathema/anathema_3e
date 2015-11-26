@@ -1,7 +1,8 @@
 package net.sf.anathema.equipment.editor.stats.view.fx;
 
-import javafx.event.ActionEvent;
-
+import javafx.scene.Node;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsDialog;
 import net.sf.anathema.equipment.editor.presenter.EquipmentStatsView;
 import net.sf.anathema.equipment.editor.stats.presenter.dialog.OperationResultHandler;
@@ -9,41 +10,27 @@ import net.sf.anathema.equipment.editor.stats.presenter.dialog.StaticOperationRe
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.platform.fx.environment.DialogFactory;
 
-import org.controlsfx.control.action.AbstractAction;
-import org.controlsfx.dialog.Dialog;
+import java.util.Optional;
 
 public class FxEditStatsDialog implements EquipmentStatsDialog {
-  private final AbstractAction okayAction = new AbstractAction(Dialog.Actions.OK.textProperty().get()){
-    @Override
-    public void handle(ActionEvent actionEvent) {
-      dialog.hide();
-      handler.handleOperationResult(StaticOperationResult.Confirmed());
-    }
-  };
-  private final AbstractAction cancelAction = new AbstractAction(Dialog.Actions.CANCEL.textProperty().get()){
-    @Override
-    public void handle(ActionEvent actionEvent) {
-      dialog.hide();
-      handler.handleOperationResult(StaticOperationResult.Canceled());
-    }
-  };
   private final FxEquipmentStatsView view = new FxEquipmentStatsView();
-  private Dialog dialog;
+  private Dialog<ButtonType> dialog;
   private String title;
-  private OperationResultHandler handler;
   private String messageText;
-  private DialogFactory dialogFactory;
 
   public FxEditStatsDialog(DialogFactory dialogFactory) {
-    this.dialogFactory = dialogFactory;
+    this.dialog = dialogFactory.createDialog(title);
+    dialog.getDialogPane().getButtonTypes().setAll(ButtonType.OK, ButtonType.CANCEL);
   }
 
   public void setCanFinish() {
-    okayAction.disabledProperty().setValue(false);
+    Node button = dialog.getDialogPane().lookupButton(ButtonType.OK);
+    button.setDisable(false);
   }
 
   public void setCannotFinish() {
-    okayAction.disabledProperty().setValue(true);
+    Node button = dialog.getDialogPane().lookupButton(ButtonType.OK);
+    button.setDisable(true);
   }
 
   @Override
@@ -58,12 +45,16 @@ public class FxEditStatsDialog implements EquipmentStatsDialog {
 
   @Override
   public void show(OperationResultHandler handler) {
-    this.handler = handler;
-    this.dialog = dialogFactory.createDialog(title);
-    dialog.setMasthead(messageText);
-    dialog.setContent(view.getNode());
-    dialog.getActions().setAll(okayAction, cancelAction);
-    dialog.show();
+    dialog.setHeaderText(messageText);
+    dialog.getDialogPane().setContent(view.getNode());
+    Optional<ButtonType> result = dialog.showAndWait();
+    dialog.hide();
+    if (result.isPresent() && result.get() == ButtonType.OK) {
+      handler.handleOperationResult(StaticOperationResult.Confirmed());
+    }
+    else {
+      handler.handleOperationResult(StaticOperationResult.Canceled());
+    }
   }
 
   @Override

@@ -1,13 +1,16 @@
 package net.sf.anathema.platform.fx.exception;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.stage.Window;
-
 import net.sf.anathema.library.exception.ExceptionHandler;
 import net.sf.anathema.library.resources.Resources;
 
-import org.controlsfx.dialog.Dialogs;
-
-import static org.controlsfx.dialog.DialogStyle.NATIVE;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 
 public class FxDialogExceptionHandler implements ExceptionHandler {
 
@@ -42,17 +45,43 @@ public class FxDialogExceptionHandler implements ExceptionHandler {
   @SuppressWarnings("UnusedParameters")
   protected void indicateError(final Throwable throwable, final String message) {
     String title = getString("CentralExceptionHandling.ErrorOccured.Title");
-    createDialog(title, message).showException(throwable);
+    showDialog(title, message, throwable);
     System.exit(0);
   }
 
-  private Dialogs createDialog(String title, String message) {
-    return Dialogs.create().owner(stage).style(NATIVE).masthead(message).title(title);
+  private void showDialog(String title, String message, Throwable throwable) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle(title);
+    alert.setHeaderText(title);
+    alert.setContentText(message);
+    StringWriter stringWriter = new StringWriter();
+    PrintWriter printwriter = new PrintWriter(stringWriter);
+    throwable.printStackTrace(printwriter);
+    String exceptionText = stringWriter.toString();
+
+    Label label = new Label("The exception stacktrace was:");
+
+    TextArea textArea = new TextArea(exceptionText);
+    textArea.setEditable(false);
+    textArea.setWrapText(true);
+
+    textArea.setMaxWidth(Double.MAX_VALUE);
+    textArea.setMaxHeight(Double.MAX_VALUE);
+    GridPane.setVgrow(textArea, Priority.ALWAYS);
+    GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+    GridPane expContent = new GridPane();
+    expContent.setMaxWidth(Double.MAX_VALUE);
+    expContent.add(label, 0, 0);
+    expContent.add(textArea, 0, 1);
+
+    alert.getDialogPane().setExpandableContent(expContent);
+    alert.showAndWait();
   }
 
   protected void indicateException(final Exception exception, final String message) {
     String title = getString("CentralExceptionHandling.ExceptionOccured.Title");
-    createDialog(title, message).showException(exception);
+    showDialog(title, message, exception);
   }
 
   private String getString(String resourceKey) {

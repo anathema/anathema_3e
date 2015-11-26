@@ -2,18 +2,15 @@ package net.sf.anathema.platform.fx.messaging;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
 import net.miginfocom.layout.LC;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.message.Message;
 import net.sf.anathema.platform.messaging.StatusBar;
-
 import org.controlsfx.control.NotificationPane;
 import org.controlsfx.control.PopOver;
-import org.controlsfx.control.action.AbstractAction;
+import org.controlsfx.control.action.Action;
 import org.tbee.javafx.scene.layout.MigPane;
 
 import java.util.Collection;
@@ -45,12 +42,7 @@ public class PopInStatusBar implements StatusBar {
 
   @Override
   public void whenAllMessagesAreRequested(Command command) {
-    pane.getActions().add(new AbstractAction("Show all") {
-      @Override
-      public void handle(ActionEvent actionEvent) {
-        command.execute();
-      }
-    });
+    pane.getActions().add(new Action("Show all", actionEvent -> command.execute()));
   }
 
   @Override

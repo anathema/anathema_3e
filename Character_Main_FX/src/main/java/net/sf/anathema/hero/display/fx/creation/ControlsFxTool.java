@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.display.fx.creation;
 
+import javafx.event.ActionEvent;
 import javafx.scene.image.ImageView;
 
 import net.sf.anathema.library.fx.tool.ImageContainer;
@@ -11,6 +12,8 @@ import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.RelativePath;
 
 import org.controlsfx.control.action.Action;
+
+import java.util.function.Consumer;
 
 public class ControlsFxTool implements Tool {
   private ConfigurableControlsFxAction action = new ConfigurableControlsFxAction("");

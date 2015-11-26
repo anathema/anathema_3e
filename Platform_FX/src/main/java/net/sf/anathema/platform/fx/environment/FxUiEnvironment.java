@@ -1,7 +1,6 @@
 package net.sf.anathema.platform.fx.environment;
 
-import javafx.stage.Stage;
-
+import javafx.scene.control.Dialog;
 import net.sf.anathema.library.interaction.AcceleratorMap;
 import net.sf.anathema.library.interaction.ProxyAcceleratorMap;
 import net.sf.anathema.library.interaction.model.Command;
@@ -11,17 +10,12 @@ import net.sf.anathema.library.io.FileExtension;
 import net.sf.anathema.library.io.SingleFileChooser;
 import net.sf.anathema.platform.fx.initialization.ProxyFileChooser;
 
-import org.controlsfx.dialog.Dialog;
-
 import java.nio.file.Path;
-
-import static org.controlsfx.dialog.DialogStyle.NATIVE;
 
 public class FxUiEnvironment implements UiEnvironment {
 
   private final ProxyFileChooser chooser = new ProxyFileChooser();
   private final ProxyAcceleratorMap map = new ProxyAcceleratorMap();
-  private Stage stage;
 
   @Override
   public void register(Hotkey hotkey, Command command) {
@@ -46,12 +40,10 @@ public class FxUiEnvironment implements UiEnvironment {
     this.map.setActualMap(map);
   }
 
-  public void setStage(Stage stage) {
-    this.stage = stage;
-  }
-
   @Override
   public Dialog createDialog(String title) {
-    return new Dialog(stage, title, false, NATIVE);
+    Dialog dialog = new Dialog();
+    dialog.setTitle(title);
+    return dialog;
   }
 }

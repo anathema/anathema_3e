@@ -1,7 +1,8 @@
 package net.sf.anathema.platform.fx.repositorytree;
 
 import javafx.scene.Node;
-
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import net.sf.anathema.library.interaction.model.Command;
 import net.sf.anathema.library.message.Messaging;
 import net.sf.anathema.platform.environment.Environment;
@@ -17,8 +18,6 @@ import net.sf.anathema.platform.repositorytree.RepositoryMessagingPresenter;
 import net.sf.anathema.platform.repositorytree.RepositoryTreeModel;
 import net.sf.anathema.platform.repositorytree.RepositoryTreePresenter;
 
-import org.controlsfx.dialog.Dialog;
-
 public class RepositoryViewAction implements Command {
   private final ApplicationModel model;
   private final Environment environment;
@@ -33,9 +32,9 @@ public class RepositoryViewAction implements Command {
   @Override
   public void execute() {
     Dialog dialog = uiEnvironment.createDialog(getTitle());
-    dialog.setMasthead(createCurrentMessage());
-    dialog.getActions().setAll(Dialog.Actions.OK);
-    dialog.setContent(createContent());
+    dialog.setHeaderText(createCurrentMessage());
+    dialog.getDialogPane().getButtonTypes().setAll(ButtonType.OK);
+    dialog.getDialogPane().setContent(createContent());
     dialog.show();
   }
 

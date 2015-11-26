@@ -1,7 +1,8 @@
 package net.sf.anathema.platform.fx.environment;
 
-import org.controlsfx.dialog.Dialog;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 
 public interface DialogFactory {
-  Dialog createDialog(String title);
+  Dialog<ButtonType> createDialog(String title);
 }
