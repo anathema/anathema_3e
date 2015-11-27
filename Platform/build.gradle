@@ -1,9 +1,9 @@
 dependencies {
-    compile('org.reflections:reflections:0.9.9-RC2'){
+    compile('org.reflections:reflections:0.9.10'){
         exclude group:'dom4j'
     }
     compile 'org.javassist:javassist:3.18.2-GA' //for Reflections
-    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.code.gson:gson:2.5'
     compile 'de.idos.updates:updates-core:1.2.0'
     compile project(':Library')
     testCompile testDependencies
