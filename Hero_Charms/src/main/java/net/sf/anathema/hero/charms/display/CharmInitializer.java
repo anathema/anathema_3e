@@ -8,6 +8,7 @@ import net.sf.anathema.hero.charms.display.presenter.CharmDisplayPropertiesMap;
 import net.sf.anathema.hero.charms.display.tree.CharacterCharmTreePresenter;
 import net.sf.anathema.hero.charms.display.view.CharmView;
 import net.sf.anathema.hero.charms.model.CharmMap;
+import net.sf.anathema.hero.charms.model.CharmsModel;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -49,7 +50,8 @@ public class CharmInitializer implements HeroModelInitializer {
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    return CharmsModelFetcher.fetch(hero) != null;
+    CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
+    return charmsModel != CharmsModelFetcher.NO_MODEL && charmsModel.getOptions().isAllowedAnyCharms();
   }
 
   private CharmMap getCharmIdMap() {

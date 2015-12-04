@@ -65,7 +65,7 @@ public class MartialArtsModelImpl implements MartialArtsModel {
     for (Trait availableStyle : availableStyles) {
       availableStyle.addCurrentValueListener(newValue -> updateMartialArtsRating());
     }
-    selectStyle(availableStyles.get(0));
+    availableStyles.stream().findFirst().ifPresent(this::selectStyle);
     if (AbilitiesPointModelFetcher.isActive(hero)) {
       AbilitiesPointModelFetcher.fetch(hero).add(new MartialArtsTraitHolder(this, AbilitiesModelFetcher.fetch(hero)));
     }
@@ -120,12 +120,14 @@ public class MartialArtsModelImpl implements MartialArtsModel {
   private void extractAvailableStyles() {
     TraitModel traitModel = TraitModelFetcher.fetch(hero);
     CharmsModel charmsModel = CharmsModelFetcher.fetch(hero);
-    Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
-    for (CharmTree charmTree : martialArtsTrees) {
-      String treeId = charmTree.getReference().name.text;
-      TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(treeId), new TraitTemplate(), hero));
-      availableStyles.add(style);
-      traitModel.addTraits(style);
+    if (charmsModel != CharmsModelFetcher.NO_MODEL) {
+      Collection<CharmTree> martialArtsTrees = charmsModel.getTreesFor(new CategoryReference("MartialArts"));
+      for (CharmTree charmTree : martialArtsTrees) {
+        String treeId = charmTree.getReference().name.text;
+        TraitImpl style = new TraitImpl(hero, new TraitRulesImpl(new TraitType(treeId), new TraitTemplate(), hero));
+        availableStyles.add(style);
+        traitModel.addTraits(style);
+      }
     }
   }
 

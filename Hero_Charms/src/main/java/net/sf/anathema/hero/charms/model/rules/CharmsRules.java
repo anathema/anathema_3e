@@ -15,4 +15,7 @@ public interface CharmsRules {
   boolean isAlienCategory(CategoryReference category);
 
   List<CategoryReference> getNativeCategories();
+
+  /** Whether there are any charms the splat could conceivably learn, given appropriate selected options (such as caste). */
+  boolean isAllowedAnyCharms();
 }

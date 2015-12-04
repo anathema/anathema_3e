@@ -1,5 +1,6 @@
 package net.sf.anathema.hero.martial.display;
 
+import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.charms.model.CharmsModelFetcher;
 import net.sf.anathema.hero.environment.HeroEnvironment;
 import net.sf.anathema.hero.individual.model.Hero;
@@ -31,7 +32,6 @@ public class MartialArtsInitializer implements HeroModelInitializer {
 
   @Override
   public boolean canWorkForHero(Hero hero) {
-    //TODO (Urs): Martial Arts for Mortals
-    return CharmsModelFetcher.fetch(hero) != null;
+    return AbilitiesModelFetcher.fetch(hero) != null; // we are dependent on the AbilitiesModel to store the "central" Martial Arts trait
   }
 }

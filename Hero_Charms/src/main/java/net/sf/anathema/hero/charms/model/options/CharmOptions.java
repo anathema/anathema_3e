@@ -21,4 +21,7 @@ public interface CharmOptions extends CharmTreeArbitrator {
   boolean isAlienCharmsAllowedForHero();
 
   List<CategoryReference> getValidCategoryReferencesForHero();
+
+  /** Whether there are any charms the splat could conceivably learn, given appropriate selected options (such as caste). */
+  boolean isAllowedAnyCharms();
 }
