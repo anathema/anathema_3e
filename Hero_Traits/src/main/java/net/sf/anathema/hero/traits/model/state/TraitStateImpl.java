@@ -95,7 +95,7 @@ public class TraitStateImpl implements TraitState {
     return !state.equals(Default);
   }
 
-  private void changeStateTo(TraitStateType state) {
+  protected void changeStateTo(TraitStateType state) {
     state = requiredState.overrideStateIfNecessary(state);
     if (isLegalState(state)) {
       this.currentState = state;
@@ -117,5 +117,10 @@ public class TraitStateImpl implements TraitState {
         changeStateTo(Default);
       }
     }
+  }
+
+  @Override
+  public boolean countsTowardsLimitsOn(TraitStateType type) {
+    return true;
   }
 }

@@ -83,7 +83,7 @@ public class StatedTraitModelPresenter {
 
   private ExtensibleDotView createTraitView(Trait favorableTrait) {
     String traitName = resources.getString(favorableTrait.getType().getId());
-    ExtensibleDotView traitView = view.addExtensibleTraitView(traitName, favorableTrait.getMaximalValue());
+    ExtensibleDotView traitView = view.addExtensibleTraitView(traitName, favorableTrait.getMaximalValue(), favorableTrait.isDerived());
     new TraitPresenter(favorableTrait, traitView.getIntValueView()).initPresentation();
     return traitView;
   }

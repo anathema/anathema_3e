@@ -1,5 +1,9 @@
 package net.sf.anathema.hero.traits.model;
 
+import net.sf.anathema.hero.traits.model.state.RequiredTraitState;
+import net.sf.anathema.hero.traits.model.state.RequiredFavored;
+import net.sf.anathema.hero.traits.model.state.NoRequiredState;
+
 public interface TraitRules {
 
   int UNEXPERIENCED = -1;

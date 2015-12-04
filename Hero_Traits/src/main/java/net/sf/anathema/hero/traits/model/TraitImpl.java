@@ -2,6 +2,7 @@ package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.event.IntegerChangedListener;
 
 import org.jmock.example.announcer.Announcer;
@@ -166,5 +167,10 @@ public class TraitImpl implements Trait {
   @Override
   public int hashCode() {
     return getType().getId().hashCode();
+  }
+
+  @Override // TODO: should this be configurable somewhere?
+  public boolean isDerived() {
+    return getType().equals(CommonTraitTypes.MartialArts);
   }
 }

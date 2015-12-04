@@ -38,4 +38,9 @@ public class NullTraitState implements TraitState {
   public boolean isSelectableForState(TraitStateType type) {
     return false;
   }
+
+  @Override
+  public boolean countsTowardsLimitsOn(TraitStateType type) {
+    return false;
+  }
 }

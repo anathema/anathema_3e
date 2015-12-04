@@ -2,6 +2,7 @@ package net.sf.anathema.hero.abilities.model;
 
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
 import net.sf.anathema.hero.traits.model.state.TraitState;
+import net.sf.anathema.hero.traits.model.state.TraitStateMap;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.Map;
@@ -22,7 +23,8 @@ public class StatePickIncrementChecker implements MappableTypeIncrementChecker<T
     if (limit == null) {
     	return true;
     }
-    Count<TraitState> countCountsAs = new Count<>(model -> model.getType().countsAs(state));
+    
+    Count<TraitState> countCountsAs = new Count<>(model -> model.getType().countsAs(state) && model.countsTowardsLimitsOn(state));
     stateCollection.forEach(countCountsAs);
     return countCountsAs.count + increment <= limit;
   }

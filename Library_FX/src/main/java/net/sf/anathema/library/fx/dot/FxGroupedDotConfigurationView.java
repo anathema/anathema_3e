@@ -22,8 +22,8 @@ public class FxGroupedDotConfigurationView implements GroupedStatedDotsView, Nod
   }
 
   @Override
-  public ExtensibleDotView addExtensibleTraitView(String string, int maximalValue) {
-    return groupedView.addExtensibleTraitView(string, maximalValue);
+  public ExtensibleDotView addExtensibleTraitView(String string, int maximalValue, boolean derived) {
+    return groupedView.addExtensibleTraitView(string, maximalValue, derived);
   }
 
   @Override

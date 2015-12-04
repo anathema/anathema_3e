@@ -25,7 +25,7 @@ public class MartialArtsTraitHolder implements PointCalculationTraitHolder {
 
   @Override
   public TraitState getState(Trait trait) {
-    return states.getState(CommonTraitTypes.Brawl);
+    return states.getState(CommonTraitTypes.MartialArts);
   }
 
   @Override
