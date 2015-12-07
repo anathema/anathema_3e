@@ -12,7 +12,7 @@
             "keywords": [], 
             "minimums": {
                 "Essence": 1, 
-                "Martial Arts": 1
+                "MartialArts": 1
             }, 
             "prerequisites": [], 
             "type": "Reflexive"

@@ -8,7 +8,8 @@ import java.util.function.Consumer;
 
 public interface PrerequisiteList {
 
-  RequiredTraitType getPrimaryTraitType();
+  /** Gets the largest non-essenced required trait type, or Essence if there are none. */
+  RequiredTraitType getPrimaryRequiredTraitType();
 
   void forEachTraitPrerequisite(Consumer<TraitPrerequisite> consumer);
 

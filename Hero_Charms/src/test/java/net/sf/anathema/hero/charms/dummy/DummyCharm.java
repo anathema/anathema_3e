@@ -13,6 +13,7 @@ import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.magic.data.reference.TreeName;
 import net.sf.anathema.magic.data.reference.TreeReference;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.library.identifier.SimpleIdentifier;
 import net.sf.anathema.magic.data.attribute.MagicAttribute;
@@ -79,7 +80,7 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
 
   @Override
   public RequiredTraitType getPrimaryTraitType() {
-    return traitPrerequisites.get(0).type;
+    return getPrimaryRequiredTraitType();
   }
 
   @Override
@@ -144,5 +145,10 @@ public class DummyCharm extends SimpleIdentifier implements Charm, PrerequisiteL
   @Override
   public Iterable<MagicAttribute> getAttributes() {
     return attributes;
+  }
+
+  @Override
+  public RequiredTraitType getPrimaryRequiredTraitType() {
+    return traitPrerequisites.get(0).type;
   }
 }

@@ -4,6 +4,7 @@ import net.sf.anathema.magic.data.PrerequisiteList;
 import net.sf.anathema.magic.data.prerequisite.CharmPrerequisite;
 import net.sf.anathema.magic.data.prerequisite.RequiredTraitType;
 import net.sf.anathema.magic.data.prerequisite.TraitPrerequisite;
+import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.magic.template.CharmTemplate;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   private final List<CharmPrerequisite> charmPrerequisites = new ArrayList<>();
   private final List<TraitPrerequisite> traitPrerequisites = new ArrayList<>();
 
-  public PrerequisiteListImpl(CharmTemplate template) {
+  public PrerequisiteListImpl(CategoryReference reference, CharmTemplate template) {
     template.minimums.forEach((type, value) -> traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(type), value)));
     if (!template.minimums.containsKey(ESSENCE_ID)) {
       traitPrerequisites.add(new TraitPrerequisite(new RequiredTraitType(ESSENCE_ID), 1));
@@ -27,7 +28,7 @@ public class PrerequisiteListImpl implements PrerequisiteList {
   }
 
   @Override
-  public RequiredTraitType getPrimaryTraitType() {
+  public RequiredTraitType getPrimaryRequiredTraitType() {
     return traitPrerequisites.get(0).type;
   }
 

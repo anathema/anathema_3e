@@ -11,7 +11,7 @@ public class TraitTypeUtils {
   }
 
   public TraitType getPrimaryTraitType(Charm charm) {
-    RequiredTraitType primaryTraitType = charm.getPrerequisites().getPrimaryTraitType();
+    RequiredTraitType primaryTraitType = charm.getPrimaryTraitType();
     return new TraitType(primaryTraitType.type);
   }
 }

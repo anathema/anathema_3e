@@ -133,7 +133,7 @@ public class AttributePrerequisiteSatisfiedTest {
 				Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
 				
 				for (Charm charm : charms) {
-					RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
+					RequiredTraitType group = charm.getPrimaryTraitType();
 					Integer currentCount = groupCounts.get(group);
 					if (currentCount == null) {
 						currentCount = 0;

@@ -326,16 +326,16 @@ public class CharmsModelImpl implements CharmsModel {
       if (category != null && !category.equals(charm.getTreeReference().category)) {
         return false;
       }
-      return requiredTraits.contains(new TraitType(charm.getPrerequisites().getPrimaryTraitType().type));
+      return requiredTraits.contains(new TraitType(charm.getPrimaryTraitType().type));
     });
   }
 
   @Override
-  public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) {
+  public boolean hasLearnedThresholdCharmsOfAnyOneTrait(int threshold) { //TODO: is good with non-singular primary
     Map<RequiredTraitType, Integer> groupCounts = new HashMap<>();
 
     for (Charm charm : getLearningModel().getCurrentlyLearnedCharms()) {
-      RequiredTraitType group = charm.getPrerequisites().getPrimaryTraitType();
+      RequiredTraitType group = charm.getPrimaryTraitType();
       Integer currentCount = groupCounts.get(group);
       if (currentCount == null) {
         currentCount = 0;
