@@ -30,6 +30,13 @@ public class DefaultExperiencePointConfiguration implements ExperiencePoints {
     fireChangeEvent();
     return newEntry;
   }
+  
+  @Override
+  public ExperiencePointEntry addEntry(ExperiencePointEntry entry) {
+	entries.add(entry);
+	fireChangeEvent();
+	return entry;
+  }
 
   private ExperiencePointEntry addEntryWithoutEvent() {
     ExperiencePointEntry newEntry = new DefaultExperiencePointEntry();

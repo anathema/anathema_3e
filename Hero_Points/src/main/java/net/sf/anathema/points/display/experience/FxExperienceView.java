@@ -15,6 +15,7 @@ import net.sf.anathema.library.fx.NodeHolder;
 import net.sf.anathema.library.fx.layout.LayoutUtils;
 import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 
@@ -30,9 +31,10 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
   private final Announcer<ExperienceSelectionListener> entryAnnouncer = new Announcer<>(ExperienceSelectionListener.class);
   private final MigPane buttonPanel = new MigPane();
   private final Label totalLabel = new Label();
+  private Resources resources;
 
   @Override
-  public void initGui(ExperienceViewProperties properties) {
+  public void initGui(ExperienceViewProperties properties, Resources resources) {
     TableColumn<ExperiencePointEntry, String> pointsColumn = createPointsColumn(properties);
     TableColumn<ExperiencePointEntry, String> descriptionColumn = createDescriptionColumn(properties);
     table.setEditable(true);
@@ -42,6 +44,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
     content.add(buttonPanel);
     content.add(table, new CC().push().grow().span());
     content.add(totalPanel, new CC().pushX().growX().spanX());
+    this.resources = resources;
   }
 
   @Override
@@ -127,7 +130,11 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
     TableColumn<ExperiencePointEntry, String> descriptionColumn = new TableColumn<>(properties.getDescriptionHeader());
     descriptionColumn.prefWidthProperty().bind(table.widthProperty().multiply(3).divide(4).subtract(5));
     Callback<TableColumn<ExperiencePointEntry, String>, TableCell<ExperiencePointEntry, String>> cellCallback = TextFieldTableCell.forTableColumn();
-    descriptionColumn.setCellValueFactory(features -> new SimpleStringProperty(features.getValue().getTextualDescription().getText()));
+    descriptionColumn.setCellValueFactory(features -> 
+    {
+    	features.getValue().initializePresentation(resources);
+    	return new SimpleStringProperty(features.getValue().getTextualDescription().getText());
+    });
     descriptionColumn.setCellFactory(cellCallback);
     descriptionColumn.setOnEditCommit(
             event -> {

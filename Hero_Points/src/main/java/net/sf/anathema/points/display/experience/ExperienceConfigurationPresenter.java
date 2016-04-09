@@ -25,7 +25,7 @@ public class ExperienceConfigurationPresenter {
     configureRemoveTool();
     experiencePoints.addExperiencePointConfigurationListener(this::refreshEntriesInView);
     experiencePoints.addEntrySelectionListener(this::updateSelectionInView);
-    experienceView.initGui(new DefaultExperienceProperties(resources));
+    experienceView.initGui(new DefaultExperienceProperties(resources), resources);
     refreshEntriesInView();
     experienceView.addUpdateListener((points, description) -> experiencePoints.updateCurrentSelection(description, points));
     updateTotal();

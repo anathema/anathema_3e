@@ -1,5 +1,6 @@
 package net.sf.anathema.points.model;
 
+import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.library.text.ITextualDescription;
 import net.sf.anathema.library.text.SimpleTextualDescription;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
@@ -26,4 +27,14 @@ public class DefaultExperiencePointEntry implements ExperiencePointEntry {
   public ITextualDescription getTextualDescription() {
     return description;
   }
+
+	@Override
+	public boolean allowModification() {
+		return true;
+	}
+
+	@Override
+	public void initializePresentation(Resources resources) {
+		// nothing to do
+	}
 }

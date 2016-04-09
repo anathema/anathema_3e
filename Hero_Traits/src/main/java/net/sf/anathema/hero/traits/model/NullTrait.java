@@ -1,6 +1,7 @@
 package net.sf.anathema.hero.traits.model;
 
 import net.sf.anathema.library.event.IntegerChangedListener;
+import net.sf.anathema.library.event.IntegerChangingListener;
 
 public class NullTrait implements Trait {
   @Override
@@ -62,11 +63,21 @@ public class NullTrait implements Trait {
   public void addCurrentValueListener(IntegerChangedListener listener) {
     //nothing to do
   }
+  
+  @Override
+	public void addChangingValueListener(IntegerChangingListener listener) {
+    //nothing to do
+	}
 
   @Override
   public void removeCurrentValueListener(IntegerChangedListener listener) {
     //nothing to do
   }
+
+	@Override
+	public void removeChangingValueListener(IntegerChangingListener listener) {
+	  //nothing to do
+	}
 
   @Override
   public int getModifiedMaximalValue() {

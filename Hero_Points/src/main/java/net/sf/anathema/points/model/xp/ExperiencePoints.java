@@ -5,6 +5,8 @@ import java.util.Collection;
 public interface ExperiencePoints {
 
   Collection<ExperiencePointEntry> getAllEntries();
+  
+  ExperiencePointEntry addEntry(ExperiencePointEntry entry);
 
   ExperiencePointEntry addEntry();
 

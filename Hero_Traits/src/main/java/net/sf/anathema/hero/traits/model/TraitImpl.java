@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.model;
 import net.sf.anathema.hero.individual.model.Hero;
 import net.sf.anathema.hero.traits.model.rules.minimum.DynamicMinimum;
 import net.sf.anathema.library.event.IntegerChangedListener;
+import net.sf.anathema.library.event.IntegerChangingListener;
 
 import org.jmock.example.announcer.Announcer;
 
@@ -16,6 +17,7 @@ public class TraitImpl implements Trait {
   private final TraitRules traitRules;
   private final Announcer<IntegerChangedListener> creationPointControl = Announcer.to(IntegerChangedListener.class);
   private final Announcer<IntegerChangedListener> currentValueControl = Announcer.to(IntegerChangedListener.class);
+  private final Announcer<IntegerChangingListener> changingValueControl = Announcer.to(IntegerChangingListener.class);
   private final TraitValueStrategy valueStrategy;
 
   public TraitImpl(Hero hero, TraitRules traitRules) {
@@ -39,9 +41,12 @@ public class TraitImpl implements Trait {
     if (this.creationValue == correctedValue) {
       return;
     }
+    int initialValue = this.getCurrentValue();
     this.creationValue = correctedValue;
     creationPointControl.announce().valueChanged(this.creationValue);
+    valueStrategy.notifyOnCreationValueChanging(initialValue, getCurrentValue(), changingValueControl);
     valueStrategy.notifyOnCreationValueChange(getCurrentValue(), currentValueControl);
+    
   }
 
   @Override
@@ -49,8 +54,10 @@ public class TraitImpl implements Trait {
     if (this.creationValue == value) {
       return;
     }
+    int initialValue = getCurrentValue();
     this.creationValue = value;
     creationPointControl.announce().valueChanged(this.creationValue);
+    valueStrategy.notifyOnCreationValueChanging(initialValue, getCurrentValue(), changingValueControl);
     valueStrategy.notifyOnCreationValueChange(getCurrentValue(), currentValueControl);
   }
 
@@ -95,7 +102,9 @@ public class TraitImpl implements Trait {
     if (correctedValue == experiencedValue) {
       return;
     }
+    int initialValue = getCurrentValue();
     this.experiencedValue = correctedValue;
+    valueStrategy.notifyOnLearnedValueChanging(initialValue, getCurrentValue(), changingValueControl);
     valueStrategy.notifyOnLearnedValueChange(getCurrentValue(), currentValueControl);
   }
 
@@ -104,7 +113,9 @@ public class TraitImpl implements Trait {
     if (value == experiencedValue) {
       return;
     }
+    int initialValue = getCurrentValue();
     this.experiencedValue = value;
+    valueStrategy.notifyOnLearnedValueChanging(initialValue, getCurrentValue(), changingValueControl);
     valueStrategy.notifyOnLearnedValueChange(getCurrentValue(), currentValueControl);
   }
 
@@ -161,6 +172,16 @@ public class TraitImpl implements Trait {
   @Override
   public void removeCurrentValueListener(IntegerChangedListener listener) {
     currentValueControl.removeListener(listener);
+  }
+  
+  @Override
+  public void addChangingValueListener(IntegerChangingListener listener) {
+    changingValueControl.addListener(listener);
+  }
+
+  @Override
+  public void removeChangingValueListener(IntegerChangingListener listener) {
+    changingValueControl.removeListener(listener);
   }
 
   @Override

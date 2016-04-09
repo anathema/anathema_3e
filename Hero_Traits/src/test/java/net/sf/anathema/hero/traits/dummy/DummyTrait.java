@@ -3,6 +3,7 @@ package net.sf.anathema.hero.traits.dummy;
 import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.library.event.IntegerChangedListener;
+import net.sf.anathema.library.event.IntegerChangingListener;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -70,11 +71,21 @@ public class DummyTrait implements Trait {
   public void addCurrentValueListener(IntegerChangedListener listener) {
     //not yet implemented
   }
+  
+  @Override
+	public void addChangingValueListener(IntegerChangingListener listener) {
+    //not yet implemented
+	}
 
   @Override
   public void removeCurrentValueListener(IntegerChangedListener listener) {
     //not yet implemented
   }
+
+	@Override
+	public void removeChangingValueListener(IntegerChangingListener listener) {
+	  //not yet implemented
+	}
 
   @Override
   public int getMaximalValue() {
