@@ -133,6 +133,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
     descriptionColumn.setCellValueFactory(features -> 
     {
     	features.getValue().initializePresentation(resources);
+    	features.getTableView().setEditable(features.getValue().allowModification());
     	return new SimpleStringProperty(features.getValue().getTextualDescription().getText());
     });
     descriptionColumn.setCellFactory(cellCallback);
