@@ -30,7 +30,7 @@ public abstract class TraitExperienceEntry implements ExperiencePointEntry {
 	
 	@Override
 	public int getExperiencePoints() {
-		return TraitRatingCostCalculator.getTraitRatingCost(ratingCost, initialLevel, targetLevel);
+		return -TraitRatingCostCalculator.getTraitRatingCost(ratingCost, initialLevel, targetLevel);
 	}
 
 	@Override
