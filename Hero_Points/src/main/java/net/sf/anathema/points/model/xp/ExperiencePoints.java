@@ -11,6 +11,8 @@ public interface ExperiencePoints {
   ExperiencePointEntry addEntry();
 
   void removeEntry();
+  
+  void rollBackEntry();
 
   int getTotalExperiencePoints();
 

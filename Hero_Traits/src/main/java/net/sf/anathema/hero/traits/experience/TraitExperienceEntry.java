@@ -57,5 +57,10 @@ public abstract class TraitExperienceEntry implements ExperiencePointEntry {
 	public boolean allowModification() {
 		return false;
 	}
+	
+	@Override
+	public void rollBack() {
+		trait.setExperiencedValue(initialLevel);
+	}
 
 }

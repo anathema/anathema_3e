@@ -11,7 +11,9 @@ public interface ExperiencePointEntry {
 
   ITextualDescription getTextualDescription();
   
+  void initializePresentation(Resources resources);
+  
   boolean allowModification();
   
-  void initializePresentation(Resources resources);
+  void rollBack();
 }

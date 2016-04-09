@@ -50,6 +50,15 @@ public class DefaultExperiencePointConfiguration implements ExperiencePoints {
     fireChangeEvent();
     selectForChange(NO_ENTRY);
   }
+  
+  @Override
+  public void rollBackEntry() {
+  	ExperiencePointEntry entry = entries.get(entries.size() - 1);
+  	entry.rollBack();
+    entries.remove(entry);
+    fireChangeEvent();
+    selectForChange(NO_ENTRY);
+  }
 
   private void fireChangeEvent() {
     control.announce().entriesAddedRemovedOrChanged();

@@ -41,7 +41,7 @@ public class ExperienceConfigurationPresenter {
   private void configureRemoveTool() {
     final Tool tool = experienceView.addTool();
     tool.setIcon(new BasicUi().getRemoveIconPath());
-    tool.setCommand(experiencePoints::removeEntry);
+    tool.setCommand(experiencePoints::rollBackEntry);
     experiencePoints.addEntrySelectionListener(entry -> {
       if (entry != null) {
         tool.enable();

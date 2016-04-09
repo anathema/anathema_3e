@@ -27,6 +27,11 @@ public class DefaultExperiencePointEntry implements ExperiencePointEntry {
   public ITextualDescription getTextualDescription() {
     return description;
   }
+  
+  @Override
+	public void initializePresentation(Resources resources) {
+    // nothing to do
+  }
 
 	@Override
 	public boolean allowModification() {
@@ -34,7 +39,7 @@ public class DefaultExperiencePointEntry implements ExperiencePointEntry {
 	}
 
 	@Override
-	public void initializePresentation(Resources resources) {
+	public void rollBack() {
 		// nothing to do
 	}
 }
