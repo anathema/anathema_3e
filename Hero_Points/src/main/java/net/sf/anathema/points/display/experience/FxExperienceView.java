@@ -120,7 +120,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
         return cell;
       }
     };
-    pointColumn.setCellValueFactory(features -> new SimpleStringProperty(String.valueOf(features.getValue().getExperiencePointsCosted())));
+    pointColumn.setCellValueFactory(features -> new SimpleStringProperty(String.valueOf(features.getValue().getExperiencePointsCosted().get(type))));
     pointColumn.setCellFactory(styledEditableCell);
     pointColumn.setOnEditCommit(
             event -> {
