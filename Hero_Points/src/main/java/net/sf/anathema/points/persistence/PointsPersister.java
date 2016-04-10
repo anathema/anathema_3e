@@ -44,7 +44,7 @@ public class PointsPersister extends AbstractModelJsonPersister<PointsPto, Point
   private ExperiencePointsEntryPto createExperiencePointsPto(ExperiencePointEntry entry) {
     ExperiencePointsEntryPto pointsPto = new ExperiencePointsEntryPto();
     pointsPto.description = entry.getTextualDescription().getText();
-    pointsPto.points = entry.getExperiencePoints();
+    pointsPto.points = entry.getExperiencePointsCosted();
     return pointsPto;
   }
 }

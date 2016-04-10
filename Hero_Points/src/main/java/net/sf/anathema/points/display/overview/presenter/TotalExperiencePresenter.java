@@ -8,6 +8,7 @@ import net.sf.anathema.library.message.MessageType;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
+import net.sf.anathema.points.model.xp.StandardExperiencePointType;
 
 import static java.text.MessageFormat.format;
 import static net.sf.anathema.library.message.MessageDuration.Permanent;
@@ -31,7 +32,7 @@ public class TotalExperiencePresenter implements IOverviewSubPresenter {
   public void update() {
     String name = new HeroNameFetcher().getName(hero);
     int spending = management.getTotalCosts();
-    int allotment = PointModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints();
+    int allotment = PointModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints().get(StandardExperiencePointType.Type);
     String pattern;
     MessageType type;
     if (spending <= allotment) {

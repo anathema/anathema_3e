@@ -10,10 +10,15 @@ import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.overview.IOverviewModelVisitor;
 import net.sf.anathema.points.model.overview.IValueModel;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.points.model.xp.ExperiencePointType;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.xp.StandardExperiencePointType;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @ScenarioScoped
 public class ExperiencePointSteps {
@@ -30,7 +35,9 @@ public class ExperiencePointSteps {
     ExperiencePoints experiencePoints = PointModelFetcher.fetch(character.getHero()).getExperiencePoints();
     ExperiencePointEntry entry = experiencePoints.addEntry();
     experiencePoints.selectForChange(entry);
-    experiencePoints.updateCurrentSelection("Test", amount);
+    Map<ExperiencePointType, Integer> allExperienceTypes = new HashMap<>();
+    allExperienceTypes.put(StandardExperiencePointType.Type, amount);
+    experiencePoints.updateCurrentSelection("Test", allExperienceTypes);
   }
 
   @When("^she spends (\\d+) experience points$")

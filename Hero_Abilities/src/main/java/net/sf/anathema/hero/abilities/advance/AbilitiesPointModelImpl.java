@@ -7,7 +7,7 @@ import net.sf.anathema.hero.abilities.advance.creation.DefaultAbilityBonusModel;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceCalculator;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceData;
 import net.sf.anathema.hero.abilities.advance.experience.AbilityExperienceModel;
-import net.sf.anathema.hero.abilities.advance.experience.AbilityExperiencePointEntry;
+import net.sf.anathema.hero.abilities.advance.experience.AbilityExperiencePointCharge;
 import net.sf.anathema.hero.abilities.model.AbilitiesModel;
 import net.sf.anathema.hero.abilities.model.AbilitiesModelFetcher;
 import net.sf.anathema.hero.abilities.template.advance.AbilityPointsTemplate;
@@ -26,6 +26,7 @@ import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
 import net.sf.anathema.points.model.overview.SpendingModel;
 import net.sf.anathema.points.model.overview.WeightedCategory;
+import net.sf.anathema.points.model.xp.ExperiencePointCharge;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 
 public class AbilitiesPointModelImpl implements AbilitiesPointModel {
@@ -97,13 +98,13 @@ public class AbilitiesPointModelImpl implements AbilitiesPointModel {
 					public void valueChanged(int initialValue, int newValue) {
 						if (experienceModel.isExperienced() && newValue > initialValue)
 						{
-							ExperiencePointEntry entry = new AbilityExperiencePointEntry(
+							ExperiencePointCharge charge = new AbilityExperiencePointCharge(
 									trait,
 									experienceData.getAbilityCosts(traitHolder.getState(trait).isCheapened()),
 									initialValue,
 									newValue
 									);
-							pointsModel.getExperiencePoints().addEntry(entry);
+							pointsModel.getExperiencePoints().addCharge(charge);
 						}
 					}
     		}));

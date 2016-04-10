@@ -5,6 +5,7 @@ import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.platform.taskbar.BasicUi;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
 import net.sf.anathema.points.model.xp.ExperiencePoints;
+import net.sf.anathema.points.model.xp.StandardExperiencePointType;
 
 public class ExperienceConfigurationPresenter {
 
@@ -25,7 +26,7 @@ public class ExperienceConfigurationPresenter {
     configureRemoveTool();
     experiencePoints.addExperiencePointConfigurationListener(this::refreshEntriesInView);
     experiencePoints.addEntrySelectionListener(this::updateSelectionInView);
-    experienceView.initGui(new DefaultExperienceProperties(resources), resources);
+    experienceView.initGui(new DefaultExperienceProperties(resources), resources, experiencePoints);
     refreshEntriesInView();
     experienceView.addUpdateListener((points, description) -> experiencePoints.updateCurrentSelection(description, points));
     updateTotal();
@@ -62,6 +63,6 @@ public class ExperienceConfigurationPresenter {
   }
 
   private void updateTotal() {
-    experienceView.setTotalValueLabel(experiencePoints.getTotalExperiencePoints());
+    experienceView.setTotalValueLabel(experiencePoints.getTotalExperiencePoints().get(StandardExperiencePointType.Type));
   }
 }

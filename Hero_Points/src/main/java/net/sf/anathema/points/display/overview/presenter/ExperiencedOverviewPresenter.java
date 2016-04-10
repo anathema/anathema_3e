@@ -12,6 +12,7 @@ import net.sf.anathema.points.display.overview.view.CategorizedOverview;
 import net.sf.anathema.points.model.ExperiencePointManagement;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.overview.IValueModel;
+import net.sf.anathema.points.model.xp.StandardExperiencePointType;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,7 +74,7 @@ public class ExperiencedOverviewPresenter {
   }
 
   private int getTotalXP() {
-    return PointModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints();
+    return PointModelFetcher.fetch(hero).getExperiencePoints().getTotalExperiencePoints().get(StandardExperiencePointType.Type);
   }
 
   private String getString(String string) {

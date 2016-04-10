@@ -20,6 +20,7 @@ import net.sf.anathema.hero.traits.template.TraitTemplate;
 import net.sf.anathema.library.identifier.Identifier;
 import net.sf.anathema.points.model.PointModelFetcher;
 import net.sf.anathema.points.model.PointsModel;
+import net.sf.anathema.points.model.xp.StandardExperiencePointType;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -65,7 +66,7 @@ public class SpiritualTraitModelImpl extends DefaultTraitMap implements Spiritua
 
   private void updateEssence(PointsModel pointsModel, List<Integer> experienceBoundsDescending) {
     Trait essence = getTrait(Essence);
-    int totalGained = pointsModel.getExperiencePoints().getTotalExperiencePoints();
+    int totalGained = pointsModel.getExperiencePoints().getTotalExperiencePoints().get(StandardExperiencePointType.Type);
     int totalSpent = pointsModel.getExperiencePointManagement().getTotalCosts();
     for (Integer bound : experienceBoundsDescending) {
       if (totalGained >= bound && totalSpent >= bound) {

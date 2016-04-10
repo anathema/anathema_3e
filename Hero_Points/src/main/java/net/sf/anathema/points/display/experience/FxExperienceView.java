@@ -17,12 +17,17 @@ import net.sf.anathema.library.fx.tool.FxButtonTool;
 import net.sf.anathema.library.interaction.model.Tool;
 import net.sf.anathema.library.resources.Resources;
 import net.sf.anathema.points.model.xp.ExperiencePointEntry;
+import net.sf.anathema.points.model.xp.ExperiencePointType;
+import net.sf.anathema.points.model.xp.ExperiencePoints;
 import net.sf.anathema.points.model.xp.ExperienceSelectionListener;
 
 import org.jmock.example.announcer.Announcer;
 import org.tbee.javafx.scene.layout.MigPane;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public class FxExperienceView implements ExperienceView, NodeHolder {
   private final MigPane content = new MigPane(new LC().wrapAfter(1).fill());
@@ -34,11 +39,13 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
   private Resources resources;
 
   @Override
-  public void initGui(ExperienceViewProperties properties, Resources resources) {
-    TableColumn<ExperiencePointEntry, String> pointsColumn = createPointsColumn(properties);
-    TableColumn<ExperiencePointEntry, String> descriptionColumn = createDescriptionColumn(properties);
+  public void initGui(ExperienceViewProperties properties, Resources resources, ExperiencePoints points) {
+  	TableColumn<ExperiencePointEntry, String> descriptionColumn = createDescriptionColumn(properties);
+    Collection<TableColumn<ExperiencePointEntry, String>> pointsColumns = createPointsColumns(properties, points);
+    
     table.setEditable(true);
-    table.getColumns().addAll(descriptionColumn, pointsColumn);
+    table.getColumns().add(descriptionColumn);
+    table.getColumns().addAll(pointsColumns);
     table.getSelectionModel().selectedItemProperty().addListener((observableValue, o, newValue) -> entryAnnouncer.announce().selectionChanged(newValue));
     MigPane totalPanel = createTotalPanel(properties);
     content.add(buttonPanel);
@@ -92,8 +99,16 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
   public Node getNode() {
     return content;
   }
+  
+  private Collection<TableColumn<ExperiencePointEntry, String>> createPointsColumns(ExperienceViewProperties properties, ExperiencePoints points) {
+  	List<TableColumn<ExperiencePointEntry, String>> columns = new ArrayList<>();
+  	for (ExperiencePointType type : points.getSupportedExperiencePointTypes()) {
+  		columns.add(createPointsColumn(properties, type));
+  	}
+  	return columns;
+  }
 
-  private TableColumn<ExperiencePointEntry, String> createPointsColumn(ExperienceViewProperties properties) {
+  private TableColumn<ExperiencePointEntry, String> createPointsColumn(ExperienceViewProperties properties, ExperiencePointType type) {
     TableColumn<ExperiencePointEntry, String> pointColumn = new TableColumn<>(properties.getPointHeader());
     pointColumn.prefWidthProperty().bind(table.widthProperty().divide(4));
     Callback<TableColumn<ExperiencePointEntry, String>, TableCell<ExperiencePointEntry, String>> editableCell = TextFieldTableCell.forTableColumn();
@@ -105,24 +120,25 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
         return cell;
       }
     };
-    pointColumn.setCellValueFactory(features -> new SimpleStringProperty(String.valueOf(features.getValue().getExperiencePoints())));
+    pointColumn.setCellValueFactory(features -> new SimpleStringProperty(String.valueOf(features.getValue().getExperiencePointsCosted())));
     pointColumn.setCellFactory(styledEditableCell);
     pointColumn.setOnEditCommit(
             event -> {
               ExperiencePointEntry experienceEntry = event.getRowValue();
-              Integer experiencePoints = getChangedPointValue(event, experienceEntry);
+              Integer newPointValue = getChangedPointValue(event, experienceEntry, type);
+              experienceEntry.getExperiencePointsCosted().put(type, newPointValue);
               String description = experienceEntry.getTextualDescription().getText();
-              updateAnnouncer.announce().update(experiencePoints, description);
+              updateAnnouncer.announce().update(experienceEntry.getExperiencePointsCosted(), description);
             }
     );
     return pointColumn;
   }
 
-  private Integer getChangedPointValue(TableColumn.CellEditEvent<ExperiencePointEntry, String> event, ExperiencePointEntry experienceEntry) {
+  private Integer getChangedPointValue(TableColumn.CellEditEvent<ExperiencePointEntry, String> event, ExperiencePointEntry experienceEntry, ExperiencePointType type) {
     try {
       return Integer.valueOf(event.getNewValue());
     } catch (NumberFormatException e) {
-      return experienceEntry.getExperiencePoints();
+      return experienceEntry.getExperiencePointsCosted().get(type);
     }
   }
 
@@ -140,7 +156,7 @@ public class FxExperienceView implements ExperienceView, NodeHolder {
     descriptionColumn.setOnEditCommit(
             event -> {
               ExperiencePointEntry experienceEntry = event.getRowValue();
-              Integer experiencePoints = experienceEntry.getExperiencePoints();
+              Map<ExperiencePointType, Integer> experiencePoints = experienceEntry.getExperiencePointsCosted();
               String description = event.getNewValue();
               updateAnnouncer.announce().update(experiencePoints, description);
             }
