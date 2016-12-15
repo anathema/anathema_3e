@@ -2,7 +2,7 @@ dependencies {
     compile 'com.miglayout:miglayout-javafx:5.0'
     compile 'org.jfxtras:jfxtras-controls:8.0-r4'
     compile 'org.jfxtras:jfxtras-labs:8.0-r4'
-    compile 'org.controlsfx:controlsfx:8.40.10'
+    compile 'org.controlsfx:controlsfx:8.40.11'
     compile 'org.controlsfx:openjfx-dialogs:1.0.3'
     compile project(':Library')
     testCompile testDependencies //includes JUnit etc.
