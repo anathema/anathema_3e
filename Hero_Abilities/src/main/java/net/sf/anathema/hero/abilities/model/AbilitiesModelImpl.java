@@ -27,6 +27,7 @@ import net.sf.anathema.hero.traits.model.lists.IdentifiedTraitTypeList;
 import net.sf.anathema.hero.traits.model.rules.TraitRulesImpl;
 import net.sf.anathema.hero.traits.model.state.Castes;
 import net.sf.anathema.hero.traits.model.state.MappableTypeIncrementChecker;
+import net.sf.anathema.hero.traits.model.state.MartialArtsTraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.NoRequiredState;
 import net.sf.anathema.hero.traits.model.state.RequiredFavored;
 import net.sf.anathema.hero.traits.model.state.RequiredTraitState;
@@ -34,6 +35,7 @@ import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateImpl;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 import net.sf.anathema.hero.traits.model.state.TraitStateTypes;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.hero.traits.template.Group;
 import net.sf.anathema.hero.traits.template.TraitTemplateMapImpl;
 import net.sf.anathema.library.identifier.Identifier;
@@ -101,12 +103,15 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
       TraitRules traitRules = new TraitRulesImpl(type, templateMap.getTemplate(type), this.hero);
       Trait trait = new TraitImpl(this.hero, traitRules);
       addTraits(trait);
-      traitStateMap.addState(trait, createTraitState(traitRules, trait));
+      createAndAddTraitState(traitRules, trait);
     }
     traitModel.addTraits(getAll());
   }
 
   private Castes getCastesFor(TraitType traitType) {
+    if (traitType.equals(CommonTraitTypes.MartialArts)) {
+      return getCastesFor(CommonTraitTypes.Brawl);
+    }
     HeroConcept concept = HeroConceptFetcher.fetch(hero);
     CasteCollection casteCollection = concept.getCasteCollection();
     Castes casteTypes = new Castes(hero);
@@ -118,11 +123,17 @@ public class AbilitiesModelImpl extends DefaultTraitMap implements AbilitiesMode
     return casteTypes;
   }
 
-  private TraitStateImpl createTraitState(TraitRules traitRules, Trait trait) {
+  private void createAndAddTraitState(TraitRules traitRules, Trait trait) {
     MappableTypeIncrementChecker<TraitStateType> checker = createStateIncrementChecker();
     Castes castes = getCastesFor(trait.getType());
     RequiredTraitState requiredState = findRequiredState(traitRules);
-    return new TraitStateImpl(hero, castes, checker, requiredState, traitStateTypes);
+    if (trait.getType().equals(CommonTraitTypes.MartialArts)) {
+      MartialArtsTraitStateImpl state = new MartialArtsTraitStateImpl(hero, castes, checker, requiredState, traitStateTypes, traitStateMap);
+      traitStateMap.addState(trait, state);
+      traitStateMap.addTraitStateChangedListener(getTrait(CommonTraitTypes.Brawl), state::onBrawlStateChange);
+    } else {
+      traitStateMap.addState(trait, new TraitStateImpl(hero, castes, checker, requiredState, traitStateTypes));
+    }
   }
 
   private RequiredTraitState findRequiredState(TraitRules traitRules) {

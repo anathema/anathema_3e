@@ -37,4 +37,9 @@ public class CharmsRulesImpl implements CharmsRules {
   public boolean isAlienCategory(CategoryReference category) {
     return !getNativeCategories().contains(category);
   }
+
+  @Override
+  public boolean isAllowedAnyCharms() {
+    return !template.nativeCategories.isEmpty() || !template.alienCharmCastes.isEmpty();
+  }
 }

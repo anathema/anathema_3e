@@ -15,8 +15,11 @@ public class FxGroupedDotView implements GroupedDotView {
   }
 
   @Override
-  public ExtensibleDotView addExtensibleTraitView(String labelText, int maxValue) {
+  public ExtensibleDotView addExtensibleTraitView(String labelText, int maxValue, boolean derived) {
     FxDotView view = FxDotView.WithDefaultLayout(labelText, maxValue);
+    if (derived) {
+      view.disableUserInput();
+    }
     FxExtensibleDotView extensibleTraitView = new FxExtensibleDotView(view);
     extensibleTraitView.addTo(panel);
     return extensibleTraitView;

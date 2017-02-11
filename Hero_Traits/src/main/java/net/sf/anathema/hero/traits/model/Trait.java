@@ -43,4 +43,8 @@ public interface Trait {
   int getMinimalValue();
 
   void resetCurrentValue();
+
+  default boolean isDerived() {
+    return false;
+  }
 }

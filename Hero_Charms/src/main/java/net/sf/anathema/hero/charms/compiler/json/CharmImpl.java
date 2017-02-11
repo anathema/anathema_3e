@@ -1,12 +1,13 @@
 package net.sf.anathema.hero.charms.compiler.json;
 
 import net.sf.anathema.hero.magic.compiler.json.CostParser;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.CharmType;
 import net.sf.anathema.magic.data.Duration;
 import net.sf.anathema.magic.data.PrerequisiteList;
 import net.sf.anathema.magic.data.cost.CostList;
-import net.sf.anathema.magic.data.prerequisite.CharmPrerequisite;
+import net.sf.anathema.magic.data.prerequisite.*;
 import net.sf.anathema.magic.data.reference.CategoryReference;
 import net.sf.anathema.magic.data.reference.CharmName;
 import net.sf.anathema.magic.data.reference.TreeName;
@@ -39,7 +40,7 @@ public class CharmImpl extends AbstractMagic implements Charm {
     this.tree = tree;
     this.name = name;
     this.template = template;
-    this.prerequisiteList = new PrerequisiteListImpl(template);
+    this.prerequisiteList = new PrerequisiteListImpl(category, template);
     template.keywords.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, true)));
     template.internalTags.forEach(tag -> addMagicAttribute(new MagicAttributeImpl(tag, false)));
   }
@@ -100,5 +101,16 @@ public class CharmImpl extends AbstractMagic implements Charm {
   
   public void clearPrerequisites() {
   	prerequisiteList.clearPrerequisites();
+  }
+
+  @Override
+  public RequiredTraitType getPrimaryTraitType() {
+    if (category.getId().equals(CommonTraitTypes.MartialArts.getId())) {
+      // this returns a RequiredTraitType instead of a regular TraitType because of dependency issues
+      // the interface is defined VERY early, in Magic_Data, before Hero_Traits
+      return new RequiredTraitType(CommonTraitTypes.MartialArts.getId());
+    } else {
+      return prerequisiteList.getPrimaryRequiredTraitType();
+    }
   }
 }

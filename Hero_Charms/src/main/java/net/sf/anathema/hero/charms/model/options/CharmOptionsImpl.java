@@ -121,4 +121,9 @@ public class CharmOptionsImpl implements Iterable<CharmTreeCategory>, CharmOptio
     }
     return mechanics;
   }
+
+  @Override
+  public boolean isAllowedAnyCharms() {
+    return charmsRule.isAllowedAnyCharms();
+  }
 }

@@ -6,5 +6,8 @@ public interface GroupedStatedDotsView {
 
   void startNewTraitGroup(String groupLabel);
 
-  ExtensibleDotView addExtensibleTraitView(String string, int maximalValue);
+  /**
+   * @param derived if true, the value shown is a derived value and should not be user-editable.
+   */
+  ExtensibleDotView addExtensibleTraitView(String string, int maximalValue, boolean derived);
 }

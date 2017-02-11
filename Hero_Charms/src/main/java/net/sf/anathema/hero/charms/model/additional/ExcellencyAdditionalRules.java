@@ -10,6 +10,7 @@ import net.sf.anathema.hero.traits.model.Trait;
 import net.sf.anathema.hero.traits.model.TraitType;
 import net.sf.anathema.hero.traits.model.state.TraitStateChangedListener;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
+import net.sf.anathema.hero.traits.model.types.CommonTraitTypes;
 import net.sf.anathema.library.event.IntegerChangedListener;
 import net.sf.anathema.magic.data.Charm;
 import net.sf.anathema.magic.data.reference.CharmName;
@@ -126,12 +127,12 @@ public class ExcellencyAdditionalRules implements AdditionalCharmRules {
 
     @Override
     public void charmLearned(Charm charm) {
-      updateExcellency(new TraitType(charm.getPrerequisites().getPrimaryTraitType().type));
+      updateExcellency(new TraitType(charm.getPrimaryTraitType().type));
     }
 
     @Override
     public void charmForgotten(Charm charm) {
-      updateExcellency(new TraitType(charm.getPrerequisites().getPrimaryTraitType().type));
+      updateExcellency(new TraitType(charm.getPrimaryTraitType().type));
     }
   }
 }

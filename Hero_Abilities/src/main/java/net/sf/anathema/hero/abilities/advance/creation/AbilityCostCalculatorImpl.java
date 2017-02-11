@@ -6,6 +6,7 @@ import net.sf.anathema.hero.abilities.advance.PointCalculationTraitHolder;
 import net.sf.anathema.hero.traits.advance.CurrentRatingCost;
 import net.sf.anathema.hero.traits.model.FavorableTraitCost;
 import net.sf.anathema.hero.traits.model.Trait;
+import net.sf.anathema.hero.traits.model.state.TraitState;
 import net.sf.anathema.hero.traits.model.state.TraitStateType;
 
 import java.util.ArrayList;
@@ -42,14 +43,16 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
     countTraitStatePicks();
     Set<Trait> sortedTraits = sortTraitsByStatus();
     for (Trait trait : sortedTraits) {
-      int costFactor = getCostFactor(trait);
-      Collection<FavorableTraitCost> allCosts;
-      if (isCheapened(trait)) {
-        allCosts = handleFavoredTrait(trait, costFactor);
-      } else {
-        allCosts = handleGeneralTrait(trait, costFactor);
+      if (!trait.isDerived()) {
+        int costFactor = getCostFactor(trait);
+        Collection<FavorableTraitCost> allCosts;
+        if (isCheapened(trait)) {
+          allCosts = handleFavoredTrait(trait, costFactor);
+        } else {
+          allCosts = handleGeneralTrait(trait, costFactor);
+        }
+        costsByTrait.putAll(trait, allCosts);
       }
-      costsByTrait.putAll(trait, allCosts);
     }
   }
 
@@ -67,9 +70,9 @@ public class AbilityCostCalculatorImpl implements AbilityCostCalculator {
 
   private void countTraitStatePicks() {
     for (Trait trait : traits.getAll()) {
-      TraitStateType state = traits.getState(trait).getType();
+      TraitState state = traits.getState(trait);
       for (TraitStateType candidate : traits.getAvailableTraitStates()) {
-        if (state.countsAs(candidate)) increasePicksForType(candidate);
+        if (state.countsTowardsLimitsOn(candidate) && state.getType().countsAs(candidate)) increasePicksForType(candidate);
       }
     }
   }
